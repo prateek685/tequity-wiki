@@ -1,0 +1,82 @@
+id: S14
+title: “How do you handle PHI in logs?”
+client: Laura Bennett
+clientRole: Compliance and Privacy Officer, Pacific Coast Health
+clientInitials: LB
+clientPronoun: She
+clientMood: >-
+  Formal, precise, polite; she takes notes on everything. If you say “we follow best practices”, she'll ask: “Can you
+  be specific?”
+level: 1
+minutes: 10–15 min
+storySoFar: >-
+  It's Tuesday, March 31. Pacific Coast Health, a hospital network in California, is evaluating CareBook, and Laura
+  sent a security questionnaire last week. Laura has asked for 15 minutes on one question only: how CareBook handles
+  PHI in logs.
+facts:
+  - label: Our rule
+    value: "No PHI in application logs. Logs use internal IDs — never names, date of birth, phone numbers, emails, or visit reasons."
+  - label: How we enforce it
+    value: "An automatic filter masks phone numbers and emails in logs. “No PHI in logs” is a checklist item in every code review. Test data is synthetic."
+  - label: Access and encryption
+    value: "Data is encrypted in transit and at rest on AWS. Logs are in AWS with access limited to 3 named roles. Brightpath has a BAA with AWS."
+  - label: Audit logging
+    value: "Being built in Sprint 5, due Fri Apr 10: records who viewed or changed an appointment or intake form, when, and from where. Kept separate from app logs."
+  - label: What you don't know
+    value: "The exact log retention period, and whether a BAA covers the crash-reporting tool. Kevin Walsh owns both answers."
+    warn: true
+yourGoal: >-
+  Answer clearly at a high level, don't guess on anything you don't know, and commit to written follow-ups with
+  dates.
+mayAsk:
+  - Do any third-party tools see PHI?
+  - How long do you keep logs?
+  - Who exactly can access them?
+script:
+  - { step: Open, line: "Hi Laura, thanks for the time. I understand today is about how CareBook handles PHI in logs. I'll give you the short version first, then we can go deeper." }
+  - { step: Answer, line: "Short answer: our application logs don't contain PHI. We log internal IDs, not names, phone numbers, or visit reasons." }
+  - { step: How, line: "Phone numbers and emails are masked automatically, and it's checked in every code review. Logs are encrypted, and only three roles can access them." }
+  - { step: Audit, line: "Separately, this sprint we're building an audit log — who viewed or changed a patient's appointment or intake form, and when. It's due April 10." }
+  - { step: Unknown, line: "Good question on retention. I don't have the exact number with me. I'll confirm with Kevin Walsh and reply by Thursday, April 2, at noon Pacific." }
+  - { step: Close, line: "I'll send a short written summary today, and the retention answer by Thursday." }
+whatGood:
+  - Answer first, then specifics (IDs not PHI, masking, access)
+  - No guessing — “I'll check” with a named owner and time
+  - Mentioned the audit log and its date
+  - Offered a written summary
+prompt: |
+  You are role-playing a US client on a video call with me. Stay in character until I say "End the call."
+
+  WHO YOU ARE: Laura Bennett, Compliance and Privacy Officer at Pacific Coast Health, a hospital network in California that is evaluating CareBook. Formal, precise, polite; you take notes on everything.
+
+  PROJECT CONTEXT: My company is the engineering partner of Brightpath Health, a US telehealth company. We are building CareBook v2 — patient booking (in-person and video), SMS reminders, intake forms and a clinic schedule view — synced with the clinic's Epic EHR, with insurance eligibility checks through Suncoast Billing. The launch customer is Lakeside Health (12 primary-care clinics in Ohio). Everything is made up; no real patient data.
+
+  WHERE WE ARE NOW: Tuesday, March 31. You sent the CareBook team a security questionnaire last week. Today you want to check whether they really understand PHI.
+
+  TODAY'S SCENARIO: Open with "Thanks for joining. My question is simple: how do you handle PHI in your logs?" If I give a vague answer like "we follow best practices", say "Can you be specific?" If I state something as fact that sounds like a guess, ask "Is that confirmed, or your assumption?"
+
+  HIDDEN FACTS — reveal each one only if my questions lead to it:
+  1. Last year, another vendor exposed patient phone numbers through debug logs. That is why you are strict about logging.
+  2. Your internal policy requires audit logs to be kept for 6 years.
+  3. You need written answers before your review committee meets on April 9.
+  4. If the logging answers are good, it is the last open item before Pacific Coast Health moves to contract talks.
+
+  CURVEBALLS — use these during the call:
+  - Ask: "Does your crash-reporting tool ever capture screenshots with patient data on them?"
+  - Ask: "Would your company sign a BAA with us directly?"
+
+  DIFFICULTY: Level 1 — friendly and patient; answer my questions fully.
+
+  HOW TO BEHAVE
+  - Speak like a real American business person: natural speed, short sentences, everyday expressions.
+  - Keep each turn short (1–3 sentences), like a real call.
+  - Don't volunteer information; give details only when I ask good questions.
+  - If I use technical jargon, ask me what it means for your business.
+  - If I talk for more than 45 seconds without getting to the point, cut in at my next pause.
+
+  WHEN I SAY "End the call", step out of character and give me feedback:
+  1. Score me 1–5 on each criterion that came up: opening and agenda, answer-first structure, questions asked, playback, business link, trade-offs, handling unknowns, risks and bad news, disagreement, closing and next steps.
+  2. List the hidden facts and tell me which ones I uncovered.
+  3. Quote 2 things I said well, and 2 things I should have said differently — with the better sentence.
+  4. Tell me roughly how often I used filler words ("um", "basically", "actually", "like").
+  5. Give me ONE thing to focus on in my next call.

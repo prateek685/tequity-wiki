@@ -1,0 +1,137 @@
+day: 1
+block: 1
+title: Baseline call
+type: normal
+storyDate: Monday, March 2
+minutes: About 60 min
+intro: >-
+  Meet CareBook and Dana, make your first call with no preparation, and rate where you're starting from. You'll
+  repeat this call near the end of the plan and see how far you've come.
+lessons:
+  - id: meet-carebook
+    kind: read
+    title: Meet CareBook
+    heading: Meet CareBook, your project for the next 90 days
+    minutes: 8 min
+    lead: >-
+      It's Monday, March 2. You're the lead engineer on CareBook, and until today your delivery manager ran every
+      client call. From today, the client hears from you. Every call and message in this course happens on this one
+      project, so get to know it the way you'd learn a real client account.
+    blocks:
+      - { type: heading, text: The project }
+      - type: text
+        text: >-
+          Brightpath Health is a US telehealth company. We're their engineering partner, building CareBook v2: a
+          patient app for booking in-person or video visits, SMS reminders and intake forms, plus a web portal where
+          clinic staff manage schedules. CareBook syncs appointments with the clinic's Epic health record and checks
+          insurance through Suncoast Billing.
+      - type: facts
+        rows:
+          - { label: Launch customer, value: "Lakeside Health, 12 primary-care clinics in Ohio" }
+          - { label: Pilot, value: "**Monday, April 27** at 3 Lakeside clinics, then all 12" }
+          - { label: Built with, value: "React Native patient app, React web portal, Node.js APIs on AWS" }
+          - { label: Why it matters, value: "No-show rate is 18% (target under 10%). Booking by phone takes about 7 minutes (online target: 2)." }
+      - { type: heading, text: Where the build is today }
+      - type: timeline
+        items:
+          - { title: Sprints 1–2, text: "Sign-up, search, in-person booking", state: done }
+          - { title: Sprint 3 · now, text: "Video booking, SMS reminders", state: now }
+          - { title: Sprint 4, text: "Intake form, schedule view", state: next }
+          - { title: Sprint 5, text: "Epic sync, insurance check", state: next }
+          - { title: Sprint 6, text: Pilot testing, state: next }
+          - { title: Apr 27, text: Pilot goes live, state: next }
+      - type: note
+        tone: warn
+        title: The open risk
+        text: >-
+          The team asked Lakeside IT (Sam Porter) for Epic test access on Feb 24. It still hasn't arrived. If it's
+          late, the Epic sync and the pilot date move. You'll hear about this a lot.
+      - { type: heading, text: The people }
+      - type: people
+        items:
+          - initials: DB
+            name: Dana Brooks
+            role: VP of Product, Brightpath. Decides scope and dates. Cares about the pilot date and patient experience.
+            tag: You meet her today
+          - initials: KW
+            name: Kevin Walsh
+            role: CTO, Brightpath. Owns architecture and security. Cares about stability and cloud cost.
+          - initials: AM
+            name: Dr. Alan Mercer
+            role: Chief Medical Information Officer, Lakeside. Cares about doctors' workflow and patient safety.
+          - initials: LC
+            name: Lisa Chen
+            role: Clinic Operations Manager, Lakeside. Cares about front-desk time and no-shows.
+          - initials: SP
+            name: Sam Porter
+            role: Epic analyst, Lakeside IT. Controls Epic access and security approvals.
+          - initials: You
+            name: You
+            role: "Lead engineer and, from today, the client's main technical contact. Team: a tech lead, a mobile engineer, a QA engineer."
+            you: true
+
+  - id: clients-judge
+    kind: read
+    title: What clients judge you on
+    minutes: 10 min
+    lead: >-
+      Before you meet Dana, know what she'll be listening for. Clients don't score your code on a call. They quietly
+      ask themselves four questions about you. These are the four pillars of a client-ready engineer.
+    blocks:
+      - { type: pillars }
+      - type: text
+        text: >-
+          Each pillar is made of a few behaviours you can actually hear on a call: 14 in total. You don't need to learn
+          them today. Open a few to hear the difference, and you'll practise each one later in the course.
+      - { type: behaviours }
+
+  - id: first-call
+    kind: mock
+    title: Your first call with Dana
+    minutes: 15 min
+    lead: >-
+      Dana has blocked 15 minutes to meet her new main contact. Her old vendor only sent news when she asked, and
+      she's heard EHR integrations always run late. This is your baseline, so there's no script and no preparation:
+      read the facts (2 minutes), then make the call.
+    cardId: S01
+    level: 1
+    scriptNote: Open it after your call to compare. You'll use it on Thursday.
+
+  - id: call-review
+    kind: reflect
+    title: How did the call go?
+    minutes: 5 min
+    lead: >-
+      Two minutes while it's fresh. Tick what you managed, then note what the AI told you. Only you can see this.
+    checksTitle: On this call, I…
+    checks:
+      - opened the call and set the agenda
+      - "gave a 30-second intro: who I am, what I own, how I'll help"
+      - agreed a clear update rhythm with Dana
+      - closed with next steps and promised a recap
+    fields:
+      - { id: went-well, label: What went well, kind: area, placeholder: "From the AI's feedback" }
+      - { id: fix-next, label: One thing to fix next time, kind: area, placeholder: "e.g. Set the agenda before Dana asks for it" }
+      - { id: log, label: "When I was asked a question, what did I say first — the answer, or the background?", kind: area, rows: 2 }
+    rubric: true
+
+  - id: starting-point
+    kind: rate
+    title: Your starting point
+    minutes: 10 min
+    lead: >-
+      Think about the call you just made and rate yourself on each behaviour. Be honest: a 2 today makes your progress
+      easy to see when you repeat this call on Day 65. Then set three goals for the 90 days.
+    baseline: true
+    blocks:
+      - type: note
+        tone: info
+        title: Book your check-ins today
+        text: >-
+          Your manager checks in with you after Days 10, 30, 50 and 60 (15–20 minutes each), and observes a 45-minute
+          live call after Days 20 and 40 and on Day 65. Booking them is your job: send your manager the calendar
+          invites today, so they're already in the diary. My plan shows when each one is due.
+    fields:
+      - { id: goal-1, label: Goal 1 for the 90 days, kind: line, placeholder: "e.g. Answer every status question answer-first", required: true }
+      - { id: goal-2, label: Goal 2, kind: line, placeholder: "e.g. Open every call with an agenda", required: true }
+      - { id: goal-3, label: Goal 3, kind: line, placeholder: "e.g. Raise risks the same day I spot them", required: true }

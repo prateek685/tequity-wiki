@@ -1,0 +1,8 @@
+id: demo-structure
+kind: framework
+title: Demo structure
+summary: How to structure and recover a short client demo.
+day: 46
+blocks:
+  - type: text
+    text: Open on the problem the client has, show only the feature that solves it, and end on what happens next. Keep a backup ready.

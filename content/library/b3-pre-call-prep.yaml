@@ -1,0 +1,38 @@
+id: b3-pre-call-prep
+kind: prompt
+ref: B3
+title: Pre-call prep
+summary: "A one-page prep for a call: agenda, likely questions, risks and the opening and closing lines."
+blocks:
+  - type: note
+    tone: warn
+    title: Before you paste anything
+    text: No PHI, no client credentials, no confidential client documents in any AI tool the company hasn't approved. Replace names and details with made-up ones.
+  - type: text
+    text: >-
+      Use it in the Prep block, before a call. For a real meeting, the longer master prep prompt (B6) is better.
+  - type: message
+    label: The prompt
+    text: |-
+      I have a [type of call] with [role] at a US healthcare company.
+
+      Context: [anonymised project context]. My goal for the call: [goal].
+
+      1. Suggest a 3-point agenda.
+      2. List the 8 questions they are most likely to ask me, including 2 hard ones.
+      3. List 3 risks or concerns I should raise proactively.
+      4. Give me a natural opening line and a closing line.
+
+      Keep it to one page.
+  - type: copy
+    label: Copy prompt
+    text: |-
+      I have a [type of call] with [role] at a US healthcare company.
+      Context: [anonymised project context]. My goal for the call: [goal].
+
+      1. Suggest a 3-point agenda.
+      2. List the 8 questions they are most likely to ask me, including 2 hard ones.
+      3. List 3 risks or concerns I should raise proactively.
+      4. Give me a natural opening line and a closing line.
+
+      Keep it to one page.

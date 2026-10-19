@@ -1,0 +1,711 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Client-Ready Portal Final Design</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: enterprise workspace — fixed sidebar, sticky top bar, one content column (max 1168px); bento dashboard on Home. Phone: top bar + bottom tabs.
+   Tokens only: every colour, size and radius below comes from :root. No component uses a literal value. */
+:root{
+  /* neutrals (slate, warm-biased to sit with orange) */
+  --bg:#f7f7f6; --surface:#ffffff; --subtle:#f2f2f0; --line:#e5e4e1; --line-2:#d6d4d0;
+  --fg:#1c1b19; --fg-2:#3d3a36; --muted:#6e6a64; --faint:#a29e97;
+  /* accent: orange */
+  --acc-50:#fff4ec; --acc-100:#ffe4cf; --acc-500:#c2410c; --acc-600:#a3370a; --acc-700:#9a3412; --acc-fg:#ffffff;
+  /* status */
+  --ok:#2f7a4f; --ok-soft:#e8f3ec; --warn:#8a5a12; --warn-soft:#f7efdf; --bad:#b42318; --bad-soft:#fdeceb; --info:#3f5f8f; --info-soft:#ebf0f7;
+  /* pillar tints (charts only) */
+  --p-und:#5b7fa6; --p-com:#8a6fb0; --p-own:#4f8a86; --p-sf:#b0605a;
+  /* type */
+  --f-sans:"IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  --t-xs:12px; --t-sm:13px; --t-base:14px; --t-md:16px; --t-lg:18px; --t-xl:22px; --t-2xl:28px;
+  --lh-xs:16px; --lh-sm:20px; --lh-base:22px; --lh-md:26px; --lh-xl:30px; --lh-2xl:36px;
+  /* space, radius, elevation */
+  --s1:4px; --s2:8px; --s3:12px; --s4:16px; --s5:20px; --s6:24px; --s8:32px;
+  --r-ctl:6px; --r-card:10px;
+  --shadow:0 1px 2px rgba(28,27,25,.05);
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#100f0e; --surface:#181715; --subtle:#201e1c; --line:#2c2a27; --line-2:#3a3733;
+  --fg:#efede9; --fg-2:#d3cfc8; --muted:#a39e96; --faint:#6f6a63;
+  --acc-50:#2a1609; --acc-100:#3d1f0b; --acc-500:#fb8a4c; --acc-600:#fda06d; --acc-700:#fdb48c; --acc-fg:#1d0d03;
+  --ok:#74c497; --ok-soft:#13261b; --warn:#ddb06a; --warn-soft:#2a2111; --bad:#f2827a; --bad-soft:#2e1514; --info:#93acd6; --info-soft:#18202e;
+  --p-und:#86a6cb; --p-com:#b39ad6; --p-own:#7fb6b1; --p-sf:#d68c86;
+  --shadow:0 1px 2px rgba(0,0,0,.45); color-scheme:dark }}
+:root[data-theme="dark"]{
+  --bg:#100f0e; --surface:#181715; --subtle:#201e1c; --line:#2c2a27; --line-2:#3a3733;
+  --fg:#efede9; --fg-2:#d3cfc8; --muted:#a39e96; --faint:#6f6a63;
+  --acc-50:#2a1609; --acc-100:#3d1f0b; --acc-500:#fb8a4c; --acc-600:#fda06d; --acc-700:#fdb48c; --acc-fg:#1d0d03;
+  --ok:#74c497; --ok-soft:#13261b; --warn:#ddb06a; --warn-soft:#2a2111; --bad:#f2827a; --bad-soft:#2e1514; --info:#93acd6; --info-soft:#18202e;
+  --p-und:#86a6cb; --p-com:#b39ad6; --p-own:#7fb6b1; --p-sf:#d68c86;
+  --shadow:0 1px 2px rgba(0,0,0,.45); color-scheme:dark }
+
+/* base */
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--bg); color:var(--fg); font:400 var(--t-base)/var(--lh-base) var(--f-sans); -webkit-font-smoothing:antialiased}
+h1,h2,h3{margin:0; font-weight:600; letter-spacing:-.01em; text-wrap:balance}
+h1{font-size:var(--t-xl); line-height:var(--lh-xl)}
+h2{font-size:var(--t-md); line-height:var(--lh-md)}
+h3{font-size:var(--t-base); line-height:var(--lh-base)}
+p{margin:0}
+button,input,select,textarea{font:inherit; color:inherit}
+a{color:var(--acc-700)}
+:focus-visible{outline:2px solid var(--acc-500); outline-offset:2px}
+
+/* utilities (the only "helpers"; reused everywhere) */
+.mono{font-family:var(--f-mono); font-variant-numeric:tabular-nums; font-size:var(--t-sm)}
+.muted{color:var(--muted)} .t-sm{font-size:var(--t-sm); line-height:var(--lh-sm)} .t-xs{font-size:var(--t-xs); line-height:var(--lh-xs)}
+.t-right{text-align:right} .fw-500{font-weight:500} .t-bad{color:var(--bad)} .t-ok{color:var(--ok)} .t-warn{color:var(--warn)}
+.label{font-size:var(--t-xs); line-height:var(--lh-xs); font-weight:500; letter-spacing:.05em; text-transform:uppercase; color:var(--muted)}
+.stack{display:flex; flex-direction:column; gap:var(--s4); min-width:0}
+.stack-sm{display:flex; flex-direction:column; gap:var(--s2); min-width:0}
+.row{display:flex; flex-wrap:wrap; gap:var(--s2); align-items:center}
+.row.nowrap{flex-wrap:nowrap}
+.end{justify-content:flex-end} .between{justify-content:space-between}
+.sr-only{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap}
+.w-auto{width:auto}
+.max-field{max-width:320px}
+.clickable{cursor:pointer}
+.block{display:block}
+.divider{border-top:1px solid var(--line)}
+
+/* shell */
+.shell{display:grid; grid-template-columns:232px minmax(0,1fr); min-height:100vh}
+.side{background:var(--surface); border-right:1px solid var(--line); display:flex; flex-direction:column; position:sticky; top:0; height:100vh; padding:var(--s3) var(--s2)}
+.ws{display:flex; align-items:center; gap:var(--s3); padding:var(--s1) var(--s2) var(--s3); border-bottom:1px solid var(--line); margin-bottom:var(--s2)}
+.logo{width:28px; height:28px; border-radius:var(--r-ctl); background:var(--acc-500); color:var(--acc-fg); display:grid; place-items:center; font-weight:600; font-size:var(--t-xs); flex:none}
+.ws b{display:block; font-size:var(--t-sm); font-weight:600} .ws span{font-size:var(--t-xs); color:var(--muted)}
+.nav{display:flex; align-items:center; gap:var(--s3); width:100%; padding:7px var(--s3); border:0; background:none; border-radius:var(--r-ctl); color:var(--fg-2); cursor:pointer; text-align:left; font-weight:500}
+.nav svg{color:var(--muted); flex:none}
+.nav:hover{background:var(--subtle)}
+.nav[aria-current="page"]{background:var(--acc-50); color:var(--acc-700)}
+.nav[aria-current="page"] svg{color:var(--acc-500)}
+.nav .count{margin-left:auto; font:500 var(--t-xs) var(--f-mono); color:var(--muted)}
+.navsec{font-size:var(--t-xs); font-weight:500; color:var(--faint); padding:var(--s3) var(--s3) var(--s1); text-transform:uppercase; letter-spacing:.05em}
+.side .foot{margin-top:auto; border-top:1px solid var(--line); padding:var(--s3) var(--s2) 0; display:flex; gap:var(--s3); align-items:center}
+.av{width:30px; height:30px; border-radius:50%; background:var(--subtle); border:1px solid var(--line-2); display:grid; place-items:center; font-size:var(--t-xs); font-weight:600; color:var(--fg-2); flex:none}
+.foot b{display:block; font-size:var(--t-sm); font-weight:600} .foot span{font-size:var(--t-xs); color:var(--muted)}
+.main{min-width:0; display:flex; flex-direction:column}
+.top{position:sticky; top:env(safe-area-inset-top,0px); z-index:10; height:52px; display:flex; align-items:center; gap:var(--s3); padding-inline:var(--s6); background:color-mix(in srgb,var(--bg) 92%,transparent); backdrop-filter:blur(6px); border-bottom:1px solid var(--line)}
+.crumb{display:flex; gap:var(--s2); align-items:center; font-size:var(--t-sm); color:var(--muted); min-width:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.crumb b{color:var(--fg); font-weight:500}
+.spacer{flex:1}
+.demo{display:flex; align-items:center; gap:var(--s2); font-size:var(--t-xs); color:var(--muted)}
+.demo .tag{border:1px dashed var(--line-2); border-radius:4px; padding:2px 6px; color:var(--warn)}
+.iconbtn{width:32px; height:32px; border-radius:var(--r-ctl); border:1px solid var(--line); background:var(--surface); display:grid; place-items:center; cursor:pointer; color:var(--fg-2)}
+.content{padding:var(--s6); max-width:1168px; width:100%; display:flex; flex-direction:column; gap:var(--s5)}
+.mbrand{display:none; align-items:center; gap:var(--s2); font-weight:600; white-space:nowrap}
+.mbrand .logo{width:24px; height:24px}
+.tabs-m{display:none}
+@media (max-width:900px){
+  .shell{grid-template-columns:minmax(0,1fr)}
+  .side{display:none}
+  .top{padding-inline:var(--s4)}
+  .crumb{display:none} .mbrand{display:flex}
+  .demo .tag{display:none}
+  .content{padding:var(--s4); padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))}
+  .tabs-m{display:flex; position:fixed; left:0; right:0; bottom:0; z-index:20; background:var(--surface); border-top:1px solid var(--line); padding:6px var(--s1) calc(6px + env(safe-area-inset-bottom,0px))}
+  .tabs-m button{flex:1; min-width:0; border:0; background:none; display:flex; flex-direction:column; align-items:center; gap:3px; padding:6px 2px; font-size:11px; font-weight:500; color:var(--muted); cursor:pointer}
+  .tabs-m button[aria-current="page"]{color:var(--acc-500)}
+}
+
+/* page header */
+.ph{display:flex; flex-wrap:wrap; gap:var(--s3) var(--s4); align-items:flex-end; justify-content:space-between}
+.ph .t{display:flex; flex-direction:column; gap:var(--s1); min-width:0}
+.ph p{color:var(--muted); font-size:var(--t-sm); line-height:var(--lh-sm)}
+.greet{font-size:var(--t-2xl); line-height:var(--lh-2xl); font-weight:600; letter-spacing:-.02em}
+
+/* components */
+.card{background:var(--surface); border:1px solid var(--line); border-radius:var(--r-card); box-shadow:var(--shadow); min-width:0}
+.card.clip{overflow:hidden}
+.card > .hd{display:flex; flex-wrap:wrap; gap:var(--s2); align-items:center; justify-content:space-between; padding:var(--s3) var(--s4); border-bottom:1px solid var(--line)}
+.card > .bd{padding:var(--s4); display:flex; flex-direction:column; gap:var(--s4)}
+.card > .bd.tight{gap:var(--s3)}
+.btn{display:inline-flex; align-items:center; justify-content:center; gap:6px; height:34px; padding:0 var(--s3); border-radius:var(--r-ctl); border:1px solid var(--line-2); background:var(--surface); font-weight:500; font-size:var(--t-sm); cursor:pointer; white-space:nowrap; color:var(--fg)}
+.btn:hover{background:var(--subtle)}
+.btn.pri{background:var(--acc-500); border-color:var(--acc-500); color:var(--acc-fg)}
+.btn.pri:hover{background:var(--acc-600); border-color:var(--acc-600)}
+.btn.ghost{border-color:transparent; background:none; color:var(--fg-2)}
+.btn.sm{height:28px; padding:0 10px; font-size:var(--t-xs)}
+.btn:disabled{opacity:.45; cursor:not-allowed}
+.pill{display:inline-flex; align-items:center; gap:5px; height:22px; padding:0 var(--s2); border-radius:11px; font-size:var(--t-xs); font-weight:500; background:var(--subtle); color:var(--fg-2); white-space:nowrap; border:1px solid var(--line)}
+.pill.dot::before{content:""; width:6px; height:6px; border-radius:50%; background:currentColor}
+.pill.ok{background:var(--ok-soft); color:var(--ok); border-color:transparent}
+.pill.warn{background:var(--warn-soft); color:var(--warn); border-color:transparent}
+.pill.bad{background:var(--bad-soft); color:var(--bad); border-color:transparent}
+.pill.info{background:var(--info-soft); color:var(--info); border-color:transparent}
+.pill.acc{background:var(--acc-50); color:var(--acc-700); border-color:transparent}
+.bar{height:6px; background:var(--subtle); border-radius:3px; overflow:hidden}
+.bar > span{display:block; height:100%; width:var(--v,0%); background:var(--acc-500); border-radius:3px}
+.bar.und > span{background:var(--p-und)} .bar.com > span{background:var(--p-com)} .bar.own > span{background:var(--p-own)} .bar.sf > span{background:var(--p-sf)}
+input[type=text],input[type=date],select,textarea{width:100%; border:1px solid var(--line-2); background:var(--surface); border-radius:var(--r-ctl); padding:var(--s2) 10px; font-size:var(--t-base)}
+select.w-auto{width:auto; padding:5px var(--s2); font-size:var(--t-sm)}
+textarea{min-height:120px; resize:vertical; line-height:var(--lh-base)}
+textarea.short{min-height:72px}
+.field{display:flex; flex-direction:column; gap:6px}
+.field > span{font-size:var(--t-sm); font-weight:500; color:var(--fg-2)}
+.note{display:flex; gap:var(--s2); align-items:flex-start; padding:9px var(--s3); border-radius:var(--r-ctl); background:var(--subtle); font-size:var(--t-sm); line-height:var(--lh-sm); color:var(--muted); border:1px solid var(--line)}
+.note.warn{background:var(--warn-soft); color:var(--warn); border-color:transparent}
+.note.ok{background:var(--ok-soft); color:var(--ok); border-color:transparent}
+.note.info{background:var(--info-soft); color:var(--info); border-color:transparent}
+.note svg{flex:none; margin-top:2px}
+.check{display:flex; gap:var(--s2); align-items:center; font-size:var(--t-sm); padding:3px 0}
+
+/* grids */
+.kpis{display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr)); gap:var(--s3)}
+.kpi{padding:var(--s3) var(--s4); display:flex; flex-direction:column; gap:var(--s1)}
+.kpi b{font-size:var(--t-xl); line-height:var(--lh-xl); font-weight:600; letter-spacing:-.02em; font-variant-numeric:tabular-nums}
+.kpi b small{font-size:var(--t-base); font-weight:400; color:var(--muted); letter-spacing:0}
+.kpi .s{font-size:var(--t-xs); color:var(--muted)}
+.bento{display:grid; grid-template-columns:repeat(12,minmax(0,1fr)); gap:var(--s4)}
+.c-8{grid-column:span 8} .c-4{grid-column:span 4} .c-6{grid-column:span 6} .c-12{grid-column:span 12}
+.grid-2{display:grid; grid-template-columns:minmax(0,2fr) minmax(0,1fr); gap:var(--s4)}
+.grid-h{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:var(--s4)}
+.rubric-cols{display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr)); gap:2px var(--s8)}
+@media (max-width:1100px){ .c-4.half{grid-column:span 6} }
+@media (max-width:900px){
+  .kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .bento,.grid-2,.grid-h{grid-template-columns:minmax(0,1fr)}
+  .c-8,.c-4,.c-6,.c-12,.c-4.half{grid-column:auto}
+}
+
+/* dashboard pieces */
+.ring{position:relative; width:148px; height:148px; margin:0 auto}
+.ring svg{display:block}
+.ring .c{position:absolute; inset:0; display:grid; place-items:center; text-align:center}
+.ring .c b{display:block; font:600 var(--t-2xl)/1 var(--f-sans); font-variant-numeric:tabular-nums}
+.kv{display:grid; grid-template-columns:130px minmax(0,1fr); gap:var(--s2) var(--s4); font-size:var(--t-sm); line-height:var(--lh-sm)}
+.kv dt{color:var(--muted)} .kv dd{margin:0}
+.kv.tight{grid-template-columns:minmax(0,1fr) auto}
+.kv.tight dd{text-align:right}
+@media (max-width:560px){ .kv:not(.tight){grid-template-columns:minmax(0,1fr); gap:2px} .kv:not(.tight) dd{margin-bottom:var(--s2)} }
+.strip{display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:6px}
+.strip span{display:flex; flex-direction:column; align-items:center; gap:4px; padding:var(--s2) 0; border:1px solid var(--line); border-radius:var(--r-ctl); font-size:var(--t-xs); color:var(--muted)}
+.strip span b{font:500 var(--t-base) var(--f-mono); color:var(--fg)}
+.strip span.done{background:var(--ok-soft); border-color:transparent; color:var(--ok)}
+.strip span.done b{color:var(--ok)}
+.strip span.today{background:var(--acc-500); border-color:var(--acc-500); color:var(--acc-fg)}
+.strip span.today b{color:var(--acc-fg)}
+.pb{display:grid; grid-template-columns:110px minmax(0,1fr) 28px; gap:var(--s3); align-items:center; font-size:var(--t-sm)}
+.upnext{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:var(--s3)}
+.upnext article{border:1px solid var(--line); border-radius:var(--r-card); padding:var(--s4); display:flex; flex-direction:column; gap:var(--s2)}
+.upnext article p{color:var(--muted); font-size:var(--t-sm); line-height:var(--lh-sm)}
+.upnext article .btn{align-self:flex-start; margin-top:auto}
+@media (max-width:900px){ .upnext{grid-template-columns:none; grid-auto-flow:column; grid-auto-columns:minmax(240px,80%); overflow-x:auto; scroll-snap-type:x mandatory; padding-bottom:var(--s1)} .upnext article{scroll-snap-align:start} }
+
+/* table → stacked rows on phones */
+.tbl{width:100%; border-collapse:collapse; font-size:var(--t-sm)}
+.tbl th{text-align:left; font-size:var(--t-xs); font-weight:500; color:var(--muted); padding:var(--s2) var(--s4); border-bottom:1px solid var(--line); background:var(--subtle); white-space:nowrap}
+.tbl td{padding:10px var(--s4); border-bottom:1px solid var(--line); vertical-align:middle}
+.tbl tr:last-child td{border-bottom:0}
+.tbl tr.clk{cursor:pointer} .tbl tr.clk:hover td{background:var(--subtle)}
+.tbl .r{text-align:right}
+@media (max-width:760px){
+  .tbl thead{display:none}
+  .tbl, .tbl tbody, .tbl tr, .tbl td{display:block; width:100%}
+  .tbl tr{padding:var(--s3) var(--s4); border-bottom:1px solid var(--line)}
+  .tbl tr:last-child{border-bottom:0}
+  .tbl td{padding:3px 0; border:0; display:flex; justify-content:space-between; gap:var(--s3); text-align:right}
+  .tbl td::before{content:attr(data-l); color:var(--muted); font-size:var(--t-xs); text-align:left; flex:none}
+  .tbl td.lead{display:block; text-align:left; font-weight:500; padding-bottom:6px}
+  .tbl td.lead::before{display:none}
+}
+
+/* lists */
+.list{display:flex; flex-direction:column}
+.li{display:grid; grid-template-columns:24px minmax(0,1fr) auto; gap:var(--s3); align-items:center; padding:11px var(--s4); border-bottom:1px solid var(--line)}
+.li.no-icon{grid-template-columns:minmax(0,1fr) auto}
+.li:last-child{border-bottom:0}
+.bd > .list .li{padding-inline:0}
+.li b{font-weight:500; display:block} .li small{display:block; font-size:var(--t-xs); line-height:var(--lh-xs); color:var(--muted); margin-top:2px}
+.chk{width:18px; height:18px; border-radius:5px; border:1.5px solid var(--line-2); display:grid; place-items:center; color:#fff}
+.chk.on{background:var(--ok); border-color:var(--ok)}
+.chk.next{border-color:var(--acc-500)}
+.chk.lock{border-style:dashed}
+
+/* day page */
+.daygrid{display:grid; grid-template-columns:260px minmax(0,1fr); gap:var(--s4); align-items:start}
+.steps{display:flex; flex-direction:column}
+.step{display:grid; grid-template-columns:22px minmax(0,1fr) auto; gap:10px; align-items:center; padding:11px 14px; border:0; border-bottom:1px solid var(--line); background:none; text-align:left; cursor:pointer; width:100%}
+.step:last-child{border-bottom:0}
+.step:hover:not(:disabled){background:var(--subtle)}
+.step[aria-current="step"]{background:var(--acc-50); box-shadow:inset 3px 0 0 var(--acc-500)}
+.step:disabled{cursor:not-allowed; opacity:.65}
+.step b{display:block; font-weight:500; font-size:var(--t-sm)} .step small{font-size:var(--t-xs); color:var(--muted)}
+.step .k{font:500 11px var(--f-mono); color:var(--muted)}
+@media (max-width:900px){
+  .daygrid{grid-template-columns:minmax(0,1fr)}
+  .steps{flex-direction:row; overflow-x:auto; scrollbar-width:none}
+  .steps::-webkit-scrollbar{display:none}
+  .step{flex:none; width:auto; border-bottom:0; border-right:1px solid var(--line); grid-template-columns:18px auto; padding:10px var(--s3)}
+  .step small,.step .k{display:none}
+  .step[aria-current="step"]{box-shadow:inset 0 -2px 0 var(--acc-500)}
+}
+.prose{font-size:var(--t-md); line-height:var(--lh-md); max-width:68ch; color:var(--fg-2)}
+.quote{border-left:2px solid var(--acc-500); padding:var(--s1) 0 var(--s1) 14px; font-size:var(--t-md); line-height:var(--lh-md); color:var(--fg)}
+.quote.muted{color:var(--muted)}
+.framework{font-size:var(--t-lg); line-height:var(--lh-md)}
+.copybar{display:flex; flex-wrap:wrap; gap:var(--s3); align-items:center; justify-content:space-between; padding:var(--s3) 14px; border:1px solid var(--line); border-radius:var(--r-ctl); background:var(--subtle)}
+.rub{display:flex; flex-direction:column}
+.rub .r{display:grid; grid-template-columns:minmax(0,1fr) auto; gap:var(--s2) 14px; align-items:center; padding:9px 0; border-bottom:1px solid var(--line); font-size:var(--t-sm)}
+.rub .r:last-child{border-bottom:0}
+@media (max-width:600px){ .rub .r{grid-template-columns:minmax(0,1fr)} }
+.seg{display:inline-flex; border:1px solid var(--line-2); border-radius:var(--r-ctl); overflow:hidden; flex-wrap:wrap}
+.seg label{position:relative}
+.seg input{position:absolute; opacity:0; pointer-events:none}
+.seg span{display:grid; place-items:center; min-width:32px; height:28px; padding:0 var(--s2); font:500 var(--t-sm) var(--f-mono); color:var(--fg-2); cursor:pointer; border-right:1px solid var(--line); background:var(--surface)}
+.seg label:last-child span{border-right:0}
+.seg span.word{font-family:var(--f-sans); font-size:var(--t-xs)}
+.seg span.na{font-family:var(--f-sans); font-size:var(--t-xs); color:var(--muted)}
+.seg input:checked + span{background:var(--acc-500); color:var(--acc-fg)}
+.seg input:focus-visible + span{outline:2px solid var(--acc-500); outline-offset:-2px}
+.opts{display:flex; flex-direction:column; gap:var(--s2)}
+.opt{display:grid; grid-template-columns:24px minmax(0,1fr); gap:10px; width:100%; text-align:left; padding:11px 13px; border:1px solid var(--line-2); border-radius:var(--r-ctl); background:var(--surface); cursor:pointer; font-size:var(--t-base)}
+.opt:hover:not(:disabled){border-color:var(--acc-500)}
+.opt:disabled{cursor:default; color:var(--fg)}
+.opt.static{cursor:default}
+.opt .k{font:500 var(--t-xs) var(--f-mono); color:var(--muted); padding-top:2px}
+.opt.right{border-color:var(--ok); background:var(--ok-soft)}
+.opt.wrong{border-color:var(--bad); background:var(--bad-soft)}
+.opt small{display:block; color:var(--muted); font-size:var(--t-sm); margin-top:var(--s1)}
+.fb{border:1px solid var(--line); border-radius:var(--r-ctl); padding:14px; display:flex; flex-direction:column; gap:10px; background:var(--subtle)}
+.score{font:600 var(--t-xl) var(--f-sans); font-variant-numeric:tabular-nums}
+.pts{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:5px; font-size:var(--t-sm)}
+.pts li{display:flex; gap:var(--s2); align-items:center}
+.pts i{font:500 var(--t-xs) var(--f-mono); font-style:normal; width:16px}
+.pts i.y{color:var(--ok)} .pts i.p{color:var(--warn)}
+.better{border-left:2px solid var(--acc-500); padding-left:10px; font-size:var(--t-base)}
+.paths{display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr)); gap:var(--s2)}
+.path{display:flex; gap:10px; padding:11px var(--s3); border:1px solid var(--line-2); border-radius:var(--r-ctl); cursor:pointer; font-size:var(--t-sm); background:var(--surface)}
+.path:has(input:checked){border-color:var(--acc-500); box-shadow:inset 0 0 0 1px var(--acc-500)}
+.path input{accent-color:var(--acc-500); margin-top:3px}
+.path b{font-weight:500; display:block} .path small{color:var(--muted); font-size:var(--t-xs)}
+.actionbar{display:flex; justify-content:space-between; gap:10px; align-items:center}
+@media (max-width:900px){ .actionbar{position:sticky; bottom:calc(66px + env(safe-area-inset-bottom,0px)); background:var(--surface); border:1px solid var(--line); border-radius:var(--r-card); padding:var(--s2); box-shadow:0 4px 16px rgba(0,0,0,.12); z-index:5} .actionbar .btn.pri{flex:1} }
+
+/* plan list */
+.phase{display:flex; justify-content:space-between; align-items:center; padding:10px var(--s4); background:var(--subtle); border-bottom:1px solid var(--line); font-size:var(--t-sm); font-weight:600}
+.dayrow{display:grid; grid-template-columns:64px minmax(0,1fr) 110px 56px; gap:var(--s3); align-items:center; padding:9px var(--s4); border-bottom:1px solid var(--line); font-size:var(--t-sm)}
+.dayrow .d{font:500 var(--t-sm) var(--f-mono); color:var(--muted)}
+.dayrow.cur{background:var(--acc-50)} .dayrow.cur .d{color:var(--acc-700)}
+.dayrow[data-nav]{cursor:pointer}
+.dayrow .sc{text-align:right}
+.cp{display:flex; gap:10px; align-items:center; padding:var(--s2) var(--s4) var(--s2) 92px; border-bottom:1px solid var(--line); font-size:var(--t-xs); color:var(--fg-2); background:var(--surface)}
+.cp svg{color:var(--info)}
+.cp.gate{background:var(--warn-soft); color:var(--warn)} .cp.gate svg{color:var(--warn)}
+@media (max-width:600px){ .dayrow{grid-template-columns:52px minmax(0,1fr) auto} .dayrow .sc{display:none} .cp{padding-left:var(--s4)} }
+
+/* charts */
+svg text{fill:var(--muted); font:11px var(--f-mono)}
+.legend{display:flex; flex-wrap:wrap; gap:6px 14px; font-size:var(--t-xs); color:var(--muted)}
+.legend i{display:inline-block; width:10px; height:2px; vertical-align:middle; margin-right:6px}
+.lg-und{background:var(--p-und)} .lg-com{background:var(--p-com)} .lg-own{background:var(--p-own)} .lg-sf{background:var(--p-sf)}
+.hb{display:grid; grid-template-columns:minmax(0,1fr) minmax(80px,140px) 30px; gap:var(--s3); align-items:center; font-size:var(--t-sm); padding:5px 0}
+.toast{position:fixed; left:50%; transform:translateX(-50%); bottom:calc(20px + env(safe-area-inset-bottom,0px)); z-index:40; background:var(--fg); color:var(--bg); padding:9px 14px; border-radius:var(--r-ctl); font-size:var(--t-sm); box-shadow:0 8px 24px rgba(0,0,0,.2); max-width:calc(100% - 32px)}
+@media (max-width:900px){ .toast{bottom:calc(76px + env(safe-area-inset-bottom,0px))} }
+.tabsbar{display:flex; gap:2px; border-bottom:1px solid var(--line); padding:0 var(--s3)}
+.tabsbar button{border:0; background:none; padding:10px; font-weight:500; color:var(--muted); cursor:pointer}
+.tabsbar button[aria-selected="true"]{color:var(--fg); box-shadow:inset 0 -2px 0 var(--acc-500)}
+.flagline{display:block; font-size:var(--t-xs); color:var(--bad)}
+</style>
+
+<div class="shell">
+  <aside class="side" id="side" aria-label="Main menu"></aside>
+  <div class="main">
+    <header class="top">
+      <div class="mbrand"><span class="logo">CR</span>Client-Ready</div>
+      <div class="crumb" id="crumb"></div>
+      <div class="spacer"></div>
+      <label class="demo"><span class="tag">Demo only</span><span class="sr-only">View as</span><select class="w-auto" id="role"><option value="engineer">Engineer</option><option value="manager">Manager</option><option value="admin">Admin</option></select></label>
+      <button class="iconbtn" id="theme" aria-label="Toggle dark mode"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+    </header>
+    <main class="content" id="main"></main>
+  </div>
+</div>
+<nav class="tabs-m" id="tabs" aria-label="Main"></nav>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+/* ---------- data ---------- */
+const P={home:'<path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/>',today:'<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/>',plan:'<path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/>',chart:'<path d="M4 20V10M10 20V4M16 20v-7M21 20H3"/>',lock:'<rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/>',book:'<path d="M4 4h6a2 2 0 0 1 2 2v14a2 2 0 0 0-2-2H4zM20 4h-6a2 2 0 0 0-2 2v14a2 2 0 0 1 2-2h6z"/>',users:'<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.5a3.5 3.5 0 0 1 0 7M21.5 20a6.5 6.5 0 0 0-4-6"/>',flag:'<path d="M5 21V4h11l-1.5 4L16 12H5"/>',doc:'<path d="M14 3H6v18h12V7z"/><path d="M14 3v4h4M9 13h6M9 17h4"/>',shield:'<path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/>',cards:'<rect x="3" y="7" width="14" height="13" rx="2"/><path d="M7 7V4h14v13h-4"/>',gear:'<circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/>',check:'<path d="m5 12 5 5 9-10"/>',arrow:'<path d="M5 12h14M13 6l6 6-6 6"/>',back:'<path d="M19 12H5M11 6l-6 6 6 6"/>',copy:'<rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/>',info:'<circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v5h1"/>',clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>'};
+const ic=(n,s=16)=>`<svg width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${P[n]}</svg>`;
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+let tt; const toast=m=>{const t=$("#toast"); t.textContent=m; t.hidden=false; clearTimeout(tt); tt=setTimeout(()=>{t.hidden=true},2600)};
+
+const PILLARS=[["Understand","und"],["Communicate","com"],["Own","own"],["Stand firm","sf"]];
+const RUBRIC=["Opening and agenda","Answer-first structure","Questions asked","Playback","Business link","Trade-offs","Handling unknowns","Risks and bad news","Disagreement","Closing and next steps","Written follow-up"];
+const DAYS=["Baseline call","Say the answer first (BLUF)","PREP: explain a technology choice","The 3-step call opener","Your first weekly sync",
+"A quick change during a call","Daily status: “Why is this taking so long?”","Pyramid principle: explain a bug","Plain US business English","Weekly sync at Level 2",
+"Open questions: the dashboard request","5 Whys: find the real goal","Playback in 3 bullets","Discovery checklist","Discovery call: new-patient intake",
+"Owner language","AI before the call","AI after the call","“I don’t know, I’ll check”","Gate 1 dress rehearsal",
+"US healthcare in one picture","HIPAA for engineers","Discovery call structure","User stories and acceptance criteria","Discovery: EHR data for doctors",
+"Stakeholder map","Estimates as ranges","The trade-off formula","EHR and FHIR in plain terms","Scope change and change note",
+"Disagree professionally","The bad-news formula","Handling an upset client","Saying no","Bad news with pushback",
+"Escalation","Async end-of-day updates","Weekly status (RAG)","Billing and revenue cycle","Gate 2 dress rehearsal",
+"The technical story (CPARB)","Three levels, two audiences","Live call: shadow #1","Analogies: explain FHIR","Live call: shadow #2",
+"Demo structure","When the demo breaks","Live call: co-lead one agenda item","Demo rehearsal","Live demo segment",
+"Product questions","Propose an improvement","Live call: co-lead requirements","Handle a sceptical VP","Live call: co-lead #2",
+"Plan the call you’ll lead","Dress rehearsal","Live call: lead #1","Practise one thing","Live call: lead #2",
+"Day-1 call, again","Live call: solo","Weakest-pillar drill","My readiness case","Final review"];
+const LIVE=[43,45,48,50,53,55,58,60,62];
+const PHASES=[[1,20,"Phase 1 · Foundation"],[21,40,"Phase 2 · Client craft"],[41,65,"Phase 3 · Live reps"]];
+const QUIZ=[
+ {k:"Concept",q:"What goes in your first sentence when you use BLUF?",o:[["The background, so the client has context",0,"That is the habit BLUF replaces."],["The answer, then the reason",1,"“Short answer: yes, Friday works. Here’s why…”"],["An apology for the delay",0,"Over-apologising is a watch-out in the readiness model."],["The agenda for the call",0,"The agenda belongs in the call opener."]]},
+ {k:"Concept",q:"Today’s target for a status answer is under…",o:[["15 seconds",0,"Too short for an answer and a reason."],["45 seconds",1,"Goal for this block: answer any status question answer-first in under 45 seconds."],["2 minutes",0,"That is the target for a full weekly status later in the plan."],["5 minutes",0,"Far too long for one answer."]]},
+ {k:"Concept",q:"Video booking is about 60% done. Dana asks: “Is it done?” Which opening is BLUF?",o:[["“So we started with the screens, then the video link…”",0,"History first. Dana still has no answer."],["“Not yet. It’s about 60%, and you’ll see it at the demo on the 13th.”",1,"Answer, status and the next date in one breath."],["“It depends on a few things.”",0,"No answer and no date."],["“I’ll check with the team.”",0,"You know this. Keep “I’ll check” for real unknowns."]]},
+ {k:"From today’s mock (S02)",c:"Dana: “Quick one. Are we still on track for April 27?”",q:"Pick the best reply.",o:[["“We had some challenges with the Twilio config and…”",0,"Background and jargon first."],["“Short answer: yes. One risk: Epic access. If it’s not here by March 16, the date is at risk.”",1,"Answer first, then the one real risk with its date and impact."],["“Mostly yes, depending on a few things.”",0,"Dana can’t act on this."],["“We’re trying our best.”",0,"Sounds unsure and gives no facts."]]},
+ {k:"Written",q:"Rewrite this message so the bottom line comes first.",m:"Sorry for the delay, sorry, the build was broken yesterday and QA was blocked, we will try to give the build by tomorrow EOD hopefully."}
+];
+const STEPS=[["prep","Prep","5 min","Write 3 status questions with one-line answers"],["learn","Learn","10 min","BLUF + the first 15 min of Matt Abrahams’ talk"],["mock","Mock call","10–15 min","Rapid-fire status questions with Dana (S02)"],["write","Write","10 min","Rewrite 3 messages BLUF-style"],["quiz","Daily quiz","5 questions","5 questions on today"]];
+const FOUR=["prep","learn","mock","write"];
+
+const S={role:"engineer",view:{engineer:"home",manager:"team",admin:"questions"},step:"prep",allDone:false,done:{prep:0,learn:0,mock:0,write:0,quiz:0},
+ q:{i:0,pick:null,ok:0,ws:"idle",txt:""},ws:"idle",wsrc:"carebook",live:"live",fail:false,
+ ov:[{by:"Priya Rao",from:3,to:4,note:"Good risk framing. The AI was strict on length.",when:"12 Nov"}],
+ gateNo:1,gate:{},qi:0,qd:[],tab:"public",unlock:null};
+
+/* ---------- shell ---------- */
+const NAV={
+ engineer:[["home","Home","home"],["day","Today","today","Day 2"],["plan","My plan","plan"],["assessment","Assessment","doc"],["progress","Progress","chart"],["journal","Journal","lock"],["library","Library","book"]],
+ manager:[["team","Team","users","4"],["review","Answer reviews","doc","2"],["gate","Gates","shield","1"],["flags","Red flags","flag","3"]],
+ admin:[["questions","Question review","doc","3"],["cards","Mock cards","cards","61"],["users","Users and roles","users"],["settings","Settings","gear"]]};
+const TABS={engineer:["home","day","plan","progress","journal"],manager:["team","review","gate","flags"],admin:["questions","cards","users","settings"]};
+const SHORT={"Answer reviews":"Reviews","Question review":"Questions","Users and roles":"Users"};
+const WHO={engineer:["AS","Aarav Sharma","Engineer"],manager:["PR","Priya Rao","Manager · Platform"],admin:["CA","Content Admin","Admin"]};
+const AREA={engineer:"Training",manager:"My team",admin:"Administration"};
+const CRUMB={home:"Home",day:"Day 2",plan:"My plan",assessment:"Assessment · Days 1–5",live:"Day 43",progress:"Progress",journal:"Journal",library:"Library",team:"Team",review:"Answer reviews",gate:"Gates",flags:"Red flags",questions:"Question review",cards:"Mock cards",users:"Users and roles",settings:"Settings"};
+const current=k=>{const v=S.view[S.role]; return k===v||(v==="live"&&k==="plan")};
+function side(){
+  const w=WHO[S.role];
+  return `<div class="ws"><span class="logo">CR</span><div><b>Client-Ready</b><span>90-day plan</span></div></div>
+   <p class="navsec">${AREA[S.role]}</p>${NAV[S.role].map(([k,l,i,c])=>`<button class="nav" data-nav="${k}" ${current(k)?'aria-current="page"':""}>${ic(i)}${l}${c?`<span class="count">${c}</span>`:""}</button>`).join("")}
+   <div class="foot"><span class="av">${w[0]}</span><div><b>${w[1]}</b><span>${w[2]}</span></div></div>`;
+}
+const tabs=()=>TABS[S.role].map(k=>{const [, l, i]=NAV[S.role].find(x=>x[0]===k); return `<button data-nav="${k}" ${current(k)?'aria-current="page"':""}>${ic(i,20)}<span>${SHORT[l]||l}</span></button>`}).join("");
+
+/* ---------- shared components ---------- */
+const pill=(cls,t)=>`<span class="pill ${cls}">${t}</span>`;
+const bar=(pct,cls="")=>`<div class="bar ${cls}"><span style="--v:${pct}%"></span></div>`; /* --v is data, not styling */
+const scale=(name,na,val,words)=>`<div class="seg" role="radiogroup">${(words||[1,2,3,4,5]).map(i=>`<label><input type="radio" name="${name}" value="${i}" ${String(val)===String(i)?"checked":""}><span class="${words?"word":""}">${words?`Gate ${i}`:i}</span></label>`).join("")}${na?`<label><input type="radio" name="${name}" value="na" ${val==="na"?"checked":""}><span class="na">n/a</span></label>`:""}</div>`;
+const safety=k=>`<p class="note">${ic("shield",14)}<span>${k==="real"?"<b>Real project is fine.</b> Anonymise names. No patient data, credentials or confidential documents.":"<b>Practice only.</b> Use CareBook details. No real client or patient data."}</span></p>`;
+const fb=(s,pts,why,better)=>`<div class="fb"><div class="row between"><span class="label">AI feedback</span><span><span class="score">${s}</span><span class="muted"> / 5</span></span></div><ul class="pts">${pts.map(([p,m])=>`<li><i class="${m?"y":"p"}">${m?"✓":"~"}</i>${p}</li>`).join("")}</ul><p class="t-sm">${why}</p><p class="better">${better}</p></div>`;
+const kpi=(label,val,sub)=>`<div class="card kpi"><span class="label">${label}</span><b>${val}</b>${sub?`<span class="s">${sub}</span>`:""}</div>`;
+const ring=(pct,size,inner,color="var(--acc-500)")=>{const r=(size-14)/2,c=2*Math.PI*r; return `<div class="ring"><svg width="${size}" height="${size}" viewBox="0 0 ${size} ${size}" role="img" aria-label="${Math.round(pct)}%"><circle cx="${size/2}" cy="${size/2}" r="${r}" fill="none" stroke="var(--subtle)" stroke-width="10"/><circle cx="${size/2}" cy="${size/2}" r="${r}" fill="none" stroke="${color}" stroke-width="10" stroke-linecap="round" stroke-dasharray="${Math.max(c*pct/100,4)} ${c}" transform="rotate(-90 ${size/2} ${size/2})"/></svg><div class="c"><span>${inner}</span></div></div>`;};
+const actionbar=(a,l,dis)=>`<div class="actionbar"><span class="muted t-sm">Saved automatically</span><button class="btn pri" data-act="${a}" ${dis?"disabled":""}>${l}</button></div>`;
+const nextOpenStep=()=>FOUR.find(k=>!S.done[k])||"quiz";
+
+/* ---------- engineer ---------- */
+function home(){
+  const d=S.done, n=FOUR.filter(k=>d[k]).length, next=nextOpenStep();
+  const steps=STEPS.map(([k,l,t,desc])=>{const locked=k==="quiz"&&n<4, isNext=!d[k]&&k===next&&!locked;
+    return `<div class="li"><span class="chk ${d[k]?"on":isNext?"next":locked?"lock":""}">${d[k]?ic("check",12):""}</span><div><b>${l}</b><small>${locked?"Opens when the other four steps are done":desc}</small></div>${d[k]?pill("ok dot","Done"):locked?pill("",ic("lock",12)+" Locked"):isNext?pill("acc","Up next"):pill("",t)}</div>`}).join("");
+  const base=[1.8,2.0,1.5,2.0];
+  return `<div class="ph"><div class="t"><span class="label">Day 2 of 65 · Phase 1 · Foundation</span><h1 class="greet">Good morning, Aarav</h1><p>Today: <b>Say the answer first (BLUF)</b>. Prep, Learn, Mock and Write in any order. The daily quiz comes last.</p></div><button class="btn pri" data-nav="day">${n||d.quiz?"Continue":"Start"} Day 2 ${ic("arrow",14)}</button></div>
+  <div class="bento">
+    <section class="card c-8"><div class="hd"><h2>Today’s steps</h2><span class="muted t-sm">${n} of 4 done · quiz ${d.quiz?"done":"last"}</span></div><div class="list">${steps}</div></section>
+    <section class="card c-4"><div class="hd"><h2>Your 90 days</h2>${pill("ok dot","On pace")}</div><div class="bd tight">
+      ${ring(100/65,148,`<b>1</b><span class="muted t-xs">of 65 days</span>`)}
+      <dl class="kv tight"><dt>Finish by</dt><dd class="mono">2 Feb</dd><dt>Started</dt><dd class="mono">4 Nov</dd><dt>Pause days</dt><dd class="mono">0</dd><dt>Gates passed</dt><dd class="mono">0 / 3</dd></dl>
+    </div></section>
+    <section class="card c-4 half"><div class="hd"><h2>This block</h2><span class="muted t-sm">Days 1–5</span></div><div class="bd tight">
+      <div class="strip">${[1,2,3,4,5].map(x=>`<span class="${x===1?"done":x===2?"today":""}">Day<b>${x}</b></span>`).join("")}</div>
+      <div class="list">
+        <div class="li no-icon"><div><b>Assessment + scorecard</b><small>After Day 5 · 60% on multiple choice to continue</small></div>${pill("info","Checkpoint")}</div>
+        <div class="li no-icon"><div><b>Check-in with Priya</b><small>After Day 10 · 15–20 min</small></div>${pill("","Later")}</div>
+      </div></div></section>
+    <section class="card c-4 half"><div class="hd"><h2>Day-1 baseline</h2><span class="muted t-sm">1–5 per pillar</span></div><div class="bd tight">
+      ${PILLARS.map(([p,c],i)=>`<div class="pb"><span>${p}</span>${bar(base[i]*20,c)}<span class="mono t-right">${base[i].toFixed(1)}</span></div>`).join("")}
+      <p class="muted t-xs">You’ll compare against this on Day 65.</p></div></section>
+    <section class="card c-4"><div class="hd"><h2>Latest feedback</h2><button class="btn ghost sm" data-nav="progress">All</button></div>
+      <div class="list">
+        <div class="li no-icon"><div><b>Day 1 · Baseline call</b><small>Fix next time: I started with the background twice.</small></div><span class="mono">2.8</span></div>
+        <div class="li no-icon"><div><b>Day 1 · Daily quiz</b><small>Multiple choice</small></div><span class="mono">3/4</span></div>
+      </div></section>
+    <section class="card c-12"><div class="hd"><h2>Coming up</h2><button class="btn ghost sm" data-nav="plan">Full plan</button></div><div class="bd">
+      <div class="upnext">${[[3,"Kevin Walsh (CTO) asks why the team chose React Native. Answer with Point, Reason, Example, Point.","S03"],[4,"Warm start, agenda, time check. Run your opener three times and rate the first 60 seconds.","S01"],[5,"A full 15-minute sync with Dana, then your recap email.","S04"]].map(([x,t,c])=>`<article><div class="row between"><span class="mono muted">Day ${x}</span>${pill("",ic("lock",12)+" Locked")}</div><h3>${DAYS[x-1]}</h3><p>${t}</p><span class="muted t-xs">Card ${c}</span></article>`).join("")}</div>
+    </div></section>
+  </div>`;
+}
+
+function day(){
+  const d=S.done, four=FOUR.every(k=>d[k]);
+  const nav=STEPS.map(([k,l,t])=>{const locked=k==="quiz"&&!four;
+    return `<button class="step" data-step="${k}" ${S.step===k&&!S.allDone?'aria-current="step"':""} ${locked?"disabled":""}><span class="chk ${d[k]?"on":locked?"lock":""}">${d[k]?ic("check",12):""}</span><span><b>${l}</b><small>${locked?"After the other four":t}</small></span><span class="k">${k==="quiz"?"last":"any order"}</span></button>`}).join("");
+  const body=S.allDone?dayDone():({prep,learn,mock,write,quiz}[S.step])();
+  return `<div class="ph"><div class="t"><span class="label">Day 2 of 65 · Phase 1 · Communicate</span><h1>Say the answer first (BLUF)</h1></div><span class="muted t-sm">${Object.values(d).filter(Boolean).length} of 5 done</span></div>
+  <div class="daygrid"><nav class="card steps" aria-label="Steps">${nav}</nav><div class="stack">${body}</div></div>`;
+}
+function prep(){
+  return `<section class="card"><div class="hd"><h2>Prep</h2><span class="muted t-sm">5 min</span></div><div class="bd">
+    <p class="prose">Write 3 status questions a client might ask, with a one-line answer to each.</p>
+    <textarea id="prepTxt" aria-label="Your prep" placeholder="1. Are we on track for April 27?\n   Short answer: yes. One risk: Epic access…"></textarea>${safety("carebook")}
+    <p class="muted t-xs">Saved to your private journal.</p></div></section>${actionbar("prep","Save prep")}`;
+}
+function learn(){
+  return `<section class="card"><div class="hd"><h2>Learn</h2><span class="muted t-sm">10 min</span></div><div class="bd">
+    <span class="label">Framework</span><h3 class="framework">BLUF: Bottom Line Up Front</h3>
+    <p class="prose">Say the answer first, then the reason. If they want more detail, they will ask.</p>
+    <p class="quote">“Short answer: yes, Friday works. Here’s why…”</p>
+    <dl class="kv"><dt>Watch</dt><dd>Matt Abrahams, “Think Fast, Talk Smart” (Stanford GSB). First 15 minutes. <a href="https://www.youtube.com/results?search_query=Matt+Abrahams+Think+Fast+Talk+Smart+Stanford" target="_blank" rel="noopener">Open</a></dd><dt>Free</dt><dd>Stanford talk on YouTube · Think Fast, Talk Smart podcast</dd></dl>
+  </div></section>${actionbar("learn","Mark as read")}`;
+}
+function mock(){
+  return `<section class="card"><div class="hd"><h2>Mock call · S02 Rapid-fire status questions</h2><span class="row">${pill("","Level 1")}${pill("","10–15 min")}</span></div><div class="bd">
+    <dl class="kv"><dt>Client</dt><dd>Dana Brooks (P1), VP of Product, Brightpath</dd><dt>Story so far</dt><dd>Tuesday, March 3. Your first week as main contact. Dana has 10 minutes between meetings and has heard “some integration thing” might be late.</dd>
+    <dt>Status</dt><dd>Video booking ~60% · SMS reminders ~40% · Sprint 3 demo Fri Mar 13</dd><dt>Main risk</dt><dd>Epic sandbox access requested Feb 24, still pending. Needed by Mar 16.</dd><dt>Your ask</dt><dd>Help chase Epic access · approve SMS wording by Thu Mar 5</dd>
+    <dt>Your goal</dt><dd>Answer every question first, in 45 seconds or less. Name the one real risk with its date and impact. End with a clear ask.</dd></dl>
+    <div class="copybar"><div><b class="fw-500">Run the call in Claude or ChatGPT</b><p class="muted t-sm">Paste the prompt, switch to voice, and speak first. The prompt holds facts Dana keeps to herself.</p></div><button class="btn pri" data-act="copy">${ic("copy",14)} Copy AI prompt</button></div>
+  </div></section>
+  <section class="card"><div class="hd"><h2>Log your call</h2><span class="muted t-sm">Score what came up. The average uses scored criteria only.</span></div><div class="bd">
+    <div class="rub">${RUBRIC.slice(0,10).map((c,i)=>`<div class="r"><span>${i+1}. ${c}</span>${scale("m"+i,1,[3,4,"na","na","na","na","na","na","na",3][i])}</div>`).join("")}</div>
+    <div class="grid-h"><label class="field"><span>Went well</span><input type="text" id="mw" placeholder="Answered April 27 in one sentence"></label><label class="field"><span>One thing to fix next time</span><input type="text" id="mf" placeholder="Name the Epic risk before Dana asks"></label></div>
+    <label class="field"><span>Reflection (optional): When I was asked a question, what did I say first, the answer or the background?</span><input type="text" id="mr"></label>
+    <p class="muted t-xs">Notes are private. Scores count toward your progress.</p></div></section>${actionbar("mock","Save log")}`;
+}
+function write(){
+  return `<section class="card"><div class="hd"><h2>Write</h2><span class="muted t-sm">10 min</span></div><div class="bd">
+    <p class="prose">Rewrite 3 of your recent Slack or Teams messages BLUF-style. <span class="muted">(No project yet? Use messy messages 1, 2 and 5.)</span></p>
+    <div class="paths"><label class="path"><input type="radio" name="src" value="carebook" ${S.wsrc==="carebook"?"checked":""}><span><b>CareBook messages 1, 2, 5</b><small>Practice story</small></span></label><label class="path"><input type="radio" name="src" value="real" ${S.wsrc==="real"?"checked":""}><span><b>My real project</b><small>Anonymise first</small></span></label></div>
+    ${S.wsrc==="carebook"?`<p class="quote muted">Message 2: “Kindly do the needful and share the Epic sandbox credentials at the earliest so that we can start the integration from our side.”</p>`:""}
+    <textarea id="wTxt" aria-label="Your rewrite" ${S.ws!=="idle"?"disabled":""}>${S.ws!=="idle"?"Hi Sam, could you send the Epic sandbox credentials by Thursday? Without them, the April 27 pilot is at risk.":""}</textarea>${safety(S.wsrc)}
+    ${S.ws==="scoring"?`<p class="note info">${ic("clock",14)}<span>Submitted. Your score is on its way. The step already counts as done.</span></p>`:""}
+    ${S.ws==="scored"?fb(4,[["The ask comes first",1],["Clear date for the ask",1],["Business impact named",0]],"Clear ask with a date. Say who feels the impact.","“Could you send the Epic sandbox credentials by Thursday? Without them, Lakeside’s April 27 pilot is at risk.”"):""}
+  </div></section>${S.ws==="idle"?actionbar("write","Submit"):actionbar("toNext",FOUR.every(k=>S.done[k])?"Go to daily quiz":"Next open step")}`;
+}
+function quiz(){
+  const q=S.q;
+  if(q.i>=QUIZ.length) return `<section class="card"><div class="hd"><h2>Daily quiz complete</h2></div><div class="bd"><p class="prose">${q.ok} of 4 correct. Written answer: 4 / 5. There is no pass mark; finishing it completes the day.</p></div></section>${actionbar("finish","Complete Day 2")}`;
+  const it=QUIZ[q.i], head=`<div class="hd"><h2>Daily quiz</h2><span class="muted t-sm">${q.i+1} of 5 · ${it.k}</span></div>`;
+  if(it.k==="Written") return `<section class="card">${head}<div class="bd"><p class="prose"><b>${it.q}</b></p><p class="quote muted">${it.m}</p>
+    <textarea id="qw" aria-label="Your answer" ${q.ws!=="idle"?"disabled":""}>${esc(q.txt)}</textarea>${safety("carebook")}
+    ${q.ws==="scoring"?`<p class="muted t-sm">Scoring…</p>`:""}${q.ws==="scored"?fb(4,[["New date comes first",1],["At most one short apology",1],["Firm time, no “hopefully”",0]],"Clear and answer-first. “By EOD” leaves the time open for a US reader.","“QA gets the new build tomorrow by 5 pm Central. Yesterday’s broken build is fixed.”"):""}
+    </div></section>${q.ws==="scored"?actionbar("qNext","Finish quiz"):actionbar("qw","Submit answer")}`;
+  const a=q.pick!==null;
+  return `<section class="card">${head}<div class="bd">${it.c?`<p class="quote">${it.c}</p>`:""}<p class="prose"><b>${it.q}</b></p>
+    <div class="opts">${it.o.map(([t,ok,ex],i)=>`<button class="opt ${a?(ok?"right":i===q.pick?"wrong":""):""}" data-pick="${i}" ${a?"disabled":""}><span class="k">${"ABCD"[i]}</span><span>${t}${a?`<small>${ex}</small>`:""}</span></button>`).join("")}</div></div></section>${a?actionbar("qNext",q.i===3?"Last question":"Next question"):""}`;
+}
+const dayDone=()=>`<section class="card"><div class="hd"><h2>Day 2 complete</h2>${pill("ok dot","Done")}</div><div class="bd"><p class="prose">Day 3 is open: <b>PREP: explain a technology choice</b>, with Kevin Walsh, the CTO (card S03).</p><div class="row"><button class="btn pri" data-nav="home">Back to home</button><button class="btn" data-act="review">Review Day 2</button></div></div></section>`;
+
+function plan(){
+  let h="";
+  PHASES.forEach(([a,b,name])=>{
+    h+=`<div class="phase"><span>${name}</span><span class="muted">Days ${a}–${b}</span></div>`;
+    for(let n=a;n<=b;n++){
+      const st=n===1?pill("ok dot","Done"):n===2?pill("acc","Today"):LIVE.includes(n)?pill("info","Live call"):pill("","Locked");
+      const nav=n===43?'data-nav="live"':n===2?'data-nav="day"':"";
+      h+=`<div class="dayrow ${n===2?"cur":""}" ${nav}><span class="d">Day ${n}</span><span>${DAYS[n-1]}</span><span>${st}</span><span class="sc mono muted">${n===1?"2.8":""}</span></div>`;
+      if(n%5===0&&n<65) h+=`<div class="cp">${ic("doc",14)} Assessment · Days ${n-4}–${n} + scorecard · 60% to continue</div>`;
+      if([10,30,50,60].includes(n)) h+=`<div class="cp">${ic("users",14)} Check-in with your manager</div>`;
+      if(n===20||n===40) h+=`<div class="cp gate">${ic("shield",14)} Gate ${n/20} · live call observed by your manager · Day ${n+1} opens after a pass</div>`;
+    }
+  });
+  return `<div class="ph"><div class="t"><h1>My plan</h1><p>65 lessons. Finish by 2 Feb. Click Day 43 to preview a live-call day.</p></div></div><section class="card clip">${h}</section>`;
+}
+function assessment(){
+  const f=S.fail;
+  return `<div class="ph"><div class="t"><span class="label">After Day 5</span><h1>Assessment · Days 1–5</h1></div><label class="check muted"><input type="checkbox" data-act="fail" ${f?"checked":""}> Preview a retake</label></div>
+  <div class="kpis">${kpi("Multiple choice",f?"4 / 8":"5 / 8",f?"50% · 60% needed":"62.5% · 60% needed")}${kpi("Result",`<span class="${f?"t-bad":"t-ok"}">${f?"Not yet":"Passed"}</span>`,f?"Retake opens Sat 9:00":"Day 6 opens after the scorecard")}${kpi("Written answers","3.5","Average of 2 · never blocks")}${kpi("Attempt","1",f?"New questions on retake":"First try")}</div>
+  <section class="card"><div class="hd"><h2>Written answers</h2><span class="muted t-sm">Your manager can read these</span></div>
+    <table class="tbl"><thead><tr><th>Question</th><th>AI</th><th>Manager</th><th>Note</th></tr></thead><tbody>
+    <tr><td class="lead" data-l="Question">Dana wants an update she can forward to her CEO. Write the first two lines.</td><td data-l="AI" class="mono">3</td><td data-l="Manager" class="mono">4</td><td data-l="Note" class="muted">Good risk framing. The AI was strict on length.</td></tr>
+    <tr><td class="lead" data-l="Question">Rewrite messy message 1 so the bottom line comes first.</td><td data-l="AI" class="mono">4</td><td data-l="Manager" class="muted">—</td><td data-l="Note" class="muted">—</td></tr></tbody></table></section>
+  <section class="card"><div class="hd"><h2>Scorecard · Days 1–5</h2><span class="muted t-sm">1 = avoid or freeze · 3 = can do it when prepared · 5 = well under pressure</span></div><div class="bd">
+    <div class="rub">${PILLARS.map(([p],i)=>`<div class="r"><span>${p}</span>${scale("sc"+i,0,[2,3,2,2][i])}</div>`).join("")}</div>
+    <div class="grid-h"><label class="field"><span>Biggest win</span><input type="text" value="Opened the Friday sync with an agenda, no script."></label><label class="field"><span>Where I’m stuck / help I need</span><input type="text"></label></div>
+    <p class="muted t-sm">Days completed 5 / 5 and mocks 5 are filled in for you.</p>
+    <div class="stack-sm"><span class="label">Self-check (private)</span>${["Did I start my answers with the answer?","Did I open the call with an agenda?","Did I end with next steps?"].map((t,i)=>`<label class="check"><input type="checkbox" ${i<2?"checked":""}> ${t}</label>`).join("")}</div>
+  </div></section>${actionbar("sc","Submit scorecard")}`;
+}
+function live(){
+  const p=S.live, opts=[["live","I joined the live call","Log date, role and self-scores"],["other","I shadowed another team","Same log, another project"],["later","Schedule for later","Day 44 opens. Log it before the final review"],["sub","No call available","PDF fallback: swap with a mock day"]];
+  const form=p==="later"?`<label class="field max-field"><span>New date</span><input type="date" value="2026-12-18"></label>`
+    :p==="sub"?`<div class="copybar"><div><b class="fw-500">S42 · The same story, two audiences</b><p class="muted t-sm">Dr. Mercer, then Kevin · Level 3</p></div><button class="btn pri" data-act="copy">${ic("copy",14)} Copy AI prompt</button></div>`
+    :`<div class="grid-h"><label class="field"><span>Date</span><input type="date" value="2026-12-16"></label><label class="field"><span>Role</span><select><option>Shadow</option></select></label></div>`;
+  return `<div class="ph"><div class="t"><span class="label">Day 43 of 65 · Phase 3 · Preview</span><h1>Live call: shadow #1</h1><p>A real client call replaces today’s AI mock. Nothing from the call is stored, only your own notes.</p></div><button class="btn" data-nav="plan">${ic("back",14)} My plan</button></div>
+  <section class="card"><div class="hd"><h2>How did it go?</h2></div><div class="bd"><div class="paths">${opts.map(([k,t,s])=>`<label class="path"><input type="radio" name="lp" value="${k}" ${p===k?"checked":""}><span><b>${t}</b><small>${s}</small></span></label>`).join("")}</div>${form}</div></section>
+  ${p==="later"?"":`<section class="card"><div class="hd"><h2>Write · Observation sheet (A9)</h2></div><div class="bd"><div class="grid-h">${["Opening and agenda","Best question they asked","Handling an unknown or pushback","How they closed","One phrase to reuse","What I’d do differently"].map(l=>`<label class="field"><span>${l}</span><input type="text"></label>`).join("")}</div>${safety("real")}</div></section>`}
+  ${actionbar("live","Save")}`;
+}
+function progress(){
+  const W=560,H=200,L=28,R=12,T=10,B=26,N=5, x=i=>L+i*(W-L-R)/(N-1), y=v=>T+(5-v)*(H-T-B)/4;
+  const ser=[["und",[2,2,3,3,3]],["com",[2,3,3,4,4]],["own",[1,2,2,3,3]],["sf",[2,2,2,2,3]]];
+  let g=""; for(let v=1;v<=5;v++) g+=`<line x1="${L}" x2="${W-R}" y1="${y(v)}" y2="${y(v)}" stroke="var(--line)"/><text x="${L-10}" y="${y(v)+4}" text-anchor="end">${v}</text>`;
+  ["Days 1–5","6–10","11–15","16–20","21–25"].forEach((l,i)=>{g+=`<text x="${x(i)}" y="${H-6}" text-anchor="${i===0?"start":i===4?"end":"middle"}">${l}</text>`});
+  ser.forEach(([k,v],s)=>{const o=(s-1.5)*1.6; g+=`<polyline fill="none" stroke="var(--p-${k})" stroke-width="1.8" points="${v.map((a,i)=>`${x(i)},${y(a)+o}`).join(" ")}"/><circle cx="${x(4)}" cy="${y(v[4])+o}" r="3" fill="var(--p-${k})"/>`;});
+  const rub=[3.4,3.6,2.9,2.7,2.4,2.8,3.0,3.1,2.5,3.3,3.0];
+  return `<div class="ph"><div class="t"><span class="label">Example: Aarav after Day 25</span><h1>Progress</h1></div></div>
+  <div class="kpis">${kpi("Days","25 <small>/ 65</small>","On pace · finish by 2 Feb")}${kpi("Assessments","5 / 5","Passed · avg 74%")}${kpi("Gate 1","2.9","Pass · lowest 2")}${kpi("Writing","3.6","AI average, last 10")}</div>
+  <div class="grid-2">
+    <section class="card"><div class="hd"><h2>Pillars · scorecards</h2><div class="legend">${PILLARS.map(([n,c])=>`<span><i class="lg-${c}"></i>${n}</span>`).join("")}</div></div><div class="bd"><svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Pillar scores by scorecard">${g}</svg></div></section>
+    <section class="card"><div class="hd"><h2>Day 1 → now</h2><span class="muted t-sm">per pillar</span></div>
+      <table class="tbl"><thead><tr><th>Pillar</th><th class="r">Day 1</th><th class="r">Now</th></tr></thead><tbody>${PILLARS.map(([p],i)=>`<tr><td class="lead" data-l="Pillar">${p}</td><td class="r mono" data-l="Day 1">${[1.8,2.0,1.5,2.0][i].toFixed(1)}</td><td class="r mono" data-l="Now">${[3,4,3,3][i]}</td></tr>`).join("")}</tbody></table></section>
+  </div>
+  <section class="card"><div class="hd"><h2>Call rubric</h2><span class="muted t-sm">1–10 from mock logs and gates · 11 from gates only</span></div><div class="bd rubric-cols">${rub.map((v,i)=>`<div class="hb"><span>${i+1}. ${RUBRIC[i]}</span>${bar(v*20)}<span class="mono t-right">${v.toFixed(1)}</span></div>`).join("")}</div></section>`;
+}
+function journal(){
+  return `<div class="ph"><div class="t"><h1>Journal</h1><p>Only you can read this. Your manager sees that steps were done, not what you wrote.</p></div></div>
+  <section class="card"><table class="tbl"><thead><tr><th>Day</th><th>Entry</th><th>Text</th></tr></thead><tbody>
+  ${[["Day 1","My 3 goals","Lead a weekly sync without a script. Raise risks the same day. Stop saying “basically”."],["Day 1","Fix next time","I started with the background twice. Answer first."],["Day 1","Went well","Opened the call myself before Dana did."]].map(([d,k,t])=>`<tr><td class="lead mono" data-l="Day">${d}</td><td data-l="Entry">${k}</td><td data-l="Text" class="muted">${t}</td></tr>`).join("")}</tbody></table></section>`;
+}
+function library(){
+  return `<div class="ph"><div class="t"><h1>Library</h1></div></div>
+  <section class="card"><table class="tbl"><thead><tr><th>Section</th><th>What’s inside</th><th class="r">Items</th></tr></thead><tbody>
+  ${[["Frameworks","BLUF, PREP, call opener, 5 Whys, bad-news formula, trade-off formula",32],["Templates","Pre-call card, recap email, EOD note, weekly status, escalation, change note",13],["AI prompts","Prep, transcript feedback, recap, writing review, meeting notes",8],["Glossary","HIPAA, PHI, EHR, FHIR, prior authorization, denial rate",54],["Resources","Talks, courses and books, each with a free version",28],["Extra mock cards","Optional practice, X01–X12",12]].map(([a,b,c])=>`<tr class="clk" data-act="soon"><td class="lead" data-l="Section">${a}</td><td data-l="Inside" class="muted">${b}</td><td class="r mono" data-l="Items">${c}</td></tr>`).join("")}</tbody></table></section>`;
+}
+
+/* ---------- manager ---------- */
+const TEAM=[["Aarav Sharma","AS",25,"On pace",[3,4,3,3],"Assessment after Day 25","ok","On track",[]],["Meera Kapoor","MK",20,"1 day behind",[2,3,2,2],"Gate 1 to book","warn","Needs focus",[]],["Rohan Patel","RP",11,"6 days behind",[2,2,2,1],"Check-in after Day 10","bad","Off track",["No lesson for 14 days"]],["Neha Thomas","NT",44,"On pace",[4,4,3,4],"Check-in after Day 50","ok","On track",["2 live calls deferred"]]];
+function team(){
+  return `<div class="ph"><div class="t"><span class="label">Platform team</span><h1 class="greet">Good morning, Priya</h1><p>Completion, scores and scorecards. Private notes and daily answers are not shown.</p></div></div>
+  <div class="kpis">${kpi("Engineers","4","2 on track")}${kpi("Needs you","3","1 gate · 2 answer reviews")}${kpi("Red flags",'<span class="t-bad">2</span>',"open")}${kpi("Average pace","−2 days","against 90-day targets")}</div>
+  <div class="bento">
+  <section class="card c-8"><div class="hd"><h2>Engineers</h2><span class="muted t-sm">Pillars U · C · O · S from the latest scorecard</span></div>
+  <table class="tbl"><thead><tr><th>Engineer</th><th>Day</th><th>Pace</th><th>Pillars</th><th>Status</th><th></th></tr></thead><tbody>
+  ${TEAM.map(([n,ini,d,pace,p,next,s,sl,fl])=>`<tr><td class="lead" data-l="Engineer"><span class="row nowrap"><span class="av">${ini}</span><span><span class="fw-500">${n}</span><span class="muted t-xs block">${next}</span>${fl.map(f=>`<span class="flagline">${ic("flag",11)} ${f}</span>`).join("")}</span></span></td>
+   <td data-l="Day" class="mono">${d} / 65</td><td data-l="Pace" class="t-sm">${pace}</td><td data-l="Pillars" class="mono">${p.map(v=>`<span class="${v<=2?"t-bad":""}">${v}</span>`).join(" · ")}</td><td data-l="Status">${pill(s+" dot",sl)}</td><td class="r" data-l=""><button class="btn sm" data-unlock="${n}">Unlock</button></td></tr>`).join("")}</tbody></table>
+  ${S.unlock?`<div class="bd divider"><h3>Unlock the next day for ${S.unlock}</h3><label class="field"><span>Reason (saved to history)</span><input type="text" id="ur" placeholder="e.g. Retake approved after our 1:1"></label><div class="row end"><button class="btn" data-act="uc">Cancel</button><button class="btn pri" id="us" data-act="us" disabled>Unlock</button></div></div>`:""}</section>
+  <section class="card c-4"><div class="hd"><h2>This week</h2><span class="muted t-sm">Gates and check-ins</span></div><div class="list">
+    <div class="li no-icon clickable" data-nav="gate"><div><b>Gate 1 · Meera Kapoor</b><small>Finished Day 20 · book 45 min</small></div>${pill("warn dot","To book")}</div>
+    <div class="li no-icon clickable" data-nav="review"><div><b>2 answers to review</b><small>Meera · Assessment Days 16–20</small></div>${pill("acc","Review")}</div>
+    <div class="li no-icon"><div><b>Check-in · Rohan Patel</b><small>After Day 10 · overdue 4 days</small></div>${pill("bad dot","Overdue")}</div>
+  </div></section></div>`;
+}
+function review(){
+  const cur=S.ov.at(-1)?.to??3;
+  return `<div class="ph"><div class="t"><span class="label">Meera Kapoor · Assessment · Days 16–20</span><h1>Written answer 1 of 2</h1></div></div>
+  <div class="grid-h">
+    <section class="card"><div class="hd"><h2>Question and answer</h2></div><div class="bd"><p class="quote">Kevin asks: “Who’s handling the deployment?” Answer as the owner in two sentences.</p><p class="prose">I’ll handle the UAT deployment on Friday the 27th and send you a short note when it’s live. If anything blocks it, you’ll hear from me by Thursday noon.</p></div></section>
+    <section class="card"><div class="hd"><h2>AI score</h2></div><div class="bd">${fb(3,[["Owner language",1],["Gives a date",1],["Says what happens if it slips",0]],"Clear ownership and dates. The slip plan is vague.","“If access isn’t ready by Thursday noon, I’ll call you with two options.”")}</div></section>
+  </div>
+  <section class="card"><div class="hd"><h2>Your score</h2><span class="muted t-sm">Meera sees both scores and your note</span></div><div class="bd">${scale("ov",0,cur)}<label class="field"><span>Note to Meera</span><input type="text" id="ovn" placeholder="Why you changed the score"></label></div>
+  <table class="tbl"><thead><tr><th>History</th><th>When</th></tr></thead><tbody><tr><td class="lead" data-l="Change">AI scored 3 (model v1, prompt v1.2)</td><td data-l="When" class="muted">27 Nov</td></tr>${S.ov.map(o=>`<tr><td class="lead" data-l="Change">${o.by}: ${o.from} → ${o.to}. “${esc(o.note)}”</td><td data-l="When" class="muted">${o.when}</td></tr>`).join("")}</tbody></table></section>
+  ${actionbar("ov","Save score")}`;
+}
+function gate(){
+  const g2=S.gateNo===2, v=Object.values(S.gate).filter(x=>x!=="na").map(Number), n=v.length;
+  const avg=n?v.reduce((a,b)=>a+b,0)/n:0, low=n?Math.min(...v):0, pass=n>0&&avg>=(g2?3.0:2.5)&&low>=2;
+  const outcome=n===0?pill("","Score at least one criterion"):pass?pill("ok dot","Meets the pass bar"):pill("bad dot","Below the pass bar");
+  return `<div class="ph"><div class="t"><span class="label">${g2?"Neha Thomas · after Day 40":"Meera Kapoor · after Day 20"}</span><h1>Record Gate ${S.gateNo}</h1><p>${g2?"Pass: average ≥ 3.0, no criterion below 2, healthcare terms used correctly.":"Pass: average ≥ 2.5, no criterion at 1, recap within 2 hours."} Skip criteria that didn’t come up.</p></div>${scale("gno",0,S.gateNo,[1,2])}</div>
+  <div class="grid-2">
+    <section class="card"><div class="hd"><h2>Call rubric</h2><span class="muted t-sm">${g2?"25-min healthcare scenario":"20-min unseen Phase 1 scenario + surprise"}</span></div><div class="bd"><div class="rub">${RUBRIC.map((c,i)=>`<div class="r"><span>${i+1}. ${c}${i===10?' <span class="muted t-xs">(from the written follow-up)</span>':""}</span>${scale("g"+i,1,S.gate["g"+i])}</div>`).join("")}</div></div></section>
+    <section class="card"><div class="hd"><h2>Result</h2></div><div class="bd">
+      <dl class="kv tight"><dt>Scored</dt><dd class="mono">${n} of 11</dd><dt>Average</dt><dd class="mono">${n?avg.toFixed(2):"—"}</dd><dt>Lowest</dt><dd class="mono">${n?low:"—"}</dd></dl>
+      ${g2?`<label class="check"><input type="checkbox" checked> Basic healthcare terms used correctly</label><label class="field"><span>Written follow-up</span><select><option>Recap + bad-news email</option><option>Recap + escalation message</option><option>Recap + weekly status report</option></select></label>`:`<label class="check"><input type="checkbox" checked> Recap received within 2 hours</label>`}
+      <p>${outcome}</p>
+      <label class="field"><span>Outcome</span><select id="gout">${pass||n===0?`<option>Pass</option><option>Pass with focus areas</option><option>Repeat 2 focus blocks</option>`:`<option>Repeat 2 focus blocks (suggested: Days 6–10, 11–15)</option><option>Pass (override, note required)</option>`}</select></label>
+      <label class="field"><span>Green / Amber / Red and note</span><input type="text" placeholder="Amber: strong opener, froze on the surprise"></label>
+      ${g2?`<label class="field"><span>Phase 3 live-call plan</span><input type="text" value="Shadow: Days 43, 45 · Co-lead: 48, 53, 55 · Lead: 58, 60"></label>`:""}
+    </div></section>
+  </div>${actionbar("gs","Save gate result")}`;
+}
+function flags(){
+  return `<div class="ph"><div class="t"><h1>Red flags</h1><p>Checked every night. Pause days are excluded.</p></div></div>
+  <section class="card"><table class="tbl"><thead><tr><th>Engineer</th><th>Signal</th><th>Suggested action</th><th>Since</th><th></th></tr></thead><tbody>
+  ${[["Rohan Patel","No lesson completed for 14 days","1:1 this week. Protect a fixed 45-minute slot.","20 Nov"],["Rohan Patel","Stand firm at 2 or below on 3 scorecards","Pair with a strong client-facing engineer for two sessions.","18 Nov"],["Neha Thomas","2 live calls deferred in Phase 3","Start with a smaller live role. Join her first co-lead.","25 Nov"]].map(([a,b,c,d])=>`<tr><td class="lead" data-l="Engineer">${a}</td><td data-l="Signal">${b}</td><td data-l="Action" class="muted t-sm">${c}</td><td data-l="Since" class="mono">${d}</td><td class="r" data-l=""><button class="btn sm" data-act="ack">Acknowledge</button></td></tr>`).join("")}</tbody></table></section>`;
+}
+
+/* ---------- admin ---------- */
+const DRAFTS=[["Multiple choice","Day 2","What goes in your first sentence when you use BLUF?","Day 2 framework box, PDF page 24","Say the answer first, then the reason. “Short answer: yes, Friday works. Here’s why…”"],["Client scenario","Day 2","Dana: “Are we still on track for April 27?” Pick the best reply.","Card S02 fact sheet, PDF page 28","Epic sandbox access… needed by Mon Mar 16 to keep the Sprint 5 EHR sync, and the Apr 27 pilot, on schedule."],["Written","Day 2","Rewrite messy message 5 so the bottom line comes first.","Section 7.5, message 5, PDF page 22","Sorry for the delay, sorry, the build was broken yesterday and QA was blocked…"]];
+function questions(){
+  const d=DRAFTS[S.qi], approved=62+S.qd.filter(x=>x==="ok").length;
+  const head=`<div class="ph"><div class="t"><span class="label">Days 1–5 pools · ${approved} of 70 approved</span><h1>Question review</h1><p>AI drafts each question from the plan. Every draft quotes its source so nothing new is invented.</p></div></div>`;
+  if(!d) return head+`<section class="card"><div class="bd"><p>Queue clear. ${approved} of 70 questions approved for Days 1–5.</p><div><button class="btn pri" data-act="pub">Publish pools</button></div></div></section>`;
+  const body=d[0]==="Written"?`<dl class="kv"><dt>Model answer</dt><dd>QA gets the new build tomorrow by 5 pm Central.</dd><dt>Scoring points</dt><dd>New date first · one apology at most · firm time</dd><dt>Test answers</dt><dd>Weak 2 · OK 3 · Strong 5</dd></dl>`
+    :`<div class="opts">${["The background","The answer, then the reason","An apology","The agenda"].map((o,k)=>`<div class="opt static ${k===1?"right":""}"><span class="k">${"ABCD"[k]}</span><span>${o}<small>${k===1?"Correct. Explanation shown after answering.":"Explanation shown after answering."}</small></span></div>`).join("")}</div>`;
+  return head+`<div class="grid-h">
+    <section class="card"><div class="hd"><h2>Draft ${S.qi+1} of ${DRAFTS.length}</h2><span class="row">${pill("",d[0])}${pill("",d[1])}</span></div><div class="bd"><p class="prose"><b>${d[2]}</b></p>${body}</div></section>
+    <section class="card"><div class="hd"><h2>Source in the plan</h2></div><div class="bd"><p class="muted t-sm">${d[3]}</p><p class="quote">${d[4]}</p><p class="note ok">${ic("check",14)}<span>Source text found in the PDF. CareBook names only. No duplicate in the pool.</span></p></div></section>
+  </div><div class="actionbar"><button class="btn" data-qv="no">Reject</button><div class="row"><button class="btn" data-act="soon">Edit</button><button class="btn pri" data-qv="ok">Approve</button></div></div>`;
+}
+function cards(){
+  const t=S.tab;
+  const panel=t==="public"?`<label class="field"><span>Story so far</span><textarea>It's Tuesday, March 3, your first week as the main contact for CareBook v2. Dana has 10 minutes between meetings.</textarea></label><label class="field"><span>Your goal</span><input type="text" value="Answer every question answer-first in 45 seconds or less, name the one real risk, end with a clear ask."></label>`
+   :t==="private"?`<p class="note warn">${ic("lock",14)}<span>Admins only. Engineers get this through the logged copy button and never see it on screen.</span></p><label class="field"><span>Hidden facts</span><textarea>Your CEO has promised investors a live demo of video booking on May 12.
+You have not yet sent the SMS wording to Lakeside's compliance team.
+You know Sam Porter and could get Epic access moving, but only if asked directly.</textarea></label><label class="field"><span>Curveballs</span><textarea class="short">Ask: "Can we move the pilot a week earlier?"
+Ask: "What will the AWS bill look like after launch?"</textarea></label>`
+   :`<table class="tbl"><thead><tr><th>Day</th><th>Level</th><th>Story date</th><th class="r">Prompt copies</th></tr></thead><tbody><tr><td class="lead mono" data-l="Day">Day 2</td><td data-l="Level">Level 1</td><td data-l="Story date">Tuesday, March 3</td><td class="r mono" data-l="Copies">41</td></tr></tbody></table>`;
+  return `<div class="ph"><div class="t"><span class="label">Mock card</span><h1>S02 · Rapid-fire status questions</h1><p>Used on Day 2 at Level 1.</p></div></div>
+  <section class="card"><div class="tabsbar" role="tablist">${[["public","Public brief"],["private","Private part"],["uses","Uses"]].map(([k,l])=>`<button role="tab" aria-selected="${t===k}" data-tab="${k}">${l}</button>`).join("")}</div><div class="bd">${panel}<div class="row end"><button class="btn pri" data-act="saved">Save new version</button></div></div></section>`;
+}
+function users(){
+  const rows=[["Content Admin","admin@company.com","Admin","—","Active"],["Ritik Mathur","ritik@company.com","Admin","—","Active"],["Priya Rao","priya@company.com","Manager","Platform","Active"],["Aarav Sharma","aarav@company.com","Engineer","Platform","Day 25"],["Sana Iqbal","sana@company.com","Pending","—","Waiting for access"]];
+  return `<div class="ph"><div class="t"><h1>Users and roles</h1><p>Sign-in is Google only, company domain. New sign-ins wait as Pending until an admin assigns a role.</p></div><button class="btn" data-act="soon">Add team</button></div>
+  <section class="card"><table class="tbl"><thead><tr><th>Name</th><th>Email</th><th>Role</th><th>Team</th><th>Status</th></tr></thead><tbody>
+  ${rows.map(([n,e,r,t,s])=>`<tr><td class="lead" data-l="Name">${n}</td><td data-l="Email" class="muted mono">${e}</td><td data-l="Role"><select class="w-auto" aria-label="Role for ${n}" data-role-of="${n}">${["Engineer","Manager","Admin","Pending"].map(o=>`<option ${o===r?"selected":""}>${o}</option>`).join("")}</select></td><td data-l="Team">${t}</td><td data-l="Status">${s==="Waiting for access"?pill("warn dot",s):pill("",s)}</td></tr>`).join("")}</tbody></table>
+  <div class="bd divider"><p class="note">${ic("info",14)}<span>Several admins are allowed. The last active admin can’t be removed or demoted. Every role change is logged.</span></p></div></section>`;
+}
+function settings(){
+  return `<div class="ph"><div class="t"><h1>Settings</h1></div></div>
+  <section class="card"><table class="tbl"><thead><tr><th>Setting</th><th>Value</th></tr></thead><tbody>
+  ${[["Assessment pass mark (multiple choice only)","60%"],["Retake wait","1 day"],["Plan length target","90 days"],["Behind-pace note after","3 days"],["Live-call deferrals before a red flag","2 in Phase 3"],["Gate 1 pass","Average ≥ 2.5, none at 1, recap in 2 h"],["Gate 2 pass","Average ≥ 3.0, none below 2, healthcare terms"],["Final review","≥ 3.5 and none below 3 / ≥ 3.0 / below 3.0"]].map(([a,b])=>`<tr><td class="lead" data-l="Setting">${a}</td><td data-l="Value"><input class="max-field" type="text" value="${b}" aria-label="${a}"></td></tr>`).join("")}</tbody></table>
+  <div class="bd divider"><div class="row end"><button class="btn pri" data-act="saved">Save settings</button></div></div></section>`;
+}
+
+/* ---------- render + events ---------- */
+const V={engineer:{home,day,plan,assessment,live,progress,journal,library},manager:{team,review,gate,flags},admin:{questions,cards,users,settings}};
+function render(keep){
+  const y=window.scrollY, v=S.view[S.role];
+  $("#side").innerHTML=side(); $("#tabs").innerHTML=tabs();
+  $("#crumb").innerHTML=`<span>${AREA[S.role]}</span><span>/</span><b>${CRUMB[v]}</b>`;
+  $("#main").innerHTML=V[S.role][v](); $("#role").value=S.role;
+  window.scrollTo({top:keep?y:0});
+}
+const go=v=>{S.view[S.role]=v; render();};
+const onDay=k=>S.role==="engineer"&&S.view.engineer==="day"&&S.step===k;
+
+document.addEventListener("click",e=>{
+  const b=e.target.closest("button,[data-nav],tr[data-act]"); if(!b) return; const d=b.dataset;
+  if(d.nav){go(d.nav); return;}
+  if(d.step){S.step=d.step; S.allDone=false; render(); return;}
+  if(d.tab){S.tab=d.tab; render(true); return;}
+  if(d.unlock){S.unlock=d.unlock; render(true); setTimeout(()=>$("#ur")?.focus(),0); return;}
+  if(d.qv){S.qd[S.qi]=d.qv; S.qi++; render(); toast(d.qv==="ok"?"Approved.":"Rejected and sent back for rework."); return;}
+  if(d.pick!==undefined){S.q.pick=+d.pick; if(QUIZ[S.q.i].o[+d.pick][1]) S.q.ok++; render(true); return;}
+  const keep=()=>render(true);
+  switch(d.act){
+    case "prep": S.done.prep=1; S.step=nextOpenStep(); render(); toast("Prep saved to your private journal."); break;
+    case "learn": S.done.learn=1; S.step=nextOpenStep(); render(); break;
+    case "mock": S.done.mock=1; S.step=nextOpenStep(); render(); toast("Call logged."); break;
+    case "write": S.done.write=1; S.ws="scoring"; keep(); setTimeout(()=>{S.ws="scored"; if(onDay("write")) keep();},1300); break;
+    case "toNext": S.step=nextOpenStep(); render(); break;
+    case "qw": S.q.txt=$("#qw").value; S.q.ws="scoring"; keep(); setTimeout(()=>{S.q.ws="scored"; if(onDay("quiz")) keep();},1200); break;
+    case "qNext": S.q.i++; S.q.pick=null; render(); break;
+    case "finish": S.done.quiz=1; S.allDone=true; render(); break;
+    case "review": S.allDone=false; S.step="prep"; render(); break;
+    case "copy": (navigator.clipboard?.writeText("Demo: the full card prompt is copied here.")||Promise.reject()).then(()=>toast("Prompt copied. Paste it into Claude or ChatGPT."),()=>toast("In the portal this copies the full card prompt.")); break;
+    case "sc": toast(S.fail?"Scorecard saved. Day 6 opens after the retake is passed.":"Scorecard submitted. Day 6 is open."); break;
+    case "live": toast(S.live==="later"?"Scheduled. Day 44 is open.":"Saved. Day 44 is open."); break;
+    case "soon": toast("Opens in the full portal."); break;
+    case "ack": toast("Acknowledged. Added to the engineer’s timeline."); break;
+    case "uc": S.unlock=null; keep(); break;
+    case "us": toast(`Unlocked for ${S.unlock}. Reason saved.`); S.unlock=null; keep(); break;
+    case "ov": {const n=$("#ovn").value.trim(), r=document.querySelector('input[name="ov"]:checked'); if(!n){toast("Add a note so Meera knows why."); $("#ovn").focus(); break;} S.ov.push({by:"Priya Rao",from:S.ov.at(-1)?.to??3,to:+r.value,note:n,when:"Today"}); keep(); toast("Score saved. Meera sees both scores."); break;}
+    case "gs": toast("Gate result saved."); break;
+    case "pub": toast("Pools published for Days 1–5."); break;
+    case "saved": toast("Saved."); break;
+  }
+});
+document.addEventListener("change",e=>{
+  const t=e.target;
+  if(t.id==="role"){S.role=t.value; render(); return;}
+  if(t.dataset.act==="fail"){S.fail=t.checked; render(true); return;}
+  if(t.name==="src"){S.wsrc=t.value; render(true); return;}
+  if(t.name==="lp"){S.live=t.value; render(true); return;}
+  if(t.name==="gno"){S.gateNo=+t.value; S.gate={}; render(true); return;}
+  if(/^g\d+$/.test(t.name)){S.gate[t.name]=t.value; render(true); return;}
+  if(t.dataset.roleOf){
+    const admins=[...document.querySelectorAll("[data-role-of]")].filter(s=>s.value==="Admin");
+    if(!admins.length){t.value="Admin"; toast("At least one admin must stay active."); return;}
+    toast(`Role changed for ${t.dataset.roleOf}. Logged.`);
+  }
+});
+document.addEventListener("input",e=>{ if(e.target.id==="ur") $("#us").disabled=!e.target.value.trim(); if(e.target.id==="qw") S.q.txt=e.target.value; });
+$("#theme").addEventListener("click",()=>{const r=document.documentElement, dark=r.dataset.theme?r.dataset.theme==="dark":matchMedia("(prefers-color-scheme: dark)").matches; r.dataset.theme=dark?"light":"dark";});
+render();
+</script>
+
+</body></html>

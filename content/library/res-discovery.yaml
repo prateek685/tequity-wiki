@@ -1,0 +1,43 @@
+id: res-discovery
+kind: resource
+title: "Asking questions and thinking like a product engineer"
+summary: "Learn what people actually do, and explain and demo things simply."
+blocks:
+  - type: text
+    text: "Asking about what people actually do, not what they might want, and making technical points memorable."
+  - type: watch
+    url: https://www.youtube.com/c/robfitzpatrick
+    title: "Rob Fitzpatrick's talks (YouTube)"
+    meta: "Free · The Mom Test"
+  - type: watch
+    url: https://www.youtube.com/watch?v=S4eQ8m2RFaY
+    title: "Interview: The Mom Test with Rob Fitzpatrick"
+    meta: "Free"
+  - type: watch
+    url: https://www.momtestbook.com/
+    title: "Book: The Mom Test"
+    meta: "Optional paid"
+  - type: watch
+    url: https://blog.pragmaticengineer.com/the-product-minded-engineer/
+    title: "Gergely Orosz: The Product-Minded Software Engineer"
+    meta: "Free · Thinking about users, business and “why”, not just the ticket"
+  - type: watch
+    url: https://heathbrothers.com/resources/
+    title: "Chip and Dan Heath: free resources"
+    meta: "Free signup · Chapter 1 and the SUCCESs model from Made to Stick"
+  - type: watch
+    url: https://heathbrothers.com/books/made-to-stick/
+    title: "Book: Made to Stick"
+    meta: "Optional paid"
+  - type: watch
+    url: https://greatdemo.com/blog/
+    title: "Peter Cohan: Great Demo! free articles"
+    meta: "Free · “Do the last thing first”"
+  - type: watch
+    url: https://archive.org/details/greatdemohowtocr0000coha
+    title: "Great Demo!: borrow the book free (Internet Archive)"
+    meta: "Free account"
+  - type: watch
+    url: https://www.amazon.com/Great-Demo-Stunning-Software-Demonstrations/dp/059534559X
+    title: "Book: Great Demo!"
+    meta: "Optional paid"

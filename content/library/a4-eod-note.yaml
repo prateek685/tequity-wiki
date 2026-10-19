@@ -1,0 +1,46 @@
+id: a4-eod-note
+kind: template
+ref: A4
+title: "Daily status (EOD) note"
+summary: "What you did, what is next, questions to answer by number, and risks."
+blocks:
+  - type: text
+    text: "Send it at the end of each day. Questions are numbered so the client can reply by number."
+  - type: message
+    label: "The template"
+    text: |-
+      [Project] EOD update – [date] – Status: GREEN (on track)
+
+      Done today
+
+      - \_\_\_
+
+      Plan for tomorrow
+
+      - \_\_\_
+
+      Questions for you (reply by number)
+
+      1. \_\_\_
+      2. \_\_\_
+
+      Risks
+
+      - none / \_\_\_ → what I'm doing about it
+  - type: copy
+    label: "Copy template"
+    text: |-
+      [Project] EOD update – [date] – Status: GREEN (on track)
+
+      Done today
+      - ___
+
+      Plan for tomorrow
+      - ___
+
+      Questions for you (reply by number)
+      1. ___
+      2. ___
+
+      Risks
+      - none / ___ → what I'm doing about it

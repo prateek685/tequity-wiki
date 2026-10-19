@@ -1,0 +1,74 @@
+# CI (docs/PORTAL_PLAN.md §12): every pull request runs lint, typecheck and unit tests, the database
+# and API integration tests against real Postgres 18 + Redis 8, the builds, and the end-to-end tests.
+# Merging is blocked unless this passes (set the branch protection rule on `main`).
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4 # version from package.json "packageManager"
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+
+      # Throwaway CI-only values. No real secrets here.
+      - name: Local env files
+        run: |
+          cp .env.example .env
+          sed -i "s/^POSTGRES_PASSWORD=$/POSTGRES_PASSWORD=ci_postgres_password/" .env
+          cp apps/api/.env.example apps/api/.env
+          sed -i "s#<APP_DB_PASSWORD>#ci_app_password#; s#<POSTGRES_PASSWORD>#ci_postgres_password#; s/^APP_DB_PASSWORD=$/APP_DB_PASSWORD=ci_app_password/; s/^COOKIE_SECRET=$/COOKIE_SECRET=ci-only-cookie-secret-ci-only-cookie-secret/; s/^INITIAL_ADMIN_EMAILS=$/INITIAL_ADMIN_EMAILS=admin@company.com/; s/^DEV_LOGIN_ENABLED=false/DEV_LOGIN_ENABLED=true/" apps/api/.env
+
+      - name: Lint, format and typecheck
+        run: |
+          pnpm lint
+          pnpm lint:css
+          pnpm format:check
+          pnpm typecheck
+
+      - name: Unit tests
+        run: pnpm test
+
+      - name: Content check (lessons and questions from the PDF)
+        run: pnpm content:check
+
+      - name: Start Postgres 18 and Redis 8
+        run: docker compose up -d --wait
+
+      - name: Migrate and seed
+        run: |
+          pnpm db:migrate
+          pnpm db:seed
+          pnpm content:import
+
+      - name: Database, API and job integration tests
+        run: pnpm test:db
+
+      - name: Build
+        run: pnpm build
+
+      - name: End-to-end tests (desktop and 390px phone, against pnpm dev)
+        run: |
+          pnpm --filter @portal/web exec playwright install --with-deps chromium
+          pnpm test:e2e
+
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: playwright-report
+          path: apps/web/test-results
+          retention-days: 7

@@ -1,0 +1,183 @@
+# Day 8 quiz pool: Wednesday, March 11. Dr. Mercer and the double-booking bug, the Pyramid Principle, plain
+# patient terms. Shows 5 of 10.
+pool: day-08
+questions:
+  - id: D08-01
+    type: mcq
+    stem: "Dr. Mercer opens: “Dana mentioned some kind of booking bug. What's going on?” Which first sentence is best?"
+    options:
+      - text: "“So on Monday our QA engineer was running booking tests in staging, and she noticed something odd…”"
+        correct: false
+        explanation: The story in the order it happened. He has to wait for the point.
+      - text: "“It's a race condition in the slot-locking logic.”"
+        correct: false
+        explanation: Accurate, but jargon. He'll ask what it means for his patients.
+      - text: "“We found a double-booking bug in testing, and we're fixing it this week, before any patient could be affected.”"
+        correct: true
+        explanation: The main message first, in plain words. He could stop listening here and know what matters.
+      - text: "“I'm really sorry, Dr. Mercer, this is a serious mistake on our side.”"
+        correct: false
+        explanation: Over-apologising makes a caught test bug sound like a patient incident.
+    source: { quote: "We found a double-booking bug in testing and are fixing it this week, before any patient could be affected.", page: 40 }
+
+  - id: D08-02
+    type: mcq
+    stem: "You mention “locking”, and Dr. Mercer stops you: “I'm sorry, what does that mean for my patients?” What do you say?"
+    options:
+      - text: "“Locking means the database prevents concurrent writes to the same row.”"
+        correct: false
+        explanation: A definition in more jargon. He asked about patients.
+      - text: "“It's technical, you don't need to worry about it.”"
+        correct: false
+        explanation: Brushes off a doctor's question about patients. Trust drops.
+      - text: "“For patients: two people could pick the same appointment time in the same second, and both get a confirmation. The fix makes the system hold the slot for a few seconds while one person books it.”"
+        correct: true
+        explanation: What could happen to a patient and how it's fixed, in words a clinic manager could repeat.
+      - text: "“Let me get the tech lead to explain it properly.”"
+        correct: false
+        explanation: Passing the question on. You own the explanation.
+    source: { quote: "I'm sorry — what does that mean for my patients?", page: 41 }
+
+  - id: D08-03
+    type: mcq
+    stem: "Dr. Mercer asks, “Could this happen after go-live?” What's the best reply?"
+    options:
+      - text: "“No, never. Once it's fixed, it's gone for good.”"
+        correct: false
+        explanation: A promise no engineer can keep. If anything similar happens, he'll remember it.
+      - text: "“Bugs happen in all software, unfortunately.”"
+        correct: false
+        explanation: True but dismissive. It sounds like you accept it.
+      - text: "“I'd have to check with QA and get back to you.”"
+        correct: false
+        explanation: You know the plan. Saying “I'll check” here sounds unprepared.
+      - text: "“This one won't: the fix is retested on Friday, and we're adding an automatic check that tries double bookings in every release, so it can't quietly come back.”"
+        correct: true
+        explanation: A specific answer about this bug, backed by how you'll keep it from coming back.
+    source: { quote: "Could this happen after go-live?", page: 40 }
+
+  - id: D08-04
+    type: mcq
+    stem: "Dr. Mercer asks, “What else haven't you found yet?” Which reply builds the most trust?"
+    options:
+      - text: "“Nothing, I'm confident it's all fine now.”"
+        correct: false
+        explanation: Nobody can promise zero bugs. It sounds like you haven't thought about it.
+      - text: "“Honestly, could be anything. Software is complicated.”"
+        correct: false
+        explanation: Honest, but it leaves him more worried and with no plan.
+      - text: "“I can't promise zero bugs, but I can tell you how we catch them: QA tests every flow before each release, and your team tests it with us before the pilot. That's how we found this one.”"
+        correct: true
+        explanation: Honest about limits, then concrete about the safety net. Finding this bug becomes proof the process works.
+      - text: "“That's a strange question. We test everything.”"
+        correct: false
+        explanation: Defensive. His question is fair after the old phone system's problems.
+    source: { quote: "What else haven't you found yet?", page: 40 }
+
+  - id: D08-05
+    type: mcq
+    stem: >-
+      You have five facts about the bug for Dr. Mercer: how often it happened, where, the fix, the retest date, and the
+      new automatic check. How do you organise them?
+    options:
+      - text: All five, in the order the team found them
+        correct: false
+        explanation: Chronology makes him work out what matters himself.
+      - text: Build up through the facts, and give the conclusion at the end
+        correct: false
+        explanation: A busy reader may stop before the end and miss the point.
+      - text: "The main message first, then the facts grouped into three points: what happened, the fix, and how you'll stop it coming back"
+        correct: true
+        explanation: One message on top, three groups at most under it, each backed by facts.
+      - text: Just the main message. Details only confuse a doctor.
+        correct: false
+        explanation: Without support, the main message sounds like a brush-off.
+    source: { quote: "Group the supporting points under it (three at most).", page: 34 }
+
+  - id: D08-06
+    type: mcq
+    stem: "Dr. Mercer asks, “Can you give me two sentences I can share with my clinic managers?” Which pair is best?"
+    options:
+      - text: "“A concurrency defect in the booking service was identified in pre-production. Remediation is in progress.”"
+        correct: false
+        explanation: Formal jargon. Clinic managers can't tell if patients are affected.
+      - text: "“In testing, we found that two patients booking the same time at the same moment could both be confirmed. It's being fixed this week, before CareBook reaches any patient.”"
+        correct: true
+        explanation: Plain, specific, and it answers the managers' real question. Are our patients affected?
+      - text: "“There was a minor issue. Nothing to worry about.”"
+        correct: false
+        explanation: Too vague. Managers will ask what the issue was.
+      - text: "“Please find below a detailed summary of the root cause analysis and remediation plan.”"
+        correct: false
+        explanation: He asked for two sentences, not a report.
+    source: { quote: "You want two plain sentences you can share with your clinic managers.", page: 41 }
+
+  - id: D08-07
+    type: scenario
+    clientLine: "“Two years ago our old phone system double-booked patients. It went all the way to our board.”"
+    stem: Dr. Mercer sounds worried. What's the best reply?
+    options:
+      - text: "“That was a different system, so it's not really related.”"
+        correct: false
+        explanation: Technically true, but it dismisses the worry behind his words.
+      - text: "“That's exactly why we're glad QA caught this now, in testing. It's fixed before any Lakeside patient sees CareBook, and an automatic check will test for it in every release.”"
+        correct: true
+        explanation: You link his past pain to what you're doing differently, with facts.
+      - text: "“Oh no. I hope that doesn't happen again.”"
+        correct: false
+        explanation: Sympathy without a plan adds to his worry.
+      - text: "“I'm sure the board won't hear about this one.”"
+        correct: false
+        explanation: Sounds like hiding, not fixing.
+    source: { quote: "patients complained to the board", page: 41 }
+
+  - id: D08-08
+    type: scenario
+    clientLine: "“Dr. Mercer just pinged me about a bug. Should I be worried? One line, please.”"
+    stem: Dana messages you on Slack between meetings. What do you send?
+    options:
+      - text: "“Not worried: a double-booking bug was found in testing, it's fixed Thursday and retested Friday, and no patient or the April 27 date is affected.”"
+        correct: true
+        explanation: The answer, then the facts that support it, in one line she can stop reading after.
+      - text: "“Let me explain. On Monday QA ran 400 test bookings and three of them…”"
+        correct: false
+        explanation: She asked for one line. The answer is buried.
+      - text: "“Can we jump on a call to discuss?”"
+        correct: false
+        explanation: A call for something one line can answer.
+      - text: "“It's under control, don't worry.”"
+        correct: false
+        explanation: No facts behind it, so it doesn't actually reassure her.
+    source: { quote: "The reader should be able to stop after the first line and still know what matters.", page: 34 }
+
+  - id: D08-09
+    type: written
+    stem: >-
+      Lisa Chen, Lakeside's Clinic Operations Manager, messages you: “My front desk heard CareBook double-books
+      patients. What do I tell them?” Write your reply in 2–3 plain sentences.
+    modelAnswer: >-
+      You can tell them no patient has been double-booked: we found the problem in our test system, before CareBook
+      is live at any clinic. The fix is done this week and retested on Friday, and an automatic check will test for it
+      in every release.
+    scoringPoints:
+      - The first sentence answers what to tell the front desk (no patient affected)
+      - Says it was found in testing, before go-live, with the fix and retest dates
+      - Plain words a front desk understands, with no jargon
+    source: { quote: "Staging (test system) only. No real patients", page: 40 }
+
+  - id: D08-10
+    type: written
+    stem: >-
+      Kevin, Brightpath's CTO, asks for the technical version of the bug for his notes. He's technical, but busy.
+      Write it as a pyramid: one main message and three short points.
+    modelAnswer: >-
+      Main message: the double-booking bug is a race when two bookings reserve the same slot at once; the fix lands
+      Thursday and QA retests Friday, with no impact on April 27.
+      1. Cause: two requests in the same second could both confirm the slot (3 in 400 test bookings, staging only).
+      2. Fix: a short hold on the slot while one booking completes.
+      3. Prevention: an automated test that tries concurrent bookings in every release.
+    scoringPoints:
+      - The main message comes first and includes the date and impact
+      - Exactly three grouped points, each backed by a fact
+      - Technical terms are fine for Kevin, but the structure stays short and scannable
+    source: { quote: "Back each point with facts.", page: 34 }

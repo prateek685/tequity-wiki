@@ -1,0 +1,178 @@
+# Day 20 quiz pool: Friday, March 27. The Gate 1 dress rehearsal: a 20-minute weekly sync after the Sprint 4 demo,
+# the Epic risk in one sentence, the fourth-clinic surprise, the close, and closing loops. Shows 5 of 10.
+pool: day-20
+questions:
+  - id: D20-01
+    type: mcq
+    stem: "Halfway through the sync, Dana says: “Oh — Lakeside wants to add Eastside as a fourth pilot clinic. That's fine, right?” What's the best reply?"
+    options:
+      - text: "“Sure, no problem.”"
+        correct: false
+        explanation: A yes before you know what it costs, and she'll tell Lakeside it's confirmed.
+      - text: "“No. The scope is locked.”"
+        correct: false
+        explanation: A no before you've looked. It may be possible.
+      - text: "“A fourth clinic is a good sign. Before I say yes, let me check what it means for training, schedules and Epic setup. I'll come back to you by Tuesday.”"
+        correct: true
+        explanation: Positive, no commitment on the spot, and a dated answer.
+      - text: "“Whatever you think is best.”"
+        correct: false
+        explanation: Waiting language. She needs your view on the impact.
+    source: { quote: "Before I say yes, let me check what it means for training, schedules and Epic setup", page: 62 }
+
+  - id: D20-02
+    type: mcq
+    stem: "Dana asks: “Can you give me the Epic risk in one sentence for my CEO?” Which is best?"
+    options:
+      - text: "“If we don't have Lakeside's Epic access by April 6, the April 27 pilot is at risk; we've started a plan B so no work is wasted.”"
+        correct: true
+        explanation: The date, the impact and what you're doing, in one sentence.
+      - text: "“We requested access on February 24, then the form needed a signature, then Sam said 1–2 weeks…”"
+        correct: false
+        explanation: History first. Her CEO needs the risk, not the story.
+      - text: "“It's probably fine. These things usually come through.”"
+        correct: false
+        explanation: Hides a real risk from the person who reviews the plan on Monday.
+      - text: "“The FHIR sandbox OAuth client hasn't been provisioned.”"
+        correct: false
+        explanation: Jargon a CEO can't act on.
+    source: { quote: "Real Lakeside access needed by Mon Apr 6, or the Apr 27 pilot is at risk.", page: 62 }
+
+  - id: D20-03
+    type: mcq
+    stem: "Dana asks: “Are we still on for April 27?” What's the best reply?"
+    options:
+      - text: "“Definitely, nothing to worry about.”"
+        correct: false
+        explanation: Leaves out the one condition that could move the date.
+      - text: "“Hard to say. There are a lot of moving parts.”"
+        correct: false
+        explanation: Vague, and it sounds worse than the truth.
+      - text: "“Yes, as of today, with one condition: Lakeside's Epic access by April 6. That's why I need your escalation by Tuesday.”"
+        correct: true
+        explanation: Answer first, the condition, then the ask that protects the date.
+      - text: "“Should I check with the team and get back to you?”"
+        correct: false
+        explanation: You know the answer. Asking permission makes you sound unsure.
+    source: { quote: "Are we still on for April 27?", page: 62 }
+
+  - id: D20-04
+    type: mcq
+    stem: "Dana asks: “Did everything in Sprint 4 make it?” What's the best reply?"
+    options:
+      - text: "“Yes, everything.”"
+        correct: false
+        explanation: The schedule view didn't. She'll find out, and trust drops.
+      - text: "“Almost. The intake form and calendar button are done; the schedule view needs two more days in Sprint 5, with no pilot impact.”"
+        correct: true
+        explanation: Answer first, the slip with its size, and the impact.
+      - text: "“We had some challenges with the schedule view because the filters and the time zones took longer than…”"
+        correct: false
+        explanation: Background first, and she still doesn't know the impact.
+      - text: "“Sorry, I'm really sorry, the schedule view slipped.”"
+        correct: false
+        explanation: Over-apologising for a two-day slip with no pilot impact.
+    source: { quote: "Clinic staff schedule view is at 80%. The last 20% moves into Sprint 5 (2 days). No pilot impact.", page: 62 }
+
+  - id: D20-05
+    type: mcq
+    stem: "Mid-call, Dana jumps topic: “By the way, is Laura's questionnaire going to be a problem?” What's the best reply?"
+    options:
+      - text: "“No: 80 of 120 are answered, 12 are with Rachel Kim, and all are due April 3. Back to Epic for a second: I need one thing from you.”"
+        correct: true
+        explanation: A short, factual answer, then back to the ask that matters most.
+      - text: "“That's Rachel's area, not mine.”"
+        correct: false
+        explanation: You're coordinating it. Own the status.
+      - text: A full walk through all 40 open questions.
+        correct: false
+        explanation: Loses the call, and the Epic ask never happens.
+      - text: "“Hopefully not.”"
+        correct: false
+        explanation: Waiting language when you have the numbers.
+    source: { quote: "Laura's: 80 of 120 answered, 12 items with Rachel Kim, due Fri Apr 3.", page: 62 }
+
+  - id: D20-06
+    type: mcq
+    stem: "At 19 minutes, Dana says: “I've got to board. Anything else?” What's the best reply?"
+    options:
+      - text: "“No, all good. Safe flight!”"
+        correct: false
+        explanation: No recap of who does what. Asks get lost over the weekend.
+      - text: "“Can we take another 15 minutes?”"
+        correct: false
+        explanation: She's boarding. Close on time.
+      - text: "“Just the recap: you escalate Epic by Tuesday, and I come back on Eastside by Tuesday. The recap will be in your inbox within two hours.”"
+        correct: true
+        explanation: Both commitments with owners and dates, and the written recap promised.
+      - text: Go through the sprint details once more so nothing is missed.
+        correct: false
+        explanation: "Repeats everything except what matters: who does what, by when."
+    source: { quote: "To recap: Epic escalation by Tuesday, my answer on the fourth clinic by Tuesday.", page: 62 }
+
+  - id: D20-07
+    type: scenario
+    clientLine: "“Great, I'll tell them it's confirmed.”"
+    stem: You just said “Should be fine” about the fourth clinic without thinking. What do you say?
+    options:
+      - text: Say nothing, and hope it works out.
+        correct: false
+        explanation: A commitment you can't stand behind goes to Lakeside as confirmed.
+      - text: "“Let me take that back before you do. I answered too fast. A fourth clinic affects training, schedules and Epic setup; I'll confirm what it takes by Tuesday.”"
+        correct: true
+        explanation: Corrects it at once, in one calm line, with a dated answer.
+      - text: "“I'm so sorry, I didn't mean it, I'm really sorry.”"
+        correct: false
+        explanation: An apology spiral, and no next step.
+      - text: "“Okay, confirm it.”"
+        correct: false
+        explanation: Turns a slip into a promise.
+    source: { quote: "Great, I'll tell them it's confirmed.", page: 63 }
+
+  - id: D20-08
+    type: scenario
+    clientLine: "“My CEO will ask why we didn't escalate the Epic access weeks ago.”"
+    stem: What's the best reply?
+    options:
+      - text: "“Lakeside's IT team is just slow.”"
+        correct: false
+        explanation: Blames the client's client. Your CEO answer needs facts, not blame.
+      - text: "“That's a fair question. We followed Lakeside's process: the form was signed and we chased every week. Now it's blocking, so we're escalating by Tuesday, and plan B is already running.”"
+        correct: true
+        explanation: Facts, what changed, and what's happening now.
+      - text: "“That wasn't my call.”"
+        correct: false
+        explanation: Steps away from a risk you've owned all month.
+      - text: "“I'm really sorry, we should have done more.”"
+        correct: false
+        explanation: Apologises instead of answering, and gives her nothing for the CEO.
+    source: { quote: "Escalate Epic access to Lakeside leadership by Tue Mar 31.", page: 62 }
+
+  - id: D20-09
+    type: written
+    stem: >-
+      3:30 pm Central. The UAT release finished at 2:40 and the 30-minute smoke test passed. Kevin hasn't asked. Write
+      your message to him.
+    modelAnswer: >-
+      Hi Kevin, the Sprint 4 release is live in UAT as of 2:40 pm Central. The 30-minute smoke test passed, no
+      rollback was needed, and Jordan's team has the release notes. The last part of the schedule view follows in
+      Sprint 5.
+    scoringPoints:
+      - Closes the loop without being asked, answer first
+      - Gives the facts (time, smoke test, rollback, release notes)
+      - Short, with anything still open named
+    source: { quote: "30-minute smoke test after deploy", page: 56 }
+
+  - id: D20-10
+    type: written
+    stem: >-
+      Monday, 8 am Central. Dana texts: “CEO review in an hour. Two lines on where we are?” Write them.
+    modelAnswer: >-
+      Sprint 4 delivered the intake form and Add to calendar; the schedule view finishes in Sprint 5 with no pilot
+      impact. The one risk: if Lakeside's Epic access isn't in by April 6, the April 27 pilot is at risk; plan B is
+      running, and Lakeside leadership is being asked to escalate by Tuesday.
+    scoringPoints:
+      - Two lines, bottom line first
+      - The Epic risk with its date, its impact and what's being done
+      - Plain words a CEO can repeat
+    source: { quote: "Your CEO reviews the pilot plan on Monday, so you need the Epic risk in one sentence.", page: 63 }

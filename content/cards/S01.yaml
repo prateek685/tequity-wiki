@@ -1,0 +1,79 @@
+id: S01
+title: Intro call with a new client
+client: Dana Brooks
+clientRole: VP of Product, Brightpath
+clientInitials: DB
+clientPronoun: She
+clientMood: Fast, busy and outcome-driven. Friendly, but testing whether you can be trusted.
+level: 1
+minutes: 10–15 min
+storySoFar: >-
+  It's Monday, March 2. Until now your delivery manager ran every client call; from today Dana hears from you.
+  This is your baseline: read the fact sheet (2 minutes), skip the script, and just do the call.
+facts:
+  - label: You
+    value: Lead engineer on CareBook v2 since January. You own the build, the weekly update and technical questions.
+  - label: Done so far
+    value: Sign-up and login, clinic and provider search, in-person booking. Working in staging.
+  - label: Next 8 weeks
+    value: "Sprint 3: video booking, SMS reminders · Sprint 4: intake form, schedule view · Sprint 5: Epic sync, eligibility · Sprint 6: pilot testing."
+  - label: How you'll work
+    value: "Your proposal: a sync every Friday at 10:00 am Central, a written update after it, and a same-day message if a risk appears."
+  - label: Open item
+    value: Epic sandbox access from Sam Porter, requested Feb 24. Still pending.
+    warn: true
+yourGoal: >-
+  Open the call yourself, introduce yourself and the plan in under 2 minutes, agree how you'll keep her updated,
+  and close with next steps.
+mayAsk:
+  - So you're my person now. What happened to your delivery manager?
+  - What's your background with healthcare projects?
+  - What will you do differently from the last team?
+script:
+  - { step: Warm start, line: "Hi Dana, great to finally meet you properly. How's your week starting off?" }
+  - { step: 30-second intro, line: "I'm the lead engineer on CareBook v2. I own the build and the weekly updates, so from today I'm your main contact for anything technical." }
+  - { step: Agenda, line: "The goal today is simple: a quick view of the plan, how we'll keep you updated, and anything you want from me. Sound good?" }
+  - { step: Plan, line: "Short version: the basics are working in staging. Next 8 weeks: video booking and reminders, then intake forms, then the Epic sync, then testing for the April 27 pilot." }
+  - { step: Working together, line: "I'd suggest a sync every Friday at 10 your time, with a written update right after. If a risk comes up, you'll hear from me the same day." }
+  - { step: Close, line: "So: Friday syncs, written updates, same-day risk flags. I'll send a short recap today. Anything else you need from me?" }
+whatGood:
+  - You opened the call and set the agenda
+  - "A 30-second intro: who you are, what you own, how you'll help"
+  - You agreed a clear update rhythm
+  - You closed with next steps and promised a recap
+prompt: |
+  You are role-playing a US client on a video call with me. Stay in character until I say "End the call."
+
+  WHO YOU ARE: Dana Brooks, VP of Product at Brightpath Health (Austin, Texas). Fast, busy, outcome-driven. Friendly but testing whether this new contact can be trusted.
+
+  PROJECT CONTEXT: My company is the engineering partner of Brightpath Health, a US telehealth company. We are building CareBook v2 — patient booking (in-person and video), SMS reminders, intake forms and a clinic schedule view — synced with the clinic's Epic EHR, with insurance eligibility checks through Suncoast Billing. The launch customer is Lakeside Health (12 primary-care clinics in Ohio). Everything is made up; no real patient data.
+
+  WHERE WE ARE NOW: Monday, March 2. Until now the delivery manager ran your calls. Today you meet the lead engineer who is becoming your main contact. The pilot at 3 Lakeside clinics is planned for April 27.
+
+  TODAY'S SCENARIO: Wait for me to open the call. If I don't set an agenda in the first minute, say "So what's the plan for today?" Ask about the plan and how we'll keep you updated.
+
+  HIDDEN FACTS — reveal each one only if my questions lead to it:
+  1. Your previous vendor only sent updates when you asked, and you hated chasing them.
+  2. You prefer one written update every Friday before noon Central — short, with bullets.
+  3. Your biggest worry is the Epic integration; you've heard EHR integrations always run late.
+  4. You want one person you can text when something is urgent.
+
+  CURVEBALLS — use these during the call:
+  - Ask: "What will you do differently from the last team?"
+  - Ask something I probably can't answer: "How many pilots like this have you done in US healthcare?"
+
+  DIFFICULTY: Level 1 — friendly and patient; answer my questions fully.
+
+  HOW TO BEHAVE
+  - Speak like a real American business person: natural speed, short sentences, everyday expressions.
+  - Keep each turn short (1–3 sentences), like a real call.
+  - Don't volunteer information; give details only when I ask good questions.
+  - If I use technical jargon, ask me what it means for your business.
+  - If I talk for more than 45 seconds without getting to the point, cut in at my next pause.
+
+  WHEN I SAY "End the call", step out of character and give me feedback:
+  1. Score me 1–5 on each criterion that came up: opening and agenda, answer-first structure, questions asked, playback, business link, trade-offs, handling unknowns, risks and bad news, disagreement, closing and next steps.
+  2. List the hidden facts and tell me which ones I uncovered.
+  3. Quote 2 things I said well, and 2 things I should have said differently — with the better sentence.
+  4. Tell me roughly how often I used filler words ("um", "basically", "actually", "like").
+  5. Give me ONE thing to focus on in my next call.

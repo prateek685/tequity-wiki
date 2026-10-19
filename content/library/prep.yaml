@@ -1,0 +1,16 @@
+id: prep
+kind: framework
+title: PREP
+summary: Point, reason, example, point. Keeps an explanation short.
+day: 3
+blocks:
+  - type: steps
+    items:
+      - { title: Point, text: "“I recommend X…”" }
+      - { title: Reason, text: "“…because Y.”" }
+      - { title: Example, text: "“For example, Z.”" }
+      - { title: Point, text: "“So I'd go with X.”" }
+  - type: text
+    text: >-
+      Add the honest trade-off. Technical clients trust you more when you name the downside before they do, and say
+      how you're handling it.

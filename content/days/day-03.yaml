@@ -1,0 +1,123 @@
+day: 3
+block: 1
+title: Explain a decision
+type: normal
+storyDate: Wednesday, March 4
+minutes: About 50 min
+intro: >-
+  Kevin, Brightpath's CTO, wants the reasoning behind React Native. Today you explain a decision with PREP and name
+  the trade-off honestly.
+lessons:
+  - id: kevin-wants-reasoning
+    kind: prep
+    title: Kevin wants the reasoning
+    minutes: 5 min
+    blocks:
+      - type: yesterday
+        text: you gave Dana answer-first updates. She's nudging Lakeside about the Epic access.
+      - type: scene
+        when: Wednesday, March 4 · a call with the CTO
+        text: >-
+          Kevin Walsh, Brightpath's CTO, missed the design review in January when the team chose React Native for the
+          patient app. A board member just asked him about app quality, and he'd have preferred two native apps. He
+          wants to hear the reasoning directly from you.
+      - type: text
+        text: >-
+          Before the call, sketch your answer as four bullets. You'll learn the structure in the next lesson; for now,
+          just note what you'd say.
+    fields:
+      - { id: point, label: "Point: what you recommend", kind: line, placeholder: We chose React Native because… }
+      - { id: reason, label: "Reason: why", kind: line }
+      - { id: example, label: "Example: one real fact", kind: line }
+      - { id: point-again, label: "Point again: so…", kind: line }
+
+  - id: prep-framework
+    kind: learn
+    title: PREP
+    heading: "PREP: point, reason, example, point"
+    minutes: 10 min
+    lead: >-
+      For any explanation, give your point first, then one reason, one real example, and your point again. It keeps
+      you short and stops you rambling through history.
+    blocks:
+      - type: steps
+        items:
+          - { title: Point, text: "“I recommend X…”" }
+          - { title: Reason, text: "“…because Y.”" }
+          - { title: Example, text: "“For example, Z.”" }
+          - { title: Point, text: "“So I'd go with X.”" }
+      - { type: heading, text: Add the honest trade-off }
+      - type: text
+        text: >-
+          Technical clients trust you more when you name the downside before they do, and say how you're handling it.
+          “The honest trade-off: native features like the video SDK take a bit longer. We've planned two extra days.”
+      - type: watch
+        url: https://www.youtube.com/watch?v=HAnw168huqA
+        title: "Matt Abrahams: Think Fast, Talk Smart"
+        meta: Stanford GSB · finish the talk today
+
+  - id: explain-react-native
+    kind: mock
+    title: Explain React Native to Kevin
+    minutes: 15 min
+    lead: >-
+      Explain the decision with PREP in under 90 seconds, then handle his follow-ups without getting defensive.
+    cardId: S03
+    level: 1
+    scriptNote: Use it the first time, then try the call again without it.
+
+  - id: react-native-review
+    kind: reflect
+    title: How did the call go?
+    minutes: 5 min
+    lead: Tick what you managed, then note what the AI told you.
+    checksTitle: On this call, I…
+    checks:
+      - gave the point in the first sentence
+      - used a real reason and a real example
+      - named the trade-off honestly
+      - offered a written follow-up with a date
+    fields:
+      - { id: went-well, label: What went well, kind: area, placeholder: "From the AI's feedback" }
+      - { id: fix-next, label: One thing to fix next time, kind: area, placeholder: "e.g. I got defensive on “Why not Flutter?”" }
+      - { id: log, label: "When I was asked a question, what did I say first — the answer, or the background?", kind: area, rows: 2 }
+    rubric: true
+
+  - id: prep-paragraph
+    kind: write
+    title: Write it as a paragraph
+    heading: Write your PREP answer as a paragraph
+    minutes: 10 min
+    lead: >-
+      Kevin wants something he can show the board. Turn your call answer into five sentences: point, reason, example,
+      trade-off, point.
+    blocks:
+      - type: note
+        tone: info
+        title: Tighten it with AI.
+        text: >-
+          Copy the review prompt, paste it with your paragraph, and apply the edits you agree with. Never paste client
+          documents or patient data.
+      - type: copy
+        label: Copy review prompt
+        text: |
+          Tighten this paragraph for a US CTO who will show it to his board. Keep the order: point, reason, example, trade-off, point. Keep it to five short sentences in plain American business English. Cut filler and jargon, keep every fact and number exactly as it is, and don't add new claims. Show the edited paragraph first, then list each change in one line.
+
+          My paragraph:
+          [paste your paragraph here]
+    fields:
+      - { id: paragraph, label: Your paragraph, kind: area, rows: 6, placeholder: We chose React Native because… }
+
+scoring:
+  prep-paragraph:
+    modelAnswer: >-
+      We chose React Native for the patient app because it gets a reliable app to both iOS and Android faster, with
+      one team. One codebase means about 30% less build and test effort, and three of our four engineers work in React
+      every day. For example, the booking flow works the same on both platforms, and the app starts in 1.8 seconds on
+      a mid-range Android phone. The honest trade-off is that native features like the video SDK take a bit longer, so
+      we've planned two extra days and test on 12 phones, including older Android models. So React Native is still the
+      right choice for the April 27 pilot.
+    scoringPoints:
+      - The first sentence gives the point (the decision and why), not history
+      - The reason and example use real facts or numbers
+      - Names the trade-off honestly with how it's handled, and ends by restating the point

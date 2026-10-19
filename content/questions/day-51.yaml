@@ -1,0 +1,167 @@
+# Day 51 quiz pool: Monday, May 11. Product questions, why a feature matters, mapping features to business metrics. Shows 5 of 10.
+pool: day-51
+questions:
+  - id: D51-01
+    type: mcq
+    stem: "Maria says denials are “mostly eligibility errors”. Which product question do you ask next?"
+    options:
+      - text: "“How do we know it's a problem? Which reasons come up most often?”"
+        correct: true
+        explanation: "It asks for data, so the problem has a size."
+      - text: "“Can we make the check faster?”"
+        correct: false
+        explanation: "That jumps to a solution before you know the problem."
+      - text: "“Which framework would you like us to use?”"
+        correct: false
+        explanation: "The client doesn't care about the framework."
+      - text: "“Is 12% good or bad?”"
+        correct: false
+        explanation: "A yes/no question gets a one-word answer and no data."
+    source: { quote: "How do we know it's a problem (data)?", page: 130 }
+
+  - id: D51-02
+    type: mcq
+    stem: "You want to understand the user of the eligibility check before suggesting anything. What do you ask?"
+    options:
+      - text: "“When a check comes back ‘Inactive’, who acts on it, and what do they do?”"
+        correct: true
+        explanation: "It names the real user and what they do next."
+      - text: "“Do you like the new check?”"
+        correct: false
+        explanation: "A feedback question, not a user question."
+      - text: "“Should the API timeout be 3 or 5 seconds?”"
+        correct: false
+        explanation: "A technical question the client can't answer."
+      - text: "“Who owns the Suncoast portal?”"
+        correct: false
+        explanation: "It gets a name, not a user or a problem."
+    source: { quote: "Who is the user? What problem do they have?", page: 130 }
+
+  - id: D51-03
+    type: mcq
+    stem: "Which of these is a billing metric a client like Suncoast reports on?"
+    options:
+      - text: "Clean-claim rate."
+        correct: true
+        explanation: "Claims paid the first time. It is a billing metric."
+      - text: "No-show rate."
+        correct: false
+        explanation: "That is a provider metric."
+      - text: "Activation rate."
+        correct: false
+        explanation: "That is a digital health metric."
+      - text: "Audit findings."
+        correct: false
+        explanation: "That is a compliance metric."
+    source: { quote: "Billing: denial rate, days in A/R, clean-claim rate.", page: 130 }
+
+  - id: D51-04
+    type: mcq
+    stem: "Dana asks what the front desk gains from the waitlist. Which answer links it to a provider metric?"
+    options:
+      - text: "“Every refilled slot is a visit that would be lost. It protects the no-show rate, 18% at the start of the pilot.”"
+        correct: true
+        explanation: "A feature, a user and a named metric."
+      - text: "“It uses a new database table and a background job.”"
+        correct: false
+        explanation: "Technical talk. Dana can't use it."
+      - text: "“It's the most requested feature.”"
+        correct: false
+        explanation: "An opinion, not a metric."
+      - text: "“It took two sprints to build.”"
+        correct: false
+        explanation: "Effort, not value."
+    source: { quote: "Providers: no-show rate", page: 130 }
+
+  - id: D51-05
+    type: mcq
+    stem: "You've decided on an idea and want to test it. Which question helps you shrink it?"
+    options:
+      - text: "“What could we ship in 1–2 weeks to learn whether this works?”"
+        correct: true
+        explanation: "The smallest version that proves it."
+      - text: "“How long will the full version take?”"
+        correct: false
+        explanation: "It sizes the whole thing, not the test."
+      - text: "“Who will approve the budget?”"
+        correct: false
+        explanation: "A later question."
+      - text: "“Can we add more features first?”"
+        correct: false
+        explanation: "The opposite of an MVP."
+    source: { quote: "What could we ship in 1–2 weeks to learn whether this works?", page: 130 }
+
+  - id: D51-06
+    type: mcq
+    stem: "Which line from your daily log shows you did the Week 11 job today?"
+    options:
+      - text: "“I connected the eligibility check to the clean-claim rate.”"
+        correct: true
+        explanation: "One decision tied to one business metric."
+      - text: "“I fixed three bugs in the check.”"
+        correct: false
+        explanation: "Work done, but no metric."
+      - text: "“I attended the call.”"
+        correct: false
+        explanation: "Presence is not a link to a metric."
+      - text: "“I reviewed the API logs.”"
+        correct: false
+        explanation: "Technical, not a business link."
+    source: { quote: "Did I connect at least one decision to a business metric today?", page: 131 }
+
+  - id: D51-07
+    type: scenario
+    clientLine: "Why is an engineer asking me this?"
+    stem: "Maria challenges you at the start of the call. What do you say?"
+    options:
+      - text: "“Because I want to build the right thing. If I understand what a failed check costs you, I can tell you which fix matters most.”"
+        correct: true
+        explanation: "Honest, short, and tied to her goal."
+      - text: "“Dana asked me to.”"
+        correct: false
+        explanation: "It passes the blame and doesn't answer."
+      - text: "“Sorry, I'll stick to technical questions.”"
+        correct: false
+        explanation: "You give up the best part of the job."
+      - text: "“It's part of my training.”"
+        correct: false
+        explanation: "True, but it makes her time a training exercise."
+    source: { quote: "Why is an engineer asking me this?", page: 132 }
+
+  - id: D51-08
+    type: scenario
+    clientLine: "Can't you just make the check faster?"
+    stem: "Maria suggests a quick fix. What is your best reply?"
+    options:
+      - text: "“We can, but I'd like to know if speed is the problem. You said most denials are eligibility errors. When is it too slow?”"
+        correct: true
+        explanation: "It tests whether the idea fixes the metric."
+      - text: "“Yes, we'll cache it.”"
+        correct: false
+        explanation: "You solve before you know the problem."
+      - text: "“No, the API is slow.”"
+        correct: false
+        explanation: "Blames the API, learns nothing."
+      - text: "“That isn't what we're here to discuss.”"
+        correct: false
+        explanation: "It shuts her down."
+    source: { quote: "Can't you just make the check faster?", page: 132 }
+
+  - id: D51-09
+    type: written
+    stem: "Write the sentence you'd say to Maria to play back what you heard, using her numbers."
+    modelAnswer: "So what I'm hearing: about 7 in 10 denied claims are eligibility problems, they're caught too late at check-in, and success means raising the clean-claim rate from 84% to 95%. Did I get that right?"
+    scoringPoints:
+      - "Names what causes most denials and when it is caught"
+      - "Includes the metric with today's value and the target"
+      - "Ends by asking if it is right"
+    source: { quote: "Played back and set a next step", page: 132 }
+
+  - id: D51-10
+    type: written
+    stem: "Map CareBook's SMS reminders to a business metric in two sentences."
+    modelAnswer: "SMS reminders are used by patients and the front desk. They help patients remember their visit, so they protect the no-show rate, which was 18% at the start of the pilot."
+    scoringPoints:
+      - "Names the user and the problem it solves"
+      - "Links it to one named business metric, not a technical measure"
+    source: { quote: "Map each feature to a business metric.", page: 130 }

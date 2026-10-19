@@ -1,0 +1,168 @@
+# Day 50 quiz pool: Friday, May 8. A live demo segment: the checklist, result first, and a recap with feedback and next steps. Shows 5 of 10.
+pool: day-50
+questions:
+  - id: D50-01
+    type: mcq
+    stem: "What goes on the checklist you run before a live demo?"
+    options:
+      - text: "Test data only, one full rehearsal, a backup, notifications off, a timebox and a draft recap."
+        correct: true
+        explanation: "Each one prevents a real failure."
+      - text: "A new feature, added the night before."
+        correct: false
+        explanation: "Don't change what you rehearsed."
+      - text: "Real patient data, for realism."
+        correct: false
+        explanation: "Never real PHI."
+      - text: "Chat left open so the client can reach you."
+        correct: false
+        explanation: "Notifications off, other apps closed."
+    source: { quote: "Test data only — never real PHI", page: 122 }
+
+  - id: D50-02
+    type: mcq
+    stem: "What if no demo is scheduled this week?"
+    options:
+      - text: "Record a demo privately and share the written summary instead."
+        correct: true
+        explanation: "You still practise and produce a recap."
+      - text: "Skip the day."
+        correct: false
+        explanation: "The PDF gives a fallback."
+      - text: "Demo to a friend."
+        correct: false
+        explanation: "A real recap needs a real audience or a recording."
+      - text: "Make one up and say you gave it."
+        correct: false
+        explanation: "Never invent work."
+    source: { quote: "record a demo privately", page: 122 }
+
+  - id: D50-03
+    type: mcq
+    stem: "Which recap line best records feedback?"
+    options:
+      - text: "“Lisa said staff want the patient's phone number on the waitlist without an extra click.”"
+        correct: true
+        explanation: "The client's own words, and a specific change."
+      - text: "“The demo went well.”"
+        correct: false
+        explanation: "Your opinion, not theirs."
+      - text: "“They had some thoughts.”"
+        correct: false
+        explanation: "No content."
+      - text: "“We'll consider improvements.”"
+        correct: false
+        explanation: "No owner, no date."
+    source: { quote: "write down their exact words", page: 122 }
+
+  - id: D50-04
+    type: mcq
+    stem: "What should the demo recap include?"
+    options:
+      - text: "What you showed, the feedback, what goes into the next sprint, and any issue and its fix."
+        correct: true
+        explanation: "Specific enough to act on."
+      - text: "A transcript of the call."
+        correct: false
+        explanation: "Too long to use."
+      - text: "A list of everything built so far."
+        correct: false
+        explanation: "The demo was about one thing."
+      - text: "An apology."
+        correct: false
+        explanation: "Only if something needs one."
+    source: { quote: "Demo recap with feedback", page: 122 }
+
+  - id: D50-05
+    type: mcq
+    stem: "Which question belongs in your daily log this week?"
+    options:
+      - text: "“Did I show the result first? Did I get specific feedback?”"
+        correct: true
+        explanation: "The log prompt is about the two skills this week trains."
+      - text: "“Did I talk for the full 10 minutes?”"
+        correct: false
+        explanation: "Length isn't the aim."
+      - text: "“Was my slide deck pretty?”"
+        correct: false
+        explanation: "Not what clients value."
+      - text: "“Did nobody ask hard questions?”"
+        correct: false
+        explanation: "Hard questions are good."
+    source: { quote: "Did I show the result first? Did I get specific feedback?", page: 123 }
+
+  - id: D50-06
+    type: mcq
+    stem: "What's on this week's self-check before the weekend?"
+    options:
+      - text: "Did the client see the value in the first minute? Did I recover calmly if something broke?"
+        correct: true
+        explanation: "Both are about the demo's first minute and its worst one."
+      - text: "Did I finish every ticket?"
+        correct: false
+        explanation: "Not the goal of the week."
+      - text: "Did I avoid every question?"
+        correct: false
+        explanation: "The opposite of the goal."
+      - text: "Did I write more code than last week?"
+        correct: false
+        explanation: "Not the skill."
+    source: { quote: "Did the client see the value in the first minute?", page: 123 }
+
+  - id: D50-07
+    type: scenario
+    clientLine: "“What would stop your team from using it?”"
+    stem: "You ask this in the demo and Lisa says, “Honestly, the phone number isn't on the waitlist.” What do you do?"
+    options:
+      - text: "“We'll fix that eventually.”"
+        correct: false
+        explanation: "No owner, no date."
+      - text: "Play it back: “So staff want the phone number on the waitlist without an extra click. I'll send a size estimate by Tuesday.”"
+        correct: true
+        explanation: "Play back, then confirm what goes into the next sprint."
+      - text: "Explain why it was left out."
+        correct: false
+        explanation: "Defending shuts feedback down."
+      - text: "Write it down without saying anything."
+        correct: false
+        explanation: "The playback confirms you understood."
+    source: { quote: "play back the key feedback", page: 122 }
+
+  - id: D50-08
+    type: scenario
+    clientLine: "“Can I show this to investors next week?”"
+    stem: "Dana asks this at the end of the demo. Offers are manual and there's no Spanish yet. What do you say?"
+    options:
+      - text: "“Yes, of course.”"
+        correct: false
+        explanation: "You haven't said which gaps matter."
+      - text: "“Yes, with two caveats: offers are still manual, and there's no Spanish yet. I'd show the first-week numbers too. I'll send a one-page summary today.”"
+        correct: true
+        explanation: "Answer first, the honest caveats, and a follow-up."
+      - text: "“I wouldn't.”"
+        correct: false
+        explanation: "Without reasons it's unhelpful."
+      - text: "“That's your decision.”"
+        correct: false
+        explanation: "She asked for your view."
+    source: { quote: "Can I show this to investors next week?", page: 124 }
+
+  - id: D50-09
+    type: written
+    stem: "Write the 'Showed' and 'Feedback' lines of the demo recap. Facts: you showed the schedule view and waitlist, starting with first-week results (18 waitlisted patients, 5 slots refilled, 0 double bookings); Dr. Mercer asked about scheduler workload; Lisa asked for the phone number on the waitlist."
+    modelAnswer: "Showed: the clinic schedule view and the waitlist, starting with the first-week results: 18 patients added to waitlists, 5 cancelled slots refilled, no double bookings. Feedback: Dr. Mercer asked how this affects scheduler workload. Lisa said staff want the patient's phone number shown on the waitlist without an extra click."
+    scoringPoints:
+      - "Results with numbers come first"
+      - "Feedback is attributed and specific"
+      - "Short enough to send the same day"
+    source: { quote: "Demo recap with feedback and next steps.", page: 122 }
+
+  - id: D50-10
+    type: written
+    stem: "Write one closing sentence promising the recap and next steps."
+    modelAnswer: "I'll send a recap with your feedback and next steps by end of day today."
+    scoringPoints:
+      - "Names what's coming"
+      - "Gives a time"
+      - "One sentence"
+    source: { quote: "I'll send a recap with your feedback and next steps by", page: 128 }

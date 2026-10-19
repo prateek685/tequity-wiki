@@ -1,0 +1,166 @@
+# Day 61 quiz pool: Monday, May 25. Planning the solo week, the solo-week rules, and repeating the Day 1 call. Shows 5 of 10.
+pool: day-61
+questions:
+  - id: D61-01
+    type: mcq
+    stem: "What does it mean to own all client communication for the solo week?"
+    options:
+      - text: "You handle the calls, end-of-day notes, the weekly status report and follow-ups."
+        correct: true
+        explanation: "Those four are the list."
+      - text: "You send only the weekly status report."
+        correct: false
+        explanation: "It is one of four."
+      - text: "The PM writes everything and you read it out."
+        correct: false
+        explanation: "The PM watches from a distance."
+      - text: "You answer only when the client asks."
+        correct: false
+        explanation: "You lead the updates."
+    source: { quote: "For one week you own all client communication on your project", page: 144 }
+
+  - id: D61-02
+    type: mcq
+    stem: "What does the PM do during your solo week?"
+    options:
+      - text: "Watches from a distance and steps in only if you ask."
+        correct: true
+        explanation: "That is the rule."
+      - text: "Joins every call and speaks first."
+        correct: false
+        explanation: "Not during the solo week."
+      - text: "Reviews every email before it is sent."
+        correct: false
+        explanation: "You send them yourself."
+      - text: "Is removed from the project."
+        correct: false
+        explanation: "They are still there if you ask."
+    source: { quote: "The PM watches from a distance and steps in only if asked.", page: 144 }
+
+  - id: D61-03
+    type: mcq
+    stem: "Why do you repeat the Day 1 call with no preparation?"
+    options:
+      - text: "So you can privately compare the two calls and see what changed."
+        correct: true
+        explanation: "Same call, no prep, then compare."
+      - text: "So Dana can mark it."
+        correct: false
+        explanation: "The comparison is private."
+      - text: "To practise the script from Day 4."
+        correct: false
+        explanation: "No script, no preparation."
+      - text: "To replace your Day 1 score."
+        correct: false
+        explanation: "Both scores stay."
+    source: { quote: "Repeat the Day-1 baseline scenario (S01) with no preparation, just like Day 1, and privately compare", page: 144 }
+
+  - id: D61-04
+    type: mcq
+    stem: "What is Day 90 meant to prove?"
+    options:
+      - text: "That you can run the client relationship without a PM."
+        correct: true
+        explanation: "Proof to yourself and to management."
+      - text: "That you know every framework by heart."
+        correct: false
+        explanation: "It is about the client relationship."
+      - text: "That you can write the longest report."
+        correct: false
+        explanation: "Length is not the proof."
+      - text: "That the PM is no longer needed on any project."
+        correct: false
+        explanation: "It is about your readiness."
+    source: { quote: "that you can run the client relationship without a PM", page: 144 }
+
+  - id: D61-05
+    type: mcq
+    stem: "Monday is a holiday for part of the client's team. What do you do when you plan the week?"
+    options:
+      - text: "Plan updates around who is in, and say when each one will arrive."
+        correct: true
+        explanation: "The plan names the update and when."
+      - text: "Skip Monday's end-of-day note."
+        correct: false
+        explanation: "The note still goes out."
+      - text: "Wait until everyone is back."
+        correct: false
+        explanation: "The week is yours to own."
+      - text: "Ask the PM to send them."
+        correct: false
+        explanation: "You own the updates."
+    source: { quote: "Plan your solo week: calls, updates, follow-ups.", page: 144 }
+
+  - id: D61-06
+    type: mcq
+    stem: "Which of these is a good way to plan your follow-ups for the week?"
+    options:
+      - text: "List each one with a date, so nothing waits for the client to chase you."
+        correct: true
+        explanation: "Each follow-up gets a date."
+      - text: "Remember them as they come up."
+        correct: false
+        explanation: "Memory is how things get missed."
+      - text: "Write them all on Friday."
+        correct: false
+        explanation: "Too late for Monday's items."
+      - text: "Leave them to the PM."
+        correct: false
+        explanation: "They are yours this week."
+    source: { quote: "Plan your solo week: calls, updates, follow-ups.", page: 144 }
+
+  - id: D61-07
+    type: scenario
+    clientLine: "Can you give me a quick idea of what you'll be sending this week?"
+    stem: "Dana asks what updates she will get from you this week, now that you own the communication. What do you say?"
+    options:
+      - text: "“A short note at 5:30 pm each day, a call on Tuesday, and the weekly status report on Thursday.”"
+        correct: true
+        explanation: "Names what, and when."
+      - text: "“Whatever comes up.”"
+        correct: false
+        explanation: "No plan."
+      - text: "“The PM will let you know.”"
+        correct: false
+        explanation: "You own it this week."
+      - text: "“I'll write when I have news.”"
+        correct: false
+        explanation: "Updates are on a rhythm."
+    source: { quote: "Plan your solo week: calls, updates, follow-ups.", page: 144 }
+
+  - id: D61-08
+    type: scenario
+    clientLine: "You said it was Day 90 proof. What am I supposed to see?"
+    stem: "Your manager asks what you want them to see by Friday. What do you say?"
+    options:
+      - text: "“That the client got answers, updates and decisions on time, with me running it.”"
+        correct: true
+        explanation: "Proof, not adjectives."
+      - text: "“That I'm busy.”"
+        correct: false
+        explanation: "Busy is not proof."
+      - text: "“That I'm nice to work with.”"
+        correct: false
+        explanation: "Not the evidence."
+      - text: "“I'm not sure yet.”"
+        correct: false
+        explanation: "Have an answer."
+    source: { quote: "that you can run the client relationship without a PM", page: 144 }
+
+  - id: D61-09
+    type: written
+    stem: "Write one line that explains how you'll keep the client updated this week, with timing."
+    modelAnswer: "I'll send an end-of-day note at 5:30 pm every day, lead Tuesday's call with Dana and send the status report on Thursday."
+    scoringPoints:
+      - "Names at least two kinds of update"
+      - "Gives timing for each"
+    source: { quote: "For one week you own all client communication on your project", page: 144 }
+
+  - id: D61-10
+    type: written
+    stem: "Write one difference you expect to see between your Day 1 call and today's call, with an example."
+    modelAnswer: "On Day 1 I waited for Dana to ask for the status. Today I'll start with “Short answer: we're on track”, then give two numbers."
+    scoringPoints:
+      - "Names something you said or did, not a feeling"
+      - "Is specific enough to check against the call"
+    source: { quote: "Repeat the Day-1 baseline scenario (S01) with no preparation, just like Day 1, and privately compare", page: 144 }

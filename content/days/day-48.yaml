@@ -1,0 +1,110 @@
+day: 48
+block: 10
+title: Co-lead a live call
+type: live_call
+storyDate: Wednesday, May 6
+minutes: About 60 min
+intro: >-
+  Today you own one agenda item on a real client call. You agree which item with the PM or senior, fill in your
+  pre-call card, run your part, then write a recap and ask for two lines of feedback.
+lessons:
+  - id: agree-the-item
+    kind: prep
+    title: Agree your agenda item
+    minutes: 5 min
+    blocks:
+      - type: yesterday
+        text: >-
+          the test server froze halfway through the demo. You named it, switched to the recording in under 30 seconds, and
+          Lisa said the staff want the patient's phone number shown right on the waitlist.
+      - type: scene
+        when: Wednesday, May 6 · 8:45 am Central · pilot day three
+        text: >-
+          Today's live call is a real client call where you own one agenda item, for example the status update. Agree
+          with the PM or senior which item is yours, and when they should step in. They only step in if you signal.
+      - type: steps
+        items:
+          - { title: Agree the item beforehand, text: "With the PM or senior." }
+          - { title: Prepare it like a full call, text: "Pre-call card: goal, opener, 3 things to say, 3 questions to ask." }
+          - { title: Agree your signal, text: "They step in only if you signal." }
+    fields:
+      - { id: item, label: My agenda item, kind: line, placeholder: "e.g. The pilot status update (5 minutes)" }
+      - { id: goal, label: "My goal for this item (one sentence)", kind: line }
+      - { id: say, label: "3 things I must say", kind: area, rows: 3 }
+      - { id: ask, label: "3 questions I must ask", kind: area, rows: 3 }
+      - { id: signal, label: "How I'll signal for help", kind: line, placeholder: "e.g. “Let me check with [name] on that.”" }
+    source: both
+
+  - id: co-leading
+    kind: learn
+    title: Co-leading
+    heading: Own one item, fully
+    minutes: 10 min
+    lead: >-
+      Co-leading is the first time a client hears you run part of a call. Treat your item like a full call.
+    blocks:
+      - type: steps
+        items:
+          - { title: Agree beforehand, text: "Which agenda item is yours." }
+          - { title: Prepare it like a full call, text: "Same pre-call card, same recap." }
+          - { title: Signal if you need help, text: "They step in only if you signal." }
+      - type: example
+        text: >-
+          “I'll take the pilot status. Two days in: all three clinics are live. One issue to raise, and one decision I need
+          from you.”
+      - type: note
+        tone: info
+        title: Hand-overs
+        text: >-
+          Say who owns what when you start and when you finish: “That's the status. [Name], over to you for the
+          timeline.”
+
+  - id: co-lead-call
+    kind: live
+    title: Live co-lead
+    heading: Co-lead a real client call
+    minutes: 30 min
+    liveRole: co_lead
+    substituteCardId: S43
+    fallback: >-
+      If a live call isn't available today, swap it with a mock day and co-lead later in the week.
+    lead: >-
+      Own your agenda item from start to finish. Afterwards, fill in the sheet while it's fresh.
+    fields:
+      - { id: call, label: "Call · PM or senior · date", kind: line, placeholder: "e.g. Weekly sync · the PM's name · May 6" }
+      - { id: owned, label: What I owned, kind: line }
+      - { id: opened, label: "How I opened my item", kind: area, rows: 2 }
+      - { id: signalled, label: "Did I signal for help? Why or why not?", kind: area, rows: 2 }
+      - { id: hard-moment, label: "The hardest moment, and what I did", kind: area, rows: 2 }
+      - { id: closing, label: "How I closed my item and confirmed next steps", kind: area, rows: 2 }
+
+  - id: co-lead-recap
+    kind: write
+    title: Recap and feedback
+    heading: Recap your part, then ask for feedback
+    minutes: 10 min
+    lead: >-
+      Write a recap of your part: decisions, actions with owners, and open questions. Then ask the PM or senior for two
+      lines of feedback, and write them in their words.
+    source: both
+    blocks:
+      - { type: field, id: my-recap }
+      - { type: field, id: feedback }
+      - { type: field, id: apply }
+    fields:
+      - { id: my-recap, label: Recap of my part, kind: area, rows: 5, placeholder: "Decisions, actions with owners, open questions" }
+      - { id: feedback, label: "2 lines of feedback from the PM or senior (their words)", kind: area, rows: 3 }
+      - { id: apply, label: "What I'll change tomorrow", kind: line }
+
+scoring:
+  co-lead-recap:
+    modelAnswer: >-
+      Pilot status (my item): all 3 clinics are live; 412 appointments booked in 3 days with no double bookings. One
+      issue: the test server was slow during Tuesday's demo; the live pilot wasn't affected. Decision: Lisa wants the
+      patient's phone number shown on the waitlist without an extra click. Actions: Me: send the waitlist change request
+      with a size estimate by Fri May 8. Lisa: confirm which clinics want it first. Open question: automatic texts to the
+      waitlist, not scheduled yet.
+    scoringPoints:
+      - The status leads with the bottom line, then one issue, in a few lines
+      - Every action has an owner and a date, and open questions are listed
+      - The feedback is recorded in the PM's own words, with one concrete change to make next time

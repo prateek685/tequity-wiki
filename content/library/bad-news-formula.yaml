@@ -1,0 +1,18 @@
+id: bad-news-formula
+kind: framework
+title: The bad-news formula
+summary: Headline, impact, cause, options, what I need, next update.
+day: 32
+blocks:
+  - type: steps
+    items:
+      - { title: 1 · Headline, text: "Say it's bad news, in the first sentence." }
+      - { title: 2 · Impact, text: "What changes for them, with dates." }
+      - { title: 3 · Cause, text: "Short, no blame." }
+      - { title: 4 · Options, text: "Two real choices, and your recommendation." }
+      - { title: 5 · What I need, text: "The decision, and by when." }
+      - { title: 6 · Next update, text: "When they'll hear from you again, whatever happens." }
+  - type: note
+    tone: info
+    title: One short apology is enough.
+    text: Once, then the plan. Three apologies sound like panic, and blame sounds like an excuse even when it's true.

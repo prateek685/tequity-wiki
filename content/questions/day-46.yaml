@@ -1,0 +1,168 @@
+# Day 46 quiz pool: Monday, May 4. Demo structure: goal recap, result first, a user story, gaps, specific feedback. Shows 5 of 10.
+pool: day-46
+questions:
+  - id: D46-01
+    type: mcq
+    stem: "What should come first in a demo, after the goal recap?"
+    options:
+      - text: "The finished screen or outcome."
+        correct: true
+        explanation: "“Do the last thing first”: the client sees the value before the tour."
+      - text: "A tour of every menu, in order."
+        correct: false
+        explanation: "A tour first makes the client wait for the point."
+      - text: "The architecture behind the feature."
+        correct: false
+        explanation: "The client wants the result, not how it's built."
+      - text: "The list of bugs you fixed."
+        correct: false
+        explanation: "That's your work, not their outcome."
+    source: { quote: "Show the result first", page: 122 }
+
+  - id: D46-02
+    type: mcq
+    stem: "Which is the best way to walk through the feature after the result?"
+    options:
+      - text: "As a story about one user: “Imagine Maria, a patient, booking a visit at 10 pm…”"
+        correct: true
+        explanation: "A real person at a real moment makes the value easy to follow."
+      - text: "Button by button, left to right."
+        correct: false
+        explanation: "A feature list doesn't show why it matters."
+      - text: "By the order you built it."
+        correct: false
+        explanation: "Your build order means nothing to the client."
+      - text: "By reading the ticket titles."
+        correct: false
+        explanation: "Ticket titles are your language, not theirs."
+    source: { quote: "Walk the user journey as a story", page: 122 }
+
+  - id: D46-03
+    type: mcq
+    stem: "Which closing question fits a demo best?"
+    options:
+      - text: "“Does this flow match how your front desk works?”"
+        correct: true
+        explanation: "It's specific and open, so it gets real feedback."
+      - text: "“Any questions?”"
+        correct: false
+        explanation: "It's too easy to answer with “no”."
+      - text: "“Was that okay?”"
+        correct: false
+        explanation: "It asks for a verdict, not for information."
+      - text: "“I think that went well, right?”"
+        correct: false
+        explanation: "It asks for agreement, not feedback."
+    source: { quote: "Ask for specific feedback", page: 122 }
+
+  - id: D46-04
+    type: mcq
+    stem: "Dana asks, “Why would Lisa care about that?” while you describe a button. What's the problem?"
+    options:
+      - text: "You described a screen without saying why it matters to the client."
+        correct: true
+        explanation: "Every feature needs a line about what it changes for Lisa's team."
+      - text: "You talked too slowly."
+        correct: false
+        explanation: "Pace wasn't the issue; the missing “why” was."
+      - text: "You showed the wrong clinic."
+        correct: false
+        explanation: "The clinic isn't the issue. The missing business reason is."
+      - text: "Nothing; Dana is testing you."
+        correct: false
+        explanation: "She's pointing at a real gap."
+    source: { quote: "Why would Lisa care about that?", page: 125 }
+
+  - id: D46-05
+    type: mcq
+    stem: "Which line shows an honest demo?"
+    options:
+      - text: "“Not here yet: offers are still manual, and there's no Spanish yet. Both are on the backlog.”"
+        correct: true
+        explanation: "Gaps named by you build trust. Gaps found by the client don't."
+      - text: "“It does everything you asked.”"
+        correct: false
+        explanation: "It isn't true, and it'll come back on you."
+      - text: "“We'll fix the small gaps later.”"
+        correct: false
+        explanation: "Vague and dismissive; the client wants to know which."
+      - text: "Skip the gaps unless asked."
+        correct: false
+        explanation: "The client finds them anyway, and trusts you less."
+    source: { quote: "Named the known gaps honestly", page: 124 }
+
+  - id: D46-06
+    type: mcq
+    stem: "Which demo data is acceptable?"
+    options:
+      - text: "Synthetic test data, like “Test Patient 01–42”."
+        correct: true
+        explanation: "The demo checklist says test data only, never real PHI."
+      - text: "A copy of last week's real patients, with names hidden."
+        correct: false
+        explanation: "Hidden names on real data is still real PHI."
+      - text: "One real patient who agreed verbally."
+        correct: false
+        explanation: "A verbal yes isn't a safe basis for showing PHI."
+      - text: "Whatever is in the staging database."
+        correct: false
+        explanation: "Staging may contain real data. Use test data only."
+    source: { quote: "Test data only — never real PHI", page: 122 }
+
+  - id: D46-07
+    type: scenario
+    clientLine: "“Can it text the waitlist automatically?”"
+    stem: "Today offers are manual: staff click Offer and call or text. How do you answer?"
+    options:
+      - text: "“Yes, no problem.”"
+        correct: false
+        explanation: "It doesn't exist yet, and you've promised it without a date."
+      - text: "“Not yet. Today staff click Offer and call or text the patient. Automatic texts are a good idea; let me check the effort and come back with a date.”"
+        correct: true
+        explanation: "Answer first, state today's reality, commit to a follow-up."
+      - text: "“That's out of scope.”"
+        correct: false
+        explanation: "It may be, but she asked for an answer, not a ruling."
+      - text: "“Why do you need that?”"
+        correct: false
+        explanation: "A fair question later, but not before answering hers."
+    source: { quote: "Can it text the waitlist automatically?", page: 124 }
+
+  - id: D46-08
+    type: scenario
+    clientLine: "“How many slots did we refill today?”"
+    stem: "It's day one of the pilot, and you don't have a real number yet. What do you say?"
+    options:
+      - text: "“About 20, I'd guess.”"
+        correct: false
+        explanation: "A guess presented as a number damages trust."
+      - text: "“It's day one, so I don't have a real number yet. I'll send you the count tomorrow, and a weekly total after that.”"
+        correct: true
+        explanation: "Honest, with a date for the real number."
+      - text: "“We don't track that.”"
+        correct: false
+        explanation: "You can; you just don't have it yet."
+      - text: "“The system works fine, so don't worry.”"
+        correct: false
+        explanation: "It dodges the question."
+    source: { quote: "How many slots did we refill today?", page: 125 }
+
+  - id: D46-09
+    type: written
+    stem: "Write the goal recap and the one-sentence story you'd open tomorrow's demo with. The facts: last sprint you agreed on one screen for the front desk's day and a faster way to fill cancellations; a patient cancels their 10:30 with Dr. Kim; the waitlist suggests three patients."
+    modelAnswer: "Last sprint we agreed to give the front desk one screen for the day and a faster way to fill cancellations. Here's the result. It's 8:05 am and a patient cancels their 10:30 with Dr. Kim; watch the waitlist suggest three patients for that slot."
+    scoringPoints:
+      - "Recaps what was agreed last sprint in one sentence"
+      - "Shows the result before the tour"
+      - "Uses one real user moment, not a list of features"
+    source: { quote: "Goal recap", page: 122 }
+
+  - id: D46-10
+    type: written
+    stem: "Write three open feedback questions to end a demo for Lisa Chen, whose staff call patients to fill cancellations."
+    modelAnswer: "Does this flow match how your team handles cancellations today? What would stop your staff from using it every day? What would you want to see next?"
+    scoringPoints:
+      - "Questions are open, not yes/no"
+      - "They're specific to Lisa's team and workflow"
+      - "None of them is “Any questions?”"
+    source: { quote: "Ask for specific feedback", page: 122 }

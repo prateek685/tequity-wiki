@@ -1,0 +1,177 @@
+# Day 4 quiz pool: opening a call (warm start, agenda, time check) and the 30-second intro. Shows 5 of 10.
+pool: day-04
+questions:
+  - id: D04-01
+    type: mcq
+    stem: "Dana joins and says, “Hi! Okay, what are we covering today?” She asked because you skipped a step. What should you say?"
+    options:
+      - text: "“Sure, let me share my screen and show you the code.”"
+        correct: false
+        explanation: Jumping into detail with no purpose. Dana still doesn't know what the call is for.
+      - text: "“The goal today is a quick look at the plan and how we'll keep you updated. Anything you'd like to add?”"
+        correct: true
+        explanation: Purpose and agenda in one breath, then an invitation to add. You're leading the call again.
+      - text: "“Whatever you'd like to cover.”"
+        correct: false
+        explanation: Handing the call back to the client. The engineer leads the call.
+      - text: "“I thought you had an agenda.”"
+        correct: false
+        explanation: Sounds unprepared and puts the work back on Dana.
+    source: { quote: "Okay, what are we covering today?", page: 33 }
+
+  - id: D04-02
+    type: mcq
+    stem: "Dana joins the video call: “Hi there!” Which start fits best?"
+    options:
+      - text: "“Hi. So, Sprint 3: video booking is about 60% done, SMS reminders are at 40%…”"
+        correct: false
+        explanation: No warm start at all. The first seconds feel rushed and cold.
+      - text: "“Hi Dana! How's your week going?” Then 20–30 seconds of small talk before the agenda."
+        correct: true
+        explanation: A short, friendly warm start, then on to the purpose of the call.
+      - text: Ten minutes of chat about her weekend before getting to work
+        correct: false
+        explanation: Warm, but far too long. A busy client starts wondering when the call will get to the point.
+      - text: "“Sorry, sorry, can you hear me? Sorry, I'm a bit nervous today.”"
+        correct: false
+        explanation: Repeated apologies make you sound unsure before you've said anything.
+    source: { quote: "Warm start — 20–30 seconds of small talk", page: 24 }
+
+  - id: D04-03
+    type: mcq
+    stem: You have 30 minutes with Dana and three topics. You've set the agenda. Which line does the time check?
+    options:
+      - text: "“Let's see how long this takes.”"
+        correct: false
+        explanation: No time box. Dana can't tell whether the call will run over.
+      - text: "“We have 30 minutes; I'll keep us on time.”"
+        correct: true
+        explanation: Short and confident. You take responsibility for the clock.
+      - text: "“I know you're super busy, sorry, I'll try to be really quick.”"
+        correct: false
+        explanation: Apologising for the call itself makes it sound unimportant.
+      - text: Say nothing about time and hope it fits
+        correct: false
+        explanation: If you don't own the time, the call drifts and the last topic gets squeezed out.
+    source: { quote: "We have 30 minutes; I'll keep us on time.", page: 24 }
+
+  - id: D04-04
+    type: mcq
+    stem: "Kevin, on a call with Dana, asks, “Remind me, what exactly is your role on this?” Which reply is best?"
+    options:
+      - text: "“I've been an engineer for eight years. I started with Java, then moved to mobile, then…”"
+        correct: false
+        explanation: Career history before the point. Kevin wanted to know what you do on CareBook.
+      - text: "“I'm the lead engineer on CareBook v2. I own the build and the weekly updates, so I'm your main point of contact for anything technical.”"
+        correct: true
+        explanation: Who you are, what you own, how you'll help. Thirty seconds, and he knows when to come to you.
+      - text: "“I'm one of the developers. I mostly pick up backend tickets.”"
+        correct: false
+        explanation: Undersells your role. Kevin won't know you're the person to rely on.
+      - text: "“A bit of everything, really.”"
+        correct: false
+        explanation: Vague. It gives Kevin no reason to come to you.
+    source: { quote: "Who I am → what I own on this project → how I'll help you.", page: 24 }
+
+  - id: D04-05
+    type: mcq
+    stem: "You set the agenda and ask if Dana wants to add anything. She says, “Actually, can we also talk about the reminder wording?” What do you do?"
+    options:
+      - text: "“That's not on the agenda. Let's do it next week.”"
+        correct: false
+        explanation: You asked for her input, then refused it. It's her project.
+      - text: "“Sure, I'll add it as the third item. We'll still finish on time.”"
+        correct: true
+        explanation: You take her topic, place it in the agenda, and keep control of the time.
+      - text: "“Sure.” Then spend the next 20 minutes on reminders."
+        correct: false
+        explanation: Her topic swallows the call, and your agenda never happens.
+      - text: Drop your agenda and let her lead from there
+        correct: false
+        explanation: The engineer leads the call. Fit her topic in; don't hand over the call.
+    source: { quote: "I have three things: A, B and C. Anything you'd like to add?", page: 24 }
+
+  - id: D04-06
+    type: mcq
+    stem: "It's early March, and Dana is in Austin. Which small-talk line is a good choice for the start of a call?"
+    options:
+      - text: "“Is it getting warm in Austin yet?”"
+        correct: true
+        explanation: Easy, friendly and about her. Anyone can answer it in a sentence.
+      - text: "“Who did you vote for in the last election?”"
+        correct: false
+        explanation: Politics is too personal and can go wrong fast. Keep small talk light.
+      - text: "“How much does a house in Austin cost?”"
+        correct: false
+        explanation: Money questions feel personal for many American clients.
+      - text: Skip small talk; it wastes her time
+        correct: false
+        explanation: 20–30 seconds of small talk builds rapport. Leaving it out makes the call feel cold.
+    source: { quote: "Is it getting cold in Chicago yet?", page: 24 }
+
+  - id: D04-07
+    type: scenario
+    clientLine: "“Hey, sorry, something came up. I only have 15 minutes today, not 30.”"
+    stem: You planned three topics for 30 minutes. What's the best reply?
+    options:
+      - text: "“No problem. Then let's cover the two most important things: the Epic risk and one decision I need from you. I'll send the rest in writing.”"
+        correct: true
+        explanation: You re-plan on the spot, keep the agenda short and still end on time.
+      - text: "“Okay, I'll just talk faster.”"
+        correct: false
+        explanation: Rushing all three topics means none of them lands.
+      - text: "“Should we reschedule? I really need the full 30 minutes.”"
+        correct: false
+        explanation: Pushing the call back delays the risk she needs to hear about now.
+      - text: Start the planned agenda from the top and see how far you get
+        correct: false
+        explanation: The most important item may never come up. Lead with what matters.
+    source: { quote: "US clients decide in the first 30 seconds of a call whether you are clear and in control.", page: 24 }
+
+  - id: D04-08
+    type: scenario
+    clientLine: "“Hi, sorry I'm a couple of minutes late. Crazy morning!”"
+    stem: How do you open?
+    options:
+      - text: "“That's fine. So, regarding the sprint, the video-room link…”"
+        correct: false
+        explanation: You skipped straight past her. A short warm reply first makes the rest go better.
+      - text: "“No problem at all, sounds like a busy one! The goal today is a quick update and one risk. We'll be done in 15 minutes.”"
+        correct: true
+        explanation: A short warm reply, then purpose, agenda and a time check. You've already got the call back on time.
+      - text: "“Oh no, what happened? Tell me everything.”"
+        correct: false
+        explanation: Friendly, but it invites a long story when she's already short on time.
+      - text: "“We've lost some time, so we'll have to skip things.”"
+        correct: false
+        explanation: It sounds like a complaint. Adjust the plan quietly instead.
+    source: { quote: "The call opener (3 steps)", page: 24 }
+
+  - id: D04-09
+    type: written
+    stem: >-
+      Lisa Chen, Lakeside's Clinic Operations Manager, joins a call for the first time and asks, “Sorry, who are you?”
+      She cares about front-desk time and no-shows. Write a 30-second intro for her (2–3 sentences).
+    modelAnswer: >-
+      Hi Lisa, I'm the lead engineer on CareBook, the new booking app for your clinics. I own the build and the weekly
+      updates, so I'm your main contact for anything technical. My focus for you is making booking quick for patients
+      and cutting no-shows with the reminders.
+    scoringPoints:
+      - Follows the order who I am, what I own, how I'll help
+      - Links “how I'll help” to what Lisa cares about (front-desk time, no-shows)
+      - Short enough to say in about 30 seconds, without technical terms
+    source: { quote: "Who I am → what I own on this project → how I'll help you.", page: 24 }
+
+  - id: D04-10
+    type: written
+    stem: >-
+      Next Friday you open the 30-minute Sprint 3 demo for Dana. You'll show video booking, reschedule and cancel, and
+      take questions. Write your purpose, agenda and time check (2–3 sentences).
+    modelAnswer: >-
+      The goal today is to show you what Sprint 3 delivered. I have three things: video booking, reschedule and
+      cancel, and time for your questions. We have 30 minutes; I'll keep us on time. Anything you'd like to add?
+    scoringPoints:
+      - States the purpose of the call in one sentence
+      - Lists the agenda items and invites Dana to add one
+      - Includes a time check
+    source: { quote: "The goal today is X. I have three things: A, B and C.", page: 24 }

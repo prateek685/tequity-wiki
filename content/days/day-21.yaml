@@ -1,0 +1,158 @@
+day: 21
+block: 5
+title: How Lakeside gets paid
+type: normal
+storyDate: Monday, March 30
+minutes: About 50 min
+intro: >-
+  Phase 2 starts with healthcare. Dr. Mercer explains Lakeside's first value-based contract, and today you learn who
+  pays whom in US healthcare and ask how the client makes money.
+lessons:
+  - id: what-you-know
+    kind: prep
+    title: Phase 2 begins
+    minutes: 5 min
+    blocks:
+      - type: yesterday
+        text: >-
+          on Friday you ran the Gate 1 dress rehearsal with Dana and sent her a recap she could put in front of her
+          CEO. Then came the Week 4 assessment and Gate 1 with your manager: four weeks of habits, tested live.
+          Whatever it showed, you now know which pillars to push next, and Phase 1 is behind you.
+      - type: scene
+        when: Monday, March 30 · the first day of Sprint 5
+        text: >-
+          Sprint 5 starts today: the Epic appointment sync (on plan B until Lakeside's access arrives), the insurance
+          eligibility check with Suncoast, and audit logging. On Friday, Dana mentioned that Lakeside is “moving into
+          value-based contracts”, and that it may change what they want from CareBook. Dr. Mercer has offered 15
+          minutes this afternoon to explain how Lakeside's business works.
+      - type: text
+        text: >-
+          Phase 2 is client craft, and every week now adds a piece of US healthcare. Clients don't expect you to be an
+          expert, but they do expect you to understand their world: who pays, who treats, and what's regulated. Start
+          with what you already know. Write down five things you know about US healthcare. Short is fine, and so is
+          wrong: you'll check them later today.
+    fields:
+      - { id: k1, label: Thing I know 1, kind: line, placeholder: "e.g. Insurance companies pay for most doctor visits." }
+      - { id: k2, label: Thing I know 2, kind: line, placeholder: "e.g. Older people are covered by Medicare." }
+      - { id: k3, label: Thing I know 3, kind: line }
+      - { id: k4, label: Thing I know 4, kind: line }
+      - { id: k5, label: Thing I know 5, kind: line }
+
+  - id: healthcare-one-picture
+    kind: learn
+    title: US healthcare in one picture
+    minutes: 10 min
+    lead: >-
+      You don't need to be an expert. You need the picture: who gets care, who gives it, who pays for it, and who
+      sets the rules.
+    blocks:
+      - type: steps
+        items:
+          - { title: Patients, text: "Get care." }
+          - { title: Providers, text: "Give care: hospitals, clinics, doctors. Lakeside is a provider." }
+          - { title: Payers, text: "Pay for most of it: insurance companies, Medicare, Medicaid, employers." }
+          - { title: Regulators, text: "Set the rules: HHS, CMS, ONC." }
+          - { title: Vendors, text: "Sell software to providers and payers: EHR companies like Epic, and health-tech companies like Brightpath." }
+      - type: text
+        text: >-
+          Money flows from payers to providers. Data flows between everyone: the clinic's Epic record, the insurer's
+          eligibility check, the patient's app. Every feature you build sits somewhere on that picture.
+      - { type: heading, text: How providers get paid }
+      - type: steps
+        items:
+          - { title: Fee-for-service, text: "Paid for each visit or service. More visits, more income. How Lakeside is mostly paid today." }
+          - { title: Value-based care, text: "Paid partly for outcomes and quality, not just the number of visits. Where Lakeside is moving." }
+      - type: text
+        text: >-
+          Why an engineer cares: under value-based care, a missed follow-up visit isn't just an empty slot. It can
+          count against the clinic's quality measures, and that changes which CareBook features matter most. So on
+          today's call, ask how Lakeside gets paid before you ask what to build.
+      - type: facts
+        label: Two words you'll hear today
+        rows:
+          - { label: Medicare, value: "Federal health insurance, mainly for people aged 65 and over." }
+          - { label: Medicaid, value: "A joint federal and state program for people with low incomes." }
+      - type: watch
+        url: https://www.kff.org/health-policy-101/
+        title: KFF Health Policy 101
+        meta: Free online textbook · skim the introduction, about 15 min
+      - type: watch
+        url: https://www.outofpocket.health/
+        title: Out-Of-Pocket
+        meta: Free articles · or read one article instead
+
+  - id: value-based-call
+    kind: mock
+    title: How Lakeside gets paid
+    heading: Dr. Mercer explains Lakeside's business
+    minutes: 15 min
+    lead: >-
+      Dr. Mercer is happy to teach if your questions are good. Ask how Lakeside makes money and what the new contract
+      measures, not what to build. Then play it back in three bullets.
+    cardId: S13
+    level: 1
+    scriptNote: Use it the first time, then try the call again without it.
+
+  - id: value-based-call-review
+    kind: reflect
+    title: How did the call go?
+    minutes: 5 min
+    lead: Tick what you managed, then note what the AI told you.
+    checksTitle: On this call, I…
+    checks:
+      - asked how Lakeside gets paid, not just what to build
+      - found at least 2 measures and the money at stake
+      - linked no-shows to the new contract
+      - got a “yes” to my 3-bullet playback
+    fields:
+      - { id: went-well, label: What went well, kind: area, placeholder: "From the AI's feedback" }
+      - { id: fix-next, label: One thing to fix next time, kind: area, placeholder: "e.g. I started talking about Epic before I knew what they're measured on" }
+      - { id: log, label: "Could I explain the business reason behind every requirement I heard today?", kind: area, rows: 2 }
+    rubric: true
+
+  - id: one-picture
+    kind: write
+    title: Your one picture
+    heading: Healthcare in one picture, in five lines
+    minutes: 10 min
+    lead: >-
+      Write the picture in your own words, as you'd explain it to a new teammate in two minutes. Five lines: who
+      gets care, who gives it, who pays, who sets the rules, and where CareBook fits.
+    blocks:
+      - type: recall
+        label: Your five things from this morning
+        day: 21
+        lesson: what-you-know
+        fields:
+          - { id: k1, label: "1" }
+          - { id: k2, label: "2" }
+          - { id: k3, label: "3" }
+          - { id: k4, label: "4" }
+          - { id: k5, label: "5" }
+      - type: text
+        text: >-
+          Which of this morning's five still hold? Keep what's right, fix what isn't. Use plain words: if a line needs
+          a term like “payer”, say what it means.
+    fields:
+      - { id: line-1, label: Line 1, kind: line, placeholder: "e.g. Patients get care from providers: hospitals, clinics and doctors." }
+      - { id: line-2, label: Line 2, kind: line }
+      - { id: line-3, label: Line 3, kind: line }
+      - { id: line-4, label: Line 4, kind: line }
+      - { id: line-5, label: Line 5, kind: line, placeholder: "e.g. Where CareBook and Lakeside fit" }
+
+scoring:
+  one-picture:
+    modelAnswer: >-
+      1. Patients get care from providers: hospitals, clinics and doctors, like Lakeside's 12 clinics.
+      2. Payers pay for most of it: private insurers, Medicare (mainly people 65 and over), Medicaid (people with low
+      incomes) and employers.
+      3. Money flows from payers to providers, today mostly per visit (fee-for-service), more and more for outcomes
+      and quality (value-based care).
+      4. Regulators set the rules: HHS, CMS for Medicare and Medicaid payment, ONC for health IT; HIPAA protects
+      patient data.
+      5. Vendors like Epic and Brightpath sell software to providers; CareBook helps Lakeside fill visits and cut
+      no-shows, which now also affects how Lakeside gets paid.
+    scoringPoints:
+      - Covers patients, providers, payers, regulators and vendors, with money flowing from payers to providers
+      - Places CareBook and Lakeside in the picture and links it to how Lakeside gets paid
+      - Five short lines in plain words a new teammate would understand

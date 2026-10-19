@@ -1,0 +1,162 @@
+day: 24
+block: 5
+title: Acceptance criteria
+type: normal
+storyDate: Thursday, April 2
+minutes: About 55 min
+intro: >-
+  Dana has ten minutes to confirm the first user story for new-patient video booking. Today you write criteria a
+  client can say yes or no to, and confirm them in writing.
+lessons:
+  - id: one-requirement
+    kind: prep
+    title: One requirement
+    minutes: 5 min
+    blocks:
+      - type: yesterday
+        text: >-
+          you ran a seven-step discovery call with Dana on new-patient video booking, found the drop-off and the 40%
+          target, and sent her the summary without promising a date. Later that day she agreed: it gets built in
+          Sprint 7 (May 11–22), after the pilot.
+      - type: scene
+        when: Thursday, April 2 · 9:00 am Central
+        text: >-
+          Last night you drafted the first user story and four acceptance criteria. Dana has 10 minutes at 10:30 to
+          confirm them, and two questions are still open. By noon Pacific, Laura also gets the log-retention answer you
+          promised her on Tuesday, from Kevin.
+      - type: recall
+        label: Your discovery summary from yesterday
+        day: 23
+        lesson: video-discovery-summary
+        fields:
+          - { id: pain, label: Pain }
+          - { id: constraints, label: Constraints }
+          - { id: metric, label: Success metric }
+      - type: text
+        text: >-
+          Good criteria start with one requirement and the reason behind it. Pick one requirement from yesterday's
+          call, or from your real project, and write it down with who it's for and why it matters.
+    fields:
+      - { id: requirement, label: The requirement, kind: line, placeholder: "e.g. Only providers accepting new patients can be booked" }
+      - { id: user, label: Who it's for, kind: line, placeholder: "e.g. A new patient booking a first video visit" }
+      - { id: reason, label: The business reason, kind: line, placeholder: "e.g. A booking with a full provider gets cancelled, and the patient gives up" }
+      - { id: done-when, label: "How we'll know it's done", kind: area, rows: 2 }
+    source: both
+
+  - id: user-stories
+    kind: learn
+    title: User stories and criteria
+    heading: User stories and acceptance criteria
+    minutes: 10 min
+    lead: >-
+      A user story says who needs what, and why. Acceptance criteria say exactly when it's done, in words the client
+      can answer with yes or no.
+    blocks:
+      - type: steps
+        items:
+          - { title: User story, text: "“As a [user], I want [action] so that [outcome].” The outcome is the business reason." }
+          - { title: Acceptance criteria, text: "“Given… when… then…” One behaviour each, testable, in plain English." }
+          - { title: Confirm in writing, text: "Get a yes or no on each, then send them with a date: “approved unless corrected by…”" }
+      - type: example
+        text: "As a new patient, I want to book a video visit online so that I don't have to wait on the phone."
+      - type: compare
+        beforeLabel: Vague
+        afterLabel: Testable
+        before: "“Booking should handle insurance properly.”"
+        after: >-
+          “Given the booking form, when the patient submits, then insurance member ID and date of birth are required
+          before the visit is confirmed.”
+      - type: text
+        text: >-
+          On the call, read the criteria in plain English, not as a spec. “Only providers taking new patients show up.
+          Yes?” is a question Dana can answer in two seconds. Then ask about the cases nobody mentioned: what happens
+          when the check fails, or the patient doesn't fit?
+      - type: note
+        tone: info
+        title: New asks go on the list
+        text: >-
+          When the client adds something mid-call, write it down and park it for a later sprint. The sprint you agreed
+          stays on track, and nothing is lost.
+
+  - id: confirm-criteria
+    kind: mock
+    title: Confirm the criteria
+    heading: Confirm acceptance criteria with Dana
+    minutes: 15 min
+    lead: >-
+      Level 2: Dana has ten minutes and wants plain English. Get a yes or no on each criterion, close the two open
+      questions, and park anything new for a later sprint.
+    cardId: S37
+    level: 2
+    scriptNote: Use it the first time, then try the call again without it.
+
+  - id: confirm-criteria-review
+    kind: reflect
+    title: How did the call go?
+    minutes: 5 min
+    lead: Tick what you managed, then note what the AI told you.
+    checksTitle: On this call, I…
+    checks:
+      - got a clear yes or no on each criterion
+      - captured the self-pay and “flag, don't block” answers
+      - parked new asks for a later sprint
+      - promised written confirmation with an “approved unless corrected by” date
+    fields:
+      - { id: went-well, label: What went well, kind: area, placeholder: "From the AI's feedback" }
+      - { id: fix-next, label: One thing to fix next time, kind: area, placeholder: "e.g. I read “given, when, then” word for word and Dana asked for plain English" }
+      - { id: log, label: "Could I explain the business reason behind every requirement I heard today?", kind: area, rows: 2 }
+    rubric: true
+
+  - id: three-stories
+    kind: write
+    title: Three user stories
+    heading: Write three user stories with acceptance criteria
+    minutes: 10 min
+    lead: >-
+      Turn what you've heard into three stories the team can build and the client can approve. Use today's call, or
+      your real project.
+    source: both
+    blocks:
+      - type: recall
+        label: Your requirement from this morning
+        day: 24
+        lesson: one-requirement
+        fields:
+          - { id: requirement, label: Requirement }
+          - { id: reason, label: Business reason }
+      - type: text
+        text: >-
+          Two or three criteria per story. Each one testable: someone could watch the app and say pass or fail. Include
+          what happens when things go wrong, not only the happy path.
+      - { type: field, id: story-1 }
+      - { type: field, id: ac-1 }
+      - { type: field, id: story-2 }
+      - { type: field, id: ac-2 }
+      - { type: field, id: story-3 }
+      - { type: field, id: ac-3 }
+    fields:
+      - { id: story-1, label: Story 1, kind: line, placeholder: "As a …, I want … so that …" }
+      - { id: ac-1, label: Acceptance criteria for story 1, kind: area, rows: 3, placeholder: "Given …, when …, then …" }
+      - { id: story-2, label: Story 2, kind: line }
+      - { id: ac-2, label: Acceptance criteria for story 2, kind: area, rows: 3 }
+      - { id: story-3, label: Story 3, kind: line }
+      - { id: ac-3, label: Acceptance criteria for story 3, kind: area, rows: 3 }
+
+scoring:
+  three-stories:
+    modelAnswer: >-
+      Story 1: As a new patient, I want to book a video visit online so that I don't have to wait on the phone.
+      Criteria: Given a new patient, when they choose a provider, then only providers accepting new patients are shown.
+      Given the booking form, when the patient submits, then insurance member ID and date of birth are required, or
+      the patient chooses self-pay. Given a patient under 18, when they start booking, then they are asked to call the
+      clinic.
+      Story 2: As front-desk staff, I want new bookings flagged when insurance can't be verified so that the patient
+      still gets the visit and we fix it before the call. Criteria: Given insurance can't be verified, when the patient
+      submits, then the visit is booked and flagged for the front desk; the patient is never blocked.
+      Story 3: As front-desk staff, I want to approve each new patient in Epic so that the visit is linked to the right
+      record. Criteria: Given a new booking, when it's created, then it shows as “pending” until approved, within 1
+      business day; every booked visit gets an SMS and email confirmation within 1 minute.
+    scoringPoints:
+      - Each story names a real user, an action and a business reason
+      - Criteria are testable “given, when, then” lines in plain English, including a failure case
+      - Reflects what the client confirmed (self-pay, flag don't block, pending approval), not new scope

@@ -1,0 +1,59 @@
+id: res-writing
+kind: resource
+title: "Clear writing"
+summary: "Short, bottom-line-first writing: email, status updates, plain language."
+blocks:
+  - type: text
+    text: "Subject lines, bottom line first, short sentences and plain words."
+  - type: watch
+    url: https://kabir.cc/how-to-write-email-with-military-precision/
+    title: "Kabir Sehgal: How to Write Email with Military Precision"
+    meta: "Free · The author's copy of the article"
+  - type: watch
+    url: https://web.archive.org/web/20250520203728/https://kabir.cc/how-to-write-email-with-military-precision/
+    title: "Backup copy of the same article (Internet Archive)"
+    meta: "Free"
+  - type: watch
+    url: https://hbr.org/2016/11/how-to-write-email-with-military-precision
+    title: "Harvard Business Review version"
+    meta: "Optional paid (paywall)"
+  - type: watch
+    url: https://smartbrevity.com/checklist
+    title: "Smart Brevity (Axios): the checklist"
+    meta: "Free · Status updates, recaps, weekly reports"
+  - type: watch
+    url: https://smartbrevity.com/book
+    title: "Book: Smart Brevity"
+    meta: "Optional paid"
+  - type: watch
+    url: https://behavioralscientist.org/when-writing-for-busy-readers-less-is-more/
+    title: "Rogers and Lasky-Fink: When Writing for Busy Readers, Less Is More"
+    meta: "Free · Making messages easy to read and act on"
+  - type: watch
+    url: https://writingforbusyreaders.com/
+    title: "Book: Writing for Busy Readers"
+    meta: "Optional paid"
+  - type: watch
+    url: https://developers.google.com/tech-writing
+    title: "Google Technical Writing One and Two"
+    meta: "Free, self-paced · Short sentences, active voice, clear structure"
+  - type: watch
+    url: https://digital.gov/guides/plain-language
+    title: "US federal Plain Language guides (digital.gov)"
+    meta: "Free"
+  - type: watch
+    url: https://www.coursera.org/learn/writing-for-business
+    title: "Coursera: Business Writing (University of Colorado Boulder)"
+    meta: "Optional paid"
+  - type: watch
+    url: https://www.mckinsey.com/alumni/news-and-events/global-news/alumni-news/barbara-minto-mece-i-invented-it-so-i-get-to-say-how-to-pronounce-it
+    title: "McKinsey Alumni interview with Barbara Minto"
+    meta: "Free · The Pyramid Principle: organising any update, proposal or explanation"
+  - type: watch
+    url: https://www.barbaraminto.com/
+    title: "Book: The Minto Pyramid Principle"
+    meta: "Optional paid"
+  - type: watch
+    url: https://hemingwayapp.com/
+    title: "Hemingway web editor"
+    meta: "Free · Paste a message before sending; aim for grade 8 or below"

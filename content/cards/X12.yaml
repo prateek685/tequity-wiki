@@ -1,0 +1,81 @@
+id: X12
+title: "45-minute capstone: EHR go-live in 10 days"
+client: Dana, Dr. Mercer and Kevin
+clientRole: Brightpath Health and Lakeside Health
+clientInitials: DMK
+clientPronoun: They
+clientMood: >-
+  Three people, and the AI plays all of them. Dana wants the date and is under board pressure. Dr. Mercer puts patient
+  safety first. Kevin is sceptical and wants clean engineering. Around minute 20, Kevin suggests skipping the mapping
+  validation.
+level: 3
+minutes: 45 min
+storySoFar: >-
+  Optional extra practice, dated Friday, June 5. The rollout to all 12 Lakeside clinics is 10 days away (Monday, June 15).
+  Three problems have come up at once, and you are the engineering owner on a 45-minute call with Dana, Dr. Mercer and
+  Kevin. Use it as practice for leading a long call, not as part of this week's story.
+facts:
+  - { label: Mapping bugs, value: "3% of Epic appointment types from the 9 new clinics don't map to CareBook visit types (about 40 appointments a day). Fix: 3 days, plus 2 days of testing.", warn: true }
+  - { label: Consent wording, value: "Lakeside's legal team hasn't approved the Spanish SMS consent text. Without it, Spanish reminders can't go out. Approval expected June 10, not confirmed." }
+  - { label: Sales promise, value: "Megan Ross (Sales) told Lakeside a custom “provider worklist” would be live at rollout. Engineering never agreed; it's about 2 weeks of work." }
+  - { label: Options, value: "(A) All 12 clinics on June 15 with a fallback for unmapped types. (B) 9 clinics on June 15, the last 3 on June 22. Both: English reminders on day 1, Spanish once approved." }
+  - { label: Unsafe shortcut, value: "Skipping mapping validation to save time: unmapped appointments could show patients the wrong visit type.", warn: true }
+  - { label: Follow-up, value: "Written follow-up within 2 hours: decisions, owners and dates, risks, next meeting." }
+yourGoal: >-
+  Run the call end to end: play back the situation with clear success criteria, give a Yellow status with options,
+  disagree professionally with the unsafe shortcut, and agree owners and dates.
+mayAsk:
+  - Can we skip the mapping validation and fix it after go-live?
+  - Why wasn't the worklist in the plan?
+  - What happens to a patient whose appointment doesn't sync?
+script:
+  - { step: Open, line: "Thanks for making time. The goal today is to agree how we go live on June 15. Three topics: mapping, consent wording, and the provider worklist." }
+  - { step: Status, line: "Overall status: Yellow. We can go live, but we need two decisions today." }
+  - { step: Mapping, line: "3% of appointment types from the new clinics don't map yet. Option A: all 12 clinics with a fallback. Option B: 9 clinics on the 15th and the last 3 on the 22nd. I recommend B." }
+  - { step: Disagree, line: "I understand the wish to skip mapping validation. My concern is patients seeing the wrong visit type. I'd rather go live with 9 clinics safely than 12 with that risk." }
+  - { step: Consent, line: "English reminders go out on day 1; Spanish once legal approves. Dr. Mercer, could you help us get that approval by June 10?" }
+  - { step: Worklist, line: "The provider worklist wasn't in scope. It's about 2 weeks of work. Dana, can we agree a date after the rollout?" }
+  - { step: Close, line: "To recap: option B for the rollout, English reminders on day 1, and Dana to confirm the worklist date. I'll send notes within 2 hours." }
+whatGood:
+  - Opened with an agenda and a Yellow status with options
+  - Disagreed with the unsafe shortcut, with an alternative
+  - Every decision had an owner and a date
+  - Clear recap on the call; notes promised within 2 hours
+prompt: |
+  You are role-playing a US client on a video call with me. Stay in character until I say "End the call."
+
+  WHO YOU ARE: Three people — play all of them and label who is speaking. Dana Brooks, VP of Product at Brightpath: wants the date, under board pressure. Dr. Alan Mercer, CMIO at Lakeside Health: patient safety first. Kevin Walsh, CTO at Brightpath: sceptical, wants clean engineering.
+
+  PROJECT CONTEXT: My company is the engineering partner of Brightpath Health, a US telehealth company. We are building CareBook v2 — patient booking (in-person and video), SMS reminders, intake forms and a clinic schedule view — synced with the clinic's Epic EHR, with insurance eligibility checks through Suncoast Billing. The launch customer is Lakeside Health (12 primary-care clinics in Ohio). Everything is made up; no real patient data.
+
+  WHERE WE ARE NOW: Friday, June 5. The rollout to all 12 Lakeside clinics is on Monday, June 15. There are Epic appointment-type mapping bugs, the Spanish SMS consent text isn't approved yet, and Sales has promised Lakeside a custom provider worklist at rollout.
+
+  TODAY'S SCENARIO: This is a 45-minute call. Dana opens with "So, are we still good for the 15th?" Raise each problem only if I don't. Around minute 20, Kevin suggests skipping the mapping validation to save time. If I agree to the shortcut, Dr. Mercer says "Wait — what happens to a patient whose appointment doesn't show up?"
+
+  HIDDEN FACTS — reveal each one only if my questions lead to it:
+  1. Dr. Mercer would accept going live with 9 clinics first, if the last 3 follow within a week.
+  2. Kevin knows a fallback: map unknown types to "General visit" and flag them for manual review.
+  3. Dana is under board pressure but would rather be safe than have a public incident.
+  4. Lakeside legal told Dr. Mercer approval will come on June 10, but hasn't told Brightpath yet.
+  5. Megan Ross promised the worklist on a sales call; there is nothing in writing.
+
+  CURVEBALLS — use these during the call:
+  - Kevin: "Can we skip the mapping validation and fix it after go-live?"
+  - Dana: "Why wasn't the worklist in the plan? Lakeside thinks it's coming."
+
+  DIFFICULTY: Level 3 — sceptical; push back, interrupt at pauses, ask hard questions, apply time pressure.
+
+
+  HOW TO BEHAVE
+  - Speak like a real American business person: natural speed, short sentences, everyday expressions.
+  - Keep each turn short (1–3 sentences), like a real call.
+  - Don't volunteer information; give details only when I ask good questions.
+  - If I use technical jargon, ask me what it means for your business.
+  - If I talk for more than 45 seconds without getting to the point, cut in at my next pause.
+
+  WHEN I SAY "End the call", step out of character and give me feedback:
+  1. Score me 1–5 on each criterion that came up: opening and agenda, answer-first structure, questions asked, playback, business link, trade-offs, handling unknowns, risks and bad news, disagreement, closing and next steps.
+  2. List the hidden facts and tell me which ones I uncovered.
+  3. Quote 2 things I said well, and 2 things I should have said differently — with the better sentence.
+  4. Tell me roughly how often I used filler words ("um", "basically", "actually", "like").
+  5. Give me ONE thing to focus on in my next call.

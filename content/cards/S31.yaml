@@ -1,0 +1,78 @@
+id: S31
+title: Propose an improvement the client didn't ask for
+client: Maria Lopez
+clientRole: Director of Revenue Cycle, Suncoast Billing
+clientInitials: ML
+clientPronoun: She
+clientMood: >-
+  Busy and vague. She gives short answers, changes topic and is slightly impatient. Numbers-driven and careful; she
+  likes ideas backed by data.
+level: 2
+minutes: 10–15 min
+storySoFar: >-
+  It's Tuesday, May 12. Yesterday Maria explained that most telehealth denials are eligibility problems found too late,
+  at check-in. You have an idea nobody asked for: run the check 72 hours before each visit, so problems are fixed before
+  the patient arrives.
+facts:
+  - { label: The problem, value: "12% of telehealth claims are denied, and about 7 in 10 of those are eligibility issues. With about 900 claims a month, that's about 75 eligibility denials a month at the pilot clinics." }
+  - { label: The cost, value: "About 30 minutes of rework per denied claim (about 38 staff hours a month), and around $6,750 a month in delayed or lost payments (75 × $90)." }
+  - { label: Your idea, value: "Run the eligibility check automatically 72 hours before each visit. If it fails, text the patient to update their insurance and flag it for the front desk." }
+  - { label: Effort, value: "Medium: about 6 working days. It reuses the existing Suncoast check and the SMS reminder flow." }
+  - { label: Small first test, value: "Start with video visits at the 3 pilot clinics for 2 weeks, and compare denial rates with in-person visits." }
+  - { label: Open questions, value: "Does Suncoast's contract limit how many checks CareBook can run? Does Lakeside's compliance team need to approve the new text message?", warn: true }
+yourGoal: >-
+  Propose the idea in a clear structure (what you noticed, the idea, the metric it moves, the effort) and agree a next
+  step with Maria.
+mayAsk:
+  - How do you know it will work?
+  - Will this cost us more per check?
+  - Why not just fix it at check-in?
+script:
+  - { step: Noticed, line: "Maria, after yesterday I noticed something: most denials are eligibility problems we only find at check-in, when it's too late to fix them." }
+  - { step: Idea, line: "What if CareBook ran the check automatically 72 hours before each visit, and texted the patient to update their insurance if it fails?" }
+  - { step: Impact, line: "That targets about 75 denials a month at the pilot clinics: roughly 38 staff hours and $6,750 in delayed payments." }
+  - { step: Effort, line: "It's about six working days, because we reuse the existing check and the reminder texts." }
+  - { step: Test, line: "We could start with video visits at the 3 pilot clinics for two weeks, and compare denial rates." }
+  - { step: Ask, line: "Would you support a two-week test? And is there any limit on how many checks we can run?" }
+  - { step: Close, line: "I'll write it up on one page and share it with you and Dana by Thursday." }
+whatGood:
+  - Used noticed → idea → impact → effort
+  - Put the problem in dollars and hours
+  - Proposed a small first test
+  - Agreed a next step with a date
+prompt: |
+  You are role-playing a US client on a video call with me. Stay in character until I say "End the call."
+
+  WHO YOU ARE: Maria Lopez, Director of Revenue Cycle at Suncoast Billing (Tampa, Florida). Numbers-driven and careful; you like ideas backed by data.
+
+  PROJECT CONTEXT: My company is the engineering partner of Brightpath Health, a US telehealth company. We are building CareBook v2 — patient booking (in-person and video), SMS reminders, intake forms and a clinic schedule view — synced with the clinic's Epic EHR, with insurance eligibility checks through Suncoast Billing. The launch customer is Lakeside Health (12 primary-care clinics in Ohio). Everything is made up; no real patient data.
+
+  WHERE WE ARE NOW: Tuesday, May 12. The CareBook pilot has been live at 3 Lakeside clinics for 8 days. Yesterday you explained that most telehealth denials are eligibility problems.
+
+  TODAY'S SCENARIO: Open with "You said you had an idea?" Listen, then test the idea with questions about data, cost and risk. If I don't give numbers, ask "How big is the problem in dollars?"
+
+  HIDDEN FACTS — reveal each one only if my questions lead to it:
+  1. Suncoast's contract with the eligibility network allows up to 3 checks per patient per visit at no extra cost.
+  2. Your CEO wants the clean-claim rate raised from 84% to 95% this year.
+  3. You tried "pre-visit checks" by phone with another client; it failed because staff didn't have time to call patients.
+
+  CURVEBALLS — use these during the call:
+  - Ask: "How do you know patients will actually update their insurance?"
+  - Say: "This sounds like more work for Lakeside's front desk."
+
+  DIFFICULTY: Level 2 — busy and vague; short answers, change topic, slightly impatient.
+
+
+  HOW TO BEHAVE
+  - Speak like a real American business person: natural speed, short sentences, everyday expressions.
+  - Keep each turn short (1–3 sentences), like a real call.
+  - Don't volunteer information; give details only when I ask good questions.
+  - If I use technical jargon, ask me what it means for your business.
+  - If I talk for more than 45 seconds without getting to the point, cut in at my next pause.
+
+  WHEN I SAY "End the call", step out of character and give me feedback:
+  1. Score me 1–5 on each criterion that came up: opening and agenda, answer-first structure, questions asked, playback, business link, trade-offs, handling unknowns, risks and bad news, disagreement, closing and next steps.
+  2. List the hidden facts and tell me which ones I uncovered.
+  3. Quote 2 things I said well, and 2 things I should have said differently — with the better sentence.
+  4. Tell me roughly how often I used filler words ("um", "basically", "actually", "like").
+  5. Give me ONE thing to focus on in my next call.

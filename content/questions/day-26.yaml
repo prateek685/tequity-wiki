@@ -1,0 +1,182 @@
+# Day 26 quiz pool: Monday, April 6. Epic access arrives; Dana wants the waitlist in the pilot, Kevin wants a code
+# freeze on April 17: stakeholder maps, playing back two goals fairly, decision owners. Shows 5 of 10.
+pool: day-26
+questions:
+  - id: D26-01
+    type: mcq
+    stem: "Dana opens: “I need the waitlist in the pilot.” Kevin adds: “And I need a code freeze on April 17.” What's the best first reply?"
+    options:
+      - text: "“Kevin's right. We can't risk the freeze.”"
+        correct: false
+        explanation: Takes a side before you've heard either of them out. Dana will push harder.
+      - text: "“Thanks, both. You want two different things, and both matter. Can I play back what I've heard, then show you two options?”"
+        correct: true
+        explanation: Treats both goals as real and gives the call a shape before anyone argues.
+      - text: "“We'll try to do both.”"
+        correct: false
+        explanation: A promise the capacity doesn't support. It turns into bad news later.
+      - text: "“Let me check with the team and come back to you.”"
+        correct: false
+        explanation: You already have the facts. Delaying leaves two senior people with no options.
+    source: { quote: "Thanks, both. You want two different things for the pilot, and both matter.", page: 79 }
+
+  - id: D26-02
+    type: mcq
+    stem: "Kevin asks: “Whose side are you on here?” What's the best reply?"
+    options:
+      - text: "“Yours, Kevin. Stability comes first.”"
+        correct: false
+        explanation: Picking a side loses the other stakeholder for the rest of the project.
+      - text: "“Honestly, I don't mind either way.”"
+        correct: false
+        explanation: Sounds like you have no view. They want your judgement.
+      - text: "“The pilot's. You both want it to succeed. I'll give you the trade-offs and my recommendation, and you two make the call.”"
+        correct: true
+        explanation: Calm, neutral on the people, firm on the outcome, and clear about who decides.
+      - text: "“Dana's, since she owns the budget.”"
+        correct: false
+        explanation: A guess about power, not a reason. And it dismisses Kevin's concern.
+    source: { quote: "KEVIN asks: \"Whose side are you on here?\"", page: 80 }
+
+  - id: D26-03
+    type: mcq
+    stem: "Dana asks: “Can the team work over the weekend to do both?” What's the best reply?"
+    options:
+      - text: "“Sure, we'll make it happen.”"
+        correct: false
+        explanation: Silently absorbs 6–8 days of work and hides the risk from Kevin.
+      - text: "“No. That's not reasonable.”"
+        correct: false
+        explanation: A flat no with no reason and no option.
+      - text: "“Weekends won't close a 6–8 day gap safely, and tired engineers are how outages happen. Two real options are on the table. Can I show you them?”"
+        correct: true
+        explanation: Honest about why, in business terms, and moves back to the options.
+      - text: "“I'd have to ask the team how they feel about it.”"
+        correct: false
+        explanation: Dodges the question and leaves her thinking it's a yes.
+    source: { quote: "DANA asks: \"Can the team work over the weekend to do both?\"", page: 80 }
+
+  - id: D26-04
+    type: mcq
+    stem: >-
+      Dana says the waitlist is “a must for the pilot”. You suspect something else is driving it. What's the best
+      question?
+    options:
+      - text: "“Is Lakeside asking for it?”"
+        correct: false
+        explanation: Useful but closed. It doesn't find what is really behind it.
+      - text: "“Why do you always want more in the pilot?”"
+        correct: false
+        explanation: Sounds like a complaint, and she'll get defensive.
+      - text: "“Who will see the waitlist first, and when do they need to see it?”"
+        correct: true
+        explanation: Open, neutral, and leads to the real driver (the May 12 investor demo).
+      - text: "“Can we just skip the waitlist?”"
+        correct: false
+        explanation: A solution before you know the need.
+    source: { quote: "The waitlist is really for the investor demo on May 12, not for pilot patients.", page: 80 }
+
+  - id: D26-05
+    type: mcq
+    stem: "At the end of the call, Dana says: “Okay, let's think about it.” What do you say?"
+    options:
+      - text: "“Great, let me know.”"
+        correct: false
+        explanation: No owner, no date. The decision drifts and the freeze date arrives.
+      - text: "“Who makes the final call on this, and can we decide by Wednesday? I'll send both options in writing today.”"
+        correct: true
+        explanation: A named decision owner, a date, and your own follow-up.
+      - text: "“I'll decide for you, then.”"
+        correct: false
+        explanation: Scope and release decisions belong to the client.
+      - text: "“We'll start on the waitlist in the meantime, just in case.”"
+        correct: false
+        explanation: Spends the critical path on an undecided option.
+    source: { quote: "Who makes the final call — and can we decide by Wednesday? I'll send both options in writing today.", page: 79 }
+
+  - id: D26-06
+    type: mcq
+    stem: >-
+      Lisa Chen's front desk will use CareBook every day, but nobody has asked them about the pilot scope. Dana asks
+      why you want to update Lisa. What's the best reply?
+    options:
+      - text: "“She's on the email list anyway.”"
+        correct: false
+        explanation: Copying someone isn't the same as knowing what they care about.
+      - text: "“Her team uses the schedule view all day. If the pilot changes their work, she should hear it from us first, not on launch day.”"
+        correct: true
+        explanation: Names what she cares about and why she needs her own update.
+      - text: "“It's standard practice.”"
+        correct: false
+        explanation: Tells Dana nothing about Lisa or the pilot.
+      - text: "“No real reason, just to be safe.”"
+        correct: false
+        explanation: Undersells a real stakeholder with real influence on the pilot.
+    source: { quote: "For each person: role · what they care about · how much influence they have · how often to update them.", page: 77 }
+
+  - id: D26-07
+    type: scenario
+    clientLine: "“So you're just going to say yes to everyone?”"
+    stem: You just agreed with Dana, and Kevin calls it out. What do you say?
+    options:
+      - text: "“Sorry, Kevin. You're right, let's do the freeze.”"
+        correct: false
+        explanation: Flips to the last speaker again. Now neither of them trusts your view.
+      - text: "“Fair challenge. I didn't mean yes to both. Here are the two options with what each costs, and I recommend the one that keeps the freeze.”"
+        correct: true
+        explanation: Owns the slip, gets back to options and a recommendation.
+      - text: "“I'm just trying to keep everyone happy.”"
+        correct: false
+        explanation: Exactly what he's worried about.
+      - text: "“Let's take this offline.”"
+        correct: false
+        explanation: Avoids the conflict instead of resolving it on the call.
+    source: { quote: "If I agree with whoever spoke last, the other one says \"So you're just going to say yes to everyone?\"", page: 80 }
+
+  - id: D26-08
+    type: scenario
+    clientLine: "“Just make it work.”"
+    stem: Dana is impatient. Option B means a 2-day regression instead of 5. What do you say?
+    options:
+      - text: "“Okay, option B then.”"
+        correct: false
+        explanation: Takes the riskier path without making the trade-off visible to Kevin.
+      - text: "“I can make either work. The difference is risk: option B cuts regression testing from five days to two. Is that a risk you and Kevin are comfortable with?”"
+        correct: true
+        explanation: Makes the trade-off clear and hands the decision to its owners.
+      - text: "“It doesn't work like that.”"
+        correct: false
+        explanation: Defensive, with no explanation.
+      - text: "“I'll see what I can do.”"
+        correct: false
+        explanation: Sounds like yes, commits to nothing.
+    source: { quote: "Option B Waitlist in the pilot; freeze moves to Apr 22; regression shrinks to 2 days.", page: 79 }
+
+  - id: D26-09
+    type: written
+    stem: >-
+      After the call, Dana messages: “Remind me why Kevin is so stuck on April 17?” Write your reply in 2–3 sentences.
+    modelAnswer: >-
+      Kevin wants the pilot to launch stable: a freeze on April 17 gives QA a full 5-day regression from April 21. A
+      rushed release last year caused a 3-hour outage at a clinic, and he doesn't want the pilot to repeat that. He
+      owns the release decision, so the freeze is his call.
+    scoringPoints:
+      - States what Kevin cares about (a stable launch, full regression), fairly
+      - Gives the reason behind it in business terms
+      - Says who owns which decision
+    source: { quote: "A rushed release last year caused a 3-hour outage at a clinic, and the CEO still brings it up.", page: 80 }
+
+  - id: D26-10
+    type: written
+    stem: >-
+      Kevin asks: “Is there any way Dana gets something for her demo without touching my freeze?” Write your
+      suggestion in 2–3 sentences.
+    modelAnswer: >-
+      Yes, possibly: we could build the waitlist behind a feature switch and show it only in the demo environment,
+      so pilot clinics never see it and the April 17 freeze stays. I'd want to size it with the team first. I'll send
+      you both the option, with effort, by Wednesday.
+    scoringPoints:
+      - Proposes the feature-switch / demo-environment option
+      - Keeps the freeze and protects the pilot clinics
+      - Gives a dated next step, without promising it on the spot
+    source: { quote: "Would accept the waitlist hidden behind a feature switch — shown only in the demo environment — if I suggest it.", page: 80 }

@@ -1,0 +1,167 @@
+day: 16
+block: 4
+title: Owner language
+type: normal
+storyDate: Monday, March 23
+minutes: About 50 min
+intro: >-
+  Kevin wants one name for Friday's release. Today you swap waiting language for owner language and answer him as the
+  person who owns it.
+lessons:
+  - id: waiting-phrases
+    kind: prep
+    title: Who's handling it?
+    minutes: 5 min
+    blocks:
+      - type: yesterday
+        text: >-
+          on Friday you ran the new-patient intake discovery call with Dana, found the hidden Epic scope before
+          promising anything, sent her the summary, and finished the Week 3 assessment.
+      - type: scene
+        when: Monday, March 23 · 9:10 am Central
+        text: >-
+          Sprint 4 ends on Friday, with the first CareBook release to Brightpath's user-testing (UAT) environment.
+          Epic sandbox access still isn't here, and it's now blocking the Epic connection work. Overnight, Laura
+          Bennett at Pacific Coast Health sent a 120-question security questionnaire. Then Kevin pings you: “Who's
+          handling the deployment?”
+      - type: text
+        text: >-
+          Without a PM, you are the owner. Clients trust the engineer who says “I'll handle it” and then closes the
+          loop. Before you answer Kevin, catch your own habits: list 10 “waiting” phrases you tend to use, in chat,
+          email or on calls.
+    fields:
+      - { id: p1, label: Waiting phrase 1, kind: line, placeholder: "e.g. Should I check with the team?" }
+      - { id: p2, label: Waiting phrase 2, kind: line, placeholder: "e.g. We're waiting for their reply." }
+      - { id: p3, label: Waiting phrase 3, kind: line }
+      - { id: p4, label: Waiting phrase 4, kind: line }
+      - { id: p5, label: Waiting phrase 5, kind: line }
+      - { id: p6, label: Waiting phrase 6, kind: line }
+      - { id: p7, label: Waiting phrase 7, kind: line }
+      - { id: p8, label: Waiting phrase 8, kind: line }
+      - { id: p9, label: Waiting phrase 9, kind: line }
+      - { id: p10, label: Waiting phrase 10, kind: line }
+    source: both
+
+  - id: owner-language
+    kind: learn
+    title: Owner vs waiting language
+    minutes: 10 min
+    lead: >-
+      Waiting language hands the problem back to the client. Owner language says what you'll do, and by when.
+    blocks:
+      - type: compare
+        beforeLabel: Waiting
+        afterLabel: Owner
+        before: "“Should I…?”"
+        after: "“I'll…, unless you'd prefer otherwise.”"
+      - type: compare
+        beforeLabel: Waiting
+        afterLabel: Owner
+        before: "“As you say.”"
+        after: "“My recommendation is…”"
+      - type: compare
+        beforeLabel: Waiting
+        afterLabel: Owner
+        before: "“I was waiting for…”"
+        after: "“I followed up with… and here's the next step.”"
+      - type: compare
+        beforeLabel: Waiting
+        afterLabel: Owner
+        before: "“That's not my area.”"
+        after: "“I'll find out who owns that and get back to you by…”"
+      - type: text
+        text: >-
+          Owner language isn't promising everything. When something isn't yours to decide, you still own the next
+          step: who will answer, and when you'll come back.
+      - { type: heading, text: The follow-up loop }
+      - type: steps
+        items:
+          - { title: 1 · Commit, text: "Say what, and by when. “I'll send the release checklist by Wednesday noon your time.”" }
+          - { title: 2 · Confirm, text: "Write it in the recap, so you both have the same date." }
+          - { title: 3 · Close, text: "Tell them when it's done, by the date you gave. Don't wait to be asked." }
+      - type: text
+        text: >-
+          Most trust is lost in step 3. A loop you open and never close tells the client they have to chase you.
+
+  - id: deployment-call
+    kind: mock
+    title: Kevin's deployment question
+    heading: “Who's handling the deployment?”
+    minutes: 15 min
+    lead: >-
+      Kevin wants one name. Answer as the owner: “I'm handling it”, with the plan, the backup and the rollback. If he
+      asks something you don't know, name who will find out and when.
+    cardId: S10
+    level: 1
+    scriptNote: Use it the first time, then try the call again without it.
+
+  - id: deployment-call-review
+    kind: reflect
+    title: How did the call go?
+    minutes: 5 min
+    lead: Tick what you managed, then note what the AI told you.
+    checksTitle: On this call, I…
+    checks:
+      - said “I'm handling it” with a name and a backup
+      - gave the plan and the rollback with facts
+      - handled the unknown with an owner and a date
+      - committed to a written checklist
+    fields:
+      - { id: went-well, label: What went well, kind: area, placeholder: "From the AI's feedback" }
+      - { id: fix-next, label: One thing to fix next time, kind: area, placeholder: "e.g. I said “the team will deploy” before I said my own name" }
+      - { id: log, label: "Did I close every loop I opened this week?", kind: area, rows: 2 }
+    rubric: true
+
+  - id: owner-rewrites
+    kind: write
+    title: Rewrite the ten
+    heading: Rewrite your ten phrases in owner language
+    minutes: 10 min
+    lead: >-
+      Here are this morning's ten phrases. Rewrite each one as an owner would say it: what you'll do, and by when.
+    blocks:
+      - type: recall
+        label: Your waiting phrases from this morning
+        day: 16
+        lesson: waiting-phrases
+        fields:
+          - { id: p1, label: "1" }
+          - { id: p2, label: "2" }
+          - { id: p3, label: "3" }
+          - { id: p4, label: "4" }
+          - { id: p5, label: "5" }
+          - { id: p6, label: "6" }
+          - { id: p7, label: "7" }
+          - { id: p8, label: "8" }
+          - { id: p9, label: "9" }
+          - { id: p10, label: "10" }
+      - type: text
+        text: >-
+          Check each rewrite: does it start with “I'll” or “My recommendation”? Does it have a date or a time? If it
+          isn't your call, does it say who will answer and when?
+    fields:
+      - { id: r1, label: Owner version 1, kind: line, placeholder: "e.g. I'll check with the tech lead and confirm by 3 pm your time." }
+      - { id: r2, label: Owner version 2, kind: line, placeholder: "e.g. I chased them again this morning; next step is…" }
+      - { id: r3, label: Owner version 3, kind: line }
+      - { id: r4, label: Owner version 4, kind: line }
+      - { id: r5, label: Owner version 5, kind: line }
+      - { id: r6, label: Owner version 6, kind: line }
+      - { id: r7, label: Owner version 7, kind: line }
+      - { id: r8, label: Owner version 8, kind: line }
+      - { id: r9, label: Owner version 9, kind: line }
+      - { id: r10, label: Owner version 10, kind: line }
+
+scoring:
+  owner-rewrites:
+    modelAnswer: >-
+      “Should I check with the team?” → “I'll check with the team and confirm by 3 pm your time.”
+      “We're waiting for their reply.” → “I followed up with Sam this morning; if there's no answer by Wednesday,
+      I'll ask Dana to escalate.”
+      “As you say.” → “My recommendation is to ship the core flow Friday and the rest on Tuesday.”
+      “That's not my area.” → “I'll find out who owns that and get back to you by tomorrow noon.”
+      “Someone will look into it.” → “I'll look into it and send you an update by end of day.”
+      “I'll try to finish by Friday.” → “I'll finish by Friday, 2 pm Central.”
+    scoringPoints:
+      - Each rewrite says what the engineer will do, starting with “I'll”, “I followed up” or “My recommendation”
+      - Each rewrite has a time or date, or names who will answer and by when
+      - No new waiting words (“try”, “hopefully”, “should I”, “someone”) left in the rewrites

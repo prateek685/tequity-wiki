@@ -1,0 +1,31 @@
+id: a8-change-note
+kind: template
+ref: "A8"
+title: "Change note"
+summary: "Record a requested change: why, its impact, options, your recommendation and the decision date."
+blocks:
+  - type: text
+    text: "Use it when a client asks for a change after the plan is agreed."
+  - type: message
+    label: "The template"
+    text: |-
+      Change requested: \_\_\_
+
+      Why: \_\_\_
+
+      Impact: time \_\_\_ (by \_\_\_, on \_\_\_) / cost \_\_\_ / risk \_\_\_
+
+      Options: A) \_\_\_  B) \_\_\_
+
+      My recommendation: \_\_\_
+
+      Decision needed by: \_\_\_
+  - type: copy
+    label: "Copy template"
+    text: |-
+      Change requested: ___
+      Why: ___
+      Impact: time ___ (by ___, on ___) / cost ___ / risk ___
+      Options: A) ___  B) ___
+      My recommendation: ___
+      Decision needed by: ___

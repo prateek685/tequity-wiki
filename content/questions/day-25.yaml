@@ -1,0 +1,183 @@
+# Day 25 quiz pool: Friday, April 3. Dr. Mercer's “doctors need to see Epic data in CareBook”: discovery at Level 2,
+# narrowing “everything”, PHI and security, the first 15 healthcare terms, the discovery email. Shows 5 of 10.
+pool: day-25
+questions:
+  - id: D25-01
+    type: mcq
+    stem: "Dr. Mercer opens: “Our doctors need to see Epic data in CareBook.” What's the best first reply?"
+    options:
+      - text: "“Sure, we'll sync the full chart once Epic access arrives.”"
+        correct: false
+        explanation: A promise to move the most sensitive data there is, before you know the need.
+      - text: "“That's not in Sprint 5.”"
+        correct: false
+        explanation: True, and useless. It ends the conversation before it starts.
+      - text: "“Happy to look at it. Could I ask a few questions so we understand exactly what they need?”"
+        correct: true
+        explanation: Open, calm, and it starts discovery instead of a promise.
+      - text: "“We'd need FHIR Patient, Observation and MedicationRequest resources for that.”"
+        correct: false
+        explanation: Jargon before you know which data matters.
+    source: { quote: "Our doctors need to see Epic data in CareBook.", page: 76 }
+
+  - id: D25-02
+    type: mcq
+    stem: "Dr. Mercer says: “Just pull everything from Epic.” What's the best reply?"
+    options:
+      - text: "“Okay, everything it is.”"
+        correct: false
+        explanation: "“Everything” is the full chart: huge scope, and far more PHI than doctors need."
+      - text: "“We can't do everything.”"
+        correct: false
+        explanation: A no without a question. You still don't know what they need.
+      - text: "“Let's start from the doctor's moment. When would they look at this, and which pieces of information matter most then?”"
+        correct: true
+        explanation: Narrows “everything” by asking about the moment and the data.
+      - text: "“Everything would take about six months.”"
+        correct: false
+        explanation: An estimate for something nobody has defined.
+    source: { quote: "Narrowed \"everything\" to 4 items, view-only", page: 75 }
+
+  - id: D25-03
+    type: mcq
+    stem: "Dr. Mercer asks: “Is this safe? I don't want patient data sitting on phones.” What's the best reply?"
+    options:
+      - text: "“It's totally safe. Everything is encrypted.”"
+        correct: false
+        explanation: An absolute promise about a design that doesn't exist yet.
+      - text: "“That's the right worry. We'd show only the few items doctors need, view-only, and Kevin Walsh reviews security before any clinical data goes into CareBook. I'll include it in my summary today.”"
+        correct: true
+        explanation: Takes the concern seriously, applies minimum necessary, and names the review.
+      - text: "“Phones are pretty secure these days.”"
+        correct: false
+        explanation: Brushes off a patient-safety concern from a CMIO.
+      - text: "“That's Lakeside IT's problem.”"
+        correct: false
+        explanation: Pushes away a question about your own product.
+    source: { quote: "Any clinical data needs Kevin Walsh's security review.", page: 75 }
+
+  - id: D25-04
+    type: mcq
+    stem: "Dr. Mercer asks: “Couldn't you just put the video link inside Epic instead?” What's the best reply?"
+    options:
+      - text: "“No, Epic doesn't allow that.”"
+        correct: false
+        explanation: A guess about a system you don't control.
+      - text: "“Yes, that's easy.”"
+        correct: false
+        explanation: Another guess, in the other direction.
+      - text: "“Maybe, and it's worth comparing. I'll look at both, the link in Epic or the key items in CareBook, and put what each takes in my summary.”"
+        correct: true
+        explanation: Treats his idea as a real option and commits to compare.
+      - text: "“That's a question for Sam Porter.”"
+        correct: false
+        explanation: Sam may help, but you own the answer back to Dr. Mercer.
+    source: { quote: "Couldn't you just put the video link inside Epic instead?", page: 76 }
+
+  - id: D25-05
+    type: mcq
+    stem: "Dana asks: “Laura keeps saying ‘business associate’. What does she mean?” What's the best reply?"
+    options:
+      - text: "“A partner company that resells CareBook.”"
+        correct: false
+        explanation: A business meaning, not the HIPAA one she's using.
+      - text: "“A vendor that handles PHI for a covered entity, like a hospital network. That's why she wants a BAA: the contract that allows it.”"
+        correct: true
+        explanation: The HIPAA meaning, in one line, linked to what Laura is asking for.
+      - text: "“Not sure. Some compliance term.”"
+        correct: false
+        explanation: A term you need to know when you talk to Laura.
+      - text: "“It means we're liable for everything.”"
+        correct: false
+        explanation: Overstated, and likely to worry Dana for no reason.
+    source: { quote: "A vendor that handles PHI on behalf of a covered entity — often us.", page: 168 }
+
+  - id: D25-06
+    type: mcq
+    stem: >-
+      Dr. Mercer says Lakeside “might join an ACO next year”. You've heard the term but aren't sure what it means. What
+      do you do?
+    options:
+      - text: Nod and look it up after the call.
+        correct: false
+        explanation: You'll miss whatever he says next, because it builds on the word.
+      - text: "Guess: “Ah, the new Epic module?”"
+        correct: false
+        explanation: A wrong guess tells him you don't understand his world.
+      - text: "Ask: “Quick check: by ACO, do you mean a group of providers that shares responsibility, and savings, for its patients? What would it change for Lakeside?”"
+        correct: true
+        explanation: Checks the meaning in one line, then asks why it matters.
+      - text: Change the subject to the pilot.
+        correct: false
+        explanation: Avoids a gap instead of closing it.
+    source: { quote: "Accountable Care Organization: a group of providers that shares responsibility (and savings) for", page: 168 }
+
+  - id: D25-07
+    type: scenario
+    clientLine: "“Can we have it for the pilot?”"
+    stem: You don't know yet why he wants it or when. What do you say?
+    options:
+      - text: "“Yes, we'll make it work.”"
+        correct: false
+        explanation: A pilot promise for clinical data with no security review.
+      - text: "“Before I answer: is it needed for April 27, or for the rollout after? Clinical data also needs a security review, so I'd rather give you a real date than a hopeful one.”"
+        correct: true
+        explanation: Finds the real deadline first, and is honest about the review.
+      - text: "“No chance.”"
+        correct: false
+        explanation: A flat no, before you know whether he even needs it then.
+      - text: "“Let's see how Sprint 6 goes.”"
+        correct: false
+        explanation: Vague. He can't plan around “let's see”.
+    source: { quote: "It is not needed for the pilot — you want it before the summer rollout (by July 1).", page: 76 }
+
+  - id: D25-08
+    type: scenario
+    clientLine: "“Other apps do this — why can't you?”"
+    stem: You haven't said you can't. What's the best reply?
+    options:
+      - text: "“Other apps probably cut corners on security.”"
+        correct: false
+        explanation: Criticises others with a guess.
+      - text: "“We may well be able to. What I don't know yet is exactly which data your doctors need, and when. Once I do, I'll tell you what it takes.”"
+        correct: true
+        explanation: Calm, not defensive, and brings him back to the need.
+      - text: "“We're not those apps.”"
+        correct: false
+        explanation: Defensive and unhelpful.
+      - text: "“Okay, we'll copy what they do.”"
+        correct: false
+        explanation: Builds someone else's answer to a need you haven't heard.
+    source: { quote: "Before anyone agrees to anything, you need to understand exactly what the doctors need.", page: 75 }
+
+  - id: D25-09
+    type: written
+    stem: >-
+      Kevin messages: “I hear Alan wants clinical data in CareBook. What exactly, and does it need my review?” Write your
+      reply in 2–3 sentences.
+    modelAnswer: >-
+      Four items, view-only, shown just before a video visit: visit reason, current medication list, allergies and date
+      of last visit; nothing is written back to Epic. Yes, it's clinical PHI, so it needs your security review before
+      anything is planned; it's for the July 1 rollout, not the pilot. Could we take 30 minutes next week, once Epic
+      access is in?
+    scoringPoints:
+      - Answers first with exactly what data, how and when it's shown
+      - Says yes to the review and why (clinical PHI), with the timing
+      - Ends with a concrete next step
+    source: { quote: "They need only 4 items: visit reason, current medication list, allergies, and date of last visit", page: 76 }
+
+  - id: D25-10
+    type: written
+    stem: >-
+      Dana asks: “My new product manager starts Monday. What does she need to know about HIPAA, in one minute?” Write
+      your answer.
+    modelAnswer: >-
+      HIPAA is the 1996 US law that protects health information. PHI is health information that can identify a person;
+      the Privacy Rule says who may see or share it, the Security Rule says how to protect it, and “minimum necessary”
+      means using only what the task needs. Vendors like us may handle PHI only under a BAA, and our rule is simple: no
+      PHI in logs, test data, screenshots or AI tools.
+    scoringPoints:
+      - Defines HIPAA and PHI in plain words
+      - Covers the main ideas (Privacy and Security Rules, minimum necessary, BAA)
+      - Ends with the practical rule, short enough to say in a minute
+    source: { quote: "The 1996 US law that protects the privacy and security of health information.", page: 168 }

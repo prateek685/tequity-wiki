@@ -1,0 +1,66 @@
+id: a12-3-escalation
+kind: template
+ref: "A12 · 3"
+title: "Worked example: blocked for 5 days waiting on AWS access"
+summary: "Escalation (card S26): name the blocker, the impact on the date, what you tried and what you need."
+blocks:
+  - type: text
+    text: "The whole flow for one call type: pre-call card, the call, the written follow-up, and why it works against the call rubric. Use it as a reference, then practise the matching card."
+  - { type: heading, text: "1. Pre-call card (filled)" }
+  - type: facts
+    rows:
+      - { label: "Call", value: "Kevin Walsh (CTO, Brightpath) · Mon Apr 20 · 15 min · Eastern time" }
+      - { label: "My goal", value: "Get the production AWS access approved (or an owner named) by Wednesday noon, without blaming anyone." }
+      - { label: "Opener", value: "“Hi Kevin, thanks for the time. I need your help with one blocker that affects May 4.”" }
+      - { label: "3 things I must say", value: "What's blocked and since when (ticket SEC-482, Apr 14) · the impact: no production setup or load test, and May 4 at risk after Wednesday noon · what we have already tried" }
+      - { label: "3 questions I must ask", value: "Can you approve the role, or who can? · What does security need from us? · Would time-limited access make it easier?" }
+      - { label: "Risk to raise", value: "The fallback (Brightpath DevOps deploys from our runbook) works, but every change waits for their team." }
+      - { label: "Hardest question and my answer", value: "“Why didn't you tell me earlier?” → “Fair point. I should have come to you after the second follow-up. From now on I'll escalate after two days.”" }
+      - { label: "Closing line", value: "“I'll send the policy document right after this call and confirm in Slack once access works.”" }
+  - { type: heading, text: "2. The call (a strong version)" }
+  - type: facts
+    rows:
+      - { label: "You", value: "Hi Kevin, thanks for the time. I need your help with one blocker that affects May 4." }
+      - { label: "Kevin", value: "Go ahead." }
+      - { label: "You", value: "We've been waiting five working days for deployment access to Brightpath's production AWS account: ticket SEC-482, from April 14. Without it we can't set up production or run the load test. If we don't have it by Wednesday noon, May 4 is at risk." }
+      - { label: "Kevin", value: "Why didn't you tell me earlier?" }
+      - { label: "You", value: "Fair point. I should have come to you after the second follow-up. From now on I'll escalate after two days." }
+      - { label: "Kevin", value: "What have you tried?" }
+      - { label: "You", value: "The ticket, two Slack follow-ups with Omar, and a least-privilege policy draft on Friday, so security has what it needs." }
+      - { label: "Kevin", value: "Omar's been out sick. If you send me the policy document, I can approve it myself." }
+      - { label: "You", value: "Great, I'll send it right after this call. Would time-limited access make it easier for security?" }
+      - { label: "Kevin", value: "Yes. Make it 90 days." }
+      - { label: "You", value: "Will do. To recap: I send the policy in the next 10 minutes, you approve a 90-day role today, and I'll confirm in Slack once access works." }
+  - { type: heading, text: "3. The written follow-up" }
+  - type: message
+    label: "The email"
+    text: |-
+      Subject: ACTION NEEDED: production AWS access (SEC-482) — needed by Wed Apr 22, noon ET
+
+      Hi Kevin,
+
+      Thanks for making time today. As discussed:
+
+      Blocked: deployment access (IAM role) to Brightpath's production AWS account — requested Tue Apr 14 in ticket SEC-482.
+
+      Impact: without it we can't set up production, monitoring or the load test. After Wed Apr 22, noon ET, the May 4 pilot is at risk.
+
+      What we've tried: the ticket (Apr 14), Slack follow-ups (Apr 16 and 17), a least-privilege policy draft (Apr 17).
+
+      What I need: your approval of the attached policy as a 90-day, time-limited role — today if possible.
+
+      Fallback if needed: Brightpath DevOps deploys from our runbook (slower; every change waits for their team).
+
+      I'll confirm in Slack as soon as access works.
+
+      Thanks,
+
+      [Your name]
+  - { type: heading, text: "4. Why this works" }
+  - type: facts
+    rows:
+      - { label: "Named the impact on the date in the first minute", value: "Risks and bad news" }
+      - { label: "Covered all five parts: blocked → impact → tried → need → by when", value: "Answer-first structure" }
+      - { label: "Owned the late escalation without excuses", value: "Handling unknowns · Owner language" }
+      - { label: "Offered time-limited access, which made “yes” easy", value: "Trade-offs" }
+      - { label: "Recapped owners and timing, and the written message matches the call", value: "Closing and next steps · Written follow-up" }

@@ -1,0 +1,166 @@
+# Day 53 quiz pool: Wednesday, May 13. Co-leading the requirements: ask, play back, confirm, and send the summary. Shows 5 of 10.
+pool: day-53
+questions:
+  - id: D53-01
+    type: mcq
+    stem: "You co-lead the requirements part of a call. What's your first move when the client describes a need?"
+    options:
+      - text: "Ask open questions about the user and the problem."
+        correct: true
+        explanation: "Ask first. Only then play back."
+      - text: "Start designing a solution on the call."
+        correct: false
+        explanation: "You don't understand it yet."
+      - text: "Say “okay, got it” and move on."
+        correct: false
+        explanation: "You assume you understood."
+      - text: "Hand over to the PM."
+        correct: false
+        explanation: "The part is yours."
+    source: { quote: "ask the questions, play back, confirm.", page: 130 }
+
+  - id: D53-02
+    type: mcq
+    stem: "The client explains the need in a few sentences. Which line plays it back well?"
+    options:
+      - text: "“So what I'm hearing is that the front desk needs the patient's phone number on the waitlist, without an extra click. Did I get that right?”"
+        correct: true
+        explanation: "States the need and asks to confirm."
+      - text: "“Okay, got it.”"
+        correct: false
+        explanation: "Nothing to confirm."
+      - text: "“I'll add it to the backlog.”"
+        correct: false
+        explanation: "Skips the check."
+      - text: "“So you want a new column?”"
+        correct: false
+        explanation: "Plays back the solution, not the need."
+    source: { quote: "Live co-lead: ask the questions, play back, confirm.", page: 130 }
+
+  - id: D53-03
+    type: mcq
+    stem: "How soon should the requirement summary go out after the call?"
+    options:
+      - text: "Within 2 hours, or drafted for the PM to review."
+        correct: true
+        explanation: "That is the rule for this day."
+      - text: "By the end of the week."
+        correct: false
+        explanation: "Too late. The call is no longer fresh."
+      - text: "Only if the client asks."
+        correct: false
+        explanation: "You own the follow-up."
+      - text: "Not at all, if the PM took notes."
+        correct: false
+        explanation: "The summary is part of your job."
+    source: { quote: "Requirement summary sent (or drafted for PM review) within 2 hours.", page: 130 }
+
+  - id: D53-04
+    type: mcq
+    stem: "Before the call, you and the PM agree on one more thing. What is it?"
+    options:
+      - text: "Which part is yours and when they step in."
+        correct: true
+        explanation: "They step in only if you signal."
+      - text: "That the PM will talk if you pause."
+        correct: false
+        explanation: "You'd lose ownership."
+      - text: "That you'll read from the PM's notes."
+        correct: false
+        explanation: "You need your own questions."
+      - text: "That you'll join silently."
+        correct: false
+        explanation: "That is shadowing, not co-leading."
+    source: { quote: "Agree to co-lead the", page: 130 }
+
+  - id: D53-05
+    type: mcq
+    stem: "Which question helps you find the metric during a requirements discussion?"
+    options:
+      - text: "“If this worked perfectly, which number would you see change?”"
+        correct: true
+        explanation: "It names the number and the change."
+      - text: "“Do you want it fast?”"
+        correct: false
+        explanation: "A yes/no question."
+      - text: "“Which database do you use?”"
+        correct: false
+        explanation: "A technical question."
+      - text: "“Is this urgent?”"
+        correct: false
+        explanation: "Everything is urgent."
+    source: { quote: "If this feature worked perfectly, which number would you see change?", page: 132 }
+
+  - id: D53-06
+    type: mcq
+    stem: "What should a good requirement summary include?"
+    options:
+      - text: "The need, what's in and out of scope, open questions, and next steps with owners and dates."
+        correct: true
+        explanation: "The client can confirm or correct it in one read."
+      - text: "A full transcript of the call."
+        correct: false
+        explanation: "Too long. Nobody will read it."
+      - text: "Only the technical design."
+        correct: false
+        explanation: "The client needs the requirement, not your design."
+      - text: "A list of the questions you asked."
+        correct: false
+        explanation: "They need the answers."
+    source: { quote: "Requirement summary sent", page: 130 }
+
+  - id: D53-07
+    type: scenario
+    clientLine: "Wait, I said Tuesday, not Thursday."
+    stem: "You've played back a date and the client corrects you. What do you say?"
+    options:
+      - text: "“Thanks. Tuesday it is. I'll put that in the summary so we all see it.”"
+        correct: true
+        explanation: "Takes the correction and records it."
+      - text: "“I'm sure you said Thursday.”"
+        correct: false
+        explanation: "Arguing."
+      - text: "“No problem.” (and keep the wrong date)"
+        correct: false
+        explanation: "The summary will be wrong."
+      - text: "“The PM must have noted it wrong.”"
+        correct: false
+        explanation: "Blames someone else."
+    source: { quote: "Live co-lead: ask the questions, play back, confirm.", page: 130 }
+
+  - id: D53-08
+    type: scenario
+    clientLine: "Can you also add automatic texts to this?"
+    stem: "The client adds a new request in the middle of the requirements part. What do you do?"
+    options:
+      - text: "“I'll note that as a separate request. Let me finish the phone number change, then we can size the texts after this call.”"
+        correct: true
+        explanation: "Keeps scope clear and doesn't lose the idea."
+      - text: "“Yes, no problem.”"
+        correct: false
+        explanation: "You've committed with no size."
+      - text: "“No, that's out of scope.”"
+        correct: false
+        explanation: "Too blunt for a client."
+      - text: "Say nothing and hope they forget."
+        correct: false
+        explanation: "It will come back."
+    source: { quote: "Live co-lead: ask the questions, play back, confirm.", page: 130 }
+
+  - id: D53-09
+    type: written
+    stem: "Write the two-line opening for the requirements part of a call, stating whose part it is and what you'll do."
+    modelAnswer: "I'll take the requirements part. I'll ask a few questions, play back what I heard so we agree, and send a summary within two hours."
+    scoringPoints:
+      - "Says the part is yours and what you'll do"
+      - "States the next step, including the two-hour summary"
+    source: { quote: "Requirement summary sent (or drafted for PM review) within 2 hours.", page: 130 }
+
+  - id: D53-10
+    type: written
+    stem: "Write the closing lines of your part: the confirmation and the next step, with an owner and a date."
+    modelAnswer: "So we agreed the phone number goes on the waitlist for the three pilot clinics first. I'll send the size estimate by Friday, and Lisa will confirm which clinics go first by Monday."
+    scoringPoints:
+      - "Confirms what was agreed in a sentence"
+      - "Next steps each have an owner and a date"
+    source: { quote: "Live co-lead: ask the questions, play back, confirm.", page: 130 }

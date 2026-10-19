@@ -1,0 +1,155 @@
+day: 27
+block: 6
+title: Estimates as ranges
+type: normal
+storyDate: Tuesday, April 7
+minutes: About 50 min
+intro: >-
+  Dana wants Spanish SMS reminders “by Friday. Yes or no.” Today you learn to give estimates as ranges, with your
+  confidence and the one unknown, and never a single yes to an uncertain date.
+lessons:
+  - id: three-tasks
+    kind: prep
+    title: “Yes or no?”
+    minutes: 5 min
+    blocks:
+      - type: yesterday
+        text: >-
+          Dana and Kevin wanted opposite things for the pilot. You played back both goals fairly, recommended keeping
+          the April 17 freeze with the waitlist in Sprint 7, and sent both options in writing. They decide by
+          Wednesday.
+      - type: scene
+        when: Tuesday, April 7 · 9:00 am Central
+        text: >-
+          The reminders soft launch at Westside went live yesterday without trouble. This morning Dana writes: “Can we
+          have Spanish SMS reminders by Friday? Westside needs it.” Sprint 5 ends on Friday and it's already full: the
+          Epic sync, the eligibility check, audit logging. The code is about two days. The wording is the problem:
+          Lakeside compliance must approve the Spanish opt-out text, and the last approval took four days. She's
+          calling at 10.
+      - type: text
+        text: >-
+          Before you estimate Dana's ask, practise on your own work. Pick three tasks, from your real project or from
+          CareBook, and give each one a range and the unknown that makes it a range.
+    fields:
+      - { id: task-1, label: Task 1 · range · the unknown, kind: line, placeholder: "e.g. Spanish SMS templates · 3–5 days · how fast the wording is approved" }
+      - { id: task-2, label: Task 2 · range · the unknown, kind: line }
+      - { id: task-3, label: Task 3 · range · the unknown, kind: line }
+    source: both
+
+  - id: ranges-and-confidence
+    kind: learn
+    title: Ranges and confidence
+    heading: Estimates as ranges, with confidence
+    minutes: 10 min
+    lead: >-
+      A single number for uncertain work is a promise you can't keep. A range, your confidence and the one unknown
+      tell the client what they can plan on.
+    blocks:
+      - type: steps
+        items:
+          - { title: Answer first, text: "What you can commit to, in one line: “The code, yes, by Friday. Fully live, probably not.”" }
+          - { title: The range, text: "“3 to 5 days.” Never a single number for uncertain work." }
+          - { title: Your confidence, text: "“I'm fairly confident about the code: about 2 days.”" }
+          - { title: The unknown, text: "What makes it a range, and when you'll know more: “The unknown is the wording approval. I'll know by Wednesday.”" }
+          - { title: Options, text: "What you can do inside the date, and what you recommend." }
+      - type: compare
+        beforeLabel: A single number
+        afterLabel: A range with the unknown
+        before: "“Friday should be fine.”"
+        after: >-
+          “3 to 5 days, and I'm fairly confident. The unknown is the EHR sandbox. I'll know more by Wednesday.”
+      - type: text
+        text: >-
+          A client who hears “Friday” tells someone else “Friday”. A client who hears a range and the unknown can plan
+          around it, and can often help: send an email, chase an approval, or tell you the real deadline.
+      - type: note
+        tone: warn
+        title: “Yes or no?” isn't a reason to guess
+        text: >-
+          When a client pushes for one word, give the short answer first, then the range in one sentence. Answer
+          first doesn't mean answer without the risk.
+      - type: recall
+        label: Your “I don't know — I'll check” lines from Day 19
+        day: 19
+        lesson: laura-calls
+        fields:
+          - { id: honest, label: Be honest }
+          - { id: commit, label: Commit }
+
+  - id: by-friday
+    kind: mock
+    title: “By Friday?”
+    heading: “Can you do it by Friday?”
+    minutes: 15 min
+    lead: >-
+      Level 2: Dana wants a yes or a no, and she'll take a single date straight to Lakeside. Answer first, give the
+      range with your confidence and the one unknown, then the options and one clear ask.
+    cardId: S18
+    level: 2
+    scriptNote: Use it the first time, then try the call again without it.
+
+  - id: by-friday-review
+    kind: reflect
+    title: How did the call go?
+    minutes: 5 min
+    lead: Tick what you managed, then note what the AI told you.
+    checksTitle: On this call, I…
+    checks:
+      - answered first (“code yes, fully live no”), then gave the range
+      - named my confidence and the one unknown
+      - gave options, a recommendation and a clear ask
+      - found the real deadline or the reusable wording
+    fields:
+      - { id: went-well, label: What went well, kind: area, placeholder: "From the AI's feedback" }
+      - { id: fix-next, label: One thing to fix next time, kind: area, placeholder: "e.g. I said “probably Friday” and Dana told Lakeside it's live Friday" }
+      - { id: log, label: "Did I give a recommendation, or just a list of options?", kind: area, rows: 2 }
+    rubric: true
+
+  - id: estimate-message
+    kind: write
+    title: The estimate message
+    heading: Confirm the estimate in writing
+    minutes: 10 min
+    lead: >-
+      You promised Dana the plan in writing within the hour. Five parts: the short answer, the range, your confidence
+      and the unknown, what could change it, and your ask.
+    blocks:
+      - type: recall
+        label: Your three ranges from this morning
+        day: 27
+        lesson: three-tasks
+        fields:
+          - { id: task-1, label: "1" }
+          - { id: task-2, label: "2" }
+          - { id: task-3, label: "3" }
+      - { type: field, id: subject }
+      - { type: field, id: short-answer }
+      - { type: field, id: range }
+      - { type: field, id: unknown }
+      - { type: field, id: ask }
+      - type: text
+        text: >-
+          Before you send: could Dana forward this to Lisa Chen without promising a date you didn't give? Is the
+          unknown named, with when you'll know more?
+    fields:
+      - { id: subject, label: Subject, kind: line, placeholder: "e.g. Spanish SMS reminders: code by Fri, live once wording is approved" }
+      - { id: short-answer, label: The short answer, kind: area, rows: 2 }
+      - { id: range, label: The range and my confidence, kind: area, rows: 2 }
+      - { id: unknown, label: The unknown, and what could change it, kind: area, rows: 2 }
+      - { id: ask, label: My recommendation and ask (owner + date), kind: area, rows: 2 }
+
+scoring:
+  estimate-message:
+    modelAnswer: >-
+      Subject: Spanish SMS reminders: code ready Fri Apr 10, live once Lakeside approves the wording.
+      Short answer: the code, yes, by Friday. Fully live at Westside by Friday, probably not.
+      Range: 3 to 5 working days in total. I'm confident about the code, about 2 days, built behind a switch.
+      Unknown: Lakeside compliance must approve the Spanish opt-out wording (TCPA rules), and the last approval took 4
+      days. If they can reuse the wording already approved for their paper reminder letters, it could be much faster.
+      Ask: I recommend option A, building it now and switching it on the day the wording is approved, well before
+      the April 27 pilot. Could you send the Spanish text to Lakeside compliance today? I'll update you Thursday on
+      the approval.
+    scoringPoints:
+      - The short answer comes first and separates “code by Friday” from “fully live”
+      - Gives a range, a confidence level and the one unknown, with no single promised date
+      - Ends with a recommendation and a clear ask with a date

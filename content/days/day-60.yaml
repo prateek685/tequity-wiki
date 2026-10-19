@@ -1,0 +1,99 @@
+day: 60
+block: 12
+title: Lead call 2
+type: live_call
+storyDate: Friday, May 22
+minutes: About 60 min
+intro: >-
+  Today you lead a second call, or, if there is no second call, all the client updates for the week. You recap, rate the
+  week, and book your check-in with your manager.
+lessons:
+  - id: pre-call-card
+    kind: prep
+    title: Pre-call card
+    minutes: 5 min
+    blocks:
+      - type: yesterday
+        text: >-
+          You practised answering first in three rounds with Kevin, and you closed every follow-up from Wednesday's call.
+      - type: scene
+        when: Friday, May 22 · 8:20 am Central · pilot day nineteen
+        text: >-
+          Fill in the pre-call card for your second call. Use what you learned in the debrief: which one thing are you
+          changing today? No second call this week? Plan the client updates you'll lead instead: the status, the risks and
+          the next steps, in writing.
+    fields:
+      - { id: call, label: "The call, or the updates I'll lead", kind: line }
+      - { id: goal, label: "My goal (one sentence)", kind: line }
+      - { id: change, label: "The one thing I'm changing from Wednesday", kind: line }
+      - { id: say, label: "3 things I must say", kind: area, rows: 3 }
+    source: both
+
+  - id: lead-call-two
+    kind: live
+    title: Lead call 2
+    heading: Lead a second call, or all the updates for the week
+    minutes: 30 min
+    liveRole: lead
+    substituteCardId: S32
+    fallback: >-
+      If there is no second call, lead all async client updates for the week instead: send the status, risks and next steps
+      in writing, and fill in the sheet for it. Or run the dress rehearsal again as a 20-minute Level 3 mock with no script.
+    lead: >-
+      Lead from the first minute, and use your one thing. Afterwards, fill in the sheet while it's fresh.
+    fields:
+      - { id: call, label: "Call or updates · PM or senior · date", kind: line, placeholder: "e.g. Weekly sync · the PM's name · May 22" }
+      - { id: change-worked, label: "Did my one thing work? Give an example.", kind: area, rows: 2 }
+      - { id: stepped-in, label: "Did the PM or senior step in? Why?", kind: area, rows: 2 }
+      - { id: hard-moment, label: "The hardest moment, and what I did", kind: area, rows: 2 }
+      - { id: closing, label: "How I closed and confirmed next steps", kind: area, rows: 2 }
+
+  - id: week-recap
+    kind: write
+    title: Recap
+    heading: Recap the call and the week
+    minutes: 10 min
+    lead: >-
+      Write the recap you'll send, then answer the daily log prompt: what did you do on the call without thinking that you
+      couldn't do on Day 1?
+    source: both
+    blocks:
+      - { type: field, id: my-recap }
+      - { type: field, id: day-one }
+    fields:
+      - { id: my-recap, label: Recap of the call or updates, kind: area, rows: 5, placeholder: "Decisions, actions with owners and dates, open questions" }
+      - { id: day-one, label: "What I did without thinking that I couldn't do on Day 1", kind: area, rows: 2 }
+
+  - id: week-in-review
+    kind: scorecard
+    title: Your week in review
+    minutes: 5 min
+    lead: >-
+      Five minutes. Rate this week's behaviours and add a line of proof for each pillar. Your pillar scores update from
+      them; the other pillars carry forward. Your Day 1 baseline sits next to it.
+    scorecard: [U2, C1, O3, S1]
+    checksTitle: Before the weekend
+    checks:
+      - Did I lead the call from the first minute?
+      - Did the PM need to step in? If so, why?
+    blocks:
+      - type: note
+        tone: info
+        title: Bi-weekly check-in
+        text: Your 15–20 minute check-in with your manager comes after today, and you book it. If it isn't in your calendar yet, book it with your manager now. Bring this scorecard.
+      - type: text
+        text: >-
+          **Next week:** the capstone. You lead a client call on your own, solve a real readiness case, and share it with
+          your manager for the final review.
+
+scoring:
+  week-recap:
+    modelAnswer: >-
+      Weekly sync recap: the June 15 plan stays; the 9 new clinics start in one wave. Decided: Kevin's SMS limit is raised
+      for the rollout. Actions: Me: send the rollout checklist by Tue May 26. Sam: Epic access by May 29. Lisa: pick the
+      training dates by Fri May 29. Open: do we need a second test day? On Day 1 I couldn't give a recommendation; today I
+      gave one before they asked.
+    scoringPoints:
+      - The recap leads with the decisions, and every action has an owner and a date
+      - Open questions are listed
+      - The answer to the Day 1 question is specific, with a real example

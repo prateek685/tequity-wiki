@@ -1,0 +1,374 @@
+# Week 1 assessment pool (after Day 5): the whole CareBook week, Mar 2–6, with skills combined: the opener and
+# 30-second intro, answer first, PREP and honest trade-offs, the weekly sync and the recap email, unknowns.
+# Shows 8 choice + 2 written of 20.
+pool: assessment-05
+questions:
+  - id: A05-01
+    type: mcq
+    stem: >-
+      Friday, March 6, 10:00 am Central. Dana joins the sync: “Morning! Crazy week, SXSW is eating my life.” Which
+      first 30 seconds covers all three steps of the opener?
+    options:
+      - text: "“Morning! Sounds busy, are you ready for the booth? … Great. The goal today is a quick update, one risk and next week's plan. We'll be done in 15 minutes. Anything you'd like to add?”"
+        correct: true
+        explanation: A short warm start, then purpose and agenda with an invitation to add, then the time check. You lead the call from the first minute.
+      - text: "“Morning! Oh, tell me all about the booth. What does it look like? Who's going?” Then 10 minutes on SXSW."
+        correct: false
+        explanation: Warm, but there's no agenda and no time check. The risk and the ask get squeezed out at the end.
+      - text: "“Morning. So, video booking is at 75%, reschedule and cancel start Monday, and the Epic form…”"
+        correct: false
+        explanation: Straight into detail with no warm start and no agenda. Dana doesn't know what the call is for or how long it takes.
+      - text: "“Sorry, I know you're slammed, sorry to take your time. I'll try to be really quick, sorry.”"
+        correct: false
+        explanation: Apologising for the call makes it sound unimportant, and it still has no purpose, agenda or time check.
+    source: { quote: "The goal today is a quick update, one risk, and next week's plan.", page: 32 }
+
+  - id: A05-02
+    type: mcq
+    stem: >-
+      Dana finds out Brightpath's COO signs Lakeside's security form and adds him to a quick call. He says, “Dana says
+      you need something from me. Who are you, exactly?” Which reply is best?
+    options:
+      - text: "“I've been an engineer for nine years, mostly in mobile and backend, and before this project I worked on…”"
+        correct: false
+        explanation: Career history before the point. He still doesn't know your role or what you need from him.
+      - text: "“I'm just one of the vendor developers. Sam from Lakeside sent some form that needs signing, I think.”"
+        correct: false
+        explanation: Undersells your role and makes the ask vague. He has no reason to treat it as important.
+      - text: "“I'm the lead engineer on CareBook, Brightpath's new booking app. I own the build and the updates to Dana. I need one thing: Lakeside's security form signed this week, so we get Epic access by March 16 and the April 27 pilot stays on track.”"
+        correct: true
+        explanation: A 30-second intro (who, what you own), then the ask with its date and impact. He knows exactly why he's on the call.
+      - text: "“We need the security attestation signed so Lakeside can provision our FHIR sandbox credentials for the Epic integration.”"
+        correct: false
+        explanation: No intro and full of jargon. A COO needs the plain ask and why it matters to the business.
+    source: { quote: "Who I am → what I own on this project → how I'll help you.", page: 24 }
+
+  - id: A05-03
+    type: mcq
+    stem: "Dana asks, “Before my leadership meeting: are we good for April 27, yes or no?” Which reply does everything she needs?"
+    options:
+      - text: "“Yes, we're in great shape. There's a small integration thing still open, but nothing to worry about.”"
+        correct: false
+        explanation: Answer first, but the risk is vague and played down. When the Epic access slips, she'll have told her leaders it was fine.
+      - text: "“So, on February 24 we asked Lakeside for Epic sandbox access, and Sam's team has a process, and… so if it comes by March 16, then yes.”"
+        correct: false
+        explanation: The facts are right, but the answer is buried at the end of a background story. She'll cut in before she gets it.
+      - text: "“Honestly, I can't say yes or no until Lakeside replies.”"
+        correct: false
+        explanation: No answer at all. You know the plan; say what's true today and what would change it.
+      - text: "“Yes, today we are. One risk: Epic sandbox access still isn't here. If we don't have it by March 16, the Epic sync slips and April 27 is at risk. Could you nudge Lakeside IT this week?”"
+        correct: true
+        explanation: The answer first, the one risk with its date and impact, then a clear ask. All in about 15 seconds.
+    source: { quote: "Needed by Mon Mar 16 to keep the Sprint 5 EHR sync", page: 28 }
+
+  - id: A05-04
+    type: mcq
+    stem: >-
+      On Monday's first call, Dana says, “My old vendor kept surprising me with late news. Has anything slipped
+      already?” The Epic sandbox access you asked for on February 24 still hasn't arrived. What do you say?
+    options:
+      - text: "“One thing to know now: the Epic sandbox access we asked Lakeside for on February 24 hasn't arrived. No date has moved yet. I'm chasing it, and if it ever puts a date at risk, you'll hear from me the same day.”"
+        correct: true
+        explanation: The bad news first, the impact today, what you're doing, and when she'll hear more. No surprises later.
+      - text: "“I'm really sorry, we should have sorted this already. I apologise, and I'm sorry for how the last team handled things too.”"
+        correct: false
+        explanation: Over-apologising turns a pending request into a crisis and still doesn't tell her what it means for the dates.
+      - text: "“Nothing at all, everything is on schedule.”"
+        correct: false
+        explanation: Hiding a known open item. It's her biggest worry, and she'll find out from Lakeside instead of from you.
+      - text: "“The last team didn't chase Lakeside hard enough, so the Epic access is late.”"
+        correct: false
+        explanation: Blame doesn't help Dana plan. Give the facts, the impact and what you're doing about it.
+    source: { quote: "Epic sandbox credentials requested from Sam Porter (Lakeside IT) on Feb 24", page: 22 }
+
+  - id: A05-05
+    type: mcq
+    stem: >-
+      Kevin asks, “Lots of Lakeside patients have old, cheap Android phones. Will a React Native app hold up on
+      those?” Which reply is best?
+    options:
+      - text: "“In theory, React Native should run fine on any device.”"
+        correct: false
+        explanation: “In theory” invites doubt from a sceptical CTO. Give the facts you've measured and the plan you have.
+      - text: "“Short answer: yes, and we're checking it. Our 12-phone test list includes the older Android models Lakeside patients use, and the app starts in 1.8 seconds on a mid-range Android today. We also pin library versions and review them monthly.”"
+        correct: true
+        explanation: The answer first, then real facts from the project and how you keep it that way. Kevin can repeat it.
+      - text: "“Good point, we haven't really thought about that. Sorry.”"
+        correct: false
+        explanation: Not true, and it undersells the team. The test list already covers older Android phones.
+      - text: "“The Hermes engine and the new architecture cut the bridge overhead, so JS-thread performance is close to native.”"
+        correct: false
+        explanation: Jargon with no answer. Kevin wants to know whether patients' phones will cope.
+    source: { quote: "Pinned library versions, monthly dependency review, and a device test list of 12 phones", page: 30 }
+
+  - id: A05-06
+    type: mcq
+    stem: >-
+      Dana says, “Kevin told me React Native has a downside. Should I be worried for the pilot?” Dana isn't
+      technical. Which reply is best?
+    options:
+      - text: "“Native modules need separate Swift and Kotlin code, so the video SDK integration has extra bridging work.”"
+        correct: false
+        explanation: Accurate, but Dana can't use it. Say what it means for her dates in plain words.
+      - text: "“Kevin just prefers native apps. Honestly, there's no real downside.”"
+        correct: false
+        explanation: Dismissing Kevin and hiding a real trade-off. Dana will hear the other side from him.
+      - text: "“It's complicated. Every framework has pros and cons, so it's hard to say.”"
+        correct: false
+        explanation: A non-answer. She asked a yes-or-no question about the pilot.
+      - text: "“No, not for the pilot. The one downside is that some phone features, like video, take a bit longer to build. We planned two extra days for that, so April 27 doesn't move.”"
+        correct: true
+        explanation: Answer first, the honest trade-off in plain words, and how it's handled. She can repeat it to her leaders.
+    source: { quote: "Some native features take longer: the video-visit SDK needs a small native module", page: 30 }
+
+  - id: A05-07
+    type: mcq
+    stem: >-
+      In the Friday sync, Dana asks, “How many video visits can CareBook run at the same time on pilot day?” You don't
+      know yet. Which reply is best?
+    options:
+      - text: "“About 500, I think. I'll double-check later.”"
+        correct: false
+        explanation: A guess with a vague follow-up. She may quote 500 to her CEO, and “later” isn't a time.
+      - text: "“Good question. I don't have that number yet. I'll check with the team and send it to you by Tuesday, with the form follow-up.”"
+        correct: true
+        explanation: Calm, one sentence about the gap, and a clear date. Then back to your agenda.
+      - text: "“I'm so sorry, I really should know that. I apologise, that's embarrassing.”"
+        correct: false
+        explanation: A long apology makes a normal open question look like a failure, and there's still no follow-up.
+      - text: "“That's a question for Kevin's team, not really mine.”"
+        correct: false
+        explanation: You're her main technical contact. Own the follow-up, even if you need Kevin's help to answer it.
+    source: { quote: "I want to give you an accurate answer, so let me check with", page: 150 }
+
+  - id: A05-08
+    type: mcq
+    stem: >-
+      You've given your answer-first update in the Friday sync, and Dana says, “Great, sounds like good progress.” Nine
+      minutes are left. What do you say next?
+    options:
+      - text: "“Great! So I think that's everything. Talk next Friday?”"
+        correct: false
+        explanation: You skip the risk and the ask. The security form waits another week, and March 16 gets closer.
+      - text: "“Let me also walk you through the five tickets we closed and the two bugs QA found…”"
+        correct: false
+        explanation: Task detail Dana didn't ask for. It eats the time you need for the risk and the ask.
+      - text: "“Thanks. Now one risk and one ask. Epic access needs a signed security form first, and we need access by March 16. Could you confirm by Tuesday who signs it on your side?”"
+        correct: true
+        explanation: "After the update comes the risk and the ask: one risk, one clear ask, one date. Then next week and the close."
+      - text: "“Oh, and there's some form from Lakeside, but don't worry about it, I'll sort it out.”"
+        correct: false
+        explanation: "Downplays the risk and drops the ask. You can't sort it out alone: the signer is on Dana's side."
+    source: { quote: "warm start → agenda → answer-first update → one risk and", page: 32 }
+
+  - id: A05-09
+    type: mcq
+    stem: "Dana says, “Send me something I can forward to my CEO.” Which subject line should your recap email have?"
+    options:
+      - text: "Meeting notes"
+        correct: false
+        explanation: Says nothing. Her CEO won't know if it's good news or if anyone needs to act.
+      - text: "URGENT!!! Problem with Epic"
+        correct: false
+        explanation: Alarming and unclear. The project is on track; there's one risk with a clear ask.
+      - text: "Update on the various items we discussed today and some open issues"
+        correct: false
+        explanation: Long and vague. The bottom line and the ask are missing.
+      - text: "CareBook weekly update, Mar 6: on track for the demo; 1 ask by Tue"
+        correct: true
+        explanation: The status and the ask are in the subject, so the CEO knows what matters before opening it.
+    source: { quote: "The subject line states the ask. The bottom line is in the first two", page: 6 }
+
+  - id: A05-10
+    type: mcq
+    stem: "Dana will forward your recap to her CEO and COO. Which action item should go in it?"
+    options:
+      - text: "Dana: confirm who at Brightpath signs Lakeside's security form, by Tue Mar 10"
+        correct: true
+        explanation: One owner, one task, one date. Anyone reading it knows who has to do what by when.
+      - text: "Someone to look into the security form"
+        correct: false
+        explanation: “Someone” means no one. With no owner and no date, it waits until March 16 is gone.
+      - text: "Security form: ASAP"
+        correct: false
+        explanation: No owner, and “ASAP” isn't a date. Nobody can plan around it.
+      - text: "We will try to sort out the Epic access thing soon, hopefully"
+        correct: false
+        explanation: Vague and hopeful. It names neither the real ask nor who does it.
+    source: { quote: "Action items (owner + date) · Open questions · Next meeting.", page: 34 }
+
+  - id: A05-11
+    type: mcq
+    stem: "Dana tells you, “My CEO only reads the first two lines.” Which opening for your recap email is best?"
+    options:
+      - text: "“Thanks for your time today, and good luck with SXSW prep! As discussed, we went through a number of topics, which I've summarised below.”"
+        correct: false
+        explanation: Polite, but the first two lines say nothing. The CEO stops reading before the point.
+      - text: "“We're on track for the Sprint 3 demo on Fri Mar 13. One risk: Epic access needs a signed security form first, and we need access by Mon Mar 16.”"
+        correct: true
+        explanation: The bottom line and the one risk with its date, in two lines. The CEO can stop there and still know what matters.
+      - text: "“All on track!” Then the security form as the seventh bullet under Open questions."
+        correct: false
+        explanation: Burying the risk. If the form isn't signed in time, it looks as if you hid it.
+      - text: "“The FHIR app registration is blocked pending a security attestation from the customer's IT.”"
+        correct: false
+        explanation: Jargon for a CEO, and no status. Say what it means for the demo and the pilot.
+    source: { quote: "the most important outcome, in 1–2 lines", page: 151 }
+
+  - id: A05-12
+    type: mcq
+    stem: "Dana asks, “When will reschedule and cancel be ready? I want my CEO to see them.” Which reply is best?"
+    options:
+      - text: "“Sometime next week, hopefully.”"
+        correct: false
+        explanation: A vague date with a hedge. Dana can't tell her CEO whether to expect them in the demo.
+      - text: "“Well, they start Monday. First we need the API changes, then the screens, then QA has to test them…”"
+        correct: false
+        explanation: The steps before the answer. She asked when, so start with the date.
+      - text: "“By Wednesday, March 11, so you'll see both in the demo on Friday the 13th.”"
+        correct: true
+        explanation: "A specific date first, linked to what she cares about: the demo her CEO will see."
+      - text: "“Whenever you prefer. Just let me know what works for you.”"
+        correct: false
+        explanation: Handing the decision back. You own the build; give her the date.
+    source: { quote: "Finish video booking · reschedule/cancel (Mon Mar 9 – Wed Mar 11)", page: 32 }
+
+  - id: A05-13
+    type: scenario
+    clientLine: "“Kevin here, I'm sitting in today. Before you start: is this Epic delay going to push the pilot?”"
+    stem: Kevin joins Friday's sync without warning. What's the best reply?
+    options:
+      - text: "“Not yet. If we have Epic access by March 16, April 27 holds. What's blocking it is Lakeside's security form; Dana's finding out by Tuesday who signs it. I'll cover it in a minute in the risk part.”"
+        correct: true
+        explanation: Answer first, the date that decides it, the cause and the ask in motion. Then you keep your agenda.
+      - text: "“No, definitely not. The pilot is safe.”"
+        correct: false
+        explanation: A promise that depends on something you don't control. If the form is late, you've misled the CTO.
+      - text: "“So, back on February 24 we requested sandbox credentials, then we followed up, and on Wednesday Sam told Dana…”"
+        correct: false
+        explanation: History before the answer. Kevin asked yes or no and will cut in for the bottom line.
+      - text: "“It's really on Lakeside. Their IT keeps adding steps.”"
+        correct: false
+        explanation: Blame instead of facts. Kevin needs the date, the impact and what's being done.
+    source: { quote: "Epic access delay pushes the EHR sync (Sprint 5) and therefore the pilot date.", page: 22 }
+
+  - id: A05-14
+    type: scenario
+    clientLine: "“Once the Epic sync is live, will doctors see the patient's intake answers in Epic too?”"
+    stem: You don't know yet. Epic doesn't expose every field, and you can't check without sandbox access. What do you say?
+    options:
+      - text: "“Yes, everything will be in Epic.”"
+        correct: false
+        explanation: A guess that becomes a promise to Lakeside's doctors. Some fields may not be available.
+      - text: "“Good question. I don't know yet: Epic doesn't open up every field, and we can only check once we have sandbox access. I'll confirm within two days of getting it, and I'll list it as an open question in today's recap.”"
+        correct: true
+        explanation: Honest about the gap, the reason in plain words, a clear time, and it goes in writing so it isn't lost.
+      - text: "“Epic's FHIR resources may not expose the QuestionnaireResponse fields, depending on Lakeside's configuration.”"
+        correct: false
+        explanation: Jargon and no next step. Dana needs to know when she'll get an answer.
+      - text: "“I'm sorry, I should know that. Let me look into it at some point.”"
+        correct: false
+        explanation: An apology and no date. The question will get lost.
+    source: { quote: "Use Epic's FHIR APIs for appointment sync instead of a custom HL7 v2 interface", page: 22 }
+
+  - id: A05-15
+    type: scenario
+    clientLine: "“Can we skip the risk part today? I'm short on time, and I'd rather not bring problems to my CEO.”"
+    stem: The Epic security form still has no signer, and access is needed by March 16. What do you say?
+    options:
+      - text: "“Sure, no problem. We'll talk about it next week.”"
+        correct: false
+        explanation: Next week is too late. The form has to be signed before access can open by March 16.
+      - text: "“I'm afraid I have to insist. Risks are part of the process.”"
+        correct: false
+        explanation: Right instinct, but it sounds like a lecture and doesn't tell her why this one matters.
+      - text: "“I'll keep it to 30 seconds, because it needs you: Epic access needs a signed security form, and we need access by March 16. If you can confirm by Tuesday who signs it, it never has to reach your CEO as a problem.”"
+        correct: true
+        explanation: You respect her time but don't hide the risk. The ask is framed as the way to keep it small.
+      - text: "“Okay.” Then put it at the bottom of the recap email."
+        correct: false
+        explanation: Hiding the risk in a long email. She may not read it before Tuesday.
+    source: { quote: "Quick heads-up on a risk:", page: 151 }
+
+  - id: A05-16
+    type: scenario
+    clientLine: "“So what will you do differently from the last team?”"
+    stem: "It's Monday's first call. Dana's old vendor only sent news when she asked. What's the best reply?"
+    options:
+      - text: "“Honestly, the last team wasn't great at communication. We're much better.”"
+        correct: false
+        explanation: Criticising the last team sounds defensive and gives her nothing to hold you to.
+      - text: "“We'll communicate a lot better, I promise.”"
+        correct: false
+        explanation: A promise with no rhythm or date. She can't check whether you kept it.
+      - text: "“Good question. Let me first explain our company's delivery process and how our sprint ceremonies work…”"
+        correct: false
+        explanation: Background and process jargon before the answer. She wants to know what changes for her.
+      - text: "“You won't have to chase me. Every Friday at 10 your time we'll have a short sync with a written update right after, and if a risk comes up, you'll hear from me the same day.”"
+        correct: true
+        explanation: Answer first, then a concrete rhythm she can hold you to. It speaks to what she disliked before.
+    source: { quote: "Your previous vendor only sent updates when you asked, and you hated chasing them.", page: 27 }
+
+  - id: A05-17
+    type: written
+    stem: >-
+      Dana messages you: “My CEO asked why we picked React Native. Give me two or three lines I can forward, no tech
+      words.” Write the message: point first, one real fact, and the honest trade-off.
+    modelAnswer: >-
+      We built one app for both iPhone and Android instead of two separate apps, so the team builds and tests about
+      30% less and gets to the April 27 pilot faster. Booking already works the same on both, and the app opens in
+      under two seconds on a mid-range Android phone. The one cost: features like video take a couple of extra days,
+      and that's already in the plan.
+    scoringPoints:
+      - Starts with the decision and why, in plain words (no “framework”, “codebase” or “native module”)
+      - Backs it with one real fact from the project
+      - Names the trade-off honestly and says it's handled
+    source: { quote: "Booking flow works the same on iOS and Android.", page: 30 }
+
+  - id: A05-18
+    type: written
+    stem: >-
+      In Friday's sync, Dana asks, “If the form isn't signed by Tuesday, does the pilot move?” You know access is needed
+      by March 16, but you haven't worked out how many days each day of delay would cost. Write your reply in 2–3
+      sentences.
+    modelAnswer: >-
+      Not on Tuesday itself, but it gets tight: we need Epic access by March 16 to keep the Epic sync and the April 27
+      pilot on schedule. I don't know yet exactly how many days a later date would cost us. I'll work it out and send
+      you the numbers by Monday, so you know before Tuesday.
+    scoringPoints:
+      - Answers first with what is known (access needed by March 16, the pilot at risk)
+      - Says plainly what isn't known yet, without guessing or a long apology
+      - Commits to a follow-up with a specific time
+    source: { quote: "Let me confirm and get back to you by", page: 151 }
+
+  - id: A05-19
+    type: written
+    stem: >-
+      After Monday's first call, you promised Dana a short recap today. Write it as a 2–3 sentence message: what you
+      agreed and the one open item.
+    modelAnswer: >-
+      Hi Dana, thanks for today. We agreed a sync every Friday at 10:00 am Central, a written update right after it,
+      and a same-day message from me if a risk comes up. One open item: the Epic sandbox access we asked Lakeside for on
+      Feb 24 is still pending; I'm chasing it and will update you by Friday.
+    scoringPoints:
+      - States what was agreed with specific days and times
+      - Names the open item (Epic access) with what happens next and when
+      - Short and forwardable, with no background or filler
+    source: { quote: "So: Friday syncs, written updates, same-day risk flags. I'll send a short recap today.", page: 26 }
+
+  - id: A05-20
+    type: written
+    stem: >-
+      Wednesday afternoon, March 4: Sam Porter replies to Dana's email, with you copied. Epic access can't open until
+      Lakeside's security form is signed, and nobody has signed it. On Monday you promised Dana a same-day message for
+      any risk. Write it in 2–3 sentences: headline first, the impact with a date, what you need, and when you'll
+      update her.
+    modelAnswer: >-
+      Quick heads-up on a risk: after Sam's reply, Epic access now waits on Lakeside's security form, and nobody has
+      signed it yet. We need access by March 16 to keep the Epic sync and the April 27 pilot on schedule. Could you
+      help me find out who on your side signs it? I'll update you at our Friday sync.
+    scoringPoints:
+      - The headline (the risk) comes in the first sentence, without background or apologies
+      - Gives the impact with the date (access by March 16, the April 27 pilot)
+      - Ends with a clear ask and when she'll hear next
+    source: { quote: "Headline first, then impact, options, what I need from you, and", page: 6 }

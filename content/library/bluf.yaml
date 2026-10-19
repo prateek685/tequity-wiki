@@ -1,0 +1,16 @@
+id: bluf
+kind: framework
+title: Answer first (BLUF)
+summary: Say the answer first, then the reason.
+day: 2
+blocks:
+  - type: text
+    text: Say the answer first, then the reason. If the client wants more detail, they'll ask.
+  - type: compare
+    before: “So, we started on the screens last week, then the team looked at the video link, and there were a few config issues…”
+    after: "“Short answer: yes, Friday works. Here's why…”"
+  - type: steps
+    items:
+      - { title: Status, text: "The status first, then one or two facts. “Sprint 3 is on track.”" }
+      - { title: Yes or no, text: "Yes or no first, then the reason." }
+      - { title: Bad news, text: "The headline first, then the impact and your plan." }

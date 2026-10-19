@@ -1,0 +1,38 @@
+id: b2-transcript-feedback
+kind: prompt
+ref: B2
+title: Transcript feedback
+summary: Score a practice call from its transcript and rewrite your weakest answers.
+blocks:
+  - type: note
+    tone: warn
+    title: Before you paste anything
+    text: No PHI, no client credentials, no confidential client documents in any AI tool the company hasn't approved. Replace names and details with made-up ones.
+  - type: text
+    text: >-
+      Use it after a mock call, in the Write block. Paste the transcript where the bracket is.
+  - type: message
+    label: The prompt
+    text: |-
+      Here is the transcript of my practice call: [paste transcript]
+
+      Act as a communication coach for engineers who work directly with US clients.
+
+      Using the rubric below, score me 1–5 on each criterion that came up, with one sentence of evidence.
+
+      Then rewrite my 3 weakest answers the way a strong client-facing engineer would say them.
+
+      Keep your feedback short and practical.
+
+      Rubric: opening and agenda · answer-first structure · questions asked · playback · business link · trade-offs · handling unknowns · risks and bad news · disagreement · closing and next steps
+  - type: copy
+    label: Copy prompt
+    text: |-
+      Here is the transcript of my practice call: [paste transcript]
+
+      Act as a communication coach for engineers who work directly with US clients.
+      Using the rubric below, score me 1–5 on each criterion that came up, with one sentence of evidence.
+      Then rewrite my 3 weakest answers the way a strong client-facing engineer would say them.
+      Keep your feedback short and practical.
+
+      Rubric: opening and agenda · answer-first structure · questions asked · playback · business link · trade-offs · handling unknowns · risks and bad news · disagreement · closing and next steps

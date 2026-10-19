@@ -1,0 +1,182 @@
+# Day 16 quiz pool: Monday, March 23. Kevin asks who's handling Friday's UAT release; owner vs waiting language,
+# the follow-up loop (commit, confirm, close). Shows 5 of 10.
+pool: day-16
+questions:
+  - id: D16-01
+    type: mcq
+    stem: "Kevin pings: “Who's handling the deployment on Friday?” What's the best reply?"
+    options:
+      - text: "“The team will handle it, don't worry.”"
+        correct: false
+        explanation: No name. Kevin is allergic to “the team will handle it” and will ask who exactly.
+      - text: "“I am. I own Friday's UAT release, 2 to 3 pm Central, and our tech lead is my backup.”"
+        correct: true
+        explanation: One named owner, the time and a backup. That's what Kevin wants to hear.
+      - text: "“Should I take it, or would you prefer someone else?”"
+        correct: false
+        explanation: Waiting language. It hands the decision back to the client.
+      - text: "“Probably our DevOps people, I think.”"
+        correct: false
+        explanation: A guess, and it points away from you. Production isn't even part of Friday's release.
+    source: { quote: "You own the release end to end. The tech lead is backup.", page: 56 }
+
+  - id: D16-02
+    type: mcq
+    stem: "Kevin asks: “Has the rollback actually been tested?” What's the best reply?"
+    options:
+      - text: "“It should work. Rollbacks usually do.”"
+        correct: false
+        explanation: A hope, not a fact. Kevin asked about a test.
+      - text: "“Yes. We restored the previous version in staging on March 19, and it takes under 10 minutes.”"
+        correct: true
+        explanation: Answer first, then the facts that prove it.
+      - text: "“Honestly, I'm sorry, we haven't had much time this sprint.”"
+        correct: false
+        explanation: An apology and an excuse, and it isn't even true.
+      - text: "“I'd have to ask the team.”"
+        correct: false
+        explanation: You own the release, so you should know this one.
+    source: { quote: "The previous version can be restored in under 10 minutes. Tested once in staging on Mar 19.", page: 56 }
+
+  - id: D16-03
+    type: mcq
+    stem: "Kevin asks: “What happens if it breaks at 2 am Eastern?” What's the best reply?"
+    options:
+      - text: "“That would be a DevOps problem, not ours.”"
+        correct: false
+        explanation: “Not my area” on the release you own.
+      - text: "“It won't break. We've tested it.”"
+        correct: false
+        explanation: A promise nobody can make. Kevin will trust you less, not more.
+      - text: "“We'd look at it first thing in the morning.”"
+        correct: false
+        explanation: Hours of downtime, and no owner named.
+      - text: "“I'm on call for the release, with our tech lead as backup, and either of us can roll back in under 10 minutes. For the pilot go-live, I'll put a named on-call person in the checklist.”"
+        correct: true
+        explanation: Names the owner, the backup and the rollback, and commits to a written plan for go-live.
+    source: { quote: "You want one named person on call during the pilot go-live weekend.", page: 57 }
+
+  - id: D16-04
+    type: mcq
+    stem: >-
+      Kevin asks: “Who approves production changes on our side?” You don't know Brightpath's process. What's the best
+      reply?
+    options:
+      - text: "“That's not really my area.”"
+        correct: false
+        explanation: Waiting language. You can still own finding out.
+      - text: "“Probably you, as CTO?”"
+        correct: false
+        explanation: A guess about his own company's process.
+      - text: "“I don't know your change process yet. Omar Haddad would know; I'll check with him and confirm by Wednesday.”"
+        correct: true
+        explanation: Honest, names who knows, and commits to a date.
+      - text: "“We were waiting for someone to tell us.”"
+        correct: false
+        explanation: “I was waiting for…” is the habit owner language replaces.
+    source: { quote: "Brightpath's approval process for production changes — Omar Haddad would know.", page: 56 }
+
+  - id: D16-05
+    type: mcq
+    stem: "Monday afternoon, Dana messages: “Did Sam ever reply about the Epic access?” He hasn't. What's the best reply?"
+    options:
+      - text: "“No, we're still waiting for him.”"
+        correct: false
+        explanation: True, but passive. Dana learns nothing she can act on.
+      - text: "“Not yet. I followed up with Sam this morning. If there's no answer by Wednesday, could you ask Dr. Mercer to push it?”"
+        correct: true
+        explanation: What you did, and the next step, with a date and a clear ask.
+      - text: "“Should I follow up with him again?”"
+        correct: false
+        explanation: Asks permission for something you should just do.
+      - text: "“That's on Lakeside's side, not ours.”"
+        correct: false
+        explanation: True, and still no help. It's blocking your work, so you own chasing it.
+    source: { quote: "I followed up with… and here's the next step.", page: 54 }
+
+  - id: D16-06
+    type: mcq
+    stem: >-
+      You promised Kevin the release checklist by Wednesday noon. It's finished on Tuesday afternoon. What do you do?
+    options:
+      - text: "Keep it until Wednesday noon, as promised."
+        correct: false
+        explanation: Nothing gained by waiting. Close the loop as soon as it's done.
+      - text: "Wait for Kevin to ask for it."
+        correct: false
+        explanation: A client who has to chase you learns that your promises need reminders.
+      - text: "Send it now: “Here's the release checklist I promised for Wednesday. Happy to walk you through it.”"
+        correct: true
+        explanation: Closes the loop early and reminds him you said you would.
+      - text: "Mention it on Friday's call."
+        correct: false
+        explanation: Misses the date you gave. The loop stays open for two more days.
+    source: { quote: "Close (tell them when it's done, by the date you gave).", page: 54 }
+
+  - id: D16-07
+    type: scenario
+    clientLine: "“Try, or will?”"
+    stem: You just told Kevin, “I'll try to send the checklist by Wednesday.” What do you say?
+    options:
+      - text: "“I'll do my best.”"
+        correct: false
+        explanation: Still “try”, in other words.
+      - text: "“Will. You'll have it by Wednesday noon your time.”"
+        correct: true
+        explanation: A commitment with a time. Only say it if you can keep it.
+      - text: "“It depends on the team.”"
+        correct: false
+        explanation: Pushes the promise onto other people.
+      - text: "“Sorry, sorry, I didn't mean to sound unsure.”"
+        correct: false
+        explanation: Over-apologising, and still no commitment.
+    source: { quote: "If I say \"I'll try\", ask \"Try, or will?\"", page: 57 }
+
+  - id: D16-08
+    type: scenario
+    clientLine: "“Okay, but who exactly?”"
+    stem: You just told Kevin, “We'll handle the deployment.” What do you say?
+    options:
+      - text: "“The whole team shares it.”"
+        correct: false
+        explanation: Shared by everyone means owned by no one.
+      - text: "“Me. I own the release, and our tech lead is my backup if I'm unavailable.”"
+        correct: true
+        explanation: A name, then the backup. That's what “who exactly” asks for.
+      - text: "“Whoever is free on Friday.”"
+        correct: false
+        explanation: Exactly the vague answer Kevin is testing for.
+      - text: "“Our DevOps engineer usually does deploys.”"
+        correct: false
+        explanation: Names a role, not an owner, and steps away from it.
+    source: { quote: "If I answer with \"we\" or \"the team\" without a name, ask \"Okay, but who exactly?\"", page: 57 }
+
+  - id: D16-09
+    type: written
+    stem: >-
+      Kevin says: “Last year a vendor released here with no rollback plan and we were down for four hours. Why should
+      Friday be different?” Write your reply in 2–3 sentences.
+    modelAnswer: >-
+      Because Friday has a tested way back: we restored the previous version in staging on March 19, in under 10
+      minutes. I own the release, with our tech lead as backup, and we only deploy after all tests pass and QA signs
+      off, then run a 30-minute smoke test. You'll have the full checklist in writing by Wednesday noon.
+    scoringPoints:
+      - Answers with facts (the tested rollback and its time), not reassurance
+      - Names the owner and the backup in “I” language
+      - Commits to something written with a date
+    source: { quote: "Last year another vendor released with no rollback plan, and Brightpath was down for 4 hours.", page: 57 }
+
+  - id: D16-10
+    type: written
+    stem: >-
+      Jordan Lee, Brightpath's Support Lead, messages: “Will my team know what's changing in Friday's release?” Write
+      your reply in 2–3 sentences.
+    modelAnswer: >-
+      Yes. I'm handling Friday's release, and I'll send your team the release notes by Thursday at 5 pm Central:
+      intake form v1, the Add-to-calendar button and part of the clinic schedule view. After the 2 pm deploy we run a
+      30-minute smoke test, and I'll message you when it's done.
+    scoringPoints:
+      - Answers first and speaks as the owner (“I'll…”)
+      - Gives a date and time for the release notes, and what's in the release
+      - Commits to closing the loop after the deploy
+    source: { quote: "release notes to Jordan's support team", page: 56 }

@@ -1,0 +1,201 @@
+day: 40
+block: 8
+title: Gate 2 dress rehearsal
+type: normal
+storyDate: Friday, April 24
+minutes: About 70 min
+intro: >-
+  UAT day, and the last day of Sprint 6 and of Phase 2. You run a 20-minute call with two clients, a risk and a push
+  to add scope, send the recap, and look back at Day 20.
+lessons:
+  - id: uat-day
+    kind: prep
+    title: UAT day
+    minutes: 10 min
+    blocks:
+      - type: yesterday
+        text: >-
+          Maria Lopez explained Lakeside's denials problem. You found the numbers before suggesting anything: 240
+          denials a month, mostly eligibility, $25–$40 each to fix. You wrote what it costs in five lines, and your two
+          ideas go to her today.
+      - type: scene
+        when: Friday, April 24 · 1:30 pm Central, after UAT
+        text: >-
+          Lakeside's UAT started at 9 am Eastern, as you agreed with Dana on Tuesday. It went well, with one serious
+          issue: after a cancellation in Epic, the clinic schedule view can take up to 10 minutes to update. Dr.
+          Mercer and Dana have 20 minutes with you this afternoon, and Dana's message says Dr. Mercer “has something
+          new”. Go/no-go is on Wednesday; the pilot is on May 4.
+      - type: text
+        text: >-
+          This call is your dress rehearsal for Gate 2. Fill in your pre-call card. Use AI to prepare it if you like,
+          then make it yours.
+    fields:
+      - { id: goal, label: My goal for this call, kind: line }
+      - { id: opener, label: My opener, kind: line, placeholder: Warm start + agenda }
+      - { id: risk, label: "The UAT risk in two sentences, with the plan", kind: area, rows: 2 }
+      - { id: questions, label: "3 questions I'll ask about anything new", kind: area, rows: 3 }
+      - { id: hard-question, label: "Hardest question + my answer", kind: area, rows: 2, placeholder: "“Can we get that in before May 4?” → …" }
+      - { id: closing, label: My closing line, kind: line }
+
+  - id: phase-2-frameworks
+    kind: learn
+    title: Phase 2 in one page
+    heading: Every framework from Weeks 5–8, in one page
+    minutes: 10 min
+    lead: >-
+      Four weeks of client craft. Read them once more before the rehearsal. Gate 2 mixes all of them in one call.
+    blocks:
+      - { type: heading, text: "Week 5 · Discovery and Healthcare 101" }
+      - type: steps
+        items:
+          - { title: HIPAA for engineers, text: "PHI, minimum necessary, the BAA. No PHI in logs, test data, screenshots or AI tools." }
+          - { title: The 7-step discovery call, text: "Context, current state, pain, outcome, constraints, success metric, next steps." }
+          - { title: User stories and criteria, text: "“As a…, I want… so that…”, then “given, when, then” the client can say yes or no to." }
+      - { type: heading, text: "Week 6 · Stakeholders, expectations and trade-offs" }
+      - type: steps
+        items:
+          - { title: The stakeholder map, text: "Role, what they care about, influence, how often to update them." }
+          - { title: Ranges and confidence, text: "Answer first, the range, your confidence, the unknown, options." }
+          - { title: The trade-off formula, text: "Option A gives… but… Option B gives… but… I recommend… because…" }
+          - { title: "Scope, time and quality", text: "If scope grows, time or quality must change. Say it early, then send the change note." }
+      - { type: heading, text: "Week 7 · Conflict, disagreement and bad news" }
+      - type: steps
+        items:
+          - { title: Disagree professionally, text: "Acknowledge their goal, state your concern with facts, offer an alternative, ask." }
+          - { title: The bad-news formula, text: "Headline, impact, cause with no blame, options, what I need, next update." }
+          - { title: LAST, text: "Listen, acknowledge, solve, thank. Name the impact before any cause." }
+          - { title: Saying no without “no”, text: "“Not this sprint — but here's when.” “Yes, if we move X.” “Here's what I can do instead.”" }
+      - { type: heading, text: "Week 8 · Escalation, async updates and billing" }
+      - type: steps
+        items:
+          - { title: The escalation message, text: "What's blocked, impact, what I've tried, what I need, by when." }
+          - { title: Async updates, text: "Done today, plan for tomorrow, questions numbered for one-word replies." }
+          - { title: The weekly status report, text: "A color and why, then highlights, next week, risks with plans, decisions." }
+          - { title: Billing in plain words, text: "Book, check eligibility, visit, code, claim, paid or denied, then the patient pays the rest." }
+      - type: recall
+        label: Your note after the Gate 1 dress rehearsal on Day 20
+        day: 20
+        lesson: dress-rehearsal
+        fields:
+          - { id: fix-next, label: One thing to fix }
+      - type: text
+        text: >-
+          Did you fix it? Today's call is longer and harder: two clients, Level 3, and the healthcare words must be
+          right. Use them plainly, and ask when one is new to you.
+
+  - id: dress-rehearsal
+    kind: mock
+    title: The dress rehearsal
+    heading: "Gate 2 dress rehearsal: discovery, a risk, and pushback"
+    minutes: 20 min
+    lead: >-
+      Level 3, 20 minutes, two clients: raise the UAT risk with its plan before anyone asks, discover the new request
+      properly, push back on adding it before May 4 with a date for when, and close with owners.
+    cardId: S41
+    level: 3
+    scriptNote: Open it after your call to compare.
+    checksTitle: After the call
+    checks:
+      - I raised the UAT risk with a plan, unprompted
+      - I found the size and scope of the Spanish request
+      - I pushed back with a reason and a Sprint 7 date
+      - I closed with decisions, owners and dates
+    fields:
+      - { id: went-well, label: What went well, kind: area, placeholder: "From the AI's feedback" }
+      - { id: fix-next, label: One thing to fix next time, kind: area }
+      - { id: log, label: "Did anyone have to ask me for an update this week?", kind: area, rows: 2 }
+    rubric: true
+
+  - id: rehearsal-recap
+    kind: write
+    title: Send the recap
+    heading: Send Dr. Mercer and Dana the recap within 2 hours
+    minutes: 10 min
+    lead: >-
+      Two readers this time: a doctor who protects his patients and a VP who answers to her CEO. Write the recap both
+      can act on, with Dr. Mercer's Sprint 7 commitment in writing. Send it within 2 hours.
+    blocks:
+      - { type: field, id: subject }
+      - { type: field, id: summary }
+      - { type: field, id: decisions }
+      - { type: field, id: actions }
+      - { type: field, id: open-questions }
+      - { type: field, id: next-meeting }
+    fields:
+      - { id: subject, label: Subject, kind: line, placeholder: "e.g. CareBook UAT and Spanish reminders: decisions and next steps" }
+      - { id: summary, label: Summary (2 lines), kind: area, rows: 2, placeholder: Bottom line first… }
+      - { id: decisions, label: Decisions, kind: area, rows: 2 }
+      - { id: actions, label: Action items (owner + date), kind: area, rows: 3 }
+      - { id: open-questions, label: Open questions, kind: area, rows: 2 }
+      - { id: next-meeting, label: Next meeting, kind: line }
+
+  - id: day-twenty-vs-today
+    kind: write
+    title: Day 20 vs today
+    heading: "Look back: Day 20 vs today"
+    minutes: 5 min
+    lead: >-
+      On Day 20 you rehearsed Gate 1. Here's what you noted that day. Read it, then write a few honest lines about
+      what Phase 2 changed.
+    blocks:
+      - type: recall
+        label: Your notes on Day 20
+        day: 20
+        lesson: day-one-vs-today
+        fields:
+          - { id: reflection, label: What I do differently, and what I still wanted to fix }
+      - { type: field, id: reflection }
+    fields:
+      - { id: reflection, label: "What I do differently now, and what I still want to fix", kind: area, rows: 4, placeholder: "e.g. On Day 20 I waited to be asked about the risk. Today I raised it first. I still…" }
+
+  - id: week-in-review
+    kind: scorecard
+    title: Your week in review
+    minutes: 5 min
+    lead: >-
+      Five minutes. Rate this week's behaviours and add a line of proof for each pillar. Your pillar scores update from
+      them; the other pillars carry forward. Your Day 1 baseline sits next to it.
+    scorecard: [O1, O2, C4]
+    checksTitle: Before the weekend
+    checks:
+      - Did I escalate within 1–2 days of being blocked?
+      - Could the client act on my EOD note without needing a call?
+      - Did anyone have to ask me for an update this week?
+    blocks:
+      - type: note
+        tone: info
+        title: Gate 2 with your manager
+        text: >-
+          After the Week 8 assessment, your manager runs Gate 2: 45 minutes together. They pick a healthcare scenario
+          you haven't seen, and you run it live with the AI client for 25 minutes while they watch: discovery, a risk
+          or a piece of bad news, and pushback. They may join as a second stakeholder. Then you write the follow-up in
+          the portal: the recap, plus one of a bad-news email, an escalation message or a weekly status report. You
+          pass with a rubric average of 3.0 or more, no criterion below 2, and basic healthcare terms used correctly.
+          Bring your Week 5–8 scorecards; the portal shows them. Book the 45 minutes with your manager if you haven't
+          already.
+      - type: text
+        text: >-
+          At Gate 2, also agree with your manager and PM which live client calls you'll shadow (Days 41–45), co-lead
+          (Days 46–55) and lead (Days 56–65).
+      - type: text
+        text: >-
+          **Next week:** Phase 3 starts: live reps. You'll learn to explain technical work as a short story at three
+          levels, and you'll shadow your first live client call.
+
+scoring:
+  rehearsal-recap:
+    modelAnswer: >-
+      Subject: CareBook UAT and Spanish reminders: decisions and next steps (pilot stays May 4).
+      Summary: UAT went well, with one high issue: after an Epic cancellation, the schedule view can take up to 10
+      minutes to update. We fix it by Tue Apr 28; if not, staff see a “last updated” time. The May 4 pilot stays on
+      track.
+      Decisions: Spanish SMS reminders are not added before May 4; they're committed for Sprint 7 (May 11–22), SMS
+      reminder text only, starting with Westside (about 30% of patients prefer Spanish).
+      Action items: Me: fix the schedule refresh by Tue Apr 28. Dr. Mercer: send the Spanish opt-out wording to
+      Lakeside compliance for approval (about 2 weeks). Me: send the Sprint 7 plan for Spanish reminders today.
+      Open questions: none.
+      Next meeting: go/no-go, Wed Apr 29.
+    scoringPoints:
+      - The UAT risk with its plan and date comes first, and the pilot date is clear
+      - Spanish reminders are recorded as Sprint 7, SMS only, with the compliance approval as Dr. Mercer's action
+      - Every action item has an owner and a date; short enough for both readers to act on

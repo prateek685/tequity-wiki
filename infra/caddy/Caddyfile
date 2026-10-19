@@ -1,0 +1,39 @@
+# Edge for the portal: serves the built React app and forwards /api/* to NestJS (one origin).
+#   PORTAL_DOMAIN  site address. A domain (portal.company.com) gets automatic HTTPS; ":80" serves plain
+#                  HTTP (local compose, or behind a host that already terminates HTTPS).
+#   API_UPSTREAM   the API container, e.g. api:3000.
+{
+	admin off
+}
+
+{$PORTAL_DOMAIN::80} {
+	encode zstd gzip
+
+	header {
+		# Scripts only from our own files. Styles also allow inline: Radix injects small <style>
+		# elements and positions popovers with style attributes (no script can run from CSS).
+		Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://accounts.google.com; object-src 'none'"
+		Strict-Transport-Security "max-age=63072000; includeSubDomains"
+		X-Content-Type-Options "nosniff"
+		X-Frame-Options "DENY"
+		Referrer-Policy "strict-origin-when-cross-origin"
+		Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=()"
+		-Server
+	}
+
+	handle /api/* {
+		reverse_proxy {$API_UPSTREAM:api:3000}
+	}
+
+	handle {
+		root * /srv/web
+		# Hashed build files never change: cache for a year. Everything else (index.html) revalidates.
+		@assets path /assets/*
+		header @assets Cache-Control "public, max-age=31536000, immutable"
+		@pages not path /assets/*
+		header @pages Cache-Control "no-cache"
+		# Client-side routes (/admin/users, /app, ...) all load the single-page app.
+		try_files {path} /index.html
+		file_server
+	}
+}

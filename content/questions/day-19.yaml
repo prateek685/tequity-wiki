@@ -1,0 +1,181 @@
+# Day 19 quiz pool: Thursday, March 26. Laura Bennett's security questions: “I don't know — I'll check” in five
+# steps, sharing what you know, owners and dates, no guessing, no apology spiral. Shows 5 of 10.
+pool: day-19
+questions:
+  - id: D19-01
+    type: mcq
+    stem: "Laura asks: “What's your HITRUST or SOC 2 status?” You don't know. What's the best reply?"
+    options:
+      - text: "“Probably SOC 2, I think.”"
+        correct: false
+        explanation: A guess she'll write down. A wrong guess lost a previous vendor her business.
+      - text: "“Good question. I don't have our certification status in front of me. Rachel Kim, our compliance lead, will confirm it by Tuesday.”"
+        correct: true
+        explanation: Acknowledge, be honest, name who confirms, give a date.
+      - text: "“I'm so sorry, I really should know this. I'm sorry.”"
+        correct: false
+        explanation: An apology spiral, and still no next step.
+      - text: "“That's not really my area.”"
+        correct: false
+        explanation: True, but it leaves her with nothing. Own finding the answer.
+    source: { quote: "Never guess. Acknowledge the question, share what you do know, name who will confirm, and give a date.", page: 60 }
+
+  - id: D19-02
+    type: mcq
+    stem: "Laura asks: “Where are data and backups stored?” You know where the data is, not the backups. What's the best reply?"
+    options:
+      - text: "“Everything's in the US, backups too.”"
+        correct: false
+        explanation: Half of that is a guess. Say only what you know.
+      - text: "“I don't know.”"
+        correct: false
+        explanation: You do know part of it. Share that, then commit on the rest.
+      - text: "“All CareBook data stays in US AWS regions, encrypted in transit and at rest. For backups, Kevin will confirm where they're kept and for how long, by Tuesday.”"
+        correct: true
+        explanation: Shares what you know, then gives the unknown an owner and a date.
+      - text: A two-minute explanation of how AWS encryption keys work.
+        correct: false
+        explanation: Detail she didn't ask for, and it still skips the backups.
+    source: { quote: "CareBook runs on AWS in US regions only.", page: 60 }
+
+  - id: D19-03
+    type: mcq
+    stem: "Laura asks: “Can engineers outside the US access production PHI?” What's the best reply?"
+    options:
+      - text: "“No, never.”"
+        correct: false
+        explanation: An absolute promise about the future that you haven't checked.
+      - text: "“Probably not. We're very careful.”"
+        correct: false
+        explanation: “Probably” on a compliance question. She'll ask if you're guessing.
+      - text: "“Today, no one on our team has production access: Brightpath's DevOps team runs production. For how access will work after that, Kevin will confirm in writing by Tuesday.”"
+        correct: true
+        explanation: The fact you know, then an owner and a date for the rest.
+      - text: "“Sorry, that's a sensitive one. I can't say.”"
+        correct: false
+        explanation: Sounds like hiding something. Share what you can.
+    source: { quote: "Production is run by Brightpath DevOps (Omar Haddad) until our production access is approved.", page: 56 }
+
+  - id: D19-04
+    type: mcq
+    stem: "Laura asks: “Do you log patient names anywhere?” You aren't sure. What's the best reply?"
+    options:
+      - text: "“No, we never log names.”"
+        correct: false
+        explanation: Confident, and unchecked. If it's wrong, it's in her file.
+      - text: "“Most systems log some names. It's normal.”"
+        correct: false
+        explanation: Dodges the question and sounds careless about PHI.
+      - text: "“Logging is a DevOps thing.”"
+        correct: false
+        explanation: Waiting language on a question she asked you.
+      - text: "“I don't want to guess on that. Audit logging is planned for Sprint 5, in mid-April. I'll confirm exactly what our logs contain and send it to you by Monday.”"
+        correct: true
+        explanation: Honest, shares what's known, and commits to a written answer.
+    source: { quote: "Audit logging is planned for Sprint 5 (mid-April).", page: 60 }
+
+  - id: D19-05
+    type: mcq
+    stem: "After your third unknown, Laura says: “That's the third one you can't answer.” What's the best reply?"
+    options:
+      - text: "“I'm really sorry. I should have prepared better. I apologise.”"
+        correct: false
+        explanation: Three apologies and no plan. It makes the gaps sound bigger.
+      - text: "“That's fair. Those sit with our compliance lead and Kevin. You'll have each one in writing today with its owner and date, all before April 3.”"
+        correct: true
+        explanation: Calm, no apology needed, and a clear plan for all three.
+      - text: "“Nobody could answer those on a call.”"
+        correct: false
+        explanation: Defensive. She'll hear an excuse.
+      - text: "“I'll have all the answers for you tomorrow.”"
+        correct: false
+        explanation: A promise you can't keep, since the answers aren't yours.
+    source: { quote: "One short sentence of apology at most — usually none is needed.", page: 54 }
+
+  - id: D19-06
+    type: mcq
+    stem: >-
+      Friday morning, Rachel Kim tells you the SOC 2 answer will come on Wednesday, not Tuesday as you promised Laura.
+      What do you do?
+    options:
+      - text: Say nothing. Wednesday is still before April 3.
+        correct: false
+        explanation: Laura is expecting Tuesday. A missed date with no warning breaks the trust you built.
+      - text: Tell Laura now. “Update on item 1. Rachel will confirm our SOC 2 status on Wednesday, April 1, a day later than I said. Still before your deadline.”
+        correct: true
+        explanation: The new date, before the old one passes, in one line.
+      - text: Tell Laura it's “probably Type II” to fill the gap.
+        correct: false
+        explanation: Guessing to cover a delay is the mistake that lost the last vendor.
+      - text: Ask Rachel to hurry, and hope.
+        correct: false
+        explanation: Hoping isn't a plan, and Laura still doesn't know.
+    source: { quote: "Follow up in writing. One short sentence of apology at most", page: 54 }
+
+  - id: D19-07
+    type: scenario
+    clientLine: "“Is that confirmed, or are you guessing?”"
+    stem: You just said the uptime SLA is “probably about 99.9%”. What do you say?
+    options:
+      - text: "“It's confirmed.”"
+        correct: false
+        explanation: Doubles down on a guess.
+      - text: "“Fair question. I was guessing, and I shouldn't. The SLA is in Brightpath's contract; I'll get you the exact figure from Dana by Monday.”"
+        correct: true
+        explanation: Owns the slip in one line and turns it into a dated answer.
+      - text: "“It's roughly right. Don't worry about it.”"
+        correct: false
+        explanation: Brushes off a compliance officer's precise question.
+      - text: "“Sorry, sorry, I'm not sure about anything right now.”"
+        correct: false
+        explanation: Panic and over-apology. It undermines the things you do know.
+    source: { quote: "If I guess or say \"probably\", ask \"Is that confirmed, or are you guessing?\"", page: 61 }
+
+  - id: D19-08
+    type: scenario
+    clientLine: "“A previous vendor lost our business because an engineer guessed. Why should I trust your answers?”"
+    stem: What's the best reply?
+    options:
+      - text: "“Our engineers don't make mistakes like that.”"
+        correct: false
+        explanation: A claim she can't check, and exactly what the last vendor would have said.
+      - text: "“Because I won't guess. I'll tell you what I know today, and for everything else, who will confirm it and by when, in writing.”"
+        correct: true
+        explanation: Answers with a behaviour she can see on this call.
+      - text: "“I'm sorry about that vendor.”"
+        correct: false
+        explanation: Sympathy, but no reason to trust you.
+      - text: "“You can trust us. We're very experienced.”"
+        correct: false
+        explanation: Reassurance without proof.
+    source: { quote: "A previous vendor lost your business because an engineer guessed an answer that turned out to be wrong.", page: 61 }
+
+  - id: D19-09
+    type: written
+    stem: >-
+      Laura emails: “Your list shows the penetration test date as pending, Kevin, Tue Mar 31. Our committee meets
+      April 9. Can you tell me anything now?” Write your reply in 2–3 sentences.
+    modelAnswer: >-
+      Not the date yet. I don't want to give you one I haven't checked. Kevin Walsh will confirm the date of our last
+      penetration test by Tuesday, March 31, and I'll send it to you the same day, before your April 3 deadline and
+      your April 9 committee.
+    scoringPoints:
+      - Answers first and doesn't guess
+      - Keeps the owner and the date, and promises to close the loop
+      - Shows the date works for her deadline, with no apology
+    source: { quote: "Your vendor review committee meets April 9, so answers must be in by April 3.", page: 61 }
+
+  - id: D19-10
+    type: written
+    stem: >-
+      After the call, Dana messages: “Laura says you couldn't answer five things. Should I be worried?” Write your
+      reply in 2–3 sentences.
+    modelAnswer: >-
+      No. They're items owned by Rachel, Kevin and you (the uptime SLA), not gaps in CareBook, and Laura marks an
+      “I'll confirm by” as pending, not failed. Each one has an owner and a date before April 3. I need the SLA figure
+      from you by Monday.
+    scoringPoints:
+      - Answers her question first, calmly
+      - Explains why the unknowns are under control (owners and dates before April 3)
+      - Ends with the one thing needed from Dana, with a date
+    source: { quote: "You respect \"I'll confirm by [date]\" — you mark the item \"pending\", not \"fail\".", page: 61 }

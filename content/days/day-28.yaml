@@ -1,0 +1,155 @@
+day: 28
+block: 6
+title: The trade-off formula
+type: normal
+storyDate: Wednesday, April 8
+minutes: About 50 min
+intro: >-
+  Epic's FHIR API has limits, and Kevin asks whether to build a custom HL7 interface instead. Today you explain two
+  options in business terms in under 90 seconds, and recommend one.
+lessons:
+  - id: one-decision
+    kind: prep
+    title: “Should we just build HL7?”
+    minutes: 5 min
+    blocks:
+      - type: yesterday
+        text: >-
+          you gave Dana a range for Spanish SMS reminders instead of a yes to Friday: the code by Friday behind a
+          switch, live once Lakeside compliance approves the Spanish wording. She sent the text to compliance the same
+          day, and you confirmed the plan in writing within the hour.
+      - type: scene
+        when: Wednesday, April 8 · 11:00 am Eastern
+        text: >-
+          One loop closed this morning: Dana and Kevin chose option A. The waitlist moves to Sprint 7 and the April 17
+          code freeze stays. Then the tech lead's news from two days in the Epic sandbox: Epic's FHIR API allows our
+          app about 60 requests a minute, and it doesn't return the “visit reason” field Lakeside enabled. Kevin has
+          seen the note. “Should we just build a proper HL7 interface?” He wants 15 minutes at 1 pm.
+      - type: text
+        text: >-
+          Kevin will push on detail, and he'll want a recommendation, not a menu. Write the trade-off for one real
+          decision on your project, or for CareBook's Epic decision: FHIR API or a custom HL7 v2 interface.
+    fields:
+      - { id: decision, label: The decision, kind: line, placeholder: "e.g. Appointment sync: Epic's FHIR API or a custom HL7 v2 interface?" }
+      - { id: option-a, label: "Option A: the benefit, but the cost", kind: area, rows: 2 }
+      - { id: option-b, label: "Option B: the benefit, but the cost", kind: area, rows: 2 }
+      - { id: recommend, label: I recommend… because…, kind: area, rows: 2, placeholder: "The business outcome, not the technology" }
+    source: both
+
+  - id: trade-off-formula
+    kind: learn
+    title: The trade-off formula
+    minutes: 10 min
+    lead: >-
+      Clients don't want every option. They want two, with what each gives and what each costs, and your
+      recommendation, in under 90 seconds.
+    blocks:
+      - type: steps
+        items:
+          - { title: Option A, text: "“Option A gives [benefit] but [cost].”" }
+          - { title: Option B, text: "“Option B gives [benefit] but [cost].”" }
+          - { title: Recommend, text: "“I recommend [X] because [business outcome].”" }
+          - { title: Check, text: "“Are you comfortable with that?”" }
+      - type: example
+        text: >-
+          “Option A takes 2 days but is harder to change later. Option B takes 5 days but scales. I recommend B because
+          you're adding three clinics next quarter.”
+      - type: text
+        text: >-
+          The reason is a business outcome: the pilot date, the patients, the front desk's time, money. “It's cleaner
+          code” is a reason for engineers. A CTO may enjoy the detail, but he still decides on dates, risk and cost.
+      - type: compare
+        beforeLabel: A menu
+        afterLabel: A recommendation
+        before: "“We could do FHIR or HL7. Both have pros and cons. What would you like?”"
+        after: >-
+          “Short answer: not for the pilot. FHIR is 8 to 10 days and already approved, but syncs every 5 minutes. HL7 is
+          real-time but 20 to 25 days. I recommend FHIR, because only FHIR makes April 27.”
+      - type: note
+        tone: info
+        title: Say when you'll revisit
+        text: >-
+          A recommendation isn't forever. “We'll measure sync delays during the pilot and revisit before the summer
+          rollout” makes it easier to say yes today.
+      - type: recall
+        label: The tension you found on Monday
+        day: 26
+        lesson: map-table
+        fields:
+          - { id: tension, label: Where two of them pull apart }
+
+  - id: fhir-or-hl7
+    kind: mock
+    title: FHIR or HL7?
+    heading: Build our own vs use Epic's FHIR API
+    minutes: 15 min
+    lead: >-
+      Level 2: Kevin is technical and pushes on detail. Answer first, give both options with a benefit and a cost in
+      business terms, recommend one with the reason, and handle what you don't know with an “I'll check” and a time.
+    cardId: S19
+    level: 2
+    scriptNote: Use it the first time, then try the call again without it.
+
+  - id: fhir-or-hl7-review
+    kind: reflect
+    title: How did the call go?
+    minutes: 5 min
+    lead: Tick what you managed, then note what the AI told you.
+    checksTitle: On this call, I…
+    checks:
+      - "answered first: “not for the pilot”"
+      - gave both options with a benefit and a cost, in business terms
+      - tied my recommendation to the pilot date and to patients
+      - handled unknowns with an “I'll check” and a time
+    fields:
+      - { id: went-well, label: What went well, kind: area, placeholder: "From the AI's feedback" }
+      - { id: fix-next, label: One thing to fix next time, kind: area, placeholder: "e.g. I explained rate limits for two minutes before I said what I recommend" }
+      - { id: log, label: "Did I give a recommendation, or just a list of options?", kind: area, rows: 2 }
+    rubric: true
+
+  - id: decision-note
+    kind: write
+    title: The trade-off summary
+    heading: Write Kevin the one-page decision note
+    minutes: 10 min
+    lead: >-
+      You promised Kevin a decision note today. Two options, a recommendation and the business reason, short enough to
+      read in one minute and to forward to his board.
+    blocks:
+      - type: recall
+        label: Your trade-off from this morning
+        day: 28
+        lesson: one-decision
+        fields:
+          - { id: decision, label: Decision }
+          - { id: recommend, label: Recommendation }
+      - { type: field, id: decision }
+      - { type: field, id: option-a }
+      - { type: field, id: option-b }
+      - { type: field, id: recommendation }
+      - { type: field, id: revisit }
+      - type: text
+        text: >-
+          Before you send: does each option have a benefit and a cost? Is the reason one Kevin's board would care about?
+    fields:
+      - { id: decision, label: Decision needed, kind: line, placeholder: "e.g. Epic appointment sync for the pilot: FHIR API or custom HL7 v2" }
+      - { id: option-a, label: Option A (benefit + cost), kind: area, rows: 2 }
+      - { id: option-b, label: Option B (benefit + cost), kind: area, rows: 2 }
+      - { id: recommendation, label: My recommendation and the business reason, kind: area, rows: 2 }
+      - { id: revisit, label: When we revisit, kind: line }
+
+scoring:
+  decision-note:
+    modelAnswer: >-
+      Decision: how CareBook syncs appointments with Epic for the April 27 pilot.
+      Option A, Epic's FHIR API: 8–10 days, standard, and Lakeside IT already approved the app. Cost: appointments sync
+      every 5 minutes, not instantly, and visit reason isn't available, so patients enter it in CareBook.
+      Option B, a custom HL7 v2 interface: real-time with all fields. Cost: 20–25 days, more to maintain, and Lakeside's
+      interface team has a 6-week queue, so it can't make the pilot.
+      Recommendation: A. Only A makes April 27, front desks need same-day cancellations within 15 minutes so a 5-minute
+      sync is enough, and the same approach can be reused for athenahealth next year.
+      Revisit: we measure sync delays during the pilot and decide on HL7 before the summer rollout.
+    scoringPoints:
+      - Each option has a benefit and a cost, in business terms
+      - One clear recommendation tied to the pilot date and to front-desk needs
+      - Says when the decision will be revisited, and stays short enough to forward

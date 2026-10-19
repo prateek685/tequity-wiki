@@ -1,0 +1,28 @@
+id: a10-weekly-scorecard
+kind: template
+ref: "A10"
+title: "Weekly self-scorecard"
+summary: "Every Friday: a score and a line of proof for each pillar, in five minutes."
+blocks:
+  - type: text
+    text: "In the portal your Friday scorecard does this for you. Here is what it asks, in case you keep a journal of your own."
+  - type: facts
+    rows:
+      - { label: "Understand", value: "Score 1–5, then 1–2 lines of proof: what I learned, what I struggled with." }
+      - { label: "Communicate", value: "Score 1–5, then 1–2 lines of proof." }
+      - { label: "Own", value: "Score 1–5, then 1–2 lines of proof." }
+      - { label: "Stand firm", value: "Score 1–5, then 1–2 lines of proof." }
+      - { label: "Days completed", value: "__ / 5" }
+      - { label: "Mocks", value: "__" }
+      - { label: "Biggest win this week", value: "…" }
+      - { label: "Where I'm stuck, and what help I need", value: "…" }
+  - { type: heading, text: "The scale" }
+  - type: facts
+    rows:
+      - { label: "1", value: "I avoid it, or I freeze when it happens." }
+      - { label: "2", value: "I do it only when prompted, and it feels awkward." }
+      - { label: "3", value: "I can do it when I have prepared." }
+      - { label: "4", value: "I do it naturally on most calls." }
+      - { label: "5", value: "I do it well under pressure: hard questions, an upset client, a senior audience." }
+  - type: text
+    text: "Be honest. The scorecard exists to show where help is needed, not to grade anyone. A 2 with a clear “where I'm stuck” line is more useful than a hopeful 4."

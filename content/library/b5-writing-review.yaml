@@ -1,0 +1,38 @@
+id: b5-writing-review
+kind: prompt
+ref: B5
+title: Writing review
+summary: Check a message before you send it to a client.
+blocks:
+  - type: note
+    tone: warn
+    title: Before you paste anything
+    text: No PHI, no client credentials, no confidential client documents in any AI tool the company hasn't approved. Replace names and details with made-up ones.
+  - type: text
+    text: >-
+      Use it for emails and messages. Apply the edits you agree with, and keep your own voice.
+  - type: message
+    label: The prompt
+    text: |-
+      Review this message before I send it to a US client: [paste]
+
+      Check:
+
+      1. Is the main point or ask in the first two lines?
+      2. Is anything unclear, too long, or too indirect?
+      3. Are there phrases an American reader might misunderstand?
+      4. Is the tone confident but polite?
+
+      Give me a tighter version under [N] words, and list what you changed.
+  - type: copy
+    label: Copy prompt
+    text: |-
+      Review this message before I send it to a US client: [paste]
+
+      Check:
+      1. Is the main point or ask in the first two lines?
+      2. Is anything unclear, too long, or too indirect?
+      3. Are there phrases an American reader might misunderstand?
+      4. Is the tone confident but polite?
+
+      Give me a tighter version under [N] words, and list what you changed.

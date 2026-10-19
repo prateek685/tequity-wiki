@@ -1,0 +1,131 @@
+day: 2
+block: 1
+title: Answer first
+type: normal
+storyDate: Tuesday, March 3
+minutes: About 50 min
+intro: >-
+  Dana fires quick status questions between meetings. Today you put the answer first, in what you say and in what
+  you write.
+lessons:
+  - id: dana-in-a-hurry
+    kind: prep
+    title: Dana is in a hurry
+    minutes: 5 min
+    blocks:
+      - type: yesterday
+        text: you met Dana and agreed a Friday sync, a written update after it, and a same-day message for any risk.
+      - type: scene
+        when: Tuesday, March 3 · between meetings
+        text: >-
+          Dana has 10 minutes before her next meeting. She's preparing for Friday's leadership meeting and wants a
+          quick read on CareBook. Someone told her that “some integration thing” might be late. She's going to fire
+          short questions at you, one after another.
+      - type: text
+        text: >-
+          Busy clients decide in the first few seconds whether you're clear. Before you learn today's technique, warm
+          up: write three questions Dana might ask, each with a one-line answer that starts with the answer.
+    fields:
+      - { id: q1, label: Question 1, kind: line, placeholder: "e.g. Are we on track for April 27?" }
+      - { id: a1, label: Your one-line answer, kind: line, placeholder: "e.g. Yes. One risk: Epic access, needed by March 16." }
+      - { id: q2, label: Question 2, kind: line }
+      - { id: a2, label: Your one-line answer, kind: line }
+      - { id: q3, label: Question 3, kind: line }
+      - { id: a3, label: Your one-line answer, kind: line }
+
+  - id: answer-first
+    kind: learn
+    title: Answer first (BLUF)
+    heading: "Answer first: bottom line up front"
+    minutes: 10 min
+    lead: >-
+      Say the answer first, then the reason. If they want more detail, they'll ask. It's the single habit that most
+      changes how a US client sees you.
+    blocks:
+      - type: compare
+        before: “So, we started on the screens last week, then the team looked at the video link, and there were a few config issues…”
+        after: "“Short answer: yes, Friday works. Here's why…”"
+      - { type: heading, text: Use it for three kinds of question }
+      - type: steps
+        items:
+          - { title: Status, text: "The status first, then one or two facts. “Sprint 3 is on track. Video booking is about 60% done.”" }
+          - { title: Yes or no, text: "Yes or no first, then the reason. “Not safely today. Here's why…”" }
+          - { title: Bad news, text: "The headline first, then the impact and your plan." }
+      - type: watch
+        url: https://www.youtube.com/watch?v=HAnw168huqA
+        title: "Matt Abrahams: Think Fast, Talk Smart"
+        meta: Stanford GSB · watch the first 15 minutes today
+
+  - id: rapid-fire
+    kind: mock
+    title: Rapid-fire questions with Dana
+    minutes: 15 min
+    lead: >-
+      Dana has 10 minutes. Answer every question first, in 45 seconds or less, name the one real risk with its date
+      and impact, and end with a clear ask.
+    cardId: S02
+    level: 1
+    scriptNote: Use it the first time, then try the call again without it.
+
+  - id: rapid-fire-review
+    kind: reflect
+    title: How did the call go?
+    minutes: 5 min
+    lead: Tick what you managed, then note what the AI told you.
+    checksTitle: On this call, I…
+    checks:
+      - started every answer with the answer
+      - named the Epic risk with its date and impact
+      - made one clear ask with a deadline
+      - offered a written follow-up
+    fields:
+      - { id: went-well, label: What went well, kind: area, placeholder: "From the AI's feedback" }
+      - { id: fix-next, label: One thing to fix next time, kind: area, placeholder: "e.g. I started with background on the pilot question" }
+      - { id: log, label: "When I was asked a question, what did I say first — the answer, or the background?", kind: area, rows: 2 }
+    rubric: true
+
+  - id: rewrite-messages
+    kind: write
+    title: Rewrite three messages
+    heading: Rewrite three messages answer-first
+    minutes: 10 min
+    lead: >-
+      Dana forwards what you write. Rewrite these three messages so the bottom line comes first. You can also use
+      three of your own recent Slack or Teams messages.
+    source: both
+    blocks:
+      - type: message
+        label: Message 1
+        text: >-
+          Hi Dana, hope you are doing well. So regarding the reminders, actually we were working on it and there were
+          some issues with the Twilio config and also the templates, so basically it's taking time, will update you
+          once done.
+      - { type: field, id: msg-1 }
+      - type: message
+        label: Message 2
+        text: >-
+          Kindly do the needful and share the Epic sandbox credentials at the earliest so that we can start the
+          integration from our side.
+      - { type: field, id: msg-2 }
+      - type: message
+        label: Message 3
+        text: >-
+          Sorry for the delay, sorry, the build was broken yesterday and QA was blocked, we will try to give the build
+          by tomorrow EOD hopefully.
+      - { type: field, id: msg-3 }
+    fields:
+      - { id: msg-1, label: Your rewrite of message 1, kind: area, rows: 3, placeholder: Bottom line first… }
+      - { id: msg-2, label: Your rewrite of message 2, kind: area, rows: 3, placeholder: The ask and the date first… }
+      - { id: msg-3, label: Your rewrite of message 3, kind: area, rows: 3, placeholder: "When it will arrive, first…" }
+
+scoring:
+  rewrite-messages:
+    modelAnswer: >-
+      1. Hi Dana, SMS reminders may be 1–2 days late: the SMS number is still in carrier verification. The message
+      templates are ready, and it doesn't affect the April 27 pilot. I'll update you as soon as the number clears.
+      2. Hi Sam, could you send the Epic sandbox credentials by Thursday? We need them to start the integration on time.
+      3. QA will get the new build tomorrow by 5 pm Central. Yesterday's broken build is fixed.
+    scoringPoints:
+      - Each message gives the bottom line or the ask in the first sentence
+      - "Dates and asks are specific, not “at the earliest” or “hopefully”"
+      - Filler and repeated apologies are removed

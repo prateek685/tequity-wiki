@@ -1,0 +1,154 @@
+day: 39
+block: 8
+title: How a clinic gets paid
+type: normal
+storyDate: Thursday, April 23
+minutes: About 50 min
+intro: >-
+  Maria Lopez says CareBook could help with Lakeside's claim denials. Today you learn the billing cycle in plain
+  words, find the numbers behind the problem, and write what it costs.
+lessons:
+  - id: billing-questions
+    kind: prep
+    title: “Our denials problem”
+    minutes: 5 min
+    blocks:
+      - type: yesterday
+        text: >-
+          you gave Dana the whole weekly status in two minutes: Amber, one risk with a plan, two decisions. She
+          approved the manual eligibility fallback for 2 payers on the spot, and your written report went out Green
+          within 10 minutes.
+      - type: scene
+        when: Thursday, April 23 · 9:00 am Eastern
+        text: >-
+          You last spoke to Maria Lopez in March, when she explained how Suncoast checks insurance. Suncoast handles
+          the claims for Lakeside's telehealth visits, and now she's asked for a call: “Your app could help with our
+          denials problem.” Dana's only note: denials are about 12%, “mostly eligibility errors”.
+      - type: text
+        text: >-
+          A billing client measures everything in money and days. Write 5 questions you'd ask before you suggest
+          anything. Keep them open, and aim each one at a number.
+    fields:
+      - { id: q1, label: Question 1, kind: line, placeholder: "e.g. Which denial reasons come up most often?" }
+      - { id: q2, label: Question 2, kind: line, placeholder: "e.g. What does one denied claim cost you?" }
+      - { id: q3, label: Question 3, kind: line }
+      - { id: q4, label: Question 4, kind: line }
+      - { id: q5, label: Question 5, kind: line }
+
+  - id: rcm-plain-terms
+    kind: learn
+    title: Billing in plain words
+    heading: "Billing and the revenue cycle (RCM), in plain words"
+    minutes: 10 min
+    lead: >-
+      RCM, revenue cycle management, is how a clinic gets paid. Many US healthcare projects touch it, and a bug at
+      booking can turn into a denied claim weeks later.
+    blocks:
+      - { type: heading, text: Before and during the visit }
+      - type: steps
+        items:
+          - { title: 1 · Patient books, text: "And types their insurance member ID." }
+          - { title: 2 · Eligibility check, text: "Is the insurance active, and does it cover this visit?" }
+          - { title: 3 · Visit, text: "In person or by video." }
+      - { type: heading, text: After the visit }
+      - type: steps
+        items:
+          - { title: 4 · Coding, text: "ICD-10 codes say what's wrong (the diagnosis); CPT codes say what was done." }
+          - { title: 5 · Claim, text: "The bill goes to the payer, often through a clearinghouse that checks and forwards it." }
+          - { title: 6 · Paid or denied, text: "The payer pays, or refuses. Denials are fixed and sent again." }
+      - type: text
+        text: >-
+          Then the patient pays the rest, such as their copay. Every denial means rework and a longer wait for money:
+          a wrong member ID caught at booking is a two-second fix; caught by the payer, it's a denied claim.
+      - type: facts
+        label: Numbers billing clients watch
+        rows:
+          - { label: Denial rate, value: "The percentage of claims the payer refuses." }
+          - { label: Days in A/R, value: "Accounts receivable: the average number of days it takes to get paid." }
+          - { label: Clean-claim rate, value: "The percentage of claims accepted the first time." }
+      - type: facts
+        label: Words you'll hear today
+        rows:
+          - { label: X12 270 / 271, value: "The electronic eligibility question (270) and the payer's answer (271)." }
+          - { label: X12 837 / 835, value: "The electronic claim (837), and the payment details that come back (835)." }
+          - { label: Prior authorization, value: "Payer approval needed before some treatments." }
+      - type: recall
+        label: Your one picture from Day 21
+        day: 21
+        lesson: one-picture
+        fields:
+          - { id: line-2, label: "2" }
+          - { id: line-3, label: "3" }
+      - type: text
+        text: >-
+          Day 21's money line, zoomed in. If Maria uses a word you don't know, ask: she'll respect the question more
+          than a nod.
+      - type: watch
+        url: https://www.aapc.com/resources/what-is-revenue-cycle-management
+        title: AAPC — What Is Revenue Cycle Management?
+        meta: Free article · about 10 min · or the free Alison course on RCM
+
+  - id: denials-call
+    kind: mock
+    title: Maria's denials problem
+    heading: A billing director explains a denial-rate problem
+    minutes: 15 min
+    lead: >-
+      Level 2: Maria speaks in billing terms and tests you. Find the causes, the cost, the volume and the target before
+      you suggest anything. Then play it back in business terms.
+    cardId: S27
+    level: 2
+    scriptNote: Use it the first time, then try the call again without it.
+
+  - id: denials-call-review
+    kind: reflect
+    title: How did the call go?
+    minutes: 5 min
+    lead: Tick what you managed, then note what the AI told you.
+    checksTitle: On this call, I…
+    checks:
+      - asked about causes, cost, volume and target before any solution
+      - admitted unknown terms and asked instead of bluffing
+      - played back the problem in business terms
+      - agreed a next step with a date
+    fields:
+      - { id: went-well, label: What went well, kind: area, placeholder: "From the AI's feedback" }
+      - { id: fix-next, label: One thing to fix next time, kind: area, placeholder: "e.g. I offered to check eligibility at booking before I knew the cost of a denial" }
+      - { id: log, label: "Did anyone have to ask me for an update this week?", kind: area, rows: 2 }
+    rubric: true
+
+  - id: problem-summary
+    kind: write
+    title: What it costs them
+    heading: The denials problem in five lines
+    minutes: 10 min
+    lead: >-
+      Before you send Maria any ideas, write her problem in business terms: what's happening, why, what it costs, and
+      what success looks like. Five lines Dana could read in a minute.
+    blocks:
+      - type: text
+        text: >-
+          Use Maria's numbers, not guesses. Turn them into money and days where you can: how many denials a month, and
+          what they cost to fix. No solution yet, apart from the next step.
+    fields:
+      - { id: line-1, label: "1 · The problem", kind: line, placeholder: "e.g. 12% of Lakeside's telehealth claims are denied" }
+      - { id: line-2, label: "2 · Why", kind: line }
+      - { id: line-3, label: "3 · What it costs", kind: line }
+      - { id: line-4, label: "4 · What success looks like", kind: line }
+      - { id: line-5, label: "5 · Next step", kind: line }
+
+scoring:
+  problem-summary:
+    modelAnswer: >-
+      1. About 12% of Lakeside's telehealth claims are denied: roughly 240 of 2,000 visits a month.
+      2. About 70% of denials are eligibility problems: inactive coverage (40%), a wrong member ID (20%) and telehealth
+      not covered by the plan (10%).
+      3. Each denial costs about $25–$40 to rework and adds about 18 days before Suncoast gets paid: roughly
+      $6,000–$9,600 a month in rework alone.
+      4. Suncoast's target is under 5% within 6 months; Maria is measured on it.
+      5. Next step: I'll send two ideas for checking eligibility earlier by Fri Apr 24, noting that the real-time check
+      works for only 3 of 5 payers today.
+    scoringPoints:
+      - Uses the call's numbers (12%, 240 a month, the causes, $25–$40 and 18 days, under 5% in 6 months)
+      - Turns the problem into money and time, in plain business words
+      - Describes the problem without proposing a solution, apart from a dated next step

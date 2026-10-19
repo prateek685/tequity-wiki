@@ -1,0 +1,377 @@
+# Week 3 assessment pool (after Day 15): the whole CareBook week, Mar 16–20, with skills combined: open questions on
+# Dr. Mercer's dashboard, the polite 5 Whys and the Mom Test on Dana's reminders, playback with Maria Lopez, rapid
+# discovery on three requests, the new-patient intake discovery call and its summary. Shows 8 choice + 2 written of 20.
+pool: assessment-15
+questions:
+  - id: A15-01
+    type: mcq
+    stem: >-
+      Monday. Dr. Mercer says: “We need it before the board meeting.” You don't know when that is. What's the best
+      follow-up?
+    options:
+      - text: "“Okay, as soon as possible, then.”"
+        correct: false
+        explanation: Turns a real date into a vague one. You can't plan against “as soon as possible”.
+      - text: "“Board meetings are usually quarterly, right?”"
+        correct: false
+        explanation: A closed guess. He may say “roughly” and you'll plan on the wrong date.
+      - text: "“When is the board meeting, and what would you like to show the board that day?”"
+        correct: true
+        explanation: Gets the date and the purpose, which tells you what really has to be ready.
+      - text: "“We can definitely do it in two weeks.”"
+        correct: false
+        explanation: An estimate before you know the scope or the date.
+    source: { quote: "You need it before the Lakeside board meeting on June 10.", page: 45 }
+
+  - id: A15-02
+    type: mcq
+    stem: Monday. You're ready to play back Dr. Mercer's request. Which playback is strongest?
+    options:
+      - text: "“So, a dashboard for the clinics. Got it.”"
+        correct: false
+        explanation: His own words back, with nothing you learned. There's nothing to confirm.
+      - text: "“Clinic managers need a Monday view of no-shows by clinic, day and appointment type, with no patient names, before June 10, to bring no-shows from 18% to under 10%. Did I get that right?”"
+        correct: true
+        explanation: Users, content, limit, date and goal in one sentence, then a check he can say yes to.
+      - text: "“So you want a dashboard with drill-downs on every metric we track?”"
+        correct: false
+        explanation: Adds scope he never asked for and leaves out the goal.
+      - text: A two-minute replay of the whole call, in order.
+        correct: false
+        explanation: Too long to confirm, and the goal gets lost in the middle.
+    source: { quote: "Let me play that back: clinic managers need a Monday view of no-shows", page: 156 }
+
+  - id: A15-03
+    type: mcq
+    stem: >-
+      Tuesday. Dana opens with “We want SMS appointment reminders — more of them.” On Monday, Dr. Mercer told you the
+      no-show rate at the pilot clinics is 18%. What's the best way to use that?
+    options:
+      - text: "“Right, so you want daily texts to fix no-shows. I'm on it.”"
+        correct: false
+        explanation: Joins two facts into a conclusion she hasn't confirmed, and agrees to a solution.
+      - text: "“Let's keep Dr. Mercer's dashboard out of this.”"
+        correct: false
+        explanation: Throws away a clue that may point to the same goal.
+      - text: "“Dr. Mercer mentioned on Monday that no-shows are 18% at the pilot clinics. Is that what's behind this, or something else?”"
+        correct: true
+        explanation: Shares what you know and checks it with an open “or something else”, so she can correct you.
+      - text: "“More texts won't help with no-shows.”"
+        correct: false
+        explanation: An opinion before you understand her problem.
+    source: { quote: "The real goal: cut no-shows at the 3 pilot clinics from 18% to under 10%.", page: 47 }
+
+  - id: A15-04
+    type: mcq
+    stem: >-
+      Tuesday. Dana mentions that Lakeside compliance allows no more than 3 reminder texts per appointment. CareBook
+      sends 2 today. What does that tell you?
+    options:
+      - text: It's Lakeside's rule, so we can ignore it on Brightpath's side.
+        correct: false
+        explanation: Lakeside is the launch customer. Breaking their compliance rule is a pilot risk.
+      - text: There's room for at most one more text, so what the reminder lets patients do matters more than how many there are.
+        correct: true
+        explanation: The limit points straight at the real goal, letting patients cancel or reschedule.
+      - text: Daily texts are fine if patients opt in.
+        correct: false
+        explanation: Opt-in doesn't lift Lakeside's limit.
+      - text: Nothing. It's a detail for later.
+        correct: false
+        explanation: A hard limit that rules out her first idea is not a detail.
+    source: { quote: "Lakeside compliance allows no more than 3 reminder texts per appointment.", page: 47 }
+
+  - id: A15-05
+    type: mcq
+    stem: >-
+      Wednesday. You play back Maria's requirement in three bullets. She corrects one point and says, “The rest is
+      fine.” What's the best next step?
+    options:
+      - text: Move on. She said the rest is fine.
+        correct: false
+        explanation: Busy clients often correct only the first thing they notice. Other gaps may still be there.
+      - text: "Play back the corrected point, then ask: “Is there anything else I should check, for example what happens if your API is down?”"
+        correct: true
+        explanation: Confirms the fix and opens the door to what she didn't mention.
+      - text: Apologise for getting it wrong.
+        correct: false
+        explanation: A playback is meant to catch mistakes. There's nothing to apologise for.
+      - text: Send her the full API docs to check instead.
+        correct: false
+        explanation: Pushes the work to her, and the docs are what's incomplete.
+    source: { quote: "If my playback misses something, correct only one point.", page: 49 }
+
+  - id: A15-06
+    type: mcq
+    stem: >-
+      Wednesday. Maria mentions, in passing, a different “payer ID list” for Medicaid patients. What's the best
+      response?
+    options:
+      - text: Ignore it. Medicaid can be handled later.
+        correct: false
+        explanation: It changes how eligibility is checked for some patients. That's scope, not a detail.
+      - text: "“Got it, we'll figure out the Medicaid IDs.”"
+        correct: false
+        explanation: You can't. The list is hers to give.
+      - text: "“You mentioned a different payer ID list for Medicaid. Could you send it to us, and by when?”"
+        correct: true
+        explanation: Plays it back, gives her the action and gets a date for her Friday follow-up.
+      - text: Ask “What's a payer ID?” and nothing else.
+        correct: false
+        explanation: Asking about the term is fine, but without asking for the list you leave the gap open.
+    source: { quote: "Medicaid patients use a different payer ID list", page: 49 }
+
+  - id: A15-07
+    type: mcq
+    stem: >-
+      Thursday. You've found that “faster” means the clinic check-in page, where front-desk staff wait about 6 seconds
+      per patient. Which question gets you a success metric?
+    options:
+      - text: "“Would under 1 second be good?”"
+        correct: false
+        explanation: Your number, offered as a closed question. She'll say yes without thinking about it.
+      - text: "“Do they want it faster?”"
+        correct: false
+        explanation: Of course they do. You learn nothing.
+      - text: "“What wait would the front desk call good, and how many patients do they check in on a busy day?”"
+        correct: true
+        explanation: A target from the users' view, plus the volume that shows the business impact.
+      - text: "“We'll know when it feels faster.”"
+        correct: false
+        explanation: A feeling can't be measured or signed off.
+    source: { quote: "front-desk staff wait about 6 seconds per patient", page: 51 }
+
+  - id: A15-08
+    type: mcq
+    stem: >-
+      Thursday. Dana suggests: “Let's just survey older patients: would they use a simpler app?” What's the best
+      reply?
+    options:
+      - text: "“Good idea, let's send it this week.”"
+        correct: false
+        explanation: A “would you” survey mostly collects polite yeses.
+      - text: "“A survey like that will mostly get yeses. Could we look at what the 2 focus-group patients struggled with, or watch a few patients book and see where they get stuck?”"
+        correct: true
+        explanation: Moves from what people might want to what they actually do.
+      - text: "“We don't need research, we know what older users need.”"
+        correct: false
+        explanation: Assuming instead of asking. Exactly what this week is about.
+      - text: "“Surveys aren't our job.”"
+        correct: false
+        explanation: True, but unhelpful, and it misses the chance to suggest a better question.
+    source: { quote: "Ask about what people actually do and did (past behaviour), not what they might want.", page: 42 }
+
+  - id: A15-09
+    type: mcq
+    stem: Friday. Which “next step” line for your discovery summary to Dana is best?
+    options:
+      - text: "“Next step: we'll deliver the form for the pilot.”"
+        correct: false
+        explanation: A delivery promise you didn't make, for scope you haven't sized.
+      - text: "“Let us know your thoughts.”"
+        correct: false
+        explanation: No owner, no date. Nothing happens.
+      - text: "“Next step: I'll send options with effort by Wednesday, March 25.”"
+        correct: true
+        explanation: One owner, one date, and no delivery promise.
+      - text: "“Next steps: TBD.”"
+        correct: false
+        explanation: Tells her nobody owns what happens next.
+    source: { quote: "I'll send a summary today and options with effort by", page: 52 }
+
+  - id: A15-10
+    type: mcq
+    stem: >-
+      Friday. Dana says: “New patients are a big deal for us.” Which question turns that into something you can
+      measure?
+    options:
+      - text: "“How big a deal?”"
+        correct: false
+        explanation: Open, but so vague it invites another adjective, not a number.
+      - text: "“About what share of Lakeside's bookings are new patients, and how long does each one take the front desk today?”"
+        correct: true
+        explanation: Two numbers, volume and time. Together they show the size of the pain.
+      - text: "“Are new patients more than half of bookings?”"
+        correct: false
+        explanation: A closed guess that anchors her answer.
+      - text: "“Would a better form help with that?”"
+        correct: false
+        explanation: A “would you” question that only gets a yes.
+    source: { quote: "New patients are about 30% of Lakeside bookings", page: 53 }
+
+  - id: A15-11
+    type: mcq
+    stem: "Monday, after Dr. Mercer's call. Dana asks: “What did you promise Alan?” Which reply is best?"
+    options:
+      - text: "“A dashboard by June.”"
+        correct: false
+        explanation: You didn't promise that, and saying so creates a commitment nobody sized.
+      - text: "“Nothing yet. We just talked.”"
+        correct: false
+        explanation: You did agree a next step. Leaving it out looks like there's no follow-up.
+      - text: "“A one-page summary today, and a first option with an estimate by Thursday. No estimate on the call.”"
+        correct: true
+        explanation: Exactly what was agreed, with dates she can track.
+      - text: "“I said we'd think about it.”"
+        correct: false
+        explanation: Vague, and it sounds like nobody owns the next step.
+    source: { quote: "I'll send a one-page summary today and a first option with an estimate by Thursday.", page: 156 }
+
+  - id: A15-12
+    type: mcq
+    stem: >-
+      Wednesday afternoon. Dana asks: “Is the Suncoast check going to delay the pilot? I hear their docs are a mess.”
+      Which reply is best?
+    options:
+      - text: "“Their docs really are a mess, honestly.”"
+        correct: false
+        explanation: A complaint about a partner, with no answer to her question.
+      - text: "“Not as things stand: it's planned in Sprint 5, ending April 10. The risk is the docs, so we'll test against real responses early in the sprint and tell you straight away if anything moves.”"
+        correct: true
+        explanation: Answer first, then the risk and what you'll do about it.
+      - text: "“It might, it might not. Hard to say.”"
+        correct: false
+        explanation: Leaves her with uncertainty and no plan.
+      - text: "“Maria said yes on the call, so it's fine.”"
+        correct: false
+        explanation: Hides the one real risk you know about.
+    source: { quote: "Suncoast's API docs are incomplete", page: 48 }
+
+  - id: A15-13
+    type: scenario
+    clientLine: "“I'm not sure you understand what I need yet.”"
+    stem: Monday. You'd just started describing a no-show chart when Dr. Mercer said this. What's the best reply?
+    options:
+      - text: "“I think I do. Let me finish describing the chart.”"
+        correct: false
+        explanation: Defends your idea instead of listening to his signal.
+      - text: "“You're right, I jumped ahead. Let me step back: who would use this, and what would they decide with it?”"
+        correct: true
+        explanation: Owns the mistake in one line and goes back to open questions.
+      - text: "“I'm so sorry, Dr. Mercer, I really apologise.”"
+        correct: false
+        explanation: Over-apologising wastes his time and doesn't move you forward.
+      - text: "“Then could you send us a written spec?”"
+        correct: false
+        explanation: Pushes the discovery back to him.
+    source: { quote: "I'm not sure you understand what I need yet.", page: 45 }
+
+  - id: A15-14
+    type: scenario
+    clientLine: "“Great — how soon?”"
+    stem: >-
+      Tuesday. You said “Sure, we can add more reminders” too quickly, and Dana jumps on it. What's the best
+      recovery?
+    options:
+      - text: "“By the end of next week.”"
+        correct: false
+        explanation: Doubles down on a promise for something nobody has defined.
+      - text: "“Before I give you a date, let me make sure we build the right thing. What happens today when a patient can't make it to their appointment?”"
+        correct: true
+        explanation: Walks back the instant yes politely and returns to the problem.
+      - text: "“Actually, forget I said that.”"
+        correct: false
+        explanation: Sounds unreliable, and gives her nothing instead.
+      - text: "“It depends on Sprint 4.”"
+        correct: false
+        explanation: Avoids the question and still implies the texts will come.
+    source: { quote: 'If I agree to build more texts right away, say "Great — how soon?"', page: 47 }
+
+  - id: A15-15
+    type: scenario
+    clientLine: "“Honestly, I'd just like patients to stop turning up without their insurance card.”"
+    stem: Friday. Lisa Chen joins the end of the intake discussion. What's the best reply?
+    options:
+      - text: "“We'll add an insurance card upload to the form.”"
+        correct: false
+        explanation: A solution in the first sentence, and the card photo is protected data that needs secure storage.
+      - text: "“Tell me more. How often does that happen, and what does the front desk do when it does?”"
+        correct: true
+        explanation: Probes the current process and the size of the problem before any solution.
+      - text: "“That's a patient problem, not a software one.”"
+        correct: false
+        explanation: Dismisses a real front-desk pain that may shape the form.
+      - text: "“Would a reminder about the card help?”"
+        correct: false
+        explanation: A “would you” question with your solution inside it.
+    source: { quote: "Today, Lakeside's front desk handles new patients on paper.", page: 52 }
+
+  - id: A15-16
+    type: scenario
+    clientLine: "“Look, can you just build what's in the docs? I don't have time for questions.”"
+    stem: Wednesday. Maria is impatient. What's the best reply?
+    options:
+      - text: "“Sure, we'll build from the docs.”"
+        correct: false
+        explanation: The docs are incomplete. You'd build the wrong thing and find out in testing.
+      - text: "“We can't build anything without answers.”"
+        correct: false
+        explanation: Sounds like a refusal, and she'll leave the call.
+      - text: "“Of course, I'll keep it short. Two minutes to play back what I heard, so we don't build the wrong thing. Okay?”"
+        correct: true
+        explanation: Respects her time and still gets the playback that protects both sides.
+      - text: "“Then I'll email you twenty questions.”"
+        correct: false
+        explanation: More of her time, not less, and slower than a two-minute playback.
+    source: { quote: "busy and vague; short answers, change topic, slightly impatient", page: 49 }
+
+  - id: A15-17
+    type: written
+    stem: >-
+      Monday, before the call. Dana messages: “Alan wants a dashboard. Can you give me a rough estimate today so I
+      can tell him?” Write your reply in 2–3 sentences.
+    modelAnswer: >-
+      Not yet: I'd be guessing, because nobody knows what the dashboard needs to do. I'm speaking to Alan this
+      afternoon to find out who uses it, what problem it solves and the deadline. I'll send him a summary today and
+      an option with an estimate by Thursday, and copy you.
+    scoringPoints:
+      - Answers first (no estimate yet) with the reason
+      - Says how and when you'll find out what's needed
+      - Ends with a dated next step
+    source: { quote: "Next step with a date, and no estimate given on the spot", page: 44 }
+
+  - id: A15-18
+    type: written
+    stem: >-
+      Tuesday. Dana confirms your playback, then asks: “So what number do I put in my investor deck for May 12?” The
+      pilot starts April 27. Write your reply in 2–3 sentences.
+    modelAnswer: >-
+      The goal is to bring no-shows at the 3 pilot clinics from 18% to under 10% by the end of the year. By May 12
+      we'll have about two weeks of pilot data, so I'd show the early trend and how many patients cancelled or
+      rescheduled by text, rather than promise the full drop. I'll confirm with Lisa that we can measure the
+      no-show rate the same way before and after.
+    scoringPoints:
+      - Gives the real metric and target with numbers
+      - Is honest about what can be shown by May 12, without overpromising
+      - Suggests a measurable early signal and how to check the measurement
+    source: { quote: "You want to show the no-show drop at the investor demo on May 12.", page: 47 }
+
+  - id: A15-19
+    type: written
+    stem: >-
+      Thursday evening. Dana messages: “Leadership asked why you asked so many questions instead of just fixing
+      things. Give me two lines I can share.”
+    modelAnswer: >-
+      Because the requests weren't what they sounded like: “faster” meant the clinic check-in page, where staff wait
+      about 6 seconds per patient, not the patient app. The questions let us put the one fix that matters into the
+      pilot and plan the other two for after April 27, without wasting a sprint.
+    scoringPoints:
+      - Answers the “why” with a concrete example from the call
+      - Links the questions to a business outcome (the pilot and time saved)
+      - Two lines, confident, not defensive
+    source: { quote: "means the clinic check-in page, not the patient app", page: 51 }
+
+  - id: A15-20
+    type: written
+    stem: >-
+      Monday, March 23. Dr. Mercer emails: “Dana says the new-patient form answers will go into Epic. When will my
+      clinics have it?” You haven't sized it yet. Write your reply in 2–3 sentences.
+    modelAnswer: >-
+      We don't have a date yet: getting the answers into Epic is a large part of the work, and we're sizing it now.
+      Dana gets options with effort on Wednesday, March 25, including what could be ready before the pilot. Could you
+      tell me which answers your clinicians need to see in Epic, so we size the right thing?
+    scoringPoints:
+      - Answers honestly first (no date yet) with the reason
+      - Gives the dated next step
+      - Asks a question that helps scope the Epic part
+    source: { quote: "Dr. Mercer expects the answers to appear in Epic — a large hidden scope item.", page: 53 }

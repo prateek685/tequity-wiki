@@ -1,0 +1,90 @@
+id: a12-4-status
+kind: template
+ref: "A12 · 4"
+title: "Worked example: weekly status to a busy VP in 2 minutes"
+summary: "Status update (card S40): colour first, one risk with its plan, and one decision."
+blocks:
+  - type: text
+    text: "The whole flow for one call type: pre-call card, the call, the written follow-up, and why it works against the call rubric. Use it as a reference, then practise the matching card."
+  - { type: heading, text: "1. Pre-call card (filled)" }
+  - type: facts
+    rows:
+      - { label: "Call", value: "Dana (VP of Product) · Wed Apr 22 · 2 minutes (Dana has board prep next) · Central time" }
+      - { label: "My goal", value: "Give the full weekly status in 2 minutes and get the manual-fallback decision." }
+      - { label: "Opener", value: "“I know you have two minutes, so here's the status in one go.”" }
+      - { label: "3 things I must say", value: "Amber: May 4 is on track but tight · this week's highlights · the Suncoast risk and its plan" }
+      - { label: "3 questions I must ask", value: "Can you approve the manual fallback for 2 payers? · Who should join the go/no-go? · Do you need one sentence for your CEO?" }
+      - { label: "Risk to raise", value: "Suncoast's eligibility check doesn't work yet for 2 of 5 payers." }
+      - { label: "Hardest question and my answer", value: "“Why Amber? Sounds Green to me.” → “Because one risk still needs your decision. Once you approve the fallback, I'd call it Green.”" }
+      - { label: "Closing line", value: "“I'll send the written status in 10 minutes.”" }
+  - { type: heading, text: "2. The call (a strong version)" }
+  - type: facts
+    rows:
+      - { label: "You", value: "I know you have two minutes, so here's the status in one go. Overall we're Amber: May 4 is on track, but tight." }
+      - { label: "You", value: "Production access is done, the Epic fix passed testing, and 180 of 212 test cases have passed." }
+      - { label: "You", value: "Next: UAT on Friday, training on the 28th, go/no-go on the 29th, and the pilot on May 4." }
+      - { label: "You", value: "One risk: Suncoast's eligibility check doesn't work yet for 2 of 5 payers. For those, the front desk checks eligibility manually during the pilot." }
+      - { label: "Dana", value: "Why Amber? Sounds Green to me." }
+      - { label: "You", value: "Because that risk still needs your decision. If you approve the manual fallback, I'd call it Green." }
+      - { label: "Dana", value: "Approved. What else?" }
+      - { label: "You", value: "Just who should join the go/no-go. Friday is fine." }
+      - { label: "Dana", value: "Kevin and me. Give me one sentence for my CEO." }
+      - { label: "You", value: "“We're on track for May 4, with one known risk that has a plan.”" }
+      - { label: "You", value: "Thanks, Dana. I'll send the written status in 10 minutes." }
+  - { type: heading, text: "3. The written follow-up" }
+  - type: message
+    label: "The weekly status report and the end-of-day note"
+    text: |-
+      CareBook weekly status — week of Apr 20
+
+      Overall: GREEN — May 4 is on track; the one open risk now has an approved plan.
+
+      (It was AMBER until Dana approved the manual eligibility fallback today.)
+
+      Highlights this week
+
+      - Production AWS access in place (Mon)
+      - Epic sync fix passed regression; 180 of 212 test cases passed
+      - Intake-form bug fix merged (Wed)
+
+      Next week
+
+      - UAT Fri Apr 24, 9 am ET · staff training Tue Apr 28 · go/no-go Wed Apr 29
+      - Production deploy Thu Apr 30 · pilot Mon May 4
+
+      Risks and what we're doing about them
+
+      - Suncoast eligibility doesn't work yet for 2 of 5 payers → the front desk checks those manually during the pilot (approved by Dana, Apr 22)
+
+      Decisions needed from you
+
+      - None — go/no-go attendees confirmed: Dana and Kevin
+
+      CareBook EOD update – Wed Apr 22 – Status: GREEN (on track)
+
+      Done today
+
+      - Intake-form bug fix merged; retest tomorrow
+      - Manual eligibility fallback for 2 payers approved
+
+      Plan for tomorrow
+
+      - Finish the remaining 32 regression test cases
+      - Send the UAT checklist to Lakeside (Lisa Chen) by 5 pm ET
+
+      Questions for you (reply by number)
+
+      1. Can I send the go/no-go invite for Wed Apr 29, 10 am CT, to you and Kevin?
+      2. OK to share the release notes with the support team on Thursday?
+
+      Risks
+
+      - none new
+  - { type: heading, text: "4. Why this works" }
+  - type: facts
+    rows:
+      - { label: "Status colour first, in the first sentence", value: "Answer-first structure" }
+      - { label: "Highlights, next week, one risk with its plan, and the decision, all in 2 minutes", value: "Concise status (Communicate)" }
+      - { label: "Turned Amber into Green with one clear ask", value: "Risks and bad news · Owner language" }
+      - { label: "Gave Dana a ready sentence for the CEO", value: "Business link" }
+      - { label: "Written status within 10 minutes, and an EOD note the client can answer by number", value: "Written follow-up" }

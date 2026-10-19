@@ -1,0 +1,67 @@
+id: res-speaking
+kind: resource
+title: "Speaking, listening and hard conversations"
+summary: "Talks and short courses for answering questions, listening and disagreeing."
+blocks:
+  - type: text
+    text: "Free first, optional paid after. None of these are required."
+  - type: watch
+    url: https://www.youtube.com/watch?v=HAnw168huqA
+    title: "Matt Abrahams: Think Fast, Talk Smart (Stanford GSB)"
+    meta: "Free · Answering unexpected questions, Q&A, managing nerves (~60 min)"
+  - type: watch
+    url: https://www.fastersmarter.io/
+    title: "Think Fast, Talk Smart podcast"
+    meta: "Free · 20-minute episodes"
+  - type: watch
+    url: https://www.mattabrahams.com/
+    title: "Book: Think Faster, Talk Smarter"
+    meta: "Optional paid · Matt Abrahams"
+  - type: watch
+    url: https://www.ted.com/talks/julian_treasure_how_to_speak_so_that_people_want_to_listen
+    title: "Julian Treasure: How to speak so that people want to listen (TED)"
+    meta: "Free · Pace, tone and voice on calls (~10 min)"
+  - type: watch
+    url: https://www.ted.com/talks/celeste_headlee_10_ways_to_have_a_better_conversation
+    title: "Celeste Headlee: 10 ways to have a better conversation (TED)"
+    meta: "Free · Listening, open questions, follow-up questions (~12 min)"
+  - type: watch
+    url: https://www.coursera.org/learn/wharton-communication-skills
+    title: "Coursera: Improving Communication Skills (Wharton)"
+    meta: "Optional paid"
+  - type: watch
+    url: https://www.youtube.com/c/Blackswanltd1/videos
+    title: "Chris Voss and The Black Swan Group (YouTube)"
+    meta: "Free · Tactical empathy: “how” and “what” questions, labelling emotions"
+  - type: watch
+    url: https://www.blackswanltd.com/
+    title: "Black Swan Group free weekly newsletter"
+    meta: "Free"
+  - type: watch
+    url: https://www.blackswanltd.com/never-split-the-difference
+    title: "Book: Never Split the Difference"
+    meta: "Optional paid · Chris Voss"
+  - type: watch
+    url: https://www.ted.com/talks/julia_dhar_how_to_disagree_productively_and_find_common_ground
+    title: "Julia Dhar: How to disagree productively and find common ground (TED)"
+    meta: "Free · Separating ideas from identity; finding common ground"
+  - type: watch
+    url: https://www.ted.com/talks/adam_galinsky_how_to_speak_up_for_yourself
+    title: "Adam Galinsky: How to speak up for yourself (TED)"
+    meta: "Free · Speaking up to senior people; perspective-taking"
+  - type: watch
+    url: https://cruciallearning.com/courses/crucial-conversations-for-dialogue/miniseries/
+    title: "Crucial Conversations: free 4-video miniseries"
+    meta: "Free signup · High-stakes talks where opinions differ"
+  - type: watch
+    url: https://cruciallearning.com/books/crucial-conversations-book/
+    title: "Crucial Conversations: free book resources and tools"
+    meta: "Free"
+  - type: watch
+    url: https://www.talaera.com/culture/how-to-deliver-bad-news-to-clients/
+    title: "Talaera: How to Deliver Bad News to Clients, a Guide for Engineers"
+    meta: "Free · Delays, bugs, missed assumptions"
+  - type: watch
+    url: https://hbr.org/2022/06/how-to-deliver-bad-news-to-your-boss
+    title: "HBR: How to Deliver Bad News to Your Boss"
+    meta: "Optional paid (paywall)"

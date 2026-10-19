@@ -1,0 +1,359 @@
+# Week 8 assessment pool (after Day 40): the whole CareBook week, Apr 20 – Apr 24, with skills combined: escalating
+# the production AWS access, EOD notes and async replies, the weekly status (RAG), billing and denials with Maria,
+# and the UAT-day call with Dr. Mercer and Dana. Shows 8 choice + 2 written of 20.
+pool: assessment-40
+questions:
+  - id: A40-01
+    type: mcq
+    stem: "Monday. A teammate asks: “Should we escalate the AWS access, or is that complaining about Brightpath?” What's the best reply?"
+    options:
+      - text: "“Let's not. Kevin will think we're pushy.”"
+        correct: false
+        explanation: "Silence protects nobody: May 4 is at risk."
+      - text: "“Escalating isn't complaining. It protects the client's timeline. I'll take it to Kevin today, in writing, with what we've tried.”"
+        correct: true
+        explanation: "The right reason, an owner and a time."
+      - text: "“Let's wait until it's a week late, then it's justified.”"
+        correct: false
+        explanation: "Escalate after 1–2 days, not when the date is already lost."
+      - text: "“Let Dana handle it.”"
+        correct: false
+        explanation: "Kevin is the one who can approve it; routing it through Dana adds a day."
+    source: { quote: "Escalating is not complaining — it is protecting the client's timeline.", page: 101 }
+
+  - id: A40-02
+    type: mcq
+    stem: Which of these is outside your authority, and so a reason to escalate even on day one?
+    options:
+      - text: "Choosing a name for a database table."
+        correct: false
+        explanation: "Your call. Just decide."
+      - text: "Granting your team access to the client's production AWS account."
+        correct: true
+        explanation: "Only the client can grant it, so waiting won't fix it."
+      - text: "Fixing a medium bug found in regression."
+        correct: false
+        explanation: "Your team's job, inside your authority."
+      - text: "Writing tomorrow's EOD note."
+        correct: false
+        explanation: "Yours to do."
+    source: { quote: "a date is at risk, or a decision is outside your authority.", page: 101 }
+
+  - id: A40-03
+    type: mcq
+    stem: Which line from your escalation shows what you've tried without blaming anyone?
+    options:
+      - text: "“Omar never answers his messages.”"
+        correct: false
+        explanation: "Blames a person, who turns out to be out sick."
+      - text: "“The ticket (Apr 14), Slack follow-ups (Apr 16 and 17), a least-privilege policy draft (Apr 17).”"
+        correct: true
+        explanation: "Facts and dates. It shows effort, not fault."
+      - text: "“We've done everything we could, it's not on us.”"
+        correct: false
+        explanation: "Defensive and vague."
+      - text: "“Brightpath DevOps is very slow.”"
+        correct: false
+        explanation: "An opinion about his team. Kevin gets defensive."
+    source: { quote: "What we've tried: the ticket (Apr 14), Slack follow-ups (Apr 16 and 17), a least-privilege policy draft (Apr 17).", page: 159 }
+
+  - id: A40-04
+    type: mcq
+    stem: Your escalation needs a “by when”. Which is best?
+    options:
+      - text: "“ASAP please.”"
+        correct: false
+        explanation: "No date, and it sounds like panic."
+      - text: "“By Wednesday noon ET. After that, May 4 is at risk, and the fallback is Brightpath DevOps deploying from our runbook.”"
+        correct: true
+        explanation: "A deadline in his time zone, the consequence and the fallback."
+      - text: "“Whenever you get a chance.”"
+        correct: false
+        explanation: "Tells him it isn't urgent."
+      - text: "“By end of week.”"
+        correct: false
+        explanation: "Too late for the date at risk, and which time zone?"
+    source: { quote: "We need it by Wed Apr 22, noon ET, or May 4 is at risk.", page: 103 }
+
+  - id: A40-05
+    type: mcq
+    stem: Tuesday evening, before you log off. Which EOD note opening helps Dana most?
+    options:
+      - text: "“Hi Dana, hope you're well! Today was a busy day, lots going on…”"
+        correct: false
+        explanation: "Friendly filler before any information."
+      - text: "“CareBook EOD update – Tue Apr 21 – Status: GREEN (on track)”"
+        correct: true
+        explanation: "The date and status before she opens it."
+      - text: "“Update”"
+        correct: false
+        explanation: "Says nothing."
+      - text: "“Please read: a few things”"
+        correct: false
+        explanation: "Creates worry without the status."
+    source: { quote: "[Project] EOD update – [date] – Status: GREEN (on track)", page: 152 }
+
+  - id: A40-06
+    type: mcq
+    stem: You changed the booking screen layout and want Dana's view before tomorrow. What's the best way to show it async?
+    options:
+      - text: "A long paragraph describing each change."
+        correct: false
+        explanation: "Hard to picture, easy to misread."
+      - text: "A 2-minute screen recording with the change and one question, linked from the EOD note."
+        correct: true
+        explanation: "Visual changes are easier to show than to describe, and it's waiting in her morning."
+      - text: "Book a 30-minute call for tomorrow."
+        correct: false
+        explanation: "Costs her a meeting for a 2-minute look."
+      - text: "Wait until the next demo."
+        correct: false
+        explanation: "Loses days of feedback before UAT."
+    source: { quote: "Use a 2-minute Loom video when showing UI or explaining something visual.", page: 101 }
+
+  - id: A40-07
+    type: mcq
+    stem: In the weekly report, what comes first?
+    options:
+      - text: "A list of every ticket closed this week."
+        correct: false
+        explanation: "Details before the answer to “are we OK?”"
+      - text: "The overall color, with one line on why."
+        correct: true
+        explanation: "The reader knows in one word whether to worry."
+      - text: "The risks, so nothing is hidden."
+        correct: false
+        explanation: "Risks matter, but they come after the overall status."
+      - text: "Thanks to the team."
+        correct: false
+        explanation: "Nice, but not the bottom line."
+    source: { quote: "Overall: GREEN / AMBER / RED — [one line on why]", page: 152 }
+
+  - id: A40-08
+    type: mcq
+    stem: Dana approved the fallback on the call, so the status turned Green. How does your written report show it?
+    options:
+      - text: "Just write Green and leave Amber out."
+        correct: false
+        explanation: "Hides that there was a risk, and why it's gone."
+      - text: "Write Green, and add: “It was AMBER until Dana approved the manual eligibility fallback today.”"
+        correct: true
+        explanation: "Honest about the change, and credits the decision."
+      - text: "Keep Amber, to be safe."
+        correct: false
+        explanation: "No longer true. A color must match the facts."
+      - text: "Leave the color out this week."
+        correct: false
+        explanation: "The color is the point of the report."
+    source: { quote: "(It was AMBER until Dana approved the manual eligibility fallback today.)", page: 161 }
+
+  - id: A40-09
+    type: mcq
+    stem: "Maria uses the term “prior authorization”. What does it mean?"
+    options:
+      - text: "The patient's permission to share their records."
+        correct: false
+        explanation: "That's consent, a different thing."
+      - text: "Payer approval needed before some treatments or services."
+        correct: true
+        explanation: "The payer must say yes first, or the claim can be denied."
+      - text: "The doctor's sign-off on a claim."
+        correct: false
+        explanation: "A guess. Ask when a term is new."
+      - text: "A check that the insurance is active."
+        correct: false
+        explanation: "That's the eligibility check."
+    source: { quote: "Prior authorization Payer approval required before certain treatments or services.", page: 169 }
+
+  - id: A40-10
+    type: mcq
+    stem: Maria's team “fixes and resubmits” denials. What does the 835 tell them?
+    options:
+      - text: "Whether the patient's insurance is active."
+        correct: false
+        explanation: "That's the 270/271 eligibility check."
+      - text: "The payer's payment details, including what was paid or denied."
+        correct: true
+        explanation: "The 835 is the payment and remittance file; the 837 is the claim."
+      - text: "The diagnosis code."
+        correct: false
+        explanation: "That's ICD-10, in the claim."
+      - text: "The visit schedule."
+        correct: false
+        explanation: "Billing files don't carry the schedule."
+    source: { quote: "Electronic standard formats for claims (837) and for payment and remittance details (835).", page: 169 }
+
+  - id: A40-11
+    type: mcq
+    stem: Gate 2 is coming. Which description of it is right?
+    options:
+      - text: "A 20-minute status call; the recap is optional."
+        correct: false
+        explanation: "That's closer to Gate 1, and the follow-up is required."
+      - text: "A 25-minute live healthcare scenario with discovery, a risk or bad news, and pushback, then a recap plus one more written piece."
+        correct: true
+        explanation: "And the written piece is a bad-news email, an escalation message or a weekly status report."
+      - text: "A written test on healthcare terms."
+        correct: false
+        explanation: "The terms are judged in a live call."
+      - text: "A real client call."
+        correct: false
+        explanation: "That's the final review."
+    source: { quote: "a 25-minute live healthcare scenario with the AI client that combines discovery, a risk or piece of bad news, and pushback.", page: 102 }
+
+  - id: A40-12
+    type: mcq
+    stem: On UAT day, Dana and Dr. Mercer want different things. When does Dana usually stop pushing for Spanish before May 4?
+    options:
+      - text: "When you say it's impossible."
+        correct: false
+        explanation: "A wall makes her push harder."
+      - text: "When Dr. Mercer agrees to a Sprint 7 date committed in writing."
+        correct: true
+        explanation: "She wants Lakeside happy. Once Lakeside's CMIO agrees, so does she."
+      - text: "When you add one more engineer."
+        correct: false
+        explanation: "Doesn't fix a full sprint or the approval wait."
+      - text: "Never. She always gets her way."
+        correct: false
+        explanation: "She follows the client she wants to please."
+    source: { quote: "Dr. Mercer is fine with Sprint 7 if it is committed in writing; Dana stops pushing once Dr. Mercer agrees.", page: 112 }
+
+  - id: A40-13
+    type: scenario
+    clientLine: "“Why am I finding out about this blocker in a status report?”"
+    stem: Kevin read about a three-day-old blocker in your Wednesday report. What do you say?
+    options:
+      - text: "“It's all in the report, that's what it's for.”"
+        correct: false
+        explanation: "He prefers hearing about blockers directly."
+      - text: "“You're right, you should have heard it from me first. From now on I'll message you directly within two days, and the report will only confirm it.”"
+        correct: true
+        explanation: "Owns it, and changes the habit."
+      - text: "“Sorry, sorry, I'm really sorry…”"
+        correct: false
+        explanation: "Apology without a fix."
+      - text: "“Nobody reads the reports anyway.”"
+        correct: false
+        explanation: "Makes the problem worse."
+    source: { quote: "You prefer being told about blockers directly, not finding out in a status report.", page: 104 }
+
+  - id: A40-14
+    type: scenario
+    clientLine: "“Your EOD note says ‘a few open questions on UAT’. What questions?”"
+    stem: Dana replies to a note you wrote in a hurry. What should you have written?
+    options:
+      - text: "“Some UAT items to discuss when you have time.”"
+        correct: false
+        explanation: "The same vague line again."
+      - text: "“Questions (reply by number): 1) Can UAT start at 9 am ET on Fri Apr 24? 2) Can Lisa's team give us 6 testers?”"
+        correct: true
+        explanation: "Numbered, specific, answerable in one word."
+      - text: "“Let's set up a meeting about UAT.”"
+        correct: false
+        explanation: "A meeting for two yes/no questions."
+      - text: "“Please see the attached UAT plan.”"
+        correct: false
+        explanation: "Makes her find the questions herself."
+    source: { quote: "Questions for you (reply by number)", page: 152 }
+
+  - id: A40-15
+    type: scenario
+    clientLine: "“Can CareBook check eligibility at booking for all five payers by May 4?”"
+    stem: Maria asks. It works for 3 of 5, and Sprint 6 ends today. What do you say?
+    options:
+      - text: "“Sure, we'll make it work.”"
+        correct: false
+        explanation: "A promise against a full sprint and unknown formats."
+      - text: "“Not by May 4. For the pilot, the front desk checks those 2 payers by hand, so every patient is still checked. I'll send you options and effort for the other 2 by next Wednesday.”"
+        correct: true
+        explanation: "A clear no, what happens meanwhile, and a dated next step."
+      - text: "“That's Suncoast's problem, your API returns different formats.”"
+        correct: false
+        explanation: "Blame, to the person whose API it is."
+      - text: "“Probably, if nothing goes wrong.”"
+        correct: false
+        explanation: "A hopeful guess that sets up a missed date."
+    source: { quote: "It works for 3 of 5 payers; the other 2 return different formats.", page: 109 }
+
+  - id: A40-16
+    type: scenario
+    clientLine: "“So, are we go for May 4 or not?”"
+    stem: Friday after UAT, Dana asks before the refresh fix is in. Go/no-go is Wednesday. What do you say?
+    options:
+      - text: "“Yes, 100%.”"
+        correct: false
+        explanation: "Promises an outcome that depends on Tuesday's fix."
+      - text: "“On track. The one high issue gets fixed by Tuesday, and if it isn't, staff see a ‘last updated’ time. We'll confirm at go/no-go on Wednesday.”"
+        correct: true
+        explanation: "Honest status, the plan B, and when it's decided."
+      - text: "“I can't say until Wednesday.”"
+        correct: false
+        explanation: "True, but gives her nothing to plan with."
+      - text: "“Let's move the pilot to be safe.”"
+        correct: false
+        explanation: "Overreacts to a risk that has a plan."
+    source: { quote: "Fix the refresh delay by Tue Apr 28.", page: 111 }
+
+  - id: A40-17
+    type: written
+    stem: >-
+      Thursday. Suncoast still hasn't sent the response format for the 2 failing payers, asked for on Monday and
+      chased once. Write the escalation to Maria in 4–5 short lines (blocked, impact, tried, need, by when).
+    modelAnswer: >-
+      Blocked: we still need the eligibility response format for the 2 payers that fail today, requested Mon Apr 20.
+      Impact: until we have it, those payers stay on manual checks at the front desk, and the fix can't be planned for
+      Sprint 7. Tried: our request on Monday and a follow-up on Wednesday. Need: the format, or the name of who can send
+      it. By when: Tue Apr 28, so it fits Sprint 7 planning; after that it moves to Sprint 8.
+    scoringPoints:
+      - All five parts, short, in that order
+      - The impact is in her terms (manual checks, denials, timing), with a date and consequence
+      - Facts about what was tried, with no blame on her team
+    source: { quote: "What's blocked → Impact (date, cost, risk) → What I've tried → What I need → By when.", page: 101 }
+
+  - id: A40-18
+    type: written
+    stem: >-
+      Write Friday's EOD note to Dana after UAT and the call with Dr. Mercer: subject, done today, plan, one numbered
+      question, risks.
+    modelAnswer: >-
+      Subject: CareBook EOD update – Fri Apr 24 – Status: AMBER (on track, one UAT issue). Done today: Lakeside UAT
+      (9 am ET), 4 issues found, 1 high: the schedule view can lag up to 10 minutes after an Epic cancellation. Spanish
+      SMS reminders agreed for Sprint 7 (May 11–22); recap sent to you and Dr. Mercer. Plan: fix the refresh by Tue Apr
+      28; send the Sprint 7 plan. Questions: 1. OK to show staff the “last updated” fallback at the Apr 28 training, in
+      case the fix slips? Risks: the refresh fix → fallback ready (owner: me, Tue Apr 28).
+    scoringPoints:
+      - Status in the subject that matches the facts (one high issue)
+      - Done, plan, a numbered question she can answer in one word, and risks with a plan
+      - Short, with dates and no technical detail
+    source: { quote: "Done today · Plan for tomorrow · Questions for you", page: 101 }
+
+  - id: A40-19
+    type: written
+    stem: >-
+      Dana asks: “What's RCM, in one breath, and where does CareBook fit?” Answer in 2–3 sentences.
+    modelAnswer: >-
+      RCM is how a clinic gets paid: the patient books, insurance is checked, the visit is coded and billed to the payer,
+      and the payer pays or denies the claim. CareBook sits at the start: it takes the booking and the insurance
+      member ID, so checking eligibility there stops many denials before they happen.
+    scoringPoints:
+      - The cycle in plain words, in the right order
+      - Places CareBook at booking and eligibility
+      - Links it to denials or getting paid
+    source: { quote: "1. Patient books → 2. Eligibility check (is the insurance active?) → 3. Visit", page: 101 }
+
+  - id: A40-20
+    type: written
+    stem: >-
+      Gate 2's written follow-up is a recap plus one more piece. After the UAT-day call, which piece would you add,
+      and why? Answer in 2–3 sentences.
+    modelAnswer: >-
+      The weekly status report: the call changed the picture for May 4 (one high UAT issue with a fallback, Spanish
+      reminders moved to Sprint 7), and the report puts the color, the risk with its plan and the decisions in one
+      place Dana can forward to her CEO. There's no new blocker to escalate, and the news has a plan, so a status report
+      fits better than a bad-news email.
+    scoringPoints:
+      - Chooses one of the three pieces (bad-news email, escalation message, weekly status report)
+      - Gives a reason tied to the facts of the call
+      - Explains why the other pieces fit less well
+    source: { quote: "Written follow-up: the recap plus one of: a bad-news email, an escalation message, or a weekly status report.", page: 102 }

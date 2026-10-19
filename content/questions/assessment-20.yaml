@@ -1,0 +1,373 @@
+# Week 4 assessment pool (after Day 20): the whole CareBook week, Mar 23–27, with skills combined: owner language
+# with Kevin on the UAT release, AI prep and data safety before Dana's sync, checked recaps within 2 hours, Laura's
+# questions you can't answer, the Gate 1 dress rehearsal and closing every loop. Shows 8 choice + 2 written of 20.
+pool: assessment-20
+questions:
+  - id: A20-01
+    type: mcq
+    stem: >-
+      Monday. Kevin asks: “Once Friday's UAT release is done, can you own production deploys too?” Production is run
+      by Omar's team until your access is approved. What's the best reply?
+    options:
+      - text: "“Sure, we'll take production from Friday.”"
+        correct: false
+        explanation: A promise you can't keep. You don't have production access.
+      - text: "“That's Omar's area, not ours.”"
+        correct: false
+        explanation: True today, but it ends the conversation instead of owning the next step.
+      - text: "“Not yet: production stays with Omar's team until our access is approved. I own Friday's UAT release, and I'll find out from Omar what it takes for us to take over production, by Wednesday.”"
+        correct: true
+        explanation: The honest answer, what you do own, and a dated next step on the rest.
+      - text: "“Should I ask Omar if that's okay?”"
+        correct: false
+        explanation: Asks the client for permission to do your own follow-up.
+    source: { quote: "Production is run by Brightpath DevOps (Omar Haddad) until our production access is approved.", page: 56 }
+
+  - id: A20-02
+    type: mcq
+    stem: >-
+      Monday. Dana forwards Laura's questionnaire: “120 questions, due April 3. Can you just fill it all in?” What's the
+      best reply?
+    options:
+      - text: "“Sure, I'll answer all 120 by Wednesday.”"
+        correct: false
+        explanation: Many answers belong to compliance, the contract or infrastructure. You'd end up guessing.
+      - text: "“I'll own getting it done. Today I'll split the questions by owner: Rachel, Kevin, you and me. You'll have the plan tomorrow, and everything back before April 3.”"
+        correct: true
+        explanation: Owns the whole job without pretending to know every answer.
+      - text: "“That's a compliance job. I'm an engineer.”"
+        correct: false
+        explanation: “That's not my area.” Someone has to own it, and you're the technical contact.
+      - text: "“Let me know which ones you want me to do.”"
+        correct: false
+        explanation: Waits for instructions from a busy client.
+    source: { quote: "120 questions, due Fri Apr 3", page: 58 }
+
+  - id: A20-03
+    type: mcq
+    stem: >-
+      Tuesday. The AI's suggested opener for the sync is: “Hi Dana! Great to connect! Let's dive into a holistic
+      overview of our synergies.” What do you do?
+    options:
+      - text: Use it as it is. The AI writes better English than you.
+        correct: false
+        explanation: It doesn't sound like you, and it says nothing.
+      - text: Rewrite it in your own words. “Thanks for moving the sync. Three things today. The sprint, the Epic risk, two decisions.”
+        correct: true
+        explanation: The AI drafts; you edit. A natural opener with a clear agenda.
+      - text: Skip the opener and go straight into the update.
+        correct: false
+        explanation: Without an agenda, a busy client can't follow where the call is going.
+      - text: Ask the AI for a longer, more impressive version.
+        correct: false
+        explanation: Longer isn't better. Dana wants decisions, quickly.
+    source: { quote: "Give me a natural opening line and a closing line.", page: 163 }
+
+  - id: A20-04
+    type: mcq
+    stem: >-
+      Thursday morning. To answer Laura faster, a colleague suggests pasting Lakeside's signed security form into a
+      free AI tool and asking for a summary. What's the right call?
+    options:
+      - text: Fine. It has no patient data in it.
+        correct: false
+        explanation: Confidential client documents are on the never-paste list too, not only PHI.
+      - text: Fine, after removing the Lakeside logo.
+        correct: false
+        explanation: Still a confidential document.
+      - text: Don't paste it. Summarise the parts you need yourself, or use a tool the company has approved for client documents.
+        correct: true
+        explanation: Keeps the rule and still gets the work done.
+      - text: Paste it, but only into your personal AI account.
+        correct: false
+        explanation: A personal account is still a tool the company hasn't approved.
+    source: { quote: "or client credentials or confidential documents into any AI tool the company hasn't approved.", page: 8 }
+
+  - id: A20-05
+    type: mcq
+    stem: >-
+      Tuesday, 11:45 am. Your recap of the 10:15 sync is ready, but you're not sure whether Dana said she'd decide the
+      dashboard by Friday or Monday. What do you do?
+    options:
+      - text: Wait until tomorrow and ask her first.
+        correct: false
+        explanation: Misses the 2-hour window for one small doubt.
+      - text: Guess Friday and send it.
+        correct: false
+        explanation: A guessed date in writing becomes a commitment she never made.
+      - text: Leave the dashboard out of the recap.
+        correct: false
+        explanation: Drops one of the two decisions the call was for.
+      - text: Send it on time with the item flagged. “Dashboard timing, your decision by Friday (please correct me if you said Monday).”
+        correct: true
+        explanation: On time, honest about the doubt, and easy for her to fix.
+    source: { quote: "Flag anything in my notes that is unclear, or that looks like a commitment I made.", page: 164 }
+
+  - id: A20-06
+    type: mcq
+    stem: "Thursday. Laura asks: “Is CareBook HIPAA compliant?” What's the best reply?"
+    options:
+      - text: "“Yes, fully.”"
+        correct: false
+        explanation: A sweeping claim you can't back up. It's exactly the guess she's testing for.
+      - text: "“Mostly, I think.”"
+        correct: false
+        explanation: A guess, and a worrying one.
+      - text: "“What I can tell you: data stays in US AWS regions, encrypted in transit and at rest, and clinic staff access is role-based. Rachel Kim will confirm our certification and BAA position by Tuesday.”"
+        correct: true
+        explanation: Specific facts you know, then an owner and a date for what you don't.
+      - text: "“We follow all the rules, don't worry.”"
+        correct: false
+        explanation: Reassurance instead of facts, to a compliance officer.
+    source: { quote: "Clinic staff access is role-based.", page: 60 }
+
+  - id: A20-07
+    type: mcq
+    stem: "Friday. Dana pushes: “Can't you just say yes to Eastside and figure it out later?” What's the best reply?"
+    options:
+      - text: "“Okay, yes.”"
+        correct: false
+        explanation: Agrees under pressure. If it doesn't fit, you take it back later in front of Lakeside.
+      - text: "“No.”"
+        correct: false
+        explanation: A no without looking. It may well be possible.
+      - text: "“Whatever you need.”"
+        correct: false
+        explanation: Waiting language. She'll tell Lakeside it's confirmed.
+      - text: "“I'd rather give you a real yes on Tuesday than a yes I have to take back. I'll check training, schedules and Epic setup and come back by Tuesday, before you tell Lakeside.”"
+        correct: true
+        explanation: Firm, positive and dated.
+    source: { quote: "You haven't checked what adding a clinic means for training, schedules or Epic setup.", page: 63 }
+
+  - id: A20-08
+    type: mcq
+    stem: >-
+      Tuesday, March 31, 9 am. You promised Dana an answer on Eastside today, but the tech lead needs until Wednesday to
+      check the Epic setup. What's the best move?
+    options:
+      - text: Say nothing today and send the answer on Wednesday.
+        correct: false
+        explanation: She's waiting on the date you gave. A silent miss breaks the loop.
+      - text: "Tell her now: what you've checked so far, what's left, and the new time. “Full answer by Wednesday noon Central.”"
+        correct: true
+        explanation: Keeps her informed before the date passes, with a new date.
+      - text: Send her a yes today and hope the Epic part works out.
+        correct: false
+        explanation: A guess dressed up as an answer.
+      - text: "“The tech lead hasn't finished, so it's late.”"
+        correct: false
+        explanation: Blames a colleague and gives no new date.
+    source: { quote: "Close (tell them when it's done, by the date you gave).", page: 54 }
+
+  - id: A20-09
+    type: mcq
+    stem: "Friday. Dana asks: “Should we ask Lakeside leadership to escalate, or give Sam's team another week?” What's the best reply?"
+    options:
+      - text: "“Whatever you think is best.”"
+        correct: false
+        explanation: She asked for your view. “Whatever you say” is waiting language.
+      - text: "“My recommendation is to escalate now. We need access by April 6, and another week leaves no room. Could you ask Lakeside leadership by Tuesday?”"
+        correct: true
+        explanation: A clear recommendation, the reason, and the ask with a date.
+      - text: "“Should I decide?”"
+        correct: false
+        explanation: Hands the decision back.
+      - text: "“Let's wait and see.”"
+        correct: false
+        explanation: Hoping a blocker sorts itself out is how pilots slip.
+    source: { quote: "My recommendation is…", page: 54 }
+
+  - id: A20-10
+    type: mcq
+    stem: Friday. Which subject line is best for the recap of the dress-rehearsal sync?
+    options:
+      - text: Meeting notes
+        correct: false
+        explanation: Says nothing about the decision or the ask.
+      - text: "CareBook Sprint 4 wrap-up: Epic escalation needed by Tue Mar 31"
+        correct: true
+        explanation: Names the meeting and the ask, with its date.
+      - text: Recap of our call today and various updates regarding the sprint and other items
+        correct: false
+        explanation: Long, and the ask is missing.
+      - text: URGENT!!! EPIC
+        correct: false
+        explanation: Alarm without information.
+    source: { quote: "Subject line (with the key decision or ask)", page: 164 }
+
+  - id: A20-11
+    type: mcq
+    stem: >-
+      Friday. Dr. Mercer asks: “If Epic access comes on April 6, how many days do you need before the pilot?” You don't
+      have the exact number. What's the best reply?
+    options:
+      - text: "“About a week, probably.”"
+        correct: false
+        explanation: A guess he may plan around.
+      - text: "“Good question. I don't have the exact number yet. What I can tell you is the sync is already being built against Epic's public test sandbox. I'll confirm the days with our tech lead and send them to you by Monday.”"
+        correct: true
+        explanation: Acknowledge, be honest, share what you know, commit to a date.
+      - text: "“Hard to say.”"
+        correct: false
+        explanation: Leaves him with nothing to plan with.
+      - text: "“I'm so sorry, I should know this. Sorry.”"
+        correct: false
+        explanation: An apology spiral, and no next step.
+    source: { quote: "Share what you know: \"What I can tell you is…\"", page: 54 }
+
+  - id: A20-12
+    type: mcq
+    stem: >-
+      Wednesday. Kevin replies to your checklist: “It's missing who owns the rollback.” What's the best reply?
+    options:
+      - text: "“Sorry, sorry, I'm really sorry, I should have caught that.”"
+        correct: false
+        explanation: Three apologies for a one-line fix.
+      - text: "“QA must have left it out.”"
+        correct: false
+        explanation: Blames a colleague for your checklist.
+      - text: "“Good catch. I own the rollback, with our tech lead as backup. The updated checklist will be in your inbox in 15 minutes.”"
+        correct: true
+        explanation: "No apology needed: the answer, the owner and a fast fix."
+      - text: "“Should I add it?”"
+        correct: false
+        explanation: Obviously yes. Asking makes him do your thinking.
+    source: { quote: "One short sentence of apology at most", page: 54 }
+
+  - id: A20-13
+    type: scenario
+    clientLine: "“Is the rollback something you've done, or something you've read about?”"
+    stem: Monday, Kevin is testing you. What do you say?
+    options:
+      - text: "“It's standard practice, so it'll work.”"
+        correct: false
+        explanation: Answers a different question. He asked if you've done it.
+      - text: "“We've done it. We restored the previous version in staging on March 19, in under 10 minutes.”"
+        correct: true
+        explanation: Answer first, with the date and the time it took.
+      - text: "“The team has read up on it.”"
+        correct: false
+        explanation: "Confirms his worst fear: it's never been tried."
+      - text: "“I'd need to check with DevOps.”"
+        correct: false
+        explanation: You own the release. This is a fact you should have.
+    source: { quote: "The previous version can be restored in under 10 minutes. Tested once in staging on Mar 19.", page: 56 }
+
+  - id: A20-14
+    type: scenario
+    clientLine: "“Could you tell Alan yourself that the pilot's at risk? I'd rather not.”"
+    stem: Tuesday. Dana is traveling at the end of the week. What do you say?
+    options:
+      - text: "“That's not my place.”"
+        correct: false
+        explanation: Walks away from a risk that's blocking your own work.
+      - text: "“Sure, I'll email him tonight.”"
+        correct: false
+        explanation: Goes around Dana with bad news for her own stakeholder, without her.
+      - text: "“Let's wait until April 6 and see.”"
+        correct: false
+        explanation: Delays the one person who can push Sam's team.
+      - text: "“I'm happy to give him the facts. Could we do a 10-minute call together this week? I'll send you two lines beforehand so you know exactly what I'll say.”"
+        correct: true
+        explanation: Owns the hard part while keeping Dana in the loop as the client contact.
+    source: { quote: "You haven't told Dr. Mercer that the Epic delay puts the pilot at risk.", page: 59 }
+
+  - id: A20-15
+    type: scenario
+    clientLine: "“So I can write down ‘yes’ for SOC 2 Type II?”"
+    stem: Thursday. You haven't had Rachel's answer yet. What do you say?
+    options:
+      - text: "“Yes, I'm fairly sure we have it.”"
+        correct: false
+        explanation: “Fairly sure” goes into her file as a yes.
+      - text: "“Not yet. Please mark it pending. Rachel Kim will confirm it by Tuesday.”"
+        correct: true
+        explanation: Pending with an owner and a date is what she respects.
+      - text: "“Write yes for now, and we'll fix it later if needed.”"
+        correct: false
+        explanation: Asks her to record a guess. That cost the last vendor her business.
+      - text: "“I'm sorry, I really can't say, I'm sorry.”"
+        correct: false
+        explanation: Over-apologises and gives no next step.
+    source: { quote: "Pacific Coast accepts either HITRUST or SOC 2 Type II.", page: 61 }
+
+  - id: A20-16
+    type: scenario
+    clientLine: "“I need the fourth clinic decided right now. My CEO reviews the plan on Monday.”"
+    stem: Friday. You haven't checked the impact yet. What do you say?
+    options:
+      - text: "“Okay, yes.”"
+        correct: false
+        explanation: Pressure turns into a commitment you haven't checked.
+      - text: "“For Monday you can say: ‘Lakeside asked to add a fourth clinic; the team confirms the impact by Tuesday.’ I'll have a clear answer for you on Tuesday morning.”"
+        correct: true
+        explanation: Gives her something true for the CEO now, and a dated answer.
+      - text: "“Should I ask the team what they think?”"
+        correct: false
+        explanation: Waiting language under pressure.
+      - text: "“Then the answer is no.”"
+        correct: false
+        explanation: Turns a timing problem into a refusal.
+    source: { quote: "Your CEO reviews the pilot plan on Monday", page: 63 }
+
+  - id: A20-17
+    type: written
+    stem: >-
+      Monday, after the call. Kevin messages: “Send me the plan for Friday in three lines.” Write them.
+    modelAnswer: >-
+      Owner: me, with our tech lead as backup; Sprint 4 goes to UAT on Friday, 2–3 pm Central. Before: all tests pass
+      and QA signs off; after: a 30-minute smoke test and release notes to Jordan's team. Rollback in under 10 minutes,
+      tested on March 19; full checklist in writing by Wednesday noon.
+    scoringPoints:
+      - Names the owner and the backup, and the time
+      - Covers the checks before and after, and the rollback with facts
+      - Closes with a dated written commitment
+    source: { quote: "All tests pass · QA sign-off · release notes to Jordan's support team · 30-minute smoke test after deploy.", page: 56 }
+
+  - id: A20-18
+    type: written
+    stem: >-
+      Wednesday. Before Thursday's call with Laura, you want AI help to prepare. Write the context paragraph you'd paste
+      into the AI, with no names of people, clients or patients.
+    modelAnswer: >-
+      I have a 20-minute call with the compliance officer of a US hospital network that is evaluating our patient
+      booking app. She sent a 120-question security questionnaire, due April 3, and wants to go through the hardest
+      items. What I know: hosted on AWS in US regions only, encrypted in transit and at rest, role-based staff access,
+      audit logging planned for mid-April. What I don't know: certification status, uptime SLA, backup retention, the
+      last penetration test, breach-notification timelines. My goal: answer what I can and give an owner and a date
+      for the rest.
+    scoringPoints:
+      - No names of people, companies or patients, and no confidential documents
+      - Separates what is known from what isn't
+      - States the goal for the call, so the AI can prepare likely questions
+    source: { quote: "Context: [anonymised project context]. My goal for the call: [goal].", page: 163 }
+
+  - id: A20-19
+    type: written
+    stem: >-
+      Friday, 5 pm. Before the weekend, Dana asks: “What did you promise people this week, and is it all done?” Write
+      your reply.
+    modelAnswer: >-
+      Done: Kevin had the release checklist on Wednesday before noon; you had the new-patient intake options; Laura
+      had her list of open items with owners and dates on Thursday; the UAT release went out today and passed the
+      smoke test. Still open, on track: Rachel and Kevin's answers for Laura by March 31, and my answer on Eastside by
+      Tuesday. Waiting on you: the Epic escalation with Lakeside leadership by Tuesday.
+    scoringPoints:
+      - Lists the week's commitments and whether each is closed
+      - Every open item has an owner and a date
+      - Short, factual and in owner language
+    source: { quote: "Did I close every loop I opened this week?", page: 55 }
+
+  - id: A20-20
+    type: written
+    stem: >-
+      Friday. Kevin asks: “For the pilot go-live weekend, who's on call?” Nobody has been named yet. Write your reply in
+      2–3 sentences.
+    modelAnswer: >-
+      I will be, with our tech lead as backup. Before go-live I'll agree with Omar how we reach his team for anything in
+      production, and I'll send you the on-call plan with names and phone numbers by Friday, April 17.
+    scoringPoints:
+      - One named owner and a backup, starting with “I”
+      - Covers the gap (production is Omar's team) with a next step
+      - Commits to a written plan with a date
+    source: { quote: "You want one named person on call during the pilot go-live weekend.", page: 57 }

@@ -1,0 +1,739 @@
+// Client-Ready Engineer portal — database schema.
+// Source of truth for structure: docs/PORTAL_PLAN.md §5.
+// M0: group A (people and access) and group E (system). M1: group B (content, imported from
+// content/ by `pnpm content:import`) and the first group C tables (day progress, steps, daily quiz). Row-level security policies live in SQL migrations
+// (prisma/migrations/*_rls_*), because Prisma's schema language cannot express them.
+
+generator client {
+  provider            = "prisma-client"
+  output              = "../src/generated/prisma"
+  moduleFormat        = "esm"
+  importFileExtension = "js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum UserRole {
+  engineer
+  manager
+  admin
+
+  @@map("user_role")
+}
+
+enum UserStatus {
+  pending
+  active
+  disabled
+
+  @@map("user_status")
+}
+
+enum EnrollmentStatus {
+  active
+  completed
+  another_cycle
+
+  @@map("enrollment_status")
+}
+
+/// A person who signed in with Google. `role` stays null while `status` is `pending`
+/// (first sign-in, waiting for an admin to assign a role).
+model User {
+  id          String     @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  email       String     @unique
+  name        String
+  googleSub   String?    @unique @map("google_sub")
+  role        UserRole?
+  status      UserStatus @default(pending)
+  createdAt   DateTime   @default(now()) @map("created_at") @db.Timestamptz(6)
+  lastLoginAt DateTime?  @map("last_login_at") @db.Timestamptz(6)
+
+  memberOf    TeamMember?
+  manages     TeamManager[]
+  enrollments Enrollment[]
+
+  dayProgress        DayProgress[]
+  stepEntries        StepEntry[]
+  rubricScores       RubricScore[]   @relation("RubricEngineer")
+  rubricScoresGiven  RubricScore[]   @relation("RubricScorer")
+  quizAttempts       QuizAttempt[]
+  quizItems          QuizItem[]
+  scorecards         Scorecard[]
+  aiScores           AiScore[]
+  manualUnlocks      ManualUnlock[]  @relation("ManualUnlockEngineer")
+  manualUnlocksGiven ManualUnlock[]  @relation("ManualUnlockManager")
+  checkins           Checkin[]       @relation("CheckinEngineer")
+  checkinsGiven      Checkin[]       @relation("CheckinManager")
+  checkinPreps       CheckinPrep[]
+  gateResults        GateResult[]    @relation("GateResultEngineer")
+  gateResultsGiven   GateResult[]    @relation("GateResultManager")
+  gateRecaps         GateRecap[]
+  redFlags           RedFlag[]       @relation("RedFlagEngineer")
+  redFlagsAcked      RedFlag[]       @relation("RedFlagAcknowledger")
+  liveCalls          LiveCall[]
+  readinessCases     ReadinessCase[]
+  finalReviews       FinalReview[]   @relation("FinalReviewEngineer")
+  finalReviewsGiven  FinalReview[]   @relation("FinalReviewManager")
+  emails             EmailLog[]
+
+  @@index([role, status])
+  @@map("users")
+}
+
+model Team {
+  id        String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name      String   @unique
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  members  TeamMember[]
+  managers TeamManager[]
+
+  @@map("teams")
+}
+
+/// An engineer belongs to at most one team (primary key on user_id).
+model TeamMember {
+  userId String @id @map("user_id") @db.Uuid
+  teamId String @map("team_id") @db.Uuid
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  team Team @relation(fields: [teamId], references: [id], onDelete: Cascade)
+
+  @@index([teamId])
+  @@map("team_members")
+}
+
+/// A team can have several managers; a manager can manage several teams.
+model TeamManager {
+  teamId String @map("team_id") @db.Uuid
+  userId String @map("user_id") @db.Uuid
+
+  team Team @relation(fields: [teamId], references: [id], onDelete: Cascade)
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@id([teamId, userId])
+  @@index([userId])
+  @@map("team_managers")
+}
+
+/// One run of the 65-day plan for an engineer. target_date = start_date + 90 days + pause days
+/// (kept up to date by the database, see the enrollment_target_date trigger).
+model Enrollment {
+  id         String           @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  userId     String           @map("user_id") @db.Uuid
+  cycleNo    Int              @default(1) @map("cycle_no")
+  startDate  DateTime         @map("start_date") @db.Date
+  targetDate DateTime         @default(dbgenerated("(CURRENT_DATE + 90)")) @map("target_date") @db.Date /// always recomputed by trigger
+  status     EnrollmentStatus @default(active)
+  createdAt  DateTime         @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  user          User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  pauses        Pause[]
+  dayProgress   DayProgress[]
+  stepEntries   StepEntry[]
+  rubricScores  RubricScore[]
+  quizAttempts  QuizAttempt[]
+  scorecards    Scorecard[]
+  aiScores      AiScore[]
+  manualUnlocks ManualUnlock[]
+  checkins      Checkin[]
+  checkinPreps  CheckinPrep[]
+  gateResults   GateResult[]
+  gateRecaps    GateRecap[]
+  redFlags      RedFlag[]
+  liveCalls     LiveCall[]
+  readinessCase ReadinessCase?
+  finalReview   FinalReview?
+
+  @@unique([userId, cycleNo])
+  @@map("enrollments")
+}
+
+/// Leave or holiday days the engineer adds themselves. They move the target date.
+model Pause {
+  id           String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  enrollmentId String   @map("enrollment_id") @db.Uuid
+  fromDate     DateTime @map("from_date") @db.Date
+  toDate       DateTime @map("to_date") @db.Date
+  reason       String
+  createdAt    DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  enrollment Enrollment @relation(fields: [enrollmentId], references: [id], onDelete: Cascade)
+
+  @@index([enrollmentId])
+  @@map("pauses")
+}
+
+/// Admin-editable settings (pass mark, retake wait, gate bars, ...). Keys are defined in code.
+model Setting {
+  key       String   @id
+  value     Json
+  updatedBy String?  @map("updated_by") @db.Uuid
+  updatedAt DateTime @default(now()) @map("updated_at") @db.Timestamptz(6)
+
+  @@map("settings")
+}
+
+/// Append-only record of sensitive actions (role changes, unlocks, overrides, prompt copies...).
+model AuditLog {
+  id       BigInt   @id @default(autoincrement())
+  actorId  String?  @map("actor_id") @db.Uuid
+  action   String
+  entity   String
+  entityId String?  @map("entity_id")
+  before   Json?
+  after    Json?
+  at       DateTime @default(now()) @db.Timestamptz(6)
+
+  @@index([entity, entityId])
+  @@index([at])
+  @@map("audit_log")
+}
+
+// ── B. Content (imported from content/; the app role only reads; everything imported is live) ──
+
+enum QuizKind {
+  daily
+  assessment
+
+  @@map("quiz_kind")
+}
+
+/// content/plan.yaml (phases, pillars, behaviours, rubric, personas). A single row (id = 1).
+model ContentPlan {
+  id          Int      @id @default(1)
+  data        Json
+  contentHash String   @map("content_hash")
+  importedAt  DateTime @default(now()) @map("imported_at") @db.Timestamptz(6)
+
+  @@map("content_plan")
+}
+
+/// The PDF's week (shown to engineers as "Days 1–5"). `data` is the `block` contract shape.
+model ContentBlock {
+  number      Int      @id
+  data        Json
+  contentHash String   @map("content_hash")
+  importedAt  DateTime @default(now()) @map("imported_at") @db.Timestamptz(6)
+
+  days ContentDay[]
+
+  @@map("content_blocks")
+}
+
+/// One lesson day. `data` is the day file without `writeScoring` (kept apart: server only).
+model ContentDay {
+  day          Int
+  blockNumber  Int      @map("block_number")
+  title        String
+  type         String
+  data         Json
+  writeScoring Json?    @map("write_scoring")
+  contentHash  String   @map("content_hash")
+  importedAt   DateTime @default(now()) @map("imported_at") @db.Timestamptz(6)
+
+  block ContentBlock @relation(fields: [blockNumber], references: [number])
+
+  @@id([day])
+  @@index([blockNumber])
+  @@map("content_days")
+}
+
+/// Public side of a mock card (`cardPublic` contract shape).
+model ContentCard {
+  id          String   @id
+  data        Json
+  contentHash String   @map("content_hash")
+  importedAt  DateTime @default(now()) @map("imported_at") @db.Timestamptz(6)
+
+  prompt ContentCardPrompt?
+
+  @@map("content_cards")
+}
+
+/// The card's private AI prompt. Admins read it; engineers only copy it through app.card_prompt().
+model ContentCardPrompt {
+  cardId String @id @map("card_id")
+  prompt String
+
+  card ContentCard @relation(fields: [cardId], references: [id], onDelete: Cascade)
+
+  @@map("content_card_prompts")
+}
+
+/// Sections, templates (A1–A13) and AI prompts (B1–B8). `data` is the `libraryEntry` contract shape.
+model ContentLibraryEntry {
+  kind        String
+  id          String
+  data        Json
+  contentHash String   @map("content_hash")
+  importedAt  DateTime @default(now()) @map("imported_at") @db.Timestamptz(6)
+
+  @@id([kind, id])
+  @@map("content_library")
+}
+
+/// A quiz or assessment question (`question` contract shape in `data`). A changed question gets
+/// version + 1 on import (quiz items keep their snapshot). A question removed from content/ that
+/// quiz items still reference is kept as `retired` and never picked for a new quiz.
+model Question {
+  id          String   @id
+  pool        String
+  type        String
+  version     Int      @default(1)
+  data        Json
+  contentHash String   @map("content_hash")
+  retired     Boolean  @default(false)
+  importedAt  DateTime @default(now()) @map("imported_at") @db.Timestamptz(6)
+
+  quizItems QuizItem[]
+
+  @@index([pool, retired])
+  @@map("questions")
+}
+
+// ── C. Engineer activity ──────────────────────────────────────────────────────────────────────
+
+/// A day the engineer has opened (and, once finished, completed).
+model DayProgress {
+  id           String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  enrollmentId String    @map("enrollment_id") @db.Uuid
+  userId       String    @map("user_id") @db.Uuid
+  day          Int
+  /// 1, then N + 1 when a gate result of round N reopened the day's week (repeat blocks).
+  round        Int       @default(1)
+  openedAt     DateTime  @default(now()) @map("opened_at") @db.Timestamptz(6)
+  completedAt  DateTime? @map("completed_at") @db.Timestamptz(6)
+
+  enrollment Enrollment @relation(fields: [enrollmentId], references: [id], onDelete: Cascade)
+  user       User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([enrollmentId, day, round])
+  @@index([userId])
+  @@map("day_progress")
+}
+
+/// One saved lesson (form values, ticks, ratings, rounds, rubric). Private to the engineer (no manager or admin read).
+model StepEntry {
+  id           String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  enrollmentId String   @map("enrollment_id") @db.Uuid
+  userId       String   @map("user_id") @db.Uuid
+  day          Int
+  /// The lesson id within the day (docs/LESSON_FORMAT.md).
+  lessonId     String   @map("lesson_id")
+  round        Int      @default(1)
+  entry        Json
+  doneAt       DateTime @default(now()) @map("done_at") @db.Timestamptz(6)
+  updatedAt    DateTime @default(now()) @map("updated_at") @db.Timestamptz(6)
+
+  enrollment Enrollment @relation(fields: [enrollmentId], references: [id], onDelete: Cascade)
+  user       User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([enrollmentId, day, lessonId, round])
+  @@index([userId])
+  @@map("step_entries")
+}
+
+/// Call rubric scores (criteria 1–11, 1–5; null = didn't come up). M1: mock self-scores only.
+model RubricScore {
+  id           String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  enrollmentId String   @map("enrollment_id") @db.Uuid
+  userId       String   @map("user_id") @db.Uuid
+  scoredById   String   @map("scored_by") @db.Uuid
+  source       String
+  day          Int
+  criterion    Int
+  score        Int?
+  /// The day's round (mock self-scores) or the gate round (source `gate`, day 20 or 40).
+  round        Int      @default(1)
+  createdAt    DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  enrollment Enrollment @relation(fields: [enrollmentId], references: [id], onDelete: Cascade)
+  user       User       @relation("RubricEngineer", fields: [userId], references: [id], onDelete: Cascade)
+  scoredBy   User       @relation("RubricScorer", fields: [scoredById], references: [id], onDelete: Cascade)
+
+  @@unique([enrollmentId, source, day, criterion, round])
+  @@index([userId])
+  @@index([scoredById])
+  @@map("rubric_scores")
+}
+
+/// A daily quiz or weekly assessment attempt (attempt 1, 2, 3… for assessment retakes).
+model QuizAttempt {
+  id            String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  enrollmentId  String    @map("enrollment_id") @db.Uuid
+  userId        String    @map("user_id") @db.Uuid
+  kind          QuizKind
+  day           Int
+  /// The day's round; `attempt` is the retake number within the round.
+  round         Int       @default(1)
+  attempt       Int       @default(1)
+  startedAt     DateTime  @default(now()) @map("started_at") @db.Timestamptz(6)
+  completedAt   DateTime? @map("completed_at") @db.Timestamptz(6)
+  /// Assessment result, set when the last item is answered (multiple choice + scenario only).
+  choiceCorrect Int?      @map("choice_correct")
+  choiceTotal   Int?      @map("choice_total")
+  passed        Boolean?
+  /// Failed assessments: when the retake opens.
+  retakeAt      DateTime? @map("retake_at") @db.Timestamptz(6)
+
+  enrollment Enrollment @relation(fields: [enrollmentId], references: [id], onDelete: Cascade)
+  user       User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  items      QuizItem[]
+
+  @@unique([enrollmentId, kind, day, round, attempt])
+  @@index([userId])
+  @@map("quiz_attempts")
+}
+
+/// One question in an attempt and the engineer's answer. Daily items are private to the engineer;
+/// assessment items are readable by the engineer's managers and admins.
+model QuizItem {
+  id              String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  attemptId       String    @map("attempt_id") @db.Uuid
+  userId          String    @map("user_id") @db.Uuid
+  kind            QuizKind
+  position        Int
+  questionId      String    @map("question_id")
+  questionVersion Int       @map("question_version")
+  /// The question as it was when picked (stem, options, answers), so later edits never change it.
+  questionData    Json      @map("question_data")
+  choice          Int?
+  correct         Boolean?
+  textAnswer      String?   @map("text_answer")
+  scoreStatus     String    @default("not_applicable") @map("score_status")
+  answeredAt      DateTime? @map("answered_at") @db.Timestamptz(6)
+
+  attempt  QuizAttempt @relation(fields: [attemptId], references: [id], onDelete: Cascade)
+  user     User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  question Question    @relation(fields: [questionId], references: [id])
+  aiScore  AiScore?
+
+  @@unique([attemptId, position])
+  @@index([questionId])
+  @@index([userId])
+  @@map("quiz_items")
+}
+
+/// The Friday scorecard of a week (score #5), written when the scorecard lesson is saved. `ratings` =
+/// behaviour → 1–5; `pillar_scores` = rated pillars only, the average of their behaviours (1 decimal);
+/// `proof` = pillar → 1–2 lines. Days completed and mocks done are filled in by the portal.
+/// The engineer reads and writes their own; their managers and admins read.
+model Scorecard {
+  id            String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  enrollmentId  String   @map("enrollment_id") @db.Uuid
+  userId        String   @map("user_id") @db.Uuid
+  week          Int
+  day           Int
+  round         Int      @default(1)
+  ratings       Json
+  pillarScores  Json     @map("pillar_scores")
+  proof         Json
+  win           String?
+  stuck         String?
+  daysCompleted Int      @map("days_completed")
+  mocksDone     Int      @map("mocks_done")
+  submittedAt   DateTime @default(now()) @map("submitted_at") @db.Timestamptz(6)
+  updatedAt     DateTime @default(now()) @map("updated_at") @db.Timestamptz(6)
+
+  enrollment Enrollment @relation(fields: [enrollmentId], references: [id], onDelete: Cascade)
+  user       User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([enrollmentId, week, round])
+  @@index([userId])
+  @@map("scorecards")
+}
+
+/// The AI score of a written answer (docs/M2_SPEC.md "AI scoring"): a written quiz or assessment item
+/// (`target` quiz_item), or a write lesson with a scoring guide (`target` lesson; one row per enrollment,
+/// day and lesson — a partial unique index in SQL; a changed answer bumps `revision`). Status pending |
+/// scored | failed | not_scored. The engineer reads their own and may only (re)set a row to pending or
+/// not_scored; the result is written only by the worker through app.ai_score_record(). `points` =
+/// [{ point, verdict }] in the guide's order. Managers and admins read nothing (M4 adds numbers only).
+model AiScore {
+  id             String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  enrollmentId   String    @map("enrollment_id") @db.Uuid
+  userId         String    @map("user_id") @db.Uuid
+  day            Int
+  target         String
+  quizItemId     String?   @unique @map("quiz_item_id") @db.Uuid
+  lessonId       String?   @map("lesson_id")
+  /// The day's round (a repeated write lesson gets its own row).
+  round          Int       @default(1)
+  status         String    @default("pending")
+  revision       Int       @default(1)
+  score          Int?
+  points         Json?
+  reason         String?
+  betterSentence String?   @map("better_sentence")
+  possiblePhi    Boolean   @default(false) @map("possible_phi")
+  model          String?
+  promptVersion  String?   @map("prompt_version")
+  attempts       Int       @default(0)
+  createdAt      DateTime  @default(now()) @map("created_at") @db.Timestamptz(6)
+  /// When this revision was asked for (the sweep re-queues rows pending for over 10 minutes).
+  updatedAt      DateTime  @default(now()) @map("updated_at") @db.Timestamptz(6)
+  scoredAt       DateTime? @map("scored_at") @db.Timestamptz(6)
+
+  enrollment Enrollment @relation(fields: [enrollmentId], references: [id], onDelete: Cascade)
+  user       User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  quizItem   QuizItem?  @relation(fields: [quizItemId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([enrollmentId, target])
+  @@map("ai_scores")
+}
+
+// ── Manager v1 (migration 20261009120000_manager_v1) ────────────────────────────────────────────
+
+/// A manager opened a locked day (next_day) or a retake before the wait (retake_now). Append-only.
+model ManualUnlock {
+  id           String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  enrollmentId String   @map("enrollment_id") @db.Uuid
+  /// The engineer.
+  userId       String   @map("user_id") @db.Uuid
+  managerId    String   @map("manager_id") @db.Uuid
+  kind         String
+  day          Int
+  reason       String
+  createdAt    DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  enrollment Enrollment @relation(fields: [enrollmentId], references: [id], onDelete: Cascade)
+  user       User       @relation("ManualUnlockEngineer", fields: [userId], references: [id], onDelete: Cascade)
+  manager    User       @relation("ManualUnlockManager", fields: [managerId], references: [id], onDelete: Cascade)
+
+  @@index([enrollmentId])
+  @@index([userId])
+  @@index([managerId])
+  @@map("manual_unlocks")
+}
+
+/// A bi-weekly check-in after Day 10, 30, 50 or 60 (PDF §5.2); one per enrollment and day.
+model Checkin {
+  id           String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  enrollmentId String   @map("enrollment_id") @db.Uuid
+  /// The engineer.
+  userId       String   @map("user_id") @db.Uuid
+  /// Who recorded it last.
+  managerId    String   @map("manager_id") @db.Uuid
+  afterDay     Int      @map("after_day")
+  heldOn       DateTime @map("held_on") @db.Date
+  rag          String
+  note         String
+  createdAt    DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt    DateTime @default(now()) @map("updated_at") @db.Timestamptz(6)
+
+  enrollment Enrollment @relation(fields: [enrollmentId], references: [id], onDelete: Cascade)
+  user       User       @relation("CheckinEngineer", fields: [userId], references: [id], onDelete: Cascade)
+  manager    User       @relation("CheckinManager", fields: [managerId], references: [id], onDelete: Cascade)
+
+  @@unique([enrollmentId, afterDay])
+  @@index([userId])
+  @@index([managerId])
+  @@map("checkins")
+}
+
+/// The engineer's own notes for a check-in (migration 20261013090000_checkin_prep): how a live
+/// spot-check went, where they are stuck, what support they need. Editable until the manager records
+/// that check-in.
+model CheckinPrep {
+  id           String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  enrollmentId String   @map("enrollment_id") @db.Uuid
+  userId       String   @map("user_id") @db.Uuid
+  afterDay     Int      @map("after_day")
+  spotCheck    String   @default("") @map("spot_check")
+  stuck        String   @default("")
+  support      String   @default("")
+  createdAt    DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt    DateTime @default(now()) @map("updated_at") @db.Timestamptz(6)
+
+  enrollment Enrollment @relation(fields: [enrollmentId], references: [id], onDelete: Cascade)
+  user       User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([enrollmentId, afterDay])
+  @@index([userId])
+  @@map("checkin_preps")
+}
+
+// ── Gates and repeat blocks (migration 20261010090000_gates_rounds) ─────────────────────────────
+
+/// A recorded gate (PDF §5.3; one per enrollment, gate and gate round). Criteria 1–11 are rubric_scores
+/// rows (source `gate`, day 20/40, this round). outcome repeat → `repeat_weeks` reopen as round + 1.
+/// Recorded and updated by a manager of the engineer's team; the engineer and admins read. Never deleted.
+model GateResult {
+  id              String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  enrollmentId    String   @map("enrollment_id") @db.Uuid
+  /// The engineer.
+  userId          String   @map("user_id") @db.Uuid
+  gate            Int
+  round           Int
+  heldAt          DateTime @map("held_at") @db.Timestamptz(6)
+  cardId          String?  @map("card_id")
+  surprise        String   @default("")
+  scored          Int
+  average         Float?
+  lowest          Int?
+  recapOnTime     Boolean  @map("recap_on_time")
+  outcome         String
+  focusItems      String[] @default([]) @map("focus_items")
+  repeatWeeks     Int[]    @default([]) @map("repeat_weeks")
+  rag             String
+  note            String
+  overrideNote    String   @default("") @map("override_note")
+  /// Who recorded it last.
+  /// Gate 2 only: basic healthcare terms used correctly (null for Gate 1).
+  healthcareTerms Boolean? @map("healthcare_terms")
+  /// Gate 2 only: the Phase 3 live-call plan (null for Gate 1).
+  liveCallPlan    String?  @map("live_call_plan")
+  managerId       String   @map("manager_id") @db.Uuid
+  createdAt       DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt       DateTime @default(now()) @map("updated_at") @db.Timestamptz(6)
+
+  enrollment Enrollment @relation(fields: [enrollmentId], references: [id], onDelete: Cascade)
+  user       User       @relation("GateResultEngineer", fields: [userId], references: [id], onDelete: Cascade)
+  manager    User       @relation("GateResultManager", fields: [managerId], references: [id], onDelete: Cascade)
+
+  @@unique([enrollmentId, gate, round])
+  @@index([userId])
+  @@index([managerId])
+  @@map("gate_results")
+}
+
+/// The engineer's written recap of a gate round, sent to the manager. Editable until that round's
+/// result is recorded; `submittedAt` stays the first submit.
+model GateRecap {
+  id           String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  enrollmentId String   @map("enrollment_id") @db.Uuid
+  userId       String   @map("user_id") @db.Uuid
+  gate         Int
+  round        Int
+  text         String
+  /// Gate 2 only: the written follow-up (bad_news_email | escalation | weekly_status) and its text.
+  followUpType String?  @map("follow_up_type")
+  followUpText String?  @map("follow_up_text")
+  submittedAt  DateTime @default(now()) @map("submitted_at") @db.Timestamptz(6)
+  updatedAt    DateTime @default(now()) @map("updated_at") @db.Timestamptz(6)
+
+  enrollment Enrollment @relation(fields: [enrollmentId], references: [id], onDelete: Cascade)
+  user       User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([enrollmentId, gate, round])
+  @@index([userId])
+  @@map("gate_recaps")
+}
+
+/// Red flags (PDF §5.4; migration 20261011091000_red_flags). Raised and cleared by the worker; at most one
+/// uncleared row per enrollment + kind + key (partial unique index red_flags_open_key, not expressible
+/// here). Managers of the team and admins read; engineers can't.
+model RedFlag {
+  id             String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  enrollmentId   String    @map("enrollment_id") @db.Uuid
+  userId         String    @map("user_id") @db.Uuid
+  kind           String
+  key            String    @default("")
+  detail         String
+  raisedAt       DateTime  @default(now()) @map("raised_at") @db.Timestamptz(6)
+  clearedAt      DateTime? @map("cleared_at") @db.Timestamptz(6)
+  acknowledgedAt DateTime? @map("acknowledged_at") @db.Timestamptz(6)
+  acknowledgedBy String?   @map("acknowledged_by") @db.Uuid
+
+  enrollment   Enrollment @relation(fields: [enrollmentId], references: [id], onDelete: Cascade)
+  user         User       @relation("RedFlagEngineer", fields: [userId], references: [id], onDelete: Cascade)
+  acknowledger User?      @relation("RedFlagAcknowledger", fields: [acknowledgedBy], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@map("red_flags")
+}
+
+/// Manager email items (migration 20261011091000_red_flags): written and sent only by the worker through
+/// SECURITY DEFINER functions; admins read.
+model EmailLog {
+  id          String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  recipientId String    @map("recipient_id") @db.Uuid
+  template    String
+  dedupeKey   String    @unique @map("dedupe_key")
+  payload     Json      @default("{}")
+  status      String    @default("pending")
+  createdAt   DateTime  @default(now()) @map("created_at") @db.Timestamptz(6)
+  sentAt      DateTime? @map("sent_at") @db.Timestamptz(6)
+
+  recipient User @relation(fields: [recipientId], references: [id], onDelete: Cascade)
+
+  @@index([recipientId, status])
+  @@map("email_log")
+}
+
+/// Phase 3: what happened with each live-call day (docs/PORTAL_PLAN.md §2 "Live-call days"). Written with the
+/// day's live lesson; the call sheet itself stays in step_entries.
+model LiveCall {
+  id           String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  enrollmentId String   @map("enrollment_id") @db.Uuid
+  userId       String   @map("user_id") @db.Uuid
+  day          Int
+  round        Int      @default(1)
+  /// shadow | co_lead | lead | solo
+  role         String
+  /// had_call | shadowed_other | later | substitute
+  path         String
+  /// "Later" was chosen at some point (counts towards the red flag avoiding_live).
+  deferred     Boolean  @default(false)
+  createdAt    DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt    DateTime @default(now()) @map("updated_at") @db.Timestamptz(6)
+
+  enrollment Enrollment @relation(fields: [enrollmentId], references: [id], onDelete: Cascade)
+  user       User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([enrollmentId, day, round])
+  @@index([userId])
+  @@map("live_calls")
+}
+
+/// "My readiness case" (A11), shared with the manager when Day 64's lesson is saved: [{id, label, value}].
+model ReadinessCase {
+  id           String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  enrollmentId String   @unique @map("enrollment_id") @db.Uuid
+  userId       String   @map("user_id") @db.Uuid
+  fields       Json
+  submittedAt  DateTime @default(now()) @map("submitted_at") @db.Timestamptz(6)
+  updatedAt    DateTime @default(now()) @map("updated_at") @db.Timestamptz(6)
+
+  enrollment Enrollment @relation(fields: [enrollmentId], references: [id], onDelete: Cascade)
+  user       User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@map("readiness_cases")
+}
+
+/// The Day-65 final review, recorded by a manager of the engineer's team. `criteria`: "1"…"11" → 1–5 or null.
+model FinalReview {
+  id           String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  enrollmentId String   @unique @map("enrollment_id") @db.Uuid
+  userId       String   @map("user_id") @db.Uuid
+  heldAt       DateTime @map("held_at") @db.Timestamptz(6)
+  /// manager | pm
+  observer     String
+  call         String
+  criteria     Json
+  scored       Int
+  average      Float?
+  lowest       Int?
+  /// client_ready | light_support | another_cycle
+  outcome      String
+  rag          String
+  note         String
+  overrideNote String   @default("") @map("override_note")
+  managerId    String   @map("manager_id") @db.Uuid
+  createdAt    DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt    DateTime @default(now()) @map("updated_at") @db.Timestamptz(6)
+
+  enrollment Enrollment @relation(fields: [enrollmentId], references: [id], onDelete: Cascade)
+  user       User       @relation("FinalReviewEngineer", fields: [userId], references: [id], onDelete: Cascade)
+  manager    User       @relation("FinalReviewManager", fields: [managerId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([managerId])
+  @@map("final_reviews")
+}

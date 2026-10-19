@@ -1,0 +1,132 @@
+day: 44
+block: 9
+title: Analogies for a clinic manager
+type: normal
+storyDate: Thursday, April 30
+minutes: About 50 min
+intro: >-
+  Lisa Chen briefs 14 front-desk staff tomorrow morning and needs to know how CareBook talks to Epic. Today you pick one
+  analogy, use it on the call, and write the plain explanation.
+lessons:
+  - id: pick-a-concept
+    kind: prep
+    title: Pick one concept
+    minutes: 5 min
+    blocks:
+      - type: yesterday
+        text: >-
+          you shadowed your first live client call, noted how the lead opened, asked and closed, and compared your recap
+          with theirs. The go/no-go was yesterday afternoon: the pilot stays on for May 4.
+      - type: scene
+        when: Thursday, April 30 · 10 am Central · two working days before the pilot
+        text: >-
+          Dr. Mercer has asked you to explain to Lisa Chen how CareBook “talks to Epic”. Lisa manages 14 front-desk staff
+          at the three pilot clinics, and she briefs them tomorrow at 7:30 am. They're nervous. Pick the concept you'll
+          explain: today it's the Epic connection, or one technical idea from your own project.
+    fields:
+      - { id: concept, label: The concept, kind: line, placeholder: "e.g. How CareBook and Epic stay in sync (FHIR)" }
+      - { id: listener, label: Who needs to understand it, kind: line, placeholder: "e.g. Lisa and 14 front-desk staff" }
+      - { id: fear, label: What are they worried about?, kind: line, placeholder: "e.g. Double-booked patients, like the old tool" }
+    source: both
+
+  - id: analogies
+    kind: learn
+    title: Analogies
+    heading: One analogy, then back to the facts
+    minutes: 10 min
+    lead: >-
+      An analogy borrows something your listener already knows. Use one, make your point, then return to the facts. A
+      second analogy only adds confusion.
+    blocks:
+      - type: steps
+        items:
+          - { title: Name the idea in one line, text: "What does it do for the client?" }
+          - { title: Find something they know, text: "A calendar, a plug, a phone book, a post office." }
+          - { title: Say it, then check, text: "“Think of a shared calendar…” Then: “How would you say that to your team?”" }
+          - { title: Return to the facts, text: "What it means for them tomorrow: who to call, what they'll see." }
+      - type: example
+        text: >-
+          “FHIR is like a standard plug shape: every system can connect to it.”
+      - type: compare
+        beforeLabel: Jargon
+        afterLabel: An analogy
+        before: >-
+          “CareBook syncs with Epic over a FHIR API, so appointment resources are bidirectionally consistent.”
+        after: >-
+          “Think of a shared calendar. Epic owns the calendar; CareBook is a second screen that reads and writes to it,
+          through an approved connection.”
+      - type: note
+        tone: info
+        title: Free reading
+        text: >-
+          The ONC two-page “What Is FHIR?” fact sheet is a quick way to see how much plain language you can use.
+      - type: watch
+        url: https://healthit.gov/wp-content/uploads/2021/04/What-Is-FHIR-Fact-Sheet.pdf
+        title: What Is FHIR? (2-page fact sheet)
+        meta: ONC. Optional.
+
+  - id: explain-epic
+    kind: mock
+    title: Explain it to Lisa
+    heading: How CareBook “talks to Epic”
+    minutes: 15 min
+    lead: >-
+      Level 2: Lisa is practical, busy and not technical. One simple analogy, no jargon, and she should be able to repeat
+      it to her staff tomorrow.
+    cardId: S29
+    level: 2
+    scriptNote: Use it the first time, then try the call again without it.
+
+  - id: explain-epic-review
+    kind: reflect
+    title: How did the call go?
+    minutes: 5 min
+    lead: Tick what you managed, then note what the AI told you.
+    checksTitle: On this call, I…
+    checks:
+      - used one clear analogy, then went back to the facts
+      - explained every technical word, or didn't use it
+      - answered “which is the real schedule?” clearly
+      - offered a cheat sheet with the support number and hours
+    fields:
+      - { id: went-well, label: What went well, kind: area, placeholder: "From the AI's feedback" }
+      - { id: fix-next, label: One thing to fix next time, kind: area, placeholder: "e.g. I said “sync” twice without explaining it" }
+    rubric: true
+
+  - id: analogy-and-plain
+    kind: write
+    title: Analogy and plain explanation
+    heading: One analogy and a 3-sentence plain explanation
+    minutes: 10 min
+    lead: >-
+      Write what Lisa can read out to her staff tomorrow: one analogy, then three sentences in plain words.
+    source: both
+    blocks:
+      - type: recall
+        label: The concept you picked this morning
+        day: 44
+        lesson: pick-a-concept
+        fields:
+          - { id: concept, label: Concept }
+          - { id: fear, label: Their worry }
+      - { type: field, id: analogy }
+      - { type: field, id: plain }
+      - type: text
+        text: >-
+          Test it: would a new front-desk employee understand it on the first read? Is there a word you'd have to
+          explain?
+    fields:
+      - { id: analogy, label: The analogy, kind: line, placeholder: "e.g. Think of a shared calendar that Epic owns…" }
+      - { id: plain, label: "In plain words (3 sentences)", kind: area, rows: 4 }
+
+scoring:
+  analogy-and-plain:
+    modelAnswer: >-
+      Analogy: think of a shared calendar. Epic owns the calendar, and CareBook is a second screen that reads and writes
+      to it through an approved connection. When a patient books online, it shows up in Epic within about a minute.
+      CareBook only offers times that Epic shows as free, so two patients can't get the same slot. If something looks
+      wrong, call Brightpath support, 7 am to 7 pm ET on weekdays.
+    scoringPoints:
+      - One clear analogy that a non-technical listener already knows, used once
+      - "Three plain sentences (what it does, why it is safe, who to call) with no unexplained jargon"
+      - Answers the listener's worry (double-booking) directly

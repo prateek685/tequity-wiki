@@ -1,0 +1,187 @@
+# Day 21 quiz pool: Monday, March 30. Dr. Mercer explains Lakeside's value-based contract: US healthcare in one
+# picture, fee-for-service vs value-based care, asking how the client makes money, linking no-shows to the measures.
+# Shows 5 of 10.
+pool: day-21
+questions:
+  - id: D21-01
+    type: mcq
+    stem: "Dr. Mercer asks: “Do you actually know what fee-for-service means?” What's the best reply?"
+    options:
+      - text: "“Sure, it's the standard billing model. Everyone knows that.”"
+        correct: false
+        explanation: Sounds like a bluff, and he'll test it with the next question.
+      - text: "“Not really, sorry. I'm just an engineer.”"
+        correct: false
+        explanation: Apologises for the very thing this call is for, and gives him no reason to keep teaching.
+      - text: "“Yes: today insurers, Medicare and Medicaid pay Lakeside for each visit or service. What I'd like to understand is what changes with the new contract.”"
+        correct: true
+        explanation: Answers in one line, in his words, and moves the call to what you came to learn.
+      - text: "“It's when the EHR sends a claim per encounter to the clearinghouse.”"
+        correct: false
+        explanation: Jargon about the plumbing, not the business. He asked if you understand how Lakeside gets paid.
+    source: { quote: "Mostly fee-for-service: insurers (payers), Medicare and Medicaid pay Lakeside for each visit or service.", page: 67 }
+
+  - id: D21-02
+    type: mcq
+    stem: "Dr. Mercer asks: “Why should an engineer care how we get paid?” What's the best reply?"
+    options:
+      - text: "“Honestly, it doesn't change the code much.”"
+        correct: false
+        explanation: Tells him you'll build to the ticket, not to his business.
+      - text: "“Because it decides what's worth building. If missed follow-ups start costing Lakeside money, reminders for those visits matter more than another screen.”"
+        correct: true
+        explanation: Links how he gets paid to a real choice in the backlog.
+      - text: "“Dana asked me to join, so I'm here.”"
+        correct: false
+        explanation: Waiting language. It says you didn't choose to understand his business.
+      - text: "“We like to understand the full domain model before designing the schema.”"
+        correct: false
+        explanation: True for you, meaningless for him. Say it in business terms.
+    source: { quote: "Ask: \"Why should an engineer care how we get paid?\"", page: 68 }
+
+  - id: D21-03
+    type: mcq
+    stem: >-
+      Dr. Mercer says: “Under the new contract, one thing we'll be measured on is diabetes follow-up visits within 90
+      days.” What's your best next question?
+    options:
+      - text: "“Should we build you a diabetes dashboard?”"
+        correct: false
+        explanation: A solution before you know the size of the problem.
+      - text: "“Which Epic field stores the follow-up date?”"
+        correct: false
+        explanation: The how, before the why. He'll bring you back to the business.
+      - text: "“Got it.”"
+        correct: false
+        explanation: No follow-up, and no playback. You'll leave without the numbers.
+      - text: "“How many of those follow-ups are missed today, and what does missing the target cost Lakeside?”"
+        correct: true
+        explanation: Goes for the pain and the stakes, with numbers.
+    source: { quote: "Lakeside will be measured on: annual wellness visits completed, diabetes follow-up visits within 90 days, and avoidable ER visits.", page: 68 }
+
+  - id: D21-04
+    type: mcq
+    stem: >-
+      You start explaining how CareBook sends SMS reminders. Dr. Mercer stops you: “That's the how. I'm asking whether
+      you understand the why.” What do you say?
+    options:
+      - text: "“Fair. Back to the why: under the new contract, which visits matter most to Lakeside's income?”"
+        correct: true
+        explanation: Accepts the steer in one line and asks the business question.
+      - text: "“Sorry, sorry, I'll stop. Sorry.”"
+        correct: false
+        explanation: An apology spiral, and still no question.
+      - text: "“Let me just finish, it's relevant.”"
+        correct: false
+        explanation: Argues with a client who just told you what he needs.
+      - text: "“The why is to send reminders, so patients come.”"
+        correct: false
+        explanation: Still your why, not his. You haven't asked what the contract rewards.
+    source: { quote: "That's the how. I'm asking whether you understand the why.", page: 68 }
+
+  - id: D21-05
+    type: mcq
+    stem: "After the call, Dana messages: “What did Alan say? One line.” What's the best reply?"
+    options:
+      - text: "“First he explained fee-for-service, then we talked about Epic, then the contract, then…”"
+        correct: false
+        explanation: The story of the call, not the bottom line.
+      - text: "“Interesting call! Lots of healthcare stuff. I'll send notes.”"
+        correct: false
+        explanation: Nothing she can use, and no date for the notes.
+      - text: "“From July, part of Lakeside's income depends on follow-up visits, and diabetes follow-ups have the highest no-show rate (about 24%), so reminders matter more than ever.”"
+        correct: true
+        explanation: Answer first, one line, tied to a number and to CareBook.
+      - text: "“He wants overdue reminders. Shall I start building them?”"
+        correct: false
+        explanation: Jumps from one idea on a call to building, without a decision.
+    source: { quote: "No-shows are 18% overall at the pilot clinics, but about 24% for diabetes follow-up visits", page: 68 }
+
+  - id: D21-06
+    type: mcq
+    stem: >-
+      Dr. Mercer asks: “Could CareBook remind patients who are overdue for a visit, not just patients who already
+      booked?” What's the best reply?
+    options:
+      - text: "“Easy. We'll add it this sprint.”"
+        correct: false
+        explanation: A promise before you know what it takes, in a sprint that's already full.
+      - text: "“That's a useful idea. It means knowing who's overdue, which we don't get from Epic today. I'll note it against your measures and come back with what it takes.”"
+        correct: true
+        explanation: Takes the idea seriously, names the real constraint, and promises a next step.
+      - text: "“That's out of scope.”"
+        correct: false
+        explanation: Shuts down the idea that may matter most to his new contract.
+      - text: "“Should I ask Dana if we can?”"
+        correct: false
+        explanation: Waiting language. You can own the next step and still involve Dana.
+    source: { quote: "You would love CareBook to remind patients who are overdue for a visit, not only patients who already booked one.", page: 68 }
+
+  - id: D21-07
+    type: scenario
+    clientLine: "“Can CareBook help with our quality scores?”"
+    stem: You've just heard which measures the new contract uses. What do you say?
+    options:
+      - text: "“Definitely. We'll improve all of them.”"
+        correct: false
+        explanation: A promise about measures CareBook doesn't control, such as avoidable ER visits.
+      - text: "“Where they depend on visits, yes: reminders and easier booking can cut missed follow-ups. Before I promise anything, which measure matters most to you this year?”"
+        correct: true
+        explanation: Honest about where CareBook helps, and asks a question that finds the priority.
+      - text: "“That's a clinical question. I'm not the right person.”"
+        correct: false
+        explanation: It's a business question about your product. Own the part you can answer.
+      - text: "“We have analytics on our roadmap.”"
+        correct: false
+        explanation: Vague, and doesn't connect to any of his measures.
+    source: { quote: "Can CareBook help with our quality scores?", page: 67 }
+
+  - id: D21-08
+    type: scenario
+    clientLine: "“If we hit the targets, we can earn up to $1.2 million a year. From year 3, missing them can cost us money.”"
+    stem: What's the best thing to say next?
+    options:
+      - text: "“Wow, that's a lot of money.”"
+        correct: false
+        explanation: A reaction, not understanding. Nothing to confirm.
+      - text: "“So hitting the targets brings shared savings, and from year 3 missing them costs Lakeside. Which of the three measures is furthest off today?”"
+        correct: true
+        explanation: Plays it back, then finds where CareBook can help most.
+      - text: "“We'd better add a revenue module then.”"
+        correct: false
+        explanation: A solution nobody asked for.
+      - text: "“I'm sure CareBook will get you the full amount.”"
+        correct: false
+        explanation: A promise about money you can't make.
+    source: { quote: "Lakeside can earn up to $1.2 million a year in shared savings", page: 68 }
+
+  - id: D21-09
+    type: written
+    stem: >-
+      Dana messages: “Lakeside is going value-based. Explain it like you would to my CEO, in two sentences, and say why
+      it matters for CareBook.” Write your reply.
+    modelAnswer: >-
+      Today Lakeside is paid per visit; from July 1, part of its income for about 9,000 patients depends on outcomes
+      such as completed wellness visits and diabetes follow-ups within 90 days. That makes missed visits expensive, so
+      CareBook's booking and reminders now directly affect Lakeside's income, up to $1.2 million a year in shared
+      savings.
+    scoringPoints:
+      - Explains the change in plain words (paid per visit → paid partly for outcomes), with the date
+      - Links it to CareBook through missed visits, with at least one number
+      - Two sentences a CEO can read without a glossary
+    source: { quote: "From July 1, Lakeside joins a value-based contract with a regional health insurer", page: 68 }
+
+  - id: D21-10
+    type: written
+    stem: >-
+      Kevin messages: “Why are we suddenly talking about wellness visits? We're building a booking app.” Write your
+      reply in 2–3 sentences.
+    modelAnswer: >-
+      Because from July, Lakeside gets paid partly for completed wellness and diabetes follow-up visits, so a no-show
+      now costs them money, not just a slot. That makes our booking and reminder features part of how Lakeside earns.
+      I'm sharing which backlog items help most with Dana this week, and none of it changes Sprint 5.
+    scoringPoints:
+      - Answers the “why” with the business reason, not with features
+      - Connects missed visits to Lakeside's income
+      - Says what happens next and reassures on current scope
+    source: { quote: "I'll write this up in five lines and share it with Dana, so we can check which backlog items help most.", page: 67 }

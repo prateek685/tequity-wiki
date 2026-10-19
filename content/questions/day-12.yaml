@@ -1,0 +1,183 @@
+# Day 12 quiz pool: Tuesday, March 17. Dana's “more reminders”, the polite 5 Whys, the Mom Test rule, finding the
+# business goal and its metric. Shows 5 of 10.
+pool: day-12
+questions:
+  - id: D12-01
+    type: mcq
+    stem: "Dana opens: “We want SMS appointment reminders — more of them. Maybe one every day the week before?” What's the best reply?"
+    options:
+      - text: "“Sure, daily texts are easy. We'll add them.”"
+        correct: false
+        explanation: You agree to a solution before you know the problem. She'll ask how soon.
+      - text: "“Every day might annoy patients. I wouldn't recommend it.”"
+        correct: false
+        explanation: An opinion before you understand what she's trying to fix.
+      - text: "“Happy to look at it. What's driving the need for more reminders right now?”"
+        correct: true
+        explanation: Positive, and the first polite “why”, aimed at the problem behind the request.
+      - text: "“How many texts exactly, and at what times?”"
+        correct: false
+        explanation: Details of her solution. You'd be designing the wrong thing faster.
+    source: { quote: "Keep asking until you reach the business goal", page: 42 }
+
+  - id: D12-02
+    type: mcq
+    stem: You want to understand why Dana wants more texts without sounding like you're challenging her. Which question works best?
+    options:
+      - text: "“Why would you want that?”"
+        correct: false
+        explanation: A blunt “why” can sound like you think the idea is bad.
+      - text: "“What would that help you achieve?”"
+        correct: true
+        explanation: The same question, asked about her goal instead of her judgement.
+      - text: "“Why didn't you mention this before?”"
+        correct: false
+        explanation: Sounds like blame, and doesn't move you toward the goal.
+      - text: "“Is this really needed?”"
+        correct: false
+        explanation: A closed question that questions her judgement.
+    source: { quote: "What would that help you", page: 42 }
+
+  - id: D12-03
+    type: mcq
+    stem: >-
+      You want to know whether patients would cancel by text if they could. Which question gets you the most
+      reliable answer?
+    options:
+      - text: "“Would patients use a reply-to-cancel option?”"
+        correct: false
+        explanation: “Would you” questions about the future get optimistic yeses.
+      - text: "“The last time a patient missed a visit, what did they do beforehand? Did they try to reach the clinic?”"
+        correct: true
+        explanation: It asks about what actually happened. Past behaviour is a fact, not a guess.
+      - text: "“Don't you think patients would love it?”"
+        correct: false
+        explanation: A leading question. She'll agree, and you'll learn nothing.
+      - text: "“Roughly how many patients would use it, do you think?”"
+        correct: false
+        explanation: Asks her to guess about the future instead of telling you what happened.
+    source: { quote: "Ask about what people actually do and did (past behaviour), not what they might want.", page: 42 }
+
+  - id: D12-04
+    type: mcq
+    stem: >-
+      Dana says: “Lisa found that most no-shows are patients who meant to cancel but couldn't get through on the
+      phone.” What's the best next question?
+    options:
+      - text: "“Then let's add three more reminders.”"
+        correct: false
+        explanation: More texts don't help a patient who can't get through to cancel.
+      - text: "“The phone line isn't really our problem, though.”"
+        correct: false
+        explanation: It's the heart of the problem, and the reason the slots are wasted.
+      - text: "“What would you like patients to be able to do when a reminder arrives?”"
+        correct: true
+        explanation: It moves from the problem toward what she really wants, without you inventing the answer.
+      - text: "“Great, we'll build two-way texting by Friday.”"
+        correct: false
+        explanation: A solution and a date, before you've played back the goal.
+    source: { quote: "Lisa Chen at Lakeside found that most no-shows are patients who meant to cancel but couldn't get through on the phone line.", page: 47 }
+
+  - id: D12-05
+    type: mcq
+    stem: "Dana asks: “Can we send a reminder every day for a week?” What's the best reply?"
+    options:
+      - text: "“Yes, it's just one setting.”"
+        correct: false
+        explanation: You agree before you know the goal or the rules on how many texts are allowed.
+      - text: "“Maybe. Before we pick a number, what would a daily text fix for you? I also want to check what Lakeside compliance allows.”"
+        correct: true
+        explanation: Not a no, but a step back to the goal, and a flag on a real limit.
+      - text: "“No, the TCPA won't allow it.”"
+        correct: false
+        explanation: A confident no from jargon, and not even what the rule says.
+      - text: "“Sure, at a cent a text it's cheap.”"
+        correct: false
+        explanation: Cost isn't the question. Nobody has asked whether daily texts solve anything.
+    source: { quote: "Can we send a reminder every day for a week?", page: 47 }
+
+  - id: D12-06
+    type: mcq
+    stem: You've found that Dana's real goal is fewer no-shows. Which question gets you the success metric?
+    options:
+      - text: "“Do you think fewer patients will miss visits?”"
+        correct: false
+        explanation: A yes-or-no opinion, with no number.
+      - text: "“We'll know it worked when it's built, right?”"
+        correct: false
+        explanation: Shipping is output, not success.
+      - text: "“What's the no-show rate today, and where do you want it, by when?”"
+        correct: true
+        explanation: Today's number, the target and the date. Now you can tell whether it worked.
+      - text: "“Should we track how many reminders we send?”"
+        correct: false
+        explanation: Counts what you do, not whether no-shows drop.
+    source: { quote: "How will we know it worked — is there a number you're watching?", page: 46 }
+
+  - id: D12-07
+    type: scenario
+    clientLine: "“How fast can you build it? Just give me a number.”"
+    stem: Dana pushes for an estimate. You've found the goal, but you haven't agreed any solution yet. What do you say?
+    options:
+      - text: "“Two days.”"
+        correct: false
+        explanation: A number for a solution you haven't defined. You'll own that guess.
+      - text: "“Not this month. Sprint 4 is full.”"
+        correct: false
+        explanation: True, but it shuts the door instead of giving her a next step.
+      - text: "“I'd be guessing right now. Let me write this up and come back tomorrow with one or two options and rough effort.”"
+        correct: true
+        explanation: Honest about why, with a concrete next step and a date.
+      - text: "“I'll need to ask the team.”"
+        correct: false
+        explanation: No date and no ownership. She'll ask again tomorrow.
+    source: { quote: "push for a number on the call", page: 47 }
+
+  - id: D12-08
+    type: scenario
+    clientLine: "“Other apps do this. Why is it hard?”"
+    stem: Dana is a little impatient. What's the best reply?
+    options:
+      - text: "“Other apps don't have to deal with Epic.”"
+        correct: false
+        explanation: Defensive, and it doesn't help her decide anything.
+      - text: "“It's not hard. We'll just do it.”"
+        correct: false
+        explanation: A promise to build something nobody has defined.
+      - text: "“It may not be. Before I say how hard, I want to be sure we build the thing that fixes your problem. Can I ask one more question?”"
+        correct: true
+        explanation: You don't argue about difficulty. You keep the focus on the goal.
+      - text: "“There are TCPA opt-in rules and toll-free verification to think about.”"
+        correct: false
+        explanation: Jargon she didn't ask for. She'll ask what it means for her business.
+    source: { quote: "Other apps do this — why is it hard?", page: 46 }
+
+  - id: D12-09
+    type: written
+    stem: >-
+      Kevin Walsh, Brightpath's CTO, messages you: “Dana says we need more SMS reminders. Do we?” Write your reply
+      in 2–3 sentences.
+    modelAnswer: >-
+      Not more reminders: the real goal is cutting no-shows at the 3 pilot clinics from 18% to under 10%. Most no-shows
+      are patients who meant to cancel but couldn't get through on the phone, so Dana wants patients to be able to
+      reply to cancel or reschedule. I'm sending her one or two options with rough effort tomorrow.
+    scoringPoints:
+      - Answers the question first (no, not more reminders)
+      - Gives the real goal with its numbers and the reason behind it
+      - Ends with the next step and when
+    source: { quote: "The real goal: cut no-shows at the 3 pilot clinics from 18% to under 10%.", page: 47 }
+
+  - id: D12-10
+    type: written
+    stem: >-
+      A teammate plans to ask Lisa Chen: “Would your front desk use a screen showing which patients replied to
+      cancel?” Rewrite it as two questions about what the front desk actually does today.
+    modelAnswer: >-
+      1. When a patient last cancelled by phone, what did your front desk do with that slot?
+      2. Last week, roughly how many calls did the front desk miss or return late, and what happened to those
+      appointments?
+    scoringPoints:
+      - Both questions ask about past behaviour, not what they might want
+      - The answers would show how cancellations and slots are handled today
+      - No solution is suggested in the questions
+    source: { quote: "Ask about what people actually do and did", page: 42 }

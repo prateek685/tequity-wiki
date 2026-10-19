@@ -1,0 +1,108 @@
+day: 53
+block: 11
+title: Co-lead the requirements
+type: live_call
+storyDate: Wednesday, May 13
+minutes: About 60 min
+intro: >-
+  Today you co-lead the requirements part of a real client call. You ask the questions, play back what you heard and
+  confirm it. Then you send the requirement summary within two hours.
+lessons:
+  - id: agree-requirements
+    kind: prep
+    title: Agree the requirements part
+    minutes: 5 min
+    blocks:
+      - type: yesterday
+        text: >-
+          you proposed the 72-hour eligibility check to Maria, with the problem in dollars and hours, a small first test and
+          a date for the one-page proposal.
+      - type: scene
+        when: Wednesday, May 13 · 8:20 am Central · pilot day ten
+        text: >-
+          Today's live call has a requirements or clarification part, and it's yours. Agree it with the PM or senior
+          beforehand: which topic, how long, and when they step in. Write your questions the way Maria's answers taught
+          you: who, what happens today, what it costs, which metric.
+      - type: steps
+        items:
+          - { title: Agree the part, text: "Which topic, and how many minutes." }
+          - { title: Write your questions, text: "Open ones, about the user, the problem and the metric." }
+          - { title: Agree your signal, text: "They step in only if you signal." }
+    fields:
+      - { id: topic, label: The requirements topic I'll lead, kind: line, placeholder: "e.g. How Lisa's team wants the waitlist to show phone numbers (10 minutes)" }
+      - { id: questions, label: My 4 questions, kind: area, rows: 4, placeholder: "Who uses it? What happens today? What does it cost? Which number would change?" }
+      - { id: signal, label: "How I'll signal for help", kind: line }
+    source: both
+
+  - id: ask-playback-confirm
+    kind: learn
+    title: Ask, play back, confirm
+    heading: Ask, play back, confirm
+    minutes: 10 min
+    lead: >-
+      Leading the requirements part is the same three moves you practised in the mock calls, with real people watching.
+    blocks:
+      - type: steps
+        items:
+          - { title: Ask, text: "Open questions about the user, the problem and the metric. One at a time." }
+          - { title: Play back, text: "“So what I'm hearing is X, Y and Z. Did I get that right?”" }
+          - { title: Confirm, text: "Say what is agreed, who owns what and the date, before you hand back." }
+      - type: example
+        text: >-
+          “So Lisa's staff want the patient's phone number on the waitlist without an extra click, for the three pilot
+          clinics first. Did I get that right? I'll send the summary within two hours.”
+      - type: note
+        tone: info
+        title: The summary is part of the job
+        text: >-
+          The call isn't finished until the requirement summary is sent. Send it within two hours, or draft it for the PM to
+          review if the client isn't yours to write to.
+
+  - id: co-lead-requirements
+    kind: live
+    title: "Live co-lead: requirements"
+    heading: Co-lead the requirements on a real call
+    minutes: 30 min
+    liveRole: co_lead
+    substituteCardId: X10
+    fallback: >-
+      If no live call is available today, run the extra mock below instead. It is dated June 8: treat it as practice for
+      this skill, not part of this week's story. Or swap with a mock day and co-lead later in the week.
+    lead: >-
+      Ask, play back, confirm. Afterwards, fill in the sheet while it's fresh.
+    fields:
+      - { id: call, label: "Call · PM or senior · date", kind: line, placeholder: "e.g. Pilot sync · the PM's name · May 13" }
+      - { id: requirement, label: The requirement as I played it back, kind: area, rows: 3 }
+      - { id: confirmed, label: "Did the client confirm it? What did they change?", kind: area, rows: 2 }
+      - { id: signalled, label: "Did I signal for help? Why or why not?", kind: area, rows: 2 }
+      - { id: hard-moment, label: "The hardest moment, and what I did", kind: area, rows: 2 }
+      - { id: next-step, label: "Next steps, with owners and dates", kind: area, rows: 2 }
+
+  - id: requirement-summary
+    kind: write
+    title: Requirement summary
+    heading: Send the requirement summary
+    minutes: 10 min
+    lead: >-
+      Write the summary you'll send within two hours (or draft it for the PM to review): what the client needs, what's in
+      and out, the open questions, and the next steps with owners and dates.
+    source: both
+    blocks:
+      - { type: field, id: summary }
+      - { type: field, id: open-questions }
+    fields:
+      - { id: summary, label: Requirement summary, kind: area, rows: 6, placeholder: "Subject line · the need · in and out of scope · next steps with owners and dates" }
+      - { id: open-questions, label: Open questions, kind: line }
+
+scoring:
+  requirement-summary:
+    modelAnswer: >-
+      Subject: Waitlist phone numbers: what we agreed. Lisa's front desk needs the patient's phone number visible on the
+      waitlist without an extra click, so staff can call the first patient quickly. In scope: the 3 pilot clinics, the
+      number shown on the waitlist row. Out of scope for now: automatic texts. Open question: should the number be hidden
+      from users without the front-desk role? Next: I'll send the size estimate by Fri May 15; Lisa confirms which clinics
+      go first.
+    scoringPoints:
+      - The subject line names the topic, and the need is in the first lines with the reason
+      - Scope is clear, with what is in, what is out and what is still open
+      - Every next step has an owner and a date, and it can be sent within two hours of the call

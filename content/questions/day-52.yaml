@@ -1,0 +1,167 @@
+# Day 52 quiz pool: Tuesday, May 12. Proposing an improvement nobody asked for: noticed, idea, impact, effort, a small first test. Shows 5 of 10.
+pool: day-52
+questions:
+  - id: D52-01
+    type: mcq
+    stem: "You want to open your proposal to Maria. Which opening follows the proactive suggestion format?"
+    options:
+      - text: "“After yesterday I noticed most denials are eligibility problems we only find at check-in, when it's too late to fix them.”"
+        correct: true
+        explanation: "It starts with what you noticed, with evidence."
+      - text: "“I have a great idea for a new feature.”"
+        correct: false
+        explanation: "No observation, no evidence."
+      - text: "“Can I show you the design?”"
+        correct: false
+        explanation: "A design before the problem."
+      - text: "“I think we should rebuild the check.”"
+        correct: false
+        explanation: "A big solution with no reason."
+    source: { quote: "I noticed [observation].", page: 130 }
+
+  - id: D52-02
+    type: mcq
+    stem: "You've told Maria the idea. What comes next in the format?"
+    options:
+      - text: "The metric or business outcome it would help, such as the clean-claim rate."
+        correct: true
+        explanation: "The “it would help” part ties the idea to her number."
+      - text: "The names of the libraries you'd use."
+        correct: false
+        explanation: "Technical detail she didn't ask for."
+      - text: "A long list of other ideas."
+        correct: false
+        explanation: "It dilutes the one proposal."
+      - text: "The date your manager approved it."
+        correct: false
+        explanation: "Not relevant to her."
+    source: { quote: "It would help [metric or business outcome].", page: 130 }
+
+  - id: D52-03
+    type: mcq
+    stem: "Which line puts the problem in dollars and hours, as the card asks?"
+    options:
+      - text: "“That targets about 75 denials a month: roughly 38 staff hours and $6,750 in delayed payments.”"
+        correct: true
+        explanation: "Two numbers a billing director can check."
+      - text: "“Denials are a big problem for you.”"
+        correct: false
+        explanation: "No number."
+      - text: "“We could save a lot of time.”"
+        correct: false
+        explanation: "Vague."
+      - text: "“Denials are bad for the business.”"
+        correct: false
+        explanation: "True, but it doesn't size it."
+    source: { quote: "Put the problem in dollars and hours", page: 134 }
+
+  - id: D52-04
+    type: mcq
+    stem: "You've listed three ideas: one is high impact and two days of work, one is low impact and two days, one is high impact and four weeks. Which do you do first?"
+    options:
+      - text: "The high-impact, two-day idea."
+        correct: true
+        explanation: "High impact, low effort goes first."
+      - text: "The four-week idea, because it has the most impact."
+        correct: false
+        explanation: "High impact but high effort. Rank it after."
+      - text: "The low-impact, two-day idea, because it's easy."
+        correct: false
+        explanation: "Easy is not the same as valuable."
+      - text: "Whichever the PM suggested first."
+        correct: false
+        explanation: "Rank by impact and effort, not by order."
+    source: { quote: "Place ideas on a simple 2×2 grid.", page: 130 }
+
+  - id: D52-05
+    type: mcq
+    stem: "Maria is unsure the idea will work. Which first step lowers the risk?"
+    options:
+      - text: "Start with video visits at the 3 pilot clinics for two weeks, and compare denial rates."
+        correct: true
+        explanation: "A small first test with something to compare."
+      - text: "Build it for all 12 clinics and see."
+        correct: false
+        explanation: "Too big for a first test."
+      - text: "Wait until she is sure."
+        correct: false
+        explanation: "Nothing will change."
+      - text: "Run the check on every visit, always."
+        correct: false
+        explanation: "It spends checks without learning."
+    source: { quote: "Start with video visits at the 3 pilot clinics for 2 weeks", page: 134 }
+
+  - id: D52-06
+    type: mcq
+    stem: "How should you end your proposal call with Maria?"
+    options:
+      - text: "Agree a next step with a date: “I'll write it up on one page and share it with you and Dana by Thursday.”"
+        correct: true
+        explanation: "A next step with a day makes it real."
+      - text: "“Let me know what you think.”"
+        correct: false
+        explanation: "Gives her the job of moving it forward."
+      - text: "“We'll see.”"
+        correct: false
+        explanation: "No next step."
+      - text: "“I'll start building it tomorrow.”"
+        correct: false
+        explanation: "She hasn't agreed to it."
+    source: { quote: "Agreed a next step with a date", page: 134 }
+
+  - id: D52-07
+    type: scenario
+    clientLine: "This sounds like more work for Lakeside's front desk."
+    stem: "Maria objects to your idea. What do you say?"
+    options:
+      - text: "“Good point. The check runs automatically and the patient gets the text. The front desk only sees the ones that fail. Can I test that with you at one clinic?”"
+        correct: true
+        explanation: "Answers the worry and offers a test."
+      - text: "“It won't be more work.”"
+        correct: false
+        explanation: "A promise you can't keep yet."
+      - text: "“That's Lakeside's problem.”"
+        correct: false
+        explanation: "Dismisses her concern."
+      - text: "“We could skip the text.”"
+        correct: false
+        explanation: "Drops the idea instead of testing it."
+    source: { quote: "This sounds like more work for Lakeside's front desk.", page: 135 }
+
+  - id: D52-08
+    type: scenario
+    clientLine: "How big is the problem in dollars?"
+    stem: "Maria asks for the size of the problem. What do you answer?"
+    options:
+      - text: "“About 75 eligibility denials a month at the pilot clinics. At about $90 a visit, that's around $6,750 in delayed or lost payments, plus about 38 staff hours.”"
+        correct: true
+        explanation: "Numbers with the working shown."
+      - text: "“It's hard to say.”"
+        correct: false
+        explanation: "She asked for a number."
+      - text: "“Quite a lot.”"
+        correct: false
+        explanation: "Vague."
+      - text: "“I'll find out and tell you.”"
+        correct: false
+        explanation: "You had the numbers in your prep."
+    source: { quote: "How big is the problem in dollars?", page: 135 }
+
+  - id: D52-09
+    type: written
+    stem: "Write your proposal to Maria in four sentences: what you noticed, the idea, the impact, and the effort."
+    modelAnswer: "After yesterday I noticed that most denials are eligibility problems we only find at check-in. What if CareBook ran the check automatically 72 hours before each visit and texted the patient to update their insurance if it fails? That targets about 75 denials a month, roughly 38 staff hours and $6,750. It's about six working days of effort, because we reuse the existing check and the reminder texts."
+    scoringPoints:
+      - "Starts with what you noticed, with evidence"
+      - "States the idea in one sentence and the impact in numbers"
+      - "States the effort as S, M or L (or days)"
+    source: { quote: "Will this cost us more per check?", page: 134 }
+
+  - id: D52-10
+    type: written
+    stem: "Maria says, “How do you know it will work?” Write your answer in two sentences."
+    modelAnswer: "I don't know yet, and that's why I'd test it. Let's start with video visits at the 3 pilot clinics for two weeks and compare denial rates with in-person visits."
+    scoringPoints:
+      - "Admits that it is an estimate or unknown, without freezing"
+      - "Offers a small first test with something to compare"
+    source: { quote: "How do you know it will work?", page: 134 }

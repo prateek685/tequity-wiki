@@ -1,0 +1,127 @@
+day: 11
+block: 3
+title: Open questions
+type: normal
+storyDate: Monday, March 16
+minutes: About 50 min
+intro: >-
+  Dr. Mercer wants “a dashboard for our clinics”, and nobody knows what that means yet. Today you ask open
+  questions before you propose anything.
+lessons:
+  - id: a-dashboard
+    kind: prep
+    title: “A dashboard for our clinics”
+    minutes: 5 min
+    blocks:
+      - type: yesterday
+        text: >-
+          on Friday you ran the weekly sync straight after the Sprint 3 demo, which Dana's CEO watched, and sent a
+          recap with one ask: Epic sandbox access by Monday.
+      - type: scene
+        when: Monday, March 16 · the first day of Sprint 4
+        text: >-
+          Sprint 4 starts today: intake form v1, the clinic staff schedule view, the Epic sandbox connection and Add
+          to calendar. Epic access didn't arrive this morning, so at noon Dana nudged Lakeside's IT lead. Then she
+          forwards you a one-line email: “Alan wants a dashboard for the clinics. Can you talk to Alan?” The call with
+          Dr. Mercer is this afternoon, 15 minutes.
+      - type: text
+        text: >-
+          This week is about asking better questions. Clients rarely give complete requirements, and the engineer who
+          asks the right questions early prevents rework and protects the timeline. Before the call, write five open
+          questions for Dr. Mercer: questions he can't answer with yes or no.
+    fields:
+      - { id: q1, label: Open question 1, kind: line, placeholder: "e.g. What's happening today that makes a dashboard important now?" }
+      - { id: q2, label: Open question 2, kind: line }
+      - { id: q3, label: Open question 3, kind: line }
+      - { id: q4, label: Open question 4, kind: line }
+      - { id: q5, label: Open question 5, kind: line }
+    source: both
+
+  - id: open-vs-closed
+    kind: learn
+    title: Open vs closed questions
+    minutes: 10 min
+    lead: >-
+      Open questions explore. Closed questions confirm. Explore first, confirm last.
+    blocks:
+      - type: compare
+        beforeLabel: Closed too early
+        afterLabel: Open first
+        before: >-
+          “So you want a chart of appointments per clinic, right?”
+        after: >-
+          “What happens today when a patient misses an appointment?”
+      - type: text
+        text: >-
+          A closed question too early puts your guess in the client's mouth, and a polite client will often just say
+          yes. Save closed questions for the end, to confirm what you heard: “So reminders go out 24 hours before,
+          correct?”
+      - { type: heading, text: The question funnel }
+      - type: steps
+        items:
+          - { title: 1 · Open, text: "Let them describe it. “What's happening today that makes this important?”" }
+          - { title: 2 · Probe, text: "Go deeper. “Tell me more about…”, “For example?”" }
+          - { title: 3 · Confirm, text: "Close it down. “So the must-have is…, right?”" }
+      - type: watch
+        url: https://www.ted.com/talks/celeste_headlee_10_ways_to_have_a_better_conversation
+        title: "Celeste Headlee: 10 ways to have a better conversation"
+        meta: TED · 12 min · listening, open questions, follow-up questions
+
+  - id: dashboard-call
+    kind: mock
+    title: Dr. Mercer's dashboard
+    minutes: 15 min
+    lead: >-
+      Ask at least five open questions before you propose anything. If you jump to a solution or an estimate, he'll
+      tell you that you don't understand what he needs yet.
+    cardId: S07
+    level: 1
+    scriptNote: Use it the first time, then try the call again without it.
+
+  - id: dashboard-call-review
+    kind: reflect
+    title: How did the call go?
+    minutes: 5 min
+    lead: Tick what you managed, then note what the AI told you.
+    checksTitle: On this call, I…
+    checks:
+      - asked 5+ open questions before proposing anything
+      - found the no-show goal and target
+      - got a “yes” to my 3-bullet playback
+      - set a next step with a date, and gave no estimate on the spot
+    fields:
+      - { id: went-well, label: What went well, kind: area, placeholder: "From the AI's feedback" }
+      - { id: fix-next, label: One thing to fix next time, kind: area, placeholder: "e.g. I suggested charts before I knew who would use it" }
+      - { id: log, label: "How many questions did I ask before I proposed a solution?", kind: area, rows: 2 }
+    rubric: true
+
+  - id: known-and-unknown
+    kind: write
+    title: Known and unknown
+    heading: What you learned, and what's still unknown
+    minutes: 10 min
+    lead: >-
+      Before you write Dr. Mercer's summary, sort your notes. What did the call tell you for certain, and what do you
+      still need to find out before anyone can estimate?
+    blocks:
+      - type: text
+        text: >-
+          Write each item as a short fact: who, what, how much, by when. If you only guessed it, it belongs under
+          unknown.
+    fields:
+      - { id: learned, label: What I learned, kind: area, rows: 5, placeholder: "e.g. The goal: no-shows from … to … by …" }
+      - { id: unknown, label: What is still unknown, kind: area, rows: 4, placeholder: "e.g. Do Epic's reports already show some of this?" }
+
+scoring:
+  known-and-unknown:
+    modelAnswer: >-
+      Learned: the goal is to bring no-shows at the 3 pilot clinics from 18% to under 10% by the end of the year. The
+      users are clinic managers like Lisa Chen, not doctors, every Monday morning. They need no-shows by clinic, day
+      of week and appointment type (new or follow-up, in person or video). No patient names. Needed before
+      Lakeside's board meeting on June 10.
+      Still unknown: whether Epic's existing reports already show some of this; whether the other 9 clinics join
+      after the rollout; who signs off the design; whether managers want it in CareBook or as an emailed report.
+    scoringPoints:
+      - The learned list has the goal with its numbers, the users, what it shows, the limit (no names) and the date
+      - The unknowns are real open questions, not things the call already answered
+      - Short facts, not a story of the call

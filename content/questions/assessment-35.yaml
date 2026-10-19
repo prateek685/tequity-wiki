@@ -1,0 +1,362 @@
+# Week 7 assessment pool (after Day 35): the whole CareBook week, Apr 13 – Apr 17, with skills combined:
+# disagreeing professionally about testing, the bad-news formula for the May 4 move, LAST with Dr. Mercer after the
+# reminder bug, saying no to SSO, the combined Friday call, and patient-app and telehealth terms.
+# Shows 8 choice + 2 written of 20.
+pool: assessment-35
+questions:
+  - id: A35-01
+    type: mcq
+    stem: >-
+      Monday. Dana writes in Slack: “Regression is a nice-to-have, right? We need April 27.” What's the best reply
+      in chat?
+    options:
+      - text: "“Right, we can drop it.”"
+        correct: false
+        explanation: Silent agreement in writing. Hard to undo later.
+      - text: "“Not quite: the Epic sync has a known time issue, so testing is how we protect April 27. I have a faster option. Can we talk for 10 minutes at 10?”"
+        correct: true
+        explanation: Disagrees briefly with a fact and moves the real discussion to a call.
+      - text: "A long message explaining regression testing and the whole Epic issue."
+        correct: false
+        explanation: A wall of text in chat. She won't read it before deciding.
+      - text: "No reply until you've talked to QA."
+        correct: false
+        explanation: Silence reads as agreement.
+    source: { quote: "Can we skip the regression run and go straight to UAT? April 27 can't move.", page: 91 }
+
+  - id: A35-02
+    type: mcq
+    stem: "Monday. You want to disagree with Dana's plan without making it personal. Which opening is best?"
+    options:
+      - text: "“I think you're wrong about this.”"
+        correct: false
+        explanation: Attacks the person's judgment, not the idea.
+      - text: "“I get it. Lakeside has told three clinics, and moving the date is painful.”"
+        correct: true
+        explanation: Acknowledges her goal first, which earns you room to disagree.
+      - text: "“With all due respect…”"
+        correct: false
+        explanation: Americans hear this as “I'm about to be disrespectful.”
+      - text: "“I'm just the engineer, but…”"
+        correct: false
+        explanation: Weakens your concern before you state it.
+    source: { quote: "I get it. Lakeside has told three clinics, and moving the date is painful.", page: 91 }
+
+  - id: A35-03
+    type: mcq
+    stem: "Monday. Dana half-agrees: “Maybe. Send me something.” What do you send?"
+    options:
+      - text: "Nothing yet; wait for her to decide."
+        correct: false
+        explanation: An unconfirmed agreement is easy to forget by Friday.
+      - text: "The revised test plan and Wednesday's check-in invite, within the hour."
+        correct: true
+        explanation: Turns a half-yes into a written plan with a decision point.
+      - text: "A long document on why testing matters."
+        correct: false
+        explanation: Re-argues the point instead of confirming the plan.
+      - text: "A Slack message saying “as discussed”."
+        correct: false
+        explanation: Says nothing about what was discussed.
+    source: { quote: "I'll send the revised test plan and Wednesday's check-in invite within the hour.", page: 91 }
+
+  - id: A35-04
+    type: mcq
+    stem: "Tuesday. Which version of the bad news gives Dana the headline first?"
+    options:
+      - text: "“So we found something interesting in the Epic data format yesterday…”"
+        correct: false
+        explanation: A story opening. The headline is still to come.
+      - text: "“I have some bad news about the pilot date. It moves from April 27 to May 4.”"
+        correct: true
+        explanation: Headline, then the impact, in two short sentences.
+      - text: "“There might be a small risk to the timeline.”"
+        correct: false
+        explanation: Softened until it hides the news.
+      - text: "“The team has been working really hard, but…”"
+        correct: false
+        explanation: Defends the team before giving the news.
+    source: { quote: "Headline: \"I have some bad news about the release date.\"", page: 89 }
+
+  - id: A35-05
+    type: mcq
+    stem: "Tuesday. Which is the best one-sentence cause for Dana?"
+    options:
+      - text: "“Lakeside's documentation was wrong, so this isn't on us.”"
+        correct: false
+        explanation: Blame. It starts an argument you don't need.
+      - text: "“Epic sends appointment times and cancellation codes in a different format than the documentation, and the fix plus retesting takes five working days.”"
+        correct: true
+        explanation: Short, factual, no blame, and it explains the size of the slip.
+      - text: "“There were a lot of technical complexities with FHIR resources and status mappings.”"
+        correct: false
+        explanation: Jargon that explains nothing to a VP of Product.
+      - text: "“It's complicated.”"
+        correct: false
+        explanation: Sounds like you're hiding something.
+    source: { quote: "Cause — short, no blame", page: 89 }
+
+  - id: A35-06
+    type: mcq
+    stem: "Tuesday. You're writing the bad-news email. Where does the new date go?"
+    options:
+      - text: "In the subject line and the first sentence."
+        correct: true
+        explanation: Bottom line first. She can forward it without reading further.
+      - text: "After the explanation, so she understands why first."
+        correct: false
+        explanation: Buries the news, the habit US clients trust least.
+      - text: "In an attachment with the full plan."
+        correct: false
+        explanation: Hides the most important line.
+      - text: "Nowhere; she heard it on the call."
+        correct: false
+        explanation: The email is the record she forwards to Lakeside.
+    source: { quote: "Subject: CareBook pilot — moving to Mon May 4 (decision needed by Wed noon CT)", page: 155 }
+
+  - id: A35-07
+    type: mcq
+    stem: "Wednesday. Dr. Mercer is angry about the reminder bug. Which order is right?"
+    options:
+      - text: "Explain the cause, then apologise, then listen."
+        correct: false
+        explanation: Explaining first makes an upset client more upset.
+      - text: "Listen, acknowledge the impact, explain the fix and prevention, then thank him."
+        correct: true
+        explanation: LAST. He has to feel heard before he can hear the fix.
+      - text: "Apologise repeatedly until he calms down."
+        correct: false
+        explanation: Many apologies and no fix.
+      - text: "Send an email instead of taking the call."
+        correct: false
+        explanation: Avoids the conversation he asked for.
+    source: { quote: "Listen (don't interrupt) → Acknowledge", page: 89 }
+
+  - id: A35-08
+    type: mcq
+    stem: "Wednesday. Dr. Mercer asks how you'll explain the cause to his CEO. Which line is best?"
+    options:
+      - text: "“A stale UTC offset in the reminder microservice's cache.”"
+        correct: false
+        explanation: Accurate, and meaningless to a CEO.
+      - text: "“After daylight saving time, our reminder service used the wrong time offset. We fixed it on Tuesday at 6 pm.”"
+        correct: true
+        explanation: The cause and the fix in two plain sentences.
+      - text: "“A third-party issue we're still investigating.”"
+        correct: false
+        explanation: Vague, and it shifts blame.
+      - text: "“Human error.”"
+        correct: false
+        explanation: Sounds like a person will be blamed, and explains nothing.
+    source: { quote: "The cause was simple: after daylight saving time, our reminder service used the wrong time oﬀset.", page: 95 }
+
+  - id: A35-09
+    type: mcq
+    stem: "Wednesday. Dr. Mercer asks what Lisa Chen will see to know reminders are right. What do you offer?"
+    options:
+      - text: "“She can trust us.”"
+        correct: false
+        explanation: Trust is what was lost. Give her something to check.
+      - text: "“A daily reminder report for the next two weeks.”"
+        correct: true
+        explanation: Something concrete she can watch herself.
+      - text: "“Access to our server logs.”"
+        correct: false
+        explanation: Not useful to a clinic manager, and logs aren't hers to read.
+      - text: "“We'll tell her if anything goes wrong.”"
+        correct: false
+        explanation: That's what failed this week.
+    source: { quote: "A daily reminder report to Lisa Chen for the next 2 weeks", page: 95 }
+
+  - id: A35-10
+    type: mcq
+    stem: "Thursday. Which way of saying no to Kevin's SSO request is best?"
+    options:
+      - text: "“No, the sprint is full.”"
+        correct: false
+        explanation: A bare no. He'll push harder.
+      - text: "“Not this sprint, but here's when: Sprint 7, May 11–22, before the rollout to all 12 clinics.”"
+        correct: true
+        explanation: Firm on now, with a real date for later.
+      - text: "“Maybe, if everything goes well.”"
+        correct: false
+        explanation: A soft yes he'll hold you to.
+      - text: "“We'll see what we can do.”"
+        correct: false
+        explanation: No answer and no date.
+    source: { quote: "Not this sprint — but here's when.", page: 89 }
+
+  - id: A35-11
+    type: mcq
+    stem: "Thursday. Kevin pushes: “Just tell me it'll be done.” You need a moment. What do you say first?"
+    options:
+      - text: "“Okay, it'll be done.”"
+        correct: false
+        explanation: Gives in to pressure with a promise you can't keep.
+      - text: "“Let me think about that for a second.”"
+        correct: true
+        explanation: A pause phrase that buys time calmly instead of blurting a yes.
+      - text: "“Uh, well, um, I mean…”"
+        correct: false
+        explanation: Filler sounds like you're losing control.
+      - text: "“Stop pressuring me.”"
+        correct: false
+        explanation: Personal, and to the CTO.
+    source: { quote: "Let me think about that for a second.", page: 89 }
+
+  - id: A35-12
+    type: mcq
+    stem: "Friday. Dana asks: “Do we need consent to text patients reminders at Westside?” What's the best reply?"
+    options:
+      - text: "“No, reminders are just a service.”"
+        correct: false
+        explanation: Wrong. Under the TCPA, patients must consent to automated texts.
+      - text: "“Yes. Under the TCPA, patients must consent to automated texts like SMS reminders. Let me confirm with Rachel how Westside's consent is recorded, and I'll reply by Monday.”"
+        correct: true
+        explanation: Knows the rule, and gives the compliance detail to the right owner with a date.
+      - text: "“Only if they're over 65.”"
+        correct: false
+        explanation: Invented. Consent applies to every patient.
+      - text: "“That's Lakeside's legal team's job.”"
+        correct: false
+        explanation: Partly true, but you can still answer the basic rule.
+    source: { quote: "TCPA US law on automated calls and texts — patients must consent to SMS reminders.", page: 169 }
+
+  - id: A35-13
+    type: scenario
+    clientLine: "“Can't you just push the fix and test in production?”"
+    stem: Monday. Dana suggests it on a call. The Epic fix isn't done yet. What do you say?
+    options:
+      - text: "“Sure, that's faster.”"
+        correct: false
+        explanation: Patients become the testers. Exactly the risk this week is about.
+      - text: "“I understand you want speed. My concern is that in production, a wrong time reaches a real patient. The 60 riskiest cases in a day and a half gets us most of the speed safely. Shall we do that?”"
+        correct: true
+        explanation: Goal, concern with the patient risk, alternative, ask.
+      - text: "“That's a terrible idea.”"
+        correct: false
+        explanation: Attacks the idea so hard it lands on the person.
+      - text: "“Let me ask Kevin.”"
+        correct: false
+        explanation: Hides behind someone else instead of stating your view.
+    source: { quote: "Acknowledge their goal → state your concern with facts → oﬀer an alternative → ask.", page: 89 }
+
+  - id: A35-14
+    type: scenario
+    clientLine: "“I suspected this after yesterday. Why didn't you say so then?”"
+    stem: Tuesday. Dana heard the May 4 news and is frustrated. What do you say?
+    options:
+      - text: "“I didn't want to worry you.”"
+        correct: false
+        explanation: Admits to holding back, which loses trust.
+      - text: "“Fair question. Yesterday we knew there was an issue but not its size; we confirmed it this morning and I called you straight away. Going forward, I'll flag a possible slip as soon as I see one, even before it's confirmed.”"
+        correct: true
+        explanation: Honest about the timing, no excuses, and a better rule for next time.
+      - text: "“I did mention it.”"
+        correct: false
+        explanation: Defensive.
+      - text: "“Sorry, sorry, you're right, sorry.”"
+        correct: false
+        explanation: An apology spiral with no substance.
+    source: { quote: "You already suspected the date might move after yesterday's call.", page: 94 }
+
+  - id: A35-15
+    type: scenario
+    clientLine: "“Our CEO asked me this morning whether we should pause the pilot.”"
+    stem: Wednesday. Dr. Mercer has calmed down a little. What do you say?
+    options:
+      - text: "“Please don't, that would be a disaster for us.”"
+        correct: false
+        explanation: About your interests, not his patients.
+      - text: "“That's a fair question after this week. Can I give you what you need to answer him? The written incident summary by tomorrow, with the cause, fix and prevention, and Lisa's daily reports from today.”"
+        correct: true
+        explanation: Accepts the concern and gives him the evidence for his CEO.
+      - text: "“He's overreacting.”"
+        correct: false
+        explanation: Criticises the client's CEO.
+      - text: "“That's up to you.”"
+        correct: false
+        explanation: True, but leaves him without the facts he needs.
+    source: { quote: "Lakeside's CEO asked you this morning whether the pilot should be paused.", page: 96 }
+
+  - id: A35-16
+    type: scenario
+    clientLine: "“Fine, Westside only. But make it sound like good news.”"
+    stem: Friday. Dana picked the phased option. What do you say?
+    options:
+      - text: "“I can't spin it.”"
+        correct: false
+        explanation: "It isn't spin: going live early at one clinic is true."
+      - text: "“It is good news: we go live early at Westside on April 29, and the other two clinics join on May 4 with full testing. I'll draft two lines for your board and confirm with Lisa today.”"
+        correct: true
+        explanation: Frames it truthfully as going live early, and owns the follow-up.
+      - text: "“Tell them the full pilot starts on the 29th.”"
+        correct: false
+        explanation: Not true, and Lakeside will see it.
+      - text: "“Let's not mention the other clinics.”"
+        correct: false
+        explanation: Hides part of the plan.
+    source: { quote: "Soft start on Apr 29 at Westside only — online booking on, reminders oﬀ", page: 99 }
+
+  - id: A35-17
+    type: written
+    stem: >-
+      Monday afternoon. Dana asks: “Explain to me why we can't skip regression, in one sentence I can tell my CEO.”
+      Write it.
+    modelAnswer: >-
+      The Epic sync sometimes shows appointment times an hour off, so we're testing the 60 riskiest flows in a day and a
+      half to make sure no patient sees a wrong time, and we'll know by Wednesday whether April 27 holds.
+    scoringPoints:
+      - The patient-facing risk in plain words
+      - Includes the faster alternative, so it isn't just “no”
+      - Gives a date for the answer
+    source: { quote: "Wrong appointment times reaching patients and front desks, double bookings, and Lakeside losing trust in the first week of the pilot.", page: 91 }
+
+  - id: A35-18
+    type: written
+    stem: >-
+      Tuesday. Write the spoken version of the 6-step bad news for Dana, in 4–6 short sentences: the pilot moves from
+      April 27 to May 4.
+    modelAnswer: >-
+      Dana, I have some bad news about the pilot date: we need to move it from April 27 to May 4. Epic sends times and
+      cancellation codes in a different format than documented; the fix is three days plus two to retest. We can go
+      live on the 27th with front desks re-entering bookings by hand, or on May 4 with everything working. I recommend
+      May 4, and the investor demo stays safe. I need your decision by noon tomorrow. I'll update you on Thursday
+      either way.
+    scoringPoints:
+      - All six steps in order, with the headline first
+      - The cause in one sentence with no blame, and two options with a recommendation
+      - A decision deadline and the next update, with at most one apology
+    source: { quote: "I need your decision by Thursday.", page: 89 }
+
+  - id: A35-19
+    type: written
+    stem: >-
+      Thursday. A clinic manager at Northgate emails: “Heard reminders sent wrong times at Westside. Will that happen
+      to us on May 4?” Write your reply in 2–3 sentences.
+    modelAnswer: >-
+      I understand the worry, and I'm sorry for what happened at Westside. The cause, a time offset after daylight
+      saving time, was fixed on April 14, and every reminder is now checked against the Epic appointment time before
+      it's sent; we've also added tests for daylight-saving dates. Lisa Chen gets a daily reminder report, and I'm
+      happy to share it with you too.
+    scoringPoints:
+      - Acknowledges the concern before explaining
+      - Gives the fix and prevention in plain words
+      - Offers something concrete they can check
+    source: { quote: "New automated tests for daylight-saving dates.", page: 95 }
+
+  - id: A35-20
+    type: written
+    stem: >-
+      Friday, after the call. Kevin asks: “Where did we land with Dana on April 29?” Dana kept May 4. Write your reply in
+      2–3 sentences.
+    modelAnswer: >-
+      We're keeping Mon May 4 with full testing: Lakeside staff can only train on Apr 28, so a full pilot on Apr 29
+      would have meant cutting regression and UAT. Dana considered a Westside-only start on the 29th but chose May 4;
+      the May 12 investor demo runs on the demo environment either way. The updated plan goes to Dana and Lisa by 5 pm
+      Central today; I'll copy you.
+    scoringPoints:
+      - The decision first, with the reason (training date, no cut testing)
+      - Mentions the option considered and that the demo is safe
+      - Ends with the written follow-up and keeps Kevin in the loop
+    source: { quote: "Keep May 4 with full testing. The investor demo on May 12 is safe either way.", page: 99 }

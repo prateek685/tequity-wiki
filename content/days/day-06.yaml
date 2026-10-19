@@ -1,0 +1,133 @@
+day: 6
+block: 2
+title: Quick change
+type: normal
+storyDate: Monday, March 9
+minutes: About 50 min
+intro: >-
+  Dana wants “just a button” squeezed into the last week of the sprint. Today you handle the ask on a call and
+  confirm it in an email with the bottom line first.
+lessons:
+  - id: just-a-button
+    kind: prep
+    title: It's just a button
+    minutes: 5 min
+    blocks:
+      - type: yesterday
+        text: >-
+          on Friday you ran your first weekly sync and sent Dana a recap she could forward. She's finding out who
+          signs Lakeside's security form by Tuesday.
+      - type: scene
+        when: Monday, March 9 · a quick check-in
+        text: >-
+          It's the last week of Sprint 3, and the demo is on Friday. Dana just saw a competitor's app with an “Add to
+          calendar” button, and she wants one in CareBook. You'll hear about it on today's check-in, and whatever you
+          agree, you'll need to put it in writing.
+      - type: text
+        text: >-
+          This week is about writing. Most of what a US client knows about your work, they read while you're asleep.
+          Start by picking one message you need to send this week. No real one yet? Use the email you'll owe Dana
+          after today's call.
+    fields:
+      - { id: reader, label: Who will read it, kind: line, placeholder: "e.g. Dana Brooks, VP of Product" }
+      - { id: purpose, label: What they need to know or do, kind: line, placeholder: "e.g. Confirm the Add-to-calendar button moves to Sprint 4" }
+      - { id: by-when, label: By when, kind: line, placeholder: "e.g. Reply by Tuesday noon Central" }
+    source: both
+
+  - id: bluf-email
+    kind: learn
+    title: The BLUF email
+    heading: "The BLUF email: bottom line up front, in writing"
+    minutes: 10 min
+    lead: >-
+      Your client reads email between meetings, often on a phone. Write it so they know what you need from the
+      subject line and the first two lines, and can stop reading there.
+    blocks:
+      - type: steps
+        items:
+          - { title: 1 · Subject, text: "The purpose and the ask, with a keyword in capitals. “ACTION: approve the login screen by Thu”." }
+          - { title: 2 · Bottom line, text: "The first two lines: what happened or what you need, and by when." }
+          - { title: 3 · Details, text: "Bullets underneath, only what the reader needs to act." }
+          - { title: 4 · One screen, text: "If they have to scroll, cut it." }
+      - type: text
+        text: >-
+          Keywords tell the reader what kind of email this is before they open it: **ACTION** (they must do
+          something), **REQUEST** (you're asking for approval), **DECISION** (they must choose), **INFO** (no reply
+          needed).
+      - type: compare
+        beforeLabel: Bottom line buried
+        afterLabel: Bottom line first
+        before: >-
+          “Subject: Update. Hi Dana, hope you had a good weekend. As you know, this week we're finishing video booking
+          and reschedule, and the team has been looking at the SMS number too… Anyway, could you approve the reminder
+          test plan?”
+        after: >-
+          “Subject: REQUEST: approve the reminder test plan by Wed. Hi Dana, could you approve the attached test plan
+          by Wednesday noon? We need it to show reminders in Friday's demo.”
+      - type: watch
+        url: https://kabir.cc/how-to-write-email-with-military-precision/
+        title: "Kabir Sehgal: How to Write Email with Military Precision"
+        meta: Article · 10 min · subject keywords, bottom line first, short emails
+
+  - id: quick-change
+    kind: mock
+    title: Dana's quick change
+    minutes: 15 min
+    lead: >-
+      Don't say yes or no on the spot. Ask what exactly she needs, explain the impact on this sprint, offer options
+      with your recommendation, and play back what you agreed before you end the call.
+    cardId: S05
+    level: 1
+    scriptNote: Use it the first time, then try the call again without it.
+
+  - id: quick-change-review
+    kind: reflect
+    title: How did the call go?
+    minutes: 5 min
+    lead: Tick what you managed, then note what the AI told you.
+    checksTitle: On this call, I…
+    checks:
+      - asked what exactly before saying yes or no
+      - explained the impact on this sprint
+      - gave options with a recommendation
+      - played back the agreed scope and promised a written recap
+    fields:
+      - { id: went-well, label: What went well, kind: area, placeholder: "From the AI's feedback" }
+      - { id: fix-next, label: One thing to fix next time, kind: area, placeholder: "e.g. I said “sure” before asking which calendars" }
+      - { id: log, label: "Could my reader act on my message without asking me a follow-up question?", kind: area, rows: 2 }
+    rubric: true
+
+  - id: confirm-change
+    kind: write
+    title: Confirm it in writing
+    heading: Confirm the change in a BLUF email
+    minutes: 10 min
+    lead: >-
+      You told Dana you'd confirm in writing today. Write the email so she can read the subject and the first two
+      lines on her phone and know exactly what was agreed and what it means for Friday.
+    blocks:
+      - type: facts
+        label: What you agreed on the call
+        rows:
+          - { label: The change, value: "An Add-to-calendar button after booking, for Apple and Google calendars, with the clinic address and the video link" }
+          - { label: When, value: "Option A: built in Sprint 4 (starts Mon Mar 16), ready for the Mar 27 demo" }
+          - { label: Impact, value: "None on Sprint 3. Reschedule and cancel stay on track for Friday's demo" }
+    fields:
+      - { id: subject, label: Subject, kind: line, placeholder: "e.g. INFO: Add to calendar confirmed for Sprint 4 (Mar 27 demo)" }
+      - { id: bottom-line, label: The first two lines, kind: area, rows: 2, placeholder: "What we agreed and what it means for this week…" }
+      - { id: details, label: Details (bullets), kind: area, rows: 4, placeholder: "- Calendars: …" }
+      - { id: next-step, label: Next step or ask, kind: line, placeholder: "e.g. Reply only if anything here is wrong" }
+
+scoring:
+  confirm-change:
+    modelAnswer: >-
+      Subject: INFO: Add-to-calendar button confirmed for Sprint 4 (ready for the Mar 27 demo).
+      Hi Dana, as agreed today, we'll build the Add-to-calendar button in Sprint 4 and show it in the March 27 demo.
+      Sprint 3 doesn't change: reschedule and cancel are still on track for Friday's demo.
+      Details: Apple and Google calendars; the entry includes the clinic address, and the video link for video
+      visits; it works in the app and on the web; Sprint 4 starts Mon Mar 16.
+      Next step: no reply needed unless I've missed something.
+    scoringPoints:
+      - The subject line names the change and the timing, with a keyword such as INFO or ACTION
+      - The first two lines give what was agreed and the impact on this sprint (none)
+      - The scope details are short bullets and the email fits on one screen

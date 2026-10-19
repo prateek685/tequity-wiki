@@ -1,0 +1,133 @@
+day: 7
+block: 2
+title: Why so long?
+type: normal
+storyDate: Tuesday, March 10
+minutes: About 50 min
+intro: >-
+  The SMS reminders are two days late and Dana's CEO noticed. Today you answer “Why is this taking so long?” and
+  write a five-line status anyone can read in ten seconds.
+lessons:
+  - id: reminders-are-late
+    kind: prep
+    title: The reminders are late
+    minutes: 5 min
+    blocks:
+      - type: yesterday
+        text: >-
+          you agreed with Dana to build Add to calendar in Sprint 4 and confirmed it in a BLUF email.
+      - type: scene
+        when: Tuesday, March 10 · Dana is calling
+        text: >-
+          Good news first: Dana found out that Brightpath's COO signs Lakeside's security form. He signed it this
+          morning, and it's gone to Sam Porter. The bad news: SMS reminders were due in staging yesterday, and they
+          aren't live. Dana's CEO asked her about them this morning, and she had no answer.
+      - type: facts
+        label: Where the reminders stand
+        rows:
+          - { label: Done, value: "Reminder code finished and tested with test numbers" }
+          - { label: Waiting on, value: "US carriers to verify the toll-free SMS number (submitted Tue Mar 3, 5–7 business days)", warn: true }
+          - { label: Expected, value: "Wed Mar 11, two days late. No impact on the April 27 pilot" }
+      - type: text
+        text: >-
+          Before the call, sort your day into three lines. Use your real project, or CareBook.
+    fields:
+      - { id: done, label: Done, kind: line, placeholder: "e.g. Reminder code finished and tested" }
+      - { id: next, label: Next, kind: line, placeholder: "e.g. Finish video booking" }
+      - { id: blocked, label: Blocked, kind: line, placeholder: "e.g. SMS number in carrier verification" }
+    source: both
+
+  - id: daily-status
+    kind: learn
+    title: The 5-line status
+    heading: "Daily status: five lines, one each"
+    minutes: 10 min
+    lead: >-
+      A status update isn't a list of everything you touched. It's five lines a busy reader can scan in ten seconds.
+    blocks:
+      - type: steps
+        items:
+          - { title: Done, text: What's finished since the last update. }
+          - { title: Next, text: What you'll finish before the next one. }
+          - { title: Blocked, text: What's stopping you, and who can unblock it. }
+          - { title: Risk, text: What could hurt a date, and the date. }
+          - { title: Need from you, text: "One clear ask, with a deadline." }
+      - type: text
+        text: >-
+          One line each, and **“none” is a valid answer.** “Blocked: none” tells the reader something useful. Leaving
+          the line out makes them wonder.
+      - type: compare
+        beforeLabel: Every task you touched
+        afterLabel: Five lines
+        before: >-
+          “Today worked on reminders, had some issues with the carrier thing, also joined two meetings, did some code
+          review, looked at a few bugs. Will continue tomorrow.”
+        after: >-
+          “Done: reminder code tested. Next: video booking, last screens. Blocked: SMS number, carrier check due Wed.
+          Risk: none for the pilot. Need from you: none.”
+      - type: watch
+        url: https://behavioralscientist.org/when-writing-for-busy-readers-less-is-more/
+        title: "Rogers and Lasky-Fink: When Writing for Busy Readers, Less Is More"
+        meta: Article · 10 min · optional · why shorter messages get acted on
+
+  - id: why-so-long
+    kind: mock
+    title: “Why is this taking so long?”
+    minutes: 15 min
+    lead: >-
+      Start with the answer: what's late, by how much, and why. Then the facts without excuses, the impact and your
+      plan. Offer Dana something she can forward to her CEO.
+    cardId: S06
+    level: 1
+    scriptNote: Use it the first time, then try the call again without it.
+
+  - id: why-so-long-review
+    kind: reflect
+    title: How did the call go?
+    minutes: 5 min
+    lead: Tick what you managed, then note what the AI told you.
+    checksTitle: On this call, I…
+    checks:
+      - "answered first: what, how late, why"
+      - gave facts, not excuses or apologies
+      - gave a clear impact and plan
+      - offered something Dana can forward
+    fields:
+      - { id: went-well, label: What went well, kind: area, placeholder: "From the AI's feedback" }
+      - { id: fix-next, label: One thing to fix next time, kind: area, placeholder: "e.g. I started with how carrier verification works" }
+      - { id: log, label: "Could my reader act on my message without asking me a follow-up question?", kind: area, rows: 2 }
+    rubric: true
+
+  - id: status-update
+    kind: write
+    title: Your 5-line status
+    heading: Write today's 5-line status update
+    minutes: 10 min
+    lead: >-
+      Write today's status for the project channel. One line each; write “none” where there's nothing to say.
+    source: both
+    blocks:
+      - type: note
+        tone: info
+        title: On a real project?
+        text: Post it in your project channel too, after checking with your lead.
+    fields:
+      - { id: done, label: Done, kind: line }
+      - { id: next, label: Next, kind: line }
+      - { id: blocked, label: Blocked, kind: line }
+      - { id: risk, label: Risk, kind: line }
+      - { id: need, label: Need from you, kind: line }
+
+scoring:
+  status-update:
+    modelAnswer: >-
+      Done: SMS reminder code finished and tested with test numbers; Lakeside's security form signed by Brightpath's
+      COO and sent to Sam Porter.
+      Next: finish video booking and reschedule and cancel for Friday's demo.
+      Blocked: SMS reminders wait on carrier verification of the SMS number, expected Wed Mar 11.
+      Risk: Epic sandbox access is still needed by Mon Mar 16 to keep the April 27 pilot.
+      Need from you: none today.
+    scoringPoints:
+      - Five short lines in the order Done, Next, Blocked, Risk, Need, each one line
+      - Specific facts and dates, not a list of every task
+      - Uses “none” where nothing applies instead of leaving a line out

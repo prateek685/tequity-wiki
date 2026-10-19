@@ -1,0 +1,74 @@
+id: a12-2-discovery
+kind: template
+ref: "A12 · 2"
+title: "Worked example: “We need a dashboard for our clinics”"
+summary: "Discovery (card S07): find the real problem and the number behind a vague request."
+blocks:
+  - type: text
+    text: "The whole flow for one call type: pre-call card, the call, the written follow-up, and why it works against the call rubric. Use it as a reference, then practise the matching card."
+  - { type: heading, text: "1. Pre-call card (filled)" }
+  - type: facts
+    rows:
+      - { label: "Call", value: "Dr. Alan Mercer (CMIO, Lakeside Health) · Mon Mar 16 · 15 min · Eastern time" }
+      - { label: "My goal", value: "Understand the real problem behind “a dashboard” and the number that shows success, before proposing anything." }
+      - { label: "Opener", value: "“Hi Dr. Mercer, thanks for making time. Dana mentioned you'd like a dashboard for the clinics. Before I suggest anything, could I ask a few questions so we build the right thing?”" }
+      - { label: "3 things I must say", value: "We'll only propose after we understand the need · CareBook has booking, cancellation and reminder data, not clinical data · I'll send a summary today and an option by Thursday" }
+      - { label: "3 questions I must ask", value: "What's happening today that makes this important? · Who will use it, and what will they decide? · What number tells you it's working?" }
+      - { label: "Risk to raise", value: "Clinical data stays in Epic, so it can't be part of this dashboard." }
+      - { label: "Hardest question and my answer", value: "“How long will it take?” → “I don't want to guess before I understand it. I'll send you an estimate with the option on Thursday.”" }
+      - { label: "Closing line", value: "“I'll send a one-page summary today and a first option with an estimate by Thursday.”" }
+  - { type: heading, text: "2. The call (a strong version)" }
+  - type: facts
+    rows:
+      - { label: "You", value: "Hi Dr. Mercer, thanks for making time. Dana mentioned you'd like a dashboard for the clinics. Before I suggest anything, could I ask a few questions so we build the right thing?" }
+      - { label: "Dr. Mercer", value: "Sure. We need a dashboard for our clinics." }
+      - { label: "You", value: "What's happening today that makes a dashboard important right now?" }
+      - { label: "Dr. Mercer", value: "Too many patients don't show up." }
+      - { label: "You", value: "How big is the problem, and what would good look like?" }
+      - { label: "Dr. Mercer", value: "About 18% at the three pilot clinics. We want it under 10% by the end of the year." }
+      - { label: "You", value: "Who would look at the dashboard, and what would they decide after looking at it?" }
+      - { label: "Dr. Mercer", value: "The clinic managers. Every Monday they'd decide where to add reminder calls or extra slots." }
+      - { label: "You", value: "Which numbers would help them decide that?" }
+      - { label: "Dr. Mercer", value: "No-shows by clinic, by day of week, and by appointment type: new or follow-up, in person or video." }
+      - { label: "You", value: "Is there anything it must not show, and when do you need it?" }
+      - { label: "Dr. Mercer", value: "No patient names, just numbers. And before our board meeting on June 10." }
+      - { label: "You", value: "Let me play that back: clinic managers need a Monday view of no-shows by clinic, day and appointment type, with no patient names, before June 10, so they can bring no-shows from 18% to under 10%. Did I get that right?" }
+      - { label: "Dr. Mercer", value: "That's it exactly." }
+      - { label: "You", value: "Great. I'll send a one-page summary today and a first option with an estimate by Thursday." }
+  - { type: heading, text: "3. The written follow-up" }
+  - type: message
+    label: "The email"
+    text: |-
+      Subject: Clinic no-show dashboard — what we heard (please confirm)
+
+      Hi Dr. Mercer,
+
+      Thank you for your time today. Here's what we heard — please correct anything I got wrong.
+
+      The goal: bring the no-show rate at the 3 pilot clinics from 18% to under 10% by the end of the year.
+
+      Who uses it: clinic managers, every Monday morning.
+
+      What it shows: no-shows by clinic, day of week, and appointment type (new vs follow-up, in-person vs video).
+
+      What it must not show: patient names.
+
+      Needed by: before the Lakeside board meeting on June 10.
+
+      Assumption: we use CareBook booking and reminder data only; clinical data stays in Epic.
+
+      Open question: should it include the other 9 clinics after the rollout?
+
+      Next step: I'll send a first option with an estimate by Thursday, March 19.
+
+      Best regards,
+
+      [Your name]
+  - { type: heading, text: "4. Why this works" }
+  - type: facts
+    rows:
+      - { label: "Asked open questions before proposing anything", value: "Questions asked" }
+      - { label: "Found the business goal and the success metric: 18% → under 10%", value: "Business link" }
+      - { label: "Played it back in one sentence and got a “yes”", value: "Playback" }
+      - { label: "Did not guess an estimate on the spot", value: "Handling unknowns" }
+      - { label: "A next step with a date, and a written summary the same day", value: "Closing and next steps · Written follow-up" }

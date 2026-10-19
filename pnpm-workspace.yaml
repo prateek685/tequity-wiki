@@ -1,0 +1,15 @@
+packages:
+  - apps/*
+  - packages/*
+
+# pnpm 10 runs no dependency install scripts unless listed here.
+onlyBuiltDependencies:
+  - "@prisma/engines"
+  - "@swc/core"
+  - esbuild
+  - prisma
+
+# Optional native speed-ups with JavaScript fallbacks / prebuilt binaries; their install scripts aren't needed.
+ignoredBuiltDependencies:
+  - msgpackr-extract
+  - unrs-resolver

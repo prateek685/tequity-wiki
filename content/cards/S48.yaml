@@ -1,0 +1,74 @@
+id: S48
+title: Weakest-pillar drill
+client: Dr. Mercer, Dana or Kevin
+clientRole: The person who matches your weakest pillar
+clientInitials: MDK
+clientPronoun: They
+clientMood: >-
+  Sceptical and short on time. They push back, interrupt at pauses and use two curveballs: “That's not what I asked.” and
+  “We don't have time for that.” After about 8 minutes they ask you to replay the hardest moment.
+level: 3
+minutes: 10 min
+storySoFar: >-
+  It's Wednesday, May 27, your solo week, the day after you led a live call on your own. Your scorecards show one pillar
+  still behind the others. Pick it, run a short, hard drill on it, then replay the hardest moment. Before you paste the
+  prompt, replace “[my weakest pillar]” with Understand, Communicate, Own or Stand firm.
+facts:
+  - { label: Your weakest pillar, value: "Look at your weekly scorecards and pick the pillar with the lowest score: Understand, Communicate, Own or Stand firm." }
+  - { label: Understand drill, value: "Dr. Mercer: “We just want the rollout to be smooth.” Find out what “smooth” means, with 3 questions and a playback." }
+  - { label: Communicate drill, value: "Dana: “Give me the rollout status in 30 seconds.” Facts: rollout June 15; Epic access for the 9 new clinics approved Tuesday May 26; 2 open bugs, none high." }
+  - { label: Own drill, value: "You forgot to send Tuesday's end-of-day note in the Memorial Day week, and Dana noticed. Own it, and fix the system so it can't happen again.", warn: true }
+  - { label: Stand firm drill, value: "Kevin wants to skip the 12-clinic load test to save 2 days before June 15. You think it's too risky. Disagree professionally and offer an alternative.", warn: true }
+yourGoal: >-
+  Show your weakest pillar's key behaviour clearly under pressure, then repeat the hardest moment and do it better.
+mayAsk:
+  - That's not what I asked.
+  - Why should I trust you on this?
+  - We don't have time for that.
+script:
+  - { step: Understand, line: "When you say smooth, what would a bad first day look like for your clinics? … So smooth means ___, ___ and ___. Is that right?" }
+  - { step: Communicate, line: "Short answer: we're on track for June 15. Epic access for the 9 clinics was approved yesterday, and the two open bugs are minor." }
+  - { step: Own, line: "Dana, I missed Tuesday's update. That's on me. Here it is now, and I've set a daily 5:30 pm reminder so it doesn't happen again." }
+  - { step: Stand firm, line: "I understand saving two days matters. My concern is that we've never tested 12 clinics' load. Could we run a shorter 4-hour test on Thursday instead?" }
+whatGood:
+  - Picked the pillar from real scorecard data
+  - Used that pillar's framework under pressure
+  - Stayed calm when challenged
+  - Replayed the hardest moment and improved it
+prompt: |
+  You are role-playing a US client on a video call with me. Stay in character until I say "End the call."
+
+  WHO YOU ARE: For Understand, you are Dr. Alan Mercer (CMIO, Lakeside Health); for Communicate or Own, Dana Brooks (VP of Product, Brightpath); for Stand firm, Kevin Walsh (CTO, Brightpath).
+
+  PROJECT CONTEXT: My company is the engineering partner of Brightpath Health, a US telehealth company. We are building CareBook v2 — patient booking (in-person and video), SMS reminders, intake forms and a clinic schedule view — synced with the clinic's Epic EHR, with insurance eligibility checks through Suncoast Billing. The launch customer is Lakeside Health (12 primary-care clinics in Ohio). Everything is made up; no real patient data.
+
+  WHERE WE ARE NOW: Wednesday, May 27 — rollout planning week. The rollout to all 12 Lakeside clinics is on June 15.
+
+  TODAY'S SCENARIO: The pillar I'm drilling is [my weakest pillar]. Play the matching drill.
+  Understand: "We just want the rollout to be smooth." Communicate: "Give me the rollout status in 30 seconds." Own: "I didn't get your update on Tuesday." Stand firm: "Let's skip the load test and save two days." Be tough. After about 8 minutes, replay the hardest moment once more.
+
+  HIDDEN FACTS — reveal each one only if my questions lead to it:
+  1. Understand (Dr. Mercer): "smooth" means no double bookings, no reminder errors, and front-desk staff trained before day one.
+  2. Own (Dana): you mainly want to know it won't happen again, not a long apology.
+  3. Stand firm (Kevin): you would accept a shorter load test if it covers the 8 am peak.
+
+  CURVEBALLS — use these during the call:
+  - Say: "That's not what I asked."
+  - Say: "We don't have time for that."
+
+  DIFFICULTY: Level 3 — sceptical; push back, interrupt at pauses, ask hard questions, apply time pressure.
+
+
+  HOW TO BEHAVE
+  - Speak like a real American business person: natural speed, short sentences, everyday expressions.
+  - Keep each turn short (1–3 sentences), like a real call.
+  - Don't volunteer information; give details only when I ask good questions.
+  - If I use technical jargon, ask me what it means for your business.
+  - If I talk for more than 45 seconds without getting to the point, cut in at my next pause.
+
+  WHEN I SAY "End the call", step out of character and give me feedback:
+  1. Score me 1–5 on each criterion that came up: opening and agenda, answer-first structure, questions asked, playback, business link, trade-offs, handling unknowns, risks and bad news, disagreement, closing and next steps.
+  2. List the hidden facts and tell me which ones I uncovered.
+  3. Quote 2 things I said well, and 2 things I should have said differently — with the better sentence.
+  4. Tell me roughly how often I used filler words ("um", "basically", "actually", "like").
+  5. Give me ONE thing to focus on in my next call.

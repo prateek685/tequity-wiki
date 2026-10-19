@@ -1,0 +1,7 @@
+{
+  "extends": "@portal/config/tsconfig/node.json",
+  "compilerOptions": {
+    "noEmit": true
+  },
+  "include": ["src", "test", "scripts", "prisma.config.ts", "vitest.config.ts", "eslint.config.js"]
+}

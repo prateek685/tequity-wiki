@@ -1,0 +1,131 @@
+day: 52
+block: 11
+title: Suggest an improvement
+type: normal
+storyDate: Tuesday, May 12
+minutes: About 50 min
+intro: >-
+  Yesterday Maria explained that most denials are eligibility problems found too late. Today you turn what you noticed
+  into one proposal: what you noticed, the idea, the metric it moves and the effort. You say it on a call, then write it
+  on one page.
+lessons:
+  - id: one-improvement
+    kind: prep
+    title: Think of one improvement
+    minutes: 5 min
+    blocks:
+      - type: yesterday
+        text: >-
+          Maria told you that about 7 in 10 denied claims are eligibility problems, found at check-in when it's too late
+          to fix them. Success for her is the clean-claim rate: 84% today, 95% as the target.
+      - type: scene
+        when: Tuesday, May 12 · 8:10 am Central · pilot day nine
+        text: >-
+          Think of one improvement for your real project that nobody has asked for. No project of your own yet? Use
+          CareBook: run the eligibility check 72 hours before each visit, so problems are fixed before the patient arrives.
+    fields:
+      - { id: idea, label: My improvement in one line, kind: line, placeholder: "e.g. Check eligibility 72 hours before the visit, not at check-in" }
+      - { id: noticed, label: "What I noticed that made me think of it", kind: area, rows: 2 }
+    source: both
+
+  - id: proactive-suggestion
+    kind: learn
+    title: Proactive suggestion
+    heading: Say it in four parts, then rank it
+    minutes: 10 min
+    lead: >-
+      A good suggestion is short, tied to a number and honest about effort. Then you rank ideas by impact and effort.
+    blocks:
+      - type: steps
+        items:
+          - { title: "I noticed…", text: "The observation, with the evidence." }
+          - { title: "We could…", text: "The idea in one sentence." }
+          - { title: "It would help…", text: "The metric or business outcome." }
+          - { title: "Effort: S / M / L", text: "Small, medium or large. Then: “Want me to write it up?”" }
+      - type: example
+        text: >-
+          “I noticed most denials are eligibility problems we only find at check-in. We could run the check 72 hours before
+          each visit. It would help clean-claim rate. Effort: M, about six working days. Want me to write it up?”
+      - type: note
+        tone: info
+        title: Impact versus effort
+        text: >-
+          Place ideas on a simple 2×2 grid. Do high-impact, low-effort ideas first, and say it out loud to the client: “This
+          one is high impact and about two days of work.”
+      - type: note
+        tone: info
+        title: MVP thinking
+        text: >-
+          Ask: “What could we ship in 1–2 weeks to learn whether this works?” A small first test makes a yes easy.
+
+  - id: improvement-call
+    kind: mock
+    title: Propose an improvement
+    heading: Propose your idea to Maria
+    minutes: 10 min
+    lead: >-
+      Level 2: Maria is busy and vague. Say what you noticed, the idea, the impact in dollars and hours, and the effort.
+      Propose a small first test and agree a next step with a date.
+    cardId: S31
+    level: 2
+    scriptNote: Use it the first time, then try the call again without it.
+
+  - id: improvement-review
+    kind: reflect
+    title: How did the call go?
+    minutes: 5 min
+    lead: Tick what you managed, then note what the AI told you.
+    checksTitle: On this call, I…
+    checks:
+      - used noticed, idea, impact, effort in that order
+      - put the problem in dollars and hours
+      - proposed a small first test
+      - agreed a next step with a date
+    fields:
+      - { id: went-well, label: What went well, kind: area, placeholder: "From the AI's feedback" }
+      - { id: fix-next, label: One thing to fix next time, kind: area, placeholder: "e.g. I didn't answer “How do you know it will work?” with a test" }
+    rubric: true
+
+  - id: one-page-proposal
+    kind: write
+    title: One-page improvement proposal
+    heading: Write the one-page proposal
+    minutes: 10 min
+    lead: >-
+      Write the proposal Maria and Dana will read: the problem, the idea, the metric, the effort and the MVP. Keep it to one
+      screen, with the bottom line first.
+    source: both
+    blocks:
+      - type: recall
+        label: Your improvement from this morning
+        day: 52
+        lesson: one-improvement
+        fields:
+          - { id: idea, label: Improvement }
+          - { id: noticed, label: What you noticed }
+      - { type: field, id: problem }
+      - { type: field, id: idea-text }
+      - { type: field, id: metric }
+      - { type: field, id: effort }
+      - { type: field, id: mvp }
+    fields:
+      - { id: problem, label: The problem, with a number, kind: area, rows: 2 }
+      - { id: idea-text, label: The idea, kind: area, rows: 2 }
+      - { id: metric, label: The metric it moves, kind: line }
+      - { id: effort, label: "Effort (S / M / L) and risk", kind: line }
+      - { id: mvp, label: The smallest test that proves it, kind: area, rows: 2 }
+
+scoring:
+  one-page-proposal:
+    modelAnswer: >-
+      Problem: about 75 telehealth claims a month at the pilot clinics are denied for eligibility, found at check-in when
+      it's too late to fix. That is about 38 staff hours and around $6,750 a month in delayed payments. Idea: run the
+      eligibility check automatically 72 hours before each visit, and text the patient to update their insurance if it
+      fails. Metric: clean-claim rate, 84% today, target 95%. Effort: M, about six working days, reusing the Suncoast check
+      and the reminder texts. Open: whether the contract limits the number of checks, and whether Lakeside compliance must
+      approve the new text. MVP: video visits at the 3 pilot clinics for two weeks, comparing denial rates with in-person
+      visits.
+    scoringPoints:
+      - The problem is stated with a number, in hours or dollars, and the idea fits it in one sentence
+      - It names one business metric with its current value and target, and an honest effort size with the risks
+      - It proposes a small first test (the MVP) that would show in two weeks whether the idea works

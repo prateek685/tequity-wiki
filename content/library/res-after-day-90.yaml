@@ -1,0 +1,11 @@
+id: res-after-day-90
+kind: resource
+title: "After Day 90"
+summary: "Regular speaking practice with real people."
+blocks:
+  - type: text
+    text: "Keep one mock a week, and consider visiting a Toastmasters online club as a free guest."
+  - type: watch
+    url: https://www.toastmasters.org/find-a-club
+    title: "Toastmasters online clubs"
+    meta: "Free · Visit online club meetings free as a guest · Membership is optional paid"

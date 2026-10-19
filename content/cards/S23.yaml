@@ -1,0 +1,84 @@
+id: S23
+title: The release slips by one week
+client: Dana Brooks
+clientRole: VP of Product, Brightpath
+clientInitials: DB
+clientPronoun: She
+clientMood: >-
+  Fast, busy, outcome-driven, and she hates surprises. If you spend more than 30 seconds on background, she'll cut in:
+  “Just tell me — is the date moving?”
+level: 2
+minutes: 10–15 min
+storySoFar: >-
+  It's Tuesday, April 14. Our tech lead has confirmed the Epic appointment sync problem is bigger than expected: the
+  fix plus retesting needs 5 working days. The pilot cannot safely go live on April 27. You need to tell Dana today,
+  before her Friday board update.
+facts:
+  - label: Headline
+    value: The pilot moves from Mon Apr 27 to Mon May 4.
+    warn: true
+  - label: Cause
+    value: "Epic returns appointment times in a different time-zone format, and uses different status codes for cancelled and no-show appointments than Lakeside's documentation says."
+  - label: The fix
+    value: "Tech lead's estimate: 3 days to fix the time and status mapping, plus 2 days to retest the sync with Lakeside's Epic sandbox."
+  - label: Option A
+    value: "Go live Apr 27 without Epic sync: front-desk staff re-enter every online booking into Epic by hand. Fast, but double work and a high risk of errors."
+  - label: Option B (recommended)
+    value: Go live May 4 with full sync and full testing. The investor demo on May 12 is still safe.
+  - label: Need from Dana
+    value: "A decision by Wed Apr 15, noon CT, and a joint call with Dr. Mercer on Thursday to tell Lakeside. Next update: Thu Apr 16."
+yourGoal: >-
+  Deliver the bad news in the first 30 seconds using the 6-step formula, with options, a recommendation, and a clear
+  next update time.
+mayAsk:
+  - Whose fault is this — yours or Epic's?
+  - Can you guarantee May 4?
+  - Why am I only hearing this now?
+script:
+  - { step: Headline, line: "Dana, I have some bad news about the pilot date. We need to move it from April 27 to May 4." }
+  - { step: Cause, line: "Epic sends appointment times and cancellation codes in a different format than the documentation. Our tech lead needs three days to fix it and two days to retest." }
+  - { step: Options, line: "We have two options. We go live on the 27th without Epic sync, and the front desks re-enter bookings by hand — or we go live on May 4 with everything working." }
+  - { step: Recommend, line: "I recommend May 4. Manual re-entry is exactly how wrong appointment times happen. And the May 12 investor demo is still safe." }
+  - { step: Ask, line: "I need your decision by noon tomorrow, and I'd like to set up a call with Dr. Mercer on Thursday so we tell Lakeside together." }
+  - { step: Close, line: "I'll send this in writing right after the call, and I'll update you on Thursday either way." }
+whatGood:
+  - Headline in the first 30 seconds
+  - Cause explained briefly with no blame
+  - Two options and a clear recommendation
+  - Decision deadline and next update time given
+prompt: |
+  You are role-playing a US client on a video call with me. Stay in character until I say "End the call."
+
+  WHO YOU ARE: Dana Brooks, VP of Product at Brightpath Health (Austin, Texas). Fast, busy, outcome-driven. You hate surprises.
+
+  PROJECT CONTEXT: My company is the engineering partner of Brightpath Health, a US telehealth company. We are building CareBook v2 — patient booking (in-person and video), SMS reminders, intake forms and a clinic schedule view — synced with the clinic's Epic EHR, with insurance eligibility checks through Suncoast Billing. The launch customer is Lakeside Health (12 primary-care clinics in Ohio). Everything is made up; no real patient data.
+
+  WHERE WE ARE NOW: Tuesday, April 14. The CareBook pilot is set for Monday, April 27. You have a board update on Friday. Yesterday you agreed to a shorter, risk-based test plan.
+
+  TODAY'S SCENARIO: Open with: "Hey, you wanted to talk? I've got ten minutes." If the engineer spends more than 30 seconds on background before the headline, cut in and say "Just tell me — is the date moving?" React with frustration first, then calm down if you hear clear options and a plan.
+
+  HIDDEN FACTS — reveal each one only if my questions lead to it:
+  1. You already suspected the date might move after yesterday's call.
+  2. You want a short written note you can forward to Lakeside word for word.
+  3. Lisa Chen at Lakeside needs one week's notice to change clinic staff schedules.
+  4. If the investor demo on May 12 is safe, you can accept May 4.
+
+  CURVEBALLS — use these during the call:
+  - Ask: "Whose fault is this — yours or Epic's?"
+  - Ask: "Can you guarantee May 4?"
+
+  DIFFICULTY: Level 2 — busy and vague; short answers, change topic, slightly impatient.
+
+  HOW TO BEHAVE
+  - Speak like a real American business person: natural speed, short sentences, everyday expressions.
+  - Keep each turn short (1–3 sentences), like a real call.
+  - Don't volunteer information; give details only when I ask good questions.
+  - If I use technical jargon, ask me what it means for your business.
+  - If I talk for more than 45 seconds without getting to the point, cut in at my next pause.
+
+  WHEN I SAY "End the call", step out of character and give me feedback:
+  1. Score me 1–5 on each criterion that came up: opening and agenda, answer-first structure, questions asked, playback, business link, trade-offs, handling unknowns, risks and bad news, disagreement, closing and next steps.
+  2. List the hidden facts and tell me which ones I uncovered.
+  3. Quote 2 things I said well, and 2 things I should have said differently — with the better sentence.
+  4. Tell me roughly how often I used filler words ("um", "basically", "actually", "like").
+  5. Give me ONE thing to focus on in my next call.

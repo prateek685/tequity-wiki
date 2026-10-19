@@ -1,0 +1,122 @@
+day: 13
+block: 3
+title: Play it back
+type: normal
+storyDate: Wednesday, March 18
+minutes: About 50 min
+intro: >-
+  Maria Lopez explains Suncoast's eligibility requirements in one long, fast stream. Today you play it back in three
+  bullets and get a “yes” before anyone builds anything.
+lessons:
+  - id: maria-explains
+    kind: prep
+    title: Maria will talk fast
+    minutes: 5 min
+    blocks:
+      - type: yesterday
+        text: >-
+          you found the real goal behind Dana's “more reminders” (fewer no-shows, not more texts) and wrote it as a
+          one-paragraph problem statement.
+      - type: scene
+        when: Wednesday, March 18 · a call with Suncoast Billing
+        text: >-
+          Sprint 5 starts on March 30, and it includes the insurance eligibility check through Suncoast's API. Our
+          tech lead asked Suncoast for the requirements, and Maria Lopez, their Director of Revenue Cycle, is joining
+          a call to explain. She talks fast, in billing jargon. Epic access is still in Lakeside IT's queue.
+      - type: text
+        text: >-
+          The moment she stops, you'll need to say back what you heard. Write three sentence starters you can reach
+          for without thinking.
+    fields:
+      - { id: starter-1, label: Playback starter 1, kind: line, placeholder: "e.g. Let me play that back to make sure I've got it…" }
+      - { id: starter-2, label: Playback starter 2, kind: line }
+      - { id: starter-3, label: Playback starter 3, kind: line }
+    source: both
+
+  - id: playback
+    kind: learn
+    title: Playback and active listening
+    minutes: 10 min
+    lead: >-
+      A playback turns “I think I understood” into “we agree”. It takes fifteen seconds and catches the mistake that
+      would cost a week.
+    blocks:
+      - type: example
+        text: >-
+          “Let me play that back to make sure I've got it: we check eligibility when the patient books and again at
+          check-in, and we never block a booking. Did I miss anything?”
+      - type: steps
+        items:
+          - { title: 1 · Listen, text: "Let them finish. Note the facts, not every word." }
+          - { title: 2 · Play back, text: "Three bullets at most, in your own plain words." }
+          - { title: 3 · Check, text: "“Did I miss anything?” Then wait for a real yes." }
+          - { title: 4 · Clarify, text: "Ask what any jargon means. “Is a 271 the result the API sends back?”" }
+      - type: text
+        text: >-
+          Use it after every important point, not only at the end. And never answer “So you've got all that, right?”
+          with “Yes”: answer with the playback.
+      - type: text
+        text: >-
+          When the client sounds frustrated, name it before you move on: “It sounds like the denials have been a real
+          headache.” Chris Voss calls this labelling; it shows you heard the feeling as well as the facts.
+      - type: watch
+        url: https://www.youtube.com/c/Blackswanltd1/videos
+        title: Chris Voss and The Black Swan Group
+        meta: YouTube · optional · “how/what” questions and labelling emotions
+
+  - id: messy-requirement
+    kind: mock
+    title: Maria's messy requirement
+    minutes: 15 min
+    lead: >-
+      Level 2: Maria rambles for a minute or more, then asks if you got it all. Let her talk, then play it back in
+      three bullets (when we check, what we do with the result, what's out of scope) and get her confirmation.
+    cardId: S09
+    level: 2
+    scriptNote: Use it the first time, then try the call again without it.
+
+  - id: messy-requirement-review
+    kind: reflect
+    title: How did the call go?
+    minutes: 5 min
+    lead: Tick what you managed, then note what the AI told you.
+    checksTitle: On this call, I…
+    checks:
+      - listened without interrupting
+      - played back when, what, and out of scope in 3 bullets
+      - asked what the jargon meant
+      - agreed a written follow-up and Maria's next action
+    fields:
+      - { id: went-well, label: What went well, kind: area, placeholder: "From the AI's feedback" }
+      - { id: fix-next, label: One thing to fix next time, kind: area, placeholder: "e.g. I said “yes, got it” and moved on" }
+      - { id: log, label: "How many questions did I ask before I proposed a solution?", kind: area, rows: 2 }
+    rubric: true
+
+  - id: requirement-summary
+    kind: write
+    title: The requirement in 3 bullets
+    heading: Write the requirement summary
+    minutes: 10 min
+    lead: >-
+      You told Maria you'd send the playback in writing today. Three bullets the tech lead can build from, then the
+      questions that are still open.
+    fields:
+      - { id: when, label: "1 · When we check", kind: line, placeholder: "e.g. At booking and again at check-in" }
+      - { id: result, label: "2 · What we do with the result", kind: line }
+      - { id: out-of-scope, label: "3 · Out of scope for now", kind: line }
+      - { id: open-questions, label: Open questions, kind: area, rows: 3, placeholder: "e.g. What should happen if the API is down?" }
+
+scoring:
+  requirement-summary:
+    modelAnswer: >-
+      1. When we check: eligibility is checked twice, when the patient books and again at check-in.
+      2. What we do with the result: if coverage is inactive, we don't block the booking; we flag it for the front
+      desk to ask the patient for new insurance. If Suncoast's API is down, booking still goes ahead and we retry
+      every 15 minutes for up to 4 hours.
+      3. Out of scope for now: showing copay amounts to patients (phase 2).
+      Open questions: Maria sends the Medicaid payer ID list by Friday, March 20. Which fields of the eligibility
+      result (the “271 response”) should the front desk see? Do the API's real responses match the docs?
+    scoringPoints:
+      - Three bullets covering when we check, what we do with the result, and what is out of scope
+      - Plain words; any jargon (271, payer ID) is explained or avoided
+      - Open questions are specific, with an owner and a date where one was agreed

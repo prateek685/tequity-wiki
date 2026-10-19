@@ -1,0 +1,144 @@
+day: 41
+block: 9
+title: Tell the technical story
+type: normal
+storyDate: Monday, April 27
+minutes: About 50 min
+intro: >-
+  Phase 3 starts: live reps. Today you turn the check-in fix into a short story with a business result, tell it to
+  Dana in 30 seconds and then in 2 minutes, and write it in five sentences.
+lessons:
+  - id: pick-the-work
+    kind: prep
+    title: Pick a piece of work
+    minutes: 5 min
+    blocks:
+      - type: yesterday
+        text: >-
+          on Friday, UAT found one serious issue: the clinic schedule view can take up to 10 minutes to update after an
+          Epic cancellation. You ran the Gate 2 dress rehearsal, kept Spanish reminders for Sprint 7, and sent the recap.
+          Go/no-go is on Wednesday; the pilot is on May 4.
+      - type: scene
+        when: Monday, April 27 · 8:45 am Central · the original pilot date
+        text: >-
+          Phase 3 starts today. From now on you learn from real client calls too, and you start by explaining your own
+          work. Dana's Slack message is waiting: “I heard you fixed the check-in thing. Can I get the 30-second version
+          before 10? I'm finishing a slide for Thursday's leadership meeting.”
+      - type: text
+        text: >-
+          The fix is the story for today: last week the team made the slow check-in page fast. Or pick a recent piece of
+          work of your own. Either way, write down the facts before you shape them into a story.
+    fields:
+      - { id: work, label: The piece of work, kind: line, placeholder: "e.g. Check-in page: cached insurance lookups" }
+      - { id: before, label: What it was like before, kind: line, placeholder: "e.g. About 6 seconds to load for each patient at Westside" }
+      - { id: after, label: What it is like now, kind: line, placeholder: "e.g. 0.8 seconds, tested on Apr 23" }
+      - { id: who, label: Who cares about it, kind: line, placeholder: "e.g. Front-desk staff, and Dana's leadership team" }
+    source: both
+
+  - id: cparb
+    kind: learn
+    title: The technical story (CPARB)
+    heading: Technical work as a short story
+    minutes: 10 min
+    lead: >-
+      Clients remember stories, not specifications. A short story with a business result helps a non-technical client
+      understand and value your work.
+    blocks:
+      - { type: heading, text: "CPARB: five parts" }
+      - type: steps
+        items:
+          - { title: C · Context, text: "Where it happened, in one line." }
+          - { title: P · Problem, text: "What went wrong, and who felt it." }
+          - { title: A · Approach, text: "What you did, in plain words." }
+          - { title: R · Result, text: "The number or outcome, before and after." }
+          - { title: B · Business impact, text: "What it means for the client: time, money, patients." }
+      - type: compare
+        beforeLabel: A specification
+        afterLabel: A story
+        before: >-
+          “We implemented a TTL-based cache layer in Redis for the eligibility service, reducing p50 latency on the
+          check-in route.”
+        after: >-
+          “The check-in page was slow. Front-desk staff waited 6 seconds per patient. We saved each insurance check for a
+          day, and it now takes under a second. That saves about 15 minutes of staff time per clinic per day.”
+      - type: text
+        text: >-
+          End on the business impact. If a sentence has no answer to “So what does that mean for the client?”, cut it.
+      - type: watch
+        url: https://heathbrothers.com/resources/
+        title: The Heath brothers' free resources
+        meta: Chapter 1 and the SUCCESs model (free signup). Optional.
+
+  - id: explain-to-dana
+    kind: mock
+    title: The fix, to Dana
+    heading: "The check-in fix: 30 seconds, then 2 minutes"
+    minutes: 15 min
+    lead: >-
+      Level 2: Dana is busy and wants the short version first. Lead with the result and the impact, then give the
+      approach and the one caveat when she asks how.
+    cardId: S28
+    level: 2
+    scriptNote: Use it the first time, then try the call again without it.
+
+  - id: explain-review
+    kind: reflect
+    title: How did the call go?
+    minutes: 5 min
+    lead: Tick what you managed, then note what the AI told you.
+    checksTitle: On this call, I…
+    checks:
+      - led the 30-second version with the result and the impact
+      - used no jargon without a plain translation
+      - named the 24-hour caveat and why billing is still safe
+      - gave Dana a sentence for her slide and promised the numbers in writing
+    fields:
+      - { id: went-well, label: What went well, kind: area, placeholder: "From the AI's feedback" }
+      - { id: fix-next, label: One thing to fix next time, kind: area, placeholder: "e.g. I started with the Suncoast lookup before the result" }
+      - { id: log, label: "Did I end on the business impact?", kind: area, rows: 2 }
+    rubric: true
+
+  - id: cparb-story
+    kind: write
+    title: The story in five sentences
+    heading: Write the story in CPARB form
+    minutes: 10 min
+    lead: >-
+      Five sentences, one for each part, ending on the business impact. Dana can drop it into her slide as it is.
+    source: both
+    blocks:
+      - type: recall
+        label: The piece of work you picked this morning
+        day: 41
+        lesson: pick-the-work
+        fields:
+          - { id: work, label: Work }
+          - { id: before, label: Before }
+          - { id: after, label: Now }
+      - { type: field, id: context }
+      - { type: field, id: problem }
+      - { type: field, id: approach }
+      - { type: field, id: result }
+      - { type: field, id: impact }
+      - type: text
+        text: >-
+          Read it once as Dana would. Could she repeat it to her leadership team? Does the last sentence say what it is
+          worth to Lakeside?
+    fields:
+      - { id: context, label: Context, kind: line, placeholder: "e.g. In testing at Westside, the check-in page was slow." }
+      - { id: problem, label: Problem, kind: line }
+      - { id: approach, label: Approach, kind: line }
+      - { id: result, label: Result, kind: line }
+      - { id: impact, label: Business impact, kind: line }
+
+scoring:
+  cparb-story:
+    modelAnswer: >-
+      In testing at Westside, the check-in page was slow. Front-desk staff waited about 6 seconds for each of about 200
+      patients a day, because the page asked Suncoast for a live insurance check every time. We now save each patient's
+      result for 24 hours and refresh it when their insurance changes. Check-in loads in 0.8 seconds. That gives each
+      clinic's front desk back about 17 minutes a day, roughly 3.4 hours a day across all 12 clinics.
+    scoringPoints:
+      - All five parts in order (context, problem, approach, result, business impact), one sentence each
+      - The result is a before-and-after number, and the last sentence is the business impact in the client's terms
+      - "Plain words, with no jargon (cache, TTL, latency) left unexplained"

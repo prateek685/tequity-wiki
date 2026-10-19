@@ -1,0 +1,172 @@
+day: 30
+block: 6
+title: Scope creep
+type: normal
+storyDate: Friday, April 10
+minutes: About 65 min
+intro: >-
+  The last day of Sprint 5, and Dana has a “tiny” request for the pilot. Today you say yes to the goal, make the
+  trade-off visible at Level 3, send a change note and review your week.
+lessons:
+  - id: tiny-request
+    kind: prep
+    title: A “tiny” request
+    minutes: 10 min
+    blocks:
+      - type: yesterday
+        text: >-
+          you turned Dr. Mercer's “proper Epic integration” into three specific needs, all from CareBook into Epic,
+          for the July 1 rollout, not the pilot. He had the list the same day. You also planned Sprint 6 with the
+          team.
+      - type: scene
+        when: Friday, April 10 · 9:30 am Central, the last day of Sprint 5
+        text: >-
+          Sprint 5 closes today: eligibility check and audit logging done, the Epic sync at 80%, finishing in Sprint 6.
+          The Spanish reminders are built behind a switch, waiting for Lakeside compliance, and Dr. Mercer has the
+          options for his Epic data screen, as promised. Then Dana calls: “Tiny request: I need insurance card photo
+          upload in the intake form, for the pilot.” In March she agreed it could wait until after the pilot. She's
+          calling back in 20 minutes.
+      - type: text
+        text: >-
+          Sprint 6 is full and Kevin's code freeze is April 17. Fill in your pre-call card. Your goal isn't to say no:
+          it's to make the trade-off visible and get a decision in writing.
+    fields:
+      - { id: goal, label: My goal for this call, kind: line, placeholder: "e.g. Yes to the goal, a visible trade-off, a decision by Monday" }
+      - { id: opener, label: My opener, kind: line }
+      - { id: trade-off, label: The trade-off in one sentence, kind: line, placeholder: "e.g. To add 5–7 days to a full sprint, something has to come out" }
+      - { id: options, label: My options and my recommendation, kind: area, rows: 3 }
+      - { id: hard-question, label: "Hardest question + my answer", kind: area, rows: 2, placeholder: "“Our competitor built it in a week — why can't you?” → …" }
+      - { id: closing, label: My closing line, kind: line }
+
+  - id: scope-time-quality
+    kind: learn
+    title: Scope, time and quality
+    heading: Scope, time and quality, and the change note
+    minutes: 10 min
+    lead: >-
+      If scope grows, time or quality must change. Say it early, out loud, and then in writing. Silently absorbing the
+      work is how pilots slip.
+    blocks:
+      - type: steps
+        items:
+          - { title: Scope, text: "What gets built. When it grows, one of the other two has to give." }
+          - { title: Time, text: "The date. Kevin's freeze on April 17 and the pilot on April 27 don't move easily." }
+          - { title: Quality, text: "Testing, accessibility, security. Cutting it is the hidden option, and the most expensive one." }
+      - type: example
+        text: "“We can add this. To keep the date, we'd move X to the next sprint. Which do you prefer?”"
+      - type: compare
+        beforeLabel: Absorbing it
+        afterLabel: Making it visible
+        before: "“Sure, we'll squeeze it in.”"
+        after: >-
+          “We can do it. The question is when, and what moves to make room. Here are three options, and my
+          recommendation.”
+      - { type: heading, text: The change note }
+      - type: steps
+        items:
+          - { title: What changed, text: "The request, in one line." }
+          - { title: Why, text: "The reason behind it, in the client's words." }
+          - { title: Impact, text: "Time, cost and risk." }
+          - { title: Options, text: "Two or three, each with what it costs." }
+          - { title: Decision needed, text: "Your recommendation, who decides, and by when." }
+      - type: recall
+        label: Your recommendation to Kevin on Wednesday
+        day: 28
+        lesson: decision-note
+        fields:
+          - { id: recommendation, label: Recommendation }
+
+  - id: scope-creep
+    kind: mock
+    title: Scope creep mid-sprint
+    heading: "Scope creep in the middle of a sprint"
+    minutes: 15 min
+    lead: >-
+      Level 3: Dana is persuasive and pushes back hard. Say yes to the goal, make the trade-off visible, recommend an
+      option, and ask for a decision by a date. Don't say a flat no, and don't absorb the work.
+    cardId: S21
+    level: 3
+    scriptNote: Use it the first time, then try the call again without it.
+    checksTitle: After the call
+    checks:
+      - I said yes to the goal and made the trade-off visible
+      - I gave clear options with a recommendation
+      - I stayed calm under pushback and didn't absorb the work silently
+      - I asked for a decision by a date and promised a change note
+    fields:
+      - { id: went-well, label: What went well, kind: area, placeholder: "From the AI's feedback" }
+      - { id: fix-next, label: One thing to fix next time, kind: area }
+      - { id: log, label: "Did I give a recommendation, or just a list of options?", kind: area, rows: 2 }
+    rubric: true
+
+  - id: change-note
+    kind: write
+    title: The change note
+    heading: Send Dana the change note
+    minutes: 10 min
+    lead: >-
+      You promised Dana a change note today with all three options. Write it so she can decide in two minutes, and
+      forward it to her CEO if she needs to.
+    blocks:
+      - { type: field, id: subject }
+      - { type: field, id: change }
+      - { type: field, id: why }
+      - { type: field, id: impact }
+      - { type: field, id: options }
+      - { type: field, id: recommendation }
+      - { type: field, id: decision-by }
+      - type: text
+        text: >-
+          Before you send: is the impact in time, cost and risk, not just “it's big”? Is there one recommendation, and
+          a date for the decision? The card photo is PHI: say so in plain words.
+    fields:
+      - { id: subject, label: Subject, kind: line, placeholder: "e.g. Change request: insurance card photos — decision needed by Mon Apr 13" }
+      - { id: change, label: Change requested, kind: line }
+      - { id: why, label: Why, kind: line }
+      - { id: impact, label: "Impact: time / cost / risk", kind: area, rows: 2 }
+      - { id: options, label: Options, kind: area, rows: 3, placeholder: "A) … B) … C) …" }
+      - { id: recommendation, label: My recommendation, kind: area, rows: 2 }
+      - { id: decision-by, label: Decision needed by (who + date), kind: line }
+
+  - id: week-in-review
+    kind: scorecard
+    title: Your week in review
+    minutes: 5 min
+    lead: >-
+      Five minutes. Rate this week's behaviours and add a line of proof for each pillar. Your pillar scores update from
+      them; the other pillars carry forward. Your Day 1 baseline sits next to it.
+    scorecard: [U3, C3, O1]
+    checksTitle: Before the weekend
+    checks:
+      - Did every trade-off end with a recommendation and a business reason?
+      - Did I confirm the scope change in writing?
+      - Did I give a recommendation, or just a list of options?
+    blocks:
+      - type: note
+        tone: info
+        title: Bi-weekly check-in
+        text: Your 15–20 minute check-in with your manager comes after today, and you book it. If it isn't in your calendar yet, book it with your manager now. Bring this scorecard.
+      - type: text
+        text: >-
+          **Next week:** conflict, disagreement and bad news, plus patient apps and telehealth. Sprint 6 starts on
+          Monday, and the pilot is two weeks away.
+
+scoring:
+  change-note:
+    modelAnswer: >-
+      Subject: Change request: insurance card photos in the intake form — decision needed by Mon Apr 13.
+      Change requested: patients upload a photo of their insurance card in the intake form, for the April 27 pilot.
+      Why: a competitor showed it this week, and you'd like to show it at the May 12 investor demo.
+      Impact: 5–7 days of work (camera and upload, secure storage, clinic staff view) plus Kevin's security review,
+      because the card image is patient data. Sprint 6 is full and the code freeze is April 17, so adding it means
+      something comes out.
+      Options: A) Sprint 7 (May 11–22), after the pilot. B) Sprint 6, by dropping the accessibility fixes: risky for
+      older patients. C) Keep typed member IDs for the pilot; they already work, and the front desk finds them easier
+      to check in Epic.
+      My recommendation: A plus C. The pilot stays safe, and if it helps, we can have it demo-ready in a test
+      environment by May 8.
+      Decision needed by: you, Mon Apr 13, so Sprint 6 stays as planned.
+    scoringPoints:
+      - Covers what changed, why, the impact in time and risk (including PHI and the security review), and the options
+      - One recommendation with a business reason, and no work silently absorbed
+      - A named decision owner and a date

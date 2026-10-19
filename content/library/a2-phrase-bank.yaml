@@ -1,0 +1,31 @@
+id: a2-phrase-bank
+kind: template
+ref: A2
+title: "Phrase bank"
+summary: "Phrases that work with US clients, and phrases that can confuse American listeners."
+blocks:
+  - type: text
+    text: "Pick one or two for each moment. Say them in your own words."
+  - type: facts
+    rows:
+      - { label: "Opening", value: "“Hi [Name], good to see you. How's your week going?” · “Before we start, how did the [launch / event] go?” · “Thanks for making time. The goal today is \\_\\_\\_. I have three things: \\_\\_\\_, \\_\\_\\_ and \\_\\_\\_. Anything you'd like to add?” · “We have 30 minutes; I'll keep us on time.”" }
+      - { label: "Transitions", value: "“That covers the update. Next, I'd like your input on \\_\\_\\_.” · “Let me pause there. Any questions so far?”" }
+      - { label: "Clarifying and playback", value: "“Can you walk me through how that works today?” · “What would success look like for you?” · “When you say ‘fast’, what does that look like: seconds, or same day?” · “Just to make sure I understood: \\_\\_\\_. Did I get that right?”" }
+      - { label: "Buying time and unknowns", value: "“Good question. Let me think about that for a second.” · “I don't have that number with me. I'll confirm by [time] your time.” · “I want to give you an accurate answer, so let me check with \\_\\_\\_ and come back to you today.”" }
+      - { label: "Ownership", value: "“I'll take that. You'll have it by Thursday.” · “My recommendation is \\_\\_\\_, because \\_\\_\\_.” · “Here's what I suggest we do next.”" }
+      - { label: "Risks and bad news", value: "“Quick heads-up on a risk: \\_\\_\\_.” · “I have some bad news on \\_\\_\\_, and a plan.”" }
+      - { label: "Disagreeing", value: "“I see why that matters. My concern is \\_\\_\\_. Could we \\_\\_\\_ instead?” · “Can I push back a little on that?” · “I'd recommend against that, and here's why.”" }
+      - { label: "Closing", value: "“To recap: we agreed \\_\\_\\_. I'll \\_\\_\\_ by \\_\\_\\_; you'll \\_\\_\\_ by \\_\\_\\_.” · “I'll send notes within the next two hours.” · “Anything else before we wrap up?”" }
+  - { type: heading, text: "Phrases that can confuse American listeners and readers" }
+  - type: facts
+    rows:
+      - { label: "Instead of “Please do the needful.”", value: "“Could you please [specific action] by [date]?”" }
+      - { label: "Instead of “Revert back to me.”", value: "“Reply” or “Get back to me.”" }
+      - { label: "Instead of “Can we prepone the call?”", value: "“Can we move the call earlier?”" }
+      - { label: "Instead of “I have a doubt.”", value: "“I have a question.”" }
+      - { label: "Instead of “I will do it today itself.”", value: "“I'll do it today.”" }
+      - { label: "Instead of “I was out of station.”", value: "“I was out of the office” or “I was traveling.”" }
+      - { label: "Instead of “Kindly…” in every sentence", value: "“Please…”, once." }
+      - { label: "Instead of “Sorry, sorry…” several times", value: "One short apology, then the plan." }
+      - { label: "Instead of “Actually… basically…” before every answer", value: "Start with the answer." }
+      - { label: "Instead of “Yes, yes, it's possible” when you're unsure", value: "“Let me confirm and get back to you by \\_\\_\\_.”" }

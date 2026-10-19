@@ -1,0 +1,179 @@
+# Day 33 quiz pool: Wednesday, April 15. A time-zone bug sent 140 Westside patients wrong reminder times, and
+# Dr. Mercer is upset: LAST (listen, acknowledge, solve, thank), pause phrases, the incident summary. Shows 5 of 10.
+pool: day-33
+questions:
+  - id: D33-01
+    type: mcq
+    stem: "Dr. Mercer opens: “Nine of my patients missed their appointments this week because of your reminders.” He keeps talking. What do you do?"
+    options:
+      - text: "Cut in to explain it's already fixed."
+        correct: false
+        explanation: Interrupting an upset client makes them more upset, even with good news.
+      - text: "Let him finish, take notes, and only then speak."
+        correct: true
+        explanation: Listen first. He needs to be heard before he can hear you.
+      - text: "Start apologising over him so he knows you're sorry."
+        correct: false
+        explanation: Still an interruption, and an apology he can't hear.
+      - text: "Mute and wait for him to ask a question."
+        correct: false
+        explanation: Silence at the end isn't listening. Show you're there, then respond.
+    source: { quote: "Let Dr. Mercer finish without interrupting. Take notes.", page: 95 }
+
+  - id: D33-02
+    type: mcq
+    stem: "He's finished. Which first sentence is best?"
+    options:
+      - text: "“So technically, the reminder service had a stale time-zone offset.”"
+        correct: false
+        explanation: The technical story before he knows you understand the impact.
+      - text: "“You're right to be upset. Nine patients missed their visits and your front desk took the calls. I'm sorry, and that's on us.”"
+        correct: true
+        explanation: Names the impact on patients and staff, owns it, once.
+      - text: "“To be fair, only 9 of 140 patients were affected.”"
+        correct: false
+        explanation: Minimising. To him, nine missed visits is the story.
+      - text: "“The SMS provider had issues too.”"
+        correct: false
+        explanation: Blame before acknowledgement.
+    source: { quote: "You're right to be upset. Nine patients missed their visits and your front desk took the calls", page: 95 }
+
+  - id: D33-03
+    type: mcq
+    stem: "Dr. Mercer asks: “How do I know this won't happen again during the pilot?” What's the best reply?"
+    options:
+      - text: "“It won't. You have my word.”"
+        correct: false
+        explanation: A promise with nothing behind it.
+      - text: "“We've added tests for daylight-saving dates, and every reminder is now checked against the Epic appointment time before it goes out. Lisa will also get a daily reminder report for two weeks.”"
+        correct: true
+        explanation: Prevention in plain words, plus something he can watch himself.
+      - text: "“We're implementing more robust QA processes going forward.”"
+        correct: false
+        explanation: Vague corporate language. He can't check any of it.
+      - text: "“Bugs happen in every system.”"
+        correct: false
+        explanation: True, and exactly what an upset client doesn't want to hear.
+    source: { quote: "Before any reminder is sent, CareBook now checks its time against the Epic appointment time.", page: 95 }
+
+  - id: D33-04
+    type: mcq
+    stem: "Dr. Mercer asks: “Should we just turn reminders off?” What's the best reply?"
+    options:
+      - text: "“Yes, that's probably safest.”"
+        correct: false
+        explanation: Gives up a feature that cuts no-shows, after the bug is already fixed.
+      - text: "“No, that would be a mistake.”"
+        correct: false
+        explanation: A flat no to a worried doctor. He'll push harder.
+      - text: "“That's your call, and I understand why you'd ask. The fix is in and every reminder is now checked against Epic. Could we keep them on with Lisa's daily report, and review together at the end of next week?”"
+        correct: true
+        explanation: Respects his decision, gives the facts, and offers a safe way to keep going.
+      - text: "“Let me check with Dana.”"
+        correct: false
+        explanation: Avoids the question he asked you.
+    source: { quote: "Should we just turn reminders off?", page: 96 }
+
+  - id: D33-05
+    type: mcq
+    stem: "He asks a question you need a moment for: “What else in CareBook could have the same time-zone problem?” What do you say first?"
+    options:
+      - text: "“Nothing else, I'm sure.”"
+        correct: false
+        explanation: A guess to look confident. If you're wrong, it's the next incident.
+      - text: "“That's a fair point. Let me make sure I understand: you mean anywhere CareBook shows a time to a patient?”"
+        correct: true
+        explanation: A pause phrase that buys time calmly and sharpens the question.
+      - text: "“Um, well, there might be, I think, possibly the booking screen, or…”"
+        correct: false
+        explanation: Thinking aloud sounds like panic.
+      - text: "“I'm not technical enough to answer that.”"
+        correct: false
+        explanation: You are the technical lead. Own finding out.
+    source: { quote: "That's a fair point — let me make sure I understand.", page: 89 }
+
+  - id: D33-06
+    type: mcq
+    stem: "The call is calmer. How do you close?"
+    options:
+      - text: "“Okay, glad we sorted that out. Bye!”"
+        correct: false
+        explanation: Too light for nine missed visits, and no next step.
+      - text: "“Sorry again, really, really sorry.”"
+        correct: false
+        explanation: More apologies don't add anything now.
+      - text: "“Thank you for raising this quickly. I'll send the written incident summary by tomorrow. Is there anything else you need from us before the pilot?”"
+        correct: true
+        explanation: Thanks him, commits to a dated summary, and invites what's left.
+      - text: "“Let us know if anything else goes wrong.”"
+        correct: false
+        explanation: Puts the job of finding problems back on the client.
+    source: { quote: "Thank you for raising this quickly. Is there anything else you need from us before the pilot?", page: 95 }
+
+  - id: D33-07
+    type: scenario
+    clientLine: "“I don't need the technical story — I need to know you understand what this did to my patients.”"
+    stem: You started explaining the time-zone offset. Dr. Mercer is now angrier. What do you say?
+    options:
+      - text: "“Sorry, I'll keep it short: the offset was cached in UTC…”"
+        correct: false
+        explanation: Keeps going with the technical story he just said he doesn't want.
+      - text: "“You're right. Nine patients came in an hour late and missed their visit, and your front desk had to deal with it. That shouldn't have happened, and it's on us.”"
+        correct: true
+        explanation: Stops and acknowledges the impact first. The explanation can wait.
+      - text: "“I was only trying to explain.”"
+        correct: false
+        explanation: Defends yourself instead of acknowledging him.
+      - text: "“Okay, I'll stop talking.”"
+        correct: false
+        explanation: Silence isn't acknowledgement.
+    source: { quote: "I don't need the technical story — I need to know you understand what this did to my patients.", page: 96 }
+
+  - id: D33-08
+    type: scenario
+    clientLine: "“Why did we find out from our patients and not from you?”"
+    stem: The bug started Monday; you fixed it Tuesday evening. What do you say?
+    options:
+      - text: "“We were busy fixing it.”"
+        correct: false
+        explanation: An excuse, and it confirms you chose not to tell them.
+      - text: "“That's fair, and it's the part I most regret. We should have called Lisa as soon as we saw it. From now on, if anything touches patients, you'll hear from me within the hour.”"
+        correct: true
+        explanation: Accepts the point without excuses and commits to a new rule with a time.
+      - text: "“We didn't know until Lisa told us.”"
+        correct: false
+        explanation: "Worse: it says nobody was watching the reminders."
+      - text: "“It was only two days.”"
+        correct: false
+        explanation: Minimises nine missed visits.
+    source: { quote: "Why did we find out from our patients and not from you?", page: 95 }
+
+  - id: D33-09
+    type: written
+    stem: >-
+      Lisa Chen messages before Dr. Mercer's call: “My team took 30+ calls about the reminders. What do I tell
+      patients who ask?” Write your reply in 2–3 sentences.
+    modelAnswer: >-
+      I'm sorry your team had to take those calls; that's on us. You can tell patients that a technical error on our
+      side showed their appointment an hour late, it was fixed last night, and they got a corrected text at 8 this
+      morning. If anyone missed a visit and isn't rebooked yet, send them to me and we'll prioritise it today.
+    scoringPoints:
+      - Acknowledges the impact on her team briefly, without blame
+      - Gives her plain words she can repeat to patients (cause, fix, correction)
+      - Offers concrete help with a time
+    source: { quote: "9 patients arrived an hour late and missed their visit; the front desk rebooked all 9.", page: 95 }
+
+  - id: D33-10
+    type: written
+    stem: >-
+      At the end of the call, Dr. Mercer says: “I may require Lakeside's sign-off on any future change to reminders.”
+      Write your reply in 2–3 sentences.
+    modelAnswer: >-
+      That's reasonable after this week, and I'd rather agree it now than find out later. Could we keep it light so it
+      doesn't slow the pilot: a short note to you and Lisa before any reminder change, with a 1-business-day window to
+      object? I'll put that in the incident summary tomorrow for you to confirm.
+    scoringPoints:
+      - Accepts the concern without arguing
+      - Proposes a practical version that protects the pilot
+      - Puts it in writing with a date for his confirmation
+    source: { quote: "You are thinking about requiring Lakeside sign-off on any future change to reminders.", page: 96 }

@@ -1,0 +1,45 @@
+id: a6-bad-news
+kind: template
+ref: A6
+title: "Bad-news message"
+summary: "Headline, impact, cause without blame, options, your recommendation, what you need and when you'll update."
+blocks:
+  - type: text
+    text: "Send it the same day you know. Say the bottom line first."
+  - type: message
+    label: "The template"
+    text: |-
+      Subject: [Project] – update on [topic]: [the headline]
+
+      Bottom line: [what changed].
+
+      Impact: [date / cost / scope].
+
+      What happened: [1–2 sentences, no blame].
+
+      Options:
+
+      1) \_\_\_
+      2) \_\_\_
+
+      My recommendation: \_\_\_, because \_\_\_.
+
+      What I need from you: [decision] by [date].
+
+      Next update: [date and time, their time zone].
+  - type: copy
+    label: "Copy template"
+    text: |-
+      Subject: [Project] – update on [topic]: [the headline]
+
+      Bottom line: [what changed].
+      Impact: [date / cost / scope].
+      What happened: [1–2 sentences, no blame].
+
+      Options:
+      1) ___
+      2) ___
+
+      My recommendation: ___, because ___.
+      What I need from you: [decision] by [date].
+      Next update: [date and time, their time zone].

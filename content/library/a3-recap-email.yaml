@@ -1,0 +1,58 @@
+id: a3-recap-email
+kind: template
+ref: A3
+title: "Post-call recap email"
+summary: "Send within 2 hours: decisions, action items with owners and dates, open questions, next meeting."
+blocks:
+  - type: text
+    text: "Send it within 2 hours of the call. Lead with the most important outcome."
+  - type: message
+    label: "The template"
+    text: |-
+      Subject: [Project] – [Meeting] recap: [key decision or ask]
+
+      Hi [Name],
+
+      Thanks for your time today. Summary: [the most important outcome, in 1–2 lines].
+
+      Decisions
+
+      - \_\_\_
+
+      Action items
+
+      - [Owner] — [task] — [due date]
+      - [Owner] — [task] — [due date]
+
+      Open questions
+
+      - \_\_\_
+
+      Next meeting: [date, time + time zone]
+
+      Best,
+
+      [Your name]
+  - type: copy
+    label: "Copy template"
+    text: |-
+      Subject: [Project] – [Meeting] recap: [key decision or ask]
+
+      Hi [Name],
+
+      Thanks for your time today. Summary: [the most important outcome, in 1–2 lines].
+
+      Decisions
+      - ___
+
+      Action items
+      - [Owner] — [task] — [due date]
+      - [Owner] — [task] — [due date]
+
+      Open questions
+      - ___
+
+      Next meeting: [date, time + time zone]
+
+      Best,
+      [Your name]

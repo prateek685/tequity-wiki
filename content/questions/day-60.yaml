@@ -1,0 +1,166 @@
+# Day 60 quiz pool: Friday, May 22. Leading call 2 or the async updates, the recap, and the weekly scorecard. Shows 5 of 10.
+pool: day-60
+questions:
+  - id: D60-01
+    type: mcq
+    stem: "There is no second call this week. What do you lead instead?"
+    options:
+      - text: "All async client updates for the week."
+        correct: true
+        explanation: "The fallback."
+      - text: "Nothing."
+        correct: false
+        explanation: "You lead updates."
+      - text: "Ask the PM to write them."
+        correct: false
+        explanation: "You lead."
+      - text: "Skip the recap."
+        correct: false
+        explanation: "Still needed."
+    source: { quote: "Lead call #2 — or, if there's no", page: 138 }
+
+  - id: D60-02
+    type: mcq
+    stem: "You lead call #2. What do you do differently from call #1?"
+    options:
+      - text: "Use the one thing from the debrief."
+        correct: true
+        explanation: "That is the point."
+      - text: "Nothing."
+        correct: false
+        explanation: "Apply the feedback."
+      - text: "Change everything."
+        correct: false
+        explanation: "One thing."
+      - text: "Let the PM lead."
+        correct: false
+        explanation: "You lead."
+    source: { quote: "2 things that went well → 2 things to change → 1 thing for the next call.", page: 138 }
+
+  - id: D60-03
+    type: mcq
+    stem: "Which question is on the self-check before the weekend?"
+    options:
+      - text: "“Did I lead the call from the first minute?”"
+        correct: true
+        explanation: "The self-check."
+      - text: "“Did I read all the notes?”"
+        correct: false
+        explanation: "Not asked."
+      - text: "“Did I talk the most?”"
+        correct: false
+        explanation: "Not a goal."
+      - text: "“Did I finish my tickets?”"
+        correct: false
+        explanation: "Not asked."
+    source: { quote: "Did I lead the call from the first minute?", page: 139 }
+
+  - id: D60-04
+    type: mcq
+    stem: "Which items go into your journal for Week 12?"
+    options:
+      - text: "The agenda email, 1–2 recaps of calls you led, and the debrief notes."
+        correct: true
+        explanation: "The journal list."
+      - text: "Only the scores."
+        correct: false
+        explanation: "Misses the notes."
+      - text: "The client's patient data."
+        correct: false
+        explanation: "Never."
+      - text: "Nothing."
+        correct: false
+        explanation: "Keep these."
+    source: { quote: "Keep in your journal", page: 139 }
+
+  - id: D60-05
+    type: mcq
+    stem: "What is the daily log prompt this week?"
+    options:
+      - text: "“What did I do on the call without thinking that I couldn't do on Day 1?”"
+        correct: true
+        explanation: "The week's prompt."
+      - text: "“What went wrong?”"
+        correct: false
+        explanation: "Not the prompt."
+      - text: "“Who was late?”"
+        correct: false
+        explanation: "Not the prompt."
+      - text: "“What did the PM say?”"
+        correct: false
+        explanation: "Not the prompt."
+    source: { quote: "What did I do on the call without thinking that I couldn't do on Day 1?", page: 138 }
+
+  - id: D60-06
+    type: mcq
+    stem: "Who books the check-in with your manager?"
+    options:
+      - text: "You do."
+        correct: true
+        explanation: "The engineer books it."
+      - text: "Your manager."
+        correct: false
+        explanation: "You book it."
+      - text: "The PM."
+        correct: false
+        explanation: "You book it."
+      - text: "Nobody."
+        correct: false
+        explanation: "It's part of the week."
+    source: { quote: "Check-in with your manager.", page: 138 }
+
+  - id: D60-07
+    type: scenario
+    clientLine: "Do you need me in the room for this one?"
+    stem: "Your PM asks before call #2. What do you say?"
+    options:
+      - text: "“Yes please, as silent backup, same signal as Wednesday.”"
+        correct: true
+        explanation: "Same agreement."
+      - text: "“No, I'm fine, please skip it.”"
+        correct: false
+        explanation: "You can still use a safety net."
+      - text: "“Please lead the opening.”"
+        correct: false
+        explanation: "You lead."
+      - text: "“I don't mind.”"
+        correct: false
+        explanation: "Be clear."
+    source: { quote: "Agree beforehand: the PM or senior stays silent unless you invite them in", page: 138 }
+
+  - id: D60-08
+    type: scenario
+    clientLine: "Can you send me a quick update on everything this week?"
+    stem: "The client asks it by chat, and you had no second call. What do you do?"
+    options:
+      - text: "Send a short written update: status, risks, next steps, with dates."
+        correct: true
+        explanation: "Leads the async update."
+      - text: "“We'll talk Monday.”"
+        correct: false
+        explanation: "Delays."
+      - text: "Forward your notes."
+        correct: false
+        explanation: "Raw."
+      - text: "Ask the PM."
+        correct: false
+        explanation: "You lead."
+    source: { quote: "Lead call #2 — or, if there's no", page: 138 }
+
+  - id: D60-09
+    type: written
+    stem: "Write one line of proof for the Own pillar from this week."
+    modelAnswer: "On Wednesday I sent the recap 90 minutes after the call, with owners and dates, and I closed all three follow-ups by Thursday noon."
+    scoringPoints:
+      - "Names something you did"
+      - "Has a time or number as proof"
+    source: { quote: "recap within 2 hours, action items tracked, follow-ups closed.", page: 138 }
+
+  - id: D60-10
+    type: written
+    stem: "Answer the daily log prompt: what did you do on the call without thinking that you couldn't do on Day 1?"
+    modelAnswer: "On Day 1 I started every answer with background. On Wednesday I opened with the goal, gave the status answer-first and closed with decisions, owners and dates, without looking at my notes."
+    scoringPoints:
+      - "Names a specific thing, not a feeling"
+      - "Compares with Day 1"
+    source: { quote: "What did I do on the call without thinking that I couldn't do on Day 1?", page: 138 }

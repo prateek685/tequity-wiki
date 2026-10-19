@@ -1,0 +1,183 @@
+# Day 11 quiz pool: Monday, March 16. Dr. Mercer's “dashboard for our clinics”, open vs closed questions, the
+# question funnel, no solution or estimate before the problem. Shows 5 of 10.
+pool: day-11
+questions:
+  - id: D11-01
+    type: mcq
+    stem: "Dr. Mercer opens the call: “So, we need a dashboard for our clinics.” Then he stops talking. What's your first move?"
+    options:
+      - text: "“Sure. Would you prefer bar charts or a table?”"
+        correct: false
+        explanation: A design choice before anyone knows what the dashboard is for. He'll feel you don't understand him yet.
+      - text: "“We can probably have something in two weeks.”"
+        correct: false
+        explanation: An estimate for a request nobody understands. You'll be held to a number you guessed.
+      - text: "“Before I suggest anything, could I ask a few questions? What's happening today that makes a dashboard important right now?”"
+        correct: true
+        explanation: You ask permission to explore and open with a question about the problem, not the solution.
+      - text: "“Epic has reporting already. Have you looked at that?”"
+        correct: false
+        explanation: Pushing back before you know the need sounds like you don't want the work.
+    source: { quote: "If I jump to a solution or an estimate before understanding the problem", page: 45 }
+
+  - id: D11-02
+    type: mcq
+    stem: Early in the call, you want Dr. Mercer to describe the need in his own words. Which question does that best?
+    options:
+      - text: "“Do you want it updated every day?”"
+        correct: false
+        explanation: A closed question about a detail. You get a yes or no and learn almost nothing.
+      - text: "“Would your clinics use a dashboard?”"
+        correct: false
+        explanation: A “would you” question about the future. He'll say yes to be polite.
+      - text: "“Who would look at it, and what would they decide after looking at it?”"
+        correct: true
+        explanation: Open, and it gets to the users and the decision the dashboard must support.
+      - text: "“It's mainly appointment numbers you need, right?”"
+        correct: false
+        explanation: Your guess, put in his mouth. A polite client often just agrees.
+    source: { quote: "Open questions explore", page: 42 }
+
+  - id: D11-03
+    type: mcq
+    stem: >-
+      Ten minutes in, you've heard the goal, the users and the numbers they need. Which question fits this moment
+      best?
+    options:
+      - text: "“Okay, got it, thanks.”"
+        correct: false
+        explanation: No check at all. If you misheard one detail, you'll find out in the demo.
+      - text: "“So the must-have is no-shows by clinic, day and appointment type, with no patient names. Is that right?”"
+        correct: true
+        explanation: Now is the time for a closed question, to confirm what you explored.
+      - text: "“So you'd want every metric we have on one screen, right?”"
+        correct: false
+        explanation: A leading guess that adds scope he never asked for.
+      - text: "“Great. Let me estimate it now: about three weeks.”"
+        correct: false
+        explanation: An estimate on the spot, before you've confirmed what you heard.
+    source: { quote: "Explore first, confirm last.", page: 42 }
+
+  - id: D11-04
+    type: mcq
+    stem: "You ask what's driving the request. Dr. Mercer says: “Too many patients don't show up.” What's the best follow-up?"
+    options:
+      - text: "“So you want automated reminder calls?”"
+        correct: false
+        explanation: Straight to a solution, and not even the one he asked about.
+      - text: "“Tell me more. Roughly how many, and what would good look like?”"
+        correct: true
+        explanation: A probe that turns a feeling into a number and a target.
+      - text: "“That's very common in healthcare.”"
+        correct: false
+        explanation: A comment, not a question. The conversation stalls.
+      - text: "“Is it more than 10%?”"
+        correct: false
+        explanation: A closed guess. You might get a yes or no, but not the real number or the target.
+    source: { quote: "Open → Probe", page: 42 }
+
+  - id: D11-05
+    type: mcq
+    stem: >-
+      Halfway through, you realise you've been picturing doctors using the dashboard, but nobody has said so. What's
+      the best question now?
+    options:
+      - text: "“Doctors will want to see their own patients on it, right?”"
+        correct: false
+        explanation: Your assumption, phrased so he only has to agree.
+      - text: "“Who would open this every week, and what would they do with it?”"
+        correct: true
+        explanation: An open question that checks your assumption. Here it turns out to be clinic managers, not doctors.
+      - text: "“Should we add a login for each doctor?”"
+        correct: false
+        explanation: A design detail built on an assumption you haven't checked.
+      - text: Say nothing and design it for doctors.
+        correct: false
+        explanation: You'd build for the wrong users and find out at the demo.
+    source: { quote: "The users are clinic managers (like Lisa Chen), not doctors.", page: 45 }
+
+  - id: D11-06
+    type: mcq
+    stem: "Dr. Mercer asks: “Can't you just show everything?” What's the best reply?"
+    options:
+      - text: "“Sure, we'll show everything we have.”"
+        correct: false
+        explanation: A screen of everything helps nobody decide anything, and it may show data it shouldn't.
+      - text: "“No, that's not possible.”"
+        correct: false
+        explanation: A flat no, with no reason and no way forward.
+      - text: "“We could show a lot. To make it useful, which decision should it help your managers make each week?”"
+        correct: true
+        explanation: You don't refuse. You steer back to the decision the dashboard must support.
+      - text: "“Everything, including visit notes?”"
+        correct: false
+        explanation: Clinical data stays in Epic. Offering it creates a privacy problem you'd have to walk back.
+    source: { quote: "Can't you just show everything?", page: 44 }
+
+  - id: D11-07
+    type: scenario
+    clientLine: "“Epic already has reports. Why can't we just use those?”"
+    stem: Dr. Mercer sounds sceptical. What's the best reply?
+    options:
+      - text: "“Epic's reports aren't very good.”"
+        correct: false
+        explanation: Criticising the system he chose doesn't build trust, and you don't know that.
+      - text: "“You're right. Let's forget the dashboard, then.”"
+        correct: false
+        explanation: You give up before you know if Epic's reports meet the need.
+      - text: "“Good question. They may cover part of it. What do your managers find missing in them today?”"
+        correct: true
+        explanation: You take the question seriously and use it to learn what's really missing.
+      - text: "“Ours will be much better than Epic's.”"
+        correct: false
+        explanation: A promise about something you haven't designed yet.
+    source: { quote: "Epic already has reports — why can't we just use those?", page: 45 }
+
+  - id: D11-08
+    type: scenario
+    clientLine: "“How much will this cost us?”"
+    stem: You're 8 minutes into the call. You know the goal, but not yet the numbers or the deadline. What do you say?
+    options:
+      - text: "“Roughly $20,000.”"
+        correct: false
+        explanation: A guess for something you don't understand yet. He'll remember the number.
+      - text: "“It depends.”"
+        correct: false
+        explanation: True, but it sounds like a dodge without what it depends on and when he'll hear.
+      - text: "“I don't want to guess before I understand it. I'll send you an option with an estimate by Thursday.”"
+        correct: true
+        explanation: Honest about why you won't guess, with a dated next step.
+      - text: "“I'll have to ask my manager.”"
+        correct: false
+        explanation: Hands the question away instead of owning the next step.
+    source: { quote: "I don't want to guess before I understand it", page: 156 }
+
+  - id: D11-09
+    type: written
+    stem: >-
+      After the call, Dana messages: “So what does Alan actually want? Two lines, please.” Write your reply.
+    modelAnswer: >-
+      Alan wants to cut no-shows at the 3 pilot clinics from 18% to under 10% by the end of the year. Clinic managers
+      would review no-shows by clinic, day and appointment type every Monday, with no patient names, before the June
+      10 board meeting; I'm sending him a summary today and an option with an estimate by Thursday.
+    scoringPoints:
+      - Starts with the goal and its numbers, not the word “dashboard”
+      - Names the users, what it shows, the privacy limit and the date
+      - Two lines, with the next step and its date
+    source: { quote: "bring the no-show rate at the 3 pilot clinics from 18% to under 10%", page: 157 }
+
+  - id: D11-10
+    type: written
+    stem: >-
+      A teammate will call Lisa Chen, Lakeside's Clinic Operations Manager, about the dashboard. Their draft
+      questions are: “Do you want a report?”, “Is weekly okay?” and “Should it show cancellations?” Rewrite all three
+      as open questions.
+    modelAnswer: >-
+      1. What do you look at today to see how your clinics are doing, and what's missing from it?
+      2. When in the week do you make decisions about schedules or reminders, and what do you need in front of you then?
+      3. Which numbers would tell you where patients are falling through, and why those?
+    scoringPoints:
+      - Each question is open (what, when, which, how), not yes or no
+      - The questions explore her current process and decisions, without suggesting a solution
+      - Plain words Lisa can answer from her own experience
+    source: { quote: "Closed questions confirm", page: 42 }

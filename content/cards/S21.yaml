@@ -1,0 +1,84 @@
+id: S21
+title: Scope creep in the middle of a sprint
+client: Dana Brooks
+clientRole: VP of Product, Brightpath
+clientInitials: DB
+clientPronoun: She
+clientMood: >-
+  Fast, persuasive, under pressure from the CEO. She insists it's small. If you say a flat no, she'll say: “That's not
+  the partner attitude I expected.”
+level: 3
+minutes: 15 min
+storySoFar: >-
+  It's Friday, April 10, the last day of Sprint 5. Sprint 6 (April 13–24) was planned yesterday: finish the Epic sync,
+  performance, accessibility, and user acceptance testing with Lakeside. Dana has just called with a “tiny” request
+  for the pilot.
+facts:
+  - label: Sprint 5 result
+    value: "Eligibility check done · audit logging done · Epic appointment sync 80% (finishing in Sprint 6)."
+  - label: Sprint 6 (Apr 13–24)
+    value: "Full: finish Epic sync, performance, accessibility fixes, user acceptance testing with Lakeside. Kevin's code freeze: Fri Apr 17."
+  - label: The new ask
+    value: "Patients upload a photo of their insurance card in the intake form — for the pilot."
+  - label: Your estimate
+    value: "5–7 days: camera and upload in the app, secure storage (the card image is PHI), clinic staff view, and Kevin's security review."
+    warn: true
+  - label: Options
+    value: "A) Sprint 7 (May 11–22), after the pilot. B) Sprint 6, by dropping the accessibility fixes — risky for older patients. C) Keep typed member IDs, which already work."
+  - label: Change note
+    value: "What changed · why · impact (time, cost, risk) · options · my recommendation · the decision needed and by when."
+yourGoal: >-
+  Say yes to the goal, make the trade-off visible, recommend an option, and get a decision in writing — without
+  silently absorbing the work.
+mayAsk:
+  - It's tiny, just squeeze it in.
+  - Our competitor already has this.
+  - Why is everything a big deal with you?
+script:
+  - { step: Open, line: "Hi Dana. I understand the ask: insurance card photos in the intake form. We can do it — the question is when, and what moves to make room." }
+  - { step: Facts, line: "It's 5 to 7 days, because the photo is patient data: it needs secure storage and a security review with Kevin." }
+  - { step: Trade-off, line: "Sprint 6 is full, and Kevin's code freeze is April 17. To add this, something has to come out." }
+  - { step: Options, line: "Option A: Sprint 7, right after the pilot. Option B: now, but we drop the accessibility fixes — risky for older patients. Option C: keep typed member IDs for the pilot." }
+  - { step: Recommend, line: "I recommend A plus C: the pilot stays safe, and photos arrive in May." }
+  - { step: Decide + close, line: "Can you confirm by Monday? I'll send a change note today with all three options." }
+whatGood:
+  - Said yes to the goal and made the trade-off visible
+  - Clear options with a recommendation
+  - Stayed calm under pushback; didn't absorb the work silently
+  - Asked for a decision by a date and promised a change note
+prompt: |
+  You are role-playing a US client on a video call with me. Stay in character until I say "End the call."
+
+  WHO YOU ARE: Dana Brooks, VP of Product at Brightpath Health (Austin, Texas). Fast, persuasive, under pressure from the CEO.
+
+  PROJECT CONTEXT: My company is the engineering partner of Brightpath Health, a US telehealth company. We are building CareBook v2 — patient booking (in-person and video), SMS reminders, intake forms and a clinic schedule view — synced with the clinic's Epic EHR, with insurance eligibility checks through Suncoast Billing. The launch customer is Lakeside Health (12 primary-care clinics in Ohio). Everything is made up; no real patient data.
+
+  WHERE WE ARE NOW: Friday, April 10, the last day of Sprint 5. The pilot at 3 Lakeside clinics is on April 27. This week you saw a competitor's app with insurance card photo upload.
+
+  TODAY'S SCENARIO: Open with "Tiny request — I need insurance card photo upload in the intake form for the pilot. Can you just add it?" Push back hard and insist it's small. If I say yes without naming the trade-off, add another request: "Great — and a pharmacy picker too." If I say a flat no, say "That's not the partner attitude I expected."
+
+  HIDDEN FACTS — reveal each one only if my questions lead to it:
+  1. A competitor showed insurance card upload at a conference this week, and your CEO asked about it.
+  2. What you really need is to show it in the investor demo on May 12 — not to have it live for pilot patients.
+  3. Lakeside's front desk (Lisa Chen) actually prefers typed member IDs, because they are easier to check in Epic.
+  4. You would accept "demo-ready in a test environment by May 8" if it is offered.
+
+  CURVEBALLS — use these during the call:
+  - Say: "Our competitor built it in a week — why can't you?"
+  - Ask: "Why does a photo need Kevin's security review?"
+
+  DIFFICULTY: Level 3 — sceptical; push back, interrupt at pauses, ask hard questions, apply time pressure.
+
+  HOW TO BEHAVE
+  - Speak like a real American business person: natural speed, short sentences, everyday expressions.
+  - Keep each turn short (1–3 sentences), like a real call.
+  - Don't volunteer information; give details only when I ask good questions.
+  - If I use technical jargon, ask me what it means for your business.
+  - If I talk for more than 45 seconds without getting to the point, cut in at my next pause.
+
+  WHEN I SAY "End the call", step out of character and give me feedback:
+  1. Score me 1–5 on each criterion that came up: opening and agenda, answer-first structure, questions asked, playback, business link, trade-offs, handling unknowns, risks and bad news, disagreement, closing and next steps.
+  2. List the hidden facts and tell me which ones I uncovered.
+  3. Quote 2 things I said well, and 2 things I should have said differently — with the better sentence.
+  4. Tell me roughly how often I used filler words ("um", "basically", "actually", "like").
+  5. Give me ONE thing to focus on in my next call.

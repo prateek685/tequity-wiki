@@ -1,0 +1,77 @@
+day: 62
+block: 13
+title: Lead a call solo
+type: live_call
+storyDate: Tuesday, May 26
+minutes: About 60 min
+intro: >-
+  Today you lead a client call on your own. Your manager or PM may observe this one for the final review. You recap within
+  two hours and send the end-of-day note.
+lessons:
+  - id: pre-call-card
+    kind: prep
+    title: Pre-call card
+    minutes: 5 min
+    blocks:
+      - type: yesterday
+        text: >-
+          you planned your solo week, repeated your Day 1 call, and wrote three differences.
+      - type: scene
+        when: Tuesday, May 26 · 8:10 am Central · pilot day twenty-three
+        text: >-
+          Sam Porter approved Epic access for the 9 new clinics this morning. Today's call is yours alone: no backup on the
+          call unless you ask. Fill in the pre-call card, including how you'll bring the new approval into the call.
+    fields:
+      - { id: call, label: "The call, and who is on it", kind: line }
+      - { id: goal, label: "My goal (one sentence)", kind: line }
+      - { id: say, label: "3 things I must say", kind: area, rows: 3 }
+      - { id: ask, label: "3 questions I must ask", kind: area, rows: 3 }
+      - { id: hardest, label: "The hardest question, and my answer", kind: area, rows: 2 }
+    source: both
+
+  - id: lead-solo
+    kind: live
+    title: Lead a call solo
+    heading: Lead a real client call on your own
+    minutes: 30 min
+    liveRole: solo
+    substituteCardId: X12
+    fallback: >-
+      If no live call is available today, run the extra 45-minute capstone mock below instead. It is dated June 5: treat it
+      as practice for leading a long call, not part of this week's story. Or swap with a mock day and lead the call later in
+      the week, before Friday.
+    lead: >-
+      You own the whole call. Afterwards, fill in the sheet while it's fresh.
+    fields:
+      - { id: call, label: "Call · observer (if any) · date", kind: line, placeholder: "e.g. Rollout planning · the PM or manager's name · May 26" }
+      - { id: went-well, label: What went well, kind: area, rows: 2 }
+      - { id: needed-help, label: "Did I need the PM or senior at any point? Why?", kind: area, rows: 2 }
+      - { id: hard-moment, label: "The hardest moment, and what I did", kind: area, rows: 2 }
+      - { id: next-steps, label: "Decisions and next steps, with owners and dates", kind: area, rows: 3 }
+
+  - id: recap-eod
+    kind: write
+    title: Recap and end-of-day note
+    heading: Send the recap within 2 hours, then the end-of-day note
+    minutes: 10 min
+    lead: >-
+      Write the recap of the call, then today's end-of-day note: what you did, what is next, and anything blocked.
+    source: both
+    blocks:
+      - { type: field, id: my-recap }
+      - { type: field, id: eod-note }
+    fields:
+      - { id: my-recap, label: Recap of the call, kind: area, rows: 5, placeholder: "Decisions · actions with owners and dates · open questions" }
+      - { id: eod-note, label: End-of-day note, kind: area, rows: 4, placeholder: "Done today · next · blocked" }
+
+scoring:
+  recap-eod:
+    modelAnswer: >-
+      Recap, rollout planning call: we confirmed June 15 for all 12 clinics. Decided: Sam's Epic approval covers the 9 new
+      clinics. Actions: Me: send the rollout checklist by Thu May 28. Lisa: confirm training dates by Fri May 29. Kevin:
+      confirm the load test slot by Wed May 27. Open: do we need a second test day? End-of-day note: Done: led the planning
+      call, sent the recap in 1 hour 10 minutes. Next: draft the weekly status report. Blocked: nothing.
+    scoringPoints:
+      - The recap leads with the decisions, and every action has an owner and a date
+      - The end-of-day note says what is done, what is next and what is blocked
+      - Both are short enough for the client to read in a minute

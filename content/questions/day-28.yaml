@@ -1,0 +1,179 @@
+# Day 28 quiz pool: Wednesday, April 8. Kevin asks about a custom HL7 interface after Epic's FHIR limits: the
+# trade-off formula, business reasons, recommending under pressure, revisiting later. Shows 5 of 10.
+pool: day-28
+questions:
+  - id: D28-01
+    type: mcq
+    stem: "Kevin opens: “I'm hearing FHIR has limits. Should we just build a proper HL7 interface?” What's the best first reply?"
+    options:
+      - text: "“Let me explain how the FHIR rate limits work first.”"
+        correct: false
+        explanation: Background before the answer.
+      - text: "“Short answer: not for the pilot. Here's why, in a minute.”"
+        correct: true
+        explanation: The answer first, then the reasons, in the time he has.
+      - text: "“Good idea. HL7 is more complete.”"
+        correct: false
+        explanation: Agrees with the CTO's question instead of giving your view.
+      - text: "“What would you prefer?”"
+        correct: false
+        explanation: He asked you. That's a menu, not a recommendation.
+    source: { quote: "Short answer: not for the pilot. Here's why, in a minute.", page: 83 }
+
+  - id: D28-02
+    type: mcq
+    stem: "Kevin asks: “Isn't FHIR slower?” What's the best reply?"
+    options:
+      - text: "“No, FHIR is modern, so it's faster.”"
+        correct: false
+        explanation: A general claim that isn't true for our setup.
+      - text: "“For us, yes: appointments sync every 5 minutes, not instantly. Front desks need cancellations within 15 minutes, so 5 minutes is fast enough. Is that right for you?”"
+        correct: true
+        explanation: Admits the cost, then shows why it doesn't hurt the business.
+      - text: "“It depends on a lot of things.”"
+        correct: false
+        explanation: True of everything, and tells him nothing.
+      - text: "“Only a little slower.”"
+        correct: false
+        explanation: Vague. A CTO wants the number.
+    source: { quote: "Front desks need same-day cancellations to show within 15 minutes, so a 5-minute sync is fine.", page: 84 }
+
+  - id: D28-03
+    type: mcq
+    stem: "Kevin asks: “How much will Epic charge us for API access?” You don't know. What do you say?"
+    options:
+      - text: "“Nothing, it's a standard API.”"
+        correct: false
+        explanation: A guess about another company's pricing.
+      - text: "“Probably not much.”"
+        correct: false
+        explanation: A guess dressed up as an answer.
+      - text: "“I don't have that number. I'll check with Sam Porter and Epic's developer terms and send it to you by tomorrow noon your time.”"
+        correct: true
+        explanation: Honest, calm, with an owner and a time.
+      - text: "“That's a question for Lakeside.”"
+        correct: false
+        explanation: Pushes it away instead of owning the answer.
+    source: { quote: "How much will Epic charge us for API access?", page: 84 }
+
+  - id: D28-04
+    type: mcq
+    stem: "Kevin asks: “Are we painting ourselves into a corner with FHIR?” What's the best reply?"
+    options:
+      - text: "“Maybe. We'll find out.”"
+        correct: false
+        explanation: Raises worry and gives no plan.
+      - text: "“No, it's the industry standard.”"
+        correct: false
+        explanation: Brushes off a fair question with a slogan.
+      - text: "“I don't think so: FHIR is the standard other EHRs use too, so it should help if Brightpath adds a second EHR. And we'll measure sync delays in the pilot and revisit HL7 before the summer rollout if we need to.”"
+        correct: true
+        explanation: Answers the worry with a reason and a planned checkpoint.
+      - text: "“Let's not worry about the future yet.”"
+        correct: false
+        explanation: A CTO's job is to worry about it.
+    source: { quote: "Brightpath plans to connect a second EHR (athenahealth) next year; the FHIR approach could be reused there.", page: 84 }
+
+  - id: D28-05
+    type: mcq
+    stem: "You've explained both options. Kevin says: “So what do you actually recommend?” What went wrong, and what do you say now?"
+    options:
+      - text: "“Both are fine, really. Your call.”"
+        correct: false
+        explanation: Still no recommendation.
+      - text: "“I'd need more time to decide.”"
+        correct: false
+        explanation: You have the facts. He wants your judgement now.
+      - text: "“Sorry, I should have said it first: I recommend the FHIR API, because only it makes the April 27 pilot.”"
+        correct: true
+        explanation: You gave a menu. Recover with one recommendation and the business reason.
+      - text: "“HL7, since you mentioned it.”"
+        correct: false
+        explanation: Follows his question instead of the facts.
+    source: { quote: "If I give options without a recommendation, say \"So what do you actually recommend?\"", page: 84 }
+
+  - id: D28-06
+    type: mcq
+    stem: "Dana asks why you chose FHIR over HL7. Which reason will land best with her?"
+    options:
+      - text: "“FHIR uses REST and JSON, which our team prefers.”"
+        correct: false
+        explanation: A reason for engineers, not for a VP of Product.
+      - text: "“HL7 v2 is old.”"
+        correct: false
+        explanation: Age isn't a business reason.
+      - text: "“It's the only option that makes the April 27 pilot, and Lakeside IT already approved it.”"
+        correct: true
+        explanation: Tied to the date and the client, which is what she cares about.
+      - text: "“Kevin wanted it.”"
+        correct: false
+        explanation: Hides behind someone else instead of giving the reason.
+    source: { quote: "The board cares more about the pilot date than about technical elegance.", page: 84 }
+
+  - id: D28-07
+    type: scenario
+    clientLine: "“What happens when we hit the rate limit on a busy Monday morning?”"
+    stem: The team has a rough idea but hasn't load-tested it yet. What do you say?
+    options:
+      - text: "“We won't hit it.”"
+        correct: false
+        explanation: A promise you can't back up yet.
+      - text: "“About 60 requests a minute is our limit. With a 5-minute sync we expect to stay well under it, but we haven't tested a Monday peak. I'll have a load test result for you by Friday.”"
+        correct: true
+        explanation: Shares what you know, names the unknown, commits to a date.
+      - text: "“Then the sync just slows down a bit.”"
+        correct: false
+        explanation: A guess about behaviour nobody has tested.
+      - text: "“We'll deal with that if it happens.”"
+        correct: false
+        explanation: Exactly the risk a CTO wants raised now.
+    source: { quote: "A rate limit of about 60 requests a minute for our app", page: 83 }
+
+  - id: D28-08
+    type: scenario
+    clientLine: "“Visit reason isn't in the API? Doctors will hate that.”"
+    stem: Dana hears about the missing field. What do you say?
+    options:
+      - text: "“It's Epic's fault.”"
+        correct: false
+        explanation: Blame doesn't help her plan.
+      - text: "“For the pilot, patients enter the visit reason in CareBook, so doctors still see it. If that's not enough, it's one of the things we revisit before the summer rollout.”"
+        correct: true
+        explanation: Names the workaround in plain words and when it gets revisited.
+      - text: "“We'll build HL7 to get it.”"
+        correct: false
+        explanation: Reopens a 20–25 day option that misses the pilot.
+      - text: "“It doesn't really matter.”"
+        correct: false
+        explanation: Dismisses a real concern.
+    source: { quote: "visit reason missing (patients enter it in CareBook)", page: 83 }
+
+  - id: D28-09
+    type: written
+    stem: >-
+      Dana messages: “Kevin says you two picked FHIR. What did we give up?” Write your answer in 2–3 sentences.
+    modelAnswer: >-
+      Two things: appointments sync every 5 minutes instead of instantly, and Epic's API doesn't give us the visit
+      reason, so patients type it into CareBook. Neither affects the pilot: front desks need cancellations within 15
+      minutes, and patients book days ahead. We'll measure delays in the pilot and revisit before the summer rollout.
+    scoringPoints:
+      - Names both costs plainly
+      - Explains why they don't hurt the pilot, in business terms
+      - Says when the decision will be revisited
+    source: { quote: "Cost: sync every 5 minutes, not instantly; visit reason missing", page: 83 }
+
+  - id: D28-10
+    type: written
+    stem: >-
+      Dana asks: “My CEO wants to know why the waitlist isn't in the pilot. Give me three sentences I can forward.”
+      Write them using the trade-off formula.
+    modelAnswer: >-
+      We had two options. Adding the waitlist to the pilot would have it live on April 27, but it would move the code
+      freeze to April 22 and cut regression testing from five days to two. Building it in Sprint 7 keeps the full
+      testing before the pilot, and the waitlist follows about three weeks later. We chose Sprint 7, because a stable
+      pilot protects the rollout to all 12 clinics.
+    scoringPoints:
+      - Both options with a benefit and a cost
+      - The decision with a business reason
+      - Short, plain and forwardable to a CEO
+    source: { quote: "Option A gives [benefit] but [cost]. Option B gives [benefit] but [cost]. I recommend [X] because [business outcome]. Are you comfortable with that?", page: 77 }

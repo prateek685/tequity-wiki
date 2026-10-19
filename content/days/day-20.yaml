@@ -1,0 +1,187 @@
+day: 20
+block: 4
+title: Gate 1 dress rehearsal
+type: normal
+storyDate: Friday, March 27
+minutes: About 70 min
+intro: >-
+  The last day of Sprint 4 and of Phase 1. You run a full 20-minute sync with a surprise, send the recap within 2
+  hours, and look back at Day 1.
+lessons:
+  - id: sprint-4-wrap
+    kind: prep
+    title: The end of Sprint 4
+    minutes: 10 min
+    blocks:
+      - type: yesterday
+        text: >-
+          Laura asked five questions you couldn't answer. You stayed calm, shared what you knew, and sent her a list
+          with an owner and a date for every item.
+      - type: scene
+        when: Friday, March 27 · 11:30 am Central, after the Sprint 4 demo
+        text: >-
+          This morning's demo showed intake form v1 and the Add-to-calendar button. The schedule view is at 80% and
+          needs two more days. The UAT release is at 2 pm, and you own it. Epic access has now been pending 31 days, so
+          the team started a plan B against Epic's public test sandbox. Dana is joining from the airport for a
+          20-minute wrap-up: her CEO reviews the pilot plan on Monday.
+      - type: text
+        text: >-
+          This call is your dress rehearsal for Gate 1. Fill in your pre-call card. Use AI to prepare it if you like,
+          then make it yours.
+    fields:
+      - { id: goal, label: My goal for this call, kind: line }
+      - { id: opener, label: My opener, kind: line, placeholder: Warm start + agenda }
+      - { id: points, label: "3 points I'll make", kind: area, rows: 3 }
+      - { id: questions, label: "3 questions I'll ask", kind: area, rows: 3 }
+      - { id: risk, label: 1 risk, kind: line }
+      - { id: closing, label: My closing line, kind: line }
+
+  - id: phase-1-frameworks
+    kind: learn
+    title: Phase 1 in one page
+    heading: Every framework from Weeks 1–4, in one page
+    minutes: 10 min
+    lead: >-
+      Four weeks, ten tools. Read them once more before the rehearsal. On a call, you'll reach for the ones you know
+      by heart.
+    blocks:
+      - { type: heading, text: "Week 1 · Speak in a clear structure" }
+      - type: steps
+        items:
+          - { title: Answer first (BLUF), text: "The answer, then the reason. “Short answer: yes, by Friday.”" }
+          - { title: PREP, text: "Point, reason, example, point. For a recommendation in under 90 seconds." }
+          - { title: The 3-step opener, text: "Warm start, purpose and agenda, time check." }
+      - { type: heading, text: "Week 2 · Write clearly" }
+      - type: steps
+        items:
+          - { title: The BLUF email, text: "The ask in the subject, the bottom line in the first two lines, bullets, one screen." }
+          - { title: Daily status, text: "Done, next, blocked, risk, need from you." }
+          - { title: The pyramid, text: "Main message first, up to three points, a fact under each." }
+      - { type: heading, text: "Week 3 · Ask better questions" }
+      - type: steps
+        items:
+          - { title: The question funnel, text: "Open, probe, confirm. Explore first, confirm last." }
+          - { title: Playback, text: "Three bullets in your own words, then “Did I miss anything?”" }
+      - { type: heading, text: "Week 4 · Own it" }
+      - type: steps
+        items:
+          - { title: Owner language, text: "“I'll…”, “My recommendation is…”, “I'll find out who owns that by…”" }
+          - { title: The follow-up loop, text: "Commit, confirm in the recap, close by the date you gave." }
+          - { title: “I don't know — I'll check”, text: "Acknowledge, be honest, share what you know, commit to a date, follow up in writing." }
+      - type: recall
+        label: Your 20-question bank from Day 14
+        day: 14
+        lesson: final-bank
+        fields:
+          - { id: bank, label: My 20-question bank }
+
+  - id: dress-rehearsal
+    kind: mock
+    title: The dress rehearsal
+    heading: "Gate 1 dress rehearsal: a weekly sync with a surprise"
+    minutes: 20 min
+    lead: >-
+      Level 2, 20 minutes, the full structure: opener, agenda, answer-first update, Epic risk with a date, one clear
+      ask, close. Halfway through, Dana brings a surprise. Don't agree on the spot.
+    cardId: S36
+    level: 2
+    scriptNote: Open it after your call to compare.
+    checksTitle: After the call
+    checks:
+      - "I ran the full structure: opener, agenda, update, risk, ask, close"
+      - I gave the Epic risk with a date and plan B
+      - I didn't agree to the fourth clinic on the spot, and promised a dated answer
+      - I ended on time and promised the recap within 2 hours
+    fields:
+      - { id: went-well, label: What went well, kind: area, placeholder: "From the AI's feedback" }
+      - { id: fix-next, label: One thing to fix next time, kind: area }
+      - { id: log, label: "Did I close every loop I opened this week?", kind: area, rows: 2 }
+    rubric: true
+
+  - id: sync-recap
+    kind: write
+    title: Send the recap
+    heading: Send Dana the recap within 2 hours
+    minutes: 10 min
+    lead: >-
+      Her CEO reviews the pilot plan on Monday, so this recap may end up on his desk. Use the recap prompt if you like,
+      check every line yourself, and send it within 2 hours.
+    blocks:
+      - { type: field, id: subject }
+      - { type: field, id: summary }
+      - { type: field, id: decisions }
+      - { type: field, id: actions }
+      - { type: field, id: open-questions }
+      - { type: field, id: next-meeting }
+    fields:
+      - { id: subject, label: Subject, kind: line, placeholder: "e.g. CareBook Sprint 4 wrap-up: 1 ask by Tue Mar 31" }
+      - { id: summary, label: Summary (2 lines), kind: area, rows: 2, placeholder: Bottom line first… }
+      - { id: decisions, label: Decisions, kind: area, rows: 2 }
+      - { id: actions, label: Action items (owner + date), kind: area, rows: 3 }
+      - { id: open-questions, label: Open questions, kind: area, rows: 2 }
+      - { id: next-meeting, label: Next meeting, kind: line }
+
+  - id: day-one-vs-today
+    kind: write
+    title: Day 1 vs today
+    heading: "Look back: Day 1 vs today"
+    minutes: 5 min
+    lead: >-
+      On Day 1 you met Dana with no preparation. Here's what you noted that day. Read it, then write a few honest lines
+      about what's different now.
+    blocks:
+      - type: recall
+        label: Your notes after the Day 1 call
+        day: 1
+        lesson: call-review
+        fields:
+          - { id: went-well, label: What went well }
+          - { id: fix-next, label: One thing to fix }
+      - { type: field, id: reflection }
+    fields:
+      - { id: reflection, label: "What I do differently now, and what I still want to fix", kind: area, rows: 4, placeholder: "e.g. On Day 1 I never set an agenda. Today I opened with one without thinking. I still…" }
+
+  - id: week-in-review
+    kind: scorecard
+    title: Your week in review
+    minutes: 5 min
+    lead: >-
+      Five minutes. Rate this week's behaviours and add a line of proof for each pillar. Your pillar scores update from
+      them; the other pillars carry forward. Your Day 1 baseline sits next to it.
+    scorecard: [U4, O3, O4, S1]
+    checksTitle: Before the weekend
+    checks:
+      - Did every recap go out within 2 hours?
+      - Did I say “I'll…” more often than “Should I…?”
+      - Did I handle an unknown without apologising more than once?
+    blocks:
+      - type: note
+        tone: info
+        title: Gate 1 with your manager
+        text: >-
+          After the Week 4 assessment, your manager runs Gate 1: 45 minutes together. They pick a Phase 1 scenario you
+          haven't seen, with one surprise, and you run it live with the AI client for 20 minutes while they watch.
+          They may join as a second stakeholder. Then you send them the recap within 2 hours. You pass with a rubric
+          average of 2.5 or more, no criterion at 1, and the recap on time. Bring your Week 1–4 scorecards and your
+          20-question bank; the portal shows both. Book the 45 minutes with your manager if you haven't already.
+      - type: text
+        text: >-
+          **Next week:** Phase 2 starts with requirement discovery and Healthcare 101: how money and data flow in US
+          healthcare, and the HIPAA basics every engineer should know.
+
+scoring:
+  sync-recap:
+    modelAnswer: >-
+      Subject: CareBook Sprint 4 wrap-up: Epic escalation needed by Tue Mar 31.
+      Summary: Sprint 4 delivered intake form v1 and the Add-to-calendar button; the schedule view needs 2 more days in
+      Sprint 5, with no pilot impact. If we don't have Lakeside's Epic access by April 6, the April 27 pilot is at
+      risk; plan B has started so no work is wasted.
+      Decisions: none on the fourth clinic yet; I'll come back with what it means first.
+      Action items: Dana: escalate Epic access with Lakeside leadership by Tue Mar 31. Me: confirm what adding
+      Eastside means for training, schedules and Epic setup by Tue Mar 31. Me: UAT release today, 2–3 pm Central.
+      Open questions: none.
+      Next meeting: weekly sync, Fri Apr 3.
+    scoringPoints:
+      - The Epic risk in one sentence with its date and plan B, and the one ask with a date
+      - The fourth clinic is recorded as not yet agreed, with a dated answer from the engineer
+      - Every action item has an owner and a date; short enough to forward to the CEO

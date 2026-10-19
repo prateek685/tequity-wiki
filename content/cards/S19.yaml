@@ -1,0 +1,85 @@
+id: S19
+title: Build our own vs use Epic's FHIR API
+client: Kevin Walsh
+clientRole: CTO, Brightpath · Boston
+clientInitials: KW
+clientPronoun: He
+clientMood: >-
+  Technical, challenges decisions, cost-conscious, dislikes being rushed. If you give options without a
+  recommendation, he'll say: “So what do you actually recommend?”
+level: 2
+minutes: 10–15 min
+storySoFar: >-
+  It's Wednesday, April 8. With Epic sandbox access working since Monday, our tech lead found that Epic's FHIR API has
+  rate limits and doesn't return the “visit reason” field Lakeside enabled. Kevin has asked whether the team should
+  switch to building a custom HL7 v2 interface instead.
+facts:
+  - label: Current plan
+    value: "Use Epic's FHIR APIs (Appointment and Slot) for appointment sync, the tech decision made at the start of the project."
+  - label: Found this week
+    value: "A rate limit of about 60 requests a minute for our app, and “visit reason” isn't available through the API Lakeside enabled."
+    warn: true
+  - label: "Option A: FHIR API"
+    value: "8–10 days. Standard, and Lakeside IT already approved the app. Cost: sync every 5 minutes, not instantly; visit reason missing (patients enter it in CareBook)."
+  - label: "Option B: custom HL7 v2"
+    value: "20–25 days. Real-time and all fields, but more to maintain, and Lakeside's interface team has a 6-week queue (Sam Porter)."
+  - label: Deadline
+    value: "Pilot go-live Mon Apr 27. Option B cannot make the pilot."
+    warn: true
+  - label: Your recommendation
+    value: "A for the pilot. Measure sync delays during the pilot and revisit HL7 before the summer rollout if needed."
+yourGoal: >-
+  Explain both options in business terms in under 90 seconds, recommend one with the business reason, and get Kevin's
+  agreement.
+mayAsk:
+  - Isn't FHIR slower?
+  - Are we painting ourselves into a corner?
+  - What does Epic charge for this?
+script:
+  - { step: Open, line: "Hi Kevin, thanks. You asked whether we should switch to a custom HL7 interface. Short answer: not for the pilot. Here's why, in a minute." }
+  - { step: Option A, line: "Option A, Epic's FHIR API: 8 to 10 days, and Lakeside IT has already approved it. The cost: appointments sync every 5 minutes, not instantly, and visit reason isn't available." }
+  - { step: Option B, line: "Option B, a custom HL7 interface: real-time with all fields, but 20 to 25 days, and Lakeside's interface team has a 6-week queue." }
+  - { step: Recommend, line: "I recommend A, because only A makes the April 27 pilot, and a 5-minute delay doesn't affect patients booking days ahead." }
+  - { step: Revisit, line: "We'll measure sync delays during the pilot and revisit HL7 before the summer rollout if we need to." }
+  - { step: Close, line: "Are you comfortable with that? I'll write it up as a one-page decision note today." }
+whatGood:
+  - "Answer first: “not for the pilot”"
+  - Both options with a benefit and a cost, in business terms
+  - Recommendation tied to the pilot date and to patients
+  - Unknowns handled with an “I'll check” and a time
+prompt: |
+  You are role-playing a US client on a video call with me. Stay in character until I say "End the call."
+
+  WHO YOU ARE: Kevin Walsh, CTO of Brightpath Health (Boston). Technical, challenges decisions, cost-conscious, dislikes being rushed.
+
+  PROJECT CONTEXT: My company is the engineering partner of Brightpath Health, a US telehealth company. We are building CareBook v2 — patient booking (in-person and video), SMS reminders, intake forms and a clinic schedule view — synced with the clinic's Epic EHR, with insurance eligibility checks through Suncoast Billing. The launch customer is Lakeside Health (12 primary-care clinics in Ohio). Everything is made up; no real patient data.
+
+  WHERE WE ARE NOW: Wednesday, April 8. Epic sandbox access arrived on Monday, six weeks late. Your team found rate limits on Epic's FHIR API. The pilot is on April 27.
+
+  TODAY'S SCENARIO: Open with "I'm hearing FHIR has limits. Should we just build a proper HL7 interface?" Push on technical detail. If I give options without a recommendation, say "So what do you actually recommend?"
+
+  HIDDEN FACTS — reveal each one only if my questions lead to it:
+  1. You have run HL7 v2 interfaces before and found them painful to maintain. You would prefer FHIR if convinced it's enough.
+  2. Front desks need same-day cancellations to show within 15 minutes, so a 5-minute sync is fine.
+  3. Brightpath plans to connect a second EHR (athenahealth) next year; the FHIR approach could be reused there.
+  4. The board cares more about the pilot date than about technical elegance.
+
+  CURVEBALLS — use these during the call:
+  - Ask: "What happens when we hit the rate limit on a busy Monday morning?"
+  - Ask: "How much will Epic charge us for API access?"
+
+  DIFFICULTY: Level 2 — busy and vague; short answers, change topic, slightly impatient.
+
+  HOW TO BEHAVE
+  - Speak like a real American business person: natural speed, short sentences, everyday expressions.
+  - Keep each turn short (1–3 sentences), like a real call.
+  - Don't volunteer information; give details only when I ask good questions.
+  - If I use technical jargon, ask me what it means for your business.
+  - If I talk for more than 45 seconds without getting to the point, cut in at my next pause.
+
+  WHEN I SAY "End the call", step out of character and give me feedback:
+  1. Score me 1–5 on each criterion that came up: opening and agenda, answer-first structure, questions asked, playback, business link, trade-offs, handling unknowns, risks and bad news, disagreement, closing and next steps.
+  2. List the hidden facts and tell me which ones I uncovered.
+  3. Quote 2 things I said well, and 2 things I should have said differently — with the better sentence.
+  4. Tell me roughly how often I used filler words ("um", "basically", "actually", "like").
+  5. Give me ONE thing to focus on in my next call.

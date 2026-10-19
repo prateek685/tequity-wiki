@@ -1,0 +1,183 @@
+# Day 17 quiz pool: Tuesday, March 24. AI before the call (the prep prompt, editing its output), the data safety
+# rules, and the weekly sync run from an AI-prepared agenda. Shows 5 of 10.
+pool: day-17
+questions:
+  - id: D17-01
+    type: mcq
+    stem: Dana moved the weekly sync to this morning, and you have 10 minutes before it starts. What's the best use of them?
+    options:
+      - text: Skip the prep. You know the project well enough to wing it.
+        correct: false
+        explanation: Walking in cold is how you get surprised by the obvious question.
+      - text: Paste last week's whole Slack thread with Lakeside into a free AI tool and ask for an agenda.
+        correct: false
+        explanation: Client messages may hold confidential details. Give the AI your own short, anonymised facts.
+      - text: Run the prep prompt with your goal and anonymised facts, then edit its output into your pre-call card.
+        correct: true
+        explanation: Ten minutes gets you an agenda, likely questions, risks, an opener and a closer, in your words.
+      - text: Ask the AI for an agenda and read it out on the call word for word.
+        correct: false
+        explanation: Unchecked AI text. It may be generic or wrong, and it won't sound like you.
+    source: { quote: "Never go into a call cold.", page: 54 }
+
+  - id: D17-02
+    type: mcq
+    stem: >-
+      You want AI help to prepare a call about a booking bug at one of Lakeside's clinics. Which of these is safe to
+      paste into an AI tool the company hasn't approved?
+    options:
+      - text: A screenshot of the clinic schedule that shows the patients' names.
+        correct: false
+        explanation: Patient names in a screenshot are PHI. Never paste them.
+      - text: The Epic sandbox login that Sam Porter emailed you.
+        correct: false
+        explanation: Client credentials never go into an AI tool.
+      - text: Lakeside's signed security form, so the AI has the full context.
+        correct: false
+        explanation: A confidential client document. Describe what you need instead.
+      - text: “Some patients see the wrong slot after rescheduling. The fix ships Thursday. I need to explain it to a clinic director.”
+        correct: true
+        explanation: The situation, without people, patients or documents. That's all the AI needs.
+    source: { quote: "or client credentials or confidential documents into any AI tool the company hasn't approved.", page: 8 }
+
+  - id: D17-03
+    type: mcq
+    stem: "Dana asks: “Can your team just build against a fake Epic until access arrives?” What's the best reply?"
+    options:
+      - text: "“Sure, that solves it.”"
+        correct: false
+        explanation: It doesn't. Only Lakeside's real access proves the sync works, so the risk stays.
+      - text: "“No, that doesn't work.”"
+        correct: false
+        explanation: Too quick. A test version can keep the team building.
+      - text: "“Partly. We can keep building against Epic's public test sandbox so no work is wasted, but only Lakeside's real access proves the sync. We still need it by April 6.”"
+        correct: true
+        explanation: Says yes to what helps, and keeps the real risk and its date in view.
+      - text: "“That's a question for Sam's team.”"
+        correct: false
+        explanation: It's your build plan. You own the answer.
+    source: { quote: "Plan B started: building the sync against Epic's public test sandbox, so work isn't wasted.", page: 62 }
+
+  - id: D17-04
+    type: mcq
+    stem: "You tell Dana the Epic access is now blocking the team. She asks: “So what do you need from me?” What's the best reply?"
+    options:
+      - text: "“Nothing for now, I just wanted you to know.”"
+        correct: false
+        explanation: A risk with no ask. Nothing changes after the call.
+      - text: "“Could you ask Dr. Mercer to push the approval with Sam's team this week?”"
+        correct: true
+        explanation: One clear ask, to the right person, with a deadline.
+      - text: "“Whatever you think is best.”"
+        correct: false
+        explanation: Hands the problem back to her.
+      - text: "“Should I email Sam again?”"
+        correct: false
+        explanation: You can do that anyway. She asked what you need from her.
+    source: { quote: "If I bring up a risk without an ask, say \"So what do you need from me?\"", page: 59 }
+
+  - id: D17-05
+    type: mcq
+    stem: "Dana asks: “Why is the dashboard after the pilot?” What's the best reply?"
+    options:
+      - text: "“That's what the team decided.”"
+        correct: false
+        explanation: Hides behind the team and gives no reason.
+      - text: "“The full dashboard is 8 to 10 days, and the sprints before April 27 are full. If you need something for May 12, a smaller no-shows-only version could fit. Is that the date that matters?”"
+        correct: true
+        explanation: The reason, a smaller option, and a question to find what she really needs.
+      - text: "“We can probably squeeze it in.”"
+        correct: false
+        explanation: A half-promise that puts the pilot at risk.
+      - text: "“Sorry, it was the only option we had.”"
+        correct: false
+        explanation: An apology instead of a reason, and it isn't the only option.
+    source: { quote: "You'd accept a smaller dashboard (no-shows only) before May 12 if someone suggests it.", page: 59 }
+
+  - id: D17-06
+    type: mcq
+    stem: >-
+      Your AI prep lists a risk to raise: “The security questionnaire may delay the pilot.” You know it's for a
+      different prospective customer and doesn't touch the pilot. What do you do?
+    options:
+      - text: Keep it. The AI saw a pattern you might have missed.
+        correct: false
+        explanation: The AI only knows what you told it. You know the facts.
+      - text: Raise it anyway, to sound thorough.
+        correct: false
+        explanation: A false risk worries Dana for nothing and costs you trust.
+      - text: Ask Dana on the call whether it's true.
+        correct: false
+        explanation: You already know the answer. Asking makes it look like you don't.
+      - text: Cut it. Check every line of the prep against what you know before it goes on your card.
+        correct: true
+        explanation: The prep is a draft. You edit it into your own card.
+    source: { quote: "agenda, likely questions, risks, opener and closer", page: 54 }
+
+  - id: D17-07
+    type: scenario
+    clientLine: "“Who's answering Laura's questionnaire — you?”"
+    stem: The questionnaire has 120 questions, due April 3. What's the best reply?
+    options:
+      - text: "“That's not my area. Compliance should handle it.”"
+        correct: false
+        explanation: Waiting language. Someone still needs to own getting it done.
+      - text: "“Sure, I'll answer all 120 myself by Friday.”"
+        correct: false
+        explanation: Overpromising. Many answers aren't yours to give.
+      - text: "“I'll coordinate it and answer the technical items. Rachel Kim covers certifications and the BAA, Kevin the infrastructure. I'll send you the split by owner tomorrow.”"
+        correct: true
+        explanation: Owns the whole, names who answers what, and gives a date.
+      - text: "“Should I?”"
+        correct: false
+        explanation: Asks permission instead of taking the next step.
+    source: { quote: "Rachel Kim, Brightpath compliance lead (certifications, BAA)", page: 60 }
+
+  - id: D17-08
+    type: scenario
+    clientLine: "“I haven't told Alan the Epic delay puts the pilot at risk. Do I need to?”"
+    stem: Dana is about to travel. What's the best reply?
+    options:
+      - text: "“Up to you.”"
+        correct: false
+        explanation: She asked for your view. Give a recommendation.
+      - text: "“Let's wait and see if access turns up first.”"
+        correct: false
+        explanation: Hoping the risk sorts itself out. Dr. Mercer is the one who can push it.
+      - text: "“My recommendation is to tell him this week: if access isn't here by April 6, April 27 is at risk, and he can push Sam's team. I'll send you two lines to forward today.”"
+        correct: true
+        explanation: A clear recommendation, the reason, and an offer that makes it easy for her.
+      - text: "“Don't worry him yet.”"
+        correct: false
+        explanation: Hides a risk from the person who can fix it.
+    source: { quote: "You haven't told Dr. Mercer that the Epic delay puts the pilot at risk.", page: 59 }
+
+  - id: D17-09
+    type: written
+    stem: >-
+      A Lakeside clinic manager emails a screenshot of a failed booking that shows the patient's name and date of birth,
+      asking what went wrong. You want AI help to draft your reply. Write the description you'd paste into the AI
+      instead of the screenshot.
+    modelAnswer: >-
+      A patient at one of our pilot clinics tried to book a follow-up visit on the web portal and got an error at the
+      confirmation step this morning. We're checking the logs today. Help me draft a short, plain reply to the clinic
+      manager: what we know, what we're checking, and when I'll update her.
+    scoringPoints:
+      - No name, date of birth or screenshot, only the situation
+      - Keeps the facts the AI needs (what happened, where, when)
+      - Says what output is wanted (a short reply with the next update)
+    source: { quote: "When in doubt, leave it out.", page: 8 }
+
+  - id: D17-10
+    type: written
+    stem: >-
+      At the end of the sync, Dana says: “I have to jump. Recap it for me in 30 seconds.” Write what you say.
+    modelAnswer: >-
+      To recap: Sprint 4 is mostly on track and the calendar button is done. Two asks: you'll ask Dr. Mercer to push
+      the Epic approval this week, and you'll decide the dashboard timing by Friday. I'll send the recap within two
+      hours with both asks and dates.
+    scoringPoints:
+      - The update in one line, then both asks with owners and dates
+      - Promises the written recap with a time
+      - Short enough to say in 30 seconds
+    source: { quote: "I'll send the recap within two hours, with both asks and dates.", page: 58 }

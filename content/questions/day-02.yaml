@@ -1,0 +1,179 @@
+# Day 2 quiz pool: answer first (BLUF) with Dana: status replies, risks, asks and short messages. Shows 5 of 10.
+pool: day-02
+questions:
+  - id: D02-01
+    type: mcq
+    stem: "Dana asks, “When can I see video booking?” Which reply is answer-first?"
+    options:
+      - text: "“So we finished the screens last week, then started on the video-room link, which needed some work…”"
+        correct: false
+        explanation: Background first. Dana still doesn't know when she'll see it.
+      - text: "“You'll see it in the demo on Friday the 13th. It's about 60% done.”"
+        correct: true
+        explanation: The date comes first, then one supporting fact.
+      - text: "“It depends on how the next few days go.”"
+        correct: false
+        explanation: No date and no facts. Dana can't plan with this.
+      - text: "“Let me check with the team and come back to you.”"
+        correct: false
+        explanation: You know this date. Keep “I'll check” for real unknowns.
+    source: { quote: "Video booking is about 60% done, and you'll see it in the demo on Friday", page: 28 }
+
+  - id: D02-02
+    type: mcq
+    stem: "Dana asks, “Can we move the pilot a week earlier?” You can't promise it: the Epic sync needs access you don't have yet. What do you say?"
+    options:
+      - text: "“Sure, we'll make it work.”"
+        correct: false
+        explanation: A promise you can't keep becomes a missed date later.
+      - text: "“Short answer: not safely today. The Epic sync needs sandbox access we don't have yet. If it arrives this week, I'll tell you by Friday whether a week earlier is possible.”"
+        correct: true
+        explanation: Answer first, the reason in one line, and a clear time for a better answer.
+      - text: "“Well, there are many dependencies, like the Epic sandbox, the SMS number, QA capacity…”"
+        correct: false
+        explanation: A list of reasons with no answer. Lead with the answer.
+      - text: "“That's not possible.” Then move on."
+        correct: false
+        explanation: Answer-first, but with no reason or next step. Dana needs to know what would make it possible.
+    source: { quote: "Can we move the pilot a week earlier?", page: 29 }
+
+  - id: D02-03
+    type: mcq
+    stem: >-
+      Dana messages you on Slack: “Can you jump on a 5-minute call at 2 pm today? I'm prepping for Friday's leadership
+      meeting.” You're in a test review until 2:30. Which reply is answer-first?
+    options:
+      - text: "“So today is pretty packed: standup, then a planning session, then QA asked us to review the test results…”"
+        correct: false
+        explanation: Background first. Dana has to read the whole message to find out whether you can make it.
+      - text: "“Not at 2, I'm in a test review until 2:30. I can do 2:30 or 3 for 5 minutes. Which works for you?”"
+        correct: true
+        explanation: The answer first, the reason in a few words, then an option she can say yes to.
+      - text: "“I'll try, let me see how the day goes.”"
+        correct: false
+        explanation: Not a yes or a no. Dana can't plan her prep around a maybe.
+      - text: "“Sure!” Then join at 2:30 without telling her."
+        correct: false
+        explanation: Saying yes to avoid saying no turns into a broken promise an hour later.
+    source: { quote: "Say the answer first, then the reason.", page: 24 }
+
+  - id: D02-04
+    type: mcq
+    stem: "Dana asks, “Any risks?” Which reply names the risk well?"
+    options:
+      - text: "“There might be some integration thing, but let's see how it goes.”"
+        correct: false
+        explanation: Vague. Dana can't act on “some integration thing”.
+      - text: "“One risk: we still don't have Epic sandbox access from Lakeside. If we don't have it by March 16, the EHR sync and the April 27 pilot are at risk.”"
+        correct: true
+        explanation: One risk, its date and its impact, in two sentences.
+      - text: "“No risks at the moment.”"
+        correct: false
+        explanation: Hiding a known risk breaks trust when it comes out.
+      - text: "“Lakeside IT is very slow, so it's really their fault.”"
+        correct: false
+        explanation: Blame doesn't help. Give the facts, the impact and what you need.
+    source: { quote: "One risk: we still don't have Epic sandbox access from Lakeside.", page: 28 }
+
+  - id: D02-05
+    type: mcq
+    stem: "Mid-call, Dana cuts in: “So — is that a yes or a no?” What most likely happened?"
+    options:
+      - text: You answered too quickly
+        correct: false
+        explanation: A quick answer is what she wants.
+      - text: You started with background instead of the answer
+        correct: true
+        explanation: When the answer is buried, busy clients cut in. Lead with yes or no.
+      - text: You asked her a question
+        correct: false
+        explanation: Good questions are welcome. The problem is a missing answer.
+      - text: You offered to send a written update
+        correct: false
+        explanation: Offering a follow-up is good practice.
+    source: { quote: "So — is that a yes or a no?", page: 29 }
+
+  - id: D02-06
+    type: mcq
+    stem: "At the end of your quick call, Dana says, “Can I get that in writing for Friday's leadership meeting?” What's the best reply?"
+    options:
+      - text: "“Yes. I'll send you a short written update within the hour: status, the Epic risk and my two asks.”"
+        correct: true
+        explanation: Yes first, a clear time, and what will be in it. She knows exactly what to expect.
+      - text: "“Sure, I'll put something together at some point this week.”"
+        correct: false
+        explanation: No time. Her meeting is Friday, so “some point this week” may be too late.
+      - text: "“I can export the whole Jira board for you, it has everything.”"
+        correct: false
+        explanation: A list of every task hides what matters. She needs something short she can forward.
+      - text: "“Do you have a template you'd like me to use? Let me know and I'll start then.”"
+        correct: false
+        explanation: Waiting for instructions. Offer the short update yourself.
+    source: { quote: "I'll send this as a short written update within the hour.", page: 28 }
+
+  - id: D02-07
+    type: scenario
+    clientLine: "“What will the AWS bill look like after launch?”"
+    stem: You don't have that number. What's the best reply?
+    options:
+      - text: "“Probably around $500 a month.”"
+        correct: false
+        explanation: A guessed number becomes a promise. Don't guess costs.
+      - text: "“Good question. I don't have that estimate yet. I'll send you a rough monthly range by Thursday.”"
+        correct: true
+        explanation: Calm, honest, and a clear time for the answer.
+      - text: "“That's not really my area.”"
+        correct: false
+        explanation: It sounds like you're passing the problem on. Own the follow-up.
+      - text: "“It depends on a lot of things, like traffic, storage and instance sizes…”"
+        correct: false
+        explanation: Technical background with no answer and no next step.
+    source: { quote: "What will the AWS bill look like after launch?", page: 29 }
+
+  - id: D02-08
+    type: scenario
+    clientLine: "“Quick one. What do you need from me?”"
+    stem: You need two things from Dana. What's the best reply?
+    options:
+      - text: "“Nothing really, we're fine.”"
+        correct: false
+        explanation: You do need help. Say so while she's offering.
+      - text: "“Two things: a nudge to Lakeside's IT team about the Epic access this week, and your OK on the reminder wording by Thursday.”"
+        correct: true
+        explanation: Clear asks with deadlines, ready for her to act on.
+      - text: "“Maybe some help with the integration at some point?”"
+        correct: false
+        explanation: No clear ask and no date.
+      - text: "“Let me send you a long email with everything.”"
+        correct: false
+        explanation: She asked now. Give the two asks now, then confirm in writing.
+    source: { quote: "Could you nudge Lakeside's IT team about the Epic access this week?", page: 28 }
+
+  - id: D02-09
+    type: written
+    stem: >-
+      Rewrite this for Dana, answer-first and without jargon (2–3 sentences): “The API is failing intermittently
+      due to a race condition in the slot-locking logic when two patients try to book the same slot concurrently,
+      we are looking into possible approaches like optimistic locking or a distributed lock using Redis.”
+    modelAnswer: >-
+      A few bookings fail when two patients pick the same time slot at the same moment. No booking is lost, and we're
+      fixing it this week. I'll confirm the release date by Wednesday.
+    scoringPoints:
+      - Says what the client sees first, in plain words
+      - Leaves out technical terms like race condition or Redis
+      - Gives the next step or a date
+    source: { quote: "The API is failing intermittently due to a race condition in the slot-locking logic", page: 22 }
+
+  - id: D02-10
+    type: written
+    stem: >-
+      Dana asks, “Where are we?” Write a status answer of 1–2 sentences using these facts: Sprint 3 is on track,
+      video booking is about 60% done, and the demo is on Friday the 13th.
+    modelAnswer: >-
+      Short answer: Sprint 3 is on track. Video booking is about 60% done, and you'll see it in the demo on Friday
+      the 13th.
+    scoringPoints:
+      - Starts with the status itself
+      - Adds one or two supporting facts
+      - Short enough to say in under 45 seconds
+    source: { quote: "Answer each one first, in 45 seconds or less.", page: 24 }

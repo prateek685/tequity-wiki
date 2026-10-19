@@ -1,0 +1,120 @@
+day: 51
+block: 11
+title: Product questions
+type: normal
+storyDate: Monday, May 11
+minutes: About 50 min
+intro: >-
+  CareBook has been live for a week. Today you stop asking only how to build a feature and start asking why it matters.
+  You learn five product questions, ask Maria Lopez why the eligibility check matters to Suncoast, and map each feature
+  to a business metric.
+lessons:
+  - id: list-features
+    kind: prep
+    title: List the main features
+    minutes: 5 min
+    blocks:
+      - type: yesterday
+        text: >-
+          you gave a demo segment on a real call, with the PM or senior as backup, wrote the recap with the feedback in the
+          client's words, and rated the week.
+      - type: scene
+        when: Monday, May 11 · 8:15 am Central · one week into the pilot
+        text: >-
+          About 620 appointments were booked online at the 3 pilot clinics in the first week. Before you suggest anything,
+          write down what you have built. List the main features of your project, or of CareBook: booking, SMS reminders,
+          intake forms, the clinic schedule view, the waitlist, the eligibility check.
+    fields:
+      - { id: features, label: "My project's main features", kind: area, rows: 4, placeholder: "One feature per line, e.g. SMS reminders" }
+    source: both
+
+  - id: product-questions
+    kind: learn
+    title: Product questions
+    heading: Ask why before you suggest what
+    minutes: 10 min
+    lead: >-
+      The engineers clients value most understand the goal and suggest better ways to reach it. That starts with five
+      questions.
+    blocks:
+      - type: steps
+        items:
+          - { title: Who is the user?, text: "Name the real person: a front-desk coordinator, a biller, a patient." }
+          - { title: What problem do they have?, text: "In their words, not as a feature request." }
+          - { title: How do we know it's a problem?, text: "Data: a number, a count, a complaint log." }
+          - { title: What does success look like?, text: "One metric, with a target." }
+          - { title: What's the smallest version that proves it?, text: "The MVP: what could ship in 1–2 weeks." }
+      - type: example
+        text: >-
+          “When a check comes back ‘Inactive’, who acts on it? What does a denied claim cost your team? If this worked
+          perfectly, which number would change?”
+      - type: note
+        tone: info
+        title: Why this matters on a client project
+        text: >-
+          Clients value the engineers who understand the goal and suggest better ways to reach it. This is what “speak as an
+          owner” looks like at its best.
+      - type: watch
+        url: https://blog.pragmaticengineer.com/the-product-minded-engineer/
+        title: The Product-Minded Software Engineer
+        meta: Gergely Orosz, The Pragmatic Engineer. Finish reading it today.
+
+  - id: eligibility-call
+    kind: mock
+    title: Why does this feature matter?
+    heading: Ask Maria why the eligibility check matters
+    minutes: 10 min
+    lead: >-
+      Level 1: Maria is friendly and patient, but answers only what you ask. Find out who acts on a failed check, what a
+      denial costs, and which metric moves. Play back what you heard.
+    cardId: S45
+    level: 1
+    scriptNote: Use it the first time, then try the call again without it.
+
+  - id: eligibility-review
+    kind: reflect
+    title: How did the call go?
+    minutes: 5 min
+    lead: Tick what you managed, then note what the AI told you.
+    checksTitle: On this call, I…
+    checks:
+      - asked who acts on the result and what failures cost
+      - found the most common denial reason
+      - found the metric and its target
+      - played back what I heard and set a next step
+    fields:
+      - { id: went-well, label: What went well, kind: area, placeholder: "From the AI's feedback" }
+      - { id: fix-next, label: One thing to fix next time, kind: area, placeholder: "e.g. I asked about the cost before I knew who acts on a failed check" }
+    rubric: true
+
+  - id: feature-metric-map
+    kind: write
+    title: Feature-to-metric map
+    heading: Map each feature to a business metric
+    minutes: 10 min
+    lead: >-
+      Take three features from your list. For each one, write who uses it, the problem it solves and the business metric it
+      moves. Use the numbers you heard from Maria where they fit.
+    source: both
+    blocks:
+      - type: recall
+        label: The features you listed this morning
+        day: 51
+        lesson: list-features
+        fields:
+          - { id: features, label: Features }
+      - { type: field, id: map }
+    fields:
+      - { id: map, label: Feature to metric map, kind: area, rows: 7, placeholder: "Feature · user · problem · metric" }
+
+scoring:
+  feature-metric-map:
+    modelAnswer: >-
+      Eligibility check: used by the front desk at check-in; it finds inactive coverage, but only on the day of the visit,
+      when it's too late to fix. Metric: clean-claim rate, 84% today, target 95%. SMS reminders: used by patients; they
+      cut missed visits. Metric: no-show rate, 18% at the start of the pilot. Waitlist: used by the front desk; it refills
+      cancelled slots. Metric: refilled late cancellations, 16 of 106 by phone since May 4.
+    scoringPoints:
+      - Each feature names a real user and the problem it solves
+      - Each feature links to one business metric (clean-claim rate, no-show rate, refilled slots), not a technical measure
+      - Uses real numbers from the client, with the source clear

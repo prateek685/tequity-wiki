@@ -1,0 +1,18 @@
+id: a9-shadowing-sheet
+kind: template
+ref: "A9"
+title: "Shadowing observation sheet"
+summary: "What to note when you watch someone else's client call."
+blocks:
+  - type: text
+    text: "Fill it in while you watch a call, or straight after."
+  - type: facts
+    rows:
+      - { label: "Call · lead · date", value: "…" }
+      - { label: "How did they open the call and set the agenda?", value: "…" }
+      - { label: "The best question they asked", value: "…" }
+      - { label: "How did they handle an unknown or pushback?", value: "…" }
+      - { label: "How did they close and confirm next steps?", value: "…" }
+      - { label: "One phrase I want to use myself", value: "…" }
+      - { label: "What would I have done differently?", value: "…" }
+      - { label: "My recap vs theirs: what did I miss?", value: "…" }

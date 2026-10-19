@@ -1,0 +1,181 @@
+# Day 24 quiz pool: Thursday, April 2. Confirming acceptance criteria with Dana: user stories, “given, when, then”
+# in plain English, open questions, parking new asks, confirming in writing. Shows 5 of 10.
+pool: day-24
+questions:
+  - id: D24-01
+    type: mcq
+    stem: "Dana opens: “Okay, I've got ten minutes. What do you need from me?” What's the best reply?"
+    options:
+      - text: "“Let me first walk you through how we wrote the stories and why…”"
+        correct: false
+        explanation: Background first. Her ten minutes are already shrinking.
+      - text: "“A yes or no on four acceptance criteria for new-patient video booking, and answers to two open questions.”"
+        correct: true
+        explanation: The ask first, so she knows exactly what the ten minutes are for.
+      - text: "“Just a quick review, nothing major.”"
+        correct: false
+        explanation: Vague. She can't tell what she's deciding.
+      - text: "“Whatever you have time for.”"
+        correct: false
+        explanation: Hands the agenda to a busy client.
+    source: { quote: "Okay, I've got ten minutes. What do you need from me?", page: 74 }
+
+  - id: D24-02
+    type: mcq
+    stem: >-
+      You read: “Given a new patient entity, when the provider filter is applied with accepting-new-patients true, then
+      the result set excludes…” Dana cuts in: “In plain English, please.” What do you say?
+    options:
+      - text: "“Sorry, it's a standard format. I'll read it again slowly.”"
+        correct: false
+        explanation: The same words, slower, are still not plain English.
+      - text: "“Sure: only doctors who are taking new patients show up. Yes?”"
+        correct: true
+        explanation: One plain sentence and a yes-or-no question.
+      - text: "“It's just how engineers write requirements.”"
+        correct: false
+        explanation: Makes her problem your format's excuse.
+      - text: "“I'll email it to you instead.”"
+        correct: false
+        explanation: Loses the quick yes you came for.
+    source: { quote: "If I read the criteria in technical language, say \"In plain English, please.\"", page: 74 }
+
+  - id: D24-03
+    type: mcq
+    stem: "Dana asks: “Can we also let them upload a photo of their insurance card?” What's the best reply?"
+    options:
+      - text: "“Sure, I'll add it to the Sprint 7 story.”"
+        correct: false
+        explanation: New scope slips into an agreed sprint without sizing.
+      - text: "“No, we're not taking new requests.”"
+        correct: false
+        explanation: A flat no to a good idea.
+      - text: "“Good idea. I'll put it on the list for Sprint 8, so Sprint 7 stays on track. Is that okay?”"
+        correct: true
+        explanation: Captures it, parks it, and keeps the agreed sprint safe.
+      - text: "“How hard can it be? Probably fine.”"
+        correct: false
+        explanation: Agrees with no idea of the effort.
+    source: { quote: "Anything new today goes on the list for Sprint 8, so Sprint 7 stays on track.", page: 73 }
+
+  - id: D24-04
+    type: mcq
+    stem: "Dana asks: “Why do you need this in writing — isn't this call enough?” What's the best reply?"
+    options:
+      - text: "“It's company policy.”"
+        correct: false
+        explanation: A rule, not a reason she cares about.
+      - text: "“You're right, the call is enough.”"
+        correct: false
+        explanation: In May, two people will remember this call differently.
+      - text: "“The call is enough to decide. The email is so the team builds exactly what you approved, and nobody remembers it differently in May. It's one email, and silence means yes.”"
+        correct: true
+        explanation: A reason that protects her, and it costs her almost nothing.
+      - text: "“In case something goes wrong later.”"
+        correct: false
+        explanation: Sounds like you're protecting yourself, not her.
+    source: { quote: "Ask: \"Why do you need this in writing — isn't this call enough?\"", page: 74 }
+
+  - id: D24-05
+    type: mcq
+    stem: You still have to close the open question about insurance that can't be verified. How do you ask it?
+    options:
+      - text: "“We'll block the booking in that case, right?”"
+        correct: false
+        explanation: Leading. A busy client may just say yes to the wrong answer.
+      - text: "“If insurance can't be verified, should we still book the visit and flag it for the front desk, or block the booking?”"
+        correct: true
+        explanation: Two clear options in plain words. She can choose in a second.
+      - text: "“What should the eligibility API failure path return?”"
+        correct: false
+        explanation: Engineer language for a business decision.
+      - text: "“We'll decide that internally.”"
+        correct: false
+        explanation: "It's her decision: it changes what happens to patients."
+    source: { quote: "If insurance can't be verified, book the visit anyway and flag it for the front desk.", page: 74 }
+
+  - id: D24-06
+    type: mcq
+    stem: "Dana asks: “How will we know the confirmation part is done?” Which criterion do you read her?"
+    options:
+      - text: "“Confirmations should be fast and reliable.”"
+        correct: false
+        explanation: “Fast” and “reliable” can't be tested. Everyone will disagree on done.
+      - text: "“Given a visit is booked, when it's confirmed, then the patient gets an SMS and an email within 1 minute.”"
+        correct: true
+        explanation: One behaviour, one number, pass or fail.
+      - text: "“Confirmations use our notification service with retries.”"
+        correct: false
+        explanation: How it's built, not when it's done.
+      - text: "“The patient is happy with the confirmation.”"
+        correct: false
+        explanation: A wish, not a criterion.
+    source: { quote: "Every booked visit gets an SMS and email confirmation within 1 minute.", page: 73 }
+
+  - id: D24-07
+    type: scenario
+    clientLine: "“Oh, about 10% of new patients are self-pay. They won't have insurance.”"
+    stem: Your AC 2 requires an insurance member ID before the visit is confirmed. What do you say?
+    options:
+      - text: "“Then they'll have to call the clinic.”"
+        correct: false
+        explanation: Pushes 1 in 10 new patients back to the phone, the problem you're solving.
+      - text: "“Thanks, that changes AC 2. So: insurance member ID and date of birth, or the patient chooses self-pay. Right?”"
+        correct: true
+        explanation: Updates the criterion on the spot and confirms it.
+      - text: "“That's an edge case. We'll handle it later.”"
+        correct: false
+        explanation: 10% isn't an edge case, and “later” means it's forgotten.
+      - text: "“Okay.”"
+        correct: false
+        explanation: No playback, so the criterion stays wrong in writing.
+    source: { quote: "About 10% of new patients are self-pay.", page: 74 }
+
+  - id: D24-08
+    type: scenario
+    clientLine: "“Why can't this go into the pilot?”"
+    stem: Yesterday she agreed on Sprint 7 (May 11–22). What do you say?
+    options:
+      - text: "“Because you said Sprint 7 yesterday.”"
+        correct: false
+        explanation: Correct, but it sounds like an accusation.
+      - text: "“Because Sprint 6 is pilot hardening, and keeping April 27 safe came first. If you want it sooner, I can show you what we'd have to move.”"
+        correct: true
+        explanation: The reason, calmly, and an offer to look at the trade-off.
+      - text: "“Okay, let's try to put it in.”"
+        correct: false
+        explanation: Reverses yesterday's decision without looking at the cost.
+      - text: "“The team is too busy.”"
+        correct: false
+        explanation: An excuse instead of the business reason.
+    source: { quote: "Sprint 6 (Apr 13–24) is pilot hardening.", page: 71 }
+
+  - id: D24-09
+    type: written
+    stem: >-
+      Write the last two sentences of your confirmation email to Dana: what you're sending, and what happens if she
+      doesn't reply.
+    modelAnswer: >-
+      Attached are the final story and criteria as agreed today, including self-pay and “flag, don't block” when
+      insurance can't be verified. If I don't hear back by Friday noon Central, I'll treat them as approved, and they go
+      into Sprint 7 exactly as written.
+    scoringPoints:
+      - States what was agreed, including the changes from the call
+      - Gives a clear “approved unless corrected by” date and time
+      - Short and polite, with no hedging
+    source: { quote: "If I don't hear back by Friday noon your time, I'll treat them as approved.", page: 73 }
+
+  - id: D24-10
+    type: written
+    stem: >-
+      Lisa Chen emails: “Dana says new patients will book video visits themselves. What does my front desk have to do?”
+      Write your reply in 2–3 sentences.
+    modelAnswer: >-
+      Your team approves each new patient in Epic within 1 business day; until then the visit shows as “pending”. If
+      insurance can't be verified, the visit is still booked and flagged for your team to sort out before the visit.
+      It's planned for Sprint 7 (May 11–22), after the pilot, and I'll walk your team through it before launch.
+    scoringPoints:
+      - Answers her question first, in front-desk terms
+      - Covers the approval rule and the flagged insurance case
+      - Gives the timing, with no technical detail
+    source: { quote: "must approve each new patient in Epic within 1 business day", page: 74 }

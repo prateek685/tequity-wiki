@@ -1,0 +1,166 @@
+# Day 57 quiz pool: Tuesday, May 19. The pre-call card, the backup agreement, the dress rehearsal and the hardest questions. Shows 5 of 10.
+pool: day-57
+questions:
+  - id: D57-01
+    type: mcq
+    stem: "It's Tuesday, the day before you lead your first full call. What do you do?"
+    options:
+      - text: "Fill in the pre-call card, rehearse, and write answers to the three hardest likely questions."
+        correct: true
+        explanation: "The day's plan."
+      - text: "Nothing; you're ready."
+        correct: false
+        explanation: "Prepare it."
+      - text: "Read the PM's notes only."
+        correct: false
+        explanation: "You own the call."
+      - text: "Write a script to read."
+        correct: false
+        explanation: "Sounds stiff."
+    source: { quote: "Final Pre-call card. Write", page: 138 }
+
+  - id: D57-02
+    type: mcq
+    stem: "What is the dress rehearsal with the AI for?"
+    options:
+      - text: "To lead the whole call under pressure, with a Level 3 client."
+        correct: true
+        explanation: "A full rehearsal."
+      - text: "To get a score for the manager."
+        correct: false
+        explanation: "It is practice."
+      - text: "To skip the live call."
+        correct: false
+        explanation: "It is before it."
+      - text: "To write the recap."
+        correct: false
+        explanation: "Not its purpose."
+    source: { quote: "Dress rehearsal of your real weekly sync", page: 140 }
+
+  - id: D57-03
+    type: mcq
+    stem: "When should your backup speak during the call?"
+    options:
+      - text: "Only if you invite them in, or something critical goes wrong."
+        correct: true
+        explanation: "Silent by default."
+      - text: "Whenever they think of something."
+        correct: false
+        explanation: "They stay silent."
+      - text: "Every time the client asks a hard question."
+        correct: false
+        explanation: "Hard questions are yours to answer."
+      - text: "When the client looks unhappy."
+        correct: false
+        explanation: "Not a rule."
+    source: { quote: "Agree beforehand: the PM or senior stays silent unless you invite them in", page: 138 }
+
+  - id: D57-04
+    type: mcq
+    stem: "How do you invite your backup into the call?"
+    options:
+      - text: "“[Name], anything to add?”"
+        correct: true
+        explanation: "The agreed phrase."
+      - text: "Say nothing and stare."
+        correct: false
+        explanation: "Not clear."
+      - text: "“You take over.”"
+        correct: false
+        explanation: "You lead."
+      - text: "Text them during the call."
+        correct: false
+        explanation: "Use the signal if needed."
+    source: { quote: "(\"[Name], anything to add?\")", page: 138 }
+
+  - id: D57-05
+    type: mcq
+    stem: "In the rehearsal, Dana asks: “Can we do all 12 clinics on June 8 instead?” What is the best first sentence?"
+    options:
+      - text: "“June 8 is possible only if Sam approves Epic access by May 22. I'd recommend keeping June 15.”"
+        correct: true
+        explanation: "Answer, condition, recommendation."
+      - text: "“That's a good question. Let me explain how Epic works.”"
+        correct: false
+        explanation: "Background first."
+      - text: "“No.”"
+        correct: false
+        explanation: "No reason or option."
+      - text: "“I'll ask the PM.”"
+        correct: false
+        explanation: "You lead."
+    source: { quote: "June 8 is possible only if Sam approves Epic access by May 22.", page: 140 }
+
+  - id: D57-06
+    type: mcq
+    stem: "Which is a sign the status at the opening is answer-first?"
+    options:
+      - text: "“Short answer: the pilot is working. 35% of bookings are online.”"
+        correct: true
+        explanation: "The answer, then the number."
+      - text: "“Let me start with what we did on Monday.”"
+        correct: false
+        explanation: "Chronology."
+      - text: "“So, um, we have a few things.”"
+        correct: false
+        explanation: "No answer."
+      - text: "“There are four bugs and 23 tickets.”"
+        correct: false
+        explanation: "Numbers with no point."
+    source: { quote: "the pilot is working. 35% of bookings are online", page: 140 }
+
+  - id: D57-07
+    type: scenario
+    clientLine: "So what do you recommend?"
+    stem: "In the rehearsal Dana asks it after you list two options. What do you do?"
+    options:
+      - text: "“I recommend June 15, because it protects the pilot's quality and the fix ships Thursday.”"
+        correct: true
+        explanation: "A clear recommendation with a reason."
+      - text: "“Whichever you prefer.”"
+        correct: false
+        explanation: "No recommendation."
+      - text: "“Both are fine.”"
+        correct: false
+        explanation: "Avoids it."
+      - text: "“I'll get back to you.”"
+        correct: false
+        explanation: "You can answer now."
+    source: { quote: "If I don't give a clear recommendation, ask", page: 141 }
+
+  - id: D57-08
+    type: scenario
+    clientLine: "What's the one thing that could break at 12 clinics?"
+    stem: "Kevin asks. You have one concern: SMS volume would be about four times today's. What do you say?"
+    options:
+      - text: "“SMS volume: about four times today's. I'm load-testing this week and will share results by May 27.”"
+        correct: true
+        explanation: "The risk, the impact and a date."
+      - text: "“Nothing should break.”"
+        correct: false
+        explanation: "False comfort."
+      - text: "“There are many things.”"
+        correct: false
+        explanation: "No answer."
+      - text: "“I'll ask my team.”"
+        correct: false
+        explanation: "You lead; own it."
+    source: { quote: "Kevin worries about SMS costs and load once all 12 clinics are live", page: 141 }
+
+  - id: D57-09
+    type: written
+    stem: "Write one of the three hardest questions a client could ask you this week, and your answer-first reply."
+    modelAnswer: "Q: “Why is there still a high-priority bug?” A: Short answer: it's the missing reminder for last-minute reschedules. The fix ships Thursday and I'll confirm by noon."
+    scoringPoints:
+      - "The question is a hard, realistic one"
+      - "The answer starts with the answer, and gives a date"
+    source: { quote: "Write your answers to the 3 hardest likely questions.", page: 138 }
+
+  - id: D57-10
+    type: written
+    stem: "Write the sentence you use to close the call so that decisions, owners and dates are clear."
+    modelAnswer: "To recap: the June 15 plan is approved; Spanish moves after the rollout. Me: reminder fix confirmed Thursday noon. Sam: Epic access by May 29. I'll send notes within two hours."
+    scoringPoints:
+      - "Lists decisions, owners and dates"
+      - "Promises the recap within two hours"
+    source: { quote: "I'll send notes within two hours.", page: 140 }

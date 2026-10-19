@@ -1,0 +1,123 @@
+day: 5
+block: 1
+title: First weekly sync
+type: normal
+storyDate: Friday, March 6
+minutes: About 55 min
+intro: >-
+  Your first weekly sync with Dana: prepare in five minutes, run the whole call, send the recap and review your
+  week.
+lessons:
+  - id: friday-sync-prep
+    kind: prep
+    title: Your first Friday sync
+    minutes: 10 min
+    blocks:
+      - type: yesterday
+        text: you rebuilt your opener and got your first 60 seconds rated three times.
+      - type: scene
+        when: Friday, March 6 · 10:00 am Central
+        text: >-
+          It's the first weekly sync you agreed with Dana on Monday. On Wednesday Dana emailed Sam Porter about the
+          Epic access. Sam replied that a security form must be signed first, and nobody has signed it. Next week is
+          the last week of Sprint 3, with the demo on Friday, March 13.
+      - type: text
+        text: >-
+          Never go into a call cold. Fill in your pre-call card: it takes five minutes and gives you everything you'll
+          say.
+    fields:
+      - { id: goal, label: My goal for this call, kind: line }
+      - { id: opener, label: My opener, kind: line, placeholder: Warm start + agenda }
+      - { id: points, label: "3 points I'll make", kind: area, rows: 3 }
+      - { id: questions, label: "3 questions I'll ask", kind: area, rows: 3 }
+      - { id: risk, label: 1 risk, kind: line }
+      - { id: closing, label: My closing line, kind: line }
+
+  - id: weekly-sync-shape
+    kind: learn
+    title: The shape of a weekly sync
+    minutes: 10 min
+    lead: >-
+      Every good weekly sync follows the same six moves and ends on time. You already know the first two from
+      yesterday.
+    blocks:
+      - type: steps
+        items:
+          - { title: 1 · Warm start, text: "One easy line. “Are you ready for SXSW?”" }
+          - { title: 2 · Agenda, text: "Update, one risk, next week. “We'll be done in 15 minutes.”" }
+          - { title: 3 · Update, text: "Answer first. “Short answer: we're on track for the demo.”" }
+          - { title: 4 · Risk and ask, text: "One risk, one clear ask, one date." }
+          - { title: 5 · Next week, text: What happens before you speak again. }
+          - { title: 6 · Close, text: "Recap the asks, promise the written update, end on time." }
+      - { type: heading, text: Then the recap email }
+      - type: text
+        text: >-
+          Within the hour, send a short written update she can forward without editing: a 2-line summary, decisions,
+          action items with owner and date, open questions, and the next meeting.
+
+  - id: weekly-sync
+    kind: mock
+    title: Weekly sync with Dana
+    minutes: 15 min
+    lead: >-
+      Run the whole 15 minutes yourself: warm start, agenda, answer-first update, one risk and one ask, next steps,
+      and close on time.
+    cardId: S04
+    level: 1
+    scriptNote: Use it the first time, then try the call again without it.
+    checksTitle: After the call
+    checks:
+      - I opened warmly and set the agenda
+      - I gave an answer-first update
+      - I named one risk with one clear ask and a date
+      - I closed with a recap and ended on time
+    fields:
+      - { id: went-well, label: What went well, kind: area, placeholder: "From the AI's feedback" }
+      - { id: fix-next, label: One thing to fix next time, kind: area }
+      - { id: log, label: "When I was asked a question, what did I say first — the answer, or the background?", kind: area, rows: 2 }
+    rubric: true
+
+  - id: send-recap
+    kind: write
+    title: Send the recap
+    heading: Send Dana the recap
+    minutes: 10 min
+    lead: >-
+      Dana asked for something she can forward to her CEO. Write the recap you'd send within the hour.
+    fields:
+      - { id: subject, label: Subject, kind: line, placeholder: "e.g. CareBook weekly update, Mar 6: on track for the demo; 1 ask by Tue" }
+      - { id: summary, label: Summary (2 lines), kind: area, rows: 2, placeholder: Bottom line first… }
+      - { id: decisions, label: Decisions, kind: area, rows: 2 }
+      - { id: actions, label: Action items (owner + date), kind: area, rows: 3, placeholder: "e.g. Dana: confirm the security form signer by Tue Mar 10" }
+      - { id: open-questions, label: Open questions, kind: area, rows: 2 }
+      - { id: next-meeting, label: Next meeting, kind: line, placeholder: "Fri Mar 13, 10:00 am Central: Sprint 3 demo" }
+
+  - id: week-in-review
+    kind: scorecard
+    title: Your week in review
+    minutes: 5 min
+    lead: >-
+      Every Friday, five minutes. Rate this week's behaviours and add a line of proof for each pillar. Your pillar
+      scores update from them; the other pillars carry forward. Your Day 1 baseline sits next to it.
+    scorecard: [C1, C4]
+    checksTitle: Before the weekend
+    checks:
+      - Did I start my answers with the answer?
+      - Did I open the call with an agenda?
+      - Did I end with next steps?
+
+scoring:
+  send-recap:
+    modelAnswer: >-
+      Subject: CareBook weekly update, Mar 6: on track for the demo; 1 ask by Tue.
+      Summary: We're on track for the Sprint 3 demo on Fri Mar 13. One risk: Epic access needs a signed security
+      form first, and we still need access by Mon Mar 16.
+      Decisions: SMS reminder wording approved (now with Lakeside compliance).
+      Action items: Dana: confirm who at Brightpath signs Lakeside's security form, by Tue Mar 10. Me: finish video
+      booking and reschedule/cancel by Wed Mar 11; send the demo outline by Wed Mar 11.
+      Open questions: Will the SMS number clear carrier verification in time to show reminders in the demo?
+      Next meeting: Fri Mar 13, 10:00 am Central, Sprint 3 demo.
+    scoringPoints:
+      - The subject and the first two lines give the bottom line (on track) and the one risk
+      - Every action item has an owner and a date, including Dana's ask by Tue Mar 10
+      - Short and forwardable as is, with no jargon or long background

@@ -1,0 +1,91 @@
+day: 4
+block: 1
+title: Your call opener
+type: normal
+storyDate: Thursday, March 5
+minutes: About 45 min
+intro: >-
+  Back to Monday's call. Build a 3-step opener and a 30-second intro, then get your first 60 seconds rated three
+  times.
+lessons:
+  - id: monday-again
+    kind: prep
+    title: Monday, again
+    minutes: 5 min
+    blocks:
+      - type: yesterday
+        text: you explained React Native to Kevin with PREP and promised him a one-page decision record by Friday.
+      - type: scene
+        when: Thursday, March 5 · a second chance
+        text: >-
+          Dana approved the SMS reminder wording this morning, and it's gone to Lakeside's compliance team. Today you
+          go back to Monday's call and redo the first minute properly. The first 30 seconds are when a US client
+          decides whether you're clear and in control.
+      - type: recall
+        label: Your Day 1 notes
+        day: 1
+        lesson: call-review
+        fields:
+          - { id: went-well, label: What went well }
+          - { id: fix-next, label: One thing to fix }
+
+  - id: call-opener
+    kind: learn
+    title: The call opener
+    heading: The 3-step opener and the 30-second intro
+    minutes: 10 min
+    lead: The engineer leads the call, not the client. Three short steps get you there in under a minute.
+    blocks:
+      - type: steps
+        items:
+          - { title: 1 · Warm start, text: "20–30 seconds of small talk. “How's your week going?”" }
+          - { title: 2 · Purpose and agenda, text: "“The goal today is X. I have three things: A, B and C. Anything you'd like to add?”" }
+          - { title: 3 · Time check, text: "“We have 30 minutes; I'll keep us on time.”" }
+      - { type: heading, text: The 30-second intro }
+      - { type: text, text: "Who I am, then what I own on this project, then how I'll help you." }
+      - type: example
+        text: >-
+          “Hi, I'm [your name], the lead engineer on your patient app. I own the build and the weekly updates, so I'm
+          your main point of contact for anything technical.”
+      - { type: field, id: intro-draft }
+      - { type: field, id: opener-draft }
+      - type: watch
+        url: https://www.ted.com/talks/julian_treasure_how_to_speak_so_that_people_want_to_listen
+        title: "Julian Treasure: How to speak so that people want to listen"
+        meta: TED · 10 min · pace, tone and voice on calls
+    fields:
+      - { id: intro-draft, label: Draft your 30-second intro, kind: area, rows: 3, placeholder: "Hi, I'm …, the lead engineer on…" }
+      - { id: opener-draft, label: Draft your 3-step opener, kind: area, rows: 3, placeholder: "Warm start… Agenda… Time check…" }
+
+  - id: first-60-seconds
+    kind: mock
+    title: The first 60 seconds, three times
+    minutes: 15 min
+    lead: >-
+      Same call as Monday, with Dana. This time use your opener, and ask the AI to rate only your first 60 seconds.
+      Do it three times and watch the score move.
+    cardId: S01
+    level: 1
+    brief: false
+    callStep: "After each try, ask: “Rate only my first 60 seconds, 1 to 5, and give me one fix.”"
+    rounds: 3
+    fields:
+      - { id: went-well, label: What went well, kind: area, placeholder: "From the AI's feedback" }
+      - { id: fix-next, label: One thing to fix next time, kind: area }
+      - { id: log, label: "When I was asked a question, what did I say first — the answer, or the background?", kind: area, rows: 2 }
+    rubric: true
+
+  - id: make-it-yours
+    kind: write
+    title: Make it yours
+    heading: Your final intro and five small-talk lines
+    minutes: 10 min
+    lead: >-
+      Lock in the version you'll actually use. Small talk is easier when you've picked your lines in advance.
+    fields:
+      - { id: final-intro, label: Final 30-second intro, kind: area, rows: 3 }
+      - { id: small-talk-1, label: Small-talk line 1, kind: line, placeholder: "e.g. How's your week going?" }
+      - { id: small-talk-2, label: Small-talk line 2, kind: line, placeholder: "e.g. Is it getting warm in Austin yet?" }
+      - { id: small-talk-3, label: Small-talk line 3, kind: line }
+      - { id: small-talk-4, label: Small-talk line 4, kind: line }
+      - { id: small-talk-5, label: Small-talk line 5, kind: line }

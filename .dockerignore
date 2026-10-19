@@ -1,0 +1,15 @@
+**/node_modules
+**/dist
+**/.turbo
+**/coverage
+**/test-results
+**/playwright-report
+**/.env
+**/.env.*
+!**/.env.example
+apps/api/src/generated
+legacy-next
+docs/*
+!docs/pdf-text.txt
+.git
+backups

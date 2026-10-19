@@ -1,0 +1,184 @@
+# Day 6 quiz pool: Monday, March 9. Dana's "quick change" (Add to calendar), scope and impact on the sprint,
+# BLUF emails. Shows 5 of 10.
+pool: day-06
+questions:
+  - id: D06-01
+    type: mcq
+    stem: "Dana opens the check-in: “It's just a button. Can you squeeze it in this week?” What's your best first reply?"
+    options:
+      - text: "“Sure, no problem, we'll get it in.”"
+        correct: false
+        explanation: A yes before you know what “it” is. The team is fully booked, so this becomes a missed date on Friday.
+      - text: "“That's a great idea. Can I ask two quick questions so I get it right?”"
+        correct: true
+        explanation: You welcome the idea without saying yes or no, and find out exactly what she needs first.
+      - text: "“No, the sprint is full. It'll have to wait.”"
+        correct: false
+        explanation: A flat no with no reason or option. Dana hears a vendor who blocks her, not one who helps.
+      - text: "“Please raise a change request ticket and we'll review it next sprint.”"
+        correct: false
+        explanation: Hiding behind process. She asked you, on a call; handle it on the call.
+    source: { quote: "Don't say yes or no on the spot.", page: 36 }
+
+  - id: D06-02
+    type: mcq
+    stem: "Dana pushes: “Why can't you do both this week?” The button is about two days of work, and the team is fully booked. Which reply is best?"
+    options:
+      - text: "“We're really stretched, honestly. Everyone's working very hard already.”"
+        correct: false
+        explanation: It sounds like a complaint, not a fact. Dana still doesn't know what she'd lose.
+      - text: "“Because the button needs ICS files, deep links and a web fallback, and the API…”"
+        correct: false
+        explanation: Technical detail instead of the impact she cares about.
+      - text: "“It's about two days. If we add it this week, reschedule and cancel slip past Friday's demo. We can do it in Sprint 4 and show it on March 27, or swap it in now. I'd recommend Sprint 4.”"
+        correct: true
+        explanation: The impact on her demo, two options and your recommendation. She can decide in one sentence.
+      - text: "“I'll see what I can do.”"
+        correct: false
+        explanation: A vague half-promise. Dana will hear a yes, and Friday will disappoint her.
+    source: { quote: "Adding it this week would push reschedule/cancel past the Friday demo.", page: 36 }
+
+  - id: D06-03
+    type: mcq
+    stem: >-
+      After the call you need Dana to approve the order of Friday's demo by Wednesday noon. Dana reads email on her
+      phone between meetings. Which subject line works best?
+    options:
+      - text: "“Demo”"
+        correct: false
+        explanation: No purpose and no ask. She has to open it to find out if it needs her.
+      - text: "“ACTION: approve Friday's demo order by Wed noon”"
+        correct: true
+        explanation: The keyword, the ask and the deadline are all in the subject. She knows what to do before she opens it.
+      - text: "“Following up on our discussion and a few other items regarding this week”"
+        correct: false
+        explanation: Long and vague. The ask is hidden somewhere in the body.
+      - text: "“URGENT!!! Please read”"
+        correct: false
+        explanation: Alarm without information. Save urgency for real emergencies, and still say what you need.
+    source: { quote: "The subject line states the ask.", page: 6 }
+
+  - id: D06-04
+    type: mcq
+    stem: >-
+      Monday afternoon. You email Dana that Friday's demo will show SMS reminders with test numbers, because the real
+      SMS number is still being verified. She reads it on her phone. Which opening is best?
+    options:
+      - text: "“Hi Dana, hope you had a great weekend! Thanks so much for your time today, it was a really productive check-in.”"
+        correct: false
+        explanation: Two friendly lines and no content. On a phone screen, that's all she sees.
+      - text: "“Hi Dana, as you know, US carriers verify toll-free numbers, and we submitted ours on March 3, and since then…”"
+        correct: false
+        explanation: Background first. The news is buried below the fold.
+      - text: "“Hi Dana, please find below some information regarding the demo.”"
+        correct: false
+        explanation: A line that points at the content instead of giving it.
+      - text: "“Hi Dana, Friday's demo will show SMS reminders working with test numbers. Nothing changes for the April 27 pilot.”"
+        correct: true
+        explanation: The news and its impact in two lines. She can stop reading there.
+    source: { quote: "The first two lines give the bottom line.", page: 34 }
+
+  - id: D06-05
+    type: mcq
+    stem: "Mid-call, Dana adds: “Can it also add the clinic address and a map link?” You've already discussed the button itself. What do you do?"
+    options:
+      - text: "“Sure, anything else while we're at it?”"
+        correct: false
+        explanation: The scope grows silently, and your two-day estimate is no longer true.
+      - text: "“No, that's out of scope.”"
+        correct: false
+        explanation: Shuts down a reasonable idea without checking what it costs.
+      - text: "“Good idea. The address is easy to include. A map link is a bit more; let me check it and confirm in my email today. Let me play back the full scope…”"
+        correct: true
+        explanation: You capture the addition, say what you know and what you'll check, and play back the scope before you close.
+      - text: "“Let's figure that out later.”"
+        correct: false
+        explanation: Nobody owns it, and it comes back as a surprise in Sprint 4.
+    source: { quote: "Can it also add the clinic address and a map link?", page: 36 }
+
+  - id: D06-06
+    type: mcq
+    stem: "Dana pushes once: “Come on, two days. Can't someone work late?” What's the best reply?"
+    options:
+      - text: "“Okay, I'll ask the team to stay late this week.”"
+        correct: false
+        explanation: Silent agreement under pressure. If anything slips, the demo suffers and so does trust.
+      - text: "“That's not fair to my team. They already work long hours.”"
+        correct: false
+        explanation: Makes it personal. Dana needs the business impact, not a complaint.
+      - text: Say nothing and move on to the next topic
+        correct: false
+        explanation: Dana will take silence as a yes.
+      - text: "“I understand wanting it fast. My concern is Friday's demo: rushing it risks reschedule and cancel in front of your CEO. Sprint 4 gets you a tested button by March 27.”"
+        correct: true
+        explanation: You name her goal, your concern and a better path. Calm and firm.
+    source: { quote: "Come on, two days — can't someone work late?", page: 37 }
+
+  - id: D06-07
+    type: scenario
+    clientLine: "“Great, so we're agreed. Talk later!”"
+    stem: Dana is about to hang up. You haven't played back the scope yet. What do you say?
+    options:
+      - text: "“Talk later!”"
+        correct: false
+        explanation: You each leave with a different picture of “agreed”.
+      - text: "“Before you go: Add to calendar for Apple and Google, with the clinic address and video link, in Sprint 4 for the March 27 demo. Did I get that right? I'll confirm in writing today.”"
+        correct: true
+        explanation: A 15-second playback catches any mismatch now, and the written recap makes it stick.
+      - text: "“I'll send you a detailed spec next week for review.”"
+        correct: false
+        explanation: Too late and too heavy. Confirm the scope today, in two lines.
+      - text: "“Just to be safe, can we book another call to go over it?”"
+        correct: false
+        explanation: A second meeting for something a 15-second playback would settle.
+    source: { quote: "Played back the agreed scope and promised a written recap", page: 36 }
+
+  - id: D06-08
+    type: scenario
+    clientLine: "“Saw your email. Do I need to do anything?”"
+    stem: Dana replies at 7 am to your three-paragraph email confirming the change. No action is needed from her. What's the best reply, and the lesson for next time?
+    options:
+      - text: "“Please read the email again, it's all in there.”"
+        correct: false
+        explanation: Blames the reader. If she had to ask, the email didn't do its job.
+      - text: "“No action needed. The button is in Sprint 4, ready March 27.” Next time, start the subject with INFO or ACTION so she can tell at a glance."
+        correct: true
+        explanation: You answer in one line now, and fix the cause. The subject should state the purpose and the ask.
+      - text: "“Sorry, sorry! I'll write it again in more detail.”"
+        correct: false
+        explanation: More detail is the opposite of what she needs.
+      - text: Send the same email again with “Bumping this” on top
+        correct: false
+        explanation: The same unclear email, twice.
+    source: { quote: "The subject states the purpose and the ask", page: 34 }
+
+  - id: D06-09
+    type: written
+    stem: >-
+      Kevin replies-all to your confirmation: “Why only Apple and Google? Half our staff use Outlook.” Dana chose
+      Apple and Google on the call because the button is for patients. Write your reply in 2–3 sentences.
+    modelAnswer: >-
+      Good point, Kevin. Dana chose Apple and Google because the button is for patients booking in the app. We can add
+      Outlook in the same Sprint 4 work without moving the March 27 date; I'll confirm the extra effort by Tuesday.
+      Dana, would you like it included?
+    scoringPoints:
+      - Answers Kevin's question first, without getting defensive
+      - States the impact (effort, March 27 date) and who decides
+      - Ends with a clear question to Dana instead of changing scope silently
+    source: { quote: "It needs calendar files for Apple, Google and Outlook", page: 36 }
+
+  - id: D06-10
+    type: written
+    stem: >-
+      For the Sprint 4 calendar entries, you need Lisa Chen, Lakeside's Clinic Operations Manager, to confirm the
+      address of each pilot clinic by Thursday, March 12. Write the subject line and the first two lines of your
+      email.
+    modelAnswer: >-
+      Subject: ACTION: confirm the 3 pilot clinic addresses by Thu Mar 12.
+      Hi Lisa, could you confirm the street address for each of the 3 pilot clinics by Thursday, March 12? We'll show
+      them in patients' calendar entries from the March 27 demo.
+    scoringPoints:
+      - The subject line has a keyword, the ask and the date
+      - The first line is the ask with the deadline; the second gives the reason in one line
+      - No background before the ask and no vague words like “at the earliest”
+    source: { quote: "Is the main point or ask in the first two lines?", page: 164 }

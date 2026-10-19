@@ -1,0 +1,179 @@
+# Day 27 quiz pool: Tuesday, April 7. Dana wants Spanish SMS reminders “by Friday”: estimates as ranges, confidence
+# and the one unknown, TCPA wording approval, the real deadline. Shows 5 of 10.
+pool: day-27
+questions:
+  - id: D27-01
+    type: mcq
+    stem: "Dana: “Can you get Spanish SMS reminders done by Friday? Yes or no.” What's the best reply?"
+    options:
+      - text: "“Yes.”"
+        correct: false
+        explanation: A single yes to work that depends on someone else's approval.
+      - text: "“Short answer: the code, yes, by Friday. Fully live by Friday, probably not. Here's why in 30 seconds.”"
+        correct: true
+        explanation: Answers first, honestly, and splits what you control from what you don't.
+      - text: "“Well, there are a lot of moving parts, starting with the templates…”"
+        correct: false
+        explanation: A long explanation before the answer. She'll cut you off.
+      - text: "“No, Sprint 5 is full.”"
+        correct: false
+        explanation: True, but closes the door when there's a real option.
+    source: { quote: "Short answer: the code, yes, by Friday. The whole thing live by Friday, probably not.", page: 81 }
+
+  - id: D27-02
+    type: mcq
+    stem: "Dana: “It's just text — why five days?” What's the best reply?"
+    options:
+      - text: "“Translation is harder than people think.”"
+        correct: false
+        explanation: Vague, and slightly defensive.
+      - text: "“The code is about two days. The rest is waiting: Lakeside compliance must approve the Spanish opt-out wording, and last time that took four days.”"
+        correct: true
+        explanation: Splits the range into what's known and the one unknown, with a fact.
+      - text: "“Our estimates always include a buffer.”"
+        correct: false
+        explanation: Makes the range sound padded, not reasoned.
+      - text: "“Fine, three days then.”"
+        correct: false
+        explanation: Cuts the estimate under pressure, with nothing changed.
+    source: { quote: "The last wording approval took 4 days.", page: 81 }
+
+  - id: D27-03
+    type: mcq
+    stem: "Dana asks: “Can't you just use Google Translate?” What's the best reply?"
+    options:
+      - text: "“Sure, that saves time.”"
+        correct: false
+        explanation: Skips the approval patients' consent wording legally needs.
+      - text: "“For a draft, maybe. But the opt-out text is regulated, so Lakeside compliance has to approve the final Spanish wording either way. Does Lakeside already have approved Spanish text we could reuse?”"
+        correct: true
+        explanation: Explains the real constraint and asks the question that could shorten it.
+      - text: "“Machine translation is terrible.”"
+        correct: false
+        explanation: An opinion, not the reason.
+      - text: "“That's not my area.”"
+        correct: false
+        explanation: You own the estimate and the plan.
+    source: { quote: "SMS reminders need patient consent and approved opt-out wording (US TCPA rules)", page: 22 }
+
+  - id: D27-04
+    type: mcq
+    stem: "Dana asks: “Why can't the developers just work faster?” What's the best reply?"
+    options:
+      - text: "“They're already working very hard.”"
+        correct: false
+        explanation: Defends the team without answering her.
+      - text: "“Speed isn't the bottleneck: the code is two days. The wait is the wording approval. If you can get the text to Lakeside compliance today, that's what makes it faster.”"
+        correct: true
+        explanation: Points to the real constraint and gives her something she can do.
+      - text: "“We'll put more people on it.”"
+        correct: false
+        explanation: More people don't speed up an approval.
+      - text: "“We'll do our best.”"
+        correct: false
+        explanation: Sounds like a soft yes to Friday.
+    source: { quote: "Why can't the developers just work faster?", page: 82 }
+
+  - id: D27-05
+    type: mcq
+    stem: "Dana mentions she already told Lisa Chen “probably Friday”. What's the best thing to say?"
+    options:
+      - text: "“Then we'll have to hit Friday.”"
+        correct: false
+        explanation: Turns her guess into your promise.
+      - text: "“Let's correct that today, before Lisa plans around it. I can draft two lines for you: code ready Friday, live once compliance approves the wording.”"
+        correct: true
+        explanation: Fixes the expectation early and makes it easy for Dana.
+      - text: "“You shouldn't have told her that.”"
+        correct: false
+        explanation: Blames the client. The expectation still needs fixing.
+      - text: "“Let's wait and see if we make it.”"
+        correct: false
+        explanation: Hopes the risk sorts itself out.
+    source: { quote: "You already told Lisa Chen at Lakeside \"probably Friday\".", page: 82 }
+
+  - id: D27-06
+    type: mcq
+    stem: >-
+      Kevin asks how long the Suncoast eligibility work will take to finish. You're sure about the code, but the
+      Suncoast docs are incomplete. What's the best reply?
+    options:
+      - text: "“Two days.”"
+        correct: false
+        explanation: A single number for uncertain work.
+      - text: "“Hard to say.”"
+        correct: false
+        explanation: No range, no confidence, nothing he can plan on.
+      - text: "“2 to 4 days. I'm confident on our side; the unknown is whether Suncoast's responses match their docs. I'll know after the first test calls on Thursday.”"
+        correct: true
+        explanation: Range, confidence, the one unknown, and when you'll know more.
+      - text: "“About a week, to be safe.”"
+        correct: false
+        explanation: Padding without a reason looks like hiding.
+    source: { quote: "Never give a single number for uncertain work.", page: 77 }
+
+  - id: D27-07
+    type: scenario
+    clientLine: "“So is that a yes?”"
+    stem: You've explained the range. Dana wants one word. What do you say?
+    options:
+      - text: "“Yes.”"
+        correct: false
+        explanation: She'll tell Lakeside it's live Friday.
+      - text: "“Yes to the code by Friday, behind a switch. It goes live the day the wording is approved. I recommend we do that.”"
+        correct: true
+        explanation: A short, honest answer she can repeat accurately.
+      - text: "“It's complicated.”"
+        correct: false
+        explanation: Exactly what she doesn't want to hear.
+      - text: "“I'd rather not commit.”"
+        correct: false
+        explanation: You can commit, to the part you control.
+    source: { quote: "Options, a recommendation, and a clear ask", page: 81 }
+
+  - id: D27-08
+    type: scenario
+    clientLine: "“Friday matters because of Westside.”"
+    stem: You don't yet know if Friday is a hard deadline. What do you ask?
+    options:
+      - text: "“Okay, Friday it is.”"
+        correct: false
+        explanation: Accepts a date before you know why it matters.
+      - text: "“What happens if it's live the week after, still before the April 27 pilot?”"
+        correct: true
+        explanation: Tests whether Friday is the real deadline, and it isn't.
+      - text: "“Why is Westside so special?”"
+        correct: false
+        explanation: Sounds like a challenge, not curiosity.
+      - text: "“Can Westside wait until May?”"
+        correct: false
+        explanation: Proposes a date with no basis.
+    source: { quote: "Friday is not a hard deadline. What really matters is having it before the pilot on April 27.", page: 82 }
+
+  - id: D27-09
+    type: written
+    stem: >-
+      Dana asks: “Why does Westside need Spanish reminders so badly?” You found out on the call. Write your answer in
+      2 sentences.
+    modelAnswer: >-
+      About 30% of Westside patients prefer Spanish, and Westside has the highest no-show rate of the 3 pilot clinics,
+      at 22%. Reminders patients can read are one of the simplest ways to bring that down before the pilot.
+    scoringPoints:
+      - Gives both numbers (30% prefer Spanish, 22% no-show rate)
+      - Links it to the business outcome (fewer no-shows)
+      - Short and plain
+    source: { quote: "About 30% of Westside patients prefer Spanish, and Westside has the highest no-show rate of the 3 pilot clinics (22%).", page: 82 }
+
+  - id: D27-10
+    type: written
+    stem: >-
+      Thursday morning, compliance still hasn't approved the Spanish wording. Write a 2–3 sentence update to Dana.
+    modelAnswer: >-
+      Quick update on Spanish reminders: the code will be ready Friday behind a switch, as planned. Lakeside compliance
+      hasn't approved the wording yet, so it won't be live this week; it's still well ahead of the April 27 pilot.
+      Could you nudge them today, or ask whether we can reuse the Spanish wording from their paper reminder letters?
+    scoringPoints:
+      - Gives the status first (code on track, not live yet) with the reason
+      - Restates the real deadline so it doesn't sound like a crisis
+      - Ends with a clear, specific ask
+    source: { quote: "Lakeside already has approved Spanish wording for its paper reminder letters — it could be reused if I ask.", page: 82 }

@@ -1,0 +1,85 @@
+id: S17
+title: Two stakeholders want different things (stability vs speed)
+client: Kevin Walsh and Dana Brooks
+clientRole: CTO and VP of Product, Brightpath Health
+clientInitials: KD
+clientPronoun: They
+clientMood: >-
+  Dana wants speed and features; Kevin wants stability and no shortcuts. If you agree with whoever spoke last, the
+  other one says: “So you're just going to say yes to everyone?”
+level: 2
+minutes: 10–15 min
+storySoFar: >-
+  It's Monday, April 6. Epic sandbox access finally arrived this morning, six weeks late, and the SMS reminders
+  soft-launch at Lakeside's Westside clinic starts today. Dana wants the waitlist feature in the April 27 pilot; Kevin
+  wants a code freeze on April 17. You're on a call with both of them.
+facts:
+  - label: Sprint 5 (ends Apr 10)
+    value: "Epic appointment sync started today · Suncoast eligibility check 50% done · audit logging 70% done."
+  - label: Dana's ask
+    value: "Add the waitlist (automatically offer cancelled slots to waiting patients) to the pilot. Estimate: 6–8 days of work."
+  - label: Kevin's ask
+    value: "Code freeze on Fri Apr 17; only bug fixes after that. QA runs a full regression test Apr 21–23."
+  - label: Capacity
+    value: "5 engineers. Sprint 6 (Apr 13–24) already holds pilot hardening, performance and accessibility fixes. The Epic sync is now the critical path."
+    warn: true
+  - label: Option A
+    value: "Waitlist in Sprint 7 (May 11–22); freeze stays Apr 17; full 5-day regression."
+  - label: Option B
+    value: "Waitlist in the pilot; freeze moves to Apr 22; regression shrinks to 2 days."
+yourGoal: >-
+  Play back what each person cares about, lay out the options with trade-offs, recommend one, and get a named
+  decision owner and date.
+mayAsk:
+  - Just make it work.
+  - Whose side are you on?
+  - Can't the team work the weekend?
+script:
+  - { step: Open, line: "Thanks, both. You want two different things for the pilot, and both matter. Can I play back what I've heard, then show you two options?" }
+  - { step: Playback, line: "Dana, you want the waitlist in the pilot because ___. Kevin, you want a freeze on April 17 so we launch stable. Is that fair?" }
+  - { step: Facts, line: "Epic access arrived this morning, six weeks late, so the Epic sync is now our critical path." }
+  - { step: Options, line: "Option A: waitlist in Sprint 7, freeze stays April 17. Option B: waitlist in the pilot, freeze moves to April 22, and regression testing drops from five days to two." }
+  - { step: Recommend, line: "I recommend A: a stable pilot protects the rollout, and the waitlist follows three weeks later." }
+  - { step: Decide + close, line: "Who makes the final call — and can we decide by Wednesday? I'll send both options in writing today." }
+whatGood:
+  - Played back both goals fairly
+  - Options with clear trade-offs and a recommendation
+  - Found that the investor demo is the real driver
+  - Named decision owner and date
+prompt: |
+  You are role-playing a US client on a video call with me. Stay in character until I say "End the call."
+
+  WHO YOU ARE: You play TWO people from Brightpath Health. DANA BROOKS, VP of Product (Austin) — wants speed and features. KEVIN WALSH, CTO (Boston) — wants stability and no shortcuts. Start each turn with the speaker's name, like "DANA:" or "KEVIN:".
+
+  PROJECT CONTEXT: My company is the engineering partner of Brightpath Health, a US telehealth company. We are building CareBook v2 — patient booking (in-person and video), SMS reminders, intake forms and a clinic schedule view — synced with the clinic's Epic EHR, with insurance eligibility checks through Suncoast Billing. The launch customer is Lakeside Health (12 primary-care clinics in Ohio). Everything is made up; no real patient data.
+
+  WHERE WE ARE NOW: Monday, April 6. Epic sandbox access finally arrived this morning, six weeks late. The pilot at 3 Lakeside clinics is planned for April 27.
+
+  TODAY'S SCENARIO: DANA opens: "I need the waitlist in the pilot." KEVIN replies: "And I need a code freeze on April 17." Then both wait for me. If I agree with whoever spoke last, the other one says "So you're just going to say yes to everyone?"
+
+  HIDDEN FACTS — reveal each one only if my questions lead to it:
+  1. DANA: The waitlist is really for the investor demo on May 12, not for pilot patients.
+  2. DANA: Lakeside never asked for the waitlist in the pilot.
+  3. KEVIN: A rushed release last year caused a 3-hour outage at a clinic, and the CEO still brings it up.
+  4. KEVIN: Would accept the waitlist hidden behind a feature switch — shown only in the demo environment — if I suggest it.
+  5. BOTH: Dana owns the scope decision; Kevin owns the release decision.
+
+  CURVEBALLS — use these during the call:
+  - DANA asks: "Can the team work over the weekend to do both?"
+  - KEVIN asks: "Whose side are you on here?"
+
+  DIFFICULTY: Level 2 — busy and vague; short answers, change topic, slightly impatient.
+
+  HOW TO BEHAVE
+  - Speak like a real American business person: natural speed, short sentences, everyday expressions.
+  - Keep each turn short (1–3 sentences), like a real call.
+  - Don't volunteer information; give details only when I ask good questions.
+  - If I use technical jargon, ask me what it means for your business.
+  - If I talk for more than 45 seconds without getting to the point, cut in at my next pause.
+
+  WHEN I SAY "End the call", step out of character and give me feedback:
+  1. Score me 1–5 on each criterion that came up: opening and agenda, answer-first structure, questions asked, playback, business link, trade-offs, handling unknowns, risks and bad news, disagreement, closing and next steps.
+  2. List the hidden facts and tell me which ones I uncovered.
+  3. Quote 2 things I said well, and 2 things I should have said differently — with the better sentence.
+  4. Tell me roughly how often I used filler words ("um", "basically", "actually", "like").
+  5. Give me ONE thing to focus on in my next call.

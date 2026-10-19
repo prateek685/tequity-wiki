@@ -1,0 +1,187 @@
+# Day 18 quiz pool: Wednesday, March 25. AI after the call (notes without PHI, the recap prompt, checking every fact
+# and commitment, sending within 2 hours), the Level 2 sync drill, and closing loops on time. Shows 5 of 10.
+pool: day-18
+questions:
+  - id: D18-01
+    type: mcq
+    stem: >-
+      The AI's recap draft says: “Epic access will be resolved this week.” Nobody said that on the call. What do you
+      do?
+    options:
+      - text: Keep it. It sounds positive, and Dana will like it.
+        correct: false
+        explanation: A promise you didn't make, in writing, to a client. It will come back to you.
+      - text: Replace it with what was agreed. “Epic access is still pending; Dana will ask Dr. Mercer to push it this week.”
+        correct: true
+        explanation: You own the words. Every fact and commitment in the recap must be true.
+      - text: Send it and correct it later if Dana asks.
+        correct: false
+        explanation: She may forward it to her CEO first.
+      - text: Add “hopefully” to soften it.
+        correct: false
+        explanation: Still a claim nobody made, now with waiting language.
+    source: { quote: "check every fact and commitment yourself", page: 54 }
+
+  - id: D18-02
+    type: mcq
+    stem: The Level 2 sync with Dana ended at 10:15 am Central. When should the recap reach her?
+    options:
+      - text: By 12:15 pm Central, within 2 hours.
+        correct: true
+        explanation: While the call is fresh for both of you, and before she moves on.
+      - text: By the end of tomorrow, once you've had time to polish it.
+        correct: false
+        explanation: A late recap reads like an afterthought, and decisions drift meanwhile.
+      - text: With Friday's weekly update.
+        correct: false
+        explanation: Two asks with deadlines this week can't wait until Friday.
+      - text: Only if Dana asks for one.
+        correct: false
+        explanation: Waiting to be reminded. The recap is how you confirm what you committed to.
+    source: { quote: "send within 2 hours. You own the words, not the AI.", page: 54 }
+
+  - id: D18-03
+    type: mcq
+    stem: >-
+      Your call notes include a clinic manager's story about a named patient who missed two visits. You want to run the
+      recap prompt. What do you do first?
+    options:
+      - text: Paste the notes as they are. Your AI account is private.
+        correct: false
+        explanation: A private account is still an AI tool. Patient details never go in.
+      - text: Paste them and ask the AI to ignore the names.
+        correct: false
+        explanation: The names have already left your hands.
+      - text: Take the patient details out and keep the point, e.g. “a patient missed two visits after no reminder arrived”.
+        correct: true
+        explanation: The AI needs the situation, not the person.
+      - text: Skip the recap this time.
+        correct: false
+        explanation: The recap still matters. Remove the PHI and carry on.
+    source: { quote: "Notes or transcript (no PHI)", page: 54 }
+
+  - id: D18-04
+    type: mcq
+    stem: >-
+      The AI flags a line in your notes: “‘I'll look into the fake Epic idea’ — is this a commitment?” What do you do?
+    options:
+      - text: Delete the flag and send the recap.
+        correct: false
+        explanation: The flag is there for a reason. Dana heard you say it.
+      - text: Leave it vague, “We will look into it”, so nobody holds you to a date.
+        correct: false
+        explanation: An open loop with no date. She'll have to chase you.
+      - text: Send the recap with the AI's flag still in it.
+        correct: false
+        explanation: Sending raw AI text. Resolve flags before you send.
+      - text: Make it a real action item with your name and a date you can keep.
+        correct: true
+        explanation: "You said it, so own it: what, who and by when."
+    source: { quote: "Flag anything in my notes that is unclear, or that looks like a commitment I made.", page: 164 }
+
+  - id: D18-05
+    type: mcq
+    stem: >-
+      You're halfway through the Epic risk when Dana cuts in: “Anyway — what about the questionnaire?” What's the best
+      reply?
+    options:
+      - text: Answer about the questionnaire and never come back to Epic.
+        correct: false
+        explanation: The most important point of the call gets lost.
+      - text: "“Please let me finish.”"
+        correct: false
+        explanation: Sounds defensive to a busy client.
+      - text: "“I'll come to that in a minute. First, one thing I need from you on Epic: could you ask Dr. Mercer to push it this week?”"
+        correct: true
+        explanation: Acknowledges her topic, then finishes the ask that matters most.
+      - text: Start the Epic story again from February 24.
+        correct: false
+        explanation: Background first, to a client who just showed she's impatient.
+    source: { quote: "busy and vague; short answers, change topic, slightly impatient", page: 61 }
+
+  - id: D18-06
+    type: mcq
+    stem: >-
+      It's 11:40 am Central on Wednesday. The release checklist for Kevin is ready, but Omar hasn't replied about
+      production approvals. You promised both by noon. What do you send?
+    options:
+      - text: Nothing yet. Wait until Omar replies so it's complete.
+        correct: false
+        explanation: You'd miss the date you gave, and Kevin hears nothing.
+      - text: "“Here's the release checklist I promised. One open item: Omar hasn't confirmed the production approval process yet. I've asked again and will update you by Thursday noon.”"
+        correct: true
+        explanation: Keeps the date, is honest about the gap, and sets a new one for it.
+      - text: The checklist only, without mentioning Omar.
+        correct: false
+        explanation: Quietly drops half of the promise.
+      - text: "“Omar isn't responding. Can you chase him?”"
+        correct: false
+        explanation: Hands your follow-up to the client.
+    source: { quote: "I'll send you the full release checklist in writing by Wednesday noon your time.", page: 56 }
+
+  - id: D18-07
+    type: scenario
+    clientLine: "“Just send me whatever the AI writes. It doesn't need to be polished.”"
+    stem: You've got the AI's draft of the recap. What do you say?
+    options:
+      - text: "“Sure, I'll forward it as it is.”"
+        correct: false
+        explanation: Sending raw AI text. Unchecked dates and promises go out in your name.
+      - text: "“I'll keep it short, but I'll check every date and owner first. You'll have it by noon.”"
+        correct: true
+        explanation: Respects her time and keeps the recap true. Checking takes minutes.
+      - text: "“I'd rather not use AI for client emails.”"
+        correct: false
+        explanation: AI makes you faster here. The rule is to check it, not avoid it.
+      - text: "“Okay, but I can't promise it's right.”"
+        correct: false
+        explanation: Makes the client responsible for your recap.
+    source: { quote: "Walking in cold. Sending raw AI text. Putting patient data into AI tools.", page: 6 }
+
+  - id: D18-08
+    type: scenario
+    clientLine: "“Your recap says I'll decide the dashboard by Monday. I said Friday.”"
+    stem: The AI changed the date and you missed it. What do you say?
+    options:
+      - text: "“Sorry, the AI wrote that part.”"
+        correct: false
+        explanation: Blames a tool. You sent it, so it's yours.
+      - text: "“You're right, thanks for catching it. I'll send the corrected recap now.”"
+        correct: true
+        explanation: One line, owns it, fixes it straight away.
+      - text: "“I'm so sorry, I really should have checked, I'm very sorry.”"
+        correct: false
+        explanation: An apology spiral. One short line is enough.
+      - text: "“I'm fairly sure you said Monday.”"
+        correct: false
+        explanation: Argues with the client about her own decision.
+    source: { quote: "Always edit before sending. You own the words, not the AI.", page: 164 }
+
+  - id: D18-09
+    type: written
+    stem: >-
+      Dana replies to your recap: “Thanks. Can you give me the 2-line version for my CEO?” Write it.
+    modelAnswer: >-
+      Sprint 4 is mostly on track: Add to calendar is done and the intake form is at 70%. The one risk is Epic access:
+      if Lakeside's approval isn't in by April 6, the April 27 pilot is at risk, so Dana is asking Dr. Mercer to push
+      it this week.
+    scoringPoints:
+      - Bottom line first, in two lines a CEO understands
+      - The Epic risk with its date and what's being done about it
+      - No new facts or promises that weren't in the recap
+    source: { quote: "Subject line (with the key decision or ask) · 2-line summary", page: 164 }
+
+  - id: D18-10
+    type: written
+    stem: >-
+      It's 2 pm on Wednesday. You promised Dana the new-patient intake options today, but the tech lead needs until
+      tomorrow morning to size the Epic part. Write your message to Dana.
+    modelAnswer: >-
+      Hi Dana, a heads-up on the new-patient intake options I promised for today: they'll reach you tomorrow by noon
+      Central. The tech lead is still sizing the Epic part, and I'd rather send you a real number than a guess.
+      Nothing changes for the pilot plan.
+    scoringPoints:
+      - Tells her before the deadline passes, without waiting to be asked
+      - Gives a new date and a one-line reason, with no long apology or blame
+      - Says what it means for her (no change to the pilot)
+    source: { quote: "\"Someone will check.\" Waiting to be reminded.", page: 6 }

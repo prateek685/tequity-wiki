@@ -1,0 +1,103 @@
+day: 50
+block: 10
+title: Live demo segment
+type: live_call
+storyDate: Friday, May 8
+minutes: About 60 min
+intro: >-
+  Today you give a demo segment on a real call, with the PM or senior as backup. You write the demo recap, rate the
+  week, and book your check-in.
+lessons:
+  - id: demo-day-checklist
+    kind: prep
+    title: Demo checklist
+    minutes: 5 min
+    blocks:
+      - type: yesterday
+        text: >-
+          you rehearsed the demo with Dr. Mercer pushing back, finished your script, and wrote the backup plan.
+      - type: scene
+        when: Friday, May 8 · 8:30 am Central · end of the first pilot week
+        text: >-
+          First pilot week: 18 patients added to waitlists, 5 cancelled slots refilled, 0 double bookings. This afternoon
+          you demo the schedule view and waitlist to Dr. Mercer and Lisa Chen. Run the checklist first.
+      - type: steps
+        items:
+          - { title: Test data only, text: "Never real PHI." }
+          - { title: Rehearsed end to end, text: "Once, on the machine you'll share from." }
+          - { title: Backup open and ready, text: "Recording or screenshots." }
+          - { title: Notifications off, text: "Other apps closed." }
+          - { title: Recap draft ready, text: "To send today." }
+    fields:
+      - { id: check, label: "Anything not ready?", kind: line, placeholder: "e.g. Backup recording is from Monday: re-check it matches the screens" }
+    source: both
+
+  - id: live-demo
+    kind: live
+    title: Live demo segment
+    heading: Give a demo on a real call
+    minutes: 30 min
+    liveRole: co_lead
+    substituteCardId: S44
+    fallback: >-
+      If no demo is scheduled, record a demo privately and share the written summary instead.
+    lead: >-
+      Show the result first, tell one story, name the gaps, and ask for specific feedback. The PM or senior is your
+      backup.
+    fields:
+      - { id: call, label: "Call · audience · date", kind: line, placeholder: "e.g. Pilot review · Dr. Mercer and Lisa · May 8" }
+      - { id: result-first, label: "Did I show the result first? What did I show?", kind: area, rows: 2 }
+      - { id: went-wrong, label: "What went wrong or nearly did, and what I did", kind: area, rows: 2 }
+      - { id: feedback-words, label: "Their feedback, in their exact words", kind: area, rows: 3 }
+      - { id: next-sprint, label: "What goes into the next sprint", kind: line }
+
+  - id: demo-recap
+    kind: write
+    title: Demo recap
+    heading: Demo recap with feedback and next steps
+    minutes: 10 min
+    lead: >-
+      Write the recap you'll send today: what you showed, the feedback in their words, what goes into the next sprint,
+      and any issue and what you'll do about it.
+    source: both
+    blocks:
+      - { type: field, id: recap }
+      - { type: field, id: playback }
+    fields:
+      - { id: recap, label: Demo recap, kind: area, rows: 6, placeholder: "Showed · feedback · next sprint · issues and fixes" }
+      - { id: playback, label: "The feedback I played back to confirm", kind: line }
+
+  - id: week-in-review
+    kind: scorecard
+    title: Your week in review
+    minutes: 5 min
+    lead: >-
+      Five minutes. Rate this week's behaviours and add a line of proof for each pillar. Your pillar scores update from
+      them; the other pillars carry forward. Your Day 1 baseline sits next to it.
+    scorecard: [U3, C4]
+    checksTitle: Before the weekend
+    checks:
+      - Did the client see the value in the first minute?
+      - Did I recover calmly if something broke?
+    blocks:
+      - type: note
+        tone: info
+        title: Bi-weekly check-in
+        text: Your 15–20 minute check-in with your manager comes after today, and you book it. If it isn't in your calendar yet, book it with your manager now. Bring this scorecard.
+      - type: text
+        text: >-
+          **Next week:** product thinking. You'll link CareBook's features to the client's business metrics, suggest one
+          improvement unprompted, and co-lead the requirements part of a live call.
+
+scoring:
+  demo-recap:
+    modelAnswer: >-
+      Subject: CareBook demo: feedback and next steps. Showed: the clinic schedule view and the waitlist, starting with
+      first-week results: 18 patients added to waitlists, 5 cancelled slots refilled, no double bookings. Feedback: Dr.
+      Mercer asked how this affects scheduler workload; Lisa said staff want the patient's phone number on the waitlist
+      without an extra click. Next sprint: the phone-number change, and a plan for automatic texts to the waitlist. Issue:
+      none today. Next: I'll send the sizing for both by Tuesday.
+    scoringPoints:
+      - Leads with what was shown and the results, in numbers
+      - Feedback recorded in the client's own words, and what goes into the next sprint is explicit
+      - Has an owner and a date for the next step, and is short enough to send the same day

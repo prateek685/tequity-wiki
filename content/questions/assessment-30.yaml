@@ -1,0 +1,361 @@
+# Week 6 assessment pool (after Day 30): the whole CareBook week, Apr 6 – Apr 10, with skills combined: stakeholder
+# maps, two stakeholders with different goals, estimates as ranges, the trade-off formula, EHR, HL7 and FHIR in plain
+# words, integration questions, scope, time and quality, and the change note. Shows 8 choice + 2 written of 20.
+pool: assessment-30
+questions:
+  - id: A30-01
+    type: mcq
+    stem: >-
+      Monday morning. Epic access has just arrived, six weeks late. Dana asks: “So we're back on track for April 27?”
+      What's the best reply?
+    options:
+      - text: "“Yes, all good now.”"
+        correct: false
+        explanation: Hides that the Epic sync is now the critical path.
+      - text: "“The date holds for now, with less room. The Epic sync is now our critical path, so I'll flag any slip the same day it happens.”"
+        correct: true
+        explanation: Answer first, the risk named, and how you'll keep her informed.
+      - text: "“Six weeks late is a disaster.”"
+        correct: false
+        explanation: Alarm with no plan.
+      - text: "“It depends on Lakeside.”"
+        correct: false
+        explanation: Pushes it away. What does it depend on, and when will you know?
+    source: { quote: "The Epic sync is now the critical path.", page: 79 }
+
+  - id: A30-02
+    type: mcq
+    stem: "Monday. Dana and Kevin have heard your options. Who should decide on the waitlist and the freeze?"
+    options:
+      - text: "You, since you know the work best."
+        correct: false
+        explanation: You recommend; the client decides on scope and release.
+      - text: "Whoever is most senior on the call."
+        correct: false
+        explanation: Seniority isn't ownership. Ask who owns which decision.
+      - text: "Dana owns the scope decision and Kevin owns the release decision, so you ask both to agree, by a date."
+        correct: true
+        explanation: Named owners and a date, so the decision doesn't drift.
+      - text: "The team, by vote."
+        correct: false
+        explanation: Client decisions don't belong to the delivery team.
+    source: { quote: "BOTH: Dana owns the scope decision; Kevin owns the release decision.", page: 80 }
+
+  - id: A30-03
+    type: mcq
+    stem: "Monday. Kevin says: “Last time we rushed a release, a clinic was down for three hours.” What's the best reply?"
+    options:
+      - text: "“That won't happen with us.”"
+        correct: false
+        explanation: A promise nobody can keep.
+      - text: "“That was a different team.”"
+        correct: false
+        explanation: Dismisses his reason instead of hearing it.
+      - text: "“That's exactly why the full 5-day regression matters. It's the main reason I recommend keeping your April 17 freeze.”"
+        correct: true
+        explanation: Plays back his concern and links it to your recommendation.
+      - text: "“Let's not dwell on the past.”"
+        correct: false
+        explanation: Brushes off what drives his position.
+    source: { quote: "A rushed release last year caused a 3-hour outage at a clinic", page: 80 }
+
+  - id: A30-04
+    type: mcq
+    stem: >-
+      Tuesday. A new product manager asks how much of a stakeholder map she needs for Dr. Mercer. What does each line
+      need?
+    options:
+      - text: Name and email.
+        correct: false
+        explanation: A contact list, not a map.
+      - text: "Role, what they care about, how much influence they have, and how often to update them."
+        correct: true
+        explanation: The four things that tell you what each person will expect.
+      - text: Their opinion of the project.
+        correct: false
+        explanation: Useful, but not enough to plan updates.
+      - text: Only the people who sign the contract.
+        correct: false
+        explanation: Misses the end users and the people who block work.
+    source: { quote: "For each person: role · what they care about · how much influence they have · how often to update them.", page: 77 }
+
+  - id: A30-05
+    type: mcq
+    stem: >-
+      Tuesday. Lisa Chen asks when the Spanish reminders will be live at Westside. The code is done Friday; the wording
+      approval is open. What's the best reply?
+    options:
+      - text: "“Friday.”"
+        correct: false
+        explanation: One date for work that depends on an approval.
+      - text: "“Sometime soon.”"
+        correct: false
+        explanation: Nothing she can plan staff or patients around.
+      - text: "“The code is ready Friday. It goes live the day your compliance team approves the Spanish wording; last time that took four days. Well before the April 27 pilot either way.”"
+        correct: true
+        explanation: What's certain, what's not, and the date that really matters.
+      - text: "“Ask Dana.”"
+        correct: false
+        explanation: You own the estimate and can answer her directly.
+    source: { quote: "Build the code by Friday behind a switch; turn it on once the wording is approved.", page: 81 }
+
+  - id: A30-06
+    type: mcq
+    stem: "Tuesday. Which estimate is best for work you're unsure about?"
+    options:
+      - text: "“4 days.”"
+        correct: false
+        explanation: A single number for uncertain work.
+      - text: "“3 to 5 days, and I'm fairly confident. The unknown is the EHR sandbox. I'll know more by Wednesday.”"
+        correct: true
+        explanation: Range, confidence, the unknown and when you'll know more.
+      - text: "“Somewhere between 1 and 15 days.”"
+        correct: false
+        explanation: A range so wide it tells the client nothing.
+      - text: "“Can't estimate until it's done.”"
+        correct: false
+        explanation: Refuses to help the client plan.
+    source: { quote: "3 to 5 days, and I'm fairly confident. The unknown is the EHR sandbox — I'll know more by", page: 77 }
+
+  - id: A30-07
+    type: mcq
+    stem: "Wednesday. A teammate's update to Kevin says: “We could do FHIR or HL7, both have pros and cons.” What's missing?"
+    options:
+      - text: More technical detail on both.
+        correct: false
+        explanation: Detail won't help if there's no recommendation.
+      - text: "A recommendation and a business reason: “I recommend FHIR, because only it makes the April 27 pilot.”"
+        correct: true
+        explanation: Options with no recommendation leave the client doing your job.
+      - text: A third option.
+        correct: false
+        explanation: More options make the decision harder, not easier.
+      - text: An apology for the delay.
+        correct: false
+        explanation: Not the problem here.
+    source: { quote: "Listing options with no recommendation.", page: 6 }
+
+  - id: A30-08
+    type: mcq
+    stem: "Wednesday. Kevin asks: “Remind me why we chose FHIR in the first place?” What's the best one-line answer?"
+    options:
+      - text: "“Because it's newer.”"
+        correct: false
+        explanation: Newer isn't a reason.
+      - text: "“Faster to build and standard, and Lakeside approved the app. The trade-off is rate limits and a few fields we don't get.”"
+        correct: true
+        explanation: The reason and the cost, in one line.
+      - text: "“The team liked it.”"
+        correct: false
+        explanation: A preference, not a business reason.
+      - text: "“I'm not sure, it was decided before me.”"
+        correct: false
+        explanation: As lead engineer you should know and own it.
+    source: { quote: "Use Epic's FHIR APIs for appointment sync instead of a custom HL7 v2 interface: faster to build and standard.", page: 22 }
+
+  - id: A30-09
+    type: mcq
+    stem: "Thursday. Dr. Mercer asks: “What's the difference between HL7 and FHIR?” What's the best plain answer?"
+    options:
+      - text: "“HL7 v2 is pipe-delimited messaging; FHIR is RESTful resources.”"
+        correct: false
+        explanation: Accurate and meaningless to a doctor.
+      - text: "“HL7 v2 is the older way hospital systems send each other messages, like an alert when a patient is admitted. FHIR is the modern way apps ask the EHR for one piece of information, like an appointment.”"
+        correct: true
+        explanation: Plain words, with an example of each from his world.
+      - text: "“They're the same thing.”"
+        correct: false
+        explanation: Wrong.
+      - text: "“FHIR is better in every way.”"
+        correct: false
+        explanation: An opinion, and not true for every use.
+    source: { quote: "HL7 v2 = an older message standard (e.g. an \"ADT\" message when a patient is admitted).", page: 77 }
+
+  - id: A30-10
+    type: mcq
+    stem: "Thursday. Sam Porter writes “we'll match on MRN”. Dana asks what that means. What's the best reply?"
+    options:
+      - text: "“Medical Record Number: Lakeside's patient ID inside Epic. It's how we make sure a booking lands on the right patient.”"
+        correct: true
+        explanation: The meaning and why it matters, in one line.
+      - text: "“Some Epic code.”"
+        correct: false
+        explanation: Vague, and you need to know it.
+      - text: "“Their new release name.”"
+        correct: false
+        explanation: A guess.
+      - text: "“Don't worry about it.”"
+        correct: false
+        explanation: Dismissive to the decision maker.
+    source: { quote: "Medical Record Number — the patient ID inside a hospital's system.", page: 168 }
+
+  - id: A30-11
+    type: mcq
+    stem: "Thursday. Dr. Mercer asks: “Does Epic charge for this kind of integration?” You don't know. What do you say?"
+    options:
+      - text: "“No, it's free.”"
+        correct: false
+        explanation: A guess about someone else's pricing.
+      - text: "“Good question. I don't know yet. I'll check with Sam Porter and include it in the list I send you, by Monday.”"
+        correct: true
+        explanation: Calm, honest, with an owner and a date.
+      - text: "“Probably, everything costs money.”"
+        correct: false
+        explanation: A guess that worries him.
+      - text: "“That's not my department.”"
+        correct: false
+        explanation: You own the answer back to him.
+    source: { quote: "Does Epic charge for this kind of integration?", page: 86 }
+
+  - id: A30-12
+    type: mcq
+    stem: "Friday. Dana's new request would add 5–7 days to a full sprint. Which reply follows “scope, time and quality”?"
+    options:
+      - text: "“We can add this. To keep the date, we'd move something else to the next sprint. Which do you prefer?”"
+        correct: true
+        explanation: Says early that if scope grows, time or quality must change, and lets her choose.
+      - text: "“We'll add it and test less.”"
+        correct: false
+        explanation: Quietly cuts quality.
+      - text: "“We'll add it and work late.”"
+        correct: false
+        explanation: Silently absorbs the work.
+      - text: "“We can't add anything.”"
+        correct: false
+        explanation: A flat no with no options.
+    source: { quote: "We can add this. To keep the date, we'd move X to the next sprint. Which do you prefer?", page: 77 }
+
+  - id: A30-13
+    type: scenario
+    clientLine: "“Just tell Kevin the freeze moves to the 22nd.”"
+    stem: Monday. Dana wants you to deliver her decision about Kevin's release. What do you say?
+    options:
+      - text: "“Okay, I'll tell him.”"
+        correct: false
+        explanation: The release decision is Kevin's. You'd be taking a side.
+      - text: "“The freeze is Kevin's call, so I'd rather the three of us decide it together. I'll send both options in writing today and we decide by Wednesday.”"
+        correct: true
+        explanation: Respects who owns the decision and keeps it moving with a date.
+      - text: "“He won't like that.”"
+        correct: false
+        explanation: Gossip, not a plan.
+      - text: "“You tell him.”"
+        correct: false
+        explanation: Steps out of a conversation you should help run.
+    source: { quote: "Named decision owner and date", page: 79 }
+
+  - id: A30-14
+    type: scenario
+    clientLine: "“Great, I'll tell Lakeside it's live Friday.”"
+    stem: Tuesday. You said “Friday should be fine” too fast. What do you say?
+    options:
+      - text: Nothing. You'll try to make Friday.
+        correct: false
+        explanation: Lets a promise go out that depends on an approval you don't control.
+      - text: "“Before you do, let me correct myself: the code is ready Friday, but it's live only once Lakeside approves the Spanish wording. Can you tell them that instead?”"
+        correct: true
+        explanation: Fixes the expectation now, before it reaches the client.
+      - text: "“Sure, and if it slips we'll explain.”"
+        correct: false
+        explanation: Plans the bad news instead of preventing it.
+      - text: "“Please don't tell anyone anything.”"
+        correct: false
+        explanation: Unhelpful, and she still has no answer to give.
+    source: { quote: "If I give a single date without explaining the unknowns, accept it and say \"Great, I'll tell Lakeside it's live Friday.\"", page: 82 }
+
+  - id: A30-15
+    type: scenario
+    clientLine: "“Speak plainly — I'm a doctor, not a programmer.”"
+    stem: Thursday. You just said “we poll the Appointment resource”. What do you say now?
+    options:
+      - text: "“Sorry. CareBook checks Epic for new and changed appointments every five minutes, so your schedule is never more than five minutes behind.”"
+        correct: true
+        explanation: One short apology, then the same fact in his words.
+      - text: "“It's a standard FHIR pattern.”"
+        correct: false
+        explanation: More jargon.
+      - text: "“It's hard to explain without the technical terms.”"
+        correct: false
+        explanation: It isn't. Find the plain version.
+      - text: "“I'm so sorry, I always do this, I'll try harder.”"
+        correct: false
+        explanation: Over-apologises and still doesn't answer.
+    source: { quote: "Speak plainly — I'm a doctor, not a programmer.", page: 86 }
+
+  - id: A30-16
+    type: scenario
+    clientLine: "“It's tiny, just squeeze it in.”"
+    stem: Friday. You know it's 5–7 days. What do you say?
+    options:
+      - text: "“Okay, we'll squeeze it in.”"
+        correct: false
+        explanation: Absorbs the work and puts the pilot at risk.
+      - text: "“I want to help with it. It's 5 to 7 days because the card photo is patient data, and Sprint 6 is full, so something has to move. I recommend Sprint 7 and typed member IDs for the pilot.”"
+        correct: true
+        explanation: Yes to the goal, the cost made visible, and a recommendation.
+      - text: "“Nothing is tiny.”"
+        correct: false
+        explanation: Sounds like a complaint.
+      - text: "“I'll ask the team if they have time.”"
+        correct: false
+        explanation: Hides the trade-off behind the team.
+    source: { quote: "It's tiny, just squeeze it in.", page: 87 }
+
+  - id: A30-17
+    type: written
+    stem: >-
+      Monday, after the call. Dana messages: “Summarise Kevin's position in two lines so I can explain it to my CEO.”
+      Write it fairly.
+    modelAnswer: >-
+      Kevin wants a code freeze on April 17 so QA can run a full 5-day regression before the April 27 pilot. A rushed
+      release caused a 3-hour clinic outage last year, and he owns the release decision.
+    scoringPoints:
+      - Gives Kevin's goal and his reason fairly, without taking a side
+      - Uses the facts (freeze date, 5-day regression, the outage)
+      - Two short lines, forwardable
+    source: { quote: "Code freeze on Fri Apr 17; only bug fixes after that. QA runs a full regression test Apr 21–23.", page: 79 }
+
+  - id: A30-18
+    type: written
+    stem: >-
+      Wednesday. Kevin asks: “If we go FHIR now, what would make you switch to HL7 later?” Write your answer in 2–3
+      sentences.
+    modelAnswer: >-
+      If pilot data shows sync delays that front desks notice, more than 15 minutes for same-day cancellations, or if
+      the missing visit reason causes real problems for doctors. We'll measure both during the pilot and bring you a
+      recommendation before the summer rollout.
+    scoringPoints:
+      - Names measurable conditions tied to front desks and doctors
+      - Says when it will be measured and decided
+      - Short and specific, no hedging
+    source: { quote: "Measure sync delays during the pilot and revisit HL7 before the summer rollout if needed.", page: 83 }
+
+  - id: A30-19
+    type: written
+    stem: >-
+      Thursday. Dana asks: “Is any of Alan's ‘proper integration’ needed for the pilot?” Write your answer in 2–3
+      sentences.
+    modelAnswer: >-
+      No. The pilot already has appointment sync from Epic every 5 minutes. Alan's three needs (cancellations, new
+      patient registrations and visit reason, all from CareBook into Epic) are for the July 1 rollout; I'm checking
+      the Epic side with Sam Porter and will send options with effort next week.
+    scoringPoints:
+      - Answers first (not for the pilot) and says what the pilot already covers
+      - Summarises the three needs, the direction and July 1
+      - A dated next step, with no delivery date promised
+    source: { quote: "Appointment sync every five minutes is already in the pilot.", page: 85 }
+
+  - id: A30-20
+    type: written
+    stem: >-
+      Friday, 5 pm. Dana asks: “What did we decide this week, and what's still open?” Write your reply.
+    modelAnswer: >-
+      Decided: the waitlist moves to Sprint 7 and Kevin's April 17 freeze stays; Spanish reminders are built behind a
+      switch and go live once Lakeside approves the wording; we use Epic's FHIR API for the pilot and revisit HL7 before
+      the summer rollout. Open: Alan's three Epic write-back needs for July 1 (I'm checking with Sam Porter), and your
+      decision on insurance card photos by Monday; I recommend Sprint 7 and typed member IDs for the pilot.
+    scoringPoints:
+      - Separates decisions from open items
+      - Each open item has an owner or a date
+      - Short, accurate and consistent with the week's decisions
+    source: { quote: "Did I confirm the scope change in writing?", page: 78 }

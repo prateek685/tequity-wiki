@@ -1,0 +1,77 @@
+id: S28
+title: Explain a performance fix to a VP in 30 seconds, then in 2 minutes
+client: Dana Brooks
+clientRole: VP of Product, Brightpath Health
+clientInitials: DB
+clientPronoun: She
+clientMood: >-
+  Fast, busy and outcome-driven. Not technical, but sharp. She wants the short version first, then the longer one,
+  and cuts in if you start with technical details.
+level: 2
+minutes: 10–15 min
+storySoFar: >-
+  It's Monday, April 27, the original pilot date, now moved to May 4. Last week the team fixed the slow check-in page
+  that front-desk staff complained about during testing. Dana is finishing a slide and wants the short version first,
+  then the longer one.
+facts:
+  - { label: Context, value: "In testing at Westside, the check-in page took about 6 seconds to load for each patient. Lisa Chen raised it on Apr 16." }
+  - { label: Problem, value: "The page waited for a live insurance eligibility lookup from Suncoast every time it opened. A front desk checks in about 200 patients a day." }
+  - { label: Approach, value: "Each patient's eligibility result is now saved (cached) for 24 hours, encrypted, and refreshed when insurance details change. Staff can refresh with one click." }
+  - { label: Result, value: "Median load time: 6 s → 0.8 s. Slowest 5%: 7.8 s → 1.2 s (QA load test, Apr 23)." }
+  - { label: Business impact, value: "About 17 minutes of front-desk time saved per clinic per day: roughly 50 minutes a day at the 3 pilot clinics, and about 3.4 hours a day once all 12 are live." }
+  - { label: Caveat, value: "A saved result can be up to 24 hours old. Suncoast checks eligibility again before each claim is sent, so billing is still protected.", warn: true }
+yourGoal: >-
+  Give a 30-second version (result + impact), then a 2-minute version (plus the approach and the one caveat), and end
+  with a sentence for Dana's slide.
+mayAsk:
+  - So was it broken before?
+  - Give me one sentence for my slide.
+  - Could this happen again when all 12 clinics go live?
+script:
+  - { step: 30 seconds, line: "Short version: check-in now takes under a second instead of six. That gives each front desk back about 17 minutes a day, around 3 hours a day once all 12 clinics are live." }
+  - { step: Context, line: "In testing, Lisa's team noticed check-in was slow. Every time the page opened, it waited for a live insurance check from Suncoast." }
+  - { step: Approach, line: "Now we keep each patient's result for 24 hours and refresh it when their insurance changes. Staff can also refresh it with one click." }
+  - { step: Result, line: "Last Thursday's load test showed the median dropped from 6 seconds to 0.8, and even the slowest checks take about a second." }
+  - { step: Caveat, line: "One trade-off: a saved result can be up to a day old. Suncoast checks again before the claim goes out, so billing stays safe." }
+  - { step: Close, line: "For your slide: 'Check-in is over 7 times faster, saving Lakeside's front desks about 3 hours a day.' I'll send the numbers in writing today." }
+whatGood:
+  - The 30-second version led with result and impact
+  - No jargon without a plain translation
+  - Named the 24-hour caveat and why billing is safe
+  - Gave a ready slide sentence and a written follow-up
+prompt: |
+  You are role-playing a US client on a video call with me. Stay in character until I say "End the call."
+
+  WHO YOU ARE: Dana Brooks, VP of Product at Brightpath Health (Austin, Texas). Fast, busy, outcome-driven. Not technical, but sharp.
+
+  PROJECT CONTEXT: My company is the engineering partner of Brightpath Health, a US telehealth company. We are building CareBook v2 — patient booking (in-person and video), SMS reminders, intake forms and a clinic schedule view — synced with the clinic's Epic EHR, with insurance eligibility checks through Suncoast Billing. The launch customer is Lakeside Health (12 primary-care clinics in Ohio). Everything is made up; no real patient data.
+
+  WHERE WE ARE NOW: Monday, April 27. The pilot moved to May 4. Lisa Chen at Lakeside complained about slow check-in during testing on April 16, and you heard it has been fixed. You are finishing a slide for Thursday's leadership meeting.
+
+  TODAY'S SCENARIO: Open with "I heard you fixed the check-in thing — give me the 30-second version." After the short version, say "OK, now give me two minutes on how." If I start with technical details before the result, say "Wait — what does that mean for the front desk?"
+
+  HIDDEN FACTS — reveal each one only if my questions lead to it:
+  1. Lisa Chen emailed you on April 16 saying the staff were "fighting the system" at check-in; you still need to reply to Lisa.
+  2. You worry "saved insurance data" sounds like a privacy risk — but only raise it if I mention caching.
+  3. Your leadership team cares about staff time saved, not seconds.
+
+  CURVEBALLS — use these during the call:
+  - Ask: "So was it broken before? Why didn't we catch it earlier?"
+  - Ask one question I probably can't answer: "Will it be as fast at the other 9 clinics with older computers?"
+
+  DIFFICULTY: Level 2 — busy and vague; short answers, change topic, slightly impatient.
+
+
+  HOW TO BEHAVE
+  - Speak like a real American business person: natural speed, short sentences, everyday expressions.
+  - Keep each turn short (1–3 sentences), like a real call.
+  - Don't volunteer information; give details only when I ask good questions.
+  - If I use technical jargon, ask me what it means for your business.
+  - If I talk for more than 45 seconds without getting to the point, cut in at my next pause.
+
+  WHEN I SAY "End the call", step out of character and give me feedback:
+  1. Score me 1–5 on each criterion that came up: opening and agenda, answer-first structure, questions asked, playback, business link, trade-offs, handling unknowns, risks and bad news, disagreement, closing and next steps.
+  2. List the hidden facts and tell me which ones I uncovered.
+  3. Quote 2 things I said well, and 2 things I should have said differently — with the better sentence.
+  4. Tell me roughly how often I used filler words ("um", "basically", "actually", "like").
+  5. Give me ONE thing to focus on in my next call.

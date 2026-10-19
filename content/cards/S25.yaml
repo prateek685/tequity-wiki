@@ -1,0 +1,81 @@
+id: S25
+title: Say no to a new feature this sprint
+client: Kevin Walsh
+clientRole: CTO, Brightpath
+clientInitials: KW
+clientPronoun: He
+clientMood: >-
+  Technical, direct, challenges decisions; security is his top priority. If you say no without an alternative or a
+  date, he'll say: “That's not good enough — Lakeside expects this.”
+level: 3
+minutes: 10–15 min
+storySoFar: >-
+  It's Thursday, April 16. The pilot is now set for May 4, and Sprint 6 is fully booked with the Epic sync fix,
+  regression testing and UAT. Kevin has messaged: “Sam Porter wants single sign-on for clinic staff. Let's add it to
+  this sprint.”
+facts:
+  - label: The request
+    value: Single sign-on (SSO) so clinic staff log in to CareBook with their Lakeside Microsoft accounts.
+  - label: Effort
+    value: "8–10 working days, plus a security review with Sam Porter (Lakeside IT). It doesn't fit in Sprint 6, which ends Fri Apr 24."
+    warn: true
+  - label: Sprint 6
+    value: "Epic sync fix, 212-case regression run, Lakeside UAT on Apr 24, go/no-go on Apr 29, pilot on May 4."
+  - label: For the pilot
+    value: "Staff already log in with CareBook accounts. We can add multi-factor authentication (MFA) and a 15-minute auto-logout in 2 days."
+  - label: Your proposal
+    value: "MFA and auto-logout for the pilot. SSO in Sprint 7 (May 11–22), ready before the rollout to all 12 clinics."
+yourGoal: >-
+  Say “not this sprint” firmly and helpfully: explain the trade-off in plain words, offer what you can do now, and
+  agree on when SSO will be done.
+mayAsk:
+  - It's just a config change, isn't it?
+  - Can't you just add one more engineer?
+  - Other vendors do SSO out of the box.
+script:
+  - { step: Open, line: "Hi Kevin, thanks for the time. I saw your note about SSO — I want to get this right for Lakeside, so let me share where we are." }
+  - { step: Answer first, line: "Short answer: SSO can't safely fit in this sprint. It's 8 to 10 days of work plus a security review, and Sprint 6 is full with the Epic fix and testing." }
+  - { step: Offer now, line: "What I can do this sprint is add multi-factor login and a 15-minute auto-logout. That covers the security risk for the pilot." }
+  - { step: When, line: "Then we build SSO in Sprint 7, from May 11 to 22 — before the rollout to all 12 clinics." }
+  - { step: Ask, line: "Would that work for you, and are you OK if I confirm the timeline with Sam Porter directly?" }
+  - { step: Close, line: "I'll send the plan in writing today and add SSO to the Sprint 7 backlog." }
+whatGood:
+  - Said “not this sprint” clearly, without arrogance
+  - Explained the effort and trade-off in plain words
+  - Offered MFA and auto-logout as the pilot answer
+  - Committed to a Sprint 7 date in writing
+prompt: |
+  You are role-playing a US client on a video call with me. Stay in character until I say "End the call."
+
+  WHO YOU ARE: Kevin Walsh, CTO at Brightpath Health (Boston). Technical, direct, challenges decisions. Security is your top priority.
+
+  PROJECT CONTEXT: My company is the engineering partner of Brightpath Health, a US telehealth company. We are building CareBook v2 — patient booking (in-person and video), SMS reminders, intake forms and a clinic schedule view — synced with the clinic's Epic EHR, with insurance eligibility checks through Suncoast Billing. The launch customer is Lakeside Health (12 primary-care clinics in Ohio). Everything is made up; no real patient data.
+
+  WHERE WE ARE NOW: Thursday, April 16. The CareBook pilot moved to May 4. Sam Porter at Lakeside IT mentioned SSO for clinic staff, and you asked the engineer to add it to this sprint.
+
+  TODAY'S SCENARIO: Open with: "So, SSO this sprint — that's doable, right?" Push back on any "no". If the engineer says no without an alternative or a date, say "That's not good enough — Lakeside expects this." If the engineer offers a clear security measure for the pilot and a firm SSO date, agree.
+
+  HIDDEN FACTS — reveal each one only if my questions lead to it:
+  1. Sam Porter only requires SSO before the full rollout to 12 clinics (June), not for the pilot.
+  2. Your real worry is front-desk staff sharing passwords on shared computers.
+  3. You would accept MFA and auto-logout for the pilot if someone suggested it.
+
+  CURVEBALLS — use these during the call:
+  - Say: "It's just a config change, isn't it?"
+  - Say: "Other vendors do SSO out of the box."
+
+  DIFFICULTY: Level 3 — sceptical; push back, interrupt at pauses, ask hard questions, apply time pressure.
+
+  HOW TO BEHAVE
+  - Speak like a real American business person: natural speed, short sentences, everyday expressions.
+  - Keep each turn short (1–3 sentences), like a real call.
+  - Don't volunteer information; give details only when I ask good questions.
+  - If I use technical jargon, ask me what it means for your business.
+  - If I talk for more than 45 seconds without getting to the point, cut in at my next pause.
+
+  WHEN I SAY "End the call", step out of character and give me feedback:
+  1. Score me 1–5 on each criterion that came up: opening and agenda, answer-first structure, questions asked, playback, business link, trade-offs, handling unknowns, risks and bad news, disagreement, closing and next steps.
+  2. List the hidden facts and tell me which ones I uncovered.
+  3. Quote 2 things I said well, and 2 things I should have said differently — with the better sentence.
+  4. Tell me roughly how often I used filler words ("um", "basically", "actually", "like").
+  5. Give me ONE thing to focus on in my next call.

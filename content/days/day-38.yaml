@@ -1,0 +1,170 @@
+day: 38
+block: 8
+title: Weekly status (RAG)
+type: normal
+storyDate: Wednesday, April 22
+minutes: About 50 min
+intro: >-
+  Dana has two minutes before her board prep call. Today you give the whole weekly status with a color first, the
+  risk with its plan, and the decisions you need, then send it in writing.
+lessons:
+  - id: week-so-far
+    kind: prep
+    title: Two minutes, not twenty
+    minutes: 5 min
+    blocks:
+      - type: yesterday
+        text: >-
+          Dana called with two questions on your EOD note. You answered both answer-first: the intake bug doesn't block
+          the pilot, and an earlier UAT keeps go/no-go safe. She said yes to 9 am, and Lisa confirmed it in the thread
+          within 15 minutes.
+      - type: scene
+        when: Wednesday, April 22 · 9:55 am Central
+        text: >-
+          The weekly sync is at 10, but Dana has just messaged: “Board prep at 10:05. Two minutes?” Since Monday a lot
+          has moved: production is set up, the Epic fix passed regression, and the intake-form fix was merged this
+          morning. One thing hasn't: Suncoast's eligibility check still fails for 2 of the 5 payers.
+      - type: text
+        text: >-
+          Gather the week before you speak. Use your real project, or CareBook. One line each; the color comes last,
+          once you've seen the risks.
+    fields:
+      - { id: highlights, label: Highlights this week, kind: area, rows: 3 }
+      - { id: next-week, label: Next week, kind: area, rows: 2 }
+      - { id: risks, label: Risks, kind: area, rows: 2 }
+      - { id: decisions, label: Decisions I need, kind: area, rows: 2 }
+      - { id: color, label: "Overall: Green, Amber or Red, and why", kind: line, placeholder: "e.g. Amber: on track for May 4, but one risk needs a decision" }
+    source: both
+
+  - id: weekly-status-rag
+    kind: learn
+    title: The weekly status report
+    heading: "The weekly status report: RAG"
+    minutes: 10 min
+    lead: >-
+      A busy reader wants one thing first: are we OK? Give them a color and one line on why. Everything else supports
+      it.
+    blocks:
+      - type: steps
+        items:
+          - { title: Green, text: "On track." }
+          - { title: Amber, text: "At risk, with a plan in place." }
+          - { title: Red, text: "Off track. We need help." }
+      - { type: heading, text: Then four parts }
+      - type: steps
+        items:
+          - { title: Highlights, text: "What moved this week, as facts and numbers." }
+          - { title: Next week, text: "The dates that matter." }
+          - { title: Risks, text: "Each one with what we're doing about it: owner and date." }
+          - { title: Decisions needed, text: "What only the client can decide, and by when." }
+      - type: compare
+        beforeLabel: Green until it's Red
+        afterLabel: Honest Amber
+        before: >-
+          “All good, team is working hard, a few small things with Suncoast but we're on it. Green!”
+        after: >-
+          “Amber: May 4 is on track, but tight. One risk: eligibility doesn't work yet for 2 of 5 payers. The plan: the
+          front desk checks those by hand during the pilot. I need your OK on that by Friday.”
+      - type: text
+        text: >-
+          Amber isn't failure. It tells the client there's a risk and you already have a plan, which is exactly what
+          they want to hear early. A Green that turns Red overnight is what loses trust. And when you need a decision
+          to turn Amber into Green, say so: it makes the yes easy.
+      - type: recall
+        label: Your recap summary from the Day 20 dress rehearsal
+        day: 20
+        lesson: sync-recap
+        fields:
+          - { id: summary, label: Summary }
+      - type: text
+        text: >-
+          Same rule as your recap: the bottom line first. The weekly report adds the color, so a reader knows in one
+          word whether to keep reading.
+      - type: watch
+        url: https://smartbrevity.com/checklist
+        title: Smart Brevity Checklist
+        meta: Axios · free · status updates, recaps, weekly reports
+
+  - id: two-minute-status
+    kind: mock
+    title: Status in 2 minutes
+    heading: Weekly status to a busy VP in 2 minutes
+    minutes: 10 min
+    lead: >-
+      Level 2: Dana has two minutes and cuts in on details. Color in the first sentence, the risk with its plan, two
+      decisions with a Friday deadline, and one sentence for her CEO.
+    cardId: S40
+    level: 2
+    callStep: "After the feedback, say “Let's do it again” and give the status a second time, in under 2 minutes."
+    scriptNote: Use it the first time, then try the call again without it.
+
+  - id: two-minute-status-review
+    kind: reflect
+    title: How did the call go?
+    minutes: 5 min
+    lead: Tick what you managed, then note what the AI told you.
+    checksTitle: On this call, I…
+    checks:
+      - gave the status color in the first sentence
+      - finished the whole update in 2 minutes or less
+      - gave the risk together with its plan
+      - asked for clear decisions with a Friday deadline
+    fields:
+      - { id: went-well, label: What went well, kind: area, placeholder: "From the AI's feedback" }
+      - { id: fix-next, label: One thing to fix next time, kind: area, placeholder: "e.g. I listed every test case before I said Amber" }
+      - { id: log, label: "Did anyone have to ask me for an update this week?", kind: area, rows: 2 }
+    rubric: true
+
+  - id: weekly-report
+    kind: write
+    title: The weekly status report
+    heading: Send the weekly status report
+    minutes: 10 min
+    lead: >-
+      You promised Dana the written status within 10 minutes. Write it so she can forward it to her CEO without
+      editing. Use your real project, or CareBook.
+    source: both
+    blocks:
+      - type: recall
+        label: What you gathered this morning
+        day: 38
+        lesson: week-so-far
+        fields:
+          - { id: highlights, label: Highlights }
+          - { id: risks, label: Risks }
+          - { id: color, label: Overall }
+      - { type: field, id: title }
+      - { type: field, id: overall }
+      - { type: field, id: highlights }
+      - { type: field, id: next-week }
+      - { type: field, id: risks }
+      - { type: field, id: decisions }
+      - type: text
+        text: >-
+          Before you send: did the color change on the call? If Dana approved the fallback, say so, and say what the
+          color was before.
+    fields:
+      - { id: title, label: Title, kind: line, placeholder: "e.g. CareBook weekly status — week of Apr 20" }
+      - { id: overall, label: "Overall (color + one line on why)", kind: line }
+      - { id: highlights, label: Highlights this week, kind: area, rows: 3 }
+      - { id: next-week, label: Next week, kind: area, rows: 2 }
+      - { id: risks, label: "Risks and what we're doing about them", kind: area, rows: 2, placeholder: "[Risk] → [plan] (owner, date)" }
+      - { id: decisions, label: Decisions needed from you, kind: area, rows: 2, placeholder: "[Decision] — by [date]" }
+
+scoring:
+  weekly-report:
+    modelAnswer: >-
+      CareBook weekly status — week of Apr 20.
+      Overall: GREEN — May 4 is on track; the one open risk now has an approved plan (it was AMBER until Dana approved
+      the manual eligibility fallback today).
+      Highlights: production AWS access in place (Mon); Epic sync fix passed regression, 180 of 212 test cases passed;
+      intake-form bug fix merged (Wed).
+      Next week: UAT Fri Apr 24, 9 am ET · staff training Tue Apr 28 · go/no-go Wed Apr 29 · production deploy Thu
+      Apr 30 · pilot Mon May 4.
+      Risks: Suncoast eligibility doesn't work yet for 2 of 5 payers → the front desk checks those manually during the
+      pilot (approved by Dana, Apr 22).
+      Decisions needed: none — go/no-go attendees confirmed: Dana and Kevin.
+    scoringPoints:
+      - The color and one line on why come first, and the color matches what was decided on the call
+      - Highlights and next week are facts and dates; every risk has its plan, owner or date
+      - Decisions are clear with deadlines (or “none”), short enough to forward to the CEO

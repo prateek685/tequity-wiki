@@ -1,0 +1,163 @@
+day: 31
+block: 7
+title: Skip the testing?
+type: normal
+storyDate: Monday, April 13
+minutes: About 50 min
+intro: >-
+  Sprint 6 starts with a problem in the Epic sync, and Dana wants to skip the regression run to keep April 27. Today
+  you learn to disagree professionally: her goal first, your concern with facts, then a faster safe option.
+lessons:
+  - id: april-27-cant-move
+    kind: prep
+    title: “April 27 can't move”
+    minutes: 5 min
+    blocks:
+      - type: yesterday
+        text: >-
+          on Friday Dana asked for a “tiny” insurance card photo upload for the pilot. You said yes to the goal, made
+          the trade-off visible, and sent her a change note recommending Sprint 7, with typed member IDs for the pilot.
+          Then came the Week 6 assessment and your check-in with your manager.
+      - type: scene
+        when: Monday, April 13 · 8:30 am Central, the first day of Sprint 6
+        text: >-
+          Dana's answer on the card photos came in first thing: Sprint 7, typed member IDs for the pilot, and a demo
+          version in test by May 8 for the investor demo. But late on Friday, the tech lead found that the Epic
+          appointment sync sometimes shows times one hour off and misses some cancellations. The fix is 3–4 days. Now
+          Dana messages: “Can we skip the regression run and go straight to UAT? April 27 can't move.” You have a call
+          with her at 10.
+      - type: facts
+        label: Where testing stands
+        rows:
+          - { label: Regression, value: "QA runs 212 test cases, Tue Apr 21 – Thu Apr 23" }
+          - { label: UAT, value: "Lakeside's second round: Wed Apr 22" }
+          - { label: The issue, value: "Some synced times 1 hour off, some cancellations missing. Fix: 3–4 days", warn: true }
+      - type: text
+        text: >-
+          Saying yes to skip testing would be easy, and so would a flat no. Neither helps Dana. Before the call, write
+          what she wants, what worries you, and what you can offer instead.
+    fields:
+      - { id: her-goal, label: What Dana really wants, kind: line, placeholder: "e.g. To keep April 27, because Lakeside has told three clinics" }
+      - { id: concern, label: My concern, with facts, kind: area, rows: 2, placeholder: "e.g. The Epic sync sometimes shows times 1 hour off. Without testing, a patient could see a wrong time." }
+      - { id: alternative, label: My faster, safe alternative, kind: area, rows: 2, placeholder: "e.g. Test the 60 highest-risk cases in 1.5 days and keep UAT on the 22nd" }
+      - { id: decision, label: The decision I need from her, kind: line }
+      - { id: hard-question, label: "Hardest question + my answer", kind: area, rows: 2, placeholder: "“Our competitors launch without all this testing.” → …" }
+
+  - id: disagree-professionally
+    kind: learn
+    title: Disagree professionally
+    minutes: 10 min
+    lead: >-
+      Phase 2's hardest week: bad news, disagreement and upset clients. US clients expect you to disagree with
+      respect. What loses their trust is silent agreement followed by a missed date.
+    blocks:
+      - type: steps
+        items:
+          - { title: 1 · Acknowledge their goal, text: "Show you understand what they want, and why. “I understand you want this live by Friday for the investor demo.”" }
+          - { title: 2 · State your concern with facts, text: "One concern, in business terms. “My concern is that skipping testing risks wrong appointment times for patients.”" }
+          - { title: 3 · Offer an alternative, text: "A real option that gets them most of what they want. “Could we demo the core flow on Friday and release fully on Tuesday?”" }
+          - { title: 4 · Ask, text: "Hand the decision back with a question. “Can we agree on that?”" }
+      - type: compare
+        beforeLabel: Silent yes, or flat no
+        afterLabel: Goal, concern, alternative
+        before: "“Okay, we'll skip it.” Or: “No, we can't skip testing. That's our process.”"
+        after: >-
+          “I get it: April 27 matters. My concern is the Epic sync issue. Here's a faster option: the 60 riskiest
+          cases in a day and a half. Can we agree on that?”
+      - type: text
+        text: >-
+          Disagree with the idea, never the person. You and Dana want the same thing: a pilot that goes well. Use
+          numbers rather than opinions, and keep your voice level. When she pushes, repeat her goal before you repeat
+          your concern. It's Friday's change note again: a real option and a reason, not just a no.
+      - type: recall
+        label: Your recommendation in Friday's change note
+        day: 30
+        lesson: change-note
+        fields:
+          - { id: recommendation, label: My recommendation }
+      - type: note
+        tone: info
+        title: In healthcare, say who gets hurt.
+        text: >-
+          “Quality risk” means little to a VP of Product. “A patient could see the wrong appointment time” is a risk
+          anyone understands in one sentence.
+      - type: watch
+        url: https://www.ted.com/talks/julia_dhar_how_to_disagree_productively_and_find_common_ground
+        title: "Julia Dhar: How to disagree productively and find common ground"
+        meta: TED talk · 14 min · separating ideas from identity
+
+  - id: skip-testing-call
+    kind: mock
+    title: Skip the testing?
+    heading: The client wants to skip testing to hit the date
+    minutes: 15 min
+    lead: >-
+      Level 2: Dana is busy and pushing hard. Acknowledge her goal before you disagree, name the patient risk in plain
+      words, offer the faster option with numbers, and leave with a decision and a Wednesday check-in.
+    cardId: S22
+    level: 2
+    scriptNote: Use it the first time, then try the call again without it.
+
+  - id: skip-testing-call-review
+    kind: reflect
+    title: How did the call go?
+    minutes: 5 min
+    lead: Tick what you managed, then note what the AI told you.
+    checksTitle: On this call, I…
+    checks:
+      - acknowledged Dana's goal before disagreeing
+      - named the patient-facing risk in plain words
+      - offered a faster alternative with numbers
+      - got a decision and a Wednesday check-in
+    fields:
+      - { id: went-well, label: What went well, kind: area, placeholder: "From the AI's feedback" }
+      - { id: fix-next, label: One thing to fix next time, kind: area, placeholder: "e.g. I said “we can't skip testing” before I said anything about April 27" }
+      - { id: log, label: "Did I deliver the headline in the first 30 seconds? How many times did I apologise?", kind: area, rows: 2 }
+    rubric: true
+
+  - id: agreed-alternative
+    kind: write
+    title: Confirm what you agreed
+    heading: Confirm the agreed alternative in writing
+    minutes: 10 min
+    lead: >-
+      You promised Dana the revised test plan and Wednesday's check-in within the hour. Write the follow-up so nobody
+      remembers the call differently on Friday.
+    blocks:
+      - type: recall
+        label: Your plan from this morning
+        day: 31
+        lesson: april-27-cant-move
+        fields:
+          - { id: concern, label: My concern }
+          - { id: alternative, label: My alternative }
+      - { type: field, id: subject }
+      - { type: field, id: agreed }
+      - { type: field, id: why }
+      - { type: field, id: plan }
+      - { type: field, id: next }
+      - type: text
+        text: >-
+          Bottom line first: what you agreed. Then the reason in one sentence, the new test plan with dates, and the
+          Wednesday check-in. No new arguments: the call is over.
+    fields:
+      - { id: subject, label: Subject, kind: line, placeholder: "e.g. CareBook pilot testing: what we agreed (check-in Wed Apr 15)" }
+      - { id: agreed, label: What we agreed, kind: area, rows: 2 }
+      - { id: why, label: Why, in one sentence, kind: line }
+      - { id: plan, label: Revised test plan (dates), kind: area, rows: 3 }
+      - { id: next, label: Next check-in and decision point, kind: line }
+
+scoring:
+  agreed-alternative:
+    modelAnswer: >-
+      Subject: CareBook pilot testing: what we agreed today (check-in Wed Apr 15).
+      Hi Dana, thanks for the quick call. What we agreed: we keep testing on the critical flows, but shorter, to
+      protect April 27. Why: the Epic sync sometimes shows times 1 hour off and misses cancellations, and a wrong
+      appointment time must not reach a patient. Revised plan: risk-based regression on the 60 highest-risk cases
+      (booking, Epic sync, reminders) in 1.5 days, plus automated smoke tests; Lakeside UAT stays on Wed Apr 22.
+      Next: go/no-go check-in Wed Apr 15, once the Epic fix is done; that's when we confirm whether April 27 holds.
+      The invite is in your calendar.
+    scoringPoints:
+      - States what was agreed first, then the patient-facing reason in one sentence
+      - Gives the revised plan with numbers and dates (60 cases, 1.5 days, UAT Apr 22)
+      - Ends with the Wednesday check-in as the decision point, with no new arguments

@@ -1,0 +1,159 @@
+day: 23
+block: 5
+title: Seven-step discovery
+type: normal
+storyDate: Wednesday, April 1
+minutes: About 55 min
+intro: >-
+  Dana wants new patients booking video visits online, “big for the pilot”. Today you run a discovery call in seven
+  steps and leave with the pain, the metric and a next step, without promising a date.
+lessons:
+  - id: new-patient-video
+    kind: prep
+    title: “Big for the pilot”
+    minutes: 10 min
+    blocks:
+      - type: yesterday
+        text: >-
+          you answered Laura's question on PHI in logs at a high level, gave the retention question to Kevin with a
+          date, and sent her five plain lines on how CareBook protects PHI. You also closed Friday's loop: Dana had
+          your answer on the fourth pilot clinic by Tuesday, as promised.
+      - type: scene
+        when: Wednesday, April 1 · 8:30 am Central
+        text: >-
+          Good news first: Lakeside IT now expects to give you Epic sandbox access on Monday, April 6. Then a one-line
+          Slack from Dana: “Can new patients book video visits online? Big for the pilot.” Existing patients already
+          can; new patients still phone the clinic. You have 15 minutes with her at 11 to understand it before anyone
+          sizes or promises it.
+      - type: text
+        text: >-
+          Today's discovery call has a fixed shape: seven steps. Build your pre-call card on it, with one question for
+          each step. The next lesson explains them.
+    fields:
+      - { id: context, label: "1 · Context", kind: line, placeholder: "e.g. Your note says new patients should book video online. Can I take 15 minutes on it?" }
+      - { id: current-state, label: "2 · Current state", kind: line, placeholder: "e.g. Walk me through how a new patient gets a first visit today." }
+      - { id: pain, label: "3 · Pain", kind: line, placeholder: "e.g. How many new patients give up before they book?" }
+      - { id: outcome, label: "4 · Desired outcome", kind: line }
+      - { id: constraints, label: "5 · Constraints", kind: line, placeholder: "e.g. Which rules apply to a first visit?" }
+      - { id: metric, label: "6 · Success metric", kind: line }
+      - { id: next-steps, label: "7 · Next steps", kind: line }
+      - { id: hard-question, label: "Hardest question + my answer", kind: area, rows: 2, placeholder: "“Ballpark — two days?” → …" }
+
+  - id: discovery-structure
+    kind: learn
+    title: The 7-step discovery call
+    minutes: 10 min
+    lead: >-
+      In Week 3 you learned to ask. Now the questions get an order. Seven steps take you from what happens today to a
+      success metric and a next step, in 15–20 minutes.
+    blocks:
+      - type: recall
+        label: Your note after the Day 15 discovery call
+        day: 15
+        lesson: intake-discovery
+        fields:
+          - { id: fix-next, label: One thing to fix }
+      - { type: heading, text: Understand the problem }
+      - type: steps
+        items:
+          - { title: 1 · Context, text: "Why you're talking, and why now. “Your note says… can I take 15 minutes to understand it?”" }
+          - { title: 2 · Current state, text: "How it works today, step by step, and who does what." }
+          - { title: 3 · Pain, text: "What's broken, how often, and what it costs: staff time, lost patients, money." }
+      - { type: heading, text: Agree what success means }
+      - type: steps
+        items:
+          - { title: 4 · Desired outcome, text: "“If this works, what's different three months from now?”" }
+          - { title: 5 · Constraints, text: "Compliance, budget, systems, timeline. In healthcare: insurance, PHI, Epic, who may book." }
+          - { title: 6 · Success metric, text: "One number that tells everyone it's working." }
+          - { title: 7 · Next steps, text: "A playback, then what you'll send and by when. Not an estimate yet." }
+      - type: compare
+        beforeLabel: Jumping to the build
+        afterLabel: Asking about the pain
+        before: "“We can reuse the booking screen, so maybe two days.”"
+        after: "“How many new patients call today, and how many give up before they book?”"
+      - type: text
+        text: >-
+          Pain with a number makes the rest of the call easy. It tells you what matters most now, and later it tells
+          everyone whether the work paid off.
+      - type: note
+        tone: info
+        title: No estimate on a discovery call
+        text: >-
+          “Ballpark — two days?” is the most expensive question you'll hear this week. Answer it with a date for the
+          estimate, not with an estimate: “I'll send you options with effort by Friday.”
+
+  - id: video-discovery
+    kind: mock
+    title: New patients, video visits
+    heading: "Discovery call: online video booking for new patients"
+    minutes: 15 min
+    lead: >-
+      Level 2: Dana is busy and wants a quick yes. Follow the seven steps, find the pain and the success metric, and
+      leave with a dated next step, without promising a date for the feature.
+    cardId: S15
+    level: 2
+    scriptNote: Use it the first time, then try the call again without it.
+
+  - id: video-discovery-review
+    kind: reflect
+    title: How did the call go?
+    minutes: 5 min
+    lead: Tick what you managed, then note what the AI told you.
+    checksTitle: On this call, I…
+    checks:
+      - followed current state → pain → outcome → constraints → metric
+      - found the drop-off and the 40% target
+      - gave no estimate or date on the spot
+      - set a next step with a date
+    fields:
+      - { id: went-well, label: What went well, kind: area, placeholder: "From the AI's feedback" }
+      - { id: fix-next, label: One thing to fix next time, kind: area, placeholder: "e.g. I jumped from current state to constraints and never asked about the pain" }
+      - { id: log, label: "Could I explain the business reason behind every requirement I heard today?", kind: area, rows: 2 }
+    rubric: true
+
+  - id: video-discovery-summary
+    kind: write
+    title: The discovery summary
+    heading: Send Dana the discovery summary
+    minutes: 10 min
+    lead: >-
+      You promised Dana a summary today. Five parts, each a fact she can confirm or correct: context, pain, desired
+      outcome, constraints and the success metric. Then one next step.
+    blocks:
+      - { type: field, id: subject }
+      - { type: field, id: context }
+      - { type: field, id: pain }
+      - { type: field, id: outcome }
+      - { type: field, id: constraints }
+      - { type: field, id: metric }
+      - { type: field, id: next-step }
+      - type: text
+        text: >-
+          Before you send: is every number one Dana said, not one you guessed? Is there a date for your next step,
+          and no date for the feature?
+    fields:
+      - { id: subject, label: Subject, kind: line, placeholder: "e.g. New-patient video booking: what we heard (please confirm)" }
+      - { id: context, label: Context, kind: area, rows: 2 }
+      - { id: pain, label: Pain, kind: area, rows: 2, placeholder: "How often, and what it costs" }
+      - { id: outcome, label: Desired outcome, kind: area, rows: 2 }
+      - { id: constraints, label: Constraints, kind: area, rows: 3 }
+      - { id: metric, label: Success metric, kind: line }
+      - { id: next-step, label: Next step (owner + date), kind: line }
+
+scoring:
+  video-discovery-summary:
+    modelAnswer: >-
+      Subject: New-patient video booking: what we heard (please confirm by Thu).
+      Context: you'd like new patients to book video visits online. Today only existing patients can; new patients
+      phone the clinic, about 7 minutes per call.
+      Pain: the 3 pilot clinics get about 420 new-patient requests a month, and about 1 in 4 hang up before they
+      manage to book.
+      Desired outcome: new patients book a first video visit online without calling.
+      Constraints: only providers accepting new patients can be chosen; insurance details are needed before the visit
+      so they can be checked; patients under 18 are excluded at first; new patients aren't in Epic yet.
+      Success metric: 40% of new-patient bookings online within 3 months of launch.
+      Next step: I'll send options with effort by Fri Apr 3, including what fits around the April 27 pilot.
+    scoringPoints:
+      - Pain and metric are numbers from the call (the drop-off and the 40% target), not guesses
+      - Constraints include the healthcare rules (new-patient providers, insurance check, under-18s, not yet in Epic)
+      - One next step with an owner and a date, and no delivery date promised

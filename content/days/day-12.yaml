@@ -1,0 +1,134 @@
+day: 12
+block: 3
+title: Find the real goal
+type: normal
+storyDate: Tuesday, March 17
+minutes: About 50 min
+intro: >-
+  Dana wants “more reminders”. Today you ask “why” politely until you reach the business goal, and write the
+  problem down in one paragraph.
+lessons:
+  - id: more-reminders
+    kind: prep
+    title: More reminders?
+    minutes: 5 min
+    blocks:
+      - type: yesterday
+        text: >-
+          you asked Dr. Mercer open questions about his dashboard and sorted what you learned from what's still
+          unknown.
+      - type: scene
+        when: Tuesday, March 17 · a message from Dana
+        text: >-
+          Still no Epic access: Lakeside's IT lead told Dana it's “in the queue”. Then a new message lands: “We want
+          SMS appointment reminders — more of them. Can we talk today?” Reminders have worked in staging since last
+          week, two per visit. You have 15 minutes before Dana's next meeting.
+      - type: text
+        text: >-
+          “More reminders” is a solution. Somewhere behind it is a problem, and you can't find it with a blunt “Why?”,
+          which can sound like a challenge. Write three polite ways to ask why.
+    fields:
+      - { id: why-1, label: Polite “why” 1, kind: line, placeholder: "e.g. What's driving that right now?" }
+      - { id: why-2, label: Polite “why” 2, kind: line }
+      - { id: why-3, label: Polite “why” 3, kind: line }
+    source: both
+
+  - id: five-whys
+    kind: learn
+    title: 5 Whys and the Mom Test
+    heading: The polite 5 Whys and the Mom Test rule
+    minutes: 10 min
+    lead: >-
+      Keep asking until you reach the business goal. Then check it against what people actually do, not what they
+      say they might want.
+    blocks:
+      - type: steps
+        items:
+          - { title: 1 · What's driving it?, text: "“What's driving that?”" }
+          - { title: 2 · What would it achieve?, text: "“What would that help you achieve?”" }
+          - { title: 3 · How is it measured?, text: "“How do you measure that today?”" }
+      - type: text
+        text: >-
+          Three or four polite whys usually get you from a feature (“more texts”) to a goal with a number (“fewer
+          missed visits”). Stop when you reach something the business measures.
+      - { type: heading, text: The Mom Test rule }
+      - type: compare
+        beforeLabel: What they might want
+        afterLabel: What they actually did
+        before: >-
+          “Would patients use a reminder every day?”
+        after: >-
+          “When did a patient last miss a visit? What happened before it?”
+      - type: text
+        text: >-
+          Ask about past behaviour. People are kind and optimistic about the future, so “Would you use…?” almost always
+          gets a yes. What they did last week is a fact.
+      - type: watch
+        url: https://www.youtube.com/watch?v=S4eQ8m2RFaY
+        title: The Mom Test with Rob Fitzpatrick
+        meta: Interview · watch the first 15 min · ask about what people actually do
+
+  - id: real-goal
+    kind: mock
+    title: Dana's “more reminders”
+    heading: “We want SMS appointment reminders”
+    minutes: 15 min
+    lead: >-
+      Ask “why” at least three times, politely, before you talk about any solution. Play back the goal, and don't
+      give an estimate on the call, even when she pushes for a number.
+    cardId: S08
+    level: 1
+    scriptNote: Use it the first time, then try the call again without it.
+
+  - id: real-goal-review
+    kind: reflect
+    title: How did the call go?
+    minutes: 5 min
+    lead: Tick what you managed, then note what the AI told you.
+    checksTitle: On this call, I…
+    checks:
+      - asked “why” at least 3 times, politely
+      - found the no-show goal and the 18% → under 10% target
+      - played back the goal before discussing solutions
+      - gave no estimate on the spot
+    fields:
+      - { id: went-well, label: What went well, kind: area, placeholder: "From the AI's feedback" }
+      - { id: fix-next, label: One thing to fix next time, kind: area, placeholder: "e.g. I started talking about daily texts before I knew why" }
+      - { id: log, label: "How many questions did I ask before I proposed a solution?", kind: area, rows: 2 }
+    rubric: true
+
+  - id: problem-statement
+    kind: write
+    title: The problem statement
+    heading: Write the problem in one paragraph
+    minutes: 10 min
+    lead: >-
+      Before anyone designs a solution, write down the problem you found: who has it, what it is, what the business
+      wants, and the number that shows it worked.
+    blocks:
+      - { type: field, id: user }
+      - { type: field, id: problem }
+      - { type: field, id: goal }
+      - { type: field, id: metric }
+      - type: text
+        text: Now put the four together in one paragraph Dana could read in ten seconds.
+      - { type: field, id: statement }
+    fields:
+      - { id: user, label: User, kind: line, placeholder: "e.g. Patients at the 3 pilot clinics who…" }
+      - { id: problem, label: Problem, kind: line }
+      - { id: goal, label: Goal, kind: line }
+      - { id: metric, label: Metric, kind: line, placeholder: "e.g. No-show rate from … to … by …" }
+      - { id: statement, label: Problem statement, kind: area, rows: 4 }
+
+scoring:
+  problem-statement:
+    modelAnswer: >-
+      User: patients at Lakeside's 3 pilot clinics who need to cancel or move a visit. Problem: most no-shows are
+      patients who meant to cancel but couldn't get through on the phone line, so the slot is wasted. Goal: let
+      patients cancel or reschedule straight from the reminder, so the slot can go to another patient. Metric: cut
+      no-shows at the pilot clinics from 18% to under 10%, with a first result to show at the investor demo on May
+      12, within compliance's limit of 3 reminder texts per appointment.
+    scoringPoints:
+      - Names the user, the problem behind “more reminders”, the goal and a measurable metric with numbers
+      - Describes the problem, not a solution such as “send more texts”
+      - One short paragraph a busy reader gets in one read

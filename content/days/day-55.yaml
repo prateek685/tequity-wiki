@@ -1,0 +1,99 @@
+day: 55
+block: 11
+title: Co-lead again
+type: live_call
+storyDate: Friday, May 15
+minutes: About 60 min
+intro: >-
+  Today you co-lead a second call segment. You fill in the pre-call card first, run your part, write the recap, then rate
+  the week.
+lessons:
+  - id: pre-call-card
+    kind: prep
+    title: Pre-call card
+    minutes: 5 min
+    blocks:
+      - type: yesterday
+        text: >-
+          Dana gave you two minutes and pushed back hard. You gave the headline and a number first, called 40% an estimate,
+          and protected the June 15 date.
+      - type: scene
+        when: Friday, May 15 · 8:30 am Central · pilot day eleven
+        text: >-
+          Today's live call has a segment that's yours: another agenda item, or a topic you agree with the PM or senior.
+          Fill in the pre-call card, like you would for a full call.
+    fields:
+      - { id: segment, label: My segment, kind: line, placeholder: "e.g. The pilot status and the waitlist proposal (8 minutes)" }
+      - { id: goal, label: "My goal for this segment (one sentence)", kind: line }
+      - { id: say, label: "3 things I must say", kind: area, rows: 3 }
+      - { id: ask, label: "3 questions I must ask", kind: area, rows: 3 }
+      - { id: signal, label: "How I'll signal for help", kind: line }
+    source: both
+
+  - id: co-lead-two
+    kind: live
+    title: Live co-lead 2
+    heading: Co-lead a second call segment
+    minutes: 30 min
+    liveRole: co_lead
+    substituteCardId: S46
+    fallback: >-
+      If no live call is available today, run a 20-minute Level 3 mock instead: card S46 again, with no script. Or swap
+      with a mock day and co-lead later in the week.
+    lead: >-
+      Own your segment from start to finish. Afterwards, fill in the sheet while it's fresh.
+    fields:
+      - { id: call, label: "Call · PM or senior · date", kind: line, placeholder: "e.g. Weekly sync · the PM's name · May 15" }
+      - { id: owned, label: What I owned, kind: line }
+      - { id: better, label: "What was better than last time?", kind: area, rows: 2 }
+      - { id: signalled, label: "Did I signal for help? Why or why not?", kind: area, rows: 2 }
+      - { id: hard-moment, label: "The hardest moment, and what I did", kind: area, rows: 2 }
+      - { id: closing, label: "How I closed my segment and confirmed next steps", kind: area, rows: 2 }
+
+  - id: week-recap
+    kind: write
+    title: Recap
+    heading: Recap the call and the week
+    minutes: 10 min
+    lead: >-
+      Write a recap of your segment: decisions, actions with owners, and open questions. Then ask the PM or senior for two
+      lines of feedback, and write them in their words.
+    source: both
+    blocks:
+      - { type: field, id: my-recap }
+      - { type: field, id: feedback }
+      - { type: field, id: apply }
+    fields:
+      - { id: my-recap, label: Recap of my segment, kind: area, rows: 5, placeholder: "Decisions, actions with owners, open questions" }
+      - { id: feedback, label: "2 lines of feedback from the PM or senior (their words)", kind: area, rows: 3 }
+      - { id: apply, label: "What I'll change next week", kind: line }
+
+  - id: week-in-review
+    kind: scorecard
+    title: Your week in review
+    minutes: 5 min
+    lead: >-
+      Five minutes. Rate this week's behaviours and add a line of proof for each pillar. Your pillar scores update from
+      them; the other pillars carry forward. Your Day 1 baseline sits next to it.
+    scorecard: [U3, O4]
+    checksTitle: Before the weekend
+    checks:
+      - Do I know the one metric my client cares about most?
+      - Did I suggest something they didn't ask for?
+    blocks:
+      - type: text
+        text: >-
+          **Next week:** you lead a live call with backup. The PM or senior is in the room only as a safety net. Everything
+          from Weeks 1–11 comes together.
+
+scoring:
+  week-recap:
+    modelAnswer: >-
+      Waitlist proposal (my segment): Dana agreed to start discovery now and to plan the build for the first sprint after
+      the June 15 rollout. Decision: test at one clinic for two weeks first. Actions: Me: send the one-page proposal with
+      the test plan by Tue May 19. Dana: ask Kevin about the SMS costs. Lisa: pick the clinic for the test. Open question:
+      does Lakeside compliance need to approve the new text message?
+    scoringPoints:
+      - The recap leads with the decision, in a few lines
+      - Every action has an owner and a date, and open questions are listed
+      - The feedback is recorded in the PM's own words, with one concrete change for next week

@@ -1,0 +1,110 @@
+day: 54
+block: 11
+title: Healthcare metrics and the sceptical VP
+type: normal
+storyDate: Thursday, May 14
+minutes: About 55 min
+intro: >-
+  Today you get feedback on your proposal, learn the healthcare business metrics, and present the proposal to a
+  sceptical VP. Then you update it so the next version answers what Dana pushed back on.
+lessons:
+  - id: proposal-feedback
+    kind: prep
+    title: Get feedback on your proposal
+    minutes: 5 min
+    blocks:
+      - type: yesterday
+        text: >-
+          you co-led the requirements part of a live call, played back what you heard and sent the summary within two hours.
+      - type: scene
+        when: Thursday, May 14 · 8:00 am Central · pilot day ten
+        text: >-
+          Ask the PM or a senior to read your one-page proposal before you present it. Pick one question for them: “What
+          would Dana push back on?”
+    fields:
+      - { id: reviewer, label: Who I asked, kind: line }
+      - { id: feedback, label: Their feedback in their own words, kind: area, rows: 3 }
+    source: both
+
+  - id: healthcare-metrics
+    kind: learn
+    title: Healthcare business metrics
+    heading: Know the numbers the client lives by
+    minutes: 10 min
+    lead: >-
+      Every healthcare client has a few numbers they report on. If you name the right one, your work stops sounding like
+      technology and starts sounding like business.
+    blocks:
+      - type: facts
+        rows:
+          - { label: Providers, value: "No-show rate, patient wait time, time-to-chart (how long doctors spend on documentation), patient satisfaction." }
+          - { label: Billing, value: "Denial rate, days in A/R, clean-claim rate." }
+          - { label: Digital health, value: "Activation, engagement, retention." }
+          - { label: Compliance, value: "Audit findings, access reviews completed." }
+      - type: note
+        tone: info
+        title: In CareBook
+        text: >-
+          Dana and Lisa care about the no-show rate (18% at the start of the pilot). Maria cares about the clean-claim rate
+          (84%, target 95%). Always say the metric by name, and say which client owns it.
+      - type: watch
+        url: https://www.kff.org/health-policy-101/
+        title: KFF Health Policy 101
+        meta: Free online textbook. Read the part on how providers and payers get paid.
+
+  - id: sceptical-vp
+    kind: mock
+    title: Present to a sceptical VP
+    heading: Present your proposal to Dana
+    minutes: 15 min
+    lead: >-
+      Level 3: Dana has two minutes and doubts anything new. Give the headline and a number in the first 20 seconds, answer
+      with data rather than opinion, protect the June 15 date, and leave with a decision or a clear next step.
+    cardId: S46
+    level: 3
+    scriptNote: Use it the first time, then try the call again without it.
+
+  - id: sceptical-review
+    kind: reflect
+    title: How did the call go?
+    minutes: 5 min
+    lead: Tick what you managed, then note what the AI told you.
+    checksTitle: On this call, I…
+    checks:
+      - gave the headline and a number in the first 20 seconds
+      - answered doubt with data, not opinion
+      - protected the June 15 date explicitly
+      - left with a decision or a clear next step
+    fields:
+      - { id: went-well, label: What went well, kind: area, placeholder: "From the AI's feedback" }
+      - { id: fix-next, label: One thing to fix next time, kind: area, placeholder: "e.g. I said 40% was realistic without saying it was an estimate" }
+    rubric: true
+
+  - id: update-proposal
+    kind: write
+    title: Update the proposal
+    heading: Update the proposal, then share it
+    minutes: 10 min
+    lead: >-
+      Update your proposal with what you learned: the feedback from the PM or senior, and Dana's pushback. Then share it
+      with the PM or senior (and with the client, if they agree).
+    source: both
+    blocks:
+      - { type: field, id: changes }
+      - { type: field, id: updated }
+    fields:
+      - { id: changes, label: "What I changed, and why", kind: area, rows: 3, placeholder: "Feedback or pushback → change" }
+      - { id: updated, label: "The updated bottom line (headline, number, ask)", kind: area, rows: 3 }
+
+scoring:
+  update-proposal:
+    modelAnswer: >-
+      Changes: Dana said 40% is a guess, so I labelled it an estimate and added a one-clinic, two-week test. She was
+      worried about June 15, so I wrote that discovery starts now and the build starts after the rollout. I added the
+      numbers she needs for the investor deck: about $6,000 a month more at the 3 pilot clinics. Updated bottom line:
+      automatic waitlist refill could add about 50 visits a month at the pilot clinics. Test it at one clinic for two
+      weeks, start the build in the first sprint after June 15. Ask: your OK to start discovery now.
+    scoringPoints:
+      - Every change is linked to feedback or pushback, and an estimate is labelled as an estimate
+      - The June 15 date is protected explicitly, and the plan includes a small test
+      - The headline gives a number and a clear ask, in the first lines

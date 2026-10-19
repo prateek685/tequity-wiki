@@ -1,0 +1,19 @@
+id: res-english
+kind: resource
+title: "Professional English for calls"
+summary: "Free courses and videos for meetings and phone or video calls."
+blocks:
+  - type: text
+    text: "Introductions, clarifying, restating, agreeing and disagreeing."
+  - type: watch
+    url: https://americanenglish.state.gov/OPEN-MOOCs
+    title: "US State Department free MOOCs, including English for Business and Entrepreneurship"
+    meta: "Free"
+  - type: watch
+    url: https://www.youtube.com/@AmericanEnglishatState/playlists
+    title: "American English (US State Department): YouTube playlists"
+    meta: "Free"
+  - type: watch
+    url: https://www.coursera.org/learn/speak-english-professionally
+    title: "Coursera: Speak English Professionally, in person, online and on the phone (Georgia Tech)"
+    meta: "Optional paid"

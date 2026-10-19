@@ -1,0 +1,19 @@
+id: res-async
+kind: resource
+title: "Working across time zones"
+summary: "End-of-day notes, written decisions, and short recorded updates."
+blocks:
+  - type: text
+    text: "When to write, when to record, and when to switch to a call."
+  - type: watch
+    url: https://handbook.gitlab.com/handbook/company/culture/all-remote/non-linear-workday/
+    title: "GitLab Handbook: the complete guide to asynchronous and non-linear working"
+    meta: "Free"
+  - type: watch
+    url: https://www.atlassian.com/blog/teamwork/asynchronous-communication
+    title: "Atlassian: asynchronous communication guide"
+    meta: "Free"
+  - type: watch
+    url: https://www.loom.com/pricing
+    title: "Loom Starter plan"
+    meta: "Free: 25 videos, 5 minutes each · Business plan is optional paid · QuickTime Player screen recording is built into macOS"

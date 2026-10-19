@@ -1,0 +1,180 @@
+# Day 15 quiz pool: Friday, March 20. The new-patient intake form discovery call at Level 2, hidden scope, the
+# success metric, the discovery summary email. Shows 5 of 10.
+pool: day-15
+questions:
+  - id: D15-01
+    type: mcq
+    stem: "Dana opens: “So — new patient intake. We need it. Can you do it?” What's the best reply?"
+    options:
+      - text: "“Sure. We'll copy the returning-patient form and have it ready for the pilot.”"
+        correct: false
+        explanation: A promise and a date before you know what's different about new patients.
+      - text: "“Sprint 5 is full, so no.”"
+        correct: false
+        explanation: A no before you know whether it matters for the pilot.
+      - text: "“We can help. Before we talk about the form, could you walk me through what happens today when a new patient books with Lakeside?”"
+        correct: true
+        explanation: Positive, then straight to the current state, the start of a good discovery.
+      - text: "“What fields do you want on it?”"
+        correct: false
+        explanation: Jumps to the design. You'd miss where the answers need to go.
+    source: { quote: "Walk me through what happens today when a new patient books with Lakeside.", page: 52 }
+
+  - id: D15-02
+    type: mcq
+    stem: "Dana asks: “Can't you just copy the existing form?” What's the best reply?"
+    options:
+      - text: "“Yes, a copy is a day's work.”"
+        correct: false
+        explanation: An estimate for something you haven't scoped. New patients aren't even in Epic yet.
+      - text: "“No, it's completely different.”"
+        correct: false
+        explanation: A claim you can't back up yet.
+      - text: "“Maybe partly. New patients aren't in Epic yet, so I want to check what's different: what must we collect, and where should it end up?”"
+        correct: true
+        explanation: Doesn't argue. Names the known difference and asks about the hidden scope.
+      - text: "“Copying forms is bad practice.”"
+        correct: false
+        explanation: An engineering opinion she didn't ask for.
+    source: { quote: "New patients aren't in Epic yet.", page: 52 }
+
+  - id: D15-03
+    type: mcq
+    stem: >-
+      Dana mentions that the front desk spends about 12 minutes per new patient on paper forms. What's the best
+      follow-up?
+    options:
+      - text: "“That's really slow!”"
+        correct: false
+        explanation: A reaction, not a question. You still don't have a target.
+      - text: "“We'll make it instant.”"
+        correct: false
+        explanation: A promise you can't measure or keep.
+      - text: "“How would you measure success: front-desk minutes per new patient, completed forms, or both? What number would be good?”"
+        correct: true
+        explanation: Turns the pain into a success metric with a target.
+      - text: "“So you want a tablet at the front desk?”"
+        correct: false
+        explanation: A solution to a problem you've only just heard.
+    source: { quote: "the front desk spends about 12 minutes per new patient on paper forms", page: 53 }
+
+  - id: D15-04
+    type: mcq
+    stem: "Dana adds: “Oh, and ideally it takes a photo of the insurance card, front and back.” What's the best response?"
+    options:
+      - text: "“Easy. We'll add an upload button.”"
+        correct: false
+        explanation: Ignores that the card photo is protected health information that must be stored securely.
+      - text: "“No, PHI is too risky.”"
+        correct: false
+        explanation: A flat no to something that can be done, with the right care.
+      - text: "“That's useful. A card photo is protected health information, so it needs secure storage. Is it a must for the pilot, or could it follow after?”"
+        correct: true
+        explanation: Flags the constraint in plain words and asks about priority. It turns out it can wait.
+      - text: Note it down and say nothing.
+        correct: false
+        explanation: Hidden scope you heard but didn't explore. It will surprise everyone later.
+    source: { quote: "PHI that must be stored securely", page: 53 }
+
+  - id: D15-05
+    type: mcq
+    stem: Which opening for the discovery summary email to Dana is best?
+    options:
+      - text: "“Hi Dana, I hope you're having a great Friday. As you know, today we had a call to discuss…”"
+        correct: false
+        explanation: Background first. The point is buried.
+      - text: "“As discussed, we'll deliver the new-patient form for the pilot.”"
+        correct: false
+        explanation: A promise nobody made on the call.
+      - text: "“Please find attached the minutes of the meeting.”"
+        correct: false
+        explanation: Makes her open a file, and says nothing about what you need from her.
+      - text: "“Subject: New patient intake form: what we heard (please confirm). Hi Dana, here's what we heard; please correct anything I got wrong.”"
+        correct: true
+        explanation: Says what it is and what you need from her before she reads a single detail.
+    source: { quote: "Here's what we heard — please correct anything I got wrong.", page: 157 }
+
+  - id: D15-06
+    type: mcq
+    stem: Writing the summary, which line belongs under “Assumptions” rather than “What we heard”?
+    options:
+      - text: New patients are about 30% of Lakeside bookings.
+        correct: false
+        explanation: Dana said this. It's something you heard.
+      - text: The new form reuses the contact and insurance sections of the returning-patient form.
+        correct: true
+        explanation: Nobody confirmed it. Marking it as an assumption invites her to correct it.
+      - text: Spanish is needed, but only after the pilot.
+        correct: false
+        explanation: Dana said this on the call.
+      - text: Patients must finish the form at least 24 hours before the visit.
+        correct: false
+        explanation: A fact from the call, not your guess.
+    source: { quote: "Assumption: we use CareBook booking and reminder data only; clinical data stays in Epic.", page: 157 }
+
+  - id: D15-07
+    type: scenario
+    clientLine: "“Great — and the answers will go straight into Epic, right?”"
+    stem: You haven't promised anything yet. What do you say?
+    options:
+      - text: "“Sure, of course.”"
+        correct: false
+        explanation: Agrees to a large piece of hidden scope in two words.
+      - text: "“Epic isn't connected yet, so no.”"
+        correct: false
+        explanation: A no about today that sounds like a no forever.
+      - text: "“That's a big part of the scope, so I'm glad you raised it. Which answers need to reach Epic, and who should we confirm that with?”"
+        correct: true
+        explanation: Names it as scope and asks the questions you'll need to size it.
+      - text: "“That would be a FHIR write of a QuestionnaireResponse.”"
+        correct: false
+        explanation: Jargon. She'll ask what that means for her business.
+    source: { quote: "Dr. Mercer expects the answers to appear in Epic — a large hidden scope item.", page: 53 }
+
+  - id: D15-08
+    type: scenario
+    clientLine: "“Can we have it for the pilot?”"
+    stem: Sprint 5 is already full and you haven't sized the work. What's the best reply?
+    options:
+      - text: "“Yes.”"
+        correct: false
+        explanation: A date for scope you haven't explored, and the Epic part alone could break it.
+      - text: "“No chance.”"
+        correct: false
+        explanation: Shuts it down before you know what a smaller first version could be.
+      - text: "“I don't want to promise a date before we size it. I'll send options with effort by Wednesday, including what could fit before April 27.”"
+        correct: true
+        explanation: No commitment on the call, but a dated next step that answers her question.
+      - text: "“If the team works weekends, maybe.”"
+        correct: false
+        explanation: A half-promise that costs your team and still might not land.
+    source: { quote: "Don't commit to dates on this call.", page: 52 }
+
+  - id: D15-09
+    type: written
+    stem: >-
+      Dana replies to your summary: “Looks right. Give me one line for my CEO on why the new-patient form isn't ‘just
+      a copy’.” Write it.
+    modelAnswer: >-
+      New patients aren't in Epic yet, Dr. Mercer expects their answers to land in Epic, and an insurance-card photo
+      would need secure storage, so it's new scope rather than a copy; we'll share options with effort by Wednesday.
+    scoringPoints:
+      - Gives the real reasons (not in Epic, answers must reach Epic, secure card photo)
+      - Plain words a CEO understands, no jargon
+      - One line, with the next step and its date
+    source: { quote: "New patients aren't in Epic yet. Today, Lakeside's front desk handles new patients on paper.", page: 52 }
+
+  - id: D15-10
+    type: written
+    stem: >-
+      Lisa Chen, Lakeside's Clinic Operations Manager, messages: “Dana says you're designing the new-patient form.
+      What do you need from my front desk?” Write three questions about how new patients are handled today.
+    modelAnswer: >-
+      1. When a new patient came in last week, what did the front desk do, step by step, from booking to the visit?
+      2. Which part of the paper form takes the longest or goes wrong most often?
+      3. Where does the information end up today: typed into Epic, scanned, or kept on paper?
+    scoringPoints:
+      - Asks about what the front desk actually does today, not what they might want
+      - Covers where it hurts and where the data ends up
+      - Short, open questions Lisa can answer from experience
+    source: { quote: "Today, Lakeside's front desk handles new patients on paper.", page: 52 }

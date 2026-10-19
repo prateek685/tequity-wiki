@@ -1,0 +1,181 @@
+# Day 34 quiz pool: Thursday, April 16. Kevin wants SSO for clinic staff in Sprint 6: saying no without saying
+# "no" (not this sprint, yes if we move X, here's what I can do instead), speaking up to a senior client. Shows 5 of 10.
+pool: day-34
+questions:
+  - id: D34-01
+    type: mcq
+    stem: "Kevin opens: “So, SSO this sprint — that's doable, right?” What's the best first reply?"
+    options:
+      - text: "“Sure, we'll find a way.”"
+        correct: false
+        explanation: A yes that breaks a full sprint two weeks before the pilot.
+      - text: "“No, it's not possible.”"
+        correct: false
+        explanation: A bare no. He'll say it's not good enough.
+      - text: "“Short answer: SSO can't safely fit in this sprint. It's 8 to 10 days plus a security review. Here's what I can do instead, and when SSO can be done.”"
+        correct: true
+        explanation: Answer first, the reason in numbers, and a way forward in the same breath.
+      - text: "“I'll need to check with the team first.”"
+        correct: false
+        explanation: You know the sprint. Waiting language delays the answer he needs.
+    source: { quote: "Short answer: SSO can't safely fit in this sprint.", page: 97 }
+
+  - id: D34-02
+    type: mcq
+    stem: "Kevin says: “It's just a config change, isn't it?” What's the best reply?"
+    options:
+      - text: "“You clearly don't understand how SSO works.”"
+        correct: false
+        explanation: Arrogant, and to the CTO.
+      - text: "“Maybe, I'm not sure.”"
+        correct: false
+        explanation: Gives up your estimate the moment he challenges it.
+      - text: "“I wish it were. It's 8 to 10 days: changing how clinic staff log in, testing it, and a security review with Sam Porter.”"
+        correct: true
+        explanation: Calm, and explains the effort in plain words.
+      - text: "“Config changes are never just config changes.”"
+        correct: false
+        explanation: A clever line with no facts behind it.
+    source: { quote: "It's just a config change, isn't it?", page: 98 }
+
+  - id: D34-03
+    type: mcq
+    stem: "Kevin says: “Other vendors do SSO out of the box.” What's the best reply?"
+    options:
+      - text: "“Then maybe Lakeside should use them.”"
+        correct: false
+        explanation: Sarcasm with the CTO of your client.
+      - text: "“Many do, and CareBook will too. The question is when. Building it in Sprint 7 means it's ready before the rollout to all 12 clinics, without risking May 4.”"
+        correct: true
+        explanation: Agrees with the point, then brings it back to the timing.
+      - text: "“Our architecture is different.”"
+        correct: false
+        explanation: A technical defence that doesn't answer when.
+      - text: "“I don't know what other vendors do.”"
+        correct: false
+        explanation: True, but it leaves his point standing.
+    source: { quote: "Other vendors do SSO out of the box.", page: 98 }
+
+  - id: D34-04
+    type: mcq
+    stem: "Kevin asks: “Can't you just add one more engineer?” What's the best reply?"
+    options:
+      - text: "“Yes, if you pay for one.”"
+        correct: false
+        explanation: Turns a planning question into a sales pitch.
+      - text: "“A new engineer would need a week to get up to speed, and the security review with Sam wouldn't get faster. It wouldn't make Sprint 6 any safer.”"
+        correct: true
+        explanation: Explains plainly why more people don't solve this one.
+      - text: "“The team is already overworked.”"
+        correct: false
+        explanation: A complaint, not a reason he can act on.
+      - text: "“That's a management decision.”"
+        correct: false
+        explanation: Dodges the question he asked you.
+    source: { quote: "Can't you just add one more engineer?", page: 97 }
+
+  - id: D34-05
+    type: mcq
+    stem: "You want to find the worry behind Kevin's ask. Which question works best?"
+    options:
+      - text: "“Why do you even want SSO?”"
+        correct: false
+        explanation: Sounds like you're challenging the request.
+      - text: "“What's the risk you'd most like SSO to solve for the pilot?”"
+        correct: true
+        explanation: Opens up the real need, which may have a faster answer.
+      - text: "“Is SSO really that important?”"
+        correct: false
+        explanation: Leading, and he'll say yes.
+      - text: "“Which identity provider does Lakeside use?”"
+        correct: false
+        explanation: A detail, not the worry.
+    source: { quote: "Your real worry is front-desk staff sharing passwords on shared computers.", page: 98 }
+
+  - id: D34-06
+    type: mcq
+    stem: "Kevin reveals his worry is front-desk staff sharing passwords on shared computers. What do you offer?"
+    options:
+      - text: "“Then we definitely need SSO this sprint.”"
+        correct: false
+        explanation: Jumps back to the 10-day answer when a 2-day one exists.
+      - text: "“We can add multi-factor login and a 15-minute auto-logout this sprint, in 2 days. That covers shared computers for the pilot, and SSO follows in Sprint 7.”"
+        correct: true
+        explanation: “Here's what I can do instead”, aimed at his real worry, with a date for the rest.
+      - text: "“We'll send staff a reminder not to share passwords.”"
+        correct: false
+        explanation: Doesn't fix anything a CTO would accept.
+      - text: "“That's Lakeside's training problem.”"
+        correct: false
+        explanation: Pushes a security risk onto the client.
+    source: { quote: "We can add multi-factor authentication (MFA) and a 15- minute auto-logout in 2 days.", page: 97 }
+
+  - id: D34-07
+    type: scenario
+    clientLine: "“That's not good enough — Lakeside expects this.”"
+    stem: You've said SSO won't fit this sprint, but you haven't offered anything else yet. What do you say?
+    options:
+      - text: "“I'm sorry, that's just how it is.”"
+        correct: false
+        explanation: Still no way forward. He'll escalate.
+      - text: "“Okay, we'll try to fit it in.”"
+        correct: false
+        explanation: Caves under pressure, and “try” is a promise you can't keep.
+      - text: "“Understood. Here's what I can do: MFA and auto-logout for the pilot this sprint, and SSO in Sprint 7, May 11–22, before the rollout to all 12 clinics. Could I confirm with Sam that this works for Lakeside?”"
+        correct: true
+        explanation: Turns the no into a plan with dates and offers to check Lakeside's real need.
+      - text: "“Lakeside will have to wait.”"
+        correct: false
+        explanation: Dismissive about the launch customer.
+    source: { quote: "That's not good enough — Lakeside expects this.", page: 98 }
+
+  - id: D34-08
+    type: scenario
+    clientLine: "“Fine. When exactly does Sam need it?”"
+    stem: You don't know whether Sam Porter needs SSO for the pilot or for the full rollout. What do you say?
+    options:
+      - text: "“For the pilot, I think.”"
+        correct: false
+        explanation: A guess that could put SSO back into Sprint 6.
+      - text: "“I don't know yet. I'll ask Sam today and confirm by 5 pm your time. If he only needs it for the full rollout in June, Sprint 7 covers it.”"
+        correct: true
+        explanation: Honest, owns the check, and gives a time.
+      - text: "“He'll tell us if it's urgent.”"
+        correct: false
+        explanation: Waits to be reminded instead of owning it.
+      - text: "“Probably never, honestly.”"
+        correct: false
+        explanation: A careless guess about the client's IT lead.
+    source: { quote: "Sam Porter only requires SSO before the full rollout to 12 clinics (June), not for the pilot.", page: 98 }
+
+  - id: D34-09
+    type: written
+    stem: >-
+      Dana messages: “Kevin says Lakeside wants SSO. Are we adding it before May 4?” Write your reply in 2–3
+      sentences.
+    modelAnswer: >-
+      No, not before May 4: it's 8–10 days plus a security review, and Sprint 6 is full with the Epic fix and testing.
+      For the pilot we're adding multi-factor login and a 15-minute auto-logout (2 days), which Kevin agreed covers the
+      security risk. SSO is planned for Sprint 7 (May 11–22), before the rollout to all 12 clinics; I'm confirming
+      that with Sam today.
+    scoringPoints:
+      - Answers first (no, not before May 4) with the reason in plain words
+      - States what the pilot gets instead and that Kevin agreed
+      - Gives the Sprint 7 date and the open confirmation with Sam
+    source: { quote: "MFA and auto-logout for the pilot. SSO in Sprint 7 (May 11–22), ready before the rollout to all 12 clinics.", page: 97 }
+
+  - id: D34-10
+    type: written
+    stem: >-
+      Sam Porter (Lakeside IT) emails you directly: “Can CareBook support Microsoft login for our staff?” Write your
+      reply in 2–3 sentences.
+    modelAnswer: >-
+      Yes: single sign-on with your Microsoft accounts is planned for Sprint 7 (May 11–22), ready before the rollout to
+      all 12 clinics, and we'll need a security review with you during it. For the May 4 pilot, staff keep CareBook
+      logins with multi-factor login and a 15-minute auto-logout. Does that timing work for you, or do you need it
+      earlier?
+    scoringPoints:
+      - Answers with what will happen and when, without a bare “no”
+      - Explains what the pilot has in the meantime
+      - Checks his real deadline with a question
+    source: { quote: "Single sign-on (SSO) so clinic staﬀ log in to CareBook with their Lakeside Microsoft accounts.", page: 97 }

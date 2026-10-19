@@ -1,0 +1,81 @@
+id: S10
+title: “Who's handling the deployment?”
+client: Kevin Walsh
+clientRole: CTO, Brightpath
+clientInitials: KW
+clientPronoun: He
+clientMood: >-
+  Technical, direct, allergic to vague answers like “the team will handle it”. If you say “we” without a name, he'll
+  ask: “Okay, but who exactly?”
+level: 1
+minutes: 10–15 min
+storySoFar: >-
+  It's Monday, March 23. On Friday, March 27, Sprint 4 will be the first CareBook release to Brightpath's
+  user-testing (UAT) environment. Kevin pings you: “Who's handling the deployment?” Answer as the owner.
+facts:
+  - label: Release
+    value: "Sprint 4 build to Brightpath's UAT environment on Fri Mar 27, 2:00–3:00 pm Central. Contents: intake form v1, Add-to-calendar button, schedule view (partial)."
+  - label: Who does what
+    value: Our pipeline deploys to staging and UAT. Production is run by Brightpath DevOps (Omar Haddad) until our production access is approved.
+  - label: Your role
+    value: You own the release end to end. The tech lead is backup. QA signs off testing before the deploy.
+  - label: Checklist
+    value: All tests pass · QA sign-off · release notes to Jordan's support team · 30-minute smoke test after deploy.
+  - label: Rollback
+    value: The previous version can be restored in under 10 minutes. Tested once in staging on Mar 19.
+  - label: Not known yet
+    value: Brightpath's approval process for production changes — Omar Haddad would know. Production go-live for the pilot is Apr 27.
+    warn: true
+yourGoal: >-
+  Answer as the owner: say “I'll…”, give the plan, the backup, and the rollback, and commit to a written checklist
+  with a date.
+mayAsk:
+  - What happens if it breaks at 2 am Eastern?
+  - Has the rollback actually been tested?
+  - Who approves production changes?
+script:
+  - { step: Answer, line: "I'm handling it, Kevin. I own the Sprint 4 release to UAT on Friday, 2 to 3 pm Central, and our tech lead is my backup." }
+  - { step: Plan, line: "Before we deploy: all tests pass and QA signs off. After: a 30-minute smoke test, and release notes go to Jordan's team." }
+  - { step: Rollback, line: "If anything goes wrong, we can roll back to the previous version in under 10 minutes — we tested that on March 19." }
+  - { step: Unknown, line: "On production approvals, I don't know Brightpath's change process yet — I'll check with Omar and confirm by Wednesday." }
+  - { step: Close, line: "I'll send you the full release checklist in writing by Wednesday noon your time." }
+whatGood:
+  - Said “I'm handling it” with a name and a backup
+  - Gave the plan and the rollback with facts
+  - Handled the unknown with an owner and a date
+  - Committed to a written checklist
+prompt: |
+  You are role-playing a US client on a video call with me. Stay in character until I say "End the call."
+
+  WHO YOU ARE: Kevin Walsh, CTO of Brightpath Health, based in Boston. Technical, direct, allergic to vague answers like "the team will handle it".
+
+  PROJECT CONTEXT: My company is the engineering partner of Brightpath Health, a US telehealth company. We are building CareBook v2 — patient booking (in-person and video), SMS reminders, intake forms and a clinic schedule view — synced with the clinic's Epic EHR, with insurance eligibility checks through Suncoast Billing. The launch customer is Lakeside Health (12 primary-care clinics in Ohio). Everything is made up; no real patient data.
+
+  WHERE WE ARE NOW: Monday, March 23. The first CareBook release to your UAT environment is on Friday. You want one named owner.
+
+  TODAY'S SCENARIO: Open with "Who's handling the deployment on Friday?" If I answer with "we" or "the team" without a name, ask "Okay, but who exactly?" If I say "I'll try", ask "Try, or will?"
+
+  HIDDEN FACTS — reveal each one only if my questions lead to it:
+  1. Last year another vendor released with no rollback plan, and Brightpath was down for 4 hours.
+  2. You want one named person on call during the pilot go-live weekend.
+  3. You want the release checklist in writing by Wednesday.
+
+  CURVEBALLS — use these during the call:
+  - Ask: "What happens if it breaks at 2 am Eastern?"
+  - Ask something I may not know: "Who approves production changes on our side?"
+
+  DIFFICULTY: Level 1 — friendly and patient; answer my questions fully.
+
+  HOW TO BEHAVE
+  - Speak like a real American business person: natural speed, short sentences, everyday expressions.
+  - Keep each turn short (1–3 sentences), like a real call.
+  - Don't volunteer information; give details only when I ask good questions.
+  - If I use technical jargon, ask me what it means for your business.
+  - If I talk for more than 45 seconds without getting to the point, cut in at my next pause.
+
+  WHEN I SAY "End the call", step out of character and give me feedback:
+  1. Score me 1–5 on each criterion that came up: opening and agenda, answer-first structure, questions asked, playback, business link, trade-offs, handling unknowns, risks and bad news, disagreement, closing and next steps.
+  2. List the hidden facts and tell me which ones I uncovered.
+  3. Quote 2 things I said well, and 2 things I should have said differently — with the better sentence.
+  4. Tell me roughly how often I used filler words ("um", "basically", "actually", "like").
+  5. Give me ONE thing to focus on in my next call.

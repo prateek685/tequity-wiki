@@ -1,0 +1,176 @@
+day: 10
+block: 2
+title: Demo day sync
+type: normal
+storyDate: Friday, March 13
+minutes: About 60 min
+intro: >-
+  Demo day. Straight after the Sprint 3 demo, you run the weekly sync at Level 2, send the recap and review your
+  week.
+lessons:
+  - id: after-the-demo
+    kind: prep
+    title: Straight after the demo
+    minutes: 10 min
+    blocks:
+      - type: yesterday
+        text: >-
+          you rewrote five messy messages in plain English and reran Tuesday's call at Level 2.
+      - type: scene
+        when: Friday, March 13 · 10:45 am Central
+        text: >-
+          The Sprint 3 demo ran at 10:00, with Dana's CEO watching: video booking, reschedule and cancel, and SMS
+          reminders in staging. QA retested the double-booking fix this morning, and it passed. The weekly sync with
+          Dana starts at 11:00. One thing hasn't moved: Sam said Epic access would come “early next week”, and you
+          need it by Monday.
+      - type: text
+        text: >-
+          Fifteen minutes to the call. Fill in your pre-call card.
+    fields:
+      - { id: goal, label: My goal for this call, kind: line }
+      - { id: opener, label: My opener, kind: line, placeholder: Warm start + agenda }
+      - { id: points, label: "3 points I'll make", kind: area, rows: 3 }
+      - { id: questions, label: "3 questions I'll ask", kind: area, rows: 3 }
+      - { id: risk, label: 1 risk, kind: line }
+      - { id: closing, label: My closing line, kind: line }
+
+  - id: words-and-sentences
+    kind: learn
+    title: Words and short sentences
+    minutes: 10 min
+    lead: >-
+      Two short units from Google's free Technical Writing One course. They make every update you write this week
+      easier to read.
+    blocks:
+      - type: steps
+        items:
+          - { title: Words, text: "Use one term for one thing, and keep using it. Spell out an acronym the first time. Replace a vague “it” or “this” with the noun." }
+          - { title: Short sentences, text: "One idea per sentence. Turn a long list of clauses into bullets. Cut words that add nothing: “basically”, “in order to”, “at this point in time”." }
+      - type: watch
+        url: https://developers.google.com/tech-writing/one/words
+        title: "Google Technical Writing One: Words"
+        meta: Free · about 10 min
+      - type: watch
+        url: https://developers.google.com/tech-writing/one/short-sentences
+        title: "Google Technical Writing One: Short sentences"
+        meta: Free · about 10 min
+
+  - id: demo-day-sync
+    kind: mock
+    title: Weekly sync at Level 2
+    heading: Weekly sync with Dana, at Level 2
+    minutes: 15 min
+    lead: >-
+      Same shape as last Friday, but Dana is busier and vaguer. Run the whole 15 minutes yourself and close on time.
+    cardId: S04
+    level: 2
+    brief: false
+    blocks:
+      - type: facts
+        label: This week's facts — read them to the AI before you start
+        rows:
+          - { label: Small talk, value: How SXSW went }
+          - { label: Done this week, value: "Video booking done and shown in the demo · reschedule and cancel done · SMS reminders live in staging · double-booking fix retested and passed" }
+          - { label: Planned, value: "Add to calendar in Sprint 4, ready for the Mar 27 demo" }
+          - { label: Risk, value: "Epic sandbox access: form signed Tue, Sam said “early next week”, still not here. Needed by Mon Mar 16 to keep the Sprint 5 Epic sync and the Apr 27 pilot.", warn: true }
+          - { label: Ask, value: "If access isn't in by Monday noon, Dana nudges Lakeside's IT lead" }
+          - { label: Sprint 4 next, value: "Intake form v1 · clinic staff schedule view · Epic sandbox connection · Add to calendar" }
+      - type: note
+        tone: info
+        title: Your goal
+        text: >-
+          Warm start and agenda, an answer-first update, one risk with one ask and a date, next week, and a close on
+          time. Dana may ask: “What did my CEO think?”, “Is Epic going to bite us again?”, “Can you send me something
+          for the board?”
+    callStep: "Before you speak, tell the AI: “It's Friday, March 13, right after the Sprint 3 demo. Use this week's facts. Play this call at Level 2: busy and vague; short answers, change topic, slightly impatient.”"
+    checksTitle: After the call
+    checks:
+      - I opened warmly and set the agenda
+      - I gave an answer-first update
+      - I named the Epic risk with one clear ask and a date
+      - I closed with a recap and ended on time
+    fields:
+      - { id: went-well, label: What went well, kind: area, placeholder: "From the AI's feedback" }
+      - { id: fix-next, label: One thing to fix next time, kind: area }
+      - { id: log, label: "Could my reader act on my message without asking me a follow-up question?", kind: area, rows: 2 }
+    rubric: true
+
+  - id: weekly-recap
+    kind: write
+    title: Send the recap
+    heading: Send Dana this week's recap
+    minutes: 10 min
+    lead: >-
+      Dana's CEO saw the demo, so this recap travels further than last week's. Write it, then ask the AI to review it
+      before you send.
+    blocks:
+      - { type: field, id: subject }
+      - { type: field, id: summary }
+      - { type: field, id: decisions }
+      - { type: field, id: actions }
+      - { type: field, id: open-questions }
+      - { type: field, id: next-meeting }
+      - type: note
+        tone: info
+        title: Review it with AI.
+        text: >-
+          Copy the review prompt, paste it with your recap, and apply the edits you agree with. Never paste client
+          documents or patient data.
+      - type: copy
+        label: Copy review prompt
+        text: |
+          Review this recap email before I send it to a US client, a VP of Product who will forward it to her CEO. Check:
+          1. Is the main point or ask in the subject line or the first two lines?
+          2. Is anything unclear, too long or too indirect?
+          3. Are there phrases an American reader might misunderstand?
+          4. Is the tone confident but polite?
+          Keep every fact, date and owner exactly as it is, and don't add new claims. Give me a tighter version under 150 words, then list what you changed, one line each.
+
+          My recap:
+          [paste your recap here]
+    fields:
+      - { id: subject, label: Subject, kind: line, placeholder: "e.g. CareBook weekly update, Mar 13: demo done; 1 ask by Mon noon" }
+      - { id: summary, label: Summary (2 lines), kind: area, rows: 2, placeholder: Bottom line first… }
+      - { id: decisions, label: Decisions, kind: area, rows: 2 }
+      - { id: actions, label: Action items (owner + date), kind: area, rows: 3 }
+      - { id: open-questions, label: Open questions, kind: area, rows: 2 }
+      - { id: next-meeting, label: Next meeting, kind: line, placeholder: "Fri Mar 20, 10:00 am Central" }
+
+  - id: week-in-review
+    kind: scorecard
+    title: Your week in review
+    minutes: 5 min
+    lead: >-
+      Five minutes. Rate this week's behaviours and add a line of proof for each pillar. Your pillar scores update from
+      them; the other pillars carry forward. Your Day 1 baseline sits next to it.
+    blocks:
+      - type: note
+        tone: info
+        title: Bi-weekly check-in
+        text: Your 15–20 minute check-in with your manager comes after today, and you book it. If it isn't in your calendar yet, book it with your manager now. Bring this scorecard.
+      - type: text
+        text: >-
+          **Next week:** asking better questions. Dr. Mercer asks for “a dashboard for our clinics”.
+    scorecard: [C2, C4, O3]
+    checksTitle: Before the weekend
+    checks:
+      - Is my ask in the subject line or the first two lines?
+      - Did I use bullets for three or more items?
+      - Would a reader in Boston understand every phrase?
+
+scoring:
+  weekly-recap:
+    modelAnswer: >-
+      Subject: CareBook weekly update, Mar 13: Sprint 3 demo done; 1 ask by Mon noon.
+      Summary: Sprint 3 is done and shown in today's demo. One risk: Epic sandbox access still isn't here, and we need
+      it by Mon Mar 16 to keep the Sprint 5 Epic sync and the April 27 pilot.
+      Decisions: Add to calendar is planned for Sprint 4, ready for the Mar 27 demo.
+      Action items: Me: confirm Epic access with Sam Porter by Mon Mar 16, 10 am Central. Dana: if access isn't in by
+      Monday noon, nudge Lakeside's IT lead. Team: start Sprint 4 on Mon Mar 16 (intake form v1, clinic schedule
+      view, Epic sandbox connection, Add to calendar).
+      Open questions: none.
+      Next meeting: Fri Mar 20, 10:00 am Central.
+    scoringPoints:
+      - The subject and the first two lines give the bottom line (Sprint 3 done) and the Epic risk with its date
+      - "Every action item has an owner and a date, including Dana's nudge if access isn't in by Monday noon"
+      - Short, plain and forwardable as is, with bullets and no jargon

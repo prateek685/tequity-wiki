@@ -1,0 +1,178 @@
+# Day 43 quiz pool: Wednesday, April 29. Live shadow 1: joining as an observer, the observation sheet, writing your
+# own recap before the lead's, what to learn from a real call. Shows 5 of 10.
+pool: day-43
+questions:
+  - id: D43-01
+    type: mcq
+    stem: You're shadowing a client call. How do you join?
+    options:
+      - text: Camera on, muted unless the lead invites you to speak.
+        correct: true
+        explanation: Visible but quiet. The client sees a team member, and the lead keeps control.
+      - text: Camera off and muted, so nobody notices you.
+        correct: false
+        explanation: An unseen listener makes a client uneasy. Introduce yourself, camera on.
+      - text: Camera on and unmuted, so you can jump in.
+        correct: false
+        explanation: You're an observer. The lead decides when you speak.
+      - text: Don't join. Ask for the recording instead.
+        correct: false
+        explanation: A live call is the learning. A recording can't show you the room.
+    source: { quote: "Join as an observer: camera on, muted unless invited.", page: 114 }
+
+  - id: D43-02
+    type: mcq
+    stem: When do you write your own recap?
+    options:
+      - text: After you read the lead's, so you copy the right points.
+        correct: false
+        explanation: Then you learn nothing about what you missed.
+      - text: Straight after the call, before you read the lead's. Then compare the two.
+        correct: true
+        explanation: The gap between your recap and theirs shows what you missed.
+      - text: Never, since the lead sends one.
+        correct: false
+        explanation: Writing a recap is the skill you're practising.
+      - text: A week later, so you have time to think.
+        correct: false
+        explanation: By then you've forgotten the detail. Write it the same day.
+    source: { quote: "Afterwards, write your own recap and compare it with the lead's.", page: 114 }
+
+  - id: D43-03
+    type: mcq
+    stem: Which of these is on the observation sheet?
+    options:
+      - text: "How did they open the call and set the agenda?"
+        correct: true
+        explanation: Opening and agenda is the first question on the sheet.
+      - text: The client's salary.
+        correct: false
+        explanation: Not on the sheet, and not yours to note.
+      - text: A word-for-word transcript of the call.
+        correct: false
+        explanation: Notes in your own words. Don't transcribe, and don't record without permission.
+      - text: A score for the lead's performance out of 10.
+        correct: false
+        explanation: You're learning from them, not grading them.
+    source: { quote: "How did they open the call and set the agenda?", page: 153 }
+
+  - id: D43-04
+    type: mcq
+    stem: What's the purpose of the line “One phrase I want to use myself”?
+    options:
+      - text: To collect words and moves you can try on your own calls.
+        correct: true
+        explanation: The best way to learn is to borrow a phrase that worked, and use it in a mock.
+      - text: To copy the lead's whole script.
+        correct: false
+        explanation: One phrase, in your own voice.
+      - text: To check the lead didn't make a mistake.
+        correct: false
+        explanation: You're there to learn, not to audit.
+      - text: To send to the client as a quote.
+        correct: false
+        explanation: It's a private note for you.
+    source: { quote: "One phrase I want to use myself", page: 153 }
+
+  - id: D43-05
+    type: mcq
+    stem: What's the daily log prompt for this week?
+    options:
+      - text: “What did the lead do on the call that I haven't done yet?”
+        correct: true
+        explanation: It points your attention at skills to build next, not at judging.
+      - text: “What did the client get wrong?”
+        correct: false
+        explanation: Not the learning. Look at what you can do differently.
+      - text: “Who talked the most?”
+        correct: false
+        explanation: Talk time is not the point.
+      - text: “Was the call a waste of time?”
+        correct: false
+        explanation: Every call teaches you something about opening, questions or closing.
+    source: { quote: "What did the lead do on the call that I haven't done yet?", page: 115 }
+
+  - id: D43-06
+    type: mcq
+    stem: Before the call, what do you read and prepare?
+    options:
+      - text: The agenda, and a blank observation sheet.
+        correct: true
+        explanation: The agenda tells you what to watch. The sheet is where you write it.
+      - text: Nothing. You can't prepare for a live call.
+        correct: false
+        explanation: You can. Know the topic, the people and the goal.
+      - text: A list of questions to ask the client.
+        correct: false
+        explanation: You're observing. The lead asks the questions.
+      - text: A presentation for the client.
+        correct: false
+        explanation: That's for later weeks, when you co-lead.
+    source: { quote: "Read the agenda for the live call; prepare the observation sheet.", page: 114 }
+
+  - id: D43-07
+    type: scenario
+    clientLine: "“Who's on the line? I didn't expect anyone else.”"
+    stem: The client notices you on the call. The lead hasn't introduced you. What do you do?
+    options:
+      - text: Stay muted and silent. You're only an observer.
+        correct: false
+        explanation: Awkward. The client has asked a direct question.
+      - text: "Unmute and say: “Hi, I'm [your name], an engineer on the team. I'm here to listen and learn. I'll stay on mute unless you'd like me to join in.”"
+        correct: true
+        explanation: Short, honest, and it gives the client control. Then you go back to muted.
+      - text: Leave the call at once.
+        correct: false
+        explanation: Overreacting, and it may embarrass the lead.
+      - text: Give a long account of your project background.
+        correct: false
+        explanation: It takes over the lead's call. Keep it to two sentences.
+    source: { quote: "Join as an observer: camera on, muted unless invited.", page: 114 }
+
+  - id: D43-08
+    type: scenario
+    clientLine: "“Our competitor shows a live demo with real patient records.”"
+    stem: You're shadowing, and the client says it. In your notes you want to record the example. What do you write?
+    options:
+      - text: The patient names, so you remember the example.
+        correct: false
+        explanation: Never write personal health data in notes.
+      - text: "“Client compared us with a competitor's live demo.” No names, no patient details."
+        correct: true
+        explanation: Notes carry the lesson and the facts, never patient details.
+      - text: Nothing, because notes are risky.
+        correct: false
+        explanation: Notes are the exercise. Keep them, and keep them clean.
+      - text: A screenshot of the shared screen.
+        correct: false
+        explanation: Screenshots of a live call can contain private data.
+    source: { quote: "Fill in the observation sheet (Appendix A9).", page: 114 }
+
+  - id: D43-09
+    type: written
+    stem: >-
+      You've just left your first shadowed call. Write the first two lines of your recap: the headline outcome, and
+      the one action you noticed with an owner and a date. Use a made-up call: the team agreed to move a release from
+      Thursday to Monday, and the lead will send the new plan to the client by 5 pm.
+    modelAnswer: >-
+      Outcome: we agreed to move the release from Thursday to Monday. Action: the lead sends the client the new plan
+      by 5 pm today.
+    scoringPoints:
+      - Leads with the outcome, as a decision
+      - Names the action with an owner and a time
+      - Short, with no extra background
+    source: { quote: "Afterwards, write your own recap and compare it with the lead's.", page: 114 }
+
+  - id: D43-10
+    type: written
+    stem: >-
+      After comparing your recap with the lead's, you find you missed that the client asked for a written plan by
+      Friday. Write the one line you add to your notes under “My recap vs theirs: what did I miss?”
+    modelAnswer: >-
+      I missed that the client asked for a written plan by Friday. Next time I'll listen for deadlines and who asked
+      for them, and write them down as I hear them.
+    scoringPoints:
+      - Names the missed item specifically
+      - Says what to do differently next time
+      - Short, and frames it as learning, not blame
+    source: { quote: "My recap vs theirs — what did I miss?", page: 153 }

@@ -1,0 +1,369 @@
+# Week 5 assessment pool (after Day 25): the whole CareBook week, Mar 30 – Apr 3, with skills combined: US
+# healthcare in one picture, Lakeside's value-based contract, HIPAA and PHI rules, Laura's logging questions, the
+# 7-step discovery call, user stories and acceptance criteria, and Dr. Mercer's Epic data request.
+# Shows 8 choice + 2 written of 20.
+pool: assessment-25
+questions:
+  - id: A25-01
+    type: mcq
+    stem: >-
+      Monday morning. Dana messages: “Lakeside is moving into value-based contracts. Does that change anything for us?”
+      What's the best reply?
+    options:
+      - text: "“No, it's a billing thing. It doesn't affect the app.”"
+        correct: false
+        explanation: "A guess, and probably wrong: how a clinic gets paid changes what it needs."
+      - text: "“Possibly. I'm talking to Dr. Mercer this afternoon about what they'll be measured on. You'll have a short summary today, with any backlog items it affects.”"
+        correct: true
+        explanation: Honest, owns the finding out, and gives a time.
+      - text: "“Yes, we'll need to rebuild the reminders.”"
+        correct: false
+        explanation: A solution before you know the contract.
+      - text: "“What's value-based care?”"
+        correct: false
+        explanation: Fine to learn, but not a reply to her question.
+    source: { quote: "Dana mentioned that Lakeside is \"moving into value-based contracts\" and that it may change what they want from CareBook.", page: 67 }
+
+  - id: A25-02
+    type: mcq
+    stem: "Monday. Dana asks: “Remind me, Medicare or Medicaid, which is which?” What's the best reply?"
+    options:
+      - text: "“Medicare is federal insurance, mainly for people 65 and over. Medicaid is a joint federal and state program for people with low incomes.”"
+        correct: true
+        explanation: Both, in one line each, in plain words.
+      - text: "“They're basically the same thing.”"
+        correct: false
+        explanation: They cover different people and are run differently.
+      - text: "“Medicaid is for older people, Medicare for low incomes.”"
+        correct: false
+        explanation: The wrong way round. A client in healthcare will notice.
+      - text: "“I'd have to look that up.”"
+        correct: false
+        explanation: One of the first words to learn this week.
+    source: { quote: "Federal health insurance, mainly for people aged 65 and over.", page: 168 }
+
+  - id: A25-03
+    type: mcq
+    stem: "Monday. Dr. Mercer asks: “So who do you think pays us for a visit?” What's the best reply?"
+    options:
+      - text: "“The patients.”"
+        correct: false
+        explanation: Patients pay their share, but payers pay most of it.
+      - text: "“Brightpath, through CareBook.”"
+        correct: false
+        explanation: Brightpath sells software to Lakeside; it doesn't pay for care.
+      - text: "“Mostly payers: insurers, Medicare and Medicaid, plus the patient's own share. Today it's per visit, and that's what's changing, right?”"
+        correct: true
+        explanation: Correct, and it turns into a question about the new contract.
+      - text: "“Epic handles the payments.”"
+        correct: false
+        explanation: Epic is the health record, not the payer.
+    source: { quote: "Payers (insurance companies, Medicare, Medicaid, employers) pay for most of it.", page: 65 }
+
+  - id: A25-04
+    type: mcq
+    stem: "Tuesday. A booking failed for one patient, and you're writing the bug ticket. What goes in it?"
+    options:
+      - text: "The patient's name and phone number, so QA can find the record."
+        correct: false
+        explanation: PHI in a ticket is PHI in one more place that isn't protected.
+      - text: "A screenshot of the patient's booking screen."
+        correct: false
+        explanation: A screenshot with patient data breaks our rule.
+      - text: "The internal patient and appointment IDs, the error, and steps to reproduce with made-up data."
+        correct: true
+        explanation: Everything needed to fix it, nothing that identifies a person.
+      - text: "Nothing. Tell QA on a call instead."
+        correct: false
+        explanation: The bug still needs a record; just keep PHI out of it.
+    source: { quote: "Logs use internal IDs — never names, date of birth, phone numbers, emails, or visit reasons.", page: 69 }
+
+  - id: A25-05
+    type: mcq
+    stem: >-
+      Tuesday. Dana wants screenshots of the clinic schedule view for a board deck. Production shows real Lakeside
+      patients. What do you do?
+    options:
+      - text: Take them from production and blur the names.
+        correct: false
+        explanation: "Blurring misses things: visit reasons, times, partial names. Real patients, still PHI."
+      - text: Take them from staging with made-up patients, and tell Dana why.
+        correct: true
+        explanation: She gets the slides, and no PHI ever leaves production.
+      - text: Send her production screenshots and mark the email confidential.
+        correct: false
+        explanation: A label doesn't make PHI safe to share.
+      - text: Tell her screenshots aren't allowed.
+        correct: false
+        explanation: Real data isn't allowed. Screenshots with made-up data are fine.
+    source: { quote: "Rule: no PHI in logs, screenshots, test data, or AI tools.", page: 22 }
+
+  - id: A25-06
+    type: mcq
+    stem: >-
+      Tuesday. You tell Laura logs are kept “for 30 days, I think”. She asks: “Is that confirmed, or your assumption?”
+      What do you say?
+    options:
+      - text: "“It's confirmed.”"
+        correct: false
+        explanation: Doubles down on a guess with a compliance officer.
+      - text: "“My assumption, and I shouldn't have said it. Kevin Walsh owns retention; I'll confirm the exact figure by Thursday noon Pacific.”"
+        correct: true
+        explanation: Owns the slip in one line and turns it into a dated answer.
+      - text: "“It's roughly right.”"
+        correct: false
+        explanation: “Roughly” on a fact she'll write down.
+      - text: "“Sorry, I'm not sure about anything on logs.”"
+        correct: false
+        explanation: Undermines the things you do know.
+    source: { quote: "Is that confirmed, or your assumption?", page: 70 }
+
+  - id: A25-07
+    type: mcq
+    stem: "Wednesday, 8:30 am. Dana's Slack: “Can new patients book video visits online? Big for the pilot.” What do you reply?"
+    options:
+      - text: "“Yes, we'll add it to Sprint 5.”"
+        correct: false
+        explanation: A yes to a feature you haven't understood, in a full sprint.
+      - text: "“Not possible before the pilot.”"
+        correct: false
+        explanation: A no, before you know what she needs.
+      - text: "“Good one. Can we take 15 minutes at 11 so I understand it properly before we size it?”"
+        correct: true
+        explanation: Moves it to a discovery conversation, with a time.
+      - text: "“Will check and revert.”"
+        correct: false
+        explanation: No time, and “revert” confuses American readers.
+    source: { quote: "Can new patients book video visits online? Big for the pilot.", page: 71 }
+
+  - id: A25-08
+    type: mcq
+    stem: >-
+      Wednesday, five minutes into discovery. Dana has listed rules for first visits, but you still don't know what's
+      broken today. What do you ask next?
+    options:
+      - text: "“Great, so when do you need it?”"
+        correct: false
+        explanation: Timing before you know the pain or how big it is.
+      - text: "“How many new patients try to book each month, and how many give up?”"
+        correct: true
+        explanation: "Goes back for the pain, with numbers: what's broken, how often, what it costs."
+      - text: "“Should we use the existing booking screen?”"
+        correct: false
+        explanation: A design question that skips the pain.
+      - text: "“Anything else?”"
+        correct: false
+        explanation: Too open to get you the numbers you need.
+    source: { quote: "Pain (what's broken, how often, what it costs)", page: 65 }
+
+  - id: A25-09
+    type: mcq
+    stem: >-
+      Thursday. Dana says: “Yes to all four. Ship it.” Two open questions are still on your list. What do you say?
+    options:
+      - text: "“Great, thanks!” and end the call."
+        correct: false
+        explanation: The two open questions become guesses in Sprint 7.
+      - text: "“Thanks! Two quick ones: if insurance can't be verified, book and flag, or block? And who approves the new patient in Epic, and how fast?”"
+        correct: true
+        explanation: Closes both gaps in under a minute, while she's still on the call.
+      - text: "“I'll email you the open questions next week.”"
+        correct: false
+        explanation: Loses the moment when she's ready to decide.
+      - text: "“We'll make sensible assumptions.”"
+        correct: false
+        explanation: Decides patient-facing behaviour without the client.
+    source: { quote: "Who approves the new patient in Epic, and how fast?", page: 73 }
+
+  - id: A25-10
+    type: mcq
+    stem: >-
+      Friday, 11 am. Before your “approved unless corrected by noon” deadline, Dana replies: “Looks good. Oh, and the
+      confirmation SMS should be in Spanish too.” What's the best reply?
+    options:
+      - text: "“Sure, I'll add it to Sprint 7.”"
+        correct: false
+        explanation: New scope into an agreed sprint, without sizing.
+      - text: "“Too late, it's approved.”"
+        correct: false
+        explanation: She replied before the deadline. Treat it as a real request.
+      - text: "“Thanks, approved as written. Spanish SMS goes on the list for a later sprint, so Sprint 7 stays on track. I'll size it for Sprint 8 planning.”"
+        correct: true
+        explanation: Locks the approval, captures the new ask, and parks it with a next step.
+      - text: "“I'll ask the team if Spanish is possible.”"
+        correct: false
+        explanation: Waiting language, and the approval stays unclear.
+    source: { quote: "You want the confirmation SMS in Spanish too", page: 74 }
+
+  - id: A25-11
+    type: mcq
+    stem: "Friday, after the call. Dana asks: “Alan says the Epic view saves time. How much, roughly?” What's the best reply?"
+    options:
+      - text: "“A lot. The doctors will love it.”"
+        correct: false
+        explanation: No number, so it can't compete with other priorities.
+      - text: "“About 90 seconds per video visit. At about 400 video visits a week at the 3 pilot clinics, that's roughly 10 doctor-hours a week.”"
+        correct: true
+        explanation: The client's numbers turned into a business result.
+      - text: "“It's faster because we'd cache the FHIR calls.”"
+        correct: false
+        explanation: The how, not the value.
+      - text: "“I didn't ask.”"
+        correct: false
+        explanation: The value is one of the things a discovery call must find.
+    source: { quote: "It saves about 90 seconds per video visit; the 3 pilot clinics do about 400 video visits a week.", page: 76 }
+
+  - id: A25-12
+    type: mcq
+    stem: "Friday. Dana asks: “With all these new requests, are we still on for April 27?” What's the best reply?"
+    options:
+      - text: "“Yes, definitely.”"
+        correct: false
+        explanation: "Leaves out the one real dependency: Epic access."
+      - text: "“Yes, if Epic access arrives on Monday as Lakeside IT expects. New-patient booking and the doctors' Epic view both come after the pilot, so neither touches April 27. I'll confirm on Monday once access is in.”"
+        correct: true
+        explanation: Answer first, the condition, why the new requests don't affect it, and when you'll update her.
+      - text: "“Hard to say with so much going on.”"
+        correct: false
+        explanation: Vague and worrying, with no facts.
+      - text: "“Only if nobody asks for anything else.”"
+        correct: false
+        explanation: Sounds like a complaint, not a status.
+    source: { quote: "Epic sandbox access is expected on Monday, April 6.", page: 75 }
+
+  - id: A25-13
+    type: scenario
+    clientLine: "“Do we really need a discovery call? It's one feature.”"
+    stem: Wednesday. Dana is about to skip your 15 minutes. What do you say?
+    options:
+      - text: "“It's our standard process.”"
+        correct: false
+        explanation: Process isn't a reason she cares about.
+      - text: "“One feature, but new patients bring rules that existing ones don't: insurance checks, which providers, age. Fifteen minutes now saves building it twice.”"
+        correct: true
+        explanation: A business reason with the healthcare constraints, in one breath.
+      - text: "“Okay, I'll make some assumptions.”"
+        correct: false
+        explanation: Assumptions about insurance and age rules are how rework starts.
+      - text: "“Then I can't give you anything.”"
+        correct: false
+        explanation: A threat instead of a reason.
+    source: { quote: "Desired outcome → Constraints (compliance, budget, systems, timeline) → Success metric →", page: 65 }
+
+  - id: A25-14
+    type: scenario
+    clientLine: "“Do any third-party tools see PHI?”"
+    stem: Tuesday. You know about AWS; you don't know about the crash-reporting tool. What do you say?
+    options:
+      - text: "“No third parties at all.”"
+        correct: false
+        explanation: "Wrong, and a guess: AWS hosts the data."
+      - text: "“Everything runs on AWS, and Brightpath has a BAA with AWS. For our crash-reporting tool, Kevin Walsh will confirm whether a BAA covers it, by Thursday.”"
+        correct: true
+        explanation: What you know, then the unknown with an owner and a date.
+      - text: "“Probably just the usual ones.”"
+        correct: false
+        explanation: “Probably” and “the usual” tell her nothing.
+      - text: "“I'd rather not get into vendors.”"
+        correct: false
+        explanation: Sounds like hiding something.
+    source: { quote: "Brightpath has a BAA with AWS.", page: 69 }
+
+  - id: A25-15
+    type: scenario
+    clientLine: "“My doctors keep switching between CareBook and Epic. Fix it.”"
+    stem: Friday. What's your best first response?
+    options:
+      - text: "“We'll put the whole Epic chart into CareBook.”"
+        correct: false
+        explanation: Maximum scope and maximum PHI, before you know the need.
+      - text: "“I'd like to. When exactly do they switch, and what are they looking for at that moment?”"
+        correct: true
+        explanation: Starts with the moment and the need, not a solution.
+      - text: "“That's how Epic works, unfortunately.”"
+        correct: false
+        explanation: Dismisses a real workflow problem.
+      - text: "“I'll raise a ticket.”"
+        correct: false
+        explanation: A ticket for a problem nobody has understood yet.
+    source: { quote: "Your doctors complain about switching between CareBook and Epic before video visits.", page: 76 }
+
+  - id: A25-16
+    type: scenario
+    clientLine: "“Alan wants overdue-patient reminders and the Epic data view. Which first?”"
+    stem: Friday. Both come after the pilot. What do you recommend?
+    options:
+      - text: "“Whichever Alan prefers.”"
+        correct: false
+        explanation: No recommendation. She asked what you think.
+      - text: "“Both at once.”"
+        correct: false
+        explanation: Avoids the choice, and doubles the risk after the pilot.
+      - text: "“The Epic view: it's more technically interesting.”"
+        correct: false
+        explanation: A reason that matters to engineers, not to Lakeside.
+      - text: "“Overdue reminders first: missed diabetes follow-ups count against Lakeside's new contract from July 1. The Epic view saves doctor time but needs a security review. I'll put both on one page with effort by Wednesday.”"
+        correct: true
+        explanation: A recommendation tied to how Lakeside gets paid, with a dated next step.
+    source: { quote: "You would love CareBook to remind patients who are overdue for a visit", page: 68 }
+
+  - id: A25-17
+    type: written
+    stem: >-
+      Monday, after the call. Dana asks: “Give me Lakeside's new contract in three bullets for my CEO.” Write them.
+    modelAnswer: >-
+      From July 1, Lakeside joins a value-based contract with a regional insurer, covering about 9,000 patients. It's
+      measured on annual wellness visits, diabetes follow-ups within 90 days and avoidable ER visits: up to $1.2 million
+      a year in shared savings, and from year 3, missing targets can cost money. Missed visits now hurt Lakeside's
+      income (diabetes follow-up no-shows are about 24%), so CareBook's reminders and booking directly support it.
+    scoringPoints:
+      - Bullet 1 gives the contract and its date; bullet 2 the measures and the money at stake
+      - Bullet 3 links it to CareBook through no-shows, with a number
+      - Short, plain, forwardable to a CEO
+    source: { quote: "covering about 9,000 of its patients", page: 68 }
+
+  - id: A25-18
+    type: written
+    stem: >-
+      Tuesday. Someone on Jordan's support team asks you: “Can I paste a patient's support chat into ChatGPT to help me
+      write a reply?” Write your answer in 2–3 sentences.
+    modelAnswer: >-
+      Not with any patient details in it: names, dates of birth, phone numbers or health details are PHI, and PHI never
+      goes into an AI tool the company hasn't approved. Describe the problem in general terms instead (“a patient
+      can't see her video link”), or use an approved tool. When in doubt, leave it out.
+    scoringPoints:
+      - Clear no, with the reason (PHI in an unapproved AI tool)
+      - Gives a safe way to still get help
+      - Short and friendly, not a lecture
+    source: { quote: "When in doubt, leave it out.", page: 8 }
+
+  - id: A25-19
+    type: written
+    stem: >-
+      Wednesday. Dana messages: “What's the success metric for new-patient video booking again? I need it for the
+      board.” Write your reply in 2–3 sentences.
+    modelAnswer: >-
+      40% of new-patient bookings online within 3 months of launch. Today all of them are phone calls: about 420
+      new-patient requests a month at the 3 pilot clinics, and about 1 in 4 hang up before they book. We'll track it
+      from launch in Sprint 7.
+    scoringPoints:
+      - The metric first, with its number and timeframe
+      - The baseline (today's pain) in numbers, as heard from Dana
+      - Says when measuring starts, with no new promise
+    source: { quote: "Found the drop-off and the 40% target", page: 71 }
+
+  - id: A25-20
+    type: written
+    stem: >-
+      Friday, 5 pm. Dana asks: “What did you learn about Lakeside's business this week that I should know?” Write your
+      reply.
+    modelAnswer: >-
+      Three things. From July 1, part of Lakeside's income depends on wellness and diabetes follow-up visits, so
+      no-shows now cost them money and reminders matter more. New-patient video booking could recover the 1 in 4 new
+      patients who hang up today; target 40% online within 3 months, in Sprint 7. Doctors lose about 90 seconds per
+      video visit switching to Epic; Alan wants 4 items, view-only, by July 1, after Kevin's security review.
+    scoringPoints:
+      - Answers in a few points, each tied to who pays or who benefits
+      - Uses the numbers heard during the week, not guesses
+      - Keeps dates and owners straight (Sprint 7, July 1, Kevin's review)
+    source: { quote: "Do I know who pays and who benefits for the feature I'm building?", page: 66 }

@@ -1,0 +1,180 @@
+# Day 30 quiz pool: Friday, April 10. Dana's “tiny” request for insurance card photos mid-sprint at Level 3: scope,
+# time and quality, saying yes to the goal, pushback, the change note. Shows 5 of 10.
+pool: day-30
+questions:
+  - id: D30-01
+    type: mcq
+    stem: "Dana: “Tiny request — I need insurance card photo upload in the intake form for the pilot. Can you just add it?” What's the best first reply?"
+    options:
+      - text: "“Sure, we'll fit it in.”"
+        correct: false
+        explanation: Silently absorbs 5–7 days into a full sprint. And she'll ask for more.
+      - text: "“No, Sprint 6 is full.”"
+        correct: false
+        explanation: A flat no. “That's not the partner attitude I expected.”
+      - text: "“I understand the ask. We can do it — the question is when, and what moves to make room.”"
+        correct: true
+        explanation: Yes to the goal, and the trade-off on the table from the first line.
+      - text: "“Why do you need it?”"
+        correct: false
+        explanation: A fair question later, but as an opener it sounds like a challenge.
+    source: { quote: "I understand the ask: insurance card photos in the intake form. We can do it — the question is when, and what moves to make room.", page: 87 }
+
+  - id: D30-02
+    type: mcq
+    stem: "Dana says: “Our competitor built it in a week — why can't you?” What's the best reply?"
+    options:
+      - text: "“They probably didn't secure it properly.”"
+        correct: false
+        explanation: A guess that criticises someone else.
+      - text: "“We could build the screen in a week too. The rest is because the card photo is patient data: secure storage and Kevin's security review. That's 5 to 7 days in total.”"
+        correct: true
+        explanation: Calm, not defensive, and explains the range with the real reason.
+      - text: "“Then maybe you should use their app.”"
+        correct: false
+        explanation: Sarcasm with a client.
+      - text: "“Okay, we'll try for a week.”"
+        correct: false
+        explanation: Cuts the estimate under pressure, with nothing changed.
+    source: { quote: "Our competitor built it in a week — why can't you?", page: 88 }
+
+  - id: D30-03
+    type: mcq
+    stem: "Dana asks: “Why does a photo need Kevin's security review?” What's the best reply?"
+    options:
+      - text: "“Kevin reviews everything.”"
+        correct: false
+        explanation: Sounds like bureaucracy, not a reason.
+      - text: "“A photo of an insurance card shows a patient's name, member ID and date of birth. That's PHI, so it has to be stored securely, and Kevin signs off on anything that stores PHI.”"
+        correct: true
+        explanation: Plain words, and a reason a VP of Product can repeat.
+      - text: "“HIPAA.”"
+        correct: false
+        explanation: One word is not an explanation.
+      - text: "“We could skip the review this once.”"
+        correct: false
+        explanation: Never a shortcut on PHI.
+    source: { quote: "secure storage (the card image is PHI)", page: 87 }
+
+  - id: D30-04
+    type: mcq
+    stem: "Dana pushes: “Can't you just drop something small to make room?” The only thing that fits is the accessibility fixes. What do you say?"
+    options:
+      - text: "“Okay, we'll drop accessibility.”"
+        correct: false
+        explanation: Cuts quality quietly, and older patients pay for it.
+      - text: "“That's option B, and I'd advise against it: the accessibility fixes help older patients book without calling. I recommend Sprint 7 for the photos, and typed member IDs for the pilot.”"
+        correct: true
+        explanation: Names the quality cost plainly and recommends the safer option.
+      - text: "“There's nothing small in Sprint 6.”"
+        correct: false
+        explanation: Shuts down the conversation instead of showing the options.
+      - text: "“Let me think about it over the weekend.”"
+        correct: false
+        explanation: You know the options now. Say them.
+    source: { quote: "Sprint 6, by dropping the accessibility fixes — risky for older patients.", page: 87 }
+
+  - id: D30-05
+    type: mcq
+    stem: "You said yes too quickly. Dana adds: “Great — and a pharmacy picker too.” What do you say?"
+    options:
+      - text: "“Sure, add it to the list.”"
+        correct: false
+        explanation: The scope keeps growing because nothing has a cost yet.
+      - text: "“Let me step back: I should have said what each one costs. Both are new work in a full sprint. I'll put them in one change note with options, and you decide which, if any, goes before the pilot.”"
+        correct: true
+        explanation: Corrects the slip and makes the trade-off visible for both asks.
+      - text: "“No more requests, please.”"
+        correct: false
+        explanation: A flat no to a client who thinks you just said yes.
+      - text: "“That one's easy, no problem.”"
+        correct: false
+        explanation: Another unsized yes.
+    source: { quote: "If I say yes without naming the trade-off, add another request: \"Great — and a pharmacy picker too.\"", page: 88 }
+
+  - id: D30-06
+    type: mcq
+    stem: "At the end of the call, Dana says: “Fine, put it in writing.” What's the best close?"
+    options:
+      - text: "“Will do.”"
+        correct: false
+        explanation: No date for the note, no date for the decision.
+      - text: "“I'll send the change note today with all three options. Can you confirm by Monday, so Sprint 6 stays as planned?”"
+        correct: true
+        explanation: Your follow-up with a time, and a decision with a date.
+      - text: "“I'll send something next week.”"
+        correct: false
+        explanation: Too late. Sprint 6 starts Monday.
+      - text: "“Let's just go with option A then, no need to write it up.”"
+        correct: false
+        explanation: A scope change without anything in writing comes back later.
+    source: { quote: "Can you confirm by Monday? I'll send a change note today with all three options.", page: 87 }
+
+  - id: D30-07
+    type: scenario
+    clientLine: "“Why is everything a big deal with you?”"
+    stem: Dana is frustrated. You've just explained the 5–7 days. What do you say?
+    options:
+      - text: "“It isn't. Sorry, sorry, we'll figure it out.”"
+        correct: false
+        explanation: Over-apologises and gives up the trade-off.
+      - text: "“I hear you, and I want the pilot to look great. I'd rather show you the cost now than surprise you on April 27. Here's what I recommend.”"
+        correct: true
+        explanation: Acknowledges her, stays calm, and moves to a recommendation.
+      - text: "“Because you keep changing the scope.”"
+        correct: false
+        explanation: Blames the client, and escalates the conflict.
+      - text: "“That's how software works.”"
+        correct: false
+        explanation: Dismissive and unhelpful.
+    source: { quote: "Stayed calm under pushback; didn't absorb the work silently", page: 87 }
+
+  - id: D30-08
+    type: scenario
+    clientLine: "“Honestly, I just need to show it to investors.”"
+    stem: The real need is the May 12 investor demo, not pilot patients. What do you offer?
+    options:
+      - text: "“Then we'll put it in the pilot anyway.”"
+        correct: false
+        explanation: Adds pilot risk for a need the pilot doesn't have.
+      - text: "“That changes things. We could have it demo-ready in a test environment by May 8, without touching the pilot. Would that work?”"
+        correct: true
+        explanation: Meets the real goal with an option that keeps the pilot safe.
+      - text: "“Investors don't matter to engineering.”"
+        correct: false
+        explanation: They matter to the client, so they matter to you.
+      - text: "“Just show them a mockup.”"
+        correct: false
+        explanation: Decides for her, with no check that it's enough.
+    source: { quote: "You would accept \"demo-ready in a test environment by May 8\" if it is offered.", page: 88 }
+
+  - id: D30-09
+    type: written
+    stem: >-
+      Lisa Chen emails: “Dana says card photos are coming for the pilot?” Nothing is decided yet. Write your reply in
+      2–3 sentences.
+    modelAnswer: >-
+      Not decided yet: Dana is choosing between options by Monday, and my recommendation is to keep typed member IDs
+      for the pilot and add photos in Sprint 7, in May. Nothing changes for your front desk on April 27 unless Dana
+      decides otherwise, and I'll tell you on Monday either way. Would typed IDs or photos be easier for your team to
+      check in Epic?
+    scoringPoints:
+      - Says clearly that nothing is decided, and when it will be
+      - Doesn't contradict or undermine Dana, and doesn't promise a date
+      - Asks for Lisa's view on the front-desk impact
+    source: { quote: "Lakeside's front desk (Lisa Chen) actually prefers typed member IDs, because they are easier to check in Epic.", page: 88 }
+
+  - id: D30-10
+    type: written
+    stem: >-
+      Kevin messages: “Heard Dana wants card photos in Sprint 6. Are you squeezing it in before my freeze?” Write your
+      reply in 2–3 sentences.
+    modelAnswer: >-
+      No: nothing is added to Sprint 6 without a decision, and the April 17 freeze stays. I've recommended Sprint 7
+      for the photos and typed member IDs for the pilot; Dana confirms by Monday. If it goes ahead, it needs your
+      security review, because the card image is PHI. I'll copy you on the change note today.
+    scoringPoints:
+      - Answers first and protects the freeze
+      - States the recommendation and the decision date
+      - Mentions the security review and keeps Kevin informed in writing
+    source: { quote: "Sprint 6 is full, and Kevin's code freeze is April 17. To add this, something has to come out.", page: 87 }

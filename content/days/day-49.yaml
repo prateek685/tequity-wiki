@@ -1,0 +1,123 @@
+day: 49
+block: 10
+title: Rehearse the real demo
+type: normal
+storyDate: Thursday, May 7
+minutes: About 50 min
+intro: >-
+  Tomorrow's live demo goes to Dr. Mercer and Lisa Chen after the first pilot week. Today you apply yesterday's
+  feedback, skim a short piece on product thinking, rehearse with a sceptical client, and finish the script and the
+  backup plan.
+lessons:
+  - id: apply-feedback
+    kind: prep
+    title: Apply the feedback
+    minutes: 5 min
+    blocks:
+      - type: yesterday
+        text: >-
+          you co-led the pilot status on a live call. You asked the PM or senior for two lines of feedback and wrote them
+          down in their words.
+      - type: scene
+        when: Thursday, May 7 · 9 am Central · the day before the demo
+        text: >-
+          Tomorrow you demo the schedule view and waitlist to Dr. Mercer and Lisa Chen after the first pilot week. Dr.
+          Mercer worries about clinician workload, and Lisa wants fewer phone calls. Start from yesterday's feedback.
+      - type: recall
+        label: What you wrote yesterday
+        day: 48
+        lesson: co-lead-recap
+        fields:
+          - { id: feedback, label: Feedback }
+          - { id: apply, label: What I planned to change }
+    fields:
+      - { id: change, label: "One change I'll make to my demo because of it", kind: line }
+    source: both
+
+  - id: product-minded
+    kind: learn
+    title: Think like the product
+    heading: Think about the user, not just the ticket
+    minutes: 10 min
+    lead: >-
+      Clients value engineers who think about users, the business and the “why”, not only the ticket. Your demo is where
+      that shows.
+    blocks:
+      - type: steps
+        items:
+          - { title: Name the user, text: "A front-desk staff member at 8:05 am, not “the system”." }
+          - { title: Say why it matters to the business, text: "Fewer lost visits, fewer phone calls." }
+          - { title: Use numbers, not adjectives, text: "“5 cancelled slots refilled”, not “it works great”." }
+      - type: compare
+        beforeLabel: Adjectives
+        afterLabel: Numbers
+        before: >-
+          “The waitlist has been really useful in the first week.”
+        after: >-
+          “In the first week, 18 patients were added to waitlists and 5 cancelled slots were refilled, with no double
+          bookings.”
+      - type: watch
+        url: https://blog.pragmaticengineer.com/the-product-minded-engineer/
+        title: The Product-Minded Software Engineer
+        meta: Gergely Orosz, The Pragmatic Engineer. Preview the first half.
+
+  - id: rehearse-demo
+    kind: mock
+    title: Rehearse the real demo
+    heading: Rehearse with a sceptical client
+    minutes: 15 min
+    lead: >-
+      Level 3: Dr. Mercer is sceptical. He questions the value, asks about risks during clinic hours and asks for numbers.
+      Use your own demo with anonymised context, or the CareBook fallback.
+    cardId: S44
+    level: 3
+    scriptNote: Use it the first time, then try the call again without it.
+
+  - id: rehearse-review
+    kind: reflect
+    title: How did the rehearsal go?
+    minutes: 5 min
+    lead: Tick what you managed, then note what the AI told you.
+    checksTitle: On this call, I…
+    checks:
+      - showed the result and told one story before any features
+      - used numbers, not adjectives
+      - handled scepticism calmly with facts
+      - left with a decision or specific feedback
+    fields:
+      - { id: went-well, label: What went well, kind: area, placeholder: "From the AI's feedback" }
+      - { id: fix-next, label: One thing to fix next time, kind: area, placeholder: "e.g. I had no answer to “What if it breaks at 8 am on a Monday?”" }
+    rubric: true
+
+  - id: final-demo-script
+    kind: write
+    title: Final script and backup
+    heading: Final demo script and backup plan
+    minutes: 10 min
+    lead: >-
+      Finish the script for tomorrow, and write what you'll do if it breaks.
+    source: both
+    blocks:
+      - { type: field, id: result }
+      - { type: field, id: numbers }
+      - { type: field, id: skeptic }
+      - { type: field, id: backup }
+    fields:
+      - { id: result, label: "What I'll show first (the result)", kind: line }
+      - { id: numbers, label: "The numbers I'll quote", kind: area, rows: 2 }
+      - { id: skeptic, label: "My answer to “Why should my staff change how they work?”", kind: area, rows: 3 }
+      - { id: backup, label: "Backup plan if it breaks", kind: area, rows: 2 }
+
+scoring:
+  final-demo-script:
+    modelAnswer: >-
+      Result first: the clinic's day on one screen, with open slots and the waitlist beside it. Numbers: in the first
+      week, 18 patients were added to waitlists, 5 cancelled slots were refilled and there were no double bookings. To
+      “Why should staff change how they work?”: they don't change how they book; when a slot opens, they click Offer
+      instead of working through a list by phone, and Westside's front desk spends about 2 hours a day on those calls
+      today. Backup: if the test server hangs for 30 seconds, name it and switch to the 2-minute recording; recap the
+      same day.
+    scoringPoints:
+      - The result is shown before any feature, with real numbers instead of adjectives
+      - The answer to the sceptic is about the staff's day and the clinic, not about the product
+      - "The backup plan is specific: who, what, after how long, and a same-day recap"

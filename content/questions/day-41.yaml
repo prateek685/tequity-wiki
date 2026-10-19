@@ -1,0 +1,177 @@
+# Day 41 quiz pool: Monday, April 27. The technical story (CPARB): result and impact first, plain words, the
+# "So what?" test, the one caveat, a slide sentence. Shows 5 of 10.
+pool: day-41
+questions:
+  - id: D41-01
+    type: mcq
+    stem: "Dana asks for “the 30-second version” of the check-in fix. What goes in it?"
+    options:
+      - text: The result and what it means for the clinics.
+        correct: true
+        explanation: The 30-second level is for an executive. Result plus impact, and nothing else.
+      - text: How the insurance lookups are cached, and why Redis.
+        correct: false
+        explanation: That's the engineer level. Dana would stop you at the first technical word.
+      - text: The whole timeline, from Lisa's complaint on April 16 to the load test.
+        correct: false
+        explanation: A history is not a short version. She wants what changed and why it matters.
+      - text: A promise to send the details later, with no answer now.
+        correct: false
+        explanation: She asked for something she can use today. Send the details after, not instead.
+    source: { quote: "Executive (30 seconds): result + impact.", page: 114 }
+
+  - id: D41-02
+    type: mcq
+    stem: Which order puts the five parts of a technical story right?
+    options:
+      - text: Approach, Context, Result, Problem, Business impact
+        correct: false
+        explanation: The client needs the setting and the problem before they can follow what you did.
+      - text: Context, Problem, Approach, Result, Business impact
+        correct: true
+        explanation: The story runs from the setting to the problem, then what you did, what changed, and why it matters.
+      - text: Result, Approach, Problem, Context, Business impact
+        correct: false
+        explanation: Results mean nothing before the client knows what the problem was.
+      - text: Problem, Context, Business impact, Approach, Result
+        correct: false
+        explanation: The business impact is the ending, not the middle.
+    source: { quote: "Context → Problem → Approach → Result → Business impact.", page: 114 }
+
+  - id: D41-03
+    type: mcq
+    stem: Your draft says “We moved the lookup to a cache with a 24-hour TTL.” What does the “So what?” test tell you to do?
+    options:
+      - text: Add the Redis version, so it sounds precise.
+        correct: false
+        explanation: That adds detail for engineers, not meaning for the client.
+      - text: Say what it means for the client, for example “check-in is now under a second”, or cut the sentence.
+        correct: true
+        explanation: Each sentence must answer “So what does that mean for the client?”
+      - text: Keep it. Clients trust specific terms.
+        correct: false
+        explanation: Specific words the client can't use don't build trust. They create questions.
+      - text: Move it to the start so the technical part is done early.
+        correct: false
+        explanation: It still has no answer to “So what?”, wherever you put it.
+    source: { quote: "After each sentence, ask: \"So what does that mean for the client?\" If there's no answer, cut the sentence.", page: 114 }
+
+  - id: D41-04
+    type: mcq
+    stem: Why tell technical work as a story with a business result, rather than as a list of what you built?
+    options:
+      - text: Because it makes the work sound bigger than it was.
+        correct: false
+        explanation: The point is to be understood, not to inflate it.
+      - text: Because clients remember stories, and a result with a business impact helps them value the work.
+        correct: true
+        explanation: A short story with a number and a business result is something they can repeat.
+      - text: Because clients dislike numbers.
+        correct: false
+        explanation: Clients like numbers when they are tied to something they care about.
+      - text: Because the technical detail is secret.
+        correct: false
+        explanation: Nothing is hidden. You go deeper when they ask.
+    source: { quote: "Clients remember stories, not specifications.", page: 114 }
+
+  - id: D41-05
+    type: mcq
+    stem: The saved insurance result can be up to 24 hours old. In the 2-minute version for Dana, what do you do with that?
+    options:
+      - text: Leave it out. It would only worry her.
+        correct: false
+        explanation: She would hear it later from someone else, and trust you less.
+      - text: Name it as the one trade-off, and say why billing is still protected.
+        correct: true
+        explanation: One honest caveat, with the reason it's safe, builds trust.
+      - text: Start with it, to be fully transparent.
+        correct: false
+        explanation: The result and the impact still come first.
+      - text: Turn it into a long list of every limitation you can think of.
+        correct: false
+        explanation: Give the one that matters. A long list buries it.
+    source: { quote: "Named the 24-hour caveat and why billing is safe", page: 116 }
+
+  - id: D41-06
+    type: mcq
+    stem: Dana says she's building a slide for Thursday. What's the best way to end the call?
+    options:
+      - text: “Let me know if you need anything else.”
+        correct: false
+        explanation: Vague, and it leaves her to do the work.
+      - text: One sentence she can paste into the slide, and a promise to send the numbers in writing today.
+        correct: true
+        explanation: Easy to use now, with a dated follow-up.
+      - text: “I'll walk you through the whole design on Thursday.”
+        correct: false
+        explanation: She needs the sentence before Thursday, not a walkthrough.
+      - text: Nothing. She has what she needs.
+        correct: false
+        explanation: Without a sentence and a follow-up, she may paraphrase the numbers wrongly.
+    source: { quote: "Gave a ready slide sentence and a written follow-up", page: 116 }
+
+  - id: D41-07
+    type: scenario
+    clientLine: "“Wait — what does that mean for the front desk?”"
+    stem: You started with “we cache the eligibility response in Redis”, and Dana cut in. What do you say?
+    options:
+      - text: “Sorry, let me start from the beginning. The architecture has three layers…”
+        correct: false
+        explanation: More detail, in the wrong order. She asked for the result.
+      - text: "“Check-in now takes under a second instead of six. Each front desk gets back about 17 minutes a day.”"
+        correct: true
+        explanation: "Answers her question first, in her terms: staff time."
+      - text: “It means lower latency on the check-in route.”
+        correct: false
+        explanation: It's the same jargon in a different word.
+      - text: “You'd have to ask Lisa what it means for her team.”
+        correct: false
+        explanation: You have the numbers. Passing the question looks unprepared.
+    source: { quote: "Wait — what does that mean for the front desk?", page: 117 }
+
+  - id: D41-08
+    type: scenario
+    clientLine: "“So was it broken before? Why didn't we catch it earlier?”"
+    stem: Dana asks it in front of her colleague. What's the best answer?
+    options:
+      - text: “Honestly, it was a rushed sprint. Nobody checked it.”
+        correct: false
+        explanation: Blaming the team, with no facts and no plan.
+      - text: “It was slow, yes. We only saw the 6 seconds when we tested with a real clinic's volume on April 16, and that's how we found and fixed it before the pilot.”
+        correct: true
+        explanation: Honest, factual, no blame, and it ends on the fix before the pilot.
+      - text: “It wasn't broken, it was just slow.”
+        correct: false
+        explanation: Defensive. For the front desk, slow is broken.
+      - text: “I'm not sure. I'd have to check the history.”
+        correct: false
+        explanation: You know why it was found when it was. Say that.
+    source: { quote: "So was it broken before? Why didn't we catch it earlier?", page: 117 }
+
+  - id: D41-09
+    type: written
+    stem: >-
+      Dana says: “I heard you fixed the check-in thing. Give me the 30-second version.” Write what you say, using only
+      these facts: check-in took about 6 seconds and now takes 0.8; each front desk saves about 17 minutes a day; about
+      3.4 hours a day once all 12 clinics are live.
+    modelAnswer: >-
+      Short version: check-in now takes under a second instead of six. That gives each front desk back about 17 minutes
+      a day, around 3 hours a day once all 12 clinics are live.
+    scoringPoints:
+      - Leads with the result (under a second instead of six), not with how it was done
+      - Gives the business impact in staff time
+      - Two or three sentences, with no unexplained jargon
+    source: { quote: "Short version: check-in now takes under a second instead of six.", page: 116 }
+
+  - id: D41-10
+    type: written
+    stem: >-
+      Rewrite this sentence from your draft so it passes the “So what?” test: “We added a 24-hour cache on the Suncoast
+      eligibility lookup.”
+    modelAnswer: >-
+      We now save each patient's insurance check for a day, so check-in takes under a second instead of six.
+    scoringPoints:
+      - Says what changed in plain words (saves the insurance check for a day)
+      - Adds what it means for the client (check-in time before and after)
+      - No jargon left unexplained (cache, lookup, eligibility)
+    source: { quote: "If there's no answer, cut the sentence.", page: 114 }

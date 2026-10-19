@@ -1,0 +1,178 @@
+# Day 32 quiz pool: Tuesday, April 14. The Epic fix needs 5 working days and the pilot moves from April 27 to
+# May 4: the 6-step bad-news formula (headline, impact, cause, options, need, next update). Shows 5 of 10.
+pool: day-32
+questions:
+  - id: D32-01
+    type: mcq
+    stem: "Dana says: “Hey, you wanted to talk? I've got ten minutes.” What's your first sentence?"
+    options:
+      - text: "“So, a bit of background on the Epic sync first…”"
+        correct: false
+        explanation: Background before the headline. She'll cut in within 30 seconds.
+      - text: "“I'm so sorry, I really don't know how to say this…”"
+        correct: false
+        explanation: Builds dread and still doesn't tell her anything.
+      - text: "“Dana, I have some bad news about the pilot date. We need to move it from April 27 to May 4.”"
+        correct: true
+        explanation: Headline and impact in the first two sentences.
+      - text: "“How's your week going? Busy with the board update?”"
+        correct: false
+        explanation: Small talk when she has ten minutes and you have bad news.
+    source: { quote: "Dana, I have some bad news about the pilot date. We need to move it from April 27 to May 4.", page: 93 }
+
+  - id: D32-02
+    type: mcq
+    stem: "Dana asks: “Whose fault is this — yours or Epic's?” What's the best reply?"
+    options:
+      - text: "“Honestly, Epic's. Their documentation was wrong.”"
+        correct: false
+        explanation: Blame sounds like an excuse, even when it's partly true.
+      - text: "“Ours, completely. I'm so sorry.”"
+        correct: false
+        explanation: Over-apologising, and not accurate either.
+      - text: "“Epic sends times and cancellation codes differently from the documentation. Rather than pointing fingers, I'd like to spend our time on the two options.”"
+        correct: true
+        explanation: The cause in one sentence, no blame, back to the decision.
+      - text: "“Does it matter?”"
+        correct: false
+        explanation: Dismissive. It matters to her board.
+    source: { quote: "Whose fault is this — yours or Epic's?", page: 94 }
+
+  - id: D32-03
+    type: mcq
+    stem: "Dana asks: “Can you guarantee May 4?” What's the best reply?"
+    options:
+      - text: "“Yes, guaranteed.”"
+        correct: false
+        explanation: A promise before the retest is done. If it slips again, trust is gone.
+      - text: "“I can't guarantee it today. I'll know after Thursday's retest, and I'll update you on Thursday either way.”"
+        correct: true
+        explanation: Honest, with the moment you'll know and a fixed update.
+      - text: "“Nothing in software is guaranteed.”"
+        correct: false
+        explanation: True, but it sounds like you're preparing an excuse.
+      - text: "“I hope so.”"
+        correct: false
+        explanation: Hope isn't a plan she can take to her board.
+    source: { quote: "I can't guarantee it today. I'll know after Thursday's retest, and I'll update you on Thursday either way.", page: 154 }
+
+  - id: D32-04
+    type: mcq
+    stem: "You've given Dana two options. She asks: “What would you do?” What's the best reply?"
+    options:
+      - text: "“Whatever you think is best.”"
+        correct: false
+        explanation: Options with no recommendation leave her alone with the decision.
+      - text: "“May 4. Manual re-entry is exactly how wrong appointment times happen, and the May 12 investor demo is still safe.”"
+        correct: true
+        explanation: A clear recommendation with a patient reason and a business reason.
+      - text: "“Either works for us.”"
+        correct: false
+        explanation: "Not true: one of them puts wrong times in front of patients."
+      - text: "“Let me think and get back to you.”"
+        correct: false
+        explanation: You've had all morning. She needs your view now.
+    source: { quote: "May 4. Manual re-entry is exactly how wrong appointment times happen.", page: 154 }
+
+  - id: D32-05
+    type: mcq
+    stem: "Dana asks: “Why am I only hearing this now?” What's the best reply?"
+    options:
+      - text: "“We didn't want to worry you until we were sure.”"
+        correct: false
+        explanation: Admits to holding news back, the thing that loses trust.
+      - text: "“We confirmed the size of it this morning, and I wanted you to hear it today, not on Friday.”"
+        correct: true
+        explanation: Factual, and shows you brought it to her as soon as you knew.
+      - text: "“The tech lead only told me today.”"
+        correct: false
+        explanation: Pushes the blame onto a teammate.
+      - text: "“I did mention an Epic issue yesterday.”"
+        correct: false
+        explanation: Defensive, and a vague mention isn't the same as the news.
+    source: { quote: "We confirmed the size of it this morning, and I wanted you to hear it today, not on Friday.", page: 154 }
+
+  - id: D32-06
+    type: mcq
+    stem: "You're closing the bad-news call. Which ending is best?"
+    options:
+      - text: "“Okay, let me know what you decide.”"
+        correct: false
+        explanation: No deadline for the decision and no next update.
+      - text: "“Sorry again for all this.”"
+        correct: false
+        explanation: A second apology instead of next steps.
+      - text: "“To recap: May 4, your decision by noon tomorrow, and a call with Dr. Mercer on Thursday. I'll send this in writing right after the call.”"
+        correct: true
+        explanation: Decision, deadline, the joint call and the written follow-up.
+      - text: "“We'll keep you posted.”"
+        correct: false
+        explanation: No time attached, so she'll be chasing you.
+    source: { quote: "To recap: May 4, your decision by noon tomorrow, and a joint call with Dr. Mercer on Thursday.", page: 155 }
+
+  - id: D32-07
+    type: scenario
+    clientLine: "“Just tell me — is the date moving?”"
+    stem: You're 40 seconds into explaining Epic's time-zone format. Dana cuts in. What do you say?
+    options:
+      - text: "“I'm getting there, it's important context.”"
+        correct: false
+        explanation: Defends the background she just told you she doesn't want.
+      - text: "“Yes. It moves from April 27 to May 4. Here are two options.”"
+        correct: true
+        explanation: Gives the headline at once, then moves to the plan.
+      - text: "“Well, it depends on a few things…”"
+        correct: false
+        explanation: Still no headline, after she asked directly.
+      - text: "“Sorry, sorry. Yes, sorry.”"
+        correct: false
+        explanation: Three apologies and no date.
+    source: { quote: "Just tell me — is the date moving?", page: 94 }
+
+  - id: D32-08
+    type: scenario
+    clientLine: "“Fine. But Lakeside's front desks need to re-plan staff. How fast can they know?”"
+    stem: Dana has accepted May 4. What's your best reply?
+    options:
+      - text: "“That's Lakeside's problem to sort out.”"
+        correct: false
+        explanation: Their problem now exists because of our slip. Own the communication.
+      - text: "“Let's tell Dr. Mercer together on Thursday. Lisa Chen needs a week's notice for staff schedules, so Thursday still gives her more than that before May 4.”"
+        correct: true
+        explanation: Thinks about the impact on the clinic, with a date that works for it.
+      - text: "“Let's wait until May 4 is guaranteed.”"
+        correct: false
+        explanation: Delays news Lakeside needs to plan.
+      - text: "“I'll email Lisa myself right now without you.”"
+        correct: false
+        explanation: Fast, but goes around Dana, who owns the Lakeside relationship.
+    source: { quote: "Lisa Chen at Lakeside needs one week's notice to change clinic staff schedules.", page: 94 }
+
+  - id: D32-09
+    type: written
+    stem: >-
+      Your QA engineer asks in the team channel: “Do I tell Lakeside UAT testers the date's moving, or wait?” Write your
+      reply in 2–3 sentences.
+    modelAnswer: >-
+      Please wait for now: Dana decides by noon tomorrow, and we tell Lakeside together with Dr. Mercer on Thursday so
+      they hear it once, from us. Until then, plan the retest for the Epic fix and the full regression for May 4.
+      I'll post the confirmed date here by Wednesday 1 pm.
+    scoringPoints:
+      - Gives a clear answer (wait) with the reason
+      - Explains who tells Lakeside and when
+      - Gives a time for the next update
+    source: { quote: "A decision by Wed Apr 15, noon CT, and a joint call with Dr. Mercer on Thursday to tell Lakeside.", page: 93 }
+
+  - id: D32-10
+    type: written
+    stem: >-
+      Dana messages after the call: “Give me two lines I can read out to the board on Friday.” Write them.
+    modelAnswer: >-
+      The CareBook pilot at 3 Lakeside clinics moves one week, from April 27 to May 4, so the Epic appointment sync
+      can be fixed and fully tested. Going live without it would mean front desks re-entering bookings by hand; the May
+      12 investor demo is not affected.
+    scoringPoints:
+      - Headline first, with the old and new date
+      - The cause in plain words, no blame and no jargon
+      - Names the business impact (manual re-entry avoided, investor demo safe)
+    source: { quote: "You need to tell Dana today, before Dana's Friday board update.", page: 93 }

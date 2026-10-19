@@ -1,0 +1,154 @@
+day: 22
+block: 5
+title: PHI in the logs
+type: normal
+storyDate: Tuesday, March 31
+minutes: About 50 min
+intro: >-
+  Laura Bennett has one question: how does CareBook handle PHI in logs? Today you learn the HIPAA basics every
+  engineer needs and answer her at a high level, without guessing.
+lessons:
+  - id: phi-we-touch
+    kind: prep
+    title: The PHI we touch
+    minutes: 5 min
+    blocks:
+      - type: yesterday
+        text: >-
+          Dr. Mercer explained Lakeside's first value-based contract. You found what Lakeside will be measured on and
+          what's at stake, linked no-shows to it, and wrote US healthcare in one picture.
+      - type: scene
+        when: Tuesday, March 31 · 9:00 am Pacific
+        text: >-
+          Three answers fall due today: Rachel's and Kevin's items for Laura's questionnaire, and your answer to Dana on
+          the fourth pilot clinic. Then Laura emails. Pacific Coast Health is still evaluating CareBook, and she'd like
+          15 minutes this afternoon on one question only: how CareBook handles PHI in logs.
+      - type: text
+        text: >-
+          You can't protect PHI if you don't know where it is. List the PHI you think your project touches, then where
+          it shows up. On a real project? Use it. Not on one yet? Use CareBook.
+      - type: note
+        tone: warn
+        title: Kinds of data, never values
+        text: >-
+          Write “date of birth”, not anyone's date of birth. No real patient details, screenshots or exports, here or
+          anywhere else.
+    fields:
+      - { id: phi, label: The PHI my project touches, kind: area, rows: 4, placeholder: "e.g. Patient name, date of birth, phone, insurance member ID…" }
+      - { id: where, label: Where it shows up, kind: area, rows: 3, placeholder: "e.g. Booking screens, SMS reminders, the Epic sync, error logs…" }
+      - { id: riskiest, label: Where it's most likely to leak, kind: line, placeholder: "e.g. Debug logs when a booking fails" }
+    source: both
+
+  - id: hipaa-for-engineers
+    kind: learn
+    title: HIPAA for engineers
+    minutes: 10 min
+    lead: >-
+      HIPAA is the 1996 US law that protects the privacy and security of health information. You don't need the legal
+      detail. You need five ideas, and one rule you never break.
+    blocks:
+      - type: steps
+        items:
+          - { title: PHI, text: "Health information that can identify a person: a name plus a diagnosis, a date of birth, a record number. In electronic form, it's ePHI." }
+          - { title: Privacy Rule, text: "Who may see or share PHI." }
+          - { title: Security Rule, text: "How to protect electronic PHI: access control, encryption, audit logs." }
+          - { title: Minimum necessary, text: "Use only the PHI you need for the task. If a screen or a log doesn't need it, leave it out." }
+          - { title: BAA, text: "The Business Associate Agreement: the contract that lets a vendor (often us) handle PHI for a client." }
+      - type: note
+        tone: warn
+        title: Our rule
+        text: >-
+          No PHI in logs, test data, screenshots, or AI tools. Not on a deadline, not “just this once”.
+      - { type: heading, text: Who must follow it }
+      - type: facts
+        rows:
+          - { label: Covered entity, value: "Providers, payers and clearinghouses. Lakeside is one." }
+          - { label: Business associate, value: "A vendor that handles PHI for a covered entity: Brightpath, and often us." }
+          - { label: BAA, value: "The contract that makes it allowed. No BAA, no PHI." }
+      - { type: heading, text: What it looks like in a log }
+      - type: compare
+        beforeLabel: PHI in the log
+        afterLabel: IDs only
+        before: "Booking failed: Jane Testpatient, DOB 01/01/1970, 555-0100, reason: chest pain"
+        after: "Booking failed: patient 48213, appointment 99071, error SLOT_TAKEN"
+      - type: text
+        text: >-
+          With a client, say it at that level: plain, short and specific. “We log internal IDs, never names” builds
+          more trust than “We follow HIPAA best practices”, which tells a compliance officer nothing.
+      - type: watch
+        url: https://www.hhs.gov/hipaa/for-professionals/privacy/laws-regulations/index.html
+        title: HHS Summary of the HIPAA Privacy Rule
+        meta: Free · skim who is covered, what PHI is, minimum necessary
+
+  - id: phi-logs-call
+    kind: mock
+    title: Laura's question on logs
+    heading: “How do you handle PHI in logs?”
+    minutes: 15 min
+    lead: >-
+      Laura has one question, and she takes notes on everything. Answer first, then the specifics. For anything you
+      don't know, don't guess: name who will confirm, and when.
+    cardId: S14
+    level: 1
+    scriptNote: Use it the first time, then try the call again without it.
+
+  - id: phi-logs-call-review
+    kind: reflect
+    title: How did the call go?
+    minutes: 5 min
+    lead: Tick what you managed, then note what the AI told you.
+    checksTitle: On this call, I…
+    checks:
+      - answered first, then gave specifics (IDs not PHI, masking, access)
+      - guessed nothing, and gave each unknown an owner and a time
+      - mentioned the audit log and its date
+      - offered a written summary
+    fields:
+      - { id: went-well, label: What went well, kind: area, placeholder: "From the AI's feedback" }
+      - { id: fix-next, label: One thing to fix next time, kind: area, placeholder: "e.g. I said “we follow best practices” before I gave a single fact" }
+      - { id: log, label: "Could I explain the business reason behind every requirement I heard today?", kind: area, rows: 2 }
+    rubric: true
+
+  - id: protect-phi
+    kind: write
+    title: How we protect PHI
+    heading: “How we protect PHI” in five plain lines
+    minutes: 10 min
+    lead: >-
+      Laura gets a short written summary today, and every new teammate needs the same thing. Write five lines in plain
+      English that a non-engineer understands. Use your real project, or CareBook.
+    source: both
+    blocks:
+      - type: recall
+        label: Your PHI list from this morning
+        day: 22
+        lesson: phi-we-touch
+        fields:
+          - { id: phi, label: The PHI we touch }
+          - { id: riskiest, label: Most likely to leak }
+      - type: text
+        text: >-
+          One idea per line: what we keep out, how we make sure of it, who can see the data, how it's protected, and
+          what we're adding next. Facts only. If you don't know something, leave it out of the five lines and say who
+          will confirm it.
+    fields:
+      - { id: line-1, label: Line 1, kind: line, placeholder: "e.g. Our application logs never contain patient details, only internal IDs." }
+      - { id: line-2, label: Line 2, kind: line }
+      - { id: line-3, label: Line 3, kind: line }
+      - { id: line-4, label: Line 4, kind: line }
+      - { id: line-5, label: Line 5, kind: line }
+
+scoring:
+  protect-phi:
+    modelAnswer: >-
+      1. Our application logs contain no patient details: we log internal IDs, never names, dates of birth, phone
+      numbers, emails or visit reasons.
+      2. A filter masks phone numbers and emails automatically, and “no PHI in logs” is checked in every code review.
+      3. Test data is made up, never copied from real patients.
+      4. All data is encrypted in transit and at rest on AWS, and only three named roles can read the logs.
+      5. By April 10 we add an audit log: who viewed or changed an appointment or intake form, and when, kept separate
+      from the app logs.
+    scoringPoints:
+      - Five plain lines a non-engineer understands, each with one specific fact
+      - Covers what is kept out, how it's enforced, who has access and how data is protected
+      - States only confirmed facts, with no guesses (for example on log retention)

@@ -1,0 +1,74 @@
+day: 43
+block: 9
+title: Shadow a live call
+type: live_call
+storyDate: Wednesday, April 29
+minutes: About 60 min
+intro: >-
+  Today's learning is a real client call. You join as an observer, fill in the observation sheet, then write your own
+  recap and compare it with the lead's.
+lessons:
+  - id: read-the-agenda
+    kind: prep
+    title: Read the agenda
+    minutes: 5 min
+    blocks:
+      - type: yesterday
+        text: >-
+          you told the check-in story twice: plainly to Dr. Mercer, then precisely to Kevin, with the same facts. You
+          asked Kevin for a day of work to warm the cache before May 4, and he'll decide after the go/no-go.
+      - type: scene
+        when: Wednesday, April 29 · 9:30 am Central · go/no-go day
+        text: >-
+          CareBook's go/no-go for the May 4 pilot is this afternoon. Your live call today is a different one: a real
+          client call you've been invited to observe. Ask the lead for the agenda today, and decide what you want to
+          watch for.
+      - type: steps
+        items:
+          - { title: Join as an observer, text: "Camera on, muted unless invited." }
+          - { title: Fill in the observation sheet, text: "Notes during the call, in your own words." }
+          - { title: Write your own recap, text: "Before you read the lead's. Then compare." }
+    fields:
+      - { id: agenda, label: What's on the agenda, kind: area, rows: 2, placeholder: "From the invite or the lead" }
+      - { id: watch-for, label: "One thing I want to watch the lead do", kind: line, placeholder: "e.g. How they handle a hard question" }
+    source: both
+
+  - id: shadow-call
+    kind: live
+    title: Live shadow 1
+    heading: Shadow a real client call
+    minutes: 30 min
+    liveRole: shadow
+    substituteCardId: S28
+    fallback: >-
+      If a live call isn't available today, swap it with a mock day and shadow later in the week. Two shadowed calls
+      this week is the target.
+    lead: >-
+      Observe the whole call. Notice how the lead opens, what they ask, and how they close. Don't try to take part.
+      Fill in the sheet as you go, or straight after.
+    fields:
+      - { id: call, label: "Call · lead · date", kind: line, placeholder: "e.g. Weekly sync · the lead's name · Apr 29" }
+      - { id: opening, label: "How did they open the call and set the agenda?", kind: area, rows: 2 }
+      - { id: best-question, label: The best question they asked, kind: line }
+      - { id: unknown, label: How did they handle an unknown or pushback?, kind: area, rows: 2 }
+      - { id: closing, label: "How did they close and confirm next steps?", kind: area, rows: 2 }
+      - { id: phrase, label: One phrase I want to use myself, kind: line }
+      - { id: differently, label: What would I have done differently?, kind: area, rows: 2 }
+
+  - id: shadow-recap
+    kind: write
+    title: Your recap
+    heading: Write your recap, then compare it
+    minutes: 10 min
+    lead: >-
+      Write your own recap before you read the lead's: the decisions, the actions with owners, and the open
+      questions. Then compare.
+    source: both
+    blocks:
+      - { type: field, id: my-recap }
+      - { type: field, id: lead-recap }
+      - { type: field, id: missed }
+    fields:
+      - { id: my-recap, label: My recap, kind: area, rows: 5, placeholder: "Decisions, actions with owners, open questions" }
+      - { id: lead-recap, label: "Key points from the lead's recap", kind: area, rows: 3 }
+      - { id: missed, label: "My recap vs theirs: what did I miss?", kind: area, rows: 3 }

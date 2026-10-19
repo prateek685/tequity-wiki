@@ -1,0 +1,178 @@
+# Day 29 quiz pool: Thursday, April 9. Dr. Mercer wants “proper Epic integration before rollout”: EHR, HL7 v2, FHIR
+# and SMART on FHIR in plain words, the five integration questions, pilot vs rollout scope. Shows 5 of 10.
+pool: day-29
+questions:
+  - id: D29-01
+    type: mcq
+    stem: "Dr. Mercer: “Look, we need proper Epic integration. That's it.” What's the best reply?"
+    options:
+      - text: "“No problem, we'll do full integration.”"
+        correct: false
+        explanation: Agrees to something nobody has defined. “You don't know what I mean yet.”
+      - text: "“We already have FHIR Appointment and Slot sync.”"
+        correct: false
+        explanation: Jargon, and defensive.
+      - text: "“Happy to. Could I ask a few questions so we get it exactly right? What works well today, and where does it break down for your staff?”"
+        correct: true
+        explanation: Starts discovery from his staff's day, not from the technology.
+      - text: "“That's a big project.”"
+        correct: false
+        explanation: Sizes it before you know what it is.
+    source: { quote: "Look, we need proper Epic integration. That's it.", page: 86 }
+
+  - id: D29-02
+    type: mcq
+    stem: "Dr. Mercer asks: “Why can't you just write directly into our Epic database?” What's the best reply?"
+    options:
+      - text: "“We could, if Sam gives us the password.”"
+        correct: false
+        explanation: Suggests bypassing Epic's controls on patient data.
+      - text: "“Epic doesn't let outside apps write to its database directly, for safety: changes go through approved interfaces, so the chart stays correct and every change is tracked. We'd use those.”"
+        correct: true
+        explanation: Plain words, and the reason is one a CMIO cares about, patient safety.
+      - text: "“Because of HL7 v2 and FHIR constraints.”"
+        correct: false
+        explanation: Jargon with no meaning for him.
+      - text: "“That's just how it is.”"
+        correct: false
+        explanation: No reason at all.
+    source: { quote: "Why can't you just write directly into our Epic database?", page: 86 }
+
+  - id: D29-03
+    type: mcq
+    stem: "Dr. Mercer asks: “What's FHIR, in one sentence?” What's the best answer?"
+    options:
+      - text: "“Fast Healthcare Interoperability Resources, a RESTful JSON specification.”"
+        correct: false
+        explanation: Correct, and meaningless to a doctor.
+      - text: "“The modern standard way for apps like CareBook to read and update information in Epic, one piece at a time, like an appointment or a patient.”"
+        correct: true
+        explanation: Plain words, with examples from his world.
+      - text: "“A newer version of HL7.”"
+        correct: false
+        explanation: Half true, and explains nothing.
+      - text: "“It's technical, you don't need to worry about it.”"
+        correct: false
+        explanation: Talks down to a senior client.
+    source: { quote: "FHIR = the modern API standard; data comes as \"resources\" (Patient, Appointment, Observation, Encounter).", page: 77 }
+
+  - id: D29-04
+    type: mcq
+    stem: "Dr. Mercer says cancellations must reach Epic. Which question tells you the most next?"
+    options:
+      - text: "“Do you want it real-time?”"
+        correct: false
+        explanation: Leads him to say yes to the most expensive answer.
+      - text: "“How quickly does it need to show up: seconds, minutes, or the same day?”"
+        correct: true
+        explanation: Open, with real choices. The answer (15 minutes) shapes the whole design.
+      - text: "“Is FHIR okay for that?”"
+        correct: false
+        explanation: Asks a doctor to choose a technology.
+      - text: "“Can we do it after rollout?”"
+        correct: false
+        explanation: Pushes the date before you understand the need.
+    source: { quote: "How quickly does it need to show up — seconds, minutes, or the same day?", page: 85 }
+
+  - id: D29-05
+    type: mcq
+    stem: "Lisa Chen hears “SMART on FHIR” in a meeting and asks you what it means. What's the best reply?"
+    options:
+      - text: "“An OAuth-based launch framework.”"
+        correct: false
+        explanation: Jargon to explain jargon.
+      - text: "“A standard way for an app to open inside Epic, with the same secure login, so staff don't sign in twice.”"
+        correct: true
+        explanation: Plain, accurate, and says why staff would care.
+      - text: "“A smarter version of FHIR.”"
+        correct: false
+        explanation: A guess from the name.
+      - text: "“Nothing you need to know.”"
+        correct: false
+        explanation: Dismissive to a stakeholder.
+    source: { quote: "A standard that lets apps launch inside an EHR with secure login (OAuth).", page: 169 }
+
+  - id: D29-06
+    type: mcq
+    stem: "Sam Porter mentions Lakeside's HL7 “ADT feed”. Dana asks what that is. What's the best reply?"
+    options:
+      - text: "“An advertising feed.”"
+        correct: false
+        explanation: A guess. In healthcare, ADT means something else.
+      - text: "“Messages Epic sends when a patient is admitted, discharged or transferred. It's the older HL7 v2 standard, still used everywhere in hospitals.”"
+        correct: true
+        explanation: The meaning in one line, and where it fits.
+      - text: "“It's what we're building in Sprint 5.”"
+        correct: false
+        explanation: Wrong. Sprint 5 is the FHIR appointment sync.
+      - text: "“Not sure, I'll nod along.”"
+        correct: false
+        explanation: Ask or look it up. Never nod past a term the client uses.
+    source: { quote: "Admit, Discharge, Transfer — events (and HL7 messages) when a patient moves through a hospital.", page: 169 }
+
+  - id: D29-07
+    type: scenario
+    clientLine: "“You're the tech people — you tell me.”"
+    stem: You asked which data needs to move. Dr. Mercer turns it back on you. What do you say?
+    options:
+      - text: "“Okay: we'll sync everything both ways.”"
+        correct: false
+        explanation: Maximum scope, and you still don't know the need.
+      - text: "“I can tell you how. You're the one who knows what slows your staff down. When the front desk deals with a CareBook booking, what do they have to fix by hand in Epic?”"
+        correct: true
+        explanation: Brings him back to his staff's work, with a concrete question.
+      - text: "“We can't decide that for you.”"
+        correct: false
+        explanation: True, but cold, and gives him nothing to answer.
+      - text: "“Let's ask Sam Porter.”"
+        correct: false
+        explanation: Sam knows Epic, not what the doctors and front desk need.
+    source: { quote: "You're the tech people — you tell me.", page: 85 }
+
+  - id: D29-08
+    type: scenario
+    clientLine: "“Everyone else integrates with Epic, so why is this hard?”"
+    stem: The three things he needs all write into Epic. What do you say?
+    options:
+      - text: "“Other vendors probably cut corners.”"
+        correct: false
+        explanation: Criticises others with a guess.
+      - text: "“It's not hard for us.”"
+        correct: false
+        explanation: A promise before you've checked the Epic side.
+      - text: "“Reading from Epic, which we already do, is the easy part. Writing into Epic needs Lakeside's approval and Epic's app review, because it changes the record. That's why I want to check it with Sam before I give you a date.”"
+        correct: true
+        explanation: Plain words, honest about what makes it harder, and a next step.
+      - text: "“Epic is just very complicated.”"
+        correct: false
+        explanation: Vague, and sounds like an excuse.
+    source: { quote: "Production access needs Sam Porter's approval and Epic's app review.", page: 85 }
+
+  - id: D29-09
+    type: written
+    stem: >-
+      Dana asks: “What did Alan actually mean by ‘proper’ integration?” Write your answer in 2–3 sentences.
+    modelAnswer: >-
+      Three things, all from CareBook into Epic: cancellations made in CareBook show in Epic, new patients booked in
+      CareBook create a pending registration in Epic, and the visit reason appears in Epic. Within 15 minutes is fine.
+      It's for the July 1 rollout, not the pilot.
+    scoringPoints:
+      - Lists the three needs and the direction (CareBook into Epic)
+      - Gives the speed and the deadline
+      - Makes clear it isn't pilot scope
+    source: { quote: "\"Proper\" means 3 things: cancellations made in CareBook show in Epic; new patients booked in CareBook create a pending registration in Epic; the visit reason appears in Epic.", page: 86 }
+
+  - id: D29-10
+    type: written
+    stem: >-
+      Kevin asks: “Why does Alan care so much about cancellations in Epic?” Write your answer in 2 sentences, with the
+      business reason.
+    modelAnswer: >-
+      Today the front desk re-types about 60 cancellations a day across the 3 pilot clinics, because CareBook
+      cancellations don't reach Epic. Writing them into Epic within 15 minutes removes that work and the mistakes
+      that come with it.
+    scoringPoints:
+      - Uses the number (about 60 a day at the 3 pilot clinics)
+      - Names the business outcome (staff time and fewer mistakes)
+      - Two plain sentences
+    source: { quote: "Today the front desk re-types about 60 cancellations a day across the 3 pilot clinics.", page: 86 }

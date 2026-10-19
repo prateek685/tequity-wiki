@@ -1,0 +1,52 @@
+{
+  "name": "client-ready-portal",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@10.34.6",
+  "engines": {
+    "node": ">=24.21.0 <25"
+  },
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "lint:css": "turbo run lint:css",
+    "typecheck": "turbo run typecheck",
+    "test": "turbo run test",
+    "test:db": "turbo run test:db",
+    "test:e2e": "turbo run test:e2e",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "db:migrate": "pnpm --filter @portal/api db:migrate",
+    "admin:set-password": "pnpm --filter @portal/api admin:set-password",
+    "db:migrate:dev": "pnpm --filter @portal/api db:migrate:dev",
+    "db:seed": "pnpm --filter @portal/api db:seed",
+    "db:seed:demo": "pnpm --filter @portal/api db:seed:demo",
+    "content:check": "pnpm --filter @portal/content build && pnpm --filter @portal/content content:check",
+    "content:import": "pnpm --filter @portal/api content:import",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "@types/node": "24.19.1",
+    "eslint": "10.12.0",
+    "husky": "9.1.7",
+    "lint-staged": "17.6.0",
+    "prettier": "3.9.9",
+    "prettier-plugin-tailwindcss": "0.8.1",
+    "stylelint": "17.16.0",
+    "turbo": "2.11.7",
+    "typescript": "6.0.3"
+  },
+  "lint-staged": {
+    "{apps,packages/content,packages/contracts}/**/*.{ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "packages/config/**/*.ts": "prettier --write",
+    "*.{js,mjs,json,md,yml,yaml}": "prettier --write",
+    "*.css": [
+      "stylelint --fix --config apps/web/.stylelintrc.json",
+      "prettier --write"
+    ]
+  }
+}

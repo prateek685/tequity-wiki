@@ -1,0 +1,131 @@
+day: 46
+block: 10
+title: Structure a demo
+type: normal
+storyDate: Monday, May 4
+minutes: About 50 min
+intro: >-
+  The pilot went live this morning. Tomorrow you demo the clinic schedule view and the waitlist to Dana and Lisa Chen.
+  Today you learn the demo structure, narrate the demo as if you were screen-sharing, and write the script.
+lessons:
+  - id: choose-the-feature
+    kind: prep
+    title: Choose what to demo
+    minutes: 5 min
+    blocks:
+      - type: yesterday
+        text: >-
+          you shadowed your second live call, asked the lead one question, and wrote your own recap. Kevin approved the
+          day of cache-warming work after the go/no-go, and it shipped on Friday.
+      - type: scene
+        when: Monday, May 4 · 7:30 am Central · pilot day one
+        text: >-
+          CareBook went live this morning at Westside, Northgate and Riverbend. Tomorrow is the end-of-sprint demo for
+          Dana, with Lisa Chen joining from Lakeside. Pick the feature you'll show: today it's the clinic schedule view
+          and the waitlist, or a feature from your own project.
+    fields:
+      - { id: feature, label: The feature to demo, kind: line, placeholder: "e.g. Clinic schedule view and waitlist" }
+      - { id: audience, label: "Who's watching, and what do they care about?", kind: area, rows: 2, placeholder: "e.g. Dana: outcomes and investors. Lisa: fewer phone calls for her staff" }
+    source: both
+
+  - id: demo-structure
+    kind: learn
+    title: Demo structure
+    heading: Result first, then the story
+    minutes: 10 min
+    lead: >-
+      A structured demo builds confidence in you and the team. A messy demo creates doubt even when the work is good.
+    blocks:
+      - type: steps
+        items:
+          - { title: Goal recap, text: "“Last sprint we agreed to make booking faster for patients.”" }
+          - { title: Show the result first, text: "“Do the last thing first”: the finished screen or outcome." }
+          - { title: Walk the user journey as a story, text: "“Imagine Maria, a patient, booking a visit at 10 pm…”" }
+          - { title: What's next and known gaps, text: "Say what isn't done, honestly." }
+          - { title: Ask for specific feedback, text: "“Does this flow match how your front desk works?”" }
+      - type: compare
+        beforeLabel: A tour of features
+        afterLabel: A user story
+        before: >-
+          “Here's the schedule page. This button filters by provider. This colour means checked in. And here's the
+          waitlist tab…”
+        after: >-
+          “It's 8:05 am and a patient cancels their 10:30. Watch the waitlist suggest three patients for that slot. The
+          front desk clicks Offer, and it's filled in about a minute.”
+      - type: note
+        tone: info
+        title: Free reading
+        text: >-
+          Peter Cohan's “Great Demo!” is where “do the last thing first” comes from. His free articles are short.
+      - type: watch
+        url: https://greatdemo.com/blog/
+        title: Great Demo! free articles
+        meta: Peter Cohan. Read one. The book is free to borrow on the Internet Archive (free account).
+
+  - id: narrate-demo
+    kind: mock
+    title: Narrate the demo to Dana
+    heading: Walk Dana through tomorrow's demo
+    minutes: 10 min
+    lead: >-
+      Level 1: Dana is friendly and wants a quick walkthrough, as if you were sharing your screen. Result first, then the
+      journey, in under 8 minutes. End by asking for specific feedback.
+    cardId: S43
+    level: 1
+    scriptNote: Use it the first time, then try the call again without it.
+
+  - id: narrate-review
+    kind: reflect
+    title: How did the call go?
+    minutes: 5 min
+    lead: Tick what you managed, then note what the AI told you.
+    checksTitle: On this call, I…
+    checks:
+      - showed the result before the tour
+      - told it as a front-desk story, not a feature list
+      - named the known gaps honestly
+      - ended with specific feedback questions
+    fields:
+      - { id: went-well, label: What went well, kind: area, placeholder: "From the AI's feedback" }
+      - { id: fix-next, label: One thing to fix next time, kind: area, placeholder: "e.g. I described three buttons without saying why Lisa would care" }
+    rubric: true
+
+  - id: demo-script
+    kind: write
+    title: Demo script
+    heading: Your demo script
+    minutes: 10 min
+    lead: >-
+      Write the script for tomorrow: the goal, the story, what's next, and three feedback questions.
+    source: both
+    blocks:
+      - type: recall
+        label: What you're demoing and who's watching
+        day: 46
+        lesson: choose-the-feature
+        fields:
+          - { id: feature, label: Feature }
+          - { id: audience, label: Audience }
+      - { type: field, id: goal }
+      - { type: field, id: story }
+      - { type: field, id: next }
+      - { type: field, id: feedback }
+    fields:
+      - { id: goal, label: Goal recap (one sentence), kind: line, placeholder: "Last sprint we agreed to…" }
+      - { id: story, label: The user story, kind: area, rows: 3, placeholder: "Imagine [a real user] at [a real moment]…" }
+      - { id: next, label: "What's next and known gaps", kind: area, rows: 2 }
+      - { id: feedback, label: Three feedback questions, kind: area, rows: 3, placeholder: "Open questions, not “Any questions?”" }
+
+scoring:
+  demo-script:
+    modelAnswer: >-
+      Goal: last sprint we agreed to give the front desk one screen for the day and a faster way to fill cancellations.
+      Story: it's 8:05 am and a patient cancels their 10:30 with Dr. Kim. The slot opens, CareBook lists three waitlist
+      patients, the front desk clicks Offer and calls the first one, and the slot is filled in about a minute. What's
+      next: offers are still manual and there's no Spanish yet; both are on the backlog for after the pilot. Feedback:
+      does this flow match how your team handles cancellations today? What would stop your staff using it every day?
+      What would you want to see next?
+    scoringPoints:
+      - The goal recap names what was agreed last sprint, in one sentence
+      - A real user at a real moment, told as a story, with the result shown before the tour
+      - Known gaps stated honestly, and three open feedback questions rather than “Any questions?”

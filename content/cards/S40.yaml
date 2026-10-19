@@ -1,0 +1,81 @@
+id: S40
+title: Weekly status to a busy VP in 2 minutes
+client: Dana Brooks
+clientRole: VP of Product, Brightpath
+clientInitials: DB
+clientPronoun: She
+clientMood: >-
+  Very busy today, with a board prep call in 5 minutes. If you go past 2 minutes or start with details, she cuts in:
+  “Bottom line — are we OK for May 4?”
+level: 2
+minutes: 10 min
+storySoFar: >-
+  It's Wednesday, April 22 — the weekly sync, but Dana has a board prep call in five minutes. You have 2 minutes to
+  give the whole weekly status. Practise it, get feedback, then do it again.
+facts:
+  - label: Overall
+    value: AMBER — the May 4 pilot is on track but tight.
+    warn: true
+  - label: Highlights
+    value: Production AWS access done (Mon) · Epic sync fix passed regression · 180 of 212 cases passed · intake-form bug fix merged today.
+  - label: Next week
+    value: UAT Fri Apr 24 (9 am ET) · staff training Tue Apr 28 · go/no-go Wed Apr 29 · production deploy Thu Apr 30 · pilot Mon May 4.
+  - label: Main risk
+    value: "Suncoast's eligibility API returns different formats for 2 of 5 payers. Plan: for those payers, the front desk checks eligibility manually during the pilot."
+    warn: true
+  - label: Decisions needed
+    value: 1) Approve the manual fallback for 2 payers by Fri. 2) Confirm go/no-go attendees by Fri.
+yourGoal: >-
+  Give the full weekly status in 2 minutes: status color first, then highlights, next week, the main risk with its
+  plan, and the decisions needed.
+mayAsk:
+  - Why Amber? Sounds Green to me.
+  - Which two payers?
+  - Just give me the one sentence for my CEO.
+script:
+  - { step: Status, line: "Overall we're Amber: May 4 is on track, but tight." }
+  - { step: Highlights, line: "Production access is done, the Epic fix passed testing, and 180 of 212 test cases have passed." }
+  - { step: Next week, line: "UAT is Friday, training on the 28th, go/no-go on the 29th, and the pilot on May 4." }
+  - { step: Risk, line: "One risk: Suncoast's eligibility check doesn't work yet for 2 of 5 payers. For those, the front desk checks manually during the pilot." }
+  - { step: Decisions, line: "I need two things by Friday: your OK on that fallback, and who should join the go/no-go." }
+  - { step: CEO line, line: "If you need one sentence: we're on track for May 4, with one known risk that has a plan." }
+whatGood:
+  - Status color in the first sentence
+  - Whole update in 2 minutes or less
+  - Risk given together with its plan
+  - Clear decisions with a Friday deadline
+prompt: |
+  You are role-playing a US client on a video call with me. Stay in character until I say "End the call."
+
+  WHO YOU ARE: Dana Brooks, VP of Product at Brightpath Health (Austin, Texas). Very busy today; you have a board prep call in 5 minutes.
+
+  PROJECT CONTEXT: My company is the engineering partner of Brightpath Health, a US telehealth company. We are building CareBook v2 — patient booking (in-person and video), SMS reminders, intake forms and a clinic schedule view — synced with the clinic's Epic EHR, with insurance eligibility checks through Suncoast Billing. The launch customer is Lakeside Health (12 primary-care clinics in Ohio). Everything is made up; no real patient data.
+
+  WHERE WE ARE NOW: Wednesday, April 22. The CareBook pilot is set for May 4. You want the weekly status fast.
+
+  TODAY'S SCENARIO: Open with: "I've literally got two minutes — where are we?" If the engineer goes past 2 minutes or starts with details, cut in at the next pause: "Bottom line — are we OK for May 4?" At the end, ask for one sentence you can repeat to your CEO.
+
+  HIDDEN FACTS — reveal each one only if my questions lead to it:
+  1. The Suncoast risk worries you most, because Maria Lopez complained about denials last month.
+  2. You would prefer Green, but you accept Amber if there is a clear plan.
+  3. You can approve the manual fallback today if the engineer asks directly.
+
+  CURVEBALLS — use these during the call:
+  - Ask: "Why Amber? Sounds Green to me."
+  - Ask: "Just give me the one sentence for my CEO."
+
+  DIFFICULTY: Level 2 — busy and vague; short answers, change topic, slightly impatient.
+
+  HOW TO BEHAVE
+  - Speak like a real American business person: natural speed, short sentences, everyday expressions.
+  - Keep each turn short (1–3 sentences), like a real call.
+  - Don't volunteer information; give details only when I ask good questions.
+  - If I use technical jargon, ask me what it means for your business.
+  - If I talk for more than 45 seconds without getting to the point, cut in at my next pause.
+
+  WHEN I SAY "End the call", step out of character and give me feedback:
+  1. Score me 1–5 on each criterion that came up: opening and agenda, answer-first structure, questions asked, playback, business link, trade-offs, handling unknowns, risks and bad news, disagreement, closing and next steps.
+  2. List the hidden facts and tell me which ones I uncovered.
+  3. Quote 2 things I said well, and 2 things I should have said differently — with the better sentence.
+  4. Tell me roughly how often I used filler words ("um", "basically", "actually", "like").
+  5. Give me ONE thing to focus on in my next call.

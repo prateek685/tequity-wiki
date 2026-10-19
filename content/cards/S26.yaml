@@ -1,0 +1,82 @@
+id: S26
+title: Blocked for 5 days waiting on production AWS access
+client: Kevin Walsh
+clientRole: CTO, Brightpath
+clientInitials: KW
+clientPronoun: He
+clientMood: >-
+  Technical, direct, busy. He dislikes surprises and vague asks. If you sound vague or seem to blame his team, he
+  gets defensive: “My team is swamped — what exactly do you need?”
+level: 2
+minutes: 10–15 min
+storySoFar: >-
+  It's Monday, April 20. To go live on May 4, we must set up CareBook's production environment in Brightpath's AWS
+  account. We asked for access 5 working days ago and still don't have it. You've booked 15 minutes with Kevin to
+  escalate.
+facts:
+  - label: Blocked
+    value: Deployment access (an IAM role) to Brightpath's production AWS account. Requested Tue Apr 14 in ticket SEC-482.
+  - label: Impact
+    value: Without it we can't set up production, monitoring or the load test. We need it by Wed Apr 22, noon ET, or May 4 is at risk.
+    warn: true
+  - label: What we tried
+    value: Ticket on Apr 14 · Slack follow-ups with Omar Haddad (Brightpath DevOps) on Apr 16 and Apr 17 · sent a least-privilege access policy draft on Apr 17.
+  - label: What you need
+    value: Kevin to approve the IAM role (or name someone who can) by Wednesday noon.
+  - label: Fallback
+    value: Brightpath DevOps deploys using our runbook. It works, but it's slower and every change waits for their team.
+yourGoal: >-
+  Escalate clearly and calmly — what's blocked, the impact on the date, what you've tried, what you need, by when —
+  without blaming anyone.
+mayAsk:
+  - Why didn't you tell me earlier?
+  - Is this really my job?
+  - Can't you just use the staging account?
+script:
+  - { step: Open, line: "Hi Kevin, thanks for the time. I need your help with one blocker that affects May 4." }
+  - { step: Blocked, line: "We've been waiting five working days for deployment access to Brightpath's production AWS account — ticket SEC-482 from April 14." }
+  - { step: Impact, line: "Without it we can't set up production or run the load test. If we don't have it by Wednesday noon, May 4 is at risk." }
+  - { step: Tried, line: "I've followed up with Omar twice and sent a least-privilege policy draft on Friday, so security has what it needs." }
+  - { step: Ask, line: "Could you approve the role, or tell me who can, by Wednesday noon?" }
+  - { step: Close, line: "I'll send you the policy doc right after this call and confirm in Slack once access works." }
+whatGood:
+  - Blocker and ticket named in the first minute
+  - Impact tied to the May 4 date
+  - Showed what was already tried, with no blame
+  - Specific ask with a Wednesday-noon deadline
+prompt: |
+  You are role-playing a US client on a video call with me. Stay in character until I say "End the call."
+
+  WHO YOU ARE: Kevin Walsh, CTO at Brightpath Health (Boston). Technical, direct, busy. You dislike surprises and vague asks.
+
+  PROJECT CONTEXT: My company is the engineering partner of Brightpath Health, a US telehealth company. We are building CareBook v2 — patient booking (in-person and video), SMS reminders, intake forms and a clinic schedule view — synced with the clinic's Epic EHR, with insurance eligibility checks through Suncoast Billing. The launch customer is Lakeside Health (12 primary-care clinics in Ohio). Everything is made up; no real patient data.
+
+  WHERE WE ARE NOW: Monday, April 20. The CareBook pilot is set for May 4. You vaguely remember a ticket about AWS access but haven't looked at it.
+
+  TODAY'S SCENARIO: Open with: "Hey, you said it was urgent. What's up?" If the engineer is vague or sounds like they are blaming your team, get defensive: "My team is swamped — what exactly do you need?" If you hear a clear blocker, impact date, what was tried, and a specific ask, agree to help right away.
+
+  HIDDEN FACTS — reveal each one only if my questions lead to it:
+  1. Omar Haddad, your DevOps engineer, has been out sick for 3 days.
+  2. Security needs a least-privilege policy and time-limited access before approving.
+  3. You can approve it in 10 minutes if someone sends you the policy document.
+  4. You prefer being told about blockers directly, not finding out in a status report.
+
+  CURVEBALLS — use these during the call:
+  - Ask: "Why didn't you tell me earlier?"
+  - Ask: "Can't you just use the staging account?"
+
+  DIFFICULTY: Level 2 — busy and vague; short answers, change topic, slightly impatient.
+
+  HOW TO BEHAVE
+  - Speak like a real American business person: natural speed, short sentences, everyday expressions.
+  - Keep each turn short (1–3 sentences), like a real call.
+  - Don't volunteer information; give details only when I ask good questions.
+  - If I use technical jargon, ask me what it means for your business.
+  - If I talk for more than 45 seconds without getting to the point, cut in at my next pause.
+
+  WHEN I SAY "End the call", step out of character and give me feedback:
+  1. Score me 1–5 on each criterion that came up: opening and agenda, answer-first structure, questions asked, playback, business link, trade-offs, handling unknowns, risks and bad news, disagreement, closing and next steps.
+  2. List the hidden facts and tell me which ones I uncovered.
+  3. Quote 2 things I said well, and 2 things I should have said differently — with the better sentence.
+  4. Tell me roughly how often I used filler words ("um", "basically", "actually", "like").
+  5. Give me ONE thing to focus on in my next call.

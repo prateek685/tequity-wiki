@@ -1,0 +1,179 @@
+# Day 39 quiz pool: Thursday, April 23. Maria Lopez and Lakeside's telehealth denials: the revenue cycle in plain
+# words, denial rate, days in A/R, 270/271, asking for the numbers before any solution, playback. Shows 5 of 10.
+pool: day-39
+questions:
+  - id: D39-01
+    type: mcq
+    stem: "Maria opens: “Our denials on telehealth are way too high, and I think your app is part of the problem.” What's the best reply?"
+    options:
+      - text: "“Our app works fine. It's probably the payers.”"
+        correct: false
+        explanation: Defensive, and a guess.
+      - text: "“We can check eligibility at booking, that'll fix it.”"
+        correct: false
+        explanation: A solution before you know a single number.
+      - text: "“That's worth getting right. Before I suggest anything, could you walk me through the problem: which denials, and how many?”"
+        correct: true
+        explanation: Takes her seriously and asks for the numbers first.
+      - text: "“Sorry about that. We'll do better.”"
+        correct: false
+        explanation: Apologises for something you don't understand yet.
+    source: { quote: "So, our denials on telehealth are way too high, and I think your app is part of the problem.", page: 110 }
+
+  - id: D39-02
+    type: mcq
+    stem: "Maria asks: “Do you even know what a 271 response is?” You only roughly know. What do you say?"
+    options:
+      - text: "“Of course.” Then move on quickly."
+        correct: false
+        explanation: Bluffing. She'll test it next.
+      - text: "“Roughly: it's the payer's answer to an eligibility question, the 270. Correct me if I'm missing something that matters here.”"
+        correct: true
+        explanation: Shares what you know and invites her to fill the gap.
+      - text: "“That's more of a backend thing, I'm not sure.”"
+        correct: false
+        explanation: Dodges a term at the heart of her problem.
+      - text: "“Can we skip the jargon?”"
+        correct: false
+        explanation: It's her everyday language, not jargon to her.
+    source: { quote: "Eligibility questions and answers use X12 270/271.", page: 109 }
+
+  - id: D39-03
+    type: mcq
+    stem: "Maria says each denial “adds about 18 days in A/R”. What does that mean for Lakeside?"
+    options:
+      - text: "The claim is lost for good."
+        correct: false
+        explanation: Denials can be fixed and sent again.
+      - text: "Lakeside waits about 18 days longer to get paid for that visit."
+        correct: true
+        explanation: Days in A/R is how long it takes to get paid.
+      - text: "The patient waits 18 days for their next visit."
+        correct: false
+        explanation: A/R is about money owed, not appointments.
+      - text: "The claim is checked by 18 people."
+        correct: false
+        explanation: A guess. Ask if you don't know a term.
+    source: { quote: "The average number of days it takes to get paid (accounts receivable).", page: 170 }
+
+  - id: D39-04
+    type: mcq
+    stem: You want to find out what success looks like for Maria. Which question is best?
+    options:
+      - text: "“Would fewer denials be good?”"
+        correct: false
+        explanation: A yes/no question with an obvious answer.
+      - text: "“What denial rate would you call a success, and by when?”"
+        correct: true
+        explanation: "Asks for a number and a date: the success metric."
+      - text: "“Do you want us to build a dashboard?”"
+        correct: false
+        explanation: A solution dressed as a question.
+      - text: "“Is 12% bad?”"
+        correct: false
+        explanation: She already said it's too high.
+    source: { quote: "What denial rate would you call a success, and by when?", page: 109 }
+
+  - id: D39-05
+    type: mcq
+    stem: Maria explains a patient's insurance was inactive on the day of the visit. Where in the cycle could CareBook have caught it?
+    options:
+      - text: "At coding, when the diagnosis is chosen."
+        correct: false
+        explanation: Coding happens after the visit. Too late for coverage.
+      - text: "At the eligibility check, before the visit, ideally right at booking."
+        correct: true
+        explanation: The eligibility check asks whether the insurance is active.
+      - text: "When the payer sends the payment file."
+        correct: false
+        explanation: That's when the denial arrives, weeks later.
+      - text: "It can't be caught; it's the payer's job."
+        correct: false
+        explanation: Checking eligibility is exactly how clinics prevent it.
+    source: { quote: "2. Eligibility check (is the insurance active?)", page: 101 }
+
+  - id: D39-06
+    type: mcq
+    stem: "Dana asks you after the call: “So what's the clean-claim rate Maria kept mentioning?” What's the best reply?"
+    options:
+      - text: "“The percentage of claims the payer accepts the first time they're sent.”"
+        correct: true
+        explanation: Plain and correct.
+      - text: "“How many claims have no typos.”"
+        correct: false
+        explanation: Close in spirit, but wrong. It's about first-time acceptance.
+      - text: "“It's the same as the denial rate.”"
+        correct: false
+        explanation: Related, but not the same measure.
+      - text: "“Some billing metric, I didn't ask.”"
+        correct: false
+        explanation: You let a key term pass without asking.
+    source: { quote: "The percentage of claims accepted the first time they are submitted.", page: 170 }
+
+  - id: D39-07
+    type: scenario
+    clientLine: "“Can CareBook just fix this?”"
+    stem: You know the eligibility check works for only 3 of 5 payers. What do you say?
+    options:
+      - text: "“Yes, we'll get you under 5%.”"
+        correct: false
+        explanation: Promises a number you can't control.
+      - text: "“No, it's a billing problem, not an app problem.”"
+        correct: false
+        explanation: Shuts the door on a real part of the solution.
+      - text: "“CareBook can help with part of it, the eligibility errors. The check works for 3 of 5 payers today. Let me send you two ideas, with what each would fix, by tomorrow.”"
+        correct: true
+        explanation: Honest about the part you can help with, and a dated next step.
+      - text: "“How fast do you need it?”"
+        correct: false
+        explanation: Jumps to timing before agreeing what to build.
+    source: { quote: "Ask: \"Can CareBook just fix this?\"", page: 110 }
+
+  - id: D39-08
+    type: scenario
+    clientLine: "“Hold on — you don't know the numbers yet.”"
+    stem: You started describing a booking-time check. What do you do?
+    options:
+      - text: "Keep going; the idea is good."
+        correct: false
+        explanation: She's told you she's not ready to hear it.
+      - text: "“Fair. Let me step back: how many telehealth visits and denials do you see a month, and what does one denial cost?”"
+        correct: true
+        explanation: Accepts the point and goes back to volume and cost.
+      - text: "“Sorry, sorry, you're right, I always do that…”"
+        correct: false
+        explanation: One calm line is enough.
+      - text: "“The numbers don't change the solution.”"
+        correct: false
+        explanation: The numbers decide whether it's worth building.
+    source: { quote: "If they jump to a solution before understanding the numbers, say \"Hold on — you don't know the numbers yet.\"", page: 110 }
+
+  - id: D39-09
+    type: written
+    stem: >-
+      Before closing, play back what Maria told you in 2–3 sentences, in business terms, ending with a check
+      question.
+    modelAnswer: >-
+      So if I've got it: about 240 of your 2,000 telehealth claims a month are denied, and about 70% of those come from
+      eligibility, mainly inactive coverage and wrong member IDs. Each one costs $25–$40 to rework and adds about 18
+      days before you're paid, and you need to be under 5% within 6 months. Is that right?
+    scoringPoints:
+      - Uses her numbers for volume, causes, cost and target
+      - In business terms (money and days), not technical terms
+      - Ends with a question she can confirm or correct
+    source: { quote: "Played back the problem in business terms", page: 109 }
+
+  - id: D39-10
+    type: written
+    stem: >-
+      A new teammate asks: “Why does a billing company care about our booking screen?” Explain it in 2–3 sentences.
+    modelAnswer: >-
+      A clinic only gets paid when the payer accepts the claim, and many claims are denied because the insurance was
+      inactive or the member ID was wrong. The booking screen is where the patient types that member ID, so if we
+      check eligibility there, the error is fixed in seconds instead of turning into a denial weeks later. Fewer
+      denials means the clinic gets paid faster and spends less on rework.
+    scoringPoints:
+      - Explains how denials happen in plain words
+      - Links the booking screen to the eligibility check and the claim
+      - Ends on the business result (money, time)
+    source: { quote: "RCM (revenue cycle management) = how a clinic gets paid.", page: 101 }

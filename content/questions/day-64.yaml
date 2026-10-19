@@ -1,0 +1,166 @@
+# Day 64 quiz pool: Thursday, May 28. The weekly status report, presenting the readiness case, and sharing it. Shows 5 of 10.
+pool: day-64
+questions:
+  - id: D64-01
+    type: mcq
+    stem: "What comes first in your five-minute readiness case presentation?"
+    options:
+      - text: "The headline: am I ready, and with what support."
+        correct: true
+        explanation: "Headline first."
+      - text: "The background of the project."
+        correct: false
+        explanation: "Background comes later."
+      - text: "Your weakest pillar."
+        correct: false
+        explanation: "After the headline."
+      - text: "A long list of scores."
+        correct: false
+        explanation: "Evidence comes after the headline."
+    source: { quote: "Headline first, then evidence per pillar", page: 148 }
+
+  - id: D64-02
+    type: mcq
+    stem: "What makes your readiness case convincing?"
+    options:
+      - text: "Numbers and examples, not adjectives."
+        correct: true
+        explanation: "Proof over opinion."
+      - text: "Strong adjectives like “great”."
+        correct: false
+        explanation: "Opinions."
+      - text: "A very long page."
+        correct: false
+        explanation: "One page is the target."
+      - text: "Hiding the weak spot."
+        correct: false
+        explanation: "Honesty is part of it."
+    source: { quote: "Numbers and examples, not adjectives", page: 148 }
+
+  - id: D64-03
+    type: mcq
+    stem: "Your manager asks: “What's your weakest pillar, honestly?” What is the best answer?"
+    options:
+      - text: "Name it, give a fact behind it, and say what you're doing about it."
+        correct: true
+        explanation: "Honest, with a plan."
+      - text: "“I don't really have one.”"
+        correct: false
+        explanation: "Not honest."
+      - text: "“All of them, a bit.”"
+        correct: false
+        explanation: "Vague."
+      - text: "“Ask the PM.”"
+        correct: false
+        explanation: "You own it."
+    source: { quote: "Named a weak spot honestly, with a plan", page: 148 }
+
+  - id: D64-04
+    type: mcq
+    stem: "What does your manager care most about, according to the practice card?"
+    options:
+      - text: "Follow-through: recaps and follow-ups sent on time."
+        correct: true
+        explanation: "The hidden fact."
+      - text: "Fancy slides."
+        correct: false
+        explanation: "Not in the card."
+      - text: "How many frameworks you know."
+        correct: false
+        explanation: "Not what they look for."
+      - text: "Speaking fast."
+        correct: false
+        explanation: "Not the goal."
+    source: { quote: "You care most about follow-through: recaps and follow-ups sent on time.", page: 149 }
+
+  - id: D64-05
+    type: mcq
+    stem: "Which of these asks for specific support?"
+    options:
+      - text: "“One more co-led call with a technical client, and feedback on my next disagreement.”"
+        correct: true
+        explanation: "Specific and checkable."
+      - text: "“Some help in general.”"
+        correct: false
+        explanation: "Vague."
+      - text: "“I need nothing.”"
+        correct: false
+        explanation: "Not honest."
+      - text: "“More time.”"
+        correct: false
+        explanation: "Not specific."
+    source: { quote: "Asked for specific support", page: 148 }
+
+  - id: D64-06
+    type: mcq
+    stem: "What happens when you save the finalised readiness case?"
+    options:
+      - text: "It is shared with your manager and opens your final review."
+        correct: true
+        explanation: "Saving shares it."
+      - text: "It goes to the client."
+        correct: false
+        explanation: "Only your manager."
+      - text: "It is deleted after the review."
+        correct: false
+        explanation: "It stays."
+      - text: "Nothing; you still have to email it."
+        correct: false
+        explanation: "Saving shares it."
+    source: { quote: "Headline first, then evidence per pillar", page: 148 }
+
+  - id: D64-07
+    type: scenario
+    clientLine: "OK, you've got five minutes. Convince me."
+    stem: "Your manager opens the practice review like this. What do you say first?"
+    options:
+      - text: "“My headline: I'm ready to work directly with a client, with one area I'm still building. Here's the evidence for each pillar.”"
+        correct: true
+        explanation: "Headline first."
+      - text: "“Let me start with the project history.”"
+        correct: false
+        explanation: "Headline first."
+      - text: "“I've done a lot of work.”"
+        correct: false
+        explanation: "Vague."
+      - text: "“Where should I start?”"
+        correct: false
+        explanation: "You lead."
+    source: { quote: "Headline first, then evidence per pillar", page: 148 }
+
+  - id: D64-08
+    type: scenario
+    clientLine: "If I removed the PM from your project next week, what would go wrong first?"
+    stem: "Your manager asks this. What do you say?"
+    options:
+      - text: "“Honestly, a sceptical technical question, like the load test. I'd answer with a recommendation, and I'd ask you for feedback afterwards.”"
+        correct: true
+        explanation: "Honest, specific, with a plan."
+      - text: "“Nothing would go wrong.”"
+        correct: false
+        explanation: "Not honest."
+      - text: "“Everything.”"
+        correct: false
+        explanation: "Unhelpful."
+      - text: "“I'd ask the PM to come back.”"
+        correct: false
+        explanation: "The question is about you."
+    source: { quote: "Named a weak spot honestly, with a plan", page: 148 }
+
+  - id: D64-09
+    type: written
+    stem: "Write the first two lines of your weekly status report to the client."
+    modelAnswer: "Subject: CareBook weekly status, May 28: Green. We're on track for June 15; Epic access is approved for the 9 new clinics, and 2 bugs are open, none high."
+    scoringPoints:
+      - "Gives the status first"
+      - "Has a number or a fact behind it"
+    source: { quote: "Solo-week EOD notes and status report", page: 145 }
+
+  - id: D64-10
+    type: written
+    stem: "Write one headline sentence for your readiness case."
+    modelAnswer: "I'm ready to work directly with a client, with one area I'm still building: handling a sceptical CTO under time pressure."
+    scoringPoints:
+      - "Says whether you're ready"
+      - "Names the support or the area still being built"
+    source: { quote: "Headline first, then evidence per pillar", page: 148 }

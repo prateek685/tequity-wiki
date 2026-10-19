@@ -1,0 +1,180 @@
+# Day 42 quiz pool: Tuesday, April 28. One story at three levels, two audiences: plain and outcome-first for a
+# clinician, precise for a CTO; same facts; the "So what?" test; a clear ask. Shows 5 of 10.
+pool: day-42
+questions:
+  - id: D42-01
+    type: mcq
+    stem: Dr. Mercer opens with “I hear check-in was slow. Should I be worried?” What's the best first sentence?
+    options:
+      - text: "“No. Check-in now takes under a second instead of six, so the 8 am line at the front desk moves much faster.”"
+        correct: true
+        explanation: "The answer first, in his terms: the front desk and the morning line."
+      - text: “We moved the eligibility lookup behind a Redis cache with a 24-hour TTL.”
+        correct: false
+        explanation: Accurate, but it's the engineer level, and he'd ask what it means.
+      - text: “It was a performance regression in the check-in route.”
+        correct: false
+        explanation: Jargon, and it doesn't answer whether he should worry.
+      - text: “Let me start with how the page loads.”
+        correct: false
+        explanation: Background first. He asked a yes/no question.
+    source: { quote: "Cares about the front desk and patient safety.", page: 118 }
+
+  - id: D42-02
+    type: mcq
+    stem: You told Dr. Mercer “about 15 minutes saved a day” and told Kevin “about 17 minutes”. What's wrong?
+    options:
+      - text: Nothing. Each audience gets the number that fits.
+        correct: false
+        explanation: A fact has one value. If the numbers differ, one of them is wrong.
+      - text: The facts changed between versions. Only the words and the depth should change.
+        correct: true
+        explanation: Dr. Mercer and Kevin will compare notes. Keep every fact identical.
+      - text: You should have used a round number for both.
+        correct: false
+        explanation: Rounding is fine if you do it in both versions. The problem is the mismatch.
+      - text: Kevin should not hear minutes at all.
+        correct: false
+        explanation: He can hear them. The issue is consistency, not audience.
+    source: { quote: "Facts identical in both versions", page: 118 }
+
+  - id: D42-03
+    type: mcq
+    stem: Kevin asks “Walk me through the cache design.” You have 2 minutes. What do you cover?
+    options:
+      - text: Only the business result. He's a busy executive.
+        correct: false
+        explanation: He's technical and asked for the design. The executive version won't satisfy him.
+      - text: What is cached and for how long, the key, how it is cleared, security, and what happens if Suncoast is down.
+        correct: true
+        explanation: "Precise design, a failure answer and security: what a CTO challenges."
+      - text: An analogy with a shared calendar.
+        correct: false
+        explanation: A good tool for a clinic manager, not a CTO asking for design.
+      - text: “It's complicated, so I'll send a document.”
+        correct: false
+        explanation: He asked now. A document can follow, but it doesn't replace an answer.
+    source: { quote: "Precise design, failure and security answers for Kevin", page: 118 }
+
+  - id: D42-04
+    type: mcq
+    stem: You've finished the design with Kevin, and the cache warming is still not built. How do you end?
+    options:
+      - text: Don't mention it. It's not built yet.
+        correct: false
+        explanation: He'd find out later, and the pilot is in six days.
+      - text: Name it as the open item, say it's about a day of work, and ask for his OK to add it before May 4.
+        correct: true
+        explanation: One open item, an estimate, and a specific decision requested.
+      - text: Say you'll “try to fit it in”.
+        correct: false
+        explanation: Vague, with no ask and no date.
+      - text: Say it's the client's problem.
+        correct: false
+        explanation: It's your fix to propose, and Kevin is the one who can approve it.
+    source: { quote: "A clear ask to Kevin on the open item", page: 118 }
+
+  - id: D42-05
+    type: mcq
+    stem: Which sentence is right for the 2-minute (manager) level?
+    options:
+      - text: “It's faster now.”
+        correct: false
+        explanation: That's less than the 30-second level. There's no number and no impact.
+      - text: “Check-in is now under a second. We save each insurance check for a day, and Suncoast checks again before billing.”
+        correct: true
+        explanation: Result, approach and the risk with its safety net, in plain words.
+      - text: “We use Redis, keyed by patient and plan, with encryption at rest and background retries.”
+        correct: false
+        explanation: That's the 10-minute engineer level.
+      - text: “Please see the pull request.”
+        correct: false
+        explanation: A pointer to code is not an explanation.
+    source: { quote: "Manager (2 minutes): + approach + risks.", page: 114 }
+
+  - id: D42-06
+    type: mcq
+    stem: Why plan all three levels before you talk to either person?
+    options:
+      - text: So you can recite all three in a row.
+        correct: false
+        explanation: You choose one level for each listener, and go deeper only if they ask.
+      - text: So you can start at the top level and go deeper only when asked.
+        correct: true
+        explanation: It's one story you can stop at three places.
+      - text: So you never have to listen to the client.
+        correct: false
+        explanation: The questions tell you how deep to go.
+      - text: To make the call longer.
+        correct: false
+        explanation: Levels are about fitting the listener, not filling time.
+    source: { quote: "Start at the top level and go deeper only if they ask.", page: 114 }
+
+  - id: D42-07
+    type: scenario
+    clientLine: "“Could a patient be told they're covered when they're not?”"
+    stem: Dr. Mercer asks it, and an old vendor once did exactly that. What do you say?
+    options:
+      - text: “No, that can't happen.”
+        correct: false
+        explanation: Absolute, and it's not quite true. A saved result can be up to a day old.
+      - text: "“Only in one narrow case: a result is up to a day old. Suncoast checks again before any claim is sent, so no claim goes out on old information, and staff can refresh with one click.”"
+        correct: true
+        explanation: Honest about the limit, plain about the safety net, and gives staff a tool.
+      - text: “That's a question for Suncoast.”
+        correct: false
+        explanation: It's your design. Pointing elsewhere sounds like avoiding it.
+      - text: “The cache uses a keyed 24-hour TTL.”
+        correct: false
+        explanation: Jargon in answer to a patient-safety worry.
+    source: { quote: "Could a patient be told they're covered when they're not?", page: 118 }
+
+  - id: D42-08
+    type: scenario
+    clientLine: "“Why 24 hours? Why not one hour?”"
+    stem: Kevin asks it. You know that eligibility rarely changes within a day. What's the best answer?
+    options:
+      - text: “It's the default.”
+        correct: false
+        explanation: He asked for a reason. A default isn't one.
+      - text: "“Coverage rarely changes within a day, and the cache clears on any insurance change. One hour would still send most check-ins to Suncoast at 8 am. I can shorten it if you prefer.”"
+        correct: true
+        explanation: A reason, a safety net, the trade-off of the alternative, and openness to his call.
+      - text: “Because Dana wanted it.”
+        correct: false
+        explanation: Passing the decision on, with no engineering reason.
+      - text: “We could do an hour. Which do you want?”
+        correct: false
+        explanation: Hands him the decision with no recommendation.
+    source: { quote: "Why 24 hours? Why not one hour?", page: 119 }
+
+  - id: D42-09
+    type: written
+    stem: >-
+      Dr. Mercer asks: “What happens if Suncoast is down on a busy morning?” Write the answer for him, in plain words,
+      using these facts: check-in uses the last saved result, staff see “eligibility not refreshed”, the system retries
+      every 5 minutes.
+    modelAnswer: >-
+      Check-in keeps working. It uses the last saved insurance result and shows your staff a note saying the eligibility
+      hasn't been refreshed. Behind the scenes it tries Suncoast again every 5 minutes, so it fixes itself when they're
+      back.
+    scoringPoints:
+      - Starts with the answer, that check-in keeps working
+      - Says what staff see and do, without technical terms
+      - Mentions the automatic retry in plain words
+    source: { quote: "Plain business and patient language with Dr. Mercer", page: 118 }
+
+  - id: D42-10
+    type: written
+    stem: >-
+      Kevin says: “What happens when Suncoast is down?” Write your answer for him in two or three sentences, with the
+      same facts.
+    modelAnswer: >-
+      Check-in serves the last saved eligibility result, flags it to staff as “eligibility not refreshed”, and retries
+      Suncoast in the background every 5 minutes. Nothing is dropped, and the saved result is cleared on any insurance
+      change, so we don't serve stale data after an update.
+    scoringPoints:
+      - Gives the technical behaviour precisely (last result served, retry every 5 minutes)
+      - Uses the same facts as the version for Dr. Mercer
+      - Short and specific, with no vague words like "it should work"
+    source: { quote: "Walk me through the cache design.", page: 119 }

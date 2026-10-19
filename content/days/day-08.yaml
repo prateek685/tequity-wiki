@@ -1,0 +1,131 @@
+day: 8
+block: 2
+title: Pyramid
+type: normal
+storyDate: Wednesday, March 11
+minutes: About 50 min
+intro: >-
+  Dr. Mercer heard about a “booking bug” and wants to know what it means for his clinics. Today you explain it main
+  message first, with three points underneath.
+lessons:
+  - id: messy-explanation
+    kind: prep
+    title: A messy explanation
+    minutes: 5 min
+    blocks:
+      - type: yesterday
+        text: >-
+          you answered Dana's “Why is this taking so long?” answer-first and wrote your first 5-line status.
+      - type: scene
+        when: Wednesday, March 11 · before a call with Dr. Mercer
+        text: >-
+          Two wins this morning: the SMS number is verified, and reschedule and cancel are finished. But on Monday QA
+          found a bug in staging: two patients could book the same slot at the same moment. Dana mentioned it to Dr.
+          Mercer, Lakeside's CMIO, and he wants to hear what's going on. This is the note a teammate drafted about it.
+      - type: message
+        label: The draft note
+        text: >-
+          The API is failing intermittently due to a race condition in the slot-locking logic when two patients try to
+          book the same slot concurrently, we are looking into possible approaches like optimistic locking or a
+          distributed lock using Redis.
+      - type: text
+        text: >-
+          Every fact in it may be true, but Dr. Mercer is a doctor, not an engineer. Before you learn today's
+          technique: what is the one thing he needs to know? Or pick a messy explanation you've written yourself.
+    fields:
+      - { id: one-thing, label: The one thing he needs to know, kind: line, placeholder: "e.g. No patient has been affected…" }
+    source: both
+
+  - id: pyramid-principle
+    kind: learn
+    title: The Pyramid Principle
+    heading: "The Pyramid Principle: main message first"
+    minutes: 10 min
+    lead: >-
+      Barbara Minto's rule for any update, proposal or explanation: start at the top. The reader should be able to
+      stop after the first line and still know what matters.
+    blocks:
+      - type: steps
+        items:
+          - { title: 1 · Main message, text: "One sentence: what it is and what it means for them." }
+          - { title: 2 · Up to three points, text: "Group what supports it. Three at most." }
+          - { title: 3 · Facts, text: "Back each point with a fact: a number, a date, a name." }
+      - type: compare
+        beforeLabel: The story in order
+        afterLabel: Main message first
+        before: >-
+          “So on March 3 we submitted the number, and carriers take 5 to 7 days, and we asked the provider to speed it
+          up, and then we asked Kevin…”
+        after: >-
+          “Reminders go live Wednesday, two days late, with no impact on the pilot. Three things: why it slipped, what
+          we tried, and what happens next.”
+      - type: text
+        text: >-
+          It works the same on a call and in writing. Say the main message, then name your points (“three things”) so
+          the listener knows how much is coming.
+
+  - id: explain-the-bug
+    kind: mock
+    title: Explain the bug to Dr. Mercer
+    minutes: 15 min
+    lead: >-
+      Main message first, then three supporting points, in patient terms. If a technical word slips out, he'll stop
+      you.
+    cardId: S33
+    level: 1
+    scriptNote: Use it the first time, then try the call again without it.
+
+  - id: explain-the-bug-review
+    kind: reflect
+    title: How did the call go?
+    minutes: 5 min
+    lead: Tick what you managed, then note what the AI told you.
+    checksTitle: On this call, I…
+    checks:
+      - gave the main message in the first sentence
+      - used no jargon and explained it in patient terms
+      - gave three clear supporting points
+      - offered something written to share
+    fields:
+      - { id: went-well, label: What went well, kind: area, placeholder: "From the AI's feedback" }
+      - { id: fix-next, label: One thing to fix next time, kind: area, placeholder: "e.g. I said “staging” without explaining it" }
+      - { id: log, label: "Could my reader act on my message without asking me a follow-up question?", kind: area, rows: 2 }
+    rubric: true
+
+  - id: bug-pyramid
+    kind: write
+    title: Rewrite it as a pyramid
+    heading: Rewrite the explanation as a pyramid
+    minutes: 10 min
+    lead: >-
+      Turn the draft note into something Dr. Mercer can read in ten seconds: one main message, three points under it.
+      Plain words only. Or rewrite your own messy explanation.
+    source: both
+    blocks:
+      - type: message
+        label: The draft note
+        text: >-
+          The API is failing intermittently due to a race condition in the slot-locking logic when two patients try to
+          book the same slot concurrently, we are looking into possible approaches like optimistic locking or a
+          distributed lock using Redis.
+    fields:
+      - { id: main-message, label: Main message, kind: area, rows: 2, placeholder: One sentence the reader could stop after… }
+      - { id: point-1, label: Point 1, kind: line, placeholder: "e.g. What happened: …" }
+      - { id: point-2, label: Point 2, kind: line, placeholder: "e.g. The fix: …" }
+      - { id: point-3, label: Point 3, kind: line, placeholder: "e.g. How we stop it coming back: …" }
+
+scoring:
+  bug-pyramid:
+    modelAnswer: >-
+      Main message: we found a double-booking bug in testing and we're fixing it this week, before any patient could
+      be affected.
+      1. What happened: if two patients booked the same time slot in the same second, both could get a
+      confirmation. It happened 3 times in 400 test bookings, only in our test system.
+      2. The fix: the system will hold a slot for a few seconds while one patient books it. It's done Thursday and
+      retested Friday.
+      3. To stop it coming back, an automatic check will try double bookings in every release. No impact on the
+      April 27 pilot.
+    scoringPoints:
+      - The main message comes first and says what it means for patients and clinics
+      - Exactly three grouped points, each backed by a fact or date
+      - No jargon (race condition, locking, Redis, API); plain patient terms

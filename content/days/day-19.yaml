@@ -1,0 +1,147 @@
+day: 19
+block: 4
+title: “I don't know — I'll check”
+type: normal
+storyDate: Thursday, March 26
+minutes: About 55 min
+intro: >-
+  Laura Bennett from Pacific Coast Health wants answers you don't have. Today you say “I don't know” calmly, share
+  what you do know, and commit to a date for the rest.
+lessons:
+  - id: laura-calls
+    kind: prep
+    title: Laura's hardest items
+    minutes: 5 min
+    blocks:
+      - type: yesterday
+        text: >-
+          you closed three loops on time, reran the weekly sync at Level 2, and turned the transcript into a checked
+          recap against the clock. Later that day, Dana chose a smaller no-shows-only dashboard, after the pilot and
+          before May 12.
+      - type: scene
+        when: Thursday, March 26 · 1:00 pm Pacific
+        text: >-
+          Pacific Coast Health, a hospital network in California, is evaluating CareBook. Laura Bennett, their
+          Compliance and Privacy Officer, sent a 120-question security questionnaire on Monday, and now she wants 20
+          minutes on the hardest items. Several of them you can't answer yourself: certifications, the uptime SLA,
+          the last penetration test. A previous vendor lost her business because an engineer guessed.
+      - type: text
+        text: >-
+          Write your own version of the five steps, in words you'd really say. You'll have them in front of you on the
+          call.
+    fields:
+      - { id: acknowledge, label: "1 · Acknowledge", kind: line, placeholder: "e.g. Good question." }
+      - { id: honest, label: "2 · Be honest", kind: line, placeholder: "e.g. I don't have that detail with me right now." }
+      - { id: what-i-know, label: "3 · Share what you know", kind: line, placeholder: "e.g. What I can tell you is…" }
+      - { id: commit, label: "4 · Commit", kind: line, placeholder: "e.g. I'll confirm by 10 am your time tomorrow." }
+      - { id: follow-up, label: "5 · Follow up in writing", kind: line, placeholder: "e.g. I'll put it in writing today, with the owner and the date." }
+
+  - id: i-dont-know
+    kind: learn
+    title: “I don't know — I'll check”
+    minutes: 10 min
+    lead: >-
+      A calm “I'll confirm by Tuesday” builds more trust than a confident guess. The guess is what loses the client
+      when it turns out wrong.
+    blocks:
+      - type: steps
+        items:
+          - { title: 1 · Acknowledge, text: "“Good question.”" }
+          - { title: 2 · Be honest, text: "“I don't have that detail right now.”" }
+          - { title: 3 · Share what you know, text: "“What I can tell you is…”" }
+          - { title: 4 · Commit, text: "“I'll confirm by 10 am your time tomorrow.”" }
+          - { title: 5 · Follow up in writing, text: "The same day: the item, who will confirm, and the date." }
+      - type: compare
+        beforeLabel: Apology spiral
+        afterLabel: Calm
+        before: >-
+          “Oh, I'm so sorry, I really should know this, sorry, I think it's probably 99.9%, but sorry, I'm not
+          completely sure…”
+        after: >-
+          “Good question. The uptime SLA is in Brightpath's contract, and I don't want to guess. I'll get the exact
+          figure from Dana by Monday.”
+      - type: text
+        text: >-
+          One short sentence of apology at most, and usually none is needed. Never say “probably” about a fact the
+          client will write down. And when it isn't yours to answer, name who owns it: that's still owner language.
+      - type: watch
+        url: https://www.youtube.com/watch?v=HAnw168huqA
+        title: "Matt Abrahams: Think Fast, Talk Smart"
+        meta: Stanford GSB · re-watch the Q&A part · answering questions you didn't expect
+
+  - id: five-unknowns
+    kind: mock
+    title: Laura's five questions
+    heading: Five questions you can't answer
+    minutes: 15 min
+    lead: >-
+      Level 2: Laura asks five specific questions in a row and won't accept “probably”. Stay calm. For each one, share
+      what you know, name who will confirm, and give a date.
+    cardId: S11
+    level: 2
+    scriptNote: Use it the first time, then try the call again without it.
+
+  - id: five-unknowns-review
+    kind: reflect
+    title: How did the call go?
+    minutes: 5 min
+    lead: Tick what you managed, then note what the AI told you.
+    checksTitle: On this call, I…
+    checks:
+      - never guessed
+      - shared what I did know for each question
+      - gave an owner and a date for every unknown
+      - used one calm sentence, no apology spiral
+    fields:
+      - { id: went-well, label: What went well, kind: area, placeholder: "From the AI's feedback" }
+      - { id: fix-next, label: One thing to fix next time, kind: area, placeholder: "e.g. I said “probably US-only” before I said I'd confirm" }
+      - { id: log, label: "Did I close every loop I opened this week?", kind: area, rows: 2 }
+    rubric: true
+
+  - id: unknowns-follow-up
+    kind: write
+    title: The follow-up email
+    heading: Answer Laura's five questions in writing
+    minutes: 10 min
+    lead: >-
+      You promised Laura a written list today. For each question: the answer if you have it, or who will confirm it
+      and by when. Every date must land before her April 3 deadline.
+    blocks:
+      - type: facts
+        label: Who can answer
+        rows:
+          - { label: Rachel Kim, value: "Brightpath compliance lead: certifications, the BAA" }
+          - { label: Dana Brooks, value: "The contract and the SLA" }
+          - { label: Kevin Walsh, value: "Infrastructure, backups, the penetration test" }
+      - { type: field, id: subject }
+      - { type: field, id: certification }
+      - { type: field, id: sla }
+      - { type: field, id: data-backups }
+      - { type: field, id: pen-test }
+      - { type: field, id: breach }
+      - { type: field, id: close }
+    fields:
+      - { id: subject, label: Subject, kind: line, placeholder: "e.g. CareBook security questions: 5 items, owners and dates" }
+      - { id: certification, label: "1 · HITRUST or SOC 2 status", kind: area, rows: 2 }
+      - { id: sla, label: "2 · Uptime SLA", kind: area, rows: 2 }
+      - { id: data-backups, label: "3 · Where data and backups are stored", kind: area, rows: 2 }
+      - { id: pen-test, label: "4 · Last penetration test", kind: area, rows: 2 }
+      - { id: breach, label: "5 · Breach-notification timeline", kind: area, rows: 2 }
+      - { id: close, label: Closing line, kind: line, placeholder: "e.g. I'll send each answer as it's confirmed, all before April 3." }
+
+scoring:
+  unknowns-follow-up:
+    modelAnswer: >-
+      Subject: CareBook security questions: 5 items, owners and dates (all before Apr 3).
+      Hi Laura, thank you for today. Here's where each item stands.
+      1. HITRUST or SOC 2: Rachel Kim, Brightpath's compliance lead, will confirm our status by Tue Mar 31.
+      2. Uptime SLA: it's set in Brightpath's contract. I'll send the exact figure from Dana by Mon Mar 30.
+      3. Data and backups: all CareBook data stays in US AWS regions, encrypted in transit (TLS 1.2+) and at rest
+      (AWS KMS). Kevin Walsh will confirm where backups are kept and for how long by Tue Mar 31.
+      4. Last penetration test: Kevin will confirm the date by Tue Mar 31.
+      5. Breach-notification timeline: it's in the BAA; Rachel will confirm it by Tue Mar 31.
+      I'll send each answer as it's confirmed, all before your April 3 deadline.
+    scoringPoints:
+      - Shares what is known (US regions, encryption) and guesses nothing
+      - Every open item has a named owner and a date before April 3
+      - Short and calm, with no apologies and no “probably”

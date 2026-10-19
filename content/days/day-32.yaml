@@ -1,0 +1,164 @@
+day: 32
+block: 7
+title: The pilot moves
+type: normal
+storyDate: Tuesday, April 14
+minutes: About 50 min
+intro: >-
+  The Epic fix is bigger than expected, and the April 27 pilot can't safely go live. Today you tell Dana in the first
+  30 seconds, with the bad-news formula: headline, impact, cause, options, what you need, and the next update.
+lessons:
+  - id: five-working-days
+    kind: prep
+    title: Five working days
+    minutes: 5 min
+    blocks:
+      - type: yesterday
+        text: >-
+          Dana wanted to skip the regression run. You acknowledged why April 27 matters, named the patient risk, and
+          she agreed to a shorter, risk-based test run with a go/no-go check-in on Wednesday. The revised plan was in
+          her inbox within the hour.
+      - type: scene
+        when: Tuesday, April 14 · 9:00 am Central
+        text: >-
+          The tech lead dug into the Epic sync overnight. The problem is bigger than it looked: Epic sends appointment
+          times in a different time-zone format, and uses different codes for cancelled and no-show visits than
+          Lakeside's documentation says. The fix plus retesting needs 5 working days. The pilot cannot safely go live
+          on April 27. Dana has a board update on Friday, so she needs to hear it today, from you.
+      - type: text
+        text: >-
+          Bad news gets harder the longer you wait, so write it now, one line per step. The next lesson explains the
+          six steps; the placeholders show where you're heading.
+    fields:
+      - { id: headline, label: "1 · Headline", kind: line, placeholder: "e.g. I have some bad news about the pilot date." }
+      - { id: impact, label: "2 · Impact", kind: line, placeholder: "e.g. The pilot moves from April 27 to May 4." }
+      - { id: cause, label: "3 · Cause (short, no blame)", kind: line }
+      - { id: options, label: "4 · Options", kind: area, rows: 2 }
+      - { id: need, label: "5 · What I need", kind: line }
+      - { id: next-update, label: "6 · Next update", kind: line }
+
+  - id: bad-news-formula
+    kind: learn
+    title: The bad-news formula
+    minutes: 10 min
+    lead: >-
+      Every project has bad news: delays, bugs, wrong assumptions. US clients lose trust when they hear it late or
+      indirectly, not when they hear it early with a plan.
+    blocks:
+      - type: steps
+        items:
+          - { title: 1 · Headline, text: "Say it's bad news, in the first sentence. “I have some bad news about the release date.”" }
+          - { title: 2 · Impact, text: "What changes for them. “The release moves from March 12 to March 19.”" }
+          - { title: 3 · Cause, text: "Short, no blame. “The pharmacy API returns data in a different format than documented.”" }
+          - { title: 4 · Options, text: "Two real choices, and your recommendation. “We can release on time without refills, or release everything a week later.”" }
+          - { title: 5 · What I need, text: "The decision, and by when. “I need your decision by Thursday.”" }
+          - { title: 6 · Next update, text: "When they'll hear from you again, whatever happens. “I'll update you on Wednesday either way.”" }
+      - type: compare
+        beforeLabel: Buried
+        afterLabel: Headline first
+        before: >-
+          “So, quick update on the Epic sync. There were some surprises with the time zones… really sorry, but it might
+          take a bit longer than we hoped.”
+        after: >-
+          “Dana, I have some bad news about the pilot date. We need to move it from April 27 to May 4. Here's why, and
+          two options.”
+      - type: note
+        tone: info
+        title: One short apology is enough.
+        text: >-
+          “I'm sorry, this isn't what you wanted to hear” once, then the plan. Three apologies sound like panic, and
+          blame (“Epic's documentation was wrong”) sounds like an excuse even when it's true.
+      - type: recall
+        label: Your note after Dana's “Why so long?” call on Day 7
+        day: 7
+        lesson: why-so-long-review
+        fields:
+          - { id: fix-next, label: One thing to fix }
+      - type: text
+        text: >-
+          On Day 7 the news was two days late. Today the pilot date itself moves. Same rule, higher stakes.
+      - type: watch
+        url: https://www.talaera.com/business-english-resources/how-to-deliver-bad-news-to-clients/
+        title: "Talaera: How to Deliver Bad News to Clients: A Guide for Engineers"
+        meta: Free article · 10 min · delays, bugs and missed assumptions
+
+  - id: slip-call
+    kind: mock
+    title: The release slips
+    heading: The release slips by one week
+    minutes: 15 min
+    lead: >-
+      Level 2: Dana has ten minutes and hates surprises. Headline in the first 30 seconds, the cause in one sentence
+      without blame, two options with your recommendation, then the decision deadline and your next update.
+    cardId: S23
+    level: 2
+    scriptNote: Use it the first time, then try the call again without it.
+
+  - id: slip-call-review
+    kind: reflect
+    title: How did the call go?
+    minutes: 5 min
+    lead: Tick what you managed, then note what the AI told you.
+    checksTitle: On this call, I…
+    checks:
+      - gave the headline in the first 30 seconds
+      - explained the cause briefly, with no blame
+      - gave two options and a clear recommendation
+      - gave a decision deadline and the next update time
+    fields:
+      - { id: went-well, label: What went well, kind: area, placeholder: "From the AI's feedback" }
+      - { id: fix-next, label: One thing to fix next time, kind: area, placeholder: "e.g. Dana had to ask “is the date moving?” before I said it" }
+      - { id: log, label: "Did I deliver the headline in the first 30 seconds? How many times did I apologise?", kind: area, rows: 2 }
+    rubric: true
+
+  - id: bad-news-email
+    kind: write
+    title: The bad-news email
+    heading: Send Dana the bad-news email, under 150 words
+    minutes: 10 min
+    lead: >-
+      You promised it in writing right after the call. Dana wants a note she can forward to Lakeside word for word, so
+      write it for both readers: bottom line first, no blame, and nothing she'd have to explain.
+    blocks:
+      - type: recall
+        label: Your six steps from this morning
+        day: 32
+        lesson: five-working-days
+        fields:
+          - { id: headline, label: Headline }
+          - { id: impact, label: Impact }
+          - { id: options, label: Options }
+      - { type: field, id: subject }
+      - { type: field, id: bottom-line }
+      - { type: field, id: what-happened }
+      - { type: field, id: options }
+      - { type: field, id: need }
+      - { type: field, id: next-update }
+      - type: text
+        text: >-
+          Before you send: is the new date in the subject or the first line? Does the email match what you said on the
+          call? Count the words: under 150.
+    fields:
+      - { id: subject, label: Subject, kind: line, placeholder: "e.g. CareBook pilot: moving to Mon May 4 (decision needed by Wed noon CT)" }
+      - { id: bottom-line, label: Bottom line, kind: line }
+      - { id: what-happened, label: What happened, kind: area, rows: 2 }
+      - { id: options, label: Options, kind: area, rows: 3 }
+      - { id: need, label: What I need from you, kind: line }
+      - { id: next-update, label: Next update, kind: line }
+
+scoring:
+  bad-news-email:
+    modelAnswer: >-
+      Subject: CareBook pilot: moving to Mon May 4 (decision needed by Wed noon CT).
+      Hi Dana, bottom line: the pilot needs to move from Mon Apr 27 to Mon May 4.
+      What happened: Epic returns appointment times and cancellation codes in a different format than Lakeside's
+      documentation. The fix takes 3 days, plus 2 days to retest in Lakeside's Epic sandbox.
+      Options: 1) Go live Apr 27 without Epic sync: front desks re-enter bookings by hand (double work, high error
+      risk). 2) Go live May 4 with full sync and full testing. Recommended: the May 12 investor demo stays safe.
+      What I need from you: your decision by Wed Apr 15, 12:00 pm CT, and your OK to set up a call with Dr. Mercer on
+      Thursday.
+      Next update: Thu Apr 16, after the retest, either way.
+    scoringPoints:
+      - The new date is in the subject and the first line; the cause takes one sentence and blames no one
+      - Two options with a recommendation tied to patient safety and the investor demo
+      - A decision deadline, the next update time, under 150 words, and at most one apology

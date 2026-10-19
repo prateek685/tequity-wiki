@@ -1,0 +1,32 @@
+id: a13-weak-vs-strong
+kind: template
+ref: "A13"
+title: "Weak vs strong: four key moments"
+summary: "The same moment said two ways: a status answer, “I don't know”, disagreeing and opening a call."
+blocks:
+  - type: text
+    text: "The same moment, said two ways. Read the strong version out loud until it feels natural."
+  - { type: heading, text: "Status answer" }
+  - type: compare
+    beforeLabel: Weak
+    afterLabel: Strong
+    before: "“So basically we were working on the reminders and there were some issues with the SMS number and templates, so it's taking some time, we'll update once done.”"
+    after: "“Short answer: reminders go live Wednesday, two days late. The SMS number is still in carrier checks. It doesn't affect the pilot date.”"
+  - { type: heading, text: "“I don't know”" }
+  - type: compare
+    beforeLabel: Weak
+    afterLabel: Strong
+    before: "“Sorry, sorry, I'm not sure… I think maybe 99.9%… I'll have to check with the team, sorry.”"
+    after: "“Good question. I don't have our uptime commitment in front of me. I'll confirm with our tech lead and email you by 10 am your time tomorrow.”"
+  - { type: heading, text: "Disagreeing" }
+  - type: compare
+    beforeLabel: Weak
+    afterLabel: Strong
+    before: "“Okay, if you want we can skip testing… whatever you say.” (Then the date slips anyway.)"
+    after: "“I understand April 27 matters for the investor story. My concern is wrong appointment times reaching patients. Could we run a 1.5-day focused test on the riskiest flows and keep the date?”"
+  - { type: heading, text: "Opening a call" }
+  - type: compare
+    beforeLabel: Weak
+    afterLabel: Strong
+    before: "(Silence until the client speaks.) “…Hi. So… what do you want to discuss?”"
+    after: "“Hi Dana, good to see you. Ready for SXSW? The goal today is a quick update, one risk, and next week's plan. We'll be done in 15 minutes. Anything you'd like to add?”"

@@ -1,0 +1,76 @@
+id: S43
+title: Narrate your demo as if you were screen-sharing
+client: Dana Brooks
+clientRole: VP of Product, Brightpath Health
+clientInitials: DB
+clientPronoun: She
+clientMood: >-
+  Friendly today, because the pilot just went live. She thinks in outcomes and investor stories.
+level: 1
+minutes: 10 min
+storySoFar: >-
+  It's Monday, May 4. The pilot went live this morning at Westside, Northgate and Riverbend. Tomorrow you demo the new
+  clinic schedule view and waitlist to Dana and Lisa Chen. Dana wants a quick walkthrough first, as if you were sharing
+  your screen.
+facts:
+  - { label: Demo goal, value: "Show how front-desk staff run the day from one screen, and fill cancelled slots from a waitlist." }
+  - { label: Schedule view, value: "Each provider's day in one view, with a colour for each status: booked, confirmed (patient replied to the reminder), checked in, no-show. Refreshes every 60 seconds." }
+  - { label: Waitlist, value: "Staff add a patient to a waitlist for a provider and date range. When a slot opens, CareBook lists matching waitlist patients; staff click “Offer” and call or text them." }
+  - { label: Test data, value: "Synthetic “Westside Test Clinic”: 3 providers (Dr. Kim, Dr. Ortiz, Dr. Nguyen), 42 appointments, patients named “Test Patient 01–42”. No real PHI." }
+  - { label: Known gaps, value: "Offers are manual (no automatic texts yet) · no Spanish yet · the view refreshes every 60 seconds, not instantly.", warn: true }
+  - { label: Metric, value: "The pilot clinics start at an 18% no-show rate; every refilled slot is a visit that would otherwise be lost." }
+yourGoal: >-
+  Narrate the demo as a user story (result first, then the journey) in under 8 minutes, and end by asking for specific
+  feedback.
+mayAsk:
+  - Can it text the waitlist automatically?
+  - What does “confirmed” mean exactly?
+  - Can I show this to investors next week?
+script:
+  - { step: Goal, line: "Last sprint we agreed to give the front desk one screen for the day and a faster way to fill cancellations. Let me show you the result first." }
+  - { step: Result, line: "This is Westside's day at a glance: every provider, every patient, and their status — booked, confirmed, checked in, or no-show." }
+  - { step: Story, line: "Imagine it's 8:05 am. A patient cancels their 10:30 with Dr. Kim. The slot turns open, and CareBook lists three waitlist patients who want that time." }
+  - { step: Action, line: "The front desk clicks Offer, calls the first patient, and the slot is filled in about a minute — no spreadsheet, no sticky notes." }
+  - { step: Gaps, line: "Not here yet: offers are still manual, and there's no Spanish yet. Both are on the backlog." }
+  - { step: Feedback, line: "Does this flow match how Lisa's team handles cancellations today? What would make them use it every day?" }
+whatGood:
+  - Showed the result before the tour
+  - Told it as a front-desk story, not a feature list
+  - Named the known gaps honestly
+  - Ended with specific feedback questions
+prompt: |
+  You are role-playing a US client on a video call with me. Stay in character until I say "End the call."
+
+  WHO YOU ARE: Dana Brooks, VP of Product at Brightpath Health (Austin, Texas). Friendly today — the pilot just went live — but you think in outcomes and investor stories.
+
+  PROJECT CONTEXT: My company is the engineering partner of Brightpath Health, a US telehealth company. We are building CareBook v2 — patient booking (in-person and video), SMS reminders, intake forms and a clinic schedule view — synced with the clinic's Epic EHR, with insurance eligibility checks through Suncoast Billing. The launch customer is Lakeside Health (12 primary-care clinics in Ohio). Everything is made up; no real patient data.
+
+  WHERE WE ARE NOW: Monday, May 4. The CareBook pilot went live this morning at 3 Lakeside clinics. Tomorrow's demo will show the clinic schedule view and the waitlist to you and Lisa Chen.
+
+  TODAY'S SCENARIO: Open with "Walk me through tomorrow's demo like you're sharing your screen." Let me narrate. If I describe screens or buttons without saying why they matter, ask "Why would Lisa care about that?"
+
+  HIDDEN FACTS — reveal each one only if my questions lead to it:
+  1. You want to show the waitlist to investors on May 12, alongside video booking.
+  2. You'd love the waitlist to text patients automatically, but you haven't asked for it.
+  3. Lisa told you the Westside front desk spends about 2 hours a day phoning patients to fill cancellations.
+
+  CURVEBALLS — use these during the call:
+  - Ask: "Can it text the waitlist automatically?"
+  - Ask: "How many slots did we refill today?" (It's day one — there's no real number yet.)
+
+  DIFFICULTY: Level 1 — friendly and patient; answer my questions fully.
+
+
+  HOW TO BEHAVE
+  - Speak like a real American business person: natural speed, short sentences, everyday expressions.
+  - Keep each turn short (1–3 sentences), like a real call.
+  - Don't volunteer information; give details only when I ask good questions.
+  - If I use technical jargon, ask me what it means for your business.
+  - If I talk for more than 45 seconds without getting to the point, cut in at my next pause.
+
+  WHEN I SAY "End the call", step out of character and give me feedback:
+  1. Score me 1–5 on each criterion that came up: opening and agenda, answer-first structure, questions asked, playback, business link, trade-offs, handling unknowns, risks and bad news, disagreement, closing and next steps.
+  2. List the hidden facts and tell me which ones I uncovered.
+  3. Quote 2 things I said well, and 2 things I should have said differently — with the better sentence.
+  4. Tell me roughly how often I used filler words ("um", "basically", "actually", "like").
+  5. Give me ONE thing to focus on in my next call.

@@ -1,0 +1,142 @@
+day: 18
+block: 4
+title: AI after the call
+type: normal
+storyDate: Wednesday, March 25
+minutes: About 55 min
+intro: >-
+  Three promises fall due today. You rerun yesterday's sync at Level 2, then turn the transcript into a checked recap
+  in 10 minutes.
+lessons:
+  - id: close-the-loops
+    kind: prep
+    title: Promises due today
+    minutes: 5 min
+    blocks:
+      - type: yesterday
+        text: >-
+          you prepared the weekly sync with AI in 10 minutes, ran it from your own agenda, and saw which predicted
+          questions really came up.
+      - type: scene
+        when: Wednesday, March 25 · 9:00 am Central
+        text: >-
+          Three loops close today. Kevin gets the release checklist by noon his time, with Omar's answer on production
+          approvals. Dana gets the new-patient intake options you promised her on Friday. And she wants a written
+          recap of yesterday's sync before she flies on Thursday. Epic access: still nothing from Lakeside IT.
+      - type: text
+        text: >-
+          Before you send anything, rerun yesterday's call as a drill, harder: Dana busy and vague. Fill in a quick
+          pre-call card first.
+    fields:
+      - { id: goal, label: My goal for this call, kind: line }
+      - { id: opener, label: My opener, kind: line, placeholder: Warm start + agenda }
+      - { id: points, label: "3 points I'll make", kind: area, rows: 3 }
+      - { id: questions, label: "3 questions I'll ask", kind: area, rows: 3 }
+      - { id: risk, label: 1 risk, kind: line }
+      - { id: closing, label: My closing line, kind: line }
+
+  - id: ai-after-the-call
+    kind: learn
+    title: AI after the call
+    minutes: 10 min
+    lead: >-
+      A recap that arrives the next day reads like an afterthought. With AI, a checked recap takes 10 minutes. Send it
+      within 2 hours.
+    blocks:
+      - type: steps
+        items:
+          - { title: 1 · Notes in, text: "Your rough notes or the transcript. No PHI: take out any patient detail first." }
+          - { title: 2 · Recap prompt, text: "Subject with the decision or ask, a 2-line summary, decisions, action items with owner and date, open questions, next meeting." }
+          - { title: 3 · Check it yourself, text: "Every fact, every date, every commitment. The AI can invent a date or turn “I'll look into it” into a promise." }
+          - { title: 4 · Send within 2 hours, text: "While the call is fresh for both of you." }
+      - type: example
+        text: You own the words, not the AI.
+      - type: text
+        text: >-
+          Read the recap as the client will. If a line says you'll do something, make sure you said it and can do it.
+          If the AI flags something as unclear, fix it before you send, don't send the flag.
+      - type: compare
+        beforeLabel: Raw AI text
+        afterLabel: Checked by you
+        before: >-
+          “We are pleased to confirm that Epic access will be resolved this week and the dashboard will be delivered
+          before the investor demo.”
+        after: >-
+          “Epic access: still pending. Dana will ask Dr. Mercer to push the approval this week. Dashboard: Dana decides
+          the timing by Friday.”
+
+  - id: sync-drill
+    kind: mock
+    title: Yesterday's sync, harder
+    heading: The weekly sync again, at Level 2
+    minutes: 15 min
+    lead: >-
+      Same facts as yesterday, but Dana is busy and vague: short answers, changes topic. Keep to your agenda, get both
+      decisions, and keep the call's transcript for your recap.
+    cardId: S12
+    level: 2
+    brief: false
+    callStep: "Before you speak, tell the AI: “Play this call at Level 2: busy and vague; short answers, change topic, slightly impatient.”"
+    checksTitle: After the call
+    checks:
+      - I set the agenda and brought Dana back to it when she changed topic
+      - I gave the Epic risk with a date and an impact
+      - I got two decisions, or a date for each
+      - I closed with the recap promise and ended on time
+    fields:
+      - { id: went-well, label: What went well, kind: area, placeholder: "From the AI's feedback" }
+      - { id: fix-next, label: One thing to fix next time, kind: area }
+      - { id: log, label: "Did I close every loop I opened this week?", kind: area, rows: 2 }
+    rubric: true
+
+  - id: timed-recap
+    kind: write
+    title: The recap in 10 minutes
+    heading: Turn the transcript into a recap, against the clock
+    minutes: 15 min
+    lead: >-
+      Start a timer. Copy the recap prompt, paste your transcript or notes under it, then edit the AI's draft until
+      every line is true. Target: ready to send in 10 minutes.
+    blocks:
+      - type: copy
+        label: Copy recap prompt
+        text: |
+          Here are my rough notes / the transcript from a client call (no patient data). The client is Dana, VP of Product at a US telehealth company.
+
+          Turn them into a client-ready recap email with this structure:
+          Subject line (with the key decision or ask) · 2-line summary · Decisions · Action items (owner + due date) · Open questions · Next meeting.
+          Use plain American business English, under 200 words.
+          Flag anything in my notes that is unclear, or that looks like a commitment I made.
+
+          My notes or transcript:
+          [paste here]
+      - type: note
+        tone: info
+        title: Before you send
+        text: >-
+          Check every fact, date and owner against what was really said. Delete anything you didn't agree to. Resolve
+          every flag the AI raised.
+      - { type: field, id: recap }
+      - { type: field, id: changed }
+      - { type: field, id: minutes }
+    fields:
+      - { id: recap, label: My recap, ready to send, kind: area, rows: 10, placeholder: "Subject: …" }
+      - { id: changed, label: What I changed in the AI's draft, kind: area, rows: 2, placeholder: "e.g. It said Epic would be resolved this week. Nobody said that." }
+      - { id: minutes, label: Minutes it took, kind: line, placeholder: "e.g. 12" }
+
+scoring:
+  timed-recap:
+    modelAnswer: >-
+      Subject: CareBook weekly sync, Mar 24: 2 decisions needed (Epic push this week, dashboard by Fri).
+      Summary: Sprint 4 is mostly on track: Add to calendar is done, intake form v1 at 70%, schedule view at 50%. Epic
+      access is now blocking us; if it isn't here by April 6, the April 27 pilot is at risk.
+      Decisions: none yet.
+      Action items: Dana: ask Dr. Mercer to push the Epic approval with Sam's team this week. Dana: decide the
+      dashboard timing by Fri Mar 27 (a smaller no-shows-only version before May 12 is possible). Me: send the
+      Sprint 4 release checklist to Kevin by Wed noon.
+      Open questions: who answers which parts of Pacific Coast's questionnaire (due Apr 3).
+      Next meeting: Fri Mar 27 demo.
+    scoringPoints:
+      - Subject and summary give the two asks and the Epic risk with its date
+      - Action items each have an owner and a date, and no commitment that wasn't made on the call
+      - Short, plain, under 200 words, with no raw AI phrasing such as “we are pleased to confirm”

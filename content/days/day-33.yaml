@@ -1,0 +1,160 @@
+day: 33
+block: 7
+title: Nine missed visits
+type: normal
+storyDate: Wednesday, April 15
+minutes: About 55 min
+intro: >-
+  A reminder bug sent 140 Westside patients the wrong time, and Dr. Mercer is upset. Today you calm an upset client
+  with LAST: listen, acknowledge, solve, thank. Then you write the incident summary.
+lessons:
+  - id: wrong-reminder-times
+    kind: prep
+    title: Wrong reminder times
+    minutes: 5 min
+    blocks:
+      - type: yesterday
+        text: >-
+          you told Dana in the first 30 seconds that the pilot has to move from April 27 to May 4, and recommended May
+          4. She chose it before the end of the day, with an email she can forward to Lakeside. With May 4, the full
+          regression run is back in the plan, and Lakeside UAT moves to Friday, April 24.
+      - type: scene
+        when: Wednesday, April 15 · 8:30 am Eastern
+        text: >-
+          SMS reminders have been in a soft launch at Lakeside's Westside clinic since April 6. On Monday and Tuesday,
+          a time-zone bug sent 140 patients reminders showing their appointment an hour later than the real time. Nine
+          of them arrived late and missed their visit. The fix went out last night, and a correction text went to all
+          140 patients at 8 this morning. Lisa Chen told Dr. Mercer, and he has asked for an urgent call at 10.
+      - type: facts
+        label: What you know
+        rows:
+          - { label: Impact, value: "9 missed visits, all rebooked. Lisa Chen's team took 30+ calls", warn: true }
+          - { label: Fixed, value: "Tue Apr 14, 6 pm ET. Correction SMS to all 140 patients Wed 8 am ET" }
+          - { label: Prevention, value: "Daylight-saving tests; every reminder checked against the Epic time before it's sent" }
+      - type: text
+        text: >-
+          He'll be angry for the first minute, and he's right to be. Prepare each step of LAST: what you'll listen
+          for, how you'll acknowledge, how you'll explain the fix in plain words, and how you'll close.
+    fields:
+      - { id: listen, label: "Listen · what I need to hear from him", kind: line, placeholder: "e.g. What it did to his patients and his front desk" }
+      - { id: acknowledge, label: "Acknowledge · my first sentence", kind: line, placeholder: "e.g. You're right to be upset. Nine patients missed their visits…" }
+      - { id: solve, label: "Solve · the fix and prevention, in plain words", kind: area, rows: 3 }
+      - { id: thank, label: "Thank · my closing line", kind: line }
+      - { id: hard-question, label: "Hardest question + my answer", kind: area, rows: 2, placeholder: "“Should we just turn reminders off?” → …" }
+
+  - id: upset-client
+    kind: learn
+    title: Handling an upset client
+    minutes: 10 min
+    lead: >-
+      An upset client doesn't want the technical story first. They want to know you understand what happened to
+      them. LAST gives you the order.
+    blocks:
+      - type: steps
+        items:
+          - { title: Listen, text: "Let them finish. Don't interrupt, don't explain, take notes." }
+          - { title: Acknowledge, text: "Name the impact on them, before any cause. “I understand this caused problems for your front desk.”" }
+          - { title: Solve, text: "What you've done, and what happens next. The fix, and how you'll stop it happening again." }
+          - { title: Thank, text: "Thank them for raising it. “Thanks for flagging this so quickly.”" }
+      - type: compare
+        beforeLabel: Explaining first
+        afterLabel: Acknowledging first
+        before: "“So, what happened is the reminder service had a cached UTC offset, and after the DST change…”"
+        after: >-
+          “You're right to be upset. Nine patients missed their visits and your front desk took the calls. I'm sorry,
+          and that's on us.”
+      - type: text
+        text: >-
+          Acknowledging isn't arguing about blame, and it isn't grovelling. One clear sentence that names the impact
+          on patients and staff. Then the cause in one plain line, the fix, the prevention, and something concrete
+          they can watch, like a daily report.
+      - { type: heading, text: Pause phrases to buy time calmly }
+      - type: steps
+        items:
+          - { title: To think, text: "“Let me think about that for a second.”" }
+          - { title: To understand, text: "“That's a fair point. Let me make sure I understand.”" }
+          - { title: To check, text: "“Can I come back to that once I've checked the numbers?”" }
+      - type: text
+        text: >-
+          Labelling the emotion helps too: “It sounds like the worst part was hearing it from your patients.” Then
+          stop and let them answer.
+      - type: watch
+        url: https://cruciallearning.com/resource-center/miniseries/
+        title: Crucial Conversations miniseries (Crucial Learning)
+        meta: Free 4-video series, free signup · watch video 1
+
+  - id: upset-client-call
+    kind: mock
+    title: The reminder bug
+    heading: An upset client after a production bug affected patient reminders
+    minutes: 15 min
+    lead: >-
+      Level 3: Dr. Mercer opens angry and keeps talking. Let him finish. Acknowledge the patient impact before you
+      explain anything, then the fix and prevention in plain words, and agree on next steps.
+    cardId: S24
+    level: 3
+    scriptNote: Use it the first time, then try the call again without it.
+
+  - id: upset-client-call-review
+    kind: reflect
+    title: How did the call go?
+    minutes: 5 min
+    lead: Tick what you managed, then note what the AI told you.
+    checksTitle: On this call, I…
+    checks:
+      - listened without interrupting
+      - acknowledged the patient impact before explaining
+      - explained the fix and prevention in plain words
+      - offered a written summary with a date
+    fields:
+      - { id: went-well, label: What went well, kind: area, placeholder: "From the AI's feedback" }
+      - { id: fix-next, label: One thing to fix next time, kind: area, placeholder: "e.g. I started explaining the time-zone offset while he was still talking" }
+      - { id: log, label: "Did I deliver the headline in the first 30 seconds? How many times did I apologise?", kind: area, rows: 2 }
+    rubric: true
+
+  - id: incident-summary
+    kind: write
+    title: The incident summary
+    heading: "Write the incident summary: what happened, impact, fix, prevention"
+    minutes: 10 min
+    lead: >-
+      Dr. Mercer wants a written summary by Thursday that he can show his CEO. Send it today: one screen, plain words,
+      nothing a hospital CEO would need explained.
+    blocks:
+      - { type: field, id: subject }
+      - { type: field, id: what-happened }
+      - { type: field, id: impact }
+      - { type: field, id: fix }
+      - { type: field, id: prevention }
+      - { type: field, id: next }
+      - type: note
+        tone: warn
+        title: Counts, never patients.
+        text: >-
+          “140 patients”, “9 missed visits”. No names, phone numbers or appointment details in the summary, here or in
+          any AI tool you use to tighten it.
+    fields:
+      - { id: subject, label: Subject, kind: line, placeholder: "e.g. Incident summary: wrong reminder times at Westside, Apr 13–14" }
+      - { id: what-happened, label: What happened, kind: area, rows: 2 }
+      - { id: impact, label: Impact, kind: area, rows: 2 }
+      - { id: fix, label: Fix, kind: area, rows: 2 }
+      - { id: prevention, label: Prevention, kind: area, rows: 2 }
+      - { id: next, label: What happens next (owner + date), kind: area, rows: 2 }
+
+scoring:
+  incident-summary:
+    modelAnswer: >-
+      Subject: Incident summary: wrong reminder times at Westside, Apr 13–14.
+      What happened: on Apr 13 and 14, 140 SMS reminders showed the appointment 1 hour later than the real time. The
+      reminder service used an old time-zone offset after daylight saving time started.
+      Impact: 9 patients arrived an hour late and missed their visit; the front desk rebooked all 9. Lisa Chen's team
+      took more than 30 calls. We're sorry: this one is on us.
+      Fix: deployed Tue Apr 14, 6 pm ET. A correction SMS went to all 140 patients on Wed Apr 15, 8 am ET.
+      Prevention: new automated tests for daylight-saving dates, and every reminder is now checked against the Epic
+      appointment time before it is sent.
+      Next: a daily reminder report to Lisa Chen for the next 2 weeks, starting tomorrow (me). Any questions, I'm
+      available today.
+    scoringPoints:
+      - Covers what happened, the impact on patients and staff, the fix with times, and prevention, in plain words
+      - Owns it in one short line, without blame or a string of apologies
+      - Uses counts only (no patient details) and ends with a concrete next step and owner

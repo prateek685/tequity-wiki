@@ -1,0 +1,182 @@
+day: 25
+block: 5
+title: Epic data for doctors
+type: normal
+storyDate: Friday, April 3
+minutes: About 65 min
+intro: >-
+  Dr. Mercer wants doctors to “see Epic data in CareBook”. Today you run a 20-minute discovery call at Level 2, send
+  the discovery email and review your week.
+lessons:
+  - id: epic-data-request
+    kind: prep
+    title: “Epic data in CareBook”
+    minutes: 10 min
+    blocks:
+      - type: yesterday
+        text: >-
+          Dana confirmed the acceptance criteria for new-patient video booking, with two changes: self-pay patients
+          skip the insurance details, and a failed insurance check flags the visit instead of blocking it. You sent the
+          final story, approved unless corrected by noon today.
+      - type: scene
+        when: Friday, April 3 · 9:30 am Central
+        text: >-
+          Laura's questionnaire is due today, and Epic sandbox access is expected on Monday. Then Dana forwards a note:
+          “Alan wants doctors to see Epic data in CareBook.” That's all it says. Dr. Mercer has 20 minutes at 11.
+          Before anyone agrees to anything, you need to understand exactly what the doctors need.
+      - type: text
+        text: >-
+          Fill in your pre-call card. Use the seven steps from Wednesday, and think about the PHI before he does:
+          clinical data is the most sensitive data CareBook could ever show.
+    fields:
+      - { id: goal, label: My goal for this call, kind: line, placeholder: "e.g. Find which data, at what moment, and why, before anyone agrees to anything" }
+      - { id: opener, label: My opener, kind: line }
+      - { id: questions, label: "5 questions I must ask", kind: area, rows: 5 }
+      - { id: phi, label: The PHI this could touch, kind: line, placeholder: "e.g. Medications, allergies…" }
+      - { id: hard-question, label: "Hardest question + my answer", kind: area, rows: 2, placeholder: "“Can we have it for the pilot?” → …" }
+      - { id: closing, label: My closing line, kind: line }
+
+  - id: healthcare-glossary
+    kind: learn
+    title: Fifteen healthcare words
+    heading: The first 15 healthcare terms
+    minutes: 10 min
+    lead: >-
+      Clients use these words without explaining them. Know them well enough to use each one in a sentence. If a
+      client uses a word you don't know, ask: it's better than nodding.
+    blocks:
+      - type: facts
+        label: The US healthcare system
+        rows:
+          - { label: Provider, value: "Anyone who delivers care: hospitals, clinics, doctors, nurses." }
+          - { label: Payer, value: "Whoever pays for care: private insurers, Medicare, Medicaid, employers." }
+          - { label: Medicare, value: "Federal health insurance, mainly for people aged 65 and over." }
+          - { label: Medicaid, value: "Joint federal and state program for people with low incomes." }
+          - { label: HHS, value: "US Department of Health and Human Services: the parent agency of CMS, ONC and OCR." }
+          - { label: CMS, value: "Centers for Medicare & Medicaid Services. Runs Medicare and Medicaid and sets many payment rules." }
+          - { label: ONC, value: "The federal office for health IT and interoperability rules." }
+          - { label: Fee-for-service, value: "Providers are paid for each service they perform." }
+          - { label: Value-based care, value: "Providers are paid for outcomes and quality, not volume." }
+          - { label: ACO, value: "Accountable Care Organization: a group of providers that shares responsibility, and savings, for a patient population." }
+      - type: facts
+        label: Privacy and security
+        rows:
+          - { label: HIPAA, value: "The 1996 US law that protects the privacy and security of health information." }
+          - { label: PHI / ePHI, value: "Protected Health Information: health information that can identify a person. ePHI is PHI in electronic form." }
+          - { label: Covered entity, value: "Providers, payers and clearinghouses that must follow HIPAA." }
+          - { label: Business associate, value: "A vendor that handles PHI on behalf of a covered entity: often us." }
+          - { label: BAA, value: "Business Associate Agreement: the contract that allows a vendor to handle PHI." }
+      - type: recall
+        label: Your one picture from Monday
+        day: 21
+        lesson: one-picture
+        fields:
+          - { id: line-1, label: "1" }
+          - { id: line-2, label: "2" }
+          - { id: line-3, label: "3" }
+          - { id: line-4, label: "4" }
+          - { id: line-5, label: "5" }
+      - type: text
+        text: >-
+          Read Monday's five lines again. Where would two or three of these words make them sharper? You should now be
+          able to say the picture in two minutes, out loud, with no notes.
+
+  - id: epic-data-discovery
+    kind: mock
+    title: Epic data for doctors
+    heading: "Discovery call: showing Epic data to doctors"
+    minutes: 20 min
+    lead: >-
+      Level 2: Dr. Mercer wants “Epic data” and gives short answers. Find the moment, the data and the value, check
+      whether it's needed for the pilot, and agree to nothing you don't understand yet.
+    cardId: S16
+    level: 2
+    scriptNote: Use it the first time, then try the call again without it.
+    checksTitle: After the call
+    checks:
+      - "I found the moment: just before a video visit"
+      - I narrowed “everything” to a few items, view-only
+      - I confirmed whether it's needed for the pilot
+      - I promised a summary with assumptions and open questions
+    fields:
+      - { id: went-well, label: What went well, kind: area, placeholder: "From the AI's feedback" }
+      - { id: fix-next, label: One thing to fix next time, kind: area }
+      - { id: log, label: "Could I explain the business reason behind every requirement I heard today?", kind: area, rows: 2 }
+    rubric: true
+
+  - id: discovery-email
+    kind: write
+    title: The discovery email
+    heading: Send Dr. Mercer the discovery email
+    minutes: 10 min
+    lead: >-
+      You promised a summary today, with your assumptions and open questions. Write it so Dr. Mercer can correct it in
+      two minutes, and copy Dana. Then ask the AI to review it before you send.
+    blocks:
+      - { type: field, id: subject }
+      - { type: field, id: summary }
+      - { type: field, id: assumptions }
+      - { type: field, id: open-questions }
+      - { type: field, id: next-step }
+      - type: note
+        tone: info
+        title: Review it with AI.
+        text: >-
+          Copy the review prompt, paste it with your email, and apply the edits you agree with. Your email describes
+          kinds of data (“allergies”), never a patient's details.
+      - type: copy
+        label: Copy review prompt
+        text: |
+          Review this discovery email before I send it to a US client, a doctor who leads clinical IT at a group of primary-care clinics. Check:
+          1. Does the subject line or the first two lines say what this is and what I need from him?
+          2. Is the summary written as facts he can confirm or correct, not as my opinions?
+          3. Are my assumptions clearly marked as assumptions, and are the open questions specific?
+          4. Is there one next step with an owner and a date, and no promise of a delivery date?
+          5. Are there phrases an American reader might misunderstand?
+          Keep every fact, date and owner exactly as it is, and don't add new claims. Give me a tighter version under 180 words, then list what you changed, one line each.
+
+          My email:
+          [paste your email here]
+    fields:
+      - { id: subject, label: Subject, kind: line, placeholder: "e.g. Epic data for doctors in CareBook: what we heard (please confirm)" }
+      - { id: summary, label: Summary, kind: area, rows: 4, placeholder: "The moment, the data, view-only or not, the value, the timing…" }
+      - { id: assumptions, label: Assumptions, kind: area, rows: 2 }
+      - { id: open-questions, label: Open questions, kind: area, rows: 3 }
+      - { id: next-step, label: Next step (owner + date), kind: line }
+
+  - id: week-in-review
+    kind: scorecard
+    title: Your week in review
+    minutes: 5 min
+    lead: >-
+      Five minutes. Rate this week's behaviours and add a line of proof for each pillar. Your pillar scores update from
+      them; the other pillars carry forward. Your Day 1 baseline sits next to it.
+    scorecard: [U1, U2, S1]
+    checksTitle: Before the weekend
+    checks:
+      - Do I know who pays and who benefits for the feature I'm building?
+      - Could I explain PHI to a new teammate in one minute?
+      - Could I explain the business reason behind every requirement I heard this week?
+    blocks:
+      - type: text
+        text: >-
+          **Next week:** stakeholders, expectations and trade-offs, plus the language of health records: EHRs, HL7 and
+          FHIR. And on Monday, Epic access should finally arrive.
+
+scoring:
+  discovery-email:
+    modelAnswer: >-
+      Subject: Epic data for doctors in CareBook: what we heard (please confirm by Wed Apr 8).
+      Summary: in the 2 minutes before a video visit, doctors switch between Epic and CareBook to open the video
+      link. They need 4 items on one screen in CareBook: visit reason, current medication list, allergies and date of
+      last visit, not the full chart. View-only; nothing is written back to Epic. It saves about 90 seconds per visit,
+      across about 400 video visits a week at the 3 pilot clinics. Not needed for the April 27 pilot; wanted before
+      the summer rollout, by July 1.
+      Assumptions: only doctors with a video visit that day see the data; the data is shown, not stored on phones.
+      Open questions: Kevin's security review for showing clinical data; which Epic data our Epic connection can read;
+      whether nurses need it too.
+      Next step: I'll send options with effort by Fri Apr 10, after Kevin's review.
+    scoringPoints:
+      - The summary gives the moment, the 4 items, view-only, the value and the July 1 timing, as facts to confirm
+      - Assumptions and open questions are separated, and the PHI/security review is raised as an open question
+      - One next step with an owner and a date, and no delivery date or pilot promise

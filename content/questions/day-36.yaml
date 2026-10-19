@@ -1,0 +1,179 @@
+# Day 36 quiz pool: Monday, April 20. Escalating the production AWS access to Kevin: when to escalate, the five
+# parts (blocked, impact, tried, need, by when), no blame, the right person, in writing. Shows 5 of 10.
+pool: day-36
+questions:
+  - id: D36-01
+    type: mcq
+    stem: "Kevin opens: “Hey, you said it was urgent. What's up?” What's the best first line?"
+    options:
+      - text: "“So, a couple of weeks ago we started looking at the production setup, and there were a few steps…”"
+        correct: false
+        explanation: Background first. He asked what's up, and he's already impatient.
+      - text: "“I need your help with one blocker that affects May 4: production AWS access, ticket SEC-482, five working days.”"
+        correct: true
+        explanation: The blocker, the ticket and the date in one breath.
+      - text: "“Sorry to bother you, I know you're busy, it's probably nothing big…”"
+        correct: false
+        explanation: Undersells a real risk to the pilot and wastes his time.
+      - text: "“Your team still hasn't given us access.”"
+        correct: false
+        explanation: Starts with blame. He'll get defensive before he hears the ask.
+    source: { quote: "Open with: \"Hey, you said it was urgent. What's up?\"", page: 104 }
+
+  - id: D36-02
+    type: mcq
+    stem: "It's Thursday. You asked for staging test data on Tuesday and have followed up once, with no reply. Nothing is late yet. What do you do?"
+    options:
+      - text: "Wait until next week. Escalating after two days looks pushy."
+        correct: false
+        explanation: Waiting is how a blocker becomes a missed date.
+      - text: "Follow up once more today with the date it affects, and if there's no answer by tomorrow, escalate to the person who can unblock it."
+        correct: true
+        explanation: Escalate after 1–2 days of being blocked, early and in writing.
+      - text: "Mention it in the weekly status report on Wednesday."
+        correct: false
+        explanation: Clients prefer hearing about blockers directly, not finding them in a report.
+      - text: "Ask the team to work around it quietly."
+        correct: false
+        explanation: Hides the risk from the people who could fix it.
+    source: { quote: "Escalate when a blocker lasts more than 1–2 days, a date is at risk, or a decision is outside your authority.", page: 101 }
+
+  - id: D36-03
+    type: mcq
+    stem: "Kevin asks: “Why didn't you tell me earlier?” What's the best reply?"
+    options:
+      - text: "“I did follow up with Omar twice, it's not really on us.”"
+        correct: false
+        explanation: Defends and blames instead of owning it.
+      - text: "“Sorry, sorry, I know, I should have, I'm really sorry…”"
+        correct: false
+        explanation: An apology spiral. One line is enough.
+      - text: "“Fair point. I should have come to you after the second follow-up. From now on I'll escalate after two days.”"
+        correct: true
+        explanation: Owns it in one line, says what changes, and moves on.
+      - text: "“Nobody told me you were the right person.”"
+        correct: false
+        explanation: An excuse that also sounds like a complaint.
+    source: { quote: "Fair point — I should have come to you after the second follow-up. From now on I'll escalate after two days.", page: 158 }
+
+  - id: D36-04
+    type: mcq
+    stem: "Kevin asks: “Can't you just use the staging account?” What do you say?"
+    options:
+      - text: "“Sure, we'll make it work.”"
+        correct: false
+        explanation: Agrees to deploy a pilot with real patients on a test account.
+      - text: "“That's a dumb idea for production.”"
+        correct: false
+        explanation: Right concern, wrong tone with a CTO.
+      - text: "“Staging isn't where Lakeside's real patients will be, so it can't stand in for production. The fallback is your DevOps team deploying from our runbook. It works, but every change waits for them.”"
+        correct: true
+        explanation: Plain reason, and the real fallback with its cost.
+      - text: "“I'm not sure, I'd have to check.”"
+        correct: false
+        explanation: You know the answer. Not knowing here sounds unprepared.
+    source: { quote: "Ask: \"Can't you just use the staging account?\"", page: 104 }
+
+  - id: D36-05
+    type: mcq
+    stem: Which subject line is best for your written escalation to Kevin?
+    options:
+      - text: "“Quick question”"
+        correct: false
+        explanation: Says nothing about what you need or why it matters.
+      - text: "“AWS”"
+        correct: false
+        explanation: A topic, not an ask.
+      - text: "“ACTION NEEDED: production AWS access (SEC-482) — needed by Wed Apr 22, noon ET”"
+        correct: true
+        explanation: The ask, the blocker and the deadline, readable on a phone.
+      - text: "“Following up again on the ticket from last week (please read)”"
+        correct: false
+        explanation: Sounds like a complaint and hides the deadline.
+    source: { quote: "Subject: ACTION NEEDED: production AWS access (SEC-482) — needed by Wed Apr 22, noon ET", page: 159 }
+
+  - id: D36-06
+    type: mcq
+    stem: Kevin agrees to help and asks what security needs. Which offer makes his “yes” easiest?
+    options:
+      - text: "“Just give us full admin, it's quicker.”"
+        correct: false
+        explanation: The opposite of what security will approve.
+      - text: "“Whatever security wants is fine.”"
+        correct: false
+        explanation: Leaves the work with him.
+      - text: "“I'll send the least-privilege policy now. Would time-limited access, say 90 days, make it easier for security?”"
+        correct: true
+        explanation: Gives him the document he needs and a smaller risk to approve.
+      - text: "“Can you ask Omar to call me when he's back?”"
+        correct: false
+        explanation: Sends the blocker back to the person who's out sick.
+    source: { quote: "Security needs a least-privilege policy and time-limited access before approving.", page: 104 }
+
+  - id: D36-07
+    type: scenario
+    clientLine: "“My team is swamped — what exactly do you need?”"
+    stem: You opened a little vaguely and Kevin is getting defensive. What do you say?
+    options:
+      - text: "“Sorry, I didn't mean to blame anyone. It's just that it's been a while…”"
+        correct: false
+        explanation: Still vague. He asked exactly what you need.
+      - text: "“One thing: approve the production IAM role in SEC-482, or tell me who can, by Wednesday noon. The policy draft is ready.”"
+        correct: true
+        explanation: One specific ask, one deadline, and the work already done.
+      - text: "“Everybody's busy. We're swamped too.”"
+        correct: false
+        explanation: Turns an escalation into an argument.
+      - text: "“Never mind, I'll keep chasing Omar.”"
+        correct: false
+        explanation: Backs off from the only person who can unblock it in time.
+    source: { quote: "If the engineer is vague or sounds like they are blaming your team, get defensive: \"My team is swamped — what exactly do you need?\"", page: 104 }
+
+  - id: D36-08
+    type: scenario
+    clientLine: "“Omar's been out sick. Is this really my job?”"
+    stem: Kevin is the CTO. What's the best reply?
+    options:
+      - text: "“You're right, sorry. I'll wait for Omar.”"
+        correct: false
+        explanation: Lets May 4 slip to avoid an awkward moment.
+      - text: "“It's your company's account, so yes.”"
+        correct: false
+        explanation: True, but it sounds like a lecture.
+      - text: "“Not normally, and I'm sorry Omar's unwell. You're the one person who can approve it before Wednesday noon. If you'd rather name someone else, that works too.”"
+        correct: true
+        explanation: Respects his point, explains why him, and offers a way out that still unblocks it.
+      - text: "“I don't know whose job it is.”"
+        correct: false
+        explanation: Escalating means knowing who can say yes.
+    source: { quote: "Omar Haddad, your DevOps engineer, has been out sick for 3 days.", page: 104 }
+
+  - id: D36-09
+    type: written
+    stem: >-
+      Ten minutes after the call, Kevin approves the role. Write the 2–3 sentence Slack message you post in the
+      thread where you followed up with Omar.
+    modelAnswer: >-
+      Update: Kevin approved the production IAM role (SEC-482) as a 90-day, time-limited role this morning, and access
+      works. We're setting up production today, so the May 4 plan is back on track. Omar, nothing needed from you;
+      hope you feel better.
+    scoringPoints:
+      - Closes the loop with the outcome, the ticket and what happens next
+      - Ties it back to the May 4 date in one line
+      - No blame or sarcasm toward Omar or his team
+    source: { quote: "I'll send you the policy doc right after this call and confirm in Slack once access works.", page: 103 }
+
+  - id: D36-10
+    type: written
+    stem: >-
+      Lisa Chen asks you on Slack: “Will the pilot clinics need anything from us for the production setup this week?”
+      They don't. Write your 2-sentence reply.
+    modelAnswer: >-
+      Nothing from your team this week: production setup is on our side and Brightpath's, and access was approved
+      this morning. The first thing we'll need from you is UAT on Friday, and I'll confirm the start time by
+      tomorrow.
+    scoringPoints:
+      - Answers her question first, in one sentence
+      - Gives her the next thing her team needs to do, with a date
+      - No technical detail about AWS or IAM roles
+    source: { quote: "To go live on May 4, we must set up CareBook's production environment in Brightpath's AWS account.", page: 103 }

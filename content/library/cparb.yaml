@@ -1,0 +1,15 @@
+id: cparb
+kind: framework
+title: The technical story (CPARB)
+summary: Context, Problem, Approach, Result, Business impact.
+day: 41
+blocks:
+  - type: steps
+    items:
+      - { title: C · Context, text: "Where it happened, in one line." }
+      - { title: P · Problem, text: "What went wrong, and who felt it." }
+      - { title: A · Approach, text: "What you did, in plain words." }
+      - { title: R · Result, text: "The number or outcome, before and after." }
+      - { title: B · Business impact, text: "What it means for the client: time, money, patients." }
+  - type: text
+    text: End on the business impact. If a sentence has no answer to “So what does that mean for the client?”, cut it.

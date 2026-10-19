@@ -1,0 +1,107 @@
+day: 61
+block: 13
+title: Plan your solo week
+type: normal
+storyDate: Monday, May 25
+minutes: About 55 min
+intro: >-
+  This week you own all client communication. Today you plan it, then repeat your Day 1 call with no preparation and
+  compare the two.
+lessons:
+  - id: plan-solo-week
+    kind: prep
+    title: Plan your solo week
+    minutes: 5 min
+    blocks:
+      - type: yesterday
+        text: >-
+          you led your second call, recapped it, and rated all four pillars on Friday.
+      - type: scene
+        when: Monday, May 25 · 8:15 am Central · pilot day twenty-two (Memorial Day week)
+        text: >-
+          This week you own all client communication for CareBook: calls, end-of-day notes, the weekly status report and
+          follow-ups. The PM watches from a distance and steps in only if you ask. Monday is a US holiday for some of the
+          client's team, so plan your updates around who is in.
+    fields:
+      - { id: calls, label: "Calls I'll lead this week", kind: area, rows: 2, placeholder: "e.g. Tuesday: rollout planning call with Dana" }
+      - { id: updates, label: "Updates I'll send, and when", kind: area, rows: 2, placeholder: "e.g. End-of-day note at 5:30 pm daily · weekly status report Thursday" }
+      - { id: follow-ups, label: "Follow-ups I owe, with dates", kind: area, rows: 2 }
+    source: both
+
+  - id: solo-week
+    kind: learn
+    title: The solo week
+    heading: For one week, you own the client relationship
+    minutes: 10 min
+    lead: >-
+      Day 90 is about proof, to yourself and to management, that you can run the client relationship without a PM.
+    blocks:
+      - type: facts
+        rows:
+          - { label: You own, value: "Calls, end-of-day notes, the weekly status report and follow-ups." }
+          - { label: The PM, value: "Watches from a distance and steps in only if you ask." }
+          - { label: You prove, value: "That the client gets answers, updates and decisions on time, without a PM in the middle." }
+      - type: note
+        tone: info
+        title: Ask early, not late
+        text: >-
+          Asking for help is part of owning it. If something is bigger than you can decide, tell the PM the same day, with
+          your recommendation.
+
+  - id: day-one-again
+    kind: mock
+    title: Your first call again
+    heading: Repeat your Day 1 call with Dana
+    minutes: 15 min
+    lead: >-
+      This is the same call as Day 1: Dana has 15 minutes to meet her new main contact. Don't prepare and don't read your
+      Day 1 notes. Read the facts for 2 minutes, then make the call, just like Day 1.
+    cardId: S01
+    level: 1
+    scriptNote: Open it after your call to compare.
+
+  - id: call-review
+    kind: reflect
+    title: How did the call go?
+    minutes: 5 min
+    lead: >-
+      Two minutes while it's fresh. Tick what you managed, then note what the AI told you. Only you can see this.
+    checksTitle: On this call, I…
+    checks:
+      - opened the call and set the agenda
+      - "gave a 30-second intro: who I am, what I own, how I'll help"
+      - agreed a clear update rhythm with Dana
+      - closed with next steps and promised a recap
+    fields:
+      - { id: went-well, label: What went well, kind: area, placeholder: "From the AI's feedback" }
+      - { id: fix-next, label: One thing to fix next time, kind: area }
+    rubric: true
+
+  - id: three-differences
+    kind: write
+    title: Day 1 and today
+    heading: Compare Day 1 and today, privately
+    minutes: 10 min
+    lead: >-
+      Look at your Day 1 call and today's call. Write 3 differences, each with an example of what you said or did. Only you
+      see this.
+    source: carebook
+    blocks:
+      - { type: field, id: diff-1 }
+      - { type: field, id: diff-2 }
+      - { type: field, id: diff-3 }
+    fields:
+      - { id: diff-1, label: Difference 1, kind: area, rows: 2 }
+      - { id: diff-2, label: Difference 2, kind: area, rows: 2 }
+      - { id: diff-3, label: Difference 3, kind: area, rows: 2 }
+
+scoring:
+  three-differences:
+    modelAnswer: >-
+      1. Day 1: I waited for Dana to ask for the status. Today I gave the status first: “Short answer: on track.” 2. Day 1:
+      I had no agenda. Today I opened with the goal and three topics. 3. Day 1: I ended with “let me know”. Today I ended
+      with two actions, owners and a date, and promised a recap within two hours.
+    scoringPoints:
+      - Each difference names something you said or did, not a feeling
+      - At least one difference is about answering first or the agenda
+      - The differences are specific enough to check against the two calls

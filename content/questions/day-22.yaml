@@ -1,0 +1,187 @@
+# Day 22 quiz pool: Tuesday, March 31. Laura Bennett's question on PHI in logs: HIPAA for engineers (PHI, Privacy
+# and Security Rules, minimum necessary, BAA), our rule, answering at a high level and committing to the details.
+# Shows 5 of 10.
+pool: day-22
+questions:
+  - id: D22-01
+    type: mcq
+    stem: "Laura opens: “My question is simple: how do you handle PHI in your logs?” What's the best first answer?"
+    options:
+      - text: "“We follow HIPAA best practices.”"
+        correct: false
+        explanation: Says nothing she can write down. She'll ask you to be specific.
+      - text: "“Short answer: our application logs don't contain PHI. We log internal IDs, not names, phone numbers or visit reasons.”"
+        correct: true
+        explanation: The answer first, then one specific fact she can check.
+      - text: "“So, our logging stack uses structured JSON and goes through a pipeline into AWS…”"
+        correct: false
+        explanation: Background and jargon before the answer.
+      - text: "“I think we're mostly fine on that.”"
+        correct: false
+        explanation: “I think” and “mostly” on a compliance question. She'll ask if it's confirmed.
+    source: { quote: "If I give a vague answer like \"we follow best practices\", say \"Can you be specific?\"", page: 70 }
+
+  - id: D22-02
+    type: mcq
+    stem: >-
+      Laura asks: “Does your crash-reporting tool ever capture screenshots with patient data on them?” You don't know.
+      What's the best reply?
+    options:
+      - text: "“No, never.”"
+        correct: false
+        explanation: A confident guess. If it's wrong, it's in her file.
+      - text: "“Good question, and I don't want to guess. Kevin Walsh owns that tool. I'll confirm what it captures, and whether a BAA covers it, by Thursday noon Pacific.”"
+        correct: true
+        explanation: Honest, with an owner and a time.
+      - text: "“All crash tools do that a bit. It's normal.”"
+        correct: false
+        explanation: Sounds careless about PHI, to a compliance officer.
+      - text: "“That's more of a DevOps question.”"
+        correct: false
+        explanation: Leaves her with nothing. Own finding the answer.
+    source: { quote: "The exact log retention period, and whether a BAA covers the crash-reporting tool.", page: 69 }
+
+  - id: D22-03
+    type: mcq
+    stem: "Laura asks: “Would your company sign a BAA with us directly?” What's the best reply?"
+    options:
+      - text: "“Yes, of course.”"
+        correct: false
+        explanation: A contract commitment that isn't yours to make.
+      - text: "“We don't need one. We don't really store PHI.”"
+        correct: false
+        explanation: Wrong. CareBook handles PHI, which is exactly why BAAs exist.
+      - text: "“That's a contract question for Brightpath, and I don't want to answer it for them. Rachel Kim, their compliance lead, will reply to you by Thursday.”"
+        correct: true
+        explanation: Knows what a BAA is, doesn't overstep, and gives an owner and a date.
+      - text: "“What's a BAA?”"
+        correct: false
+        explanation: On a call with a compliance officer, this is a term you must know.
+    source: { quote: "Ask: \"Would your company sign a BAA with us directly?\"", page: 70 }
+
+  - id: D22-04
+    type: mcq
+    stem: >-
+      Debugging a failed booking, your mobile engineer wants to paste the production error log into a free AI tool.
+      The log line includes a patient's phone number. What do you tell them?
+    options:
+      - text: "“Fine, just this once. It's only a phone number.”"
+        correct: false
+        explanation: A phone number linked to a booking is PHI. “Just this once” is how leaks happen.
+      - text: "“Fine, if you delete the chat afterwards.”"
+        correct: false
+        explanation: Once pasted, it has already left our control.
+      - text: "“Don't paste it. Reproduce it with made-up data, or describe the error without patient details. And let's find out why a phone number reached the log at all.”"
+        correct: true
+        explanation: Keeps the rule, still solves the bug, and treats the leak as a bug too.
+      - text: "“Ask Kevin if it's okay.”"
+        correct: false
+        explanation: The rule is already clear. No one needs to approve breaking it.
+    source: { quote: "Our rule: no PHI in logs, test data, screenshots, or AI tools.", page: 65 }
+
+  - id: D22-05
+    type: mcq
+    stem: >-
+      Your QA engineer asks Lisa Chen for “a few real patient records” to test the new-patient flow properly. Lisa asks
+      you if that's okay. What's the best reply?
+    options:
+      - text: "“Yes, a few is fine if we delete them after.”"
+        correct: false
+        explanation: Real records in a test environment break the rule, however few.
+      - text: "“Thanks for checking, Lisa, but no: our test data is always made up. We'll create realistic fake patients ourselves.”"
+        correct: true
+        explanation: Clear, polite, and it solves QA's real need.
+      - text: "“Only if you remove the names.”"
+        correct: false
+        explanation: Dates of birth, phone numbers and visit reasons can still identify a person.
+      - text: "“Whatever you're comfortable with.”"
+        correct: false
+        explanation: Hands a privacy decision to the client instead of owning your own rule.
+    source: { quote: "Test data is synthetic.", page: 69 }
+
+  - id: D22-06
+    type: mcq
+    stem: >-
+      Lisa Chen asks for the clinic schedule view to also show each patient's diagnosis, “just in case it's useful”.
+      What's the best reply?
+    options:
+      - text: "“Sure, Epic has it, so we can show it.”"
+        correct: false
+        explanation: Available isn't the same as needed. More PHI on screen means more to protect.
+      - text: "“No, that's illegal.”"
+        correct: false
+        explanation: Overstated and unhelpful. It isn't about legality; it's about need.
+      - text: "“What would the front desk do with it? If they don't need it to manage the schedule, we'd leave it out. The less PHI on a screen, the less can leak.”"
+        correct: true
+        explanation: Minimum necessary, explained with a question, not a lecture.
+      - text: "“I'll add it to the backlog.”"
+        correct: false
+        explanation: Accepts PHI on a screen without asking why it's needed.
+    source: { quote: "Minimum necessary = use only the PHI you need.", page: 65 }
+
+  - id: D22-07
+    type: scenario
+    clientLine: "“Last year a vendor leaked patient phone numbers through debug logs. Why should I believe you're different?”"
+    stem: What's the best reply?
+    options:
+      - text: "“We're much more careful than that vendor.”"
+        correct: false
+        explanation: A claim, not proof. Every vendor says it.
+      - text: "“Because it's built in, not promised: phone numbers and emails are masked automatically, every code review checks for PHI in logs, and only three roles can read the logs. I'll put that in writing today.”"
+        correct: true
+        explanation: Specific controls she can check, and a written follow-up.
+      - text: "“Debug logs are always risky, honestly.”"
+        correct: false
+        explanation: Agrees with her fear and offers nothing.
+      - text: "“I'm sorry that happened to you.”"
+        correct: false
+        explanation: Sympathy without a reason to trust you.
+    source: { quote: "Last year, another vendor exposed patient phone numbers through debug logs.", page: 70 }
+
+  - id: D22-08
+    type: scenario
+    clientLine: "“Our policy requires audit logs to be kept for 6 years. Will yours be?”"
+    stem: The audit log is being built this sprint, and you don't know its retention. What do you say?
+    options:
+      - text: "“Yes, we can do 6 years.”"
+        correct: false
+        explanation: A promise about storage and cost you haven't checked.
+      - text: "“Thanks, that's an important requirement. The audit log is due April 10. I'll check with Kevin that it can be kept for 6 years and confirm in writing by Thursday.”"
+        correct: true
+        explanation: Treats it as a requirement, shares what you know, and commits to a date.
+      - text: "“Six years seems excessive.”"
+        correct: false
+        explanation: Argues with her policy instead of meeting it.
+      - text: "“We'll keep them as long as AWS allows.”"
+        correct: false
+        explanation: A vague answer that sounds like a guess.
+    source: { quote: "Your internal policy requires audit logs to be kept for 6 years.", page: 70 }
+
+  - id: D22-09
+    type: written
+    stem: >-
+      Dana messages: “Laura says logging is the last open item before contract talks. Where are we?” Write your reply in
+      2–3 sentences.
+    modelAnswer: >-
+      Close. Today I answered Laura's logging question: no PHI in our logs, automatic masking, three roles with
+      access, and an audit log due April 10. Two items are open with Kevin: log retention, which goes to her by Thursday
+      noon Pacific, and whether a BAA covers our crash-reporting tool, both well before her April 9 committee.
+    scoringPoints:
+      - Answers first (“close”), then gives the facts already shared
+      - Names the open items with an owner and a date
+      - Shows the dates work for Laura's committee
+    source: { quote: "If the logging answers are good, it is the last open item before Pacific Coast Health moves to contract talks.", page: 70 }
+
+  - id: D22-10
+    type: written
+    stem: >-
+      A new QA contractor asks you: “Is an appointment time PHI? It's not a name.” Write your answer in 2–3 sentences.
+    modelAnswer: >-
+      On its own, a time slot isn't PHI. PHI is health information that can identify a person, so an appointment time
+      linked to a name, phone number, date of birth or record number is PHI. Treat it as PHI whenever it's tied to a
+      person, and keep it out of logs, test data, screenshots and AI tools.
+    scoringPoints:
+      - Gives the definition in plain words (health information that can identify a person)
+      - Explains when the same data becomes PHI
+      - Ends with what to do in practice, using our rule
+    source: { quote: "PHI = health information that can identify a person", page: 65 }

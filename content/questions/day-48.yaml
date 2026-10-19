@@ -1,0 +1,168 @@
+# Day 48 quiz pool: Wednesday, May 6. Co-leading a live call: agree your item, prepare it like a full call, signal for help. Shows 5 of 10.
+pool: day-48
+questions:
+  - id: D48-01
+    type: mcq
+    stem: "What should you agree before a call you co-lead?"
+    options:
+      - text: "Which agenda item is yours."
+        correct: true
+        explanation: "Without it you and the PM both talk, or neither does."
+      - text: "Nothing; join and see."
+        correct: false
+        explanation: "You need an owned item and a signal."
+      - text: "That the PM talks first and last."
+        correct: false
+        explanation: "Then you aren't co-leading."
+      - text: "That you stay muted."
+        correct: false
+        explanation: "That's shadowing."
+    source: { quote: "Agree beforehand with the PM or senior which agenda item is yours.", page: 122 }
+
+  - id: D48-02
+    type: mcq
+    stem: "How should you prepare your agenda item?"
+    options:
+      - text: "Like a full call."
+        correct: true
+        explanation: "Same pre-call card, same recap."
+      - text: "Lightly; the PM is there."
+        correct: false
+        explanation: "The PM steps in only if you signal."
+      - text: "Only the first sentence."
+        correct: false
+        explanation: "The middle and close are where it goes wrong."
+      - text: "By reading the PM's notes."
+        correct: false
+        explanation: "Their notes are theirs. Prepare your own."
+    source: { quote: "Prepare it like a full call.", page: 122 }
+
+  - id: D48-03
+    type: mcq
+    stem: "When does the PM or senior step in?"
+    options:
+      - text: "Only if you signal."
+        correct: true
+        explanation: "They watch and wait."
+      - text: "Whenever they feel like it."
+        correct: false
+        explanation: "That would undo your item."
+      - text: "At every unknown question."
+        correct: false
+        explanation: "Not unless you ask."
+      - text: "Never."
+        correct: false
+        explanation: "They're your backup if you signal."
+    source: { quote: "They step in only if you signal.", page: 122 }
+
+  - id: D48-04
+    type: mcq
+    stem: "Which is the best way to start your item?"
+    options:
+      - text: "“I'll take the pilot status. Two days in: all three clinics are live. One issue, and one decision I need.”"
+        correct: true
+        explanation: "Says what the item is, leads with the bottom line, and names what's coming."
+      - text: "“Um, so, I guess I'll go now.”"
+        correct: false
+        explanation: "It doesn't set up your item."
+      - text: "A five-minute story of what you did."
+        correct: false
+        explanation: "Bottom line first."
+      - text: "“[PM], do you want to start?”"
+        correct: false
+        explanation: "It hands your item back."
+    source: { quote: "Prepare it like a full call.", page: 122 }
+
+  - id: D48-05
+    type: mcq
+    stem: "What do you do after your part of the call?"
+    options:
+      - text: "Write a recap of your part and ask the PM or senior for 2 lines of feedback."
+        correct: true
+        explanation: "The recap closes the loop; the feedback is the learning."
+      - text: "Nothing; the PM sends the recap."
+        correct: false
+        explanation: "Your part, your recap."
+      - text: "Ask for a long review."
+        correct: false
+        explanation: "Two lines you can use tomorrow."
+      - text: "Wait for the weekly check-in."
+        correct: false
+        explanation: "Feedback is useful when it's fresh."
+    source: { quote: "ask the PM or senior for 2 lines of feedback", page: 122 }
+
+  - id: D48-06
+    type: mcq
+    stem: "What should your pre-call card for a live call include?"
+    options:
+      - text: "Your goal in one sentence, an opener, 3 things to say, 3 questions to ask, one risk, and a closing line."
+        correct: true
+        explanation: "That's the A1 card."
+      - text: "The full script, word for word."
+        correct: false
+        explanation: "Reading a script is stiff and slow."
+      - text: "Only a list of topics."
+        correct: false
+        explanation: "A goal and questions are what make it a call."
+      - text: "Nothing; the agenda is enough."
+        correct: false
+        explanation: "The agenda says what, not how."
+    source: { quote: "My goal for this call (one sentence)", page: 150 }
+
+  - id: D48-07
+    type: scenario
+    clientLine: "“Can you remind me what the next step is?”"
+    stem: "You've just finished your agenda item on a live call and the client asks this. What do you say?"
+    options:
+      - text: "“Whatever [PM] says.”"
+        correct: false
+        explanation: "You own your item, including its next step."
+      - text: "“Yes: I'll send the waitlist change request with a size estimate by Friday, and Lisa will confirm which clinics want it first.”"
+        correct: true
+        explanation: "An owner and a date for each action."
+      - text: "“I think we agreed something earlier.”"
+        correct: false
+        explanation: "Vague."
+      - text: "“I'll check and email you.”"
+        correct: false
+        explanation: "You were in the call."
+    source: { quote: "Closing line: recap + next steps", page: 150 }
+
+  - id: D48-08
+    type: scenario
+    clientLine: "“Hmm, I'm not sure that's right. Can [PM] weigh in?”"
+    stem: "The client asks the PM about something in your item. What do you do?"
+    options:
+      - text: "Say nothing and let the PM take over."
+        correct: false
+        explanation: "That gives away your item without choosing to."
+      - text: "Answer what you know, then signal: “Let me check with [PM] on that part.” The PM steps in only if you signal."
+        correct: true
+        explanation: "Uses the agreed signal and keeps the item yours."
+      - text: "Interrupt the PM."
+        correct: false
+        explanation: "They're letting you lead."
+      - text: "Pretend you didn't hear."
+        correct: false
+        explanation: "It looks like avoidance."
+    source: { quote: "They step in only if you signal.", page: 122 }
+
+  - id: D48-09
+    type: written
+    stem: "Write the opening two sentences for your status update item, using these facts: all three clinics are live, 412 appointments booked, no double bookings, one issue (the test server was slow in the Tuesday demo)."
+    modelAnswer: "I'll take the pilot status. Two days in: all three clinics are live, 412 appointments are booked, and there have been no double bookings. One issue to raise: Tuesday's demo ran on the test server, which was slow, and the live pilot wasn't affected."
+    scoringPoints:
+      - "Bottom line first"
+      - "Includes the numbers, in one or two sentences"
+      - "Names the issue and separates it from the pilot"
+    source: { quote: "Prepare it like a full call.", page: 122 }
+
+  - id: D48-10
+    type: written
+    stem: "Write a recap line for an action you took on the call. Facts: Lisa asked for the patient's phone number to show on the waitlist; you'll send a size estimate; Friday is the deadline."
+    modelAnswer: "Action: I'll send a size estimate for showing the patient's phone number on the waitlist by Friday, May 8. Lisa will confirm which clinics want it first."
+    scoringPoints:
+      - "Has an owner and a date"
+      - "States the change precisely"
+      - "Short"
+    source: { quote: "Closing line: recap + next steps", page: 150 }

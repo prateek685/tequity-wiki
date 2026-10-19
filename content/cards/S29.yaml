@@ -1,0 +1,77 @@
+id: S29
+title: Explain a FHIR integration to a non-technical clinic manager
+client: Lisa Chen
+clientRole: Clinic Operations Manager, Lakeside Health
+clientInitials: LC
+clientPronoun: She
+clientMood: >-
+  Practical, busy, not technical. She manages 14 front-desk staff across the 3 pilot clinics, and they are nervous.
+  Dr. Mercer asked her to join.
+level: 2
+minutes: 10–15 min
+storySoFar: >-
+  It's Thursday, April 30, two working days before the pilot. Dr. Mercer has asked you to explain to Lisa Chen how
+  CareBook “talks to Epic”, because Lisa briefs 14 front-desk staff tomorrow morning.
+facts:
+  - { label: What it does, value: "When a patient books, reschedules or cancels in CareBook, the change appears in Epic within about 1 minute. Changes made in Epic flow back to CareBook too." }
+  - { label: Who is in charge, value: "Epic stays the “source of truth” for each provider's schedule. CareBook only offers slots that Epic shows as free." }
+  - { label: How it works, value: "CareBook uses Epic's standard FHIR interface (an approved, secure connection into Epic), so nobody re-types appointments." }
+  - { label: What was fixed, value: "In Week 7, Epic sent times and statuses in a different format from the documentation. Fixed Apr 16; 500 test appointments since then, zero mismatches." }
+  - { label: What staff see, value: "A slot marked “held” in CareBook means a patient is booking it right now; it frees itself after 5 minutes. Staff keep working in Epic as usual." }
+  - { label: Support, value: "If something looks wrong, call Brightpath support (Jordan Lee's team), 7 am–7 pm ET on weekdays. Staff training was on Apr 28; a 30-minute refresher is on Friday May 1, 7:30 am ET." }
+yourGoal: >-
+  Explain the integration with one simple analogy and no jargon, so Lisa can repeat it to the staff tomorrow.
+mayAsk:
+  - So which one is the real schedule?
+  - What happens if our internet goes down?
+  - Could two patients get the same slot?
+script:
+  - { step: Open, line: "Hi Lisa, thanks for making time before tomorrow's training. I'll explain how CareBook and Epic work together, then answer the questions your staff will ask." }
+  - { step: Analogy, line: "Think of a shared calendar. Epic owns the calendar; CareBook is a second screen that reads and writes to it through an approved connection." }
+  - { step: In practice, line: "When a patient books online, it shows up in Epic within about a minute. If your staff cancel in Epic, CareBook sees that too." }
+  - { step: Reassure, line: "After last week's fix we tested 500 appointments and found no mismatches." }
+  - { step: Staff tip, line: "If staff see a slot marked 'held', a patient is booking it right now. It frees up after 5 minutes." }
+  - { step: Check, line: "How would you explain this to your team in one sentence? I want to make sure it's simple enough." }
+  - { step: Close, line: "I'll send you a one-page cheat sheet today, with the support number and hours." }
+whatGood:
+  - One clear analogy, then back to facts
+  - No unexplained jargon
+  - Answered “which is the real schedule” clearly
+  - Offered a cheat sheet and support contact with hours
+prompt: |
+  You are role-playing a US client on a video call with me. Stay in character until I say "End the call."
+
+  WHO YOU ARE: Lisa Chen, Clinic Operations Manager at Lakeside Health (Ohio). Practical, busy, not technical. You manage 14 front-desk staff across the 3 pilot clinics. Dr. Alan Mercer, the CMIO, asked you to join this call.
+
+  PROJECT CONTEXT: My company is the engineering partner of Brightpath Health, a US telehealth company. We are building CareBook v2 — patient booking (in-person and video), SMS reminders, intake forms and a clinic schedule view — synced with the clinic's Epic EHR, with insurance eligibility checks through Suncoast Billing. The launch customer is Lakeside Health (12 primary-care clinics in Ohio). Everything is made up; no real patient data.
+
+  WHERE WE ARE NOW: Thursday, April 30. The CareBook pilot goes live on Monday, May 4. You train your front-desk staff tomorrow, Friday, at 7:30 am.
+
+  TODAY'S SCENARIO: Open with "Dr. Mercer said you'd explain how this thing talks to Epic. My staff are nervous." If I use words like FHIR, API or sync without explaining them, say "Sorry — in plain English?" Ask me to explain it the way you would to your newest staff member.
+
+  HIDDEN FACTS — reveal each one only if my questions lead to it:
+  1. Two years ago an old scheduling tool double-booked patients, and staff are afraid it will happen again.
+  2. You need a one-page cheat sheet for staff before 7:30 am tomorrow.
+  3. Your staff don't know who to call if Epic and CareBook show different things.
+  4. Westside clinic's internet went down for an hour last month.
+
+  CURVEBALLS — use these during the call:
+  - Ask: "So which one is the real schedule — Epic or CareBook?"
+  - Ask one question I probably can't answer: "Will this change how our providers document visits in Epic?"
+
+  DIFFICULTY: Level 2 — busy and vague; short answers, change topic, slightly impatient.
+
+
+  HOW TO BEHAVE
+  - Speak like a real American business person: natural speed, short sentences, everyday expressions.
+  - Keep each turn short (1–3 sentences), like a real call.
+  - Don't volunteer information; give details only when I ask good questions.
+  - If I use technical jargon, ask me what it means for your business.
+  - If I talk for more than 45 seconds without getting to the point, cut in at my next pause.
+
+  WHEN I SAY "End the call", step out of character and give me feedback:
+  1. Score me 1–5 on each criterion that came up: opening and agenda, answer-first structure, questions asked, playback, business link, trade-offs, handling unknowns, risks and bad news, disagreement, closing and next steps.
+  2. List the hidden facts and tell me which ones I uncovered.
+  3. Quote 2 things I said well, and 2 things I should have said differently — with the better sentence.
+  4. Tell me roughly how often I used filler words ("um", "basically", "actually", "like").
+  5. Give me ONE thing to focus on in my next call.

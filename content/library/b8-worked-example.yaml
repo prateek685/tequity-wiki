@@ -1,0 +1,77 @@
+id: b8-worked-example
+kind: prompt
+ref: B8
+title: "Worked example, B6 and B7 end to end"
+summary: "A weekly sync with Dana from the CareBook practice project, from the filled-in prep prompt to the finished notes and email."
+blocks:
+  - type: text
+    text: >-
+      A real-style example based on the weekly sync with Dana (CareBook practice project): the prep prompt filled in, what
+      the AI gives back, the rough notes after the call, and the finished meeting notes and email.
+  - type: heading
+    text: "Step 1. Before the call: B6 with the brackets filled in"
+  - type: facts
+    rows:
+      - { label: Meeting type, value: "Status update (weekly sync)" }
+      - { label: Client, value: "Dana, VP of Product at a US telehealth company" }
+      - { label: When and how long, value: "Friday March 6, 10:00 am Central, 15 minutes" }
+      - { label: My goal, value: "Give a clear weekly update, raise the Epic access risk, and get a name for the security-form signer." }
+      - { label: Done, value: "Video booking at 75% (was 60%). Dana approved the SMS reminder wording on Mar 5; it is with Lakeside compliance." }
+      - { label: In progress, value: "Reschedule and cancel (Mar 9–11). SMS reminders are waiting on SMS number verification (submitted Mar 3; usually 5–7 business days)." }
+      - { label: Delayed, and why, value: "Nothing late yet." }
+      - { label: Risks, value: "Epic sandbox access. Lakeside IT needs a signed security form first; it is not signed. We need access by Mon Mar 16.", warn: true }
+      - { label: I need from the client, value: "Who at Brightpath signs Lakeside's security form, by Tue Mar 10." }
+      - { label: Their concerns, value: "The pilot date, and next Friday's Sprint 3 demo." }
+  - type: heading
+    text: "Step 2. What the AI gives back (shortened)"
+  - type: facts
+    rows:
+      - { label: Agenda, value: "1) this week's progress · 2) one risk and one ask · 3) next week and the demo" }
+      - { label: Opener, value: "“Morning, Dana! Are you ready for SXSW next week? The goal today is a quick update, one risk, and next week's plan: 15 minutes.”" }
+      - { label: Main message, value: "“Short answer: we're on track for next Friday's demo. Video booking is at 75%, and your reminder wording is with Lakeside compliance.”" }
+      - { label: Likely questions, value: "“Is the demo still on?” → “Yes, Friday at 10 Central.” · “When will reminders work?” → “As soon as the SMS number is verified, probably by March 12. I'll message you the day it clears.” · “Who signs the form?” → “That's my ask: can you confirm by Tuesday?”" }
+      - { label: Hard questions, value: "“Can Lakeside give access without the form?” → “I don't think so. I'll confirm with Sam today.” · “Will this delay the pilot?” → “Not if we have access by March 16. If we don't, I'll tell you that day, with options.”" }
+      - { label: Raise yourself, value: "The March 16 access deadline." }
+      - { label: Close, value: "“To recap: demo next Friday, you'll confirm the signer by Tuesday, and I'll send the written update within the hour.”" }
+      - { label: Flag, value: "“Waiting on SMS verification” is vague. Give a date range.", warn: true }
+  - type: heading
+    text: "Step 3. After the call: B7 with your rough notes"
+  - type: message
+    label: Rough notes
+    text: |-
+      MEETING: weekly sync with Dana (VP of Product), Fri Mar 6, 10:00–10:15 am Central
+
+      NOTES: demo still on fri 13th 10am, CEO will attend! / signer = their COO, dana will get it signed mon / dana wants bullet updates to forward / reminders - told dana ~mar 12 / asked if pilot at risk - said not if access by mar 16 / i'll check w sam if access can start before form - today EOD
+  - type: heading
+    text: "Step 4. What the AI gives back"
+  - type: facts
+    rows:
+      - { label: Summary, value: "On track for the Sprint 3 demo on Fri Mar 13. The Epic access risk now has a clear owner." }
+      - { label: Decisions, value: "Brightpath's COO signs Lakeside's security form." }
+      - { label: Action items, value: "Dana: get the form signed, Mon Mar 9 · You: ask Sam if access can start before the form is signed, today, Fri Mar 6 · You: send the weekly update as bullets, today" }
+      - { label: Open questions, value: "None." }
+      - { label: Risks, value: "Epic access needed by Mon Mar 16.", warn: true }
+      - { label: Next meeting, value: "Sprint 3 demo, Fri Mar 13, 10:00 am Central (CEO attending)." }
+  - type: message
+    label: The follow-up email, ready to send
+    text: |-
+      Subject: CareBook weekly update: on track for Friday's demo; form signing Monday
+
+      Hi Dana,
+
+      Bottom line: we're on track for the Sprint 3 demo on Fri Mar 13 at 10:00 am Central.
+
+      - Video booking: 75% done (up from 60%)
+      - SMS reminders: wording approved; live once the SMS number is verified (expected by Mar 12)
+      - Risk: Epic sandbox access is needed by Mon Mar 16. Your COO will sign Lakeside's security form on Monday.
+      - I'm checking with Lakeside IT today whether access can start before the form is signed.
+
+      Next: Friday's demo. I'll make sure it's CEO-ready.
+
+      Thanks,
+
+      [Your name]
+  - type: facts
+    rows:
+      - { label: Your commitments, value: "Check with Sam by end of day today · send this update within the hour · a CEO-ready demo on Fri Mar 13." }
+      - { label: Coach's view, value: "Answer-first 5 · Playback 3 (you didn't repeat back who signs the form) · Unknowns 4 · Closing 5. Next time, play back the decision before moving on." }

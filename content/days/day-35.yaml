@@ -1,0 +1,189 @@
+day: 35
+block: 7
+title: One more piece of news
+type: normal
+storyDate: Friday, April 17
+minutes: About 65 min
+intro: >-
+  Dana wants to pull the pilot back to April 29 by cutting testing, and you have new bad news for her. Today you run a
+  20-minute call at Level 3 that combines both skills, send the recap and review your week.
+lessons:
+  - id: april-29
+    kind: prep
+    title: “Let's go live on the 29th”
+    minutes: 10 min
+    blocks:
+      - type: yesterday
+        text: >-
+          Kevin wanted single sign-on this sprint. You said “not this sprint” with the numbers, offered multi-factor
+          login and auto-logout for the pilot, and he agreed to SSO in Sprint 7. In the afternoon, you and Dana told
+          Dr. Mercer together that the pilot moves to May 4.
+      - type: scene
+        when: Friday, April 17 · 9:00 am Central
+        text: >-
+          The Epic fix is in, and the plan holds: regression April 21–23, UAT on the 24th, go/no-go on the 29th,
+          pilot on Monday, May 4. Then two messages. Dana, before her board update: “Let's go live on the 29th. Skip
+          the regression run and do a one-hour UAT.” And Lisa Chen: clinic staff can only do their pilot training on
+          Tuesday, April 28. Dana has 20 minutes at 11.
+      - type: text
+        text: >-
+          Two skills on one call: bad news first, then disagreement. Fill in your pre-call card, and decide now which
+          comes first.
+    fields:
+      - { id: goal, label: My goal for this call, kind: line, placeholder: "e.g. Give the training news first, hold firm on testing, leave with a decision" }
+      - { id: headline, label: My headline, kind: line, placeholder: "e.g. Before we talk about April 29, I have one more piece of news…" }
+      - { id: concern, label: My concern, with facts, kind: area, rows: 2 }
+      - { id: options, label: My options and recommendation, kind: area, rows: 3 }
+      - { id: hard-question, label: "Hardest question + my answer", kind: area, rows: 2, placeholder: "“What would you do if it were your company?” → …" }
+      - { id: closing, label: My closing line, kind: line }
+
+  - id: patient-apps
+    kind: learn
+    title: Patient apps and telehealth
+    heading: Patient apps and telehealth, in plain words
+    minutes: 10 min
+    lead: >-
+      CareBook is a patient app, and Lakeside sells telehealth. These are the words its clients use without
+      explaining them, and the rules behind today's call.
+    blocks:
+      - type: facts
+        label: Patient apps and telehealth
+        rows:
+          - { label: Telehealth, value: "Care delivered remotely: video, phone, or messaging. CareBook's video visits are telehealth." }
+          - { label: RPM, value: "Remote Patient Monitoring: devices like blood-pressure cuffs and glucose meters that send readings to care teams." }
+          - { label: Patient portal, value: "A website or app where patients see records, book visits, and message their care team." }
+          - { label: No-show rate, value: "The percentage of booked appointments that patients miss. Missed appointments cost clinics money." }
+          - { label: Patient engagement, value: "How actively patients use digital tools and follow their care plans." }
+          - { label: TCPA, value: "The US law on automated calls and texts: patients must consent to SMS reminders." }
+          - { label: WCAG, value: "Web Content Accessibility Guidelines: apps must work for older users and people with disabilities." }
+      - type: text
+        text: >-
+          Why it matters today: reminders are where this week went wrong. A wrong time in a reminder isn't a cosmetic
+          bug; it's a missed visit, a no-show the clinic pays for, and a patient who trusts the app less. That's why a
+          Westside-only start with reminders off is a safe early option, and skipping the regression run isn't.
+      - { type: heading, text: This week's notes }
+      - type: recall
+        label: Day 31 · Skip the testing?
+        day: 31
+        lesson: skip-testing-call-review
+        fields:
+          - { id: fix-next, label: One thing to fix }
+      - type: recall
+        label: Day 32 · The pilot moves
+        day: 32
+        lesson: slip-call-review
+        fields:
+          - { id: fix-next, label: One thing to fix }
+      - type: text
+        text: >-
+          Today's call combines both. Pick the one fix from Monday or Tuesday you most want to get right, and keep it
+          in mind for the call.
+
+  - id: combined-call
+    kind: mock
+    title: Delayed, and cut testing?
+    heading: "Combined: the pilot is delayed and the client pushes to cut testing"
+    minutes: 20 min
+    lead: >-
+      Level 3, 20 minutes: Dana is frustrated after a week of bad news. Give the new news first with its impact, hold
+      firm on testing with a clear reason, offer the phased option, and leave with a decision and a follow-up time.
+    cardId: S38
+    level: 3
+    scriptNote: Open it after your call to compare.
+    checksTitle: After the call
+    checks:
+      - I delivered the new bad news first, with its impact
+      - I held firm on testing, with a clear reason
+      - I offered a phased option, not just “no”
+      - I left with a decision and a written follow-up time
+    fields:
+      - { id: went-well, label: What went well, kind: area, placeholder: "From the AI's feedback" }
+      - { id: fix-next, label: One thing to fix next time, kind: area }
+      - { id: log, label: "Did I deliver the headline in the first 30 seconds? How many times did I apologise?", kind: area, rows: 2 }
+    rubric: true
+
+  - id: decision-recap
+    kind: write
+    title: Send the recap
+    heading: Send Dana the recap with the decision
+    minutes: 10 min
+    lead: >-
+      You promised the updated plan by 5 pm her time, and it goes into her board update. Write it for the option Dana
+      chose on your call. In the story, she keeps May 4 with full testing.
+    blocks:
+      - { type: field, id: subject }
+      - { type: field, id: decision }
+      - { type: field, id: why }
+      - { type: field, id: plan }
+      - { type: field, id: actions }
+      - { type: field, id: next-update }
+      - type: note
+        tone: info
+        title: Review it with AI.
+        text: >-
+          Copy the review prompt, paste it with your recap, and apply the edits you agree with. Never paste client
+          documents or patient data.
+      - type: copy
+        label: Copy review prompt
+        text: |
+          Review this recap email before I send it to a US client, a VP of Product who will use it in her board update. Check:
+          1. Is the decision in the subject line or the first two lines?
+          2. Is the reason for the decision one plain sentence a board member would understand?
+          3. Are the dates of the plan and every action item (owner + date) clear?
+          4. Is there a next update time, and no promise I can't keep?
+          5. Are there phrases an American reader might misunderstand?
+          Keep every fact, date and owner exactly as it is, and don't add new claims. Give me a tighter version under 150 words, then list what you changed, one line each.
+
+          My recap:
+          [paste your recap here]
+    fields:
+      - { id: subject, label: Subject, kind: line, placeholder: "e.g. CareBook pilot: decision confirmed, May 4 with full testing" }
+      - { id: decision, label: Decision, kind: line }
+      - { id: why, label: Why, in one sentence, kind: line }
+      - { id: plan, label: The plan (dates), kind: area, rows: 3 }
+      - { id: actions, label: Action items (owner + date), kind: area, rows: 3 }
+      - { id: next-update, label: Next update, kind: line }
+
+  - id: week-in-review
+    kind: scorecard
+    title: Your week in review
+    minutes: 5 min
+    lead: >-
+      Five minutes. Rate this week's behaviours and add a line of proof for each pillar. Your pillar scores update from
+      them; the other pillars carry forward. Your Day 1 baseline sits next to it.
+    scorecard: [O1, O2, S2]
+    checksTitle: Before the weekend
+    checks:
+      - Did I give options along with the bad news?
+      - Did I disagree with facts and an alternative?
+      - Did I stay calm when I was interrupted?
+    blocks:
+      - type: note
+        tone: info
+        title: Gate 2 after Day 40
+        text: >-
+          One week to go before Gate 2: a live healthcare mock with your manager watching, after the Week 8
+          assessment. You book it: if it isn't in your calendar yet, book the 45 minutes with your manager now. The
+          portal shows the expected date.
+      - type: text
+        text: >-
+          **Next week:** escalation and async updates, plus billing and the revenue cycle (RCM): how clinics get paid
+          for each visit. On Monday, the production setup for May 4 is still waiting on access, and it's yours to
+          escalate.
+
+scoring:
+  decision-recap:
+    modelAnswer: >-
+      Subject: CareBook pilot: decision confirmed, Mon May 4 with full testing.
+      Hi Dana, thanks for deciding today. Decision: the pilot stays on Mon May 4 at all 3 clinics, with the full
+      regression run and UAT. Why: the Epic fix touches booking, sync and reminders, where a wrong time reaches a
+      patient, and staff training can only happen on Tue Apr 28.
+      Plan: regression Apr 21–23 (212 cases) · UAT Fri Apr 24 · staff training Tue Apr 28 · go/no-go Wed Apr 29 ·
+      production deploy Thu Apr 30 · pilot Mon May 4. The May 12 investor demo runs on the demo environment either
+      way.
+      Actions: me, confirm the plan with Lisa Chen today; me, send the go/no-go invite for Apr 29 by Mon Apr 20.
+      Next update: Wed Apr 22 at our weekly sync, with the regression results so far.
+    scoringPoints:
+      - The decision is in the subject and first line, with a one-sentence reason a board member understands
+      - Includes the new training date and the full plan with dates
+      - Action items with owners and dates, and a next update time

@@ -1,0 +1,179 @@
+# Day 31 quiz pool: Monday, April 13. Dana wants to skip the regression run to keep April 27: disagree
+# professionally (acknowledge the goal, state the concern with facts, offer an alternative, ask). Shows 5 of 10.
+pool: day-31
+questions:
+  - id: D31-01
+    type: mcq
+    stem: "Dana opens: “So, can we skip the regression run? April 27 can't move.” What's the best first reply?"
+    options:
+      - text: "“Sure, if that's what you need, we'll skip it.”"
+        correct: false
+        explanation: Silent agreement now, wrong appointment times later. That's the habit this week breaks.
+      - text: "“No. Skipping testing is against our process.”"
+        correct: false
+        explanation: A flat no with a process reason. She hears an obstacle, not a partner.
+      - text: "“I want to protect April 27 too, so let's find the fastest safe way. Can I share one concern and an option?”"
+        correct: true
+        explanation: Starts from her goal, then asks for room to disagree.
+      - text: "“Let me ask QA and revert.”"
+        correct: false
+        explanation: Hides behind QA, and “revert” confuses American readers.
+    source: { quote: "I want to help protect April 27, so let's find the fastest safe way.", page: 91 }
+
+  - id: D31-02
+    type: mcq
+    stem: "Dana says: “Our competitors launch without all this testing.” What's the best reply?"
+    options:
+      - text: "“Then maybe we should too.”"
+        correct: false
+        explanation: Drops the patient risk because of a comparison nobody can check.
+      - text: "“Our competitors are reckless.”"
+        correct: false
+        explanation: Argues about other companies instead of solving her problem.
+      - text: "“Maybe. But our Epic sync has a known issue with appointment times right now, so we'd be testing exactly what's broken. The 60 riskiest cases take a day and a half.”"
+        correct: true
+        explanation: Doesn't argue the point, brings it back to the facts of this release and a faster option.
+      - text: "“Testing is industry best practice.”"
+        correct: false
+        explanation: A slogan, not a reason she can repeat to her CEO.
+    source: { quote: "Our competitors launch without all this testing.", page: 92 }
+
+  - id: D31-03
+    type: mcq
+    stem: "You need to explain the risk of skipping testing to Dana. Which line works best?"
+    options:
+      - text: "“There's a regression risk in the FHIR mapping layer.”"
+        correct: false
+        explanation: Jargon. She'll ask what it means for her business.
+      - text: "“If we skip testing, a patient could see the wrong appointment time, and that's the first thing Lakeside would remember about us.”"
+        correct: true
+        explanation: The patient-facing risk in plain words, and why it matters to the relationship.
+      - text: "“Things might break.”"
+        correct: false
+        explanation: Too vague to weigh against a launch date.
+      - text: "“I'm just not comfortable with it.”"
+        correct: false
+        explanation: A feeling, not a fact. Easy for her to overrule.
+    source: { quote: "If we skip testing, a patient could see the wrong appointment time", page: 91 }
+
+  - id: D31-04
+    type: mcq
+    stem: "Dana asks: “Can't QA just test over the weekend?” What's the best reply?"
+    options:
+      - text: "“Sure, I'll ask them to work Saturday and Sunday.”"
+        correct: false
+        explanation: Burns out the team to hide a planning problem, and the fix isn't ready yet anyway.
+      - text: "“That's not fair to QA.”"
+        correct: false
+        explanation: Makes it personal instead of about the plan.
+      - text: "“The weekend doesn't help: the Epic fix isn't ready until mid-week. What does help is testing only the 60 highest-risk cases, which takes a day and a half.”"
+        correct: true
+        explanation: Explains why the idea doesn't solve it, then offers what does.
+      - text: "“I'll think about it.”"
+        correct: false
+        explanation: Leaves her hoping for a yes you won't give.
+    source: { quote: "Can't QA just test over the weekend?", page: 92 }
+
+  - id: D31-05
+    type: mcq
+    stem: "Dana pushes: “So you're telling me we'll miss the date?” What do you say?"
+    options:
+      - text: "“Yes, probably.”"
+        correct: false
+        explanation: Bad news you don't know yet, said as a guess.
+      - text: "“No, no, we'll definitely make it.”"
+        correct: false
+        explanation: A promise you can't keep to calm the moment.
+      - text: "“Not yet. By Wednesday we'll know if the Epic fix is done, and that's when we can say whether April 27 holds. Can we check in then?”"
+        correct: true
+        explanation: Honest about what's unknown, with a date for the answer.
+      - text: "“That depends on a lot of things.”"
+        correct: false
+        explanation: True but useless. She needs a date for the answer.
+    source: { quote: "By Wed Apr 15 we will know if the Epic fix is done.", page: 91 }
+
+  - id: D31-06
+    type: mcq
+    stem: "You've made your concern and your alternative clear. How do you end the disagreement?"
+    options:
+      - text: "“So that's my view. Up to you.”"
+        correct: false
+        explanation: Walks away from the decision instead of asking for one.
+      - text: "“Can we agree on the shorter test run, and check in on Wednesday once the Epic fix is done to confirm April 27?”"
+        correct: true
+        explanation: Ends with a clear question and a dated next step.
+      - text: "“I really think you should listen to me on this.”"
+        correct: false
+        explanation: Turns the idea into a contest between people.
+      - text: "“Sorry for pushing back so much.”"
+        correct: false
+        explanation: Apologises for doing your job, which weakens the alternative.
+    source: { quote: "Can we agree on that, and check in on Wednesday once the Epic fix is done to confirm April 27?", page: 91 }
+
+  - id: D31-07
+    type: scenario
+    clientLine: "“Then give me something I can work with.”"
+    stem: You told Dana you can't skip testing, and nothing else. She's frustrated. What do you say?
+    options:
+      - text: "“I'm sorry, I'm sorry. I know this is hard.”"
+        correct: false
+        explanation: Apologies instead of the option she just asked for.
+      - text: "“Fair. Here's a faster option: the 60 highest-risk cases (booking, sync, reminders) plus automated smoke tests in a day and a half, and UAT stays on the 22nd.”"
+        correct: true
+        explanation: "Gives her exactly what she asked for: an alternative with numbers."
+      - text: "“There isn't anything. It is what it is.”"
+        correct: false
+        explanation: A dead end. She'll go around you.
+      - text: "“Fine, we'll skip it then.”"
+        correct: false
+        explanation: Caves under pressure, and the patient risk is still there.
+    source: { quote: "Then give me something I can work with.", page: 92 }
+
+  - id: D31-08
+    type: scenario
+    clientLine: "“Look, the CEO asked me if we're on track. I can't go back with ‘we're testing more’.”"
+    stem: You sense skipping testing may have been Dana's own idea. What's your best move?
+    options:
+      - text: "“Did the CEO actually ask you to skip testing?”"
+        correct: false
+        explanation: Right instinct, wrong tone. It sounds like you're catching her out.
+      - text: "“What would ‘on track’ look like for him: the April 27 date, the investor demo, or both? Then I can give you an answer for him, not just a test plan.”"
+        correct: true
+        explanation: Finds the real goal behind the ask without challenging her, and offers to help her answer.
+      - text: "“That's between you and your CEO.”"
+        correct: false
+        explanation: Leaves her alone with the problem.
+      - text: "“Tell him we're on track.”"
+        correct: false
+        explanation: Asks her to say something nobody knows yet.
+    source: { quote: "Your CEO asked \"Are we on track?\" — not \"Skip testing\". Skipping was your own idea.", page: 92 }
+
+  - id: D31-09
+    type: written
+    stem: >-
+      Kevin pings you an hour after the call: “Heard Dana wanted to skip regression. Where did you land?” Write your
+      reply in 2–3 sentences.
+    modelAnswer: >-
+      We're not skipping it. Dana agreed to a risk-based run instead: the 60 highest-risk cases (booking, Epic sync,
+      reminders) in 1.5 days plus automated smoke tests, with Lakeside UAT still on Apr 22. We check in on Wed Apr 15,
+      when the Epic fix should be done, to confirm whether April 27 holds; I'll copy you on the plan.
+    scoringPoints:
+      - Answers first (not skipped) and states the agreed alternative with numbers
+      - Names the Wednesday decision point
+      - Keeps Kevin in the loop with a concrete next step
+    source: { quote: "Risk-based regression: 1.5 days on the 60 highest-risk cases (booking, Epic sync, reminders) plus automated smoke tests.", page: 91 }
+
+  - id: D31-10
+    type: written
+    stem: >-
+      In the weekly sync, Dana says in front of Lisa Chen: “We'll launch on the 27th whatever happens, right?” You
+      disagree. Write what you say in 2–3 sentences, without embarrassing her.
+    modelAnswer: >-
+      That's what we're all working toward, and I want it as much as you do. The one thing I won't trade is a wrong
+      appointment time reaching a patient, so we're testing the riskiest flows first. We'll know on Wednesday whether
+      the 27th holds, and I'll tell you both the same day.
+    scoringPoints:
+      - Acknowledges the shared goal before stating the concern
+      - States the concern as a patient risk, not a personal objection
+      - Gives a date for the answer instead of a promise or a flat no
+    source: { quote: "Respectful disagreement is expected; silent agreement followed by a missed date is not.", page: 89 }

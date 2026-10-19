@@ -1,0 +1,78 @@
+day: 65
+block: 13
+title: Final review
+type: final_review
+storyDate: Friday, May 29
+minutes: About 45 min
+intro: >-
+  Today is your final review with your manager: 45 minutes. Afterwards you rate all 14 behaviours one last time and write
+  what you'll keep doing every week after Day 90.
+lessons:
+  - id: your-final-review
+    kind: learn
+    title: Your final review
+    heading: Your final review
+    minutes: 5 min
+    lead: >-
+      Proof, to yourself and to your manager, that you can run the client relationship without a PM.
+    blocks:
+      - type: facts
+        rows:
+          - { label: Observed call, value: "Your manager or PM joins a real client call you lead (usually your Day 62 solo call)." }
+          - { label: The review, value: "45 minutes: your written follow-ups from the solo week, PM or senior feedback, and your readiness case." }
+          - { label: Client-ready, value: "Average 3.5 or more, nothing below 3: deployed without a PM." }
+          - { label: Ready with light support, value: "Average 3.0 or more: deployed, with a weekly PM check-in for 30 days." }
+          - { label: Another cycle, value: "Below 3.0: a targeted 30-day plan on the two weakest pillars." }
+      - type: note
+        tone: info
+        title: Book your final review
+        text: Book the 45-minute review with your manager, and agree which real client call they or your PM will observe. If it isn't in your calendar yet, book it now.
+      - type: text
+        text: >-
+          **Before the weekend, ask yourself:** would I be comfortable if the PM were removed from this project tomorrow?
+          What support do I still need, and have I asked for it?
+
+  - id: final-scorecard
+    kind: scorecard
+    title: Final scorecard
+    minutes: 10 min
+    lead: >-
+      Rate all 14 behaviours one last time. Your pillar scores update from them, and your Day 1 baseline sits next to
+      them.
+    scorecard: [U1, U2, U3, U4, C1, C2, C3, C4, O1, O2, O3, O4, S1, S2]
+    checksTitle: Self-check
+    checks:
+      - Would I be comfortable if the PM were removed from this project tomorrow?
+      - Do I know what support I still need, and have I asked for it?
+    blocks:
+      - type: pillarCompare
+        label: Day 1 and now
+
+  - id: next-90-days
+    kind: write
+    title: Your plan for the next 90 days
+    heading: What you'll keep practising every week
+    minutes: 10 min
+    lead: >-
+      Answer the daily log prompt: what will I keep doing every week after Day 90? Keep one mock a week, and consider
+      visiting a Toastmasters online club as a free guest.
+    source: carebook
+    blocks:
+      - { type: field, id: keep-doing }
+      - { type: field, id: weekly-mock }
+      - { type: field, id: support }
+    fields:
+      - { id: keep-doing, label: "What I'll keep doing every week after Day 90", kind: area, rows: 3 }
+      - { id: weekly-mock, label: "My weekly mock: which pillar, and which day", kind: line }
+      - { id: support, label: "The support I'll ask for, and from whom", kind: line }
+
+scoring:
+  next-90-days:
+    modelAnswer: >-
+      Every week: one 15-minute mock on Stand firm, on Fridays. Every call: an agenda and an answer-first status. Every
+      call: a recap within 2 hours. Support: monthly feedback from my manager on my next disagreement, and one co-led call
+      with a technical client.
+    scoringPoints:
+      - Names specific weekly habits, not general wishes
+      - Ties the plan to your lowest pillar
+      - Names the support you need, and from whom

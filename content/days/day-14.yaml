@@ -1,0 +1,154 @@
+day: 14
+block: 3
+title: Your question bank
+type: normal
+storyDate: Thursday, March 19
+minutes: About 55 min
+intro: >-
+  Dana comes out of a leadership meeting with three one-line requests. Today you build your own question bank, use
+  it on all three, and finalise it.
+lessons:
+  - id: three-headlines
+    kind: prep
+    title: Three headlines
+    minutes: 10 min
+    blocks:
+      - type: yesterday
+        text: >-
+          you played back Maria's long eligibility explanation in three bullets, got her “yes”, and sent the summary.
+      - type: scene
+        when: Thursday, March 19 · Dana is just out of a meeting
+        text: >-
+          Brightpath's leadership team met this morning, and Dana has come out with three one-line requests. She wants
+          to know “what's possible” before the April 27 pilot, and she's calling you in an hour. Epic access still
+          hasn't come, and Sprint 5's Epic sync starts in eleven days.
+      - type: text
+        text: >-
+          Vague requests keep coming, so don't invent questions on the spot each time. Draft your own question bank:
+          about 20 questions across these nine areas. Two or three per area is enough for now.
+      - { type: field, id: users }
+      - { type: field, id: current-process }
+      - { type: field, id: goal }
+      - { type: field, id: scope }
+      - { type: field, id: data }
+      - { type: field, id: integrations }
+      - { type: field, id: compliance }
+      - { type: field, id: timeline }
+      - { type: field, id: success }
+    fields:
+      - { id: users, label: Users, kind: area, rows: 2, placeholder: "e.g. Who will use it, and how often?" }
+      - { id: current-process, label: Current process, kind: area, rows: 2, placeholder: "e.g. How is it done today, step by step?" }
+      - { id: goal, label: Goal, kind: area, rows: 2, placeholder: "e.g. What would this help you achieve?" }
+      - { id: scope, label: Scope, kind: area, rows: 2, placeholder: "e.g. What's the must-have for the first version?" }
+      - { id: data, label: Data, kind: area, rows: 2 }
+      - { id: integrations, label: Integrations, kind: area, rows: 2 }
+      - { id: compliance, label: Compliance, kind: area, rows: 2, placeholder: "e.g. Is there anything it must not show or store?" }
+      - { id: timeline, label: Timeline, kind: area, rows: 2 }
+      - { id: success, label: Success, kind: area, rows: 2, placeholder: "e.g. How will we know it worked?" }
+    source: both
+
+  - id: discovery-checklist
+    kind: learn
+    title: The discovery checklist
+    minutes: 10 min
+    lead: >-
+      Six questions to cover on any new request, big or small. If one is still unanswered at the end of the call,
+      you're not ready to estimate.
+    blocks:
+      - type: steps
+        items:
+          - { title: Who uses it?, text: "The real users, not the person asking. “Who would open this every week?”" }
+          - { title: What problem exists today?, text: "“What goes wrong today without it?”" }
+          - { title: Why now?, text: "“What changed that makes this important this month?”" }
+          - { title: How is it done today?, text: "“Walk me through what happens today.”" }
+          - { title: When is it needed?, text: "“What date or event does it need to be ready for?”" }
+          - { title: How will we know it worked?, text: "The success metric. “Which number should move, and to what?”" }
+      - type: text
+        text: >-
+          The last one is the most often skipped. Without a success metric, nobody can say the work is done, and every
+          demo turns into “Can you just add…”.
+      - type: note
+        tone: info
+        title: Four questions, not fourteen
+        text: >-
+          On a short call, pick the four checklist questions that matter most for this request. The rest can go in your
+          follow-up email.
+
+  - id: rapid-discovery
+    kind: mock
+    title: Three vague requests
+    heading: Rapid discovery on three vague requests
+    minutes: 15 min
+    lead: >-
+      Dana gives you three one-line requests, one at a time. Ask about four good questions for each, find out which one
+      really matters for the pilot, and play back all three in one sentence each.
+    cardId: S34
+    level: 1
+    callStep: "Keep your question bank open in another tab while you talk."
+    scriptNote: Open it after your call to compare.
+
+  - id: rapid-discovery-review
+    kind: reflect
+    title: How did the call go?
+    minutes: 5 min
+    lead: Tick what you managed, then note what the AI told you.
+    checksTitle: On this call, I…
+    checks:
+      - asked about 4 useful questions per request
+      - found who is affected and how to measure it
+      - found which request matters for the pilot
+      - played back all three in one sentence each
+    fields:
+      - { id: went-well, label: What went well, kind: area, placeholder: "From the AI's feedback" }
+      - { id: fix-next, label: One thing to fix next time, kind: area, placeholder: "e.g. I never asked which request mattered most for the pilot" }
+      - { id: log, label: "How many questions did I ask before I proposed a solution?", kind: area, rows: 2 }
+    rubric: true
+
+  - id: final-bank
+    kind: write
+    title: Finalise your bank
+    heading: Finalise your 20-question bank
+    minutes: 10 min
+    lead: >-
+      Here's this morning's draft. Now that you've used it on a real-feeling call, keep what worked, fix what
+      didn't, and write the final 20. You'll use it again tomorrow.
+    blocks:
+      - type: recall
+        label: Your draft from this morning
+        day: 14
+        lesson: three-headlines
+        fields:
+          - { id: users, label: Users }
+          - { id: current-process, label: Current process }
+          - { id: goal, label: Goal }
+          - { id: scope, label: Scope }
+          - { id: data, label: Data }
+          - { id: integrations, label: Integrations }
+          - { id: compliance, label: Compliance }
+          - { id: timeline, label: Timeline }
+          - { id: success, label: Success }
+      - type: text
+        text: >-
+          Check it before you save: every area has at least one question; most questions are open; at least two ask
+          about what people actually did, not what they might want; and at least one asks how success will be
+          measured.
+      - { type: field, id: bank }
+    fields:
+      - { id: bank, label: My 20-question bank, kind: area, rows: 12, placeholder: "Users: 1. Who will use it, and how often? 2. …" }
+
+scoring:
+  final-bank:
+    modelAnswer: >-
+      Users: Who will use it, and how often? Who else is affected? What do they decide after using it?
+      Current process: Walk me through how it's done today. When did it last go wrong, and what happened?
+      Goal: What's driving this right now? What would it help you achieve?
+      Scope: What's the must-have for the first version? What can wait?
+      Data: Which numbers or details do they need? Where does that data live today?
+      Integrations: Does it need to reach Epic or another system? Who owns that system?
+      Compliance: Is there anything it must not show or store? Who signs off on patient data?
+      Timeline: What date or event does it need to be ready for? What happens if it's later?
+      Success: How do you measure this today? Which number should move, and to what, by when?
+    scoringPoints:
+      - About 20 questions covering all nine areas
+      - Mostly open questions, with some about past behaviour rather than “Would you use…?”
+      - Includes questions on why now and on a measurable success metric

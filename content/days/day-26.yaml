@@ -1,0 +1,163 @@
+day: 26
+block: 6
+title: Two stakeholders
+type: normal
+storyDate: Monday, April 6
+minutes: About 50 min
+intro: >-
+  Epic access is finally here, and Dana and Kevin want opposite things for the pilot. Today you map who cares about
+  what, and help two senior people reach one decision.
+lessons:
+  - id: everyone-who-cares
+    kind: prep
+    title: Everyone who cares
+    minutes: 5 min
+    blocks:
+      - type: yesterday
+        text: >-
+          on Friday you ran a 20-minute discovery call with Dr. Mercer and narrowed “Epic data in CareBook” to four
+          items, view-only, for the July 1 rollout. You sent him the discovery email with your assumptions and open
+          questions, then finished the Week 5 assessment.
+      - type: scene
+        when: Monday, April 6 · 8:30 am Central
+        text: >-
+          It finally happened: Lakeside's Epic sandbox access arrived this morning, six weeks after the team asked. The
+          real Epic sync work starts today, and the SMS reminders soft-launch at Lakeside's Westside clinic. Then two
+          messages in ten minutes. Dana: “I need the waitlist in the pilot.” Kevin: “And I need a code freeze on April
+          17.” They've booked a call with you at 11, together.
+      - type: text
+        text: >-
+          Two senior people, two different goals, one call. Before you can help them decide, you need to know who
+          cares about what. List every stakeholder on your project: name and role. On a real project? Use it. Not on
+          one yet? Use CareBook.
+    fields:
+      - { id: s1, label: Stakeholder 1, kind: line, placeholder: "e.g. Dana Brooks, VP of Product, Brightpath" }
+      - { id: s2, label: Stakeholder 2, kind: line, placeholder: "e.g. Kevin Walsh, CTO, Brightpath" }
+      - { id: s3, label: Stakeholder 3, kind: line }
+      - { id: s4, label: Stakeholder 4, kind: line }
+      - { id: s5, label: Stakeholder 5, kind: line }
+      - { id: s6, label: Stakeholder 6, kind: line }
+      - { id: missing, label: "Who did I almost forget?", kind: line, placeholder: "e.g. The front-desk staff who use the schedule view every day" }
+    source: both
+
+  - id: stakeholder-map
+    kind: learn
+    title: The stakeholder map
+    minutes: 10 min
+    lead: >-
+      Most client friction comes from mismatched expectations about dates, scope or quality. A stakeholder map shows
+      you, before the call, who will expect what.
+    blocks:
+      - type: steps
+        items:
+          - { title: Role, text: "Who they are, and what they decide." }
+          - { title: Cares about, text: "What a good outcome means to them, in their words." }
+          - { title: Influence, text: "How much their yes or no changes the plan: high, medium or low." }
+          - { title: How often to update, text: "Daily, weekly, or at milestones, and in which channel." }
+      - type: facts
+        label: Three people, three goals, one project
+        rows:
+          - { label: CTO, value: "Stability and security. Kevin wants no shortcuts and a clean release." }
+          - { label: VP of Product, value: "Speed and features. Dana wants the pilot to impress, on the date." }
+          - { label: End users, value: "Ease of use. Lisa Chen's front desk wants fewer clicks and fewer phone calls." }
+      - type: text
+        text: >-
+          None of them is wrong. When two stakeholders pull in different directions, your job isn't to pick a side.
+          It's to play back each goal fairly, lay out the options with their trade-offs, recommend one, and find out
+          who owns the decision.
+      - type: compare
+        beforeLabel: Taking a side
+        afterLabel: Helping them decide
+        before: "“Kevin's right, we can't risk the freeze.”"
+        after: >-
+          “Dana, you want the waitlist in the pilot; Kevin, you want a stable launch. Both matter. Here are two options,
+          and my recommendation. Who makes the final call?”
+      - type: note
+        tone: info
+        title: Ask who decides
+        text: >-
+          On most projects, one person owns scope and another owns the release. If you don't know who decides, ask on
+          the call. A decision with no owner comes back next week.
+
+  - id: two-stakeholders
+    kind: mock
+    title: Stability vs speed
+    heading: Two stakeholders want different things
+    minutes: 15 min
+    lead: >-
+      Level 2, and the AI plays both Dana and Kevin. Play back each goal fairly, give two options and a recommendation,
+      and leave with a decision owner and a date. If you agree with whoever spoke last, the other one will notice.
+    cardId: S17
+    level: 2
+    scriptNote: Use it the first time, then try the call again without it.
+
+  - id: two-stakeholders-review
+    kind: reflect
+    title: How did the call go?
+    minutes: 5 min
+    lead: Tick what you managed, then note what the AI told you.
+    checksTitle: On this call, I…
+    checks:
+      - played back both goals fairly
+      - gave options with clear trade-offs and a recommendation
+      - found that the investor demo is the real driver
+      - left with a named decision owner and date
+    fields:
+      - { id: went-well, label: What went well, kind: area, placeholder: "From the AI's feedback" }
+      - { id: fix-next, label: One thing to fix next time, kind: area, placeholder: "e.g. I agreed with Kevin, and Dana asked whose side I was on" }
+      - { id: log, label: "Did I give a recommendation, or just a list of options?", kind: area, rows: 2 }
+    rubric: true
+
+  - id: map-table
+    kind: write
+    title: Your stakeholder map
+    heading: Map your stakeholders
+    minutes: 10 min
+    lead: >-
+      Turn this morning's list into a map: for each person, their role, what they care about, their influence, and how
+      often you'll update them. Use your real project, or CareBook.
+    source: both
+    blocks:
+      - type: recall
+        label: Your list from this morning
+        day: 26
+        lesson: everyone-who-cares
+        fields:
+          - { id: s1, label: "1" }
+          - { id: s2, label: "2" }
+          - { id: s3, label: "3" }
+          - { id: s4, label: "4" }
+          - { id: s5, label: "5" }
+          - { id: s6, label: "6" }
+          - { id: missing, label: Almost forgot }
+      - type: text
+        text: >-
+          One line per person: role · cares about · influence · how often to update. Write what they care about in
+          their words, not yours. Then note where two of them pull in different directions.
+    fields:
+      - { id: p1, label: Person 1, kind: line, placeholder: "e.g. Kevin Walsh, CTO · stability, security · high · weekly sync + any risk the same day" }
+      - { id: p2, label: Person 2, kind: line }
+      - { id: p3, label: Person 3, kind: line }
+      - { id: p4, label: Person 4, kind: line }
+      - { id: p5, label: Person 5, kind: line }
+      - { id: p6, label: Person 6, kind: line }
+      - { id: tension, label: Where two of them pull in different directions, kind: area, rows: 2, placeholder: "e.g. Dana wants more in the pilot; Kevin wants a code freeze on April 17" }
+
+scoring:
+  map-table:
+    modelAnswer: >-
+      Dana Brooks, VP of Product, Brightpath · pilot on April 27, features that impress (investor demo May 12) · high,
+      owns scope · weekly sync, plus same-day news on anything that moves a date.
+      Kevin Walsh, CTO, Brightpath · stability, security, cloud cost · high, owns the release · weekly, and any
+      security or release risk the same day.
+      Dr. Alan Mercer, CMIO, Lakeside · doctors' workflow, patient safety · high at Lakeside · at milestones, through
+      Dana.
+      Lisa Chen, Clinic Ops, Lakeside · front-desk time, no-shows · medium · during the pilot, weekly.
+      Sam Porter, Epic analyst, Lakeside IT · Epic access and security approvals · medium, blocks Epic work · whenever
+      we need access, with dates.
+      Rachel Kim, compliance, Brightpath · PHI and audit rules · medium · before anything touches PHI.
+      Tension: Dana wants the waitlist in the pilot; Kevin wants a code freeze on April 17.
+    scoringPoints:
+      - Every person has role, what they care about, influence and how often to update
+      - What they care about is specific to them, not the same line for everyone
+      - Names at least one real tension between two stakeholders

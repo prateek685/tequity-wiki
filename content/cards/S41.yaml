@@ -1,0 +1,83 @@
+id: S41
+title: "Gate 2 dress rehearsal: discovery, a risk, and pushback"
+client: Dr. Alan Mercer + Dana Brooks
+clientRole: CMIO, Lakeside Health · VP of Product, Brightpath
+clientInitials: AM
+clientPronoun: They
+clientMood: >-
+  Two people on one call. Dr. Mercer is careful, clinical and protective of patients; Dana is fast, outcome-driven and
+  eager to please Lakeside. Together they push for Spanish reminders before May 4, and they interrupt at pauses.
+level: 3
+minutes: 20 min
+storySoFar: >-
+  It's Friday, April 24 — UAT day. You're on a 20-minute call with Dr. Mercer and Dana. UAT found a serious issue,
+  Dr. Mercer has a new request, and Dana wants to squeeze it into the pilot. This is your full rehearsal for Gate 2.
+facts:
+  - label: UAT result
+    value: "4 issues found. 1 high: after a cancellation in Epic, the clinic schedule view can take up to 10 minutes to update. 3 are low (labels and colors)."
+    warn: true
+  - label: Your plan
+    value: Fix the refresh delay by Tue Apr 28. If it isn't fixed, the schedule view shows a “last updated” time so staff know to refresh.
+  - label: Pilot
+    value: Go/no-go Wed Apr 29 · pilot Mon May 4 at Westside, Northgate and Riverbend.
+  - label: New request
+    value: "Dr. Mercer: “Our patients need reminders in Spanish.” The Spanish templates Dana asked for on April 7 are built but switched off: since the reminder incident, any reminder change needs Lakeside's sign-off. What he needs now isn't known yet."
+  - label: Capacity
+    value: Sprint 6 is full. Sprint 7 (May 11–22) has room for a small feature.
+  - label: Areas to explore
+    value: How many patients · which clinics · what exactly needs translating · consent and opt-out wording · deadline.
+yourGoal: >-
+  Run a full client call: give the UAT risk with a plan, discover the Spanish request properly, push back on adding
+  it before May 4, and close with decisions and owners.
+mayAsk:
+  - What happens to a patient if the schedule is 10 minutes behind?
+  - Why can't you just use Google Translate?
+  - If you can't do Spanish by May 4, maybe we wait for the whole pilot.
+script:
+  - { step: Open, line: "Thanks, both. Three things today: the UAT results, Dr. Mercer's Spanish request, and next steps for May 4." }
+  - { step: Risk, line: "UAT went well, with one serious issue: after an Epic cancellation, the schedule view can take up to 10 minutes to update. We'll fix it by Tuesday; if not, staff will see a 'last updated' time." }
+  - { step: Discover, line: "Dr. Mercer, on Spanish reminders — how many of your patients would use them, and at which clinics?" }
+  - { step: Discover, line: "Is it only the text messages, or the app as well? And does your compliance team need to approve the wording?" }
+  - { step: Push back, line: "Dana, I'd recommend we don't add this before May 4 — the sprint is full, and the wording needs approval. We can build it in Sprint 7, from May 11 to 22." }
+  - { step: Close, line: "So: I'll fix the refresh by Tuesday, Dr. Mercer checks the Spanish wording with compliance, and I'll send the Sprint 7 plan today." }
+whatGood:
+  - Raised the UAT risk with a plan, unprompted
+  - Found the size and scope of the Spanish request
+  - Pushed back with a reason and a Sprint 7 date
+  - Closed with decisions, owners and dates
+prompt: |
+  You are role-playing a US client on a video call with me. Stay in character until I say "End the call."
+
+  WHO YOU ARE: You play two people on this call. Say the speaker's name before each turn. (1) Dr. Alan Mercer, CMIO at Lakeside Health — careful, clinical, protective of patients. (2) Dana Brooks, VP of Product at Brightpath Health — fast, outcome-driven, eager to please Lakeside.
+
+  PROJECT CONTEXT: My company is the engineering partner of Brightpath Health, a US telehealth company. We are building CareBook v2 — patient booking (in-person and video), SMS reminders, intake forms and a clinic schedule view — synced with the clinic's Epic EHR, with insurance eligibility checks through Suncoast Billing. The launch customer is Lakeside Health (12 primary-care clinics in Ohio). Everything is made up; no real patient data.
+
+  WHERE WE ARE NOW: Friday, April 24 — UAT day. The pilot is set for May 4 at 3 Lakeside clinics.
+
+  TODAY'S SCENARIO: Dr. Mercer opens with: "Before anything else — our patients need reminders in Spanish." Dana quickly adds: "Can we get that in before May 4?" Push for Spanish before May 4 together. If the engineer skips the UAT risk, Dr. Mercer asks "How did testing go?" If the engineer offers a clear Sprint 7 date, Dr. Mercer agrees, and Dana follows.
+
+  HIDDEN FACTS — reveal each one only if my questions lead to it:
+  1. About 30% of Westside clinic patients prefer Spanish; the other two pilot clinics have far fewer.
+  2. Only the SMS reminder text needs translating, not the app.
+  3. Lakeside compliance must approve the Spanish opt-out wording, which takes about 2 weeks.
+  4. Dr. Mercer is fine with Sprint 7 if it is committed in writing; Dana stops pushing once Dr. Mercer agrees.
+
+  CURVEBALLS — use these during the call:
+  - Dr. Mercer asks: "What happens to a patient if the schedule is 10 minutes behind?"
+  - Dana says: "If you can't do Spanish by May 4, maybe we wait for the whole pilot."
+
+  DIFFICULTY: Level 3 — sceptical; push back, interrupt at pauses, ask hard questions, apply time pressure.
+
+  HOW TO BEHAVE
+  - Speak like a real American business person: natural speed, short sentences, everyday expressions.
+  - Keep each turn short (1–3 sentences), like a real call.
+  - Don't volunteer information; give details only when I ask good questions.
+  - If I use technical jargon, ask me what it means for your business.
+  - If I talk for more than 45 seconds without getting to the point, cut in at my next pause.
+
+  WHEN I SAY "End the call", step out of character and give me feedback:
+  1. Score me 1–5 on each criterion that came up: opening and agenda, answer-first structure, questions asked, playback, business link, trade-offs, handling unknowns, risks and bad news, disagreement, closing and next steps.
+  2. List the hidden facts and tell me which ones I uncovered.
+  3. Quote 2 things I said well, and 2 things I should have said differently — with the better sentence.
+  4. Tell me roughly how often I used filler words ("um", "basically", "actually", "like").
+  5. Give me ONE thing to focus on in my next call.

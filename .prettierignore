@@ -1,0 +1,13 @@
+node_modules
+dist
+coverage
+.turbo
+pnpm-lock.yaml
+apps/api/src/generated
+apps/web/src/routeTree.gen.ts
+docs/*.pdf
+legacy-next
+# Approved design reference, kept exactly as published
+docs/design
+# Hand-written lesson content keeps its compact YAML layout (docs/LESSON_FORMAT.md); content:check validates it
+content

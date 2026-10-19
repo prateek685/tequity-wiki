@@ -1,0 +1,143 @@
+day: 9
+block: 2
+title: Plain English
+type: normal
+storyDate: Thursday, March 12
+minutes: About 50 min
+intro: >-
+  The day before the demo. Today you swap the phrases that confuse American readers, rerun Tuesday's hardest call at
+  Level 2, and rewrite five messy messages.
+lessons:
+  - id: five-messages
+    kind: prep
+    title: Five messy messages
+    minutes: 5 min
+    blocks:
+      - type: yesterday
+        text: >-
+          you explained the double-booking bug to Dr. Mercer in pyramid form: main message first, three points under it.
+      - type: scene
+        when: Thursday, March 12 · the day before the demo
+        text: >-
+          Reminders went live in staging this morning, and you sent one full reminder test to Dana's own phone. The
+          double-booking fix is done today and QA retests it tomorrow. Dana forwards a lot of what the team writes to
+          her CEO, and these five messages are from the team's drafts.
+      - type: text
+        text: >-
+          Read each one as a busy reader in Boston would. In one line, note what would make them stop or guess. Or use
+          five sentences from your own past messages.
+      - { type: message, label: Message 1, text: "Hi Dana, hope you are doing well. So regarding the reminders, actually we were working on it and there were some issues with the Twilio config and also the templates, so basically it's taking time, will update you once done." }
+      - { type: field, id: spot-1 }
+      - { type: message, label: Message 2, text: "Kindly do the needful and share the Epic sandbox credentials at the earliest so that we can start the integration from our side." }
+      - { type: field, id: spot-2 }
+      - { type: message, label: Message 3, text: "The API is failing intermittently due to a race condition in the slot-locking logic when two patients try to book the same slot concurrently, we are looking into possible approaches like optimistic locking or a distributed lock using Redis." }
+      - { type: field, id: spot-3 }
+      - { type: message, label: Message 4, text: "I have a doubt regarding the intake form, whether we should revert back the old validation or not. Please confirm today itself." }
+      - { type: field, id: spot-4 }
+      - { type: message, label: Message 5, text: "Sorry for the delay, sorry, the build was broken yesterday and QA was blocked, we will try to give the build by tomorrow EOD hopefully." }
+      - { type: field, id: spot-5 }
+    fields:
+      - { id: spot-1, label: What would trip the reader?, kind: line, placeholder: "e.g. The point comes last" }
+      - { id: spot-2, label: What would trip the reader?, kind: line }
+      - { id: spot-3, label: What would trip the reader?, kind: line }
+      - { id: spot-4, label: What would trip the reader?, kind: line }
+      - { id: spot-5, label: What would trip the reader?, kind: line }
+    source: both
+
+  - id: plain-english
+    kind: learn
+    title: Plain US business English
+    minutes: 10 min
+    lead: >-
+      Short sentences, active voice, specific asks. And swap the few common phrases that make American readers stop
+      and guess.
+    blocks:
+      - type: steps
+        items:
+          - { title: “Do the needful”, text: "Name the exact action. “Could you send the sandbox credentials by Thursday?”" }
+          - { title: “Revert back”, text: "“Reply” or “get back to me”." }
+          - { title: “Prepone”, text: "“Move earlier”." }
+          - { title: “I have a doubt”, text: "“I have a question”." }
+          - { title: “Today itself”, text: "“Today”." }
+          - { title: “Kindly” everywhere, text: "“Please”, once." }
+      - { type: heading, text: The Smart Brevity checklist }
+      - type: text
+        text: >-
+          Axios's checklist for any update or recap: a short, strong subject or first line; the one thing the reader
+          must know, first; why it matters, in one line; then bullets for anyone who wants to go deeper. Cut every
+          word that doesn't help the reader act.
+      - type: watch
+        url: https://smartbrevity.com/checklist
+        title: Smart Brevity checklist
+        meta: Axios · free · 5 min · keep it open while you write
+
+  - id: why-so-long-again
+    kind: mock
+    title: Tuesday's call, harder
+    heading: “Why is this taking so long?” at Level 2
+    minutes: 15 min
+    lead: >-
+      Before tomorrow's demo, rerun Tuesday's hardest call, harder. Same facts as Tuesday, but this time Dana is busy
+      and vague, cuts you short and changes topic. Keep every answer to one or two sentences, answer first.
+    cardId: S06
+    level: 2
+    brief: false
+    callStep: "Before you speak, tell the AI: “Play this call at Level 2: busy and vague; short answers, change topic, slightly impatient.”"
+    checksTitle: After the call
+    checks:
+      - I answered first, even when Dana cut in
+      - I kept every answer to one or two sentences
+      - I brought her back to the plan when she changed topic
+      - I offered something she can forward to her CEO
+    fields:
+      - { id: went-well, label: What went well, kind: area, placeholder: "From the AI's feedback" }
+      - { id: fix-next, label: One thing to fix next time, kind: area }
+      - { id: log, label: "Could my reader act on my message without asking me a follow-up question?", kind: area, rows: 2 }
+    rubric: true
+
+  - id: plain-rewrites
+    kind: write
+    title: Rewrite the five
+    heading: Rewrite five messages in plain English
+    minutes: 10 min
+    lead: >-
+      Rewrite each message so a reader in Boston gets it in one read: the point first, plain words, a specific ask.
+      Or rewrite your own five sentences.
+    source: both
+    blocks:
+      - { type: message, label: Message 1, text: "Hi Dana, hope you are doing well. So regarding the reminders, actually we were working on it and there were some issues with the Twilio config and also the templates, so basically it's taking time, will update you once done." }
+      - { type: field, id: rewrite-1 }
+      - { type: message, label: Message 2, text: "Kindly do the needful and share the Epic sandbox credentials at the earliest so that we can start the integration from our side." }
+      - { type: field, id: rewrite-2 }
+      - { type: message, label: Message 3, text: "The API is failing intermittently due to a race condition in the slot-locking logic when two patients try to book the same slot concurrently, we are looking into possible approaches like optimistic locking or a distributed lock using Redis." }
+      - { type: field, id: rewrite-3 }
+      - { type: message, label: Message 4, text: "I have a doubt regarding the intake form, whether we should revert back the old validation or not. Please confirm today itself." }
+      - { type: field, id: rewrite-4 }
+      - { type: message, label: Message 5, text: "Sorry for the delay, sorry, the build was broken yesterday and QA was blocked, we will try to give the build by tomorrow EOD hopefully." }
+      - { type: field, id: rewrite-5 }
+      - type: watch
+        url: https://hemingwayapp.com/
+        title: Hemingway Editor
+        meta: Free web editor · paste each rewrite and aim for grade 8 or below
+    fields:
+      - { id: rewrite-1, label: Your rewrite of message 1, kind: area, rows: 2 }
+      - { id: rewrite-2, label: Your rewrite of message 2, kind: area, rows: 2 }
+      - { id: rewrite-3, label: Your rewrite of message 3, kind: area, rows: 2 }
+      - { id: rewrite-4, label: Your rewrite of message 4, kind: area, rows: 2 }
+      - { id: rewrite-5, label: Your rewrite of message 5, kind: area, rows: 2 }
+
+scoring:
+  plain-rewrites:
+    modelAnswer: >-
+      1. Hi Dana, SMS reminders are live in staging as of this morning, and we sent a full test to your phone.
+      2. Hi Sam, could you send the Epic sandbox credentials by Monday, March 16? We need them to start the
+      integration.
+      3. In testing, two patients booking the same slot at the same moment could both get a confirmation. The fix is
+      done today and retested tomorrow; no patient was affected.
+      4. I have a question about the intake form: should we go back to the old validation? Could you reply by 3 pm
+      Central today?
+      5. QA will get the new build tomorrow by 5 pm Central. Yesterday's broken build is fixed.
+    scoringPoints:
+      - "Confusing phrases are replaced: do the needful, revert back, I have a doubt, today itself, repeated kindly or sorry"
+      - Each message gives the point or the ask first, with a specific action and date
+      - Short sentences, active voice, no jargon or filler

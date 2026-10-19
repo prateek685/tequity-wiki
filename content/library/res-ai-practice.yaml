@@ -1,0 +1,25 @@
+id: res-ai-practice
+kind: resource
+title: "AI practice tools"
+summary: "Voice-mode AI apps for mock calls, and speech coaches for pace and filler words."
+blocks:
+  - type: text
+    text: "Use an AI app with voice mode for daily mock calls, transcript feedback, pre-call prep and recaps. Never paste patient data or client documents into a tool the company hasn't approved."
+  - type: watch
+    url: https://support.claude.com/en/articles/11101966-use-voice-mode
+    title: "Claude voice mode"
+    meta: "Free plan · Paid plans (Claude Pro) only for longer daily sessions"
+  - type: watch
+    url: https://gemini.google/overview/gemini-live/
+    title: "Gemini Live"
+    meta: "Free · Paid Gemini plans only for longer daily sessions"
+  - type: watch
+    url: https://support.microsoft.com/en-us/powerpoint/rehearse-your-slide-show-with-speaker-coach
+    title: "Microsoft PowerPoint Speaker Coach"
+    meta: "Free, web · A 2-minute practice once a week, with a report on pace and filler words"
+  - type: watch
+    url: https://yoodli.ai/pricing
+    title: "Yoodli"
+    meta: "Starter: 5 free sessions · Pro: optional paid, $8/month billed annually"
+  - type: text
+    text: "ChatGPT voice mode (free plan, in the ChatGPT app) works too."

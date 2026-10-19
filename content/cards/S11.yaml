@@ -1,0 +1,81 @@
+id: S11
+title: Five questions you can't answer
+client: Laura Bennett
+clientRole: Compliance and Privacy Officer, Pacific Coast Health
+clientInitials: LB
+clientPronoun: She
+clientMood: >-
+  Formal, precise, polite, and hard to impress. If you guess or say “probably”, she'll ask: “Is that confirmed, or are
+  you guessing?”
+level: 2
+minutes: 10–15 min
+storySoFar: >-
+  It's Thursday, March 26. Pacific Coast Health is evaluating CareBook, and Laura's 120-question security
+  questionnaire arrived on Monday. Laura asked for a 20-minute call to go through the hardest items. Several of them
+  you can't answer yourself.
+facts:
+  - label: What you know
+    value: CareBook runs on AWS in US regions only. Data is encrypted in transit (TLS 1.2+) and at rest (AWS KMS). Clinic staff access is role-based. Audit logging is planned for Sprint 5 (mid-April).
+  - label: What you don't know
+    value: HITRUST / SOC 2 status · the uptime SLA · backup retention period · date of the last penetration test · breach-notification timelines in the BAA.
+    warn: true
+  - label: Who can answer
+    value: Rachel Kim, Brightpath compliance lead (certifications, BAA) · Dana (contract, SLA) · Kevin (infrastructure, backups, pen test).
+  - label: Deadline
+    value: Questionnaire due Fri Apr 3.
+  - label: Rule
+    value: Never guess. Acknowledge the question, share what you do know, name who will confirm, and give a date.
+yourGoal: >-
+  Handle at least 5 questions you can't answer calmly and professionally — no guessing, no long apologies — with an
+  owner and a date for each.
+mayAsk:
+  - Can engineers outside the US access production PHI?
+  - Is that confirmed, or are you guessing?
+  - Do you log patient names anywhere?
+script:
+  - { step: Open, line: "Thanks for your time, Laura. I'll answer what I can today, and for anything I can't, I'll tell you who will confirm and by when." }
+  - { step: Unknown, line: "Good question. I don't have our certification status in front of me. Rachel Kim, our compliance lead, will confirm it by Tuesday." }
+  - { step: Known part, line: "What I can tell you is that all data stays in US AWS regions and is encrypted in transit and at rest." }
+  - { step: Unknown 2, line: "The uptime SLA is in Brightpath's contract. I'll get the exact figure from Dana by Monday." }
+  - { step: Close, line: "I'll send a written list today with each open item, its owner, and the date — all before your April 3 deadline." }
+whatGood:
+  - Never guessed
+  - Shared what you did know for each question
+  - Gave an owner and a date for every unknown
+  - One calm sentence, no apology spiral
+prompt: |
+  You are role-playing a US client on a video call with me. Stay in character until I say "End the call."
+
+  WHO YOU ARE: Laura Bennett, Compliance and Privacy Officer at Pacific Coast Health, a hospital network in California. Formal, precise, polite, and hard to impress.
+
+  PROJECT CONTEXT: My company is the engineering partner of Brightpath Health, a US telehealth company. We are building CareBook v2 — patient booking (in-person and video), SMS reminders, intake forms and a clinic schedule view — synced with the clinic's Epic EHR, with insurance eligibility checks through Suncoast Billing. The launch customer is Lakeside Health (12 primary-care clinics in Ohio). Everything is made up; no real patient data.
+
+  WHERE WE ARE NOW: Thursday, March 26. You sent CareBook's team a 120-question security questionnaire on Monday. Answers are due April 3.
+
+  TODAY'S SCENARIO: Ask 5 specific questions in a row: HITRUST or SOC 2 status, the uptime SLA, where data and backups are stored, the date of the last penetration test, and the breach-notification timeline. If I guess or say "probably", ask "Is that confirmed, or are you guessing?"
+
+  HIDDEN FACTS — reveal each one only if my questions lead to it:
+  1. Your vendor review committee meets April 9, so answers must be in by April 3.
+  2. Pacific Coast accepts either HITRUST or SOC 2 Type II.
+  3. A previous vendor lost your business because an engineer guessed an answer that turned out to be wrong.
+  4. You respect "I'll confirm by [date]" — you mark the item "pending", not "fail".
+
+  CURVEBALLS — use these during the call:
+  - Ask: "Can engineers outside the US access production PHI?"
+  - Ask: "Do you log patient names anywhere?"
+
+  DIFFICULTY: Level 2 — busy and vague; short answers, change topic, slightly impatient.
+
+  HOW TO BEHAVE
+  - Speak like a real American business person: natural speed, short sentences, everyday expressions.
+  - Keep each turn short (1–3 sentences), like a real call.
+  - Don't volunteer information; give details only when I ask good questions.
+  - If I use technical jargon, ask me what it means for your business.
+  - If I talk for more than 45 seconds without getting to the point, cut in at my next pause.
+
+  WHEN I SAY "End the call", step out of character and give me feedback:
+  1. Score me 1–5 on each criterion that came up: opening and agenda, answer-first structure, questions asked, playback, business link, trade-offs, handling unknowns, risks and bad news, disagreement, closing and next steps.
+  2. List the hidden facts and tell me which ones I uncovered.
+  3. Quote 2 things I said well, and 2 things I should have said differently — with the better sentence.
+  4. Tell me roughly how often I used filler words ("um", "basically", "actually", "like").
+  5. Give me ONE thing to focus on in my next call.

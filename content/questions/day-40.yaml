@@ -1,0 +1,179 @@
+# Day 40 quiz pool: Friday, April 24, UAT day. The Gate 2 dress rehearsal with Dr. Mercer and Dana: the UAT risk
+# with a plan, discovering the Spanish reminders request, pushing back with a Sprint 7 date, the recap. Shows 5 of 10.
+pool: day-40
+questions:
+  - id: D40-01
+    type: mcq
+    stem: "Dr. Mercer opens: “Before anything else — our patients need reminders in Spanish.” What's the best reply?"
+    options:
+      - text: "“Sure, we can do that before May 4.”"
+        correct: false
+        explanation: A yes before you know the size, the scope or the approvals.
+      - text: "“That's important, and I want to understand it properly. Can I give you the UAT results first, in two minutes, then come straight to Spanish?”"
+        correct: true
+        explanation: Takes the request seriously and keeps the risk on the agenda.
+      - text: "“We don't have time for new requests.”"
+        correct: false
+        explanation: A flat no to a patient need, before any discovery.
+      - text: "“Let's leave that for another call.”"
+        correct: false
+        explanation: Dismisses the CMIO's first point.
+    source: { quote: "Dr. Mercer opens with: \"Before anything else — our patients need reminders in Spanish.\"", page: 112 }
+
+  - id: D40-02
+    type: mcq
+    stem: How do you give the UAT result?
+    options:
+      - text: "“UAT went great!” and move on to Spanish."
+        correct: false
+        explanation: Hides the high issue until someone asks.
+      - text: "“UAT went well, with one serious issue: after an Epic cancellation, the schedule view can take up to 10 minutes to update. We'll fix it by Tuesday; if not, staff will see a ‘last updated’ time.”"
+        correct: true
+        explanation: Headline, the one issue, and the plan with a date, unprompted.
+      - text: "“We found 4 issues. The first is a label on the intake form…”"
+        correct: false
+        explanation: Starts with the low ones and buries the one that matters.
+      - text: "“There's an Epic webhook latency problem in the FHIR subscription.”"
+        correct: false
+        explanation: Jargon. A doctor needs to know what it means for staff and patients.
+    source: { quote: "after a cancellation in Epic, the clinic schedule view can take up to 10 minutes to update.", page: 111 }
+
+  - id: D40-03
+    type: mcq
+    stem: Which discovery question tells you the most about the size of the Spanish request?
+    options:
+      - text: "“Is Spanish important?”"
+        correct: false
+        explanation: Yes/no, and the answer is obviously yes.
+      - text: "“How many of your patients would use Spanish reminders, and at which clinics?”"
+        correct: true
+        explanation: "Volume and where: the size of the need."
+      - text: "“Should we use Google Translate?”"
+        correct: false
+        explanation: A solution before the need.
+      - text: "“When do you need it by?” as the first question."
+        correct: false
+        explanation: The deadline matters, but only once you know what “it” is.
+    source: { quote: "Dr. Mercer, on Spanish reminders — how many of your patients would use them, and at which clinics?", page: 111 }
+
+  - id: D40-04
+    type: mcq
+    stem: "Dr. Mercer asks: “Why can't you just use Google Translate?” What's the best reply?"
+    options:
+      - text: "“We could, it'd be quick.”"
+        correct: false
+        explanation: Machine-translated consent and opt-out wording is a patient-safety and compliance risk.
+      - text: "“Because it's bad.”"
+        correct: false
+        explanation: No reason he can weigh.
+      - text: "“For a reminder, the opt-out and consent wording has to be right, and your compliance team needs to approve it. A tool can draft it, but a person has to check it.”"
+        correct: true
+        explanation: Ties the answer to consent and approval, which he cares about.
+      - text: "“That's a product decision, ask Dana.”"
+        correct: false
+        explanation: Passes on a question you can answer.
+    source: { quote: "Lakeside compliance must approve the Spanish opt-out wording, which takes about 2 weeks.", page: 112 }
+
+  - id: D40-05
+    type: mcq
+    stem: Dana pushes for Spanish before May 4. Which pushback is best?
+    options:
+      - text: "“Okay, we'll try our best.”"
+        correct: false
+        explanation: Silent agreement, then a missed date.
+      - text: "“That's impossible.”"
+        correct: false
+        explanation: A wall with no reason and no alternative.
+      - text: "“I'd recommend we don't add this before May 4: the sprint is full, and the wording needs approval. We can build it in Sprint 7, May 11 to 22.”"
+        correct: true
+        explanation: A recommendation, the reason, and a date for when.
+      - text: "“Can we talk about it after the pilot?”"
+        correct: false
+        explanation: No date, so it sounds like never.
+    source: { quote: "Dana, I'd recommend we don't add this before May 4 — the sprint is full, and the wording needs approval.", page: 111 }
+
+  - id: D40-06
+    type: mcq
+    stem: Gate 2 asks for “basic healthcare terms used correctly”. Which line does that?
+    options:
+      - text: "“The SMS reminders need patient consent, so the Spanish opt-out wording has to be approved before we send any.”"
+        correct: true
+        explanation: Consent and opt-out used correctly, in plain words.
+      - text: "“The PHI in the reminders is fine because it's just Spanish.”"
+        correct: false
+        explanation: The language doesn't change what counts as PHI.
+      - text: "“Medicaid will translate the reminders.”"
+        correct: false
+        explanation: A wrong use of a payer name.
+      - text: "“HIPAA means we can't send reminders in Spanish.”"
+        correct: false
+        explanation: Wrong. HIPAA doesn't forbid a language.
+    source: { quote: "Pass criteria: rubric average ≥ 3.0, no criterion below 2, and basic healthcare terms used correctly.", page: 102 }
+
+  - id: D40-07
+    type: scenario
+    clientLine: "“What happens to a patient if the schedule is 10 minutes behind?”"
+    stem: Dr. Mercer asks about the UAT issue. What do you say?
+    options:
+      - text: "“Nothing much, it's only 10 minutes.”"
+        correct: false
+        explanation: Brushes off a patient-safety question.
+      - text: "“A cancelled slot can still look booked for up to 10 minutes, so staff might not offer it to another patient. No visit is lost or double-booked. We fix it by Tuesday, and until then staff see a ‘last updated’ time.”"
+        correct: true
+        explanation: The real effect on patients and staff, honestly, with the plan.
+      - text: "“It's a cache invalidation delay in the sync.”"
+        correct: false
+        explanation: Answers how, not what happens to a patient.
+      - text: "“I'd have to check with the team.”"
+        correct: false
+        explanation: You know what it does. Say it.
+    source: { quote: "Dr. Mercer asks: \"What happens to a patient if the schedule is 10 minutes behind?\"", page: 112 }
+
+  - id: D40-08
+    type: scenario
+    clientLine: "“If you can't do Spanish by May 4, maybe we wait for the whole pilot.”"
+    stem: Dana says it under pressure. What do you say?
+    options:
+      - text: "“Okay, let's move the pilot.”"
+        correct: false
+        explanation: Moves the pilot for a feature that only one clinic needs most.
+      - text: "“Then we'll squeeze it in somehow.”"
+        correct: false
+        explanation: Gives in, with a full sprint and no approved wording.
+      - text: "“I understand you want Lakeside happy. Waiting would delay all three clinics for a feature mostly Westside needs, and the wording takes about two weeks to approve anyway. Sprint 7 gets it to patients sooner than a delayed pilot would.”"
+        correct: true
+        explanation: Acknowledges her goal, uses the facts, and shows the alternative is better for her.
+      - text: "“That's not a smart idea.”"
+        correct: false
+        explanation: Argues with the person, not the facts.
+    source: { quote: "Dana says: \"If you can't do Spanish by May 4, maybe we wait for the whole pilot.\"", page: 112 }
+
+  - id: D40-09
+    type: written
+    stem: >-
+      Dr. Mercer agrees to Sprint 7 “if it's committed in writing”. Write the 2–3 sentences in your recap that commit
+      to it.
+    modelAnswer: >-
+      Spanish SMS reminders are committed for Sprint 7 (May 11–22), starting with Westside, where about 30% of patients
+      prefer Spanish. They cover the reminder text only, not the app. They go live once Lakeside compliance approves the
+      Spanish opt-out wording, which Dr. Mercer is sending for review.
+    scoringPoints:
+      - A firm commitment with the Sprint 7 dates, not “we'll try”
+      - States the scope (SMS text only) and where it starts
+      - Names the compliance approval as the dependency, with its owner
+    source: { quote: "Dr. Mercer is fine with Sprint 7 if it is committed in writing", page: 112 }
+
+  - id: D40-10
+    type: written
+    stem: >-
+      Lisa Chen wasn't on the call. She emails: “Do my front desks need to do anything different on May 4 because of
+      UAT?” Reply in 2–3 sentences.
+    modelAnswer: >-
+      Possibly one small thing. If our fix for the schedule refresh isn't in by Tue Apr 28, the schedule view will show
+      a “last updated” time, and staff should refresh it after a cancellation in Epic. I'll confirm on Tuesday which
+      way it is, and cover it in the training on April 28.
+    scoringPoints:
+      - Answers her question first, in front-desk terms
+      - Explains the fallback and when she'll know
+      - Links it to the staff training, with no technical detail
+    source: { quote: "If it isn't fixed, the schedule view shows a \"last updated\" time so staff know to refresh.", page: 111 }

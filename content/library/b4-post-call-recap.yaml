@@ -1,0 +1,35 @@
+id: b4-post-call-recap
+kind: prompt
+ref: B4
+title: Post-call recap
+summary: Turn rough notes into a client-ready recap email.
+blocks:
+  - type: note
+    tone: warn
+    title: Before you paste anything
+    text: No PHI, no client credentials, no confidential client documents in any AI tool the company hasn't approved. Replace names and details with made-up ones.
+  - type: text
+    text: >-
+      Use it right after a call. Always edit before sending: you own the words, not the AI.
+  - type: message
+    label: The prompt
+    text: |-
+      Here are my rough notes / the transcript from a client call (no PHI): [paste]
+
+      Turn them into a client-ready recap email with this structure:
+
+      Subject line (with the key decision or ask) · 2-line summary · Decisions · Action items (owner + due date) · Open questions · Next meeting.
+
+      Use plain American business English, under 200 words.
+
+      Flag anything in my notes that is unclear, or that looks like a commitment I made.
+  - type: copy
+    label: Copy prompt
+    text: |-
+      Here are my rough notes / the transcript from a client call (no PHI): [paste]
+
+      Turn them into a client-ready recap email with this structure:
+      Subject line (with the key decision or ask) · 2-line summary · Decisions · Action items (owner + due date) · Open questions · Next meeting.
+
+      Use plain American business English, under 200 words.
+      Flag anything in my notes that is unclear, or that looks like a commitment I made.

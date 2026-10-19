@@ -1,0 +1,32 @@
+# dependencies
+node_modules/
+
+# build output
+dist/
+coverage/
+.turbo/
+*.tsbuildinfo
+
+# generated code
+apps/api/src/generated/
+
+# env files (templates are committed)
+.env
+.env.*
+!.env.example
+!.env.production.example
+
+# database backups made by ./deploy.sh backup
+backups/
+
+# test output
+test-results/
+playwright-report/
+
+# misc
+.DS_Store
+*.pem
+*.log
+
+# old Next.js app, kept only as a porting reference until the restructure is done
+legacy-next/

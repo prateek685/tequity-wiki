@@ -1,0 +1,15 @@
+id: a11-readiness-case
+kind: template
+ref: "A11"
+title: "My readiness case (one page)"
+summary: "For each pillar: evidence, your Day 1 and Day 90 scores, and what you'll keep working on."
+blocks:
+  - type: text
+    text: "Used in Week 13. In the portal you draft it on Day 63 and finalise it on Day 64."
+  - type: facts
+    rows:
+      - { label: "Understand", value: "Evidence (2 items, and where to find them) · Day 1 → Day 90 score · I'll keep working on…" }
+      - { label: "Communicate", value: "Evidence (2 items, and where to find them) · Day 1 → Day 90 score · I'll keep working on…" }
+      - { label: "Own", value: "Evidence (2 items, and where to find them) · Day 1 → Day 90 score · I'll keep working on…" }
+      - { label: "Stand firm", value: "Evidence (2 items, and where to find them) · Day 1 → Day 90 score · I'll keep working on…" }
+      - { label: "Overall", value: "Why I'm ready to work directly with a client, and what support I still need." }

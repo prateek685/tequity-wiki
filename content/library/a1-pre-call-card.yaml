@@ -1,0 +1,18 @@
+id: a1-pre-call-card
+kind: template
+ref: A1
+title: "Pre-call card"
+summary: "Five minutes before every call: goal, opener, what to say, what to ask, one risk, the hardest question."
+blocks:
+  - type: text
+    text: "Fill it in five minutes before every call."
+  - type: facts
+    rows:
+      - { label: "Call", value: "With \\_\\_\\_ (role) · date and time in their time zone" }
+      - { label: "My goal for this call", value: "One sentence." }
+      - { label: "Opener", value: "Warm start → purpose → agenda." }
+      - { label: "3 things I must say", value: "1. · 2. · 3." }
+      - { label: "3 questions I must ask", value: "1. · 2. · 3." }
+      - { label: "1 risk or concern to raise", value: "One, said before they ask." }
+      - { label: "The hardest question they might ask, and my answer", value: "The question, then an answer that starts with the answer." }
+      - { label: "Closing line: recap and next steps", value: "“To recap, we agreed… I'll send notes within two hours.”" }

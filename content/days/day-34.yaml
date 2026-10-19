@@ -1,0 +1,154 @@
+day: 34
+block: 7
+title: Not this sprint
+type: normal
+storyDate: Thursday, April 16
+minutes: About 50 min
+intro: >-
+  Kevin wants single sign-on for clinic staff in this sprint, and Sprint 6 is full. Today you say no without saying
+  “no”: what you can do now, and when the rest gets done.
+lessons:
+  - id: sso-this-sprint
+    kind: prep
+    title: “Let's add it to this sprint”
+    minutes: 5 min
+    blocks:
+      - type: yesterday
+        text: >-
+          Dr. Mercer opened angry about the reminder bug. You let him finish, acknowledged what it did to nine patients
+          before explaining anything, and agreed a daily report for Lisa Chen. Reminders stay on at Westside, but any
+          change to them now needs Lakeside's sign-off, so the Spanish ones stay switched off for now.
+      - type: scene
+        when: Thursday, April 16 · 9:00 am Eastern
+        text: >-
+          Good news first: the Epic sync fix was merged this morning, and the retest has started. This afternoon you
+          and Dana tell Dr. Mercer the pilot moves to May 4. Sprint 6 is now fully booked: the fix, the 212-case
+          regression run, Lakeside UAT on April 24 and go/no-go on April 29. Then Kevin messages: “Sam Porter wants
+          single sign-on for clinic staff. Let's add it to this sprint.” He has 15 minutes at 11.
+      - type: text
+        text: >-
+          “No” on its own ends the conversation. Before the call, write five ways to say no without the word: each one
+          offers a date, a swap, or something you can do instead. Use them on Kevin, or on your real project.
+    fields:
+      - { id: no-1, label: Way 1, kind: line, placeholder: "e.g. Not this sprint, but here's when: Sprint 7, May 11–22." }
+      - { id: no-2, label: Way 2, kind: line, placeholder: "e.g. Yes, if we move the UAT date. Which matters more?" }
+      - { id: no-3, label: Way 3, kind: line, placeholder: "e.g. Here's what I can do this sprint instead…" }
+      - { id: no-4, label: Way 4, kind: line }
+      - { id: no-5, label: Way 5, kind: line }
+    source: both
+
+  - id: saying-no
+    kind: learn
+    title: Saying no without “no”
+    minutes: 10 min
+    lead: >-
+      Saying no to a senior client is part of protecting them. The trick is never to stop at “no”: give them a way
+      forward in the same sentence.
+    blocks:
+      - type: steps
+        items:
+          - { title: "“Not this sprint — but here's when.”", text: "A firm no to now, with a real date for later." }
+          - { title: "“Yes, if we move X.”", text: "Make the trade-off visible, and let them choose what gives." }
+          - { title: "“Here's what I can do instead.”", text: "Something smaller now that meets the real need." }
+      - type: compare
+        beforeLabel: Just “no”
+        afterLabel: No, with a way forward
+        before: "“No, that's not possible. The sprint is full.”"
+        after: >-
+          “Short answer: SSO can't safely fit in this sprint. What I can do now is multi-factor login and auto-logout
+          for the pilot, and SSO in Sprint 7, before the rollout to all 12 clinics.”
+      - type: text
+        text: >-
+          Give the effort in plain words: “8 to 10 days plus a security review”, not “it's complex”. Then find the
+          worry behind the ask: it may have a two-day answer.
+      - type: note
+        tone: info
+        title: Speaking up to someone senior
+        text: >-
+          Take their perspective first: what does Kevin need to tell Lakeside? You're not refusing the CTO; you're
+          giving him the plan he'd want if he had your facts.
+      - type: recall
+        label: Your owner language from Day 16
+        day: 16
+        lesson: waiting-phrases
+        fields:
+          - { id: p1, label: Waiting phrase 1 }
+          - { id: p2, label: Waiting phrase 2 }
+      - type: text
+        text: >-
+          “I'm not sure we can…” and “Maybe we could try…” are waiting language too. A no that sounds like an owner
+          says what you will do, and when.
+      - type: watch
+        url: https://www.ted.com/talks/adam_galinsky_how_to_speak_up_for_yourself
+        title: "Adam Galinsky: How to speak up for yourself"
+        meta: TED talk · 16 min · speaking up to senior people
+
+  - id: say-no-call
+    kind: mock
+    title: SSO this sprint?
+    heading: Say no to a new feature this sprint
+    minutes: 15 min
+    lead: >-
+      Level 3: Kevin is direct and pushes back on every no. Answer first, explain the effort in plain words, offer
+      what you can do for the pilot, and commit to a date for SSO.
+    cardId: S25
+    level: 3
+    scriptNote: Use it the first time, then try the call again without it.
+
+  - id: say-no-call-review
+    kind: reflect
+    title: How did the call go?
+    minutes: 5 min
+    lead: Tick what you managed, then note what the AI told you.
+    checksTitle: On this call, I…
+    checks:
+      - said “not this sprint” clearly, without arrogance
+      - explained the effort and trade-off in plain words
+      - offered MFA and auto-logout as the pilot answer
+      - committed to a Sprint 7 date in writing
+    fields:
+      - { id: went-well, label: What went well, kind: area, placeholder: "From the AI's feedback" }
+      - { id: fix-next, label: One thing to fix next time, kind: area, placeholder: "e.g. When he said “it's just a config change”, I argued instead of giving the numbers" }
+      - { id: log, label: "Did I deliver the headline in the first 30 seconds? How many times did I apologise?", kind: area, rows: 2 }
+    rubric: true
+
+  - id: not-this-sprint-message
+    kind: write
+    title: The “not this sprint” message
+    heading: Propose when SSO can be done
+    minutes: 10 min
+    lead: >-
+      You promised Kevin the plan in writing today. Write a short message he can forward to Sam Porter: what happens
+      for the pilot, when SSO comes, and what you need from him.
+    blocks:
+      - type: recall
+        label: Your five ways to say no
+        day: 34
+        lesson: sso-this-sprint
+        fields:
+          - { id: no-1, label: "1" }
+          - { id: no-2, label: "2" }
+          - { id: no-3, label: "3" }
+      - { type: field, id: subject }
+      - { type: field, id: message }
+      - type: text
+        text: >-
+          Under 120 words. The word “no” doesn't need to appear: the dates say it for you.
+    fields:
+      - { id: subject, label: Subject, kind: line, placeholder: "e.g. SSO for Lakeside staff: Sprint 7 plan, MFA for the pilot" }
+      - { id: message, label: Message, kind: area, rows: 7 }
+
+scoring:
+  not-this-sprint-message:
+    modelAnswer: >-
+      Subject: SSO for Lakeside staff: MFA for the pilot, SSO in Sprint 7.
+      Hi Kevin, short version: SSO won't fit safely in Sprint 6. It's 8–10 working days plus a security review with
+      Sam Porter, and the sprint is full with the Epic fix, the 212-case regression run and UAT on Apr 24.
+      For the pilot: we add multi-factor login and a 15-minute auto-logout this sprint (2 days), which covers shared
+      front-desk computers.
+      SSO: built in Sprint 7 (May 11–22), ready before the rollout to all 12 clinics. It's on the Sprint 7 backlog.
+      Need from you: your OK for me to confirm this timeline with Sam directly by Fri Apr 17.
+    scoringPoints:
+      - Answers first, with the effort and the reason in plain words
+      - Offers what can be done for the pilot (MFA and auto-logout) and a firm Sprint 7 date for SSO
+      - Short, forwardable, and ends with one clear ask with a date

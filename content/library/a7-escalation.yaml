@@ -1,0 +1,32 @@
+id: a7-escalation
+kind: template
+ref: A7
+title: "Escalation message"
+summary: "Name the blocker, the impact, what you tried, what you need and by when."
+blocks:
+  - type: text
+    text: "Use it when something is blocking you and you can't clear it yourself."
+  - type: message
+    label: "The template"
+    text: |-
+      Subject: ACTION NEEDED: [blocker] – affects [date / milestone]
+
+      Blocked: \_\_\_ (since \_\_\_)
+
+      Impact: \_\_\_
+
+      What I've tried: \_\_\_
+
+      What I need: \_\_\_ from \_\_\_
+
+      By when: \_\_\_ (after that: [consequence, e.g. the demo moves to \_\_\_])
+  - type: copy
+    label: "Copy template"
+    text: |-
+      Subject: ACTION NEEDED: [blocker] – affects [date / milestone]
+
+      Blocked: ___ (since ___)
+      Impact: ___
+      What I've tried: ___
+      What I need: ___ from ___
+      By when: ___ (after that: [consequence, e.g. the demo moves to ___])

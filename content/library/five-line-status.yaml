@@ -1,0 +1,15 @@
+id: five-line-status
+kind: template
+title: The 5-line status
+summary: Done, Next, Blocked, Risk, Need from you. One line each.
+day: 7
+blocks:
+  - type: steps
+    items:
+      - { title: Done, text: What's finished since the last update. }
+      - { title: Next, text: What you'll finish before the next one. }
+      - { title: Blocked, text: What's stopping you, and who can unblock it. }
+      - { title: Risk, text: What could hurt a date, and the date. }
+      - { title: Need from you, text: "One clear ask, with a deadline." }
+  - type: text
+    text: One line each. **“None” is a valid answer.** Leaving a line out makes the reader wonder.

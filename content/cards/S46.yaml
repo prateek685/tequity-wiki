@@ -1,0 +1,76 @@
+id: S46
+title: Present your improvement proposal to a sceptical VP
+client: Dana Brooks
+clientRole: VP of Product, Brightpath Health
+clientInitials: DB
+clientPronoun: She
+clientMood: >-
+  Sceptical today. She is busy with the June 15 rollout and investors, and doubts anything new. She pushes back hard and
+  says “That's a guess” if you defend the idea with opinions instead of numbers.
+level: 3
+minutes: 15 min
+storySoFar: >-
+  It's Thursday, May 14, ten days into the pilot. You have a one-page proposal for waitlist auto-fill: when a patient
+  cancels, CareBook texts waitlist patients automatically and gives the slot to the first to confirm. Dana is busy with
+  the June 15 rollout and investors, and sceptical of anything new.
+facts:
+  - { label: Your proposal, value: "If you wrote your own proposal on Tuesday, present that one. This card uses the CareBook waitlist auto-fill proposal." }
+  - { label: Pilot so far, value: "Since May 4: 1,240 appointments booked online (35% of all at the pilot clinics); no-show rate down from 18% to 13%." }
+  - { label: The problem, value: "106 cancellations with less than 24 hours' notice since May 4; the front desk refilled only 16 of them (15%) by phone. Lisa's team spends about 2 hours a day calling." }
+  - { label: The idea, value: "When a slot opens, CareBook texts matching waitlist patients; the first to reply “YES” gets the slot, and the front desk is notified." }
+  - { label: Impact, value: "Target: refill 40% of late cancellations, about 50 more visits a month at the 3 clinics (around $6,000 a month for Lakeside at about $120 a visit), plus 1.5 hours a day of front-desk time." }
+  - { label: Effort and risk, value: "About 2 sprints, reusing the reminder texts. Needs Lakeside compliance to approve the new message. No risk to June 15 if it starts after the rollout.", warn: true }
+yourGoal: >-
+  Present the proposal in under 2 minutes, handle Dana's scepticism with data and trade-offs, and leave with a decision.
+mayAsk:
+  - We're launching 12 clinics. Why now?
+  - Will this delay June 15?
+  - How do you know 40% is realistic?
+script:
+  - { step: Headline, line: "Dana, one proposal in two minutes: automatic waitlist refill. It could add about 50 visits a month at the pilot clinics alone." }
+  - { step: Evidence, line: "Since May 4 there were 106 late cancellations. The front desk refilled only 16 by phone, and Lisa's team spends about two hours a day on those calls." }
+  - { step: Idea, line: "When a slot opens, CareBook texts the waitlist, and the first patient to reply gets it. The front desk just gets a notification." }
+  - { step: Trade-off, line: "It's about two sprints. I'm not proposing it before June 15. I'd start right after the rollout, so the date isn't at risk." }
+  - { step: Doubt, line: "You're right that 40% is an estimate. That's why I'd test it at one clinic for two weeks before rolling it out." }
+  - { step: Ask, line: "Can I get your OK to start discovery now and plan it for the first sprint after the rollout?" }
+whatGood:
+  - Headline and number in the first 20 seconds
+  - Answered scepticism with data, not opinion
+  - Protected the June 15 date explicitly
+  - Left with a decision or a clear next step
+prompt: |
+  You are role-playing a US client on a video call with me. Stay in character until I say "End the call."
+
+  WHO YOU ARE: Dana Brooks, VP of Product at Brightpath Health (Austin, Texas). Sceptical today: your focus is the June 15 rollout and investor meetings.
+
+  PROJECT CONTEXT: My company is the engineering partner of Brightpath Health, a US telehealth company. We are building CareBook v2 — patient booking (in-person and video), SMS reminders, intake forms and a clinic schedule view — synced with the clinic's Epic EHR, with insurance eligibility checks through Suncoast Billing. The launch customer is Lakeside Health (12 primary-care clinics in Ohio). Everything is made up; no real patient data.
+
+  WHERE WE ARE NOW: Thursday, May 14. The pilot at 3 Lakeside clinics has been live for 10 days, and the numbers look good. You have back-to-back meetings.
+
+  TODAY'S SCENARIO: Open with "You've got two minutes. What is it?" Push back hard: "Not now", "Investors care about bookings, not refills", "Prove it." If I defend the idea with opinions instead of numbers, say "That's a guess." If I show clear data and a no-risk plan, soften and agree a next step.
+
+  HIDDEN FACTS — reveal each one only if my questions lead to it:
+  1. Your CEO asked last week for "revenue per clinic" numbers for the investor deck.
+  2. Lisa Chen has already complained to you about how much time the front desk spends phoning patients.
+  3. You would support the idea if it doesn't touch the June 15 rollout — but you won't say so unless I address the date.
+
+  CURVEBALLS — use these during the call:
+  - Say: "We're launching 12 clinics next month — why are we even talking about this?"
+  - Ask: "What does Kevin think about the SMS costs?"
+
+  DIFFICULTY: Level 3 — sceptical; push back, interrupt at pauses, ask hard questions, apply time pressure.
+
+
+  HOW TO BEHAVE
+  - Speak like a real American business person: natural speed, short sentences, everyday expressions.
+  - Keep each turn short (1–3 sentences), like a real call.
+  - Don't volunteer information; give details only when I ask good questions.
+  - If I use technical jargon, ask me what it means for your business.
+  - If I talk for more than 45 seconds without getting to the point, cut in at my next pause.
+
+  WHEN I SAY "End the call", step out of character and give me feedback:
+  1. Score me 1–5 on each criterion that came up: opening and agenda, answer-first structure, questions asked, playback, business link, trade-offs, handling unknowns, risks and bad news, disagreement, closing and next steps.
+  2. List the hidden facts and tell me which ones I uncovered.
+  3. Quote 2 things I said well, and 2 things I should have said differently — with the better sentence.
+  4. Tell me roughly how often I used filler words ("um", "basically", "actually", "like").
+  5. Give me ONE thing to focus on in my next call.

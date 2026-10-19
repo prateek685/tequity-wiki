@@ -1,0 +1,168 @@
+# Day 47 quiz pool: Tuesday, May 5. The demo checklist, a demo that breaks, and collecting feedback. Shows 5 of 10.
+pool: day-47
+questions:
+  - id: D47-01
+    type: mcq
+    stem: "The test server hangs during your demo. How long should you debug live?"
+    options:
+      - text: "No more than 30 seconds, then switch to the backup."
+        correct: true
+        explanation: "The client's time is the cost, and the recording shows the same flow."
+      - text: "Until it works; they'll appreciate the effort."
+        correct: false
+        explanation: "They'll watch you lose the meeting."
+      - text: "Two minutes, so they see you're thorough."
+        correct: false
+        explanation: "That's four times the limit."
+      - text: "Don't debug; end the meeting."
+        correct: false
+        explanation: "You have a backup. Use it."
+    source: { quote: "Don't debug live for more than 30 seconds.", page: 122 }
+
+  - id: D47-02
+    type: mcq
+    stem: "What's the first step when the demo breaks?"
+    options:
+      - text: "Stay calm and name it, for example “Looks like the test server is slow.”"
+        correct: true
+        explanation: "Saying it plainly keeps the client's confidence."
+      - text: "Say nothing and click faster."
+        correct: false
+        explanation: "Silence looks like panic."
+      - text: "Blame the network and apologise at length."
+        correct: false
+        explanation: "Apologising for long makes it bigger."
+      - text: "Restart your laptop."
+        correct: false
+        explanation: "That burns minutes you don't have."
+    source: { quote: "Stay calm and name it", page: 122 }
+
+  - id: D47-03
+    type: mcq
+    stem: "Which belongs on the demo checklist?"
+    options:
+      - text: "A backup video or screenshots."
+        correct: true
+        explanation: "If the demo breaks, you switch to it in seconds."
+      - text: "Real patient data, for realism."
+        correct: false
+        explanation: "Test data only. Never real PHI."
+      - text: "Notifications on, in case the client messages."
+        correct: false
+        explanation: "Notifications off, other apps closed."
+      - text: "An open-ended slot with no timebox."
+        correct: false
+        explanation: "Timebox it: 10 minutes of demo, 10 minutes of questions."
+    source: { quote: "backup video or screenshots", page: 122 }
+
+  - id: D47-04
+    type: mcq
+    stem: "What do you do after the demo breaks and you've recovered?"
+    options:
+      - text: "Follow up in the recap with what happened and what you'll do about it."
+        correct: true
+        explanation: "Closing the loop in writing rebuilds the trust."
+      - text: "Hope nobody remembers."
+        correct: false
+        explanation: "Dana will, especially before the investor meeting."
+      - text: "Send nothing; you recovered."
+        correct: false
+        explanation: "The recap is where you separate the test server from the live pilot."
+      - text: "Ask the client to book another demo."
+        correct: false
+        explanation: "Nobody needs a second demo for a slow test server."
+    source: { quote: "follow up in the recap", page: 122 }
+
+  - id: D47-05
+    type: mcq
+    stem: "Which is the right way to collect feedback?"
+    options:
+      - text: "Ask open questions, write down their exact words, play back the key feedback, and confirm what goes into the next sprint."
+        correct: true
+        explanation: "This turns comments into a plan."
+      - text: "Ask “Any feedback?” and move on."
+        correct: false
+        explanation: "It gets “no”, and you lose the detail."
+      - text: "Defend each choice as it comes up."
+        correct: false
+        explanation: "It shuts people down."
+      - text: "Summarise in your own words only."
+        correct: false
+        explanation: "Their exact words are the evidence."
+    source: { quote: "write down their exact words", page: 122 }
+
+  - id: D47-06
+    type: mcq
+    stem: "In the S30 call, how is the test server different from the live pilot?"
+    options:
+      - text: "The test server can be slow around 9 am ET during the nightly refresh; the live pilot runs on production and isn't affected."
+        correct: true
+        explanation: "Say which environment broke."
+      - text: "They are the same server."
+        correct: false
+        explanation: "They aren't. Production is separate."
+      - text: "The live pilot is slower in the morning."
+        correct: false
+        explanation: "It's the test server."
+      - text: "The pilot has no backup."
+        correct: false
+        explanation: "There's a backup recording for the demo."
+    source: { quote: "The live pilot runs on production", page: 126 }
+
+  - id: D47-07
+    type: scenario
+    clientLine: "“Is it broken? Will this happen to my staff?”"
+    stem: "The schedule view stops loading halfway through the demo. How do you answer?"
+    options:
+      - text: "“I don't know, let me debug.”"
+        correct: false
+        explanation: "You turn a hiccup into a doubt."
+      - text: "“That's our test server this morning, not the live pilot. The pilot runs on production and isn't affected. Let me show you the recording, and I'll put it in today's recap.”"
+        correct: true
+        explanation: "Name it, separate the environment, switch, follow up."
+      - text: "“It never happens.”"
+        correct: false
+        explanation: "It just did."
+      - text: "“Let's reschedule.”"
+        correct: false
+        explanation: "You have a backup. Use it."
+    source: { quote: "Is it broken? Will this happen to my staff?", page: 126 }
+
+  - id: D47-08
+    type: scenario
+    clientLine: "“If it froze now, will it freeze for my staff during the pilot?”"
+    stem: "Dana is worried about the investor demo on May 12. What do you say?"
+    options:
+      - text: "“No, definitely not.”"
+        correct: false
+        explanation: "An absolute you can't prove."
+      - text: "“It's our test environment during its nightly refresh. The live pilot runs on production, and I can send you the pilot's uptime in the recap.”"
+        correct: true
+        explanation: "A fact and an offer of evidence."
+      - text: "“Maybe. Hard to say.”"
+        correct: false
+        explanation: "It sounds like you don't know your own system."
+      - text: "“We'll look into it next sprint.”"
+        correct: false
+        explanation: "She needs an answer now."
+    source: { quote: "will it freeze for my staff", page: 127 }
+
+  - id: D47-09
+    type: written
+    stem: "Write the one-sentence line you'd say when the demo freezes, and the line that moves you to the backup."
+    modelAnswer: "Looks like the test server is slow this morning. That's our test environment, not the live pilot, so let me switch to the recording so we don't lose time."
+    scoringPoints:
+      - "Names the failure calmly in one sentence"
+      - "Separates the test server from the live pilot"
+      - "Moves to the backup immediately"
+    source: { quote: "Looks like the test server is slow", page: 126 }
+
+  - id: D47-10
+    type: written
+    stem: "Write the closing line you'd say to Lisa after the demo, promising a recap."
+    modelAnswer: "I'll send a recap today with your feedback, the server issue, and what we'll do about it."
+    scoringPoints:
+      - "Promises a recap with a time"
+      - "Includes the feedback and the issue"
+      - "Short enough to say aloud"
+    source: { quote: "I'll send a recap today", page: 126 }

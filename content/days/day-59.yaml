@@ -1,0 +1,107 @@
+day: 59
+block: 12
+title: Practise one thing
+type: normal
+storyDate: Thursday, May 21
+minutes: About 45 min
+intro: >-
+  Yesterday you led your first full call. Today you read the debrief again, practise only the one thing to improve in three
+  short rounds, and close every follow-up from the call.
+lessons:
+  - id: review-debrief
+    kind: prep
+    title: Review the debrief
+    minutes: 5 min
+    blocks:
+      - type: yesterday
+        text: >-
+          You led the weekly sync, sent the recap within two hours, and held the debrief. You picked one thing to improve.
+      - type: scene
+        when: Thursday, May 21 · 8:10 am Central · pilot day eighteen
+        text: >-
+          Read the debrief notes. If the call was recorded under the project's policy, look at the recording or transcript
+          privately, and write down the exact moment you want to improve.
+    fields:
+      - { id: one-thing, label: "The one thing I'm practising", kind: line, placeholder: "e.g. Answer first, before any background" }
+      - { id: moment, label: The exact moment and what I said, kind: area, rows: 2 }
+      - { id: better, label: "What I'll say next time", kind: area, rows: 2 }
+    source: both
+
+  - id: targeted-practice
+    kind: learn
+    title: Targeted practice
+    heading: One thing, three rounds
+    minutes: 10 min
+    lead: >-
+      Pros practise one skill at a time. Take the same moment and make it harder each round.
+    blocks:
+      - type: steps
+        items:
+          - { title: "Round 1: calm", text: "The same question, with time to think." }
+          - { title: "Round 2: a follow-up", text: "The same question plus “What if that slips?”" }
+          - { title: "Round 3: pressure", text: "Interruptions, and “one sentence, please”." }
+      - type: example
+        text: >-
+          Kevin asked “Are we ready for 12 clinics?” and you gave 90 seconds of background before saying “mostly yes”.
+          Better: “Yes, with one condition: the reminder fix ships Thursday.”
+      - type: note
+        tone: info
+        title: Say the better line aloud
+        text: >-
+          Read your better version once between rounds, then start with the answer. Say it out loud, not in your head.
+
+  - id: practice-rounds
+    kind: mock
+    title: Three short rounds
+    heading: Practise the one thing with Kevin
+    minutes: 15 min
+    lead: >-
+      Level 2: Kevin is busy. Three rounds of about three minutes: calm, then a follow-up, then time pressure. Say your
+      better version in every round.
+    cardId: S47
+    level: 2
+    scriptNote: Use it the first time, then try the rounds again without it.
+
+  - id: practice-review
+    kind: reflect
+    title: How did the rounds go?
+    minutes: 5 min
+    lead: Tick what you managed, then note what the AI told you.
+    checksTitle: In all three rounds, I…
+    checks:
+      - answered first
+      - gave the condition an owner and a date
+      - stayed calm when interrupted
+      - fit round 3 into one sentence
+    fields:
+      - { id: went-well, label: What went well, kind: area, placeholder: "From the AI's feedback" }
+      - { id: fix-next, label: One thing to fix next time, kind: area }
+    rubric: true
+
+  - id: close-followups
+    kind: write
+    title: Close the follow-ups
+    heading: Close every follow-up from Wednesday
+    minutes: 10 min
+    lead: >-
+      List every action you took on the call, and write the one-line update you'll send to close each one. If you can't
+      close one today, say when you will.
+    source: both
+    blocks:
+      - { type: field, id: followups }
+      - { type: field, id: update }
+    fields:
+      - { id: followups, label: "Follow-ups from the call, and their status", kind: area, rows: 4, placeholder: "Action · owner · due · done / not yet" }
+      - { id: update, label: A short update I'll send to the client, kind: area, rows: 3 }
+
+scoring:
+  close-followups:
+    modelAnswer: >-
+      Follow-ups: 1. Confirm the reminder fix shipped: done, shipped at 10 am today. 2. Send Sam the Epic access request:
+      done, he replied he'll approve by May 29. 3. Ask Kevin for the SMS cost limit: open, he'll answer by Tuesday.
+      Update to Dana: “The reminder fix shipped this morning and I tested it. Sam will approve Epic access by May 29.
+      Waiting on Kevin's SMS cost limit by Tuesday; I'll update you Friday.”
+    scoringPoints:
+      - Every action is listed with an owner, a date and a status
+      - The update says what is done first, then what is still open, with a date
+      - Nothing was left open without a date for the next update

@@ -1,0 +1,166 @@
+# Day 63 quiz pool: Wednesday, May 27. Gathering evidence, the readiness case, and the weakest-pillar drill. Shows 5 of 10.
+pool: day-63
+questions:
+  - id: D63-01
+    type: mcq
+    stem: "What does each pillar of your readiness case include?"
+    options:
+      - text: "1–2 pieces of evidence, a Day 1 and now score, and one area to keep working on."
+        correct: true
+        explanation: "The three parts per pillar."
+      - text: "A list of the frameworks you learned."
+        correct: false
+        explanation: "Evidence, not a list."
+      - text: "Only your best score."
+        correct: false
+        explanation: "Show both scores."
+      - text: "A letter from the client."
+        correct: false
+        explanation: "Not required."
+    source: { quote: "and one area you'll keep working on", page: 144 }
+
+  - id: D63-02
+    type: mcq
+    stem: "Which of these is evidence for a readiness case?"
+    options:
+      - text: "A recap you sent, with a date."
+        correct: true
+        explanation: "Concrete, and in your journal."
+      - text: "“I think I'm good at this.”"
+        correct: false
+        explanation: "An adjective, not proof."
+      - text: "A promise to improve."
+        correct: false
+        explanation: "Not evidence."
+      - text: "A friend's opinion."
+        correct: false
+        explanation: "Not from the work."
+    source: { quote: "and one area you'll keep working on", page: 144 }
+
+  - id: D63-03
+    type: mcq
+    stem: "Where do you find the pieces of evidence for the case?"
+    options:
+      - text: "In your journal: recaps, status reports, a bad-news message, a call you led."
+        correct: true
+        explanation: "Your journal holds the proof."
+      - text: "In the client's inbox."
+        correct: false
+        explanation: "Not yours to collect."
+      - text: "From memory."
+        correct: false
+        explanation: "It will be vague."
+      - text: "From the PM's notes."
+        correct: false
+        explanation: "They're yours."
+    source: { quote: "and one area you'll keep working on", page: 144 }
+
+  - id: D63-04
+    type: mcq
+    stem: "Which pillar do you drill in Wednesday's mock?"
+    options:
+      - text: "The one that is still lowest in your scorecards."
+        correct: true
+        explanation: "Pick from real data."
+      - text: "The one you like most."
+        correct: false
+        explanation: "That's not a drill."
+      - text: "Always Understand."
+        correct: false
+        explanation: "It depends on your scorecards."
+      - text: "The one your PM picks."
+        correct: false
+        explanation: "You pick it."
+    source: { quote: "Picked the pillar from real scorecard data", page: 146 }
+
+  - id: D63-05
+    type: mcq
+    stem: "What do you do after about 8 minutes of the drill?"
+    options:
+      - text: "Replay the hardest moment once more and do it better."
+        correct: true
+        explanation: "The drill ends with a replay."
+      - text: "Stop and score yourself."
+        correct: false
+        explanation: "Replay first."
+      - text: "Start a new pillar."
+        correct: false
+        explanation: "One drill, one replay."
+      - text: "Read the script aloud."
+        correct: false
+        explanation: "Try without it."
+    source: { quote: "10 minutes on one drill at Level 3. Then replay the hardest moment once more.", page: 146 }
+
+  - id: D63-06
+    type: mcq
+    stem: "In the drill, Dana notices you forgot Tuesday's end-of-day note. What is the best response?"
+    options:
+      - text: "Own it, send it now, and say what you've changed so it can't happen again."
+        correct: true
+        explanation: "Own it and fix the system."
+      - text: "Explain how busy you were."
+        correct: false
+        explanation: "Excuses."
+      - text: "Say it was the PM's job."
+        correct: false
+        explanation: "It's yours this week."
+      - text: "Say nothing."
+        correct: false
+        explanation: "She already noticed."
+    source: { quote: "Stayed calm when challenged", page: 146 }
+
+  - id: D63-07
+    type: scenario
+    clientLine: "Is that all you have for Understand?"
+    stem: "Your manager reads your case and asks if you have more evidence for the Understand pillar. What do you say?"
+    options:
+      - text: "“Yes. The map from features to metrics, and the 72-hour eligibility check I proposed to Maria. Both are in my journal.”"
+        correct: true
+        explanation: "Specific and findable."
+      - text: "“I'm good at it.”"
+        correct: false
+        explanation: "No evidence."
+      - text: "“Not really.”"
+        correct: false
+        explanation: "Look in your journal."
+      - text: "“Ask the PM.”"
+        correct: false
+        explanation: "The proof is yours."
+    source: { quote: "and one area you'll keep working on", page: 144 }
+
+  - id: D63-08
+    type: scenario
+    clientLine: "Let's skip the load test and save two days."
+    stem: "Kevin wants to skip the 12-clinic load test. You think it's too risky. What do you say?"
+    options:
+      - text: "“I understand saving two days matters. My concern is that we've never tested 12 clinics' load. Could we run a shorter 4-hour test on Thursday instead?”"
+        correct: true
+        explanation: "Disagrees with a reason and an alternative."
+      - text: "“Fine, if you want.”"
+        correct: false
+        explanation: "Gives in."
+      - text: "“No, that's a bad idea.”"
+        correct: false
+        explanation: "No reason or alternative."
+      - text: "“I'll ask the PM.”"
+        correct: false
+        explanation: "You own it."
+    source: { quote: "Stayed calm when challenged", page: 146 }
+
+  - id: D63-09
+    type: written
+    stem: "Write one piece of evidence for the Communicate pillar, with where to find it."
+    modelAnswer: "I led the May 20 weekly sync and sent the recap in 1 hour 20 minutes. It's in my journal, Week 12."
+    scoringPoints:
+      - "Names something you did"
+      - "Says where it can be found, with a date or a number"
+    source: { quote: "and one area you'll keep working on", page: 144 }
+
+  - id: D63-10
+    type: written
+    stem: "Write one honest area you'll keep working on, with one step."
+    modelAnswer: "Stand firm: I gave in on the load test at first. I'll practise one polite disagreement with an alternative each week."
+    scoringPoints:
+      - "Names one area honestly"
+      - "Gives a concrete step"
+    source: { quote: "and one area you'll keep working on", page: 144 }

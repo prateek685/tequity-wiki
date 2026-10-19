@@ -1,0 +1,165 @@
+day: 36
+block: 8
+title: Escalate a blocker
+type: normal
+storyDate: Monday, April 20
+minutes: About 50 min
+intro: >-
+  The last week of Sprint 6, and production access is five working days late. Today you escalate it to Kevin in
+  five parts, calmly and without blame, and put it in writing.
+lessons:
+  - id: the-blocker
+    kind: prep
+    title: Five days blocked
+    minutes: 5 min
+    blocks:
+      - type: yesterday
+        text: >-
+          on Friday Dana wanted to go live on April 29 by skipping the regression run. You gave her the new bad news
+          first, staff training only on April 28, held firm on testing, and offered a Westside-only start. She kept
+          May 4 at all three clinics with full testing. Then came the Week 7 assessment.
+      - type: scene
+        when: Monday, April 20 · 8:30 am Central · the last week of Sprint 6
+        text: >-
+          The last week of Sprint 6 is full: an early test run on staging today, the 212-case regression run Tuesday
+          to Thursday, then Lakeside UAT on Friday. One thing can still sink May 4: the team must set up CareBook's
+          production environment in Brightpath's AWS account, and the access you asked for on Tuesday, April 14 still
+          isn't there. Two Slack follow-ups with Omar Haddad in Brightpath DevOps got no reply. You've booked 15
+          minutes with Kevin at 10.
+      - type: text
+        text: >-
+          Before you escalate, get the facts straight. Think of a real (or likely) blocker on your project, or use
+          CareBook's AWS access. Write down what's blocked, since when, and what it puts at risk.
+    fields:
+      - { id: blocker, label: The blocker, kind: line, placeholder: "e.g. Deployment access to the client's production AWS account" }
+      - { id: since, label: Blocked since, kind: line, placeholder: "e.g. Requested Tue Apr 14, ticket SEC-482" }
+      - { id: at-risk, label: What it puts at risk, kind: line, placeholder: "e.g. Production setup and the load test, so the May 4 pilot" }
+      - { id: who, label: Who can unblock it, kind: line, placeholder: "e.g. Kevin, or whoever he names" }
+    source: both
+
+  - id: when-to-escalate
+    kind: learn
+    title: The escalation message
+    heading: When to escalate, and the escalation message
+    minutes: 10 min
+    lead: >-
+      Without a PM, nobody else chases your blockers. Escalating isn't complaining: it's protecting the client's
+      timeline. Do it early, to the right person, in writing.
+    blocks:
+      - { type: heading, text: Escalate when… }
+      - type: steps
+        items:
+          - { title: A blocker lasts 1–2 days, text: "Not a week. Two follow-ups with no answer is your signal." }
+          - { title: A date is at risk, text: "A demo, a release, a pilot. Say which date, and from when." }
+          - { title: It's outside your authority, text: "Access, budget, a decision only the client can make." }
+      - { type: heading, text: The 5 parts }
+      - type: steps
+        items:
+          - { title: 1 · What's blocked, text: "The thing, and since when. A ticket number if there is one." }
+          - { title: 2 · Impact, text: "On the date, the cost or the risk. “If we don't have it by Wednesday noon, May 4 is at risk.”" }
+          - { title: 3 · What I've tried, text: "The follow-ups so far, as facts. No blame." }
+          - { title: 4 · What I need, text: "One specific ask, from one person." }
+          - { title: 5 · By when, text: "A deadline, and what happens after it: the fallback." }
+      - type: compare
+        beforeLabel: A nudge nobody acts on
+        afterLabel: An escalation
+        before: >-
+          “Hi Kevin, sorry to bother you. Just checking if there's any update on the AWS ticket? Omar hasn't replied.
+          Please do the needful.”
+        after: >-
+          “Quick flag: we've waited five working days for production AWS access (SEC-482). Without it we can't set up
+          production or the load test, so after Wednesday noon May 4 is at risk. I've followed up twice and sent a
+          policy draft. Could you approve the role, or name who can, by Wednesday noon?”
+      - type: text
+        text: >-
+          Name the facts, not the person. “Omar hasn't replied” sounds like blame; “I've followed up twice, on the 16th
+          and the 17th” is the same fact. And escalate to the person who can say yes.
+      - type: note
+        tone: info
+        title: Late? Say so once.
+        text: >-
+          If you waited too long, own it in one line and move on: “Fair point. I should have come to you after the
+          second follow-up.”
+
+  - id: aws-escalation
+    kind: mock
+    title: Escalate to Kevin
+    heading: Blocked for 5 days on production AWS access
+    minutes: 15 min
+    lead: >-
+      Level 2: Kevin is busy and doesn't like vague asks. Name the blocker and the ticket in the first minute, tie it
+      to May 4, show what you've tried, and leave with a yes or a name by Wednesday noon.
+    cardId: S26
+    level: 2
+    scriptNote: Use it the first time, then try the call again without it.
+
+  - id: aws-escalation-review
+    kind: reflect
+    title: How did the call go?
+    minutes: 5 min
+    lead: Tick what you managed, then note what the AI told you.
+    checksTitle: On this call, I…
+    checks:
+      - named the blocker and the ticket in the first minute
+      - tied the impact to the May 4 date
+      - showed what I'd already tried, with no blame
+      - made one specific ask with a Wednesday-noon deadline
+    fields:
+      - { id: went-well, label: What went well, kind: area, placeholder: "From the AI's feedback" }
+      - { id: fix-next, label: One thing to fix next time, kind: area, placeholder: "e.g. I said “Omar never answers” before I said what I needed" }
+      - { id: log, label: "Did anyone have to ask me for an update this week?", kind: area, rows: 2 }
+    rubric: true
+
+  - id: escalation-message
+    kind: write
+    title: The escalation in writing
+    heading: Send Kevin the escalation in writing
+    minutes: 10 min
+    lead: >-
+      Kevin can approve the role in minutes once he has the request and the policy in writing. Five parts, under 120
+      words, so he can act on it from his phone.
+    source: both
+    blocks:
+      - type: recall
+        label: Your blocker from this morning
+        day: 36
+        lesson: the-blocker
+        fields:
+          - { id: blocker, label: Blocker }
+          - { id: since, label: Since }
+          - { id: at-risk, label: At risk }
+      - { type: field, id: subject }
+      - { type: field, id: blocked }
+      - { type: field, id: impact }
+      - { type: field, id: tried }
+      - { type: field, id: need }
+      - { type: field, id: by-when }
+      - type: text
+        text: >-
+          Before you send: does the subject say what you need and which date it affects? Is there one ask, from one
+          person, with a time and its time zone? Would Omar be happy to read it too?
+    fields:
+      - { id: subject, label: Subject, kind: line, placeholder: "e.g. ACTION NEEDED: production AWS access (SEC-482) — affects May 4" }
+      - { id: blocked, label: Blocked, kind: area, rows: 2 }
+      - { id: impact, label: Impact, kind: area, rows: 2 }
+      - { id: tried, label: "What I've tried", kind: area, rows: 2 }
+      - { id: need, label: What I need, kind: line }
+      - { id: by-when, label: "By when (and the fallback after that)", kind: line }
+
+scoring:
+  escalation-message:
+    modelAnswer: >-
+      Subject: ACTION NEEDED: production AWS access (SEC-482) — needed by Wed Apr 22, noon ET.
+      Blocked: deployment access (IAM role) to Brightpath's production AWS account, requested Tue Apr 14 in ticket
+      SEC-482.
+      Impact: without it we can't set up production, monitoring or the load test. After Wed noon ET, the May 4 pilot is
+      at risk.
+      What I've tried: the ticket (Apr 14), Slack follow-ups (Apr 16 and 17), a least-privilege policy draft (Apr 17,
+      attached).
+      What I need: your approval of the attached policy as a 90-day, time-limited role.
+      By when: Wed Apr 22, noon ET. After that, Brightpath DevOps deploys from our runbook, slower, as a fallback.
+      I'll confirm in Slack once access works.
+    scoringPoints:
+      - All five parts in order (blocked, impact, tried, need, by when), under 120 words
+      - The impact is tied to the May 4 date, and the ask is one specific action with a deadline and time zone
+      - States what was tried as facts, with no blame on Omar or Brightpath's team

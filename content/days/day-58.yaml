@@ -1,0 +1,102 @@
+day: 58
+block: 12
+title: Lead call 1
+type: live_call
+storyDate: Wednesday, May 20
+minutes: About 75 min
+intro: >-
+  Today you lead a full client call. The PM or senior is a silent backup. Afterwards you send the recap within two hours,
+  hold a 15-minute debrief, and pick the one thing to improve.
+lessons:
+  - id: card-review
+    kind: prep
+    title: Review the pre-call card
+    minutes: 5 min
+    blocks:
+      - type: yesterday
+        text: >-
+          You rehearsed the weekly sync with Dana and Kevin, gave a clear recommendation on the June 15 date, and wrote
+          answers to the three hardest likely questions.
+      - type: scene
+        when: Wednesday, May 20 · 8:30 am Central · pilot day seventeen
+        text: >-
+          Five minutes with yesterday's pre-call card. Read your goal, your three must-says, your questions and your hardest
+          answers once. Check the agenda was sent, and the demo and test data are ready. Then take a breath and start with
+          the opener.
+    fields:
+      - { id: ready, label: "What I'll do in the first minute", kind: line, placeholder: "e.g. Thank them, state the goal, read the agenda, ask “Anything to add?”" }
+    source: both
+
+  - id: lead-call-one
+    kind: live
+    title: Lead call 1
+    heading: Lead the call, with backup
+    minutes: 30 min
+    liveRole: lead
+    substituteCardId: S32
+    fallback: >-
+      If no live call is available today, run the dress rehearsal again as a 20-minute Level 3 mock with no script. Or swap
+      with a mock day and lead the call later in the week.
+    lead: >-
+      Lead from the first minute. Invite your backup in only if you need them. Afterwards, fill in the sheet while it's
+      fresh.
+    fields:
+      - { id: call, label: "Call · PM or senior · date", kind: line, placeholder: "e.g. Weekly sync · the PM's name · May 20" }
+      - { id: first-minute, label: How I opened and set the agenda, kind: area, rows: 2 }
+      - { id: stepped-in, label: "Did the PM or senior step in? Why?", kind: area, rows: 2 }
+      - { id: decisions, label: Decisions made and next steps with owners and dates, kind: area, rows: 3 }
+      - { id: hard-moment, label: "The hardest moment, and what I did", kind: area, rows: 2 }
+      - { id: closed-on-time, label: "Did I close on time?", kind: line }
+
+  - id: call-recap
+    kind: write
+    title: Recap within 2 hours
+    heading: Send the recap within two hours
+    minutes: 10 min
+    lead: >-
+      Write the recap for the client: the decisions, the actions with owners and dates, and the open questions. Subject
+      line first, bottom line in the first two lines.
+    source: both
+    blocks:
+      - { type: field, id: recap }
+    fields:
+      - { id: recap, label: Recap email, kind: area, rows: 7, placeholder: "Subject · decisions · actions with owners and dates · open questions" }
+
+  - id: debrief
+    kind: write
+    title: The debrief
+    heading: Debrief with the PM or senior
+    minutes: 15 min
+    lead: >-
+      Hold a 15-minute debrief with your backup, using the call rubric: 2 things that went well, 2 things to change, and 1
+      thing for the next call. Write down their words, then pick the one thing you'll practise on Thursday.
+    source: both
+    blocks:
+      - { type: field, id: well }
+      - { type: field, id: change }
+      - { type: field, id: one-thing }
+    fields:
+      - { id: well, label: "2 things that went well", kind: area, rows: 2 }
+      - { id: change, label: "2 things to change", kind: area, rows: 2 }
+      - { id: one-thing, label: "The one thing I'll practise on Thursday", kind: line }
+
+scoring:
+  call-recap:
+    modelAnswer: >-
+      Subject: Weekly sync recap: June 15 rollout approved, decisions and next steps. Hi Dana, hi Kevin, thanks for
+      today. Decided: the June 15 rollout plan is approved; Spanish moves to after the rollout. Actions: Me: confirm the
+      reminder fix shipped by noon Thursday. Sam Porter: approve Epic access for 9 clinics by May 29. Kevin: share the SMS
+      cost limit by Tuesday. Open: do we need a second test day for the new clinics? I'll update you Friday.
+    scoringPoints:
+      - The subject line and the first lines give the decisions
+      - Every action has an owner and a date, and open questions are listed
+      - It is short enough to read in a minute, and sent within two hours
+  debrief:
+    modelAnswer: >-
+      Went well: 1. I opened with the goal and the agenda. 2. I gave the status with numbers first. Change: 1. I gave
+      background before the answer on the bug question. 2. I agreed to look into the SMS cost without a date. One thing for
+      the next call: start every answer with the answer, and give a date when I say I'll check.
+    scoringPoints:
+      - Feedback is written in the PM's words, with specific moments, not general praise
+      - The things to change are concrete
+      - Exactly one thing is picked to practise

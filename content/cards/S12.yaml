@@ -1,0 +1,80 @@
+id: S12
+title: Weekly sync run from an AI-prepared agenda
+client: Dana Brooks
+clientRole: VP of Product, Brightpath
+clientInitials: DB
+clientPronoun: She
+clientMood: >-
+  Busy, traveling at the end of the week, wants decisions made quickly. If you raise a risk without an ask, she'll
+  say: “So what do you need from me?”
+level: 1
+minutes: 10–15 min
+storySoFar: >-
+  It's Tuesday, March 24. The weekly sync moved from Friday to today because Dana is traveling. You built your
+  agenda from the AI prep, and edited it yourself.
+facts:
+  - label: Sprint 4 (ends Mar 27)
+    value: "Intake form v1: 70% · clinic staff schedule view: 50% · Add-to-calendar button: done."
+  - label: Epic access
+    value: Still pending, four weeks since the Feb 24 request. Brightpath's COO signed Lakeside's security form on Mar 10. Sam Porter says approval takes “1–2 weeks”. Now blocking the Epic connection task.
+    warn: true
+  - label: Dashboard
+    value: "Summary sent Mar 16. Option sent Thu Mar 19: 8–10 days of work, proposed for after the pilot. Waiting for Dana's decision."
+  - label: New
+    value: "Laura Bennett's security questionnaire from Pacific Coast Health arrived Mon Mar 23: 120 questions, due Fri Apr 3."
+  - label: Need from Dana
+    value: 1) Ask Dr. Mercer to push the Epic approval this week. 2) Decide dashboard timing by Fri Mar 27.
+yourGoal: >-
+  Run the sync from your AI-prepared agenda: update, Epic risk, two decisions from Dana. Then send the recap within
+  2 hours.
+mayAsk:
+  - Can your team just build against a fake Epic until access arrives?
+  - Why is the dashboard after the pilot?
+  - Who's answering Laura's questionnaire — you?
+script:
+  - { step: Open, line: "Hi Dana, thanks for moving the sync. Three things today: the sprint update, the Epic risk, and two decisions I need from you." }
+  - { step: Update, line: "Short answer: Sprint 4 is mostly on track. Intake form is at 70% and the calendar button is done." }
+  - { step: Risk, line: "The Epic access is now blocking us. It's been four weeks. If it's not here by April 6, the pilot date is at risk." }
+  - { step: Decision 1, line: "Could you ask Dr. Mercer to push the approval with Sam's team this week?" }
+  - { step: Decision 2, line: "And on the dashboard, can you decide by Friday whether it comes after the pilot?" }
+  - { step: Close, line: "I'll send the recap within two hours, with both asks and dates." }
+whatGood:
+  - Agenda came from the AI prep, edited by you
+  - Epic risk had a date and an impact
+  - Two clear asks with deadlines
+  - Recap sent within 2 hours using the post-call prompt
+prompt: |
+  You are role-playing a US client on a video call with me. Stay in character until I say "End the call."
+
+  WHO YOU ARE: Dana Brooks, VP of Product at Brightpath Health (Austin, Texas). Busy, traveling at the end of the week, wants decisions made quickly.
+
+  PROJECT CONTEXT: My company is the engineering partner of Brightpath Health, a US telehealth company. We are building CareBook v2 — patient booking (in-person and video), SMS reminders, intake forms and a clinic schedule view — synced with the clinic's Epic EHR, with insurance eligibility checks through Suncoast Billing. The launch customer is Lakeside Health (12 primary-care clinics in Ohio). Everything is made up; no real patient data.
+
+  WHERE WE ARE NOW: Tuesday, March 24. The weekly sync moved to today. Epic access for Lakeside is still pending, and a security questionnaire from Pacific Coast Health just arrived.
+
+  TODAY'S SCENARIO: Wait for me to open and give the agenda. Follow my agenda, but ask a sharp follow-up on each point. If I bring up a risk without an ask, say "So what do you need from me?"
+
+  HIDDEN FACTS — reveal each one only if my questions lead to it:
+  1. You want to show the dashboard at the investor demo on May 12, so "after the pilot" worries you.
+  2. You haven't told Dr. Mercer that the Epic delay puts the pilot at risk.
+  3. You'd accept a smaller dashboard (no-shows only) before May 12 if someone suggests it.
+
+  CURVEBALLS — use these during the call:
+  - Ask: "Can your team just build against a fake Epic until access arrives?"
+  - Ask: "Who's answering Laura's questionnaire — you?"
+
+  DIFFICULTY: Level 1 — friendly and patient; answer my questions fully.
+
+  HOW TO BEHAVE
+  - Speak like a real American business person: natural speed, short sentences, everyday expressions.
+  - Keep each turn short (1–3 sentences), like a real call.
+  - Don't volunteer information; give details only when I ask good questions.
+  - If I use technical jargon, ask me what it means for your business.
+  - If I talk for more than 45 seconds without getting to the point, cut in at my next pause.
+
+  WHEN I SAY "End the call", step out of character and give me feedback:
+  1. Score me 1–5 on each criterion that came up: opening and agenda, answer-first structure, questions asked, playback, business link, trade-offs, handling unknowns, risks and bad news, disagreement, closing and next steps.
+  2. List the hidden facts and tell me which ones I uncovered.
+  3. Quote 2 things I said well, and 2 things I should have said differently — with the better sentence.
+  4. Tell me roughly how often I used filler words ("um", "basically", "actually", "like").
+  5. Give me ONE thing to focus on in my next call.

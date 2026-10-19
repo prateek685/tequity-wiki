@@ -1,0 +1,162 @@
+day: 29
+block: 6
+title: EHR, HL7 and FHIR
+type: normal
+storyDate: Thursday, April 9
+minutes: About 55 min
+intro: >-
+  Dr. Mercer wants “proper Epic integration before rollout”. Today you learn the language of health records in plain
+  words, then find out what “proper” really means.
+lessons:
+  - id: integration-questions
+    kind: prep
+    title: “Proper Epic integration”
+    minutes: 5 min
+    blocks:
+      - type: yesterday
+        text: >-
+          Kevin asked whether to replace Epic's FHIR API with a custom HL7 interface. You answered first, “not for the
+          pilot”, gave both options in business terms and recommended FHIR. He agreed, and had your one-page decision
+          note the same afternoon.
+      - type: scene
+        when: Thursday, April 9 · 10:30 am Eastern
+        text: >-
+          This morning Lakeside staff saw a demo of the appointment sync: Epic appointments showing up in CareBook's
+          schedule view. An hour later Dr. Mercer emailed Dana: “We need proper Epic integration before rollout.”
+          Nobody knows what “proper” means. Dana has set up 15 minutes with him at 2 pm, and asked you to lead it.
+      - type: text
+        text: >-
+          “Integration” can mean ten different things. Write five questions you'd ask about any EHR integration: what
+          data, which direction, how fast, who uses it, by when. You'll check them against today's lesson.
+    fields:
+      - { id: q1, label: Question 1, kind: line, placeholder: "e.g. Which information needs to move between the two systems?" }
+      - { id: q2, label: Question 2, kind: line }
+      - { id: q3, label: Question 3, kind: line }
+      - { id: q4, label: Question 4, kind: line }
+      - { id: q5, label: Question 5, kind: line }
+
+  - id: ehr-in-plain-words
+    kind: learn
+    title: Health records in plain words
+    heading: EHRs, HL7 and FHIR in plain words
+    minutes: 10 min
+    lead: >-
+      Clinical clients use these words every day. You need to understand them, and then to explain them without them.
+    blocks:
+      - type: steps
+        items:
+          - { title: EHR, text: "The digital patient chart used by providers. In the US: Epic, Oracle Health (Cerner), athenahealth. Lakeside uses Epic." }
+          - { title: Interoperability, text: "Systems sharing data, and being able to use it." }
+          - { title: HL7 v2, text: "An older message standard, still everywhere in hospitals. For example, an “ADT” message when a patient is admitted." }
+          - { title: FHIR, text: "The modern API standard. Data comes as “resources”: Patient, Appointment, Observation, Encounter." }
+          - { title: SMART on FHIR, text: "How apps launch inside an EHR with a secure login." }
+      - type: facts
+        label: More words you'll hear
+        rows:
+          - { label: MRN, value: "Medical Record Number: the patient ID inside a hospital's system." }
+          - { label: Encounter, value: "Any patient interaction: a visit, an admission, a telehealth session." }
+          - { label: ADT, value: "Admit, Discharge, Transfer: events (and HL7 messages) when a patient moves through a hospital." }
+          - { label: FHIR resource, value: "A unit of FHIR data, such as Patient, Appointment, Observation or MedicationRequest." }
+          - { label: C-CDA, value: "A standard clinical document format, for example a visit summary." }
+          - { label: Information blocking, value: "Practices that unreasonably stop health data being shared. Restricted under US law (the 21st Century Cures Act)." }
+      - type: text
+        text: >-
+          CareBook today: it reads appointments and open slots from Epic through FHIR (the Appointment and Slot
+          resources), every 5 minutes. With a doctor, say it that way, without the brackets.
+      - type: compare
+        beforeLabel: Jargon
+        afterLabel: Plain words
+        before: "“We consume FHIR Appointment and Slot resources via a polling integration.”"
+        after: "“CareBook reads your Epic appointments every five minutes, so the schedule your staff sees is never more than five minutes old.”"
+      - type: note
+        tone: info
+        title: Five questions for any integration
+        text: >-
+          Which data? Which direction: from the EHR, into it, or both? How fast: seconds, minutes, or the same day? Who
+          notices when it's missing? And by when is it needed?
+      - type: watch
+        url: https://www.healthit.gov/sites/default/files/2019-08/ONCFHIRFSWhatIsFHIR.pdf
+        title: ONC — “What Is FHIR?”
+        meta: Free 2-page fact sheet · about 10 min
+      - type: watch
+        url: https://hl7.org/fhir/overview.html
+        title: HL7 FHIR overview
+        meta: Free · skim the introduction and the list of resources
+
+  - id: proper-integration
+    kind: mock
+    title: “Proper” Epic integration
+    heading: "“We need Epic integration”"
+    minutes: 15 min
+    lead: >-
+      Level 2: Dr. Mercer is impatient with jargon. Turn “proper” into a specific list: data, direction, speed, users,
+      deadline. Separate what the pilot already covers, and agree to nothing you don't understand yet.
+    cardId: S20
+    level: 2
+    scriptNote: Use it the first time, then try the call again without it.
+
+  - id: proper-integration-review
+    kind: reflect
+    title: How did the call go?
+    minutes: 5 min
+    lead: Tick what you managed, then note what the AI told you.
+    checksTitle: On this call, I…
+    checks:
+      - unpacked “proper” into 3 specific needs
+      - asked about direction and speed
+      - used plain language, with no unexplained jargon
+      - separated pilot from rollout scope, and promised the list with a date
+    fields:
+      - { id: went-well, label: What went well, kind: area, placeholder: "From the AI's feedback" }
+      - { id: fix-next, label: One thing to fix next time, kind: area, placeholder: "e.g. I said “FHIR” twice before he asked me to speak plainly" }
+      - { id: log, label: "Did I give a recommendation, or just a list of options?", kind: area, rows: 2 }
+    rubric: true
+
+  - id: integration-list
+    kind: write
+    title: The integration list
+    heading: Your integration question list, and five things you learned
+    minutes: 10 min
+    lead: >-
+      Two short pieces. First, improve this morning's questions into a list you'd take to any integration call. Then
+      write five things you learned this week about EHRs and interoperability, in plain words.
+    blocks:
+      - type: recall
+        label: Your five questions from this morning
+        day: 29
+        lesson: integration-questions
+        fields:
+          - { id: q1, label: "1" }
+          - { id: q2, label: "2" }
+          - { id: q3, label: "3" }
+          - { id: q4, label: "4" }
+          - { id: q5, label: "5" }
+      - { type: field, id: questions }
+      - type: text
+        text: >-
+          Five things you learned: one line each, in words Lisa Chen would understand. If a line needs a term like
+          “FHIR”, say what it means.
+    fields:
+      - { id: questions, label: My integration question list, kind: area, rows: 6, placeholder: "Data · direction · speed · users · workflows · deadline · access and approvals…" }
+      - { id: learned-1, label: Learned 1, kind: line, placeholder: "e.g. An EHR is the digital patient chart; Lakeside's is Epic." }
+      - { id: learned-2, label: Learned 2, kind: line }
+      - { id: learned-3, label: Learned 3, kind: line }
+      - { id: learned-4, label: Learned 4, kind: line }
+      - { id: learned-5, label: Learned 5, kind: line }
+
+scoring:
+  integration-list:
+    modelAnswer: >-
+      Questions: Which information needs to move, and which matters most? In which direction: from Epic, into Epic, or
+      both? How fast must it show up: seconds, minutes or the same day? Who notices when it's missing: front desk,
+      doctors or patients? What do staff do today when it's missing, and how often? Is it needed for the pilot or for
+      the rollout, and by which date? Who approves access, and does it need Epic's app review?
+      Learned: 1. An EHR is the digital patient chart; Lakeside's is Epic. 2. FHIR is the modern way for apps to read
+      and write EHR data, in pieces called resources, like Patient or Appointment. 3. HL7 v2 is an older message
+      standard, still common in hospitals, but slower to build and harder to maintain. 4. CareBook reads appointments
+      from Epic every 5 minutes; writing into Epic is a separate, bigger piece of work. 5. Production access needs
+      Lakeside IT's approval and Epic's app review, which takes time to plan for.
+    scoringPoints:
+      - The list covers data, direction, speed, users and deadline, plus access or approvals
+      - The five learnings are correct and in plain words a non-engineer understands
+      - Separates reading from Epic and writing into Epic

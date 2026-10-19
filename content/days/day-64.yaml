@@ -1,0 +1,125 @@
+day: 64
+block: 13
+title: Status report and readiness case
+type: normal
+storyDate: Thursday, May 28
+minutes: About 60 min
+intro: >-
+  Draft and send the weekly status report, practise presenting your readiness case in 5 minutes, then finalise it and
+  share it with your manager. Sharing it opens your final review.
+lessons:
+  - id: draft-status
+    kind: prep
+    title: Draft the weekly status report
+    minutes: 5 min
+    blocks:
+      - type: yesterday
+        text: >-
+          you drilled your weakest pillar and drafted your one-page readiness case.
+      - type: scene
+        when: Thursday, May 28 · 8:10 am Central · pilot day twenty-five
+        text: >-
+          Draft this week's status report for the client: where the rollout stands, the status colour with a number behind
+          it, the risks, and the decisions or help you need. You'll send it today.
+    fields:
+      - { id: status, label: "Overall status and one number behind it", kind: line, placeholder: "e.g. Green: 2 open bugs, none high, Epic access approved for 9 clinics" }
+      - { id: risks, label: "Risks, each with an owner and a date", kind: area, rows: 3 }
+      - { id: needs, label: "Decisions or help I need", kind: line }
+    source: both
+
+  - id: present-case
+    kind: mock
+    title: Present your readiness case
+    heading: Present your readiness case in 5 minutes
+    minutes: 10 min
+    lead: >-
+      The AI plays your manager, who will probe the weak spots. Headline first, evidence for each pillar, one honest weak
+      spot, then the support you need.
+    cardId: S49
+    level: 2
+    scriptNote: Use it the first time, then try without it.
+
+  - id: present-review
+    kind: reflect
+    title: How did it go?
+    minutes: 5 min
+    lead: Tick what you managed, then note what the AI told you.
+    checksTitle: In this presentation, I…
+    checks:
+      - gave the headline first, then evidence per pillar
+      - used numbers and examples, not adjectives
+      - named a weak spot honestly, with a plan
+      - asked for specific support
+    fields:
+      - { id: went-well, label: What went well, kind: area, placeholder: "From the AI's feedback" }
+      - { id: fix-next, label: One thing to change before tomorrow, kind: area }
+    rubric: true
+
+  - id: send-status
+    kind: write
+    title: Send the weekly status report
+    heading: Send the weekly status report to the client
+    minutes: 10 min
+    lead: >-
+      Write the final status report you'll send to the client today. Answer first, then the numbers, the risks with owners
+      and dates, and what you need.
+    source: both
+    blocks:
+      - { type: field, id: report }
+    fields:
+      - { id: report, label: Weekly status report, kind: area, rows: 7, placeholder: "Subject line · status first · numbers · risks with owners and dates · decisions or help I need" }
+
+  - id: final-readiness
+    kind: write
+    title: Finalise your readiness case
+    heading: Finalise "My readiness case" and share it
+    minutes: 10 min
+    lead: >-
+      Start from yesterday's draft and improve it after your practice. When you save this lesson, your manager can read it
+      before the final review.
+    source: both
+    prefillFrom: { day: 63, lesson: draft-readiness }
+    shareReadiness: true
+    blocks:
+      - type: note
+        tone: info
+        title: Saving shares it
+        text: Saving this lesson shares your readiness case with your manager and opens your final review. Don't include patient data or the client's private details.
+      - { type: field, id: understand-evidence }
+      - { type: field, id: understand-score }
+      - { type: field, id: understand-next }
+      - { type: field, id: communicate-evidence }
+      - { type: field, id: communicate-score }
+      - { type: field, id: communicate-next }
+      - { type: field, id: own-evidence }
+      - { type: field, id: own-score }
+      - { type: field, id: own-next }
+      - { type: field, id: stand-firm-evidence }
+      - { type: field, id: stand-firm-score }
+      - { type: field, id: stand-firm-next }
+      - { type: field, id: overall }
+    fields:
+      - { id: understand-evidence, label: "Understand: 2 pieces of evidence, and where to find them", kind: area, rows: 3 }
+      - { id: understand-score, label: "Understand: Day 1 score → Day 90 score", kind: line, placeholder: "e.g. 2 → 4" }
+      - { id: understand-next, label: "Understand: what I'll keep working on", kind: line }
+      - { id: communicate-evidence, label: "Communicate: 2 pieces of evidence, and where to find them", kind: area, rows: 3 }
+      - { id: communicate-score, label: "Communicate: Day 1 score → Day 90 score", kind: line, placeholder: "e.g. 2 → 4" }
+      - { id: communicate-next, label: "Communicate: what I'll keep working on", kind: line }
+      - { id: own-evidence, label: "Own: 2 pieces of evidence, and where to find them", kind: area, rows: 3 }
+      - { id: own-score, label: "Own: Day 1 score → Day 90 score", kind: line, placeholder: "e.g. 2 → 4" }
+      - { id: own-next, label: "Own: what I'll keep working on", kind: line }
+      - { id: stand-firm-evidence, label: "Stand firm: 2 pieces of evidence, and where to find them", kind: area, rows: 3 }
+      - { id: stand-firm-score, label: "Stand firm: Day 1 score → Day 90 score", kind: line, placeholder: "e.g. 2 → 4" }
+      - { id: stand-firm-next, label: "Stand firm: what I'll keep working on", kind: line }
+      - { id: overall, label: "Overall: why I'm ready to work directly with a client, and what support I still need", kind: area, rows: 4 }
+
+scoring:
+  send-status:
+    modelAnswer: >-
+      Subject: CareBook weekly status, May 28: Green. We're on track for June 15. Epic access for the 9 new clinics was
+      approved on Tuesday, and 2 bugs are open, none high. Risk: SMS volume at 12 clinics is about 4 times today's. Owner:
+      Kevin and me, load test by Fri May 29. Decision needed: Dana, please confirm the 4-hour test slot by tomorrow noon.
+    scoringPoints:
+      - The status and the headline come first, with a number behind it
+      - Each risk has an owner and a date
+      - States what you need from the client and by when

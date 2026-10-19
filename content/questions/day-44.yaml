@@ -1,0 +1,177 @@
+# Day 44 quiz pool: Thursday, April 30. Analogies and plain language for a non-technical clinic manager: one
+# analogy, then the facts; no jargon; which schedule is real; a cheat sheet and who to call. Shows 5 of 10.
+pool: day-44
+questions:
+  - id: D44-01
+    type: mcq
+    stem: How many analogies should you use for one idea?
+    options:
+      - text: One, then return to the facts.
+        correct: true
+        explanation: One analogy gives the picture. A second one competes with it.
+      - text: As many as you can, to be sure it lands.
+        correct: false
+        explanation: Stacking analogies muddles the picture and hides the facts.
+      - text: None. Analogies sound childish.
+        correct: false
+        explanation: Used well, an analogy is the fastest way to a shared picture.
+      - text: Three, one for each level.
+        correct: false
+        explanation: The levels are about depth, not about the number of analogies.
+    source: { quote: "Use one analogy, then return", page: 114 }
+
+  - id: D44-02
+    type: mcq
+    stem: Lisa says, “Sorry, in plain English?” after you say “it syncs over FHIR”. What was the mistake?
+    options:
+      - text: You used a technical term without explaining it.
+        correct: true
+        explanation: Jargon without a plain translation loses a non-technical listener immediately.
+      - text: You spoke too slowly.
+        correct: false
+        explanation: Pace wasn't the problem. The words were.
+      - text: You should have written it instead.
+        correct: false
+        explanation: The medium isn't the problem. Plain words are.
+      - text: Nothing. She should look it up.
+        correct: false
+        explanation: Making the listener do the work loses them.
+    source: { quote: "Sorry — in plain English?", page: 121 }
+
+  - id: D44-03
+    type: mcq
+    stem: Which analogy best fits “Epic owns the schedule and CareBook reads and writes to it”?
+    options:
+      - text: A shared calendar that one person owns, with a second screen that edits it.
+        correct: true
+        explanation: Something she knows, and it shows who's in charge.
+      - text: A river and a bridge.
+        correct: false
+        explanation: Pretty, but it doesn't show who owns the schedule.
+      - text: A blockchain.
+        correct: false
+        explanation: Jargon, not an analogy a front desk knows.
+      - text: Two separate calendars that sometimes agree.
+        correct: false
+        explanation: This is the fear behind double-booking. It says the opposite of the design.
+    source: { quote: "Think of a shared calendar.", page: 120 }
+
+  - id: D44-04
+    type: mcq
+    stem: Lisa asks “So which one is the real schedule, Epic or CareBook?” What's the clear answer?
+    options:
+      - text: Epic. CareBook only offers slots that Epic shows as free.
+        correct: true
+        explanation: Epic is the source of truth, and the rule is simple to repeat to staff.
+      - text: Both are equally real.
+        correct: false
+        explanation: That invites exactly the confusion staff fear.
+      - text: CareBook, because it's newer.
+        correct: false
+        explanation: Wrong. Epic remains the source of truth.
+      - text: It depends on the clinic.
+        correct: false
+        explanation: There's one rule for all three pilot clinics.
+    source: { quote: "So which one is the real schedule?", page: 120 }
+
+  - id: D44-05
+    type: mcq
+    stem: Staff are afraid the old scheduling tool's double-booking will happen again. What do you give them?
+    options:
+      - text: The 500 appointments tested with zero mismatches, and what a “held” slot means.
+        correct: true
+        explanation: A fact and a tip they can use. It answers the fear directly.
+      - text: A promise that it can never happen.
+        correct: false
+        explanation: An absolute promise you can't back up.
+      - text: A list of the technical standards used.
+        correct: false
+        explanation: It doesn't answer the worry.
+      - text: Nothing. Don't mention the old tool.
+        correct: false
+        explanation: The worry is real, so talk about it.
+    source: { quote: "After last week's fix we tested 500 appointments and found no mismatches.", page: 120 }
+
+  - id: D44-06
+    type: mcq
+    stem: What should you offer Lisa before the end of the call?
+    options:
+      - text: A one-page cheat sheet with the support number and hours.
+        correct: true
+        explanation: She briefs her staff at 7:30 tomorrow. Give her something to hand out.
+      - text: The architecture diagram.
+        correct: false
+        explanation: Not usable by a front desk.
+      - text: A link to the FHIR specification.
+        correct: false
+        explanation: Too technical, and nobody will read it before 7:30.
+      - text: Nothing more. You've explained it.
+        correct: false
+        explanation: Spoken words fade by tomorrow morning.
+    source: { quote: "Offered a cheat sheet and support contact with hours", page: 120 }
+
+  - id: D44-07
+    type: scenario
+    clientLine: "“What happens if our internet goes down?”"
+    stem: You know Westside lost internet for an hour last month. How do you answer?
+    options:
+      - text: “That's an IT question, I don't know.”
+        correct: false
+        explanation: She needs a practical answer, and an honest one.
+      - text: "“Good question. If the clinic loses internet, you can't book online. Staff keep working in Epic as usual, and CareBook catches up when you're back. Let me confirm the details and send them with the cheat sheet.”"
+        correct: true
+        explanation: A calm answer, what staff do, and an honest follow-up for the rest.
+      - text: “It won't happen, the system is very reliable.”
+        correct: false
+        explanation: Westside lost internet last month. It will happen.
+      - text: “Call support.”
+        correct: false
+        explanation: She needs to know what to do, not only who to ask.
+    source: { quote: "What happens if our internet goes down?", page: 120 }
+
+  - id: D44-08
+    type: scenario
+    clientLine: "“Will this change how our providers document visits in Epic?”"
+    stem: You don't know. What do you say?
+    options:
+      - text: “No, it won't.”
+        correct: false
+        explanation: A guess. If it's wrong, you've told 14 staff something false.
+      - text: "“I don't want to guess. As far as I know, providers keep working in Epic as usual. I'll confirm with the Epic team by tomorrow noon and add it to the cheat sheet.”"
+        correct: true
+        explanation: Says what you know, what you don't, and when you'll answer.
+      - text: “Ask Dr. Mercer.”
+        correct: false
+        explanation: Passes it on with no follow-up of your own.
+      - text: Change the subject to the cheat sheet.
+        correct: false
+        explanation: Avoids the question, and she'll notice.
+    source: { quote: "Will this change how our providers document visits in Epic?", page: 121 }
+
+  - id: D44-09
+    type: written
+    stem: >-
+      Lisa asks: “What does ‘held’ mean on a slot?” Explain it in two plain sentences. The facts: a held slot means a
+      patient is booking it right now, and it frees itself after 5 minutes.
+    modelAnswer: >-
+      A held slot means a patient is booking it at that moment. If they don't finish, it frees itself after 5 minutes,
+      so you don't need to do anything.
+    scoringPoints:
+      - Explains what “held” means in everyday words
+      - States the 5-minute rule
+      - Tells staff what (not) to do, with no jargon
+    source: { quote: "If staff see a slot marked 'held'", page: 120 }
+
+  - id: D44-10
+    type: written
+    stem: >-
+      Rewrite this for a front-desk team in two sentences: “CareBook syncs with Epic over a FHIR interface with
+      bidirectional updates.”
+    modelAnswer: >-
+      CareBook and Epic share one schedule, like a shared calendar that Epic owns. When someone books or cancels in
+      either one, the other shows it within about a minute.
+    scoringPoints:
+      - Uses one simple analogy
+      - Says what changes for staff, with the one-minute timing
+      - No FHIR, API or bidirectional left in the text
+    source: { quote: "Think of a shared calendar.", page: 120 }

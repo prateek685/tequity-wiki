@@ -1,0 +1,167 @@
+# Day 54 quiz pool: Thursday, May 14. Healthcare business metrics, presenting to a sceptical VP, and updating the proposal. Shows 5 of 10.
+pool: day-54
+questions:
+  - id: D54-01
+    type: mcq
+    stem: "Dr. Mercer's team complains that doctors spend hours finishing notes after clinic. Which provider metric is that?"
+    options:
+      - text: "Time-to-chart."
+        correct: true
+        explanation: "How long doctors spend on documentation."
+      - text: "Days in A/R."
+        correct: false
+        explanation: "A billing metric about unpaid claims."
+      - text: "Activation rate."
+        correct: false
+        explanation: "A digital health metric."
+      - text: "Access reviews completed."
+        correct: false
+        explanation: "A compliance metric."
+    source: { quote: "time-to-chart (how long doctors spend on documentation)", page: 130 }
+
+  - id: D54-02
+    type: mcq
+    stem: "Maria's team reworks denied claims. Which metric tells her the work is paying off?"
+    options:
+      - text: "Denial rate, or clean-claim rate."
+        correct: true
+        explanation: "Both are billing metrics."
+      - text: "Patient satisfaction."
+        correct: false
+        explanation: "A provider metric."
+      - text: "Retention."
+        correct: false
+        explanation: "A digital health metric."
+      - text: "Audit findings."
+        correct: false
+        explanation: "A compliance metric."
+    source: { quote: "Billing: denial rate, days in A/R, clean-claim rate.", page: 130 }
+
+  - id: D54-03
+    type: mcq
+    stem: "The compliance officer at Lakeside asks what your feature does for her. Which metric belongs to her?"
+    options:
+      - text: "Audit findings and access reviews completed."
+        correct: true
+        explanation: "Compliance metrics."
+      - text: "No-show rate."
+        correct: false
+        explanation: "Provider."
+      - text: "Days in A/R."
+        correct: false
+        explanation: "Billing."
+      - text: "Engagement."
+        correct: false
+        explanation: "Digital health."
+    source: { quote: "Compliance: audit findings, access reviews completed.", page: 130 }
+
+  - id: D54-04
+    type: mcq
+    stem: "Which opening does the card ask for in the first 20 seconds with Dana?"
+    options:
+      - text: "A headline with a number: “It could add about 50 visits a month at the pilot clinics alone.”"
+        correct: true
+        explanation: "The point and the number first."
+      - text: "The history of the pilot."
+        correct: false
+        explanation: "Dana has two minutes."
+      - text: "“I have a few thoughts, if you have time.”"
+        correct: false
+        explanation: "No headline, no number."
+      - text: "A list of five possible ideas."
+        correct: false
+        explanation: "One proposal, not five."
+    source: { quote: "Headline and number in the first 20 seconds", page: 136 }
+
+  - id: D54-05
+    type: mcq
+    stem: "Dana says “That's a guess.” What does she want to hear?"
+    options:
+      - text: "“You're right that it's an estimate. That's why I'd test it at one clinic for two weeks before rolling it out.”"
+        correct: true
+        explanation: "Admits the estimate, offers a test."
+      - text: "“I'm confident it's right.”"
+        correct: false
+        explanation: "Another opinion."
+      - text: "“Everyone agrees with me.”"
+        correct: false
+        explanation: "Not evidence."
+      - text: "“The model says 40%.”"
+        correct: false
+        explanation: "A number with no source, and it sounds like a guess too."
+    source: { quote: "Answered scepticism with data, not opinion", page: 136 }
+
+  - id: D54-06
+    type: mcq
+    stem: "Dana's focus is June 15. How do you show you've taken it seriously?"
+    options:
+      - text: "Say explicitly that you aren't proposing it before the rollout, and that the build starts right after."
+        correct: true
+        explanation: "The date is protected in words."
+      - text: "Say the date won't be affected, with no details."
+        correct: false
+        explanation: "Say how, not just that."
+      - text: "Skip it and talk about the benefits."
+        correct: false
+        explanation: "She'll ask and you'll look unprepared."
+      - text: "Offer to move the rollout."
+        correct: false
+        explanation: "Not yours to offer."
+    source: { quote: "Protected the June 15 date explicitly", page: 136 }
+
+  - id: D54-07
+    type: scenario
+    clientLine: "Will this delay June 15?"
+    stem: "Dana asks directly. What's your answer?"
+    options:
+      - text: "“No. I'm not proposing any work before June 15. Discovery starts now, the build starts after the rollout, so the date isn't at risk.”"
+        correct: true
+        explanation: "Direct, and the plan protects the date."
+      - text: "“Probably not.”"
+        correct: false
+        explanation: "She needs a clear answer."
+      - text: "“It might, a little.”"
+        correct: false
+        explanation: "It would sink the proposal."
+      - text: "“That depends on Kevin.”"
+        correct: false
+        explanation: "Passes the question on."
+    source: { quote: "Will this delay June 15?", page: 136 }
+
+  - id: D54-08
+    type: scenario
+    clientLine: "How do you know 40% is realistic?"
+    stem: "Dana asks about the target. What do you say?"
+    options:
+      - text: "“It's an estimate. Since May 4 the front desk refilled 16 of 106 late cancellations by phone. 40% is the goal. I'd test it at one clinic for two weeks first.”"
+        correct: true
+        explanation: "Admits it's an estimate, gives the baseline, offers a test."
+      - text: "“The industry average is 40%.”"
+        correct: false
+        explanation: "An invented source."
+      - text: "“Trust me.”"
+        correct: false
+        explanation: "An opinion."
+      - text: "“I don't have a number.”"
+        correct: false
+        explanation: "You have the baseline."
+    source: { quote: "refilled only 16 of them (15%) by phone", page: 136 }
+
+  - id: D54-09
+    type: written
+    stem: "Write your two-sentence headline for Dana: the proposal and the number it moves."
+    modelAnswer: "Dana, one proposal in two minutes: automatic waitlist refill. It could add about 50 visits a month at the pilot clinics alone."
+    scoringPoints:
+      - "States the proposal in a few words"
+      - "Gives one number in the first two sentences"
+    source: { quote: "Headline and number in the first 20 seconds", page: 136 }
+
+  - id: D54-10
+    type: written
+    stem: "Dana says, “Investors care about bookings, not refills.” Write a short answer using the pilot numbers."
+    modelAnswer: "A refilled slot is a booked visit that would have been lost. Since May 4 the front desk refilled only 16 of 106 late cancellations. At about $120 a visit, refilling 40% adds around $6,000 a month at the 3 clinics, which is revenue per clinic for the investor deck."
+    scoringPoints:
+      - "Reframes refills as bookings and revenue"
+      - "Uses at least two numbers from the pilot"
+      - "Stays short, with no argument"
+    source: { quote: "Left with a decision or a clear next step", page: 136 }

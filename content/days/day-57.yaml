@@ -1,0 +1,107 @@
+day: 57
+block: 12
+title: Dress rehearsal
+type: normal
+storyDate: Tuesday, May 19
+minutes: About 55 min
+intro: >-
+  Tomorrow you lead the call. Today you fill in the pre-call card, learn the backup agreement, run a Level 3 dress
+  rehearsal with the AI, and write answers to the three hardest likely questions.
+lessons:
+  - id: pre-call-card
+    kind: prep
+    title: Pre-call card
+    minutes: 5 min
+    blocks:
+      - type: yesterday
+        text: >-
+          You chose the call, agreed the backup and a signal, learned the lead-call checklist, and sent the agenda email.
+      - type: scene
+        when: Tuesday, May 19 · 8:05 am Central · pilot day sixteen
+        text: >-
+          Fill in the pre-call card for tomorrow's call, the same card you used on the co-lead days, but for the whole call.
+    fields:
+      - { id: goal, label: "My goal for the call (one sentence)", kind: line }
+      - { id: say, label: "3 things I must say", kind: area, rows: 3 }
+      - { id: ask, label: "3 questions I must ask", kind: area, rows: 3 }
+      - { id: decisions, label: The decisions I need, kind: line }
+    source: both
+
+  - id: backup-agreement
+    kind: learn
+    title: The backup agreement
+    heading: Your backup stays silent unless you invite them
+    minutes: 10 min
+    lead: >-
+      The PM or senior is a safety net, not a co-presenter. Agree these rules before the call.
+    blocks:
+      - type: steps
+        items:
+          - { title: Silent by default, text: "They don't speak unless you invite them or something critical goes wrong." }
+          - { title: You invite them, text: "“[Name], anything to add?” at the end of a topic." }
+          - { title: You agree a signal, text: "One word in the chat, or a look: “please step in”." }
+          - { title: They note, not fix, text: "They write down what they'd change, and tell you in the debrief." }
+      - type: note
+        tone: info
+        title: A critical thing
+        text: >-
+          “Critical” means a wrong promise, a wrong number, or something that could harm the client. A clumsy sentence is
+          not critical. Let it go and learn from it.
+
+  - id: dress-rehearsal
+    kind: mock
+    title: Dress rehearsal
+    heading: Rehearse tomorrow's weekly sync
+    minutes: 20 min
+    lead: >-
+      Level 3: Dana is sceptical and Kevin joins. Lead the whole call in 20 minutes: opener, agenda, answer-first status,
+      risks, decisions and next steps. Give a clear recommendation on the date.
+    cardId: S32
+    level: 3
+    scriptNote: Use it the first time, then try the call again without it.
+
+  - id: rehearsal-review
+    kind: reflect
+    title: How did the rehearsal go?
+    minutes: 5 min
+    lead: Tick what you managed, then note what the AI told you.
+    checksTitle: On this call, I…
+    checks:
+      - opened with the goal and an agenda
+      - gave the status answer-first, with numbers
+      - gave a clear recommendation on the date, with the trade-off
+      - closed with decisions, owners and dates
+    fields:
+      - { id: went-well, label: What went well, kind: area, placeholder: "From the AI's feedback" }
+      - { id: fix-next, label: One thing to fix next time, kind: area, placeholder: "e.g. I answered the June 8 question without a recommendation" }
+    rubric: true
+
+  - id: hard-questions
+    kind: write
+    title: The 3 hardest questions
+    heading: Write answers to the 3 hardest likely questions
+    minutes: 10 min
+    lead: >-
+      Think about what the client could ask that scares you most. Write the question, then an answer that starts with the
+      answer.
+    source: both
+    blocks:
+      - { type: field, id: q1 }
+      - { type: field, id: q2 }
+      - { type: field, id: q3 }
+    fields:
+      - { id: q1, label: "Question 1 and my answer", kind: area, rows: 3 }
+      - { id: q2, label: "Question 2 and my answer", kind: area, rows: 3 }
+      - { id: q3, label: "Question 3 and my answer", kind: area, rows: 3 }
+
+scoring:
+  hard-questions:
+    modelAnswer: >-
+      1. “Can we do all 12 clinics on June 8?” Short answer: only if Sam approves Epic access by May 22. I recommend June
+      15 to protect quality, and I'll confirm by Friday. 2. “Why is there still a high bug?” It's the missing reminder
+      for last-minute reschedules. The fix ships Thursday, and I'll confirm by noon. 3. “What could break at 12 clinics?”
+      SMS volume, about 4 times today's. I'm testing it this week and will share the results by May 27.
+    scoringPoints:
+      - Each answer starts with the answer, in one sentence
+      - Each answer says what you'll do and by when, or that you'll check
+      - The questions are real ones the client could ask, not easy ones

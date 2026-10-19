@@ -1,0 +1,166 @@
+# Day 56 quiz pool: Monday, May 18. Choosing the call, the backup agreement, the lead-call checklist and the agenda email. Shows 5 of 10.
+pool: day-56
+questions:
+  - id: D56-01
+    type: mcq
+    stem: "You'll lead Wednesday's weekly sync. What is your backup's role during the call?"
+    options:
+      - text: "Silent unless you invite them in, or something critical goes wrong."
+        correct: true
+        explanation: "That is the backup agreement."
+      - text: "Co-present half of the call."
+        correct: false
+        explanation: "You lead the whole call."
+      - text: "Take over when the client pushes back."
+        correct: false
+        explanation: "Pushback is normal; you handle it."
+      - text: "Not attend."
+        correct: false
+        explanation: "They are the safety net."
+    source: { quote: "Agree beforehand: the PM or senior stays silent unless you invite them in", page: 138 }
+
+  - id: D56-02
+    type: mcq
+    stem: "Which is in the Before part of the lead-call checklist?"
+    options:
+      - text: "Pre-call card, AI prep, agenda sent 24 hours ahead, demo and test data ready."
+        correct: true
+        explanation: "The Before list."
+      - text: "The recap within two hours."
+        correct: false
+        explanation: "That is After."
+      - text: "The warm opener."
+        correct: false
+        explanation: "That is During."
+      - text: "Closing the follow-ups."
+        correct: false
+        explanation: "That is After."
+    source: { quote: "Before: Pre-call card, AI prep, agenda sent 24 hours ahead, demo and test data ready.", page: 138 }
+
+  - id: D56-03
+    type: mcq
+    stem: "What is the order of the During part?"
+    options:
+      - text: "Warm opener, agenda, status (answer first), discussion and decisions, risks, next steps, close on time."
+        correct: true
+        explanation: "The During list."
+      - text: "Status, opener, agenda, close."
+        correct: false
+        explanation: "The opener comes first."
+      - text: "Risks first, then the status."
+        correct: false
+        explanation: "Status comes before risks."
+      - text: "Agenda, next steps, opener."
+        correct: false
+        explanation: "The opener is first."
+    source: { quote: "warm opener → agenda → status (answer first)", page: 138 }
+
+  - id: D56-04
+    type: mcq
+    stem: "When should the agenda email go out?"
+    options:
+      - text: "24 hours before the call."
+        correct: true
+        explanation: "So the client can add items."
+      - text: "Ten minutes before."
+        correct: false
+        explanation: "Too late to add anything."
+      - text: "After the call."
+        correct: false
+        explanation: "Then it isn't an agenda."
+      - text: "Never; the opener is enough."
+        correct: false
+        explanation: "Send it ahead."
+    source: { quote: "agenda sent 24 hours ahead", page: 138 }
+
+  - id: D56-05
+    type: mcq
+    stem: "You prepare with AI for a real call. What do you paste in?"
+    options:
+      - text: "Your context with names and patient details removed, and you check the result yourself."
+        correct: true
+        explanation: "Anonymised, then checked."
+      - text: "The full client thread with patient names."
+        correct: false
+        explanation: "No patient data in AI tools."
+      - text: "Nothing; AI isn't allowed."
+        correct: false
+        explanation: "AI prep is part of the checklist."
+      - text: "Only the client's name."
+        correct: false
+        explanation: "Still identifies them."
+    source: { quote: "Pre-call card, AI prep, agenda sent 24 hours ahead", page: 138 }
+
+  - id: D56-06
+    type: mcq
+    stem: "Which line belongs in a good agenda email?"
+    options:
+      - text: "“Tomorrow's goal: agree the rollout plan. I'll need two decisions.”"
+        correct: true
+        explanation: "The goal and the decisions."
+      - text: "“Hi, let's catch up.”"
+        correct: false
+        explanation: "No goal."
+      - text: "“See you there.”"
+        correct: false
+        explanation: "No agenda."
+      - text: "A long status report."
+        correct: false
+        explanation: "That belongs on the call."
+    source: { quote: "agenda sent 24 hours ahead", page: 138 }
+
+  - id: D56-07
+    type: scenario
+    clientLine: "Dana, can we skip the agenda and just talk?"
+    stem: "You're opening the call and Dana says she doesn't need an agenda. What do you say?"
+    options:
+      - text: "“Happy to keep it short. Three things: results, risks, two decisions. Anything to add?”"
+        correct: true
+        explanation: "Keeps it brief and still leads."
+      - text: "“No, we must follow the agenda.”"
+        correct: false
+        explanation: "Rigid."
+      - text: "“Okay, what do you want to talk about?”"
+        correct: false
+        explanation: "You give away the lead."
+      - text: "Say nothing and wait."
+        correct: false
+        explanation: "You lead."
+    source: { quote: "warm opener → agenda → status (answer first)", page: 138 }
+
+  - id: D56-08
+    type: scenario
+    clientLine: "Do you need me on this one? I have another meeting."
+    stem: "Your PM says it before the call. What do you answer?"
+    options:
+      - text: "“Please join, but stay silent unless I invite you. Here's my signal.”"
+        correct: true
+        explanation: "The backup agreement."
+      - text: "“No, I'll be fine.”"
+        correct: false
+        explanation: "You agreed a safety net."
+      - text: "“Yes, please present the status.”"
+        correct: false
+        explanation: "You lead."
+      - text: "“Do whatever you like.”"
+        correct: false
+        explanation: "Not agreed."
+    source: { quote: "Agree beforehand: the PM or senior stays silent unless you invite them in", page: 138 }
+
+  - id: D56-09
+    type: written
+    stem: "Write the first two lines of an agenda email for a weekly sync where you need two decisions."
+    modelAnswer: "Subject: Wednesday sync: agree the June 15 rollout plan. Hi Dana, tomorrow's 20 minutes are to agree the rollout plan. I need two decisions: approve June 15, and move Spanish to after the rollout."
+    scoringPoints:
+      - "The subject line names the goal"
+      - "The first lines say which decisions are needed"
+    source: { quote: "agenda sent 24 hours ahead", page: 138 }
+
+  - id: D56-10
+    type: written
+    stem: "Describe the signal you and your backup agree, and when they should use it themselves."
+    modelAnswer: "I type “help” in the chat or say “let me check with [name]” when I need them. They step in unprompted only if something critical goes wrong, like a wrong number or a promise we can't keep."
+    scoringPoints:
+      - "Names a clear signal"
+      - "Says what counts as critical"
+    source: { quote: "Agree on a signal.", page: 138 }

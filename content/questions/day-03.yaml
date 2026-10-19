@@ -1,0 +1,178 @@
+# Day 3 quiz pool: explaining a decision to Kevin with PREP, honest trade-offs, real examples. Shows 5 of 10.
+pool: day-03
+questions:
+  - id: D03-01
+    type: mcq
+    stem: "Kevin opens the call: “So walk me through why we went with React Native.” What's the best first sentence?"
+    options:
+      - text: "“Back in January we looked at a few options, including Flutter and native…”"
+        correct: false
+        explanation: History first. Kevin will cut in and ask for the bottom line.
+      - text: "“We chose React Native because it gets a reliable app to iOS and Android faster, with one team.”"
+        correct: true
+        explanation: The point comes first, with the main reason in the same sentence.
+      - text: "“It was the team's decision, I can find out more.”"
+        correct: false
+        explanation: You're the lead engineer. Pushing the decision onto “the team” sounds like you don't own it.
+      - text: "“React Native is a cross-platform framework by Meta that uses a JavaScript bridge…”"
+        correct: false
+        explanation: A technical definition Kevin already knows. He asked why, not what.
+    source: { quote: "We chose React Native because it gets a reliable app to both iOS and Android faster, with one team.", page: 30 }
+
+  - id: D03-02
+    type: mcq
+    stem: "Kevin asks, “Why not two native apps?” Which reply follows point, reason, example, point?"
+    options:
+      - text: "“Native apps are old-fashioned. Everyone uses cross-platform now.”"
+        correct: false
+        explanation: An opinion with no real reason or example. A CTO will push back straight away.
+      - text: "“Well, it's complicated. There are a lot of factors on both sides, and it really depends.”"
+        correct: false
+        explanation: No point at all. Kevin still doesn't know why the team decided as it did.
+      - text: "“One codebase is faster for this team. Two native apps would mean about 30% more build and test effort. For example, the booking flow works the same on iOS and Android today. So for the pilot, one codebase is the better call.”"
+        correct: true
+        explanation: Point, reason, a real example from the project, and the point again. Short and easy to repeat to the board.
+      - text: "“We could still switch to native if you prefer. Whatever you think is best.”"
+        correct: false
+        explanation: Giving up the decision at the first question. Explain it first; agreeing to switch isn't owning it.
+    source: { quote: "One codebase: about 30% less build and test effort than two native apps.", page: 30 }
+
+  - id: D03-03
+    type: mcq
+    stem: "Kevin asks, “Is there a downside?” Which reply builds the most trust?"
+    options:
+      - text: "“Not really. It's been working great so far.”"
+        correct: false
+        explanation: Hiding a known trade-off. Kevin will find it, and then he'll doubt everything else you said.
+      - text: "“The honest trade-off: native features like the video SDK take a bit longer. We've planned two extra days for that.”"
+        correct: true
+        explanation: You name the downside before he does and say how you're handling it.
+      - text: "“Well, the bridge adds overhead on the UI thread, and native modules need separate Swift and Kotlin code…”"
+        correct: false
+        explanation: True, but deep in the detail with no impact and no plan. Say what it means and what you're doing about it.
+      - text: "“Every framework has problems. It's impossible to say.”"
+        correct: false
+        explanation: A non-answer. It sounds like you haven't thought about the risks.
+    source: { quote: "The honest trade-off: native features like the video SDK take a bit longer", page: 30 }
+
+  - id: D03-04
+    type: mcq
+    stem: "Halfway through your answer, Kevin says, “Just give me the bottom line first.” What most likely happened?"
+    options:
+      - text: You gave your recommendation too early
+        correct: false
+        explanation: Giving the point early is exactly what he wants.
+      - text: You were walking him through the history of the decision before the reason
+        correct: true
+        explanation: Busy executives want the point first. Start with the decision and why, then add detail if they ask.
+      - text: You mentioned a trade-off
+        correct: false
+        explanation: Naming a trade-off honestly builds trust with a technical client.
+      - text: You offered to send a decision record
+        correct: false
+        explanation: A written follow-up with a date is a good close.
+    source: { quote: "Just give me the bottom line first.", page: 31 }
+
+  - id: D03-05
+    type: mcq
+    stem: Kevin needs something he can repeat to a board member who asked about app quality. Which example works best?
+    options:
+      - text: "“Lots of big companies use React Native, so it must be fine.”"
+        correct: false
+        explanation: Not about this app. The board asked about CareBook, not other companies.
+      - text: "“In theory it should be just as fast as native.”"
+        correct: false
+        explanation: “In theory” invites doubt. Use a fact you've measured.
+      - text: "“Trust me, it's the industry standard.”"
+        correct: false
+        explanation: No fact behind it. “Trust me” makes a sceptical CTO trust you less.
+      - text: "“The app starts in 1.8 seconds on a mid-range Android phone, and 94 test cases pass on both iOS and Android.”"
+        correct: true
+        explanation: Real numbers from the project. Kevin can repeat them word for word.
+    source: { quote: "App starts in 1.8 seconds on a mid-range Android phone.", page: 30 }
+
+  - id: D03-06
+    type: mcq
+    stem: You've explained the decision and Kevin goes quiet. How do you close?
+    options:
+      - text: "“So yeah, that's basically it.”"
+        correct: false
+        explanation: A weak ending with no point and no next step.
+      - text: "“So React Native is still the right call for the pilot. I can send you a one-page decision record by Friday. Would that help?”"
+        correct: true
+        explanation: The point again, then a written follow-up with a date he can show the board.
+      - text: "“Any questions? No? Okay, great, bye.”"
+        correct: false
+        explanation: Rushing off without restating the point or agreeing a next step.
+      - text: "“I'll send you some documents at some point.”"
+        correct: false
+        explanation: No date and no clear document. Kevin can't rely on it.
+    source: { quote: "So React Native is still the right call for the pilot.", page: 30 }
+
+  - id: D03-07
+    type: scenario
+    clientLine: "“Why not Flutter? Honestly, I'd have looked at it harder.”"
+    stem: Kevin sounds annoyed. What's the best reply?
+    options:
+      - text: "“We already decided that in January, so it's a bit late now.”"
+        correct: false
+        explanation: Defensive. It shuts the conversation down instead of answering it.
+      - text: "“Fair question. We chose React Native over Flutter mainly for the team: 3 of our 4 engineers work in React every day, and we share code with the React web portal. So it's the faster, safer choice for this team.”"
+        correct: true
+        explanation: Calm, point first, real reasons, point again. You answer the challenge without getting defensive.
+      - text: "“Flutter uses Dart, which has a different rendering engine called Skia, and the widget tree…”"
+        correct: false
+        explanation: Jargon instead of a reason. Kevin wants to know why it was the right choice for CareBook.
+      - text: "“Flutter is just a worse framework.”"
+        correct: false
+        explanation: An opinion stated as fact. It invites an argument.
+    source: { quote: "Skills: 3 of our 4 engineers work in React daily.", page: 30 }
+
+  - id: D03-08
+    type: scenario
+    clientLine: "“What's our app store rating target, and how will we measure it?”"
+    stem: Nobody has agreed a target yet. What do you say?
+    options:
+      - text: "“4.8 stars, measured in the app stores.”"
+        correct: false
+        explanation: A made-up number becomes a promise to the board. Don't guess.
+      - text: "“Good question. We haven't agreed a target yet. I'll send you a proposal and how we'd measure it by Friday, with the decision record.”"
+        correct: true
+        explanation: Honest, calm, and a clear date. You also turn the gap into a useful next step.
+      - text: "“I'm really sorry, I should know that. I apologise.”"
+        correct: false
+        explanation: A long apology makes a normal open question sound like a failure.
+      - text: "“That's more of a product question. Ask Dana.”"
+        correct: false
+        explanation: Passing the problem on. Own the follow-up, even if Dana helps you answer it.
+    source: { quote: "What's our app store rating target, and how will we measure it?", page: 31 }
+
+  - id: D03-09
+    type: written
+    stem: >-
+      Kevin asks, “What if Apple changes something and React Native breaks?” Answer in 2–3 sentences: point first,
+      the honest trade-off, and how you handle it.
+    modelAnswer: >-
+      Short answer: we'd need a library update within 2–4 weeks of a big iOS release, and we plan for that. We pin
+      library versions, review dependencies every month, and test on a list of 12 phones, so an OS update is planned
+      work, not a surprise.
+    scoringPoints:
+      - Starts with the answer, not the history of React Native
+      - Names the trade-off honestly (a library update after big OS releases)
+      - Says how it's handled with real mitigations (pinned versions, monthly review, device testing)
+    source: { quote: "Big OS updates need a library update within 2–4 weeks.", page: 30 }
+
+  - id: D03-10
+    type: written
+    stem: >-
+      Kevin says, “Many Lakeside patients are older and use screen readers or large text. Will this app work for
+      them?” Write your reply in 2–3 sentences.
+    modelAnswer: >-
+      Yes, and we're making sure of it. React Native works with the screen readers and large-text settings on both
+      iOS and Android, and accessibility fixes are planned in Sprint 6 before the pilot. I'll add large-text and
+      screen-reader checks to our 12-phone test list and confirm it in the decision record by Friday.
+    scoringPoints:
+      - Answers yes or no first
+      - Links the answer to Lakeside's older patients and what's already planned
+      - Ends with a concrete follow-up and a date
+    source: { quote: "many Lakeside patients are older and use screen readers or large text.", page: 31 }

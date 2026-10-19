@@ -1,0 +1,184 @@
+# Day 13 quiz pool: Wednesday, March 18. Maria Lopez's messy eligibility requirement, playback in 3 bullets,
+# clarifying jargon, labelling feelings. Shows 5 of 10.
+pool: day-13
+questions:
+  - id: D13-01
+    type: mcq
+    stem: "Maria finishes a 90-second explanation, fast and full of billing terms: “So you've got all that, right?” What do you say?"
+    options:
+      - text: "“Yes, got it, thanks.”"
+        correct: false
+        explanation: She'll take that as a yes and move on, and you'll build from your guesses.
+      - text: "“Let me play that back to make sure I've got it: one… two… three… Did I miss anything?”"
+        correct: true
+        explanation: A short playback turns “I think I understood” into “we agree”.
+      - text: "“Could you repeat all of that more slowly?”"
+        correct: false
+        explanation: Makes her do the work again. Play back what you did catch and ask about the gaps.
+      - text: "“Could you just send all that in an email?”"
+        correct: false
+        explanation: Avoids the playback now, and her email may be just as messy.
+    source: { quote: "So you've got all that, right?", page: 49 }
+
+  - id: D13-02
+    type: mcq
+    stem: Maria mentions the “271 response” twice without explaining it. What's the best move?
+    options:
+      - text: Nod along and look it up after the call.
+        correct: false
+        explanation: You might guess wrong, and she'll assume you understood everything else too.
+      - text: "“You mentioned a 271 response. Is that the eligibility result the API sends back?”"
+        correct: true
+        explanation: A short check in plain words. Asking about jargon is a sign of care, not weakness.
+      - text: "“Don't worry, we'll handle the 271s.”"
+        correct: false
+        explanation: A promise about something you can't define.
+      - text: "“Please don't use billing jargon.”"
+        correct: false
+        explanation: Sounds like a complaint. Just ask what the term means.
+    source: { quote: 'Use "271 response" without explaining it, and see if I ask.', page: 49 }
+
+  - id: D13-03
+    type: mcq
+    stem: >-
+      Maria has explained when to check eligibility and is now jumping to what happens if coverage is inactive. When
+      should you make your first playback?
+    options:
+      - text: Only at the very end, once she's said everything.
+        correct: false
+        explanation: By then, three topics are mixed together and the first point is fuzzy.
+      - text: "Now, in one line, before she moves on: “So we check at booking and again at check-in, right?”"
+        correct: true
+        explanation: A short playback after each important point catches mistakes while they're small.
+      - text: Only if she asks whether you understood.
+        correct: false
+        explanation: Clients rarely ask. They assume.
+      - text: Never on the call. Send it by email instead.
+        correct: false
+        explanation: The written playback matters too, but a spoken one gets you a “yes” now.
+    source: { quote: "Use it after every important point — not only at the end.", page: 42 }
+
+  - id: D13-04
+    type: mcq
+    stem: >-
+      Your playback leaves out what happens when Suncoast's API is down. Maria corrects you: “Not quite. If the API is
+      down, never block booking.” What's the best response?
+    options:
+      - text: "“Okay.”"
+        correct: false
+        explanation: You've noted the rule but not the detail that makes it buildable.
+      - text: "“Got it: if the API is down, booking goes ahead and we retry. How often should we retry, and for how long?”"
+        correct: true
+        explanation: Plays back the correction and asks for the detail the team will need.
+      - text: "“That's an edge case. We'll handle it later.”"
+        correct: false
+        explanation: To her it's a core rule. Calling it an edge case says you weren't listening.
+      - text: "“But our design blocks booking until we get a result.”"
+        correct: false
+        explanation: Defends a design she just told you is wrong.
+    source: { quote: "If the API is down, never block booking", page: 49 }
+
+  - id: D13-05
+    type: mcq
+    stem: >-
+      In the middle of her explanation, Maria says “and copays, that's later”. Which response protects the scope
+      best?
+    options:
+      - text: Let it go. She said later.
+        correct: false
+        explanation: Unconfirmed scope comes back in a demo as “Where are the copays?”
+      - text: "“Just to confirm: showing copay amounts to patients is out of scope for now. Right?”"
+        correct: true
+        explanation: Out of scope is part of the requirement. Confirm it out loud, then write it down.
+      - text: "“We'll add copays too, no problem.”"
+        correct: false
+        explanation: Adds work she just told you can wait.
+      - text: "“Copays aren't possible with this API anyway.”"
+        correct: false
+        explanation: A claim you haven't checked, given as fact.
+    source: { quote: "Out of scope for now: showing copay amounts to patients (phase 2).", page: 49 }
+
+  - id: D13-06
+    type: mcq
+    stem: Which playback bullet about inactive coverage is best?
+    options:
+      - text: "“If coverage is inactive, we don't block the booking; we flag it so the front desk can ask the patient for new insurance.”"
+        correct: true
+        explanation: What happens, who acts, and why, in plain words she can confirm with a yes.
+      - text: "“Inactive coverage gets handled.”"
+        correct: false
+        explanation: Too vague to confirm. She can't tell what you'll build.
+      - text: "“If coverage is inactive, we cancel the booking.”"
+        correct: false
+        explanation: An assumption, and the opposite of what she wants.
+      - text: "“We'll parse the 271 and set a flag on the appointment entity.”"
+        correct: false
+        explanation: Engineering words. She can't confirm what it means for patients or the front desk.
+    source: { quote: "flag it to the front desk so they can ask the patient for new insurance", page: 49 }
+
+  - id: D13-07
+    type: scenario
+    clientLine: "“Honestly, these denials are killing us. Twelve percent!”"
+    stem: Maria sounds frustrated. What's the best reply?
+    options:
+      - text: "“Twelve percent isn't that bad, is it?”"
+        correct: false
+        explanation: Dismisses a number she clearly cares about.
+      - text: "“It sounds like the denials have been a real cost for Suncoast. That's exactly what this check is for. Can I play back what we'll check, and when?”"
+        correct: true
+        explanation: You name the feeling, link it to the work, and move back to the playback.
+      - text: "“That's on the payers, not us.”"
+        correct: false
+        explanation: Blame helps nobody, and she didn't ask whose fault it is.
+      - text: "“Okay. Next topic: the API.”"
+        correct: false
+        explanation: Skipping past her frustration makes her less likely to listen to you.
+    source: { quote: "labelling emotions", page: 43 }
+
+  - id: D13-08
+    type: scenario
+    clientLine: "“Can this be ready for the pilot?”"
+    stem: The eligibility check is planned for Sprint 5, which ends April 10; the pilot is April 27. What do you say?
+    options:
+      - text: "“Definitely, no problem.”"
+        correct: false
+        explanation: Hides the one real risk, that her docs are incomplete.
+      - text: "“I have no idea yet.”"
+        correct: false
+        explanation: You do know the plan. Say what you know and what could change it.
+      - text: "“It's planned for Sprint 5, ending April 10, so yes, on track. One risk: the API docs are incomplete, so we'll test against real responses early and tell you if anything moves.”"
+        correct: true
+        explanation: Answer first, then the one risk and what you'll do about it.
+      - text: "“Only if your docs are perfect.”"
+        correct: false
+        explanation: Sounds like blame, and gives her nothing to plan with.
+    source: { quote: "Suncoast's API docs are incomplete, and response formats may differ from the docs.", page: 48 }
+
+  - id: D13-09
+    type: written
+    stem: >-
+      After the call, Dana messages: “How did the Suncoast call go? Anything I need to know?” Write a 2-line reply.
+    modelAnswer: >-
+      It went well: Maria confirmed how the eligibility check should work, and we've agreed it never blocks a booking,
+      so there's no impact on the pilot. One follow-up: Maria sends the Medicaid payer list by Friday, and I'll send
+      her the written summary today.
+    scoringPoints:
+      - The first line answers how it went and whether there's any impact
+      - Names the one follow-up with its owner and date
+      - Two lines, no billing jargon
+    source: { quote: "Medicaid patients use a different payer ID list, which you'll send by Friday.", page: 49 }
+
+  - id: D13-10
+    type: written
+    stem: >-
+      Maria says, all in one breath: “And look, if the patient's plan changed, the front desk has to catch it, we can't
+      eat another denial, and copays, forget copays for now.” Write a one-sentence playback and the question you'd
+      end it with.
+    modelAnswer: >-
+      So if a patient's coverage has changed or is inactive, CareBook flags it for the front desk instead of blocking
+      the booking, and showing copays is out of scope for now. Did I get that right?
+    scoringPoints:
+      - Plays back both points (flag for the front desk, copays out of scope) in plain words
+      - Doesn't add anything Maria didn't say
+      - Ends with a check question that invites a correction
+    source: { quote: "If coverage is inactive, don't block the booking", page: 49 }

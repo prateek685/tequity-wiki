@@ -1,0 +1,175 @@
+day: 37
+block: 8
+title: The EOD note
+type: normal
+storyDate: Tuesday, April 21
+minutes: About 45 min
+intro: >-
+  Dana read your end-of-day note over breakfast and has two questions. Today you answer them in five minutes, then
+  write an EOD note a client can act on without a call.
+lessons:
+  - id: dana-replied
+    kind: prep
+    title: “Call me for 5 min?”
+    minutes: 5 min
+    blocks:
+      - type: yesterday
+        text: >-
+          you escalated the production AWS access to Kevin in five parts, with no blame. He approved a time-limited
+          role at 11 am Central once he had the policy, and the team set up production the same day. Before you
+          logged off, you sent Dana your first end-of-day note.
+      - type: scene
+        when: Tuesday, April 21 · 7:45 am Central
+        text: >-
+          Your EOD note was waiting in Dana's inbox when she woke up. She replied with two questions and “Call me for 5
+          min?” She's walking between meetings all morning. The full regression run starts today, and UAT with
+          Lakeside is on Friday.
+      - type: message
+        label: Dana's reply, 7:40 am Central
+        text: >-
+          Thanks for this. Two Qs: 1) What's the intake form bug — does it block the pilot? 2) Why do you need UAT
+          earlier? Call me for 5 min?
+      - type: text
+        text: >-
+          Tonight you'll send the next EOD note. Start it now: today's done, tomorrow's plan, and the questions only
+          the client can answer. Use your real project, or CareBook.
+    fields:
+      - { id: done, label: Done today, kind: area, rows: 2, placeholder: "e.g. UAT moved to 9 am ET; regression day 1: 148 of 212 cases passed" }
+      - { id: plan, label: Plan for tomorrow, kind: area, rows: 2 }
+      - { id: questions, label: Questions for the client, kind: area, rows: 2, placeholder: "e.g. Can UAT start at 9 am ET on Friday?" }
+    source: both
+
+  - id: async-updates
+    kind: learn
+    title: Async updates
+    heading: Async updates for US time zones
+    minutes: 10 min
+    lead: >-
+      US clients are offline for most of your working day. Your written update is how they see progress, so it has to
+      work without you there to explain it.
+    blocks:
+      - type: steps
+        items:
+          - { title: Done today, text: "What's finished, in facts and numbers. Not every task you touched." }
+          - { title: Plan for tomorrow, text: "What you'll finish before the next note." }
+          - { title: Questions for you, text: "Numbered, so they can reply “1: yes, 2: next week” from their phone." }
+      - type: text
+        text: >-
+          Send it before you log off, so it's waiting in their morning. Put the status in the subject line, and add a
+          risk line when there is one. A question they can answer in one word saves a day; a vague one costs a call.
+      - type: compare
+        beforeLabel: Needs a call
+        afterLabel: Answer by number
+        before: "“A few things to discuss about UAT timing and the release notes, let me know when you're free.”"
+        after: >-
+          “Questions for you: 1) Can Lakeside UAT start at 9 am ET on Fri Apr 24, not 1 pm? 2) Can you approve the
+          release notes by Thu?”
+      - type: recall
+        label: Your 5-line status from Day 7
+        day: 7
+        lesson: status-update
+        fields:
+          - { id: done, label: Done }
+          - { id: next, label: Next }
+          - { id: blocked, label: Blocked }
+      - type: text
+        text: >-
+          Same habit, new reader: a client who reads it hours later. When something is visual, record a 2-minute
+          screen video instead of a long paragraph.
+      - type: note
+        tone: info
+        title: When to switch to a call
+        text: >-
+          When a thread goes back and forth twice, or a decision is stuck, offer five minutes on the phone. Then put the
+          decision back in the thread in writing, so everyone sees it.
+      - type: watch
+        url: https://handbook.gitlab.com/handbook/company/culture/all-remote/asynchronous/
+        title: GitLab Handbook — asynchronous working
+        meta: Free · skim, about 10 min · written decisions, working across time zones
+      - type: watch
+        url: https://www.loom.com/pricing
+        title: Loom Starter plan
+        meta: Free · 25 videos, 5 minutes each · or QuickTime screen recording on a Mac
+
+  - id: eod-questions
+    kind: mock
+    title: Dana's two questions
+    heading: Answer Dana's two questions in five minutes
+    minutes: 10 min
+    lead: >-
+      Level 1: Dana is friendly but walking between meetings. Two answers, answer first, one decision, and a written
+      follow-up with a time. Five minutes, not fifteen.
+    cardId: S39
+    level: 1
+    scriptNote: Use it the first time, then try the call again without it.
+
+  - id: eod-questions-review
+    kind: reflect
+    title: How did the call go?
+    minutes: 5 min
+    lead: Tick what you managed, then note what the AI told you.
+    checksTitle: On this call, I…
+    checks:
+      - gave both answers answer-first
+      - explained the benefit of the earlier UAT
+      - got a clear yes or no
+      - promised a written follow-up with a time
+    fields:
+      - { id: went-well, label: What went well, kind: area, placeholder: "From the AI's feedback" }
+      - { id: fix-next, label: One thing to fix next time, kind: area, placeholder: "e.g. I explained slow networks for a minute before I said it doesn't block the pilot" }
+      - { id: log, label: "Did anyone have to ask me for an update this week?", kind: area, rows: 2 }
+    rubric: true
+
+  - id: eod-note
+    kind: write
+    title: Tonight's EOD note
+    heading: Write tonight's EOD note and a 2-minute update
+    minutes: 10 min
+    lead: >-
+      Write the note Dana will read tomorrow morning: status in the subject, done, plan, numbered questions, and a
+      risk line. She should be able to act on it without calling you.
+    source: both
+    blocks:
+      - type: recall
+        label: Your notes from this morning
+        day: 37
+        lesson: dana-replied
+        fields:
+          - { id: done, label: Done today }
+          - { id: plan, label: Plan for tomorrow }
+          - { id: questions, label: Questions }
+      - { type: field, id: subject }
+      - { type: field, id: done }
+      - { type: field, id: plan }
+      - { type: field, id: questions }
+      - { type: field, id: risks }
+      - type: note
+        tone: info
+        title: On a real project?
+        text: >-
+          Send it to your client too, after checking with your lead. Then record a 2-minute screen update of one thing
+          you finished (Loom's free plan or QuickTime), with no patient data on screen.
+      - { type: field, id: video }
+    fields:
+      - { id: subject, label: Subject, kind: line, placeholder: "e.g. CareBook EOD update – Tue Apr 21 – Status: GREEN (on track)" }
+      - { id: done, label: Done today, kind: area, rows: 3 }
+      - { id: plan, label: Plan for tomorrow, kind: area, rows: 2 }
+      - { id: questions, label: Questions for you (reply by number), kind: area, rows: 2, placeholder: "1. …  2. …" }
+      - { id: risks, label: Risks, kind: line, placeholder: "none / the risk → what I'm doing about it" }
+      - { id: video, label: "My 2-minute update: what it shows, and the link if you recorded it", kind: area, rows: 3 }
+
+scoring:
+  eod-note:
+    modelAnswer: >-
+      Subject: CareBook EOD update – Tue Apr 21 – Status: GREEN (on track).
+      Done today: UAT moved to 9 am ET on Fri Apr 24 (your OK this morning; Lisa confirmed). Regression day 1: 148 of
+      212 cases passed, no new high bugs. Intake-form fix for slow networks is in code review.
+      Plan for tomorrow: merge the intake-form fix; continue regression; weekly status at our sync.
+      Questions for you (reply by number): 1. Can you approve the release notes by Thu Apr 23? 2. Who should join the
+      go/no-go on Wed Apr 29?
+      Risks: Suncoast's eligibility check returns different formats for 2 of 5 payers → I'll bring a fallback plan
+      to tomorrow's sync. I'm also confirming the May 12 investor demo environment and will answer by Thu.
+    scoringPoints:
+      - Status in the subject, and done, plan, numbered questions and risks each in a short line
+      - The questions can be answered by number in one word, with dates
+      - Facts and numbers, not a list of every task; any risk comes with what's being done about it

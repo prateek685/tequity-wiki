@@ -1,0 +1,48 @@
+id: a5-weekly-status
+kind: template
+ref: A5
+title: "Weekly status report (RAG)"
+summary: "Overall colour with a reason, highlights, next week, risks with mitigations, and decisions needed."
+blocks:
+  - type: text
+    text: "Send it once a week. Give the overall colour first, with one line on why."
+  - type: message
+    label: "The template"
+    text: |-
+      [Project] weekly status – week of [date]
+
+      Overall: GREEN / AMBER / RED — [one line on why]
+
+      Highlights this week
+
+      - \_\_\_
+
+      Next week
+
+      - \_\_\_
+
+      Risks and what we're doing about them
+
+      - [Risk] → [mitigation] (owner, date)
+
+      Decisions needed from you
+
+      - [Decision] — by [date]
+  - type: copy
+    label: "Copy template"
+    text: |-
+      [Project] weekly status – week of [date]
+
+      Overall: GREEN / AMBER / RED — [one line on why]
+
+      Highlights this week
+      - ___
+
+      Next week
+      - ___
+
+      Risks and what we're doing about them
+      - [Risk] → [mitigation] (owner, date)
+
+      Decisions needed from you
+      - [Decision] — by [date]

@@ -1,0 +1,378 @@
+# Week 2 assessment pool (after Day 10): the whole CareBook week, Mar 9–13, with skills combined: the change
+# request and BLUF email, the late-reminders call and the 5-line status, the bug in pyramid form, plain US business
+# English, the Level 2 sync and the recap. Shows 8 choice + 2 written of 20.
+pool: assessment-10
+questions:
+  - id: A10-01
+    type: mcq
+    stem: >-
+      Monday, March 9. You've asked Dana your clarifying questions about the Add-to-calendar button. She says, “Okay,
+      okay. Just give me a yes or no: this week?” Which reply is best?
+    options:
+      - text: "“Yes, we'll make it work somehow.”"
+        correct: false
+        explanation: A yes that quietly costs reschedule and cancel in Friday's demo. She'll find out in front of her CEO.
+      - text: "“No.”"
+        correct: false
+        explanation: Answer first, but with no reason and no option. It ends the conversation instead of solving it.
+      - text: "“I need to check with the team and get back to you next week.”"
+        correct: false
+        explanation: You already know the estimate and the impact. Delaying a decision you can make now looks unsure.
+      - text: "“Not this week without moving reschedule and cancel out of Friday's demo. Yes for Sprint 4, ready March 27. I'd recommend Sprint 4. Which do you prefer?”"
+        correct: true
+        explanation: The direct answer she asked for, the impact, both options and your recommendation, then the decision is hers.
+    source: { quote: "We can add it to Sprint 4 and show it on March 27, or swap it in now and move reschedule and cancel.", page: 36 }
+
+  - id: A10-02
+    type: mcq
+    stem: >-
+      Tuesday. You need Dana to decide by Wednesday noon whether Friday's demo shows SMS reminders with test numbers.
+      She gets 150 emails a day. Which subject line is best?
+    options:
+      - text: "“DECISION: show reminders with test numbers in Friday's demo? Reply by Wed noon CT”"
+        correct: true
+        explanation: The keyword tells her it needs a choice, and the question and deadline are in the subject itself.
+      - text: "“Reminders”"
+        correct: false
+        explanation: A topic, not a purpose. She can't tell if it's news, a problem or an ask.
+      - text: "“Quick question when you get a chance :)”"
+        correct: false
+        explanation: Friendly but empty. “When you get a chance” invites it to wait past Wednesday.
+      - text: "“Re: Re: Fwd: Sprint 3 update and some other things”"
+        correct: false
+        explanation: An old thread hides a new decision. Start a fresh email with a clear subject.
+    source: { quote: "(\"ACTION: approve the login screen by Thu\")", page: 34 }
+
+  - id: A10-03
+    type: mcq
+    stem: >-
+      Tuesday evening, your daily status. The security form was signed today and is with Sam; Epic access is still
+      needed by Mon Mar 16. Which “Risk” line is best?
+    options:
+      - text: "“Risk: none.”"
+        correct: false
+        explanation: “None” is valid only when it's true. Here it hides the biggest risk to the pilot.
+      - text: "“Risk: Epic.”"
+        correct: false
+        explanation: Names a topic, not a risk. No date, no impact, no action.
+      - text: "“Risk: Epic access needed by Mon Mar 16 for the Apr 27 pilot. Form signed today and sent to Sam; I'll confirm with him Monday 10 am.”"
+        correct: true
+        explanation: The risk, its date and impact, and what you're doing about it, in one line.
+      - text: "“Risk: Lakeside IT is slow and might delay everything again.”"
+        correct: false
+        explanation: Blame with no date or action, in a channel the client reads.
+    source: { quote: "what I'm doing about it", page: 152 }
+
+  - id: A10-04
+    type: mcq
+    stem: >-
+      On Tuesday's call Dana says, “Why am I hearing about the reminder delay only now?” On March 3 you'd told her
+      reminders “may slip 1–2 days”, but no date was given. Which reply is best?
+    options:
+      - text: "“I did tell you last week, actually.”"
+        correct: false
+        explanation: Technically true, but defensive. It makes Dana feel wrong instead of informed.
+      - text: "“You're right that it wasn't clear enough. I said it might slip, but didn't give you a date. From today, my daily status has a Risk line with dates, so you'll see it before your CEO asks.”"
+        correct: true
+        explanation: You own the gap without grovelling, state the fact, and change the habit that caused it.
+      - text: "“I'm so sorry, Dana, it's completely my fault, I'm really sorry.”"
+        correct: false
+        explanation: Over-apologising, with no fact and no change. She still doesn't trust the next update.
+      - text: "“The SMS provider never told us how long it would take.”"
+        correct: false
+        explanation: Blames someone else, and it isn't true. The 5–7 business days was known.
+    source: { quote: "Start with the answer (what's late, by how much, and why), give the facts without excuses", page: 38 }
+
+  - id: A10-05
+    type: mcq
+    stem: >-
+      Wednesday. Dana and Dr. Mercer are both on the call. Dana wants dates; Dr. Mercer wants patient safety. Which
+      main message serves both?
+    options:
+      - text: "“We have a technical issue in staging that the team is analysing.”"
+        correct: false
+        explanation: Neither of them learns what it means or when it's fixed.
+      - text: "“We found a double-booking bug in testing. No patient was affected, it's retested Friday, and April 27 doesn't change.”"
+        correct: true
+        explanation: One sentence with the safety answer for Dr. Mercer and the date answer for Dana.
+      - text: "“Dr. Mercer, first let me explain how slot reservations work in CareBook…”"
+        correct: false
+        explanation: Starts at the bottom of the pyramid. Dana loses patience; Dr. Mercer gets jargon.
+      - text: "“Dana, the dates are fine. Dr. Mercer, I'll send you something separately.”"
+        correct: false
+        explanation: Splits the audience and leaves the CMIO's question for later, on a safety topic.
+    source: { quote: "None on the April 27 pilot.", page: 40 }
+
+  - id: A10-06
+    type: mcq
+    stem: Dr. Mercer forwards your note to his 12 clinic managers. Which line will they all understand on one read?
+    options:
+      - text: "“We've implemented a slot-hold mechanism to mitigate concurrency issues.”"
+        correct: false
+        explanation: Engineer's vocabulary. Clinic managers can't tell what changes for patients.
+      - text: "“A minor defect was identified in the pre-production environment.”"
+        correct: false
+        explanation: Formal and vague. “Minor” and “pre-production” don't answer whether patients are safe.
+      - text: "“Kindly note the needful fix is being done for the booking issue.”"
+        correct: false
+        explanation: “The needful” and “kindly note” confuse American readers, and no fact is given.
+      - text: "“When one patient books a time, CareBook will hold it for a few seconds so no one else can take it.”"
+        correct: true
+        explanation: Plain words in patient terms. Anyone can picture what it does.
+    source: { quote: "No jargon — explained in patient terms", page: 40 }
+
+  - id: A10-07
+    type: mcq
+    stem: >-
+      Thursday. You need Lakeside's compliance team to approve the reminder opt-out wording before the pilot. Which
+      email opening is best?
+    options:
+      - text: "“Dear Team, hope this mail finds you well. As you may be aware, CareBook is a patient app being built for Lakeside, and as part of Sprint 3 we have developed…”"
+        correct: false
+        explanation: Three lines of background, and the ask is still not in sight.
+      - text: "“Subject: REQUEST: approve the reminder opt-out wording by Wed Mar 18. Could you approve the attached wording by Wednesday, March 18? Patients must see it before reminders go out in the pilot.”"
+        correct: true
+        explanation: The keyword, the ask and the date in the subject, repeated in the first line, with one line of why.
+      - text: "“URGENT: please approve ASAP!!!”"
+        correct: false
+        explanation: Pressure with no date and no reason. Compliance teams don't rush for exclamation marks.
+      - text: "“Kindly do the needful regarding the opt-out wording at the earliest.”"
+        correct: false
+        explanation: Doesn't name the action or the date, and uses phrases that confuse US readers.
+    source: { quote: "SMS reminders need patient consent and approved opt-out wording", page: 22 }
+
+  - id: A10-08
+    type: mcq
+    stem: >-
+      Thursday, the Level 2 rerun. Dana is busy and vague: “Yeah… the reminders thing. All good?” You want her to
+      check the test text on her phone before tomorrow's demo. Which reply is best?
+    options:
+      - text: "“Yes, live since this morning. A test text is on your phone now. Could you check it before tomorrow's 10:00 demo?”"
+        correct: true
+        explanation: The answer, one fact, and one small ask with a time. Short, like her.
+      - text: "“Yes. So, let me walk you through the whole flow: first the 48-hour text, then…”"
+        correct: false
+        explanation: A busy client asked “All good?”. A walkthrough loses her.
+      - text: "“Mostly, I think. There might be some things to check.”"
+        correct: false
+        explanation: Vague answers to a vague question. Neither of you knows where things stand.
+      - text: "“Yes.”"
+        correct: false
+        explanation: Answer first, but the ask you needed never gets made.
+    source: { quote: "Send one full reminder test to Dana's own phone.", page: 38 }
+
+  - id: A10-09
+    type: mcq
+    stem: >-
+      Friday, after the demo. Dana says, “My CEO loved it. He wants Add to calendar now. Can it go in next week?”
+      Sprint 4 starts Monday, and the button is already planned there. What do you say?
+    options:
+      - text: "“Good news: it's already in Sprint 4, which starts Monday, and he'll see it in the March 27 demo. Would it help if I sent you one line for him?”"
+        correct: true
+        explanation: You connect the new request to what's already agreed, give the date, and offer something to forward.
+      - text: "“We already agreed this on Monday, remember?”"
+        correct: false
+        explanation: Correct but scolding. She needs words for her CEO, not a reminder.
+      - text: "“Sure, we'll have it by next Friday.”"
+        correct: false
+        explanation: A new promise that contradicts the plan. Sprint 4 has three other items.
+      - text: "“That depends on a lot of things.”"
+        correct: false
+        explanation: You know the answer. Hedging sounds like you don't.
+    source: { quote: "A) Add it to Sprint 4 (starts Mon Mar 16), ready for the Mar 27 demo.", page: 36 }
+
+  - id: A10-10
+    type: mcq
+    stem: >-
+      Your Friday recap is almost ready. Where does “Will Epic access arrive on Monday? Sam said ‘early next week’.”
+      belong?
+    options:
+      - text: Under Decisions
+        correct: false
+        explanation: Nothing was decided. Listing it as a decision gives a false picture.
+      - text: Under Open questions, next to the action item for Monday noon
+        correct: true
+        explanation: It's an unknown that still needs an answer. The action item says who acts if the answer is no.
+      - text: Nowhere. It might worry Dana's CEO.
+        correct: false
+        explanation: Hiding the biggest open risk from the people who can help.
+      - text: In the subject line, as the main news
+        correct: false
+        explanation: The main news is that Sprint 3 is done. The risk belongs in the summary, not as the headline.
+    source: { quote: "Open questions · Next meeting.", page: 164 }
+
+  - id: A10-11
+    type: mcq
+    stem: >-
+      Dana tells you, “Your emails land at 7 am my time. Half the time I have to reply with a question and wait a
+      whole day for the answer.” What's the best change to make?
+    options:
+      - text: Write longer emails so every possible detail is covered
+        correct: false
+        explanation: More text makes the ask harder to find. Length isn't clarity.
+      - text: "Before sending, check: could Dana act on this without asking a follow-up? Put the ask, the date and the options in the first two lines."
+        correct: true
+        explanation: Fixes the cause. With the time difference, every unclear email costs her a day.
+      - text: Ask her to call you whenever something is unclear
+        correct: false
+        explanation: Pushes the work to the client, at a bad hour for one of you.
+      - text: Send the same email twice, morning and evening
+        correct: false
+        explanation: Twice the noise, the same gap.
+    source: { quote: "If they are unclear, the client loses a full day waiting for your answer.", page: 34 }
+
+  - id: A10-12
+    type: mcq
+    stem: >-
+      Kevin reads Friday's status: “Blocked: none. Risk: Epic access needed by Mon Mar 16.” He asks, “If Epic is a
+      risk, why isn't it blocking?” Which reply is right?
+    options:
+      - text: "“Good catch, I'll move it to Blocked.”"
+        correct: false
+        explanation: Nothing is stopped today. Calling it a blocker cries wolf.
+      - text: "“It's the same thing, really.”"
+        correct: false
+        explanation: They mean different things to the reader. One needs help now, the other needs watching.
+      - text: "“Nothing is stopped today: we don't need Epic until Monday. It becomes a blocker if it isn't here Monday, so it's a risk with a date.”"
+        correct: true
+        explanation: Clear difference between blocked now and at risk later, with the date that turns one into the other.
+      - text: "“I'm not sure, I just followed the template.”"
+        correct: false
+        explanation: You own the content of your status. Know why each line says what it says.
+    source: { quote: "Done · Next · Blocked · Risk · Need from you. One line each", page: 34 }
+
+  - id: A10-13
+    type: scenario
+    clientLine: "“So the Epic access could be late too. Should I warn my CEO now, or wait?”"
+    stem: Tuesday. The form was signed this morning; access is needed by Monday, March 16. What's the best reply?
+    options:
+      - text: "“Wait. No need to worry him yet.”"
+        correct: false
+        explanation: If it's late, the CEO hears about a risk you both knew about.
+      - text: "“Yes, tell him the pilot is probably moving.”"
+        correct: false
+        explanation: Overstates it. Nothing has slipped yet.
+      - text: "“I'd mention it as a watch item, not a delay: the form is signed and with Lakeside, and we need access by Monday. I'll tell you Monday either way, and I can write you the one line for him now.”"
+        correct: true
+        explanation: Raises the risk early at the right size, with the date and when she'll hear next.
+      - text: "“That's up to you.”"
+        correct: false
+        explanation: She asked for your judgement. Give a recommendation.
+    source: { quote: "Surface risks before they become problems", page: 5 }
+
+  - id: A10-14
+    type: scenario
+    clientLine: "“Just tell me straight: is CareBook safe for my patients on April 27?”"
+    stem: Wednesday. Dr. Mercer wants a guarantee you can't honestly give. What do you say?
+    options:
+      - text: "“Yes, 100%, I guarantee it.”"
+        correct: false
+        explanation: A promise no one can keep. A doctor will hear it as overconfidence.
+      - text: "“I can't promise there'll be no bugs. Here's what makes it safe to start: QA tests every release, your team tests with us before the pilot, and it starts at 3 clinics, not 12.”"
+        correct: true
+        explanation: Honest about limits, then concrete about the safety net. That earns more trust than a guarantee.
+      - text: "“That's really a question for Dana.”"
+        correct: false
+        explanation: Passes on a question you're best placed to answer.
+      - text: "“Well, nothing is ever completely safe in software.”"
+        correct: false
+        explanation: True, but alarming without the plan that follows.
+    source: { quote: "user acceptance testing with Lakeside", page: 22 }
+
+  - id: A10-15
+    type: scenario
+    clientLine: "“Uh-huh, uh-huh. Hey, did you see the SXSW photos? Anyway, are we done?”"
+    stem: Friday, Level 2 sync. You haven't made your one ask yet (Dana to nudge Lakeside's IT lead if Epic access isn't in by Monday noon). What do you say?
+    options:
+      - text: "“Yes, all done! Have a good weekend.”"
+        correct: false
+        explanation: The ask never gets made, and Monday arrives with no one ready to act.
+      - text: "“I saw them, the booth looked great! One thing before you go: if Epic access isn't in by Monday noon, could you nudge Lakeside's IT lead? That's it, recap within the hour.”"
+        correct: true
+        explanation: A quick warm reply, then the ask with its trigger and time, and a clean close.
+      - text: "“Actually, can we go back to the agenda? I had four more points.”"
+        correct: false
+        explanation: A busy client won't stay for four points. Pick the one that matters.
+      - text: "“I'll email you the ask.”"
+        correct: false
+        explanation: She's on the call now. An ask in an email she reads Monday is too late.
+    source: { quote: "Decisions needed from you", page: 152 }
+
+  - id: A10-16
+    type: scenario
+    clientLine: "“Your recap says ‘the integration’ three times. Which one? We have three.”"
+    stem: Dana replies to your Friday recap. What's the best reply, and the fix?
+    options:
+      - text: "“The Epic one, obviously.”"
+        correct: false
+        explanation: It wasn't obvious to her. The word “obviously” makes it worse.
+      - text: "“Sorry for the confusion: the Epic sandbox connection. I'll use that exact name every time from now on.”"
+        correct: true
+        explanation: Name it once, plainly, and keep one name for one thing so the reader never has to guess.
+      - text: "“All three, more or less.”"
+        correct: false
+        explanation: Vague on the item that carries the biggest risk.
+      - text: "“Let me schedule a call to explain the integrations.”"
+        correct: false
+        explanation: A meeting for a one-word answer.
+    source: { quote: "Would a reader in Boston understand every phrase?", page: 35 }
+
+  - id: A10-17
+    type: written
+    stem: >-
+      Monday. Kevin hears about the calendar decision and asks, “Why not Option B? Reschedule and cancel could wait a
+      sprint.” Write your reply in 2–3 sentences: your recommendation first.
+    modelAnswer: >-
+      I'd still go with Option A. Reschedule and cancel are three days from done and Dana's CEO sees them in Friday's
+      demo, while the calendar button is ready for March 27 either way. Swapping would put Friday's demo at risk for
+      a feature that isn't needed sooner.
+    scoringPoints:
+      - The recommendation comes in the first sentence
+      - One real reason with the facts (Friday's demo, March 27)
+      - Calm and specific, with no defensiveness or jargon
+    source: { quote: "Option A: keep Sprint 3 as planned and deliver the button in Sprint 4.", page: 36 }
+
+  - id: A10-18
+    type: written
+    stem: >-
+      Wednesday morning: the SMS number is verified. You promised Dana a message the moment it happened. Write it
+      in 2–3 sentences.
+    modelAnswer: >-
+      Good news: the SMS number was verified this morning. Reminders go live in staging tomorrow morning, and I'll
+      send a full test to your phone. Still no impact on the April 27 pilot.
+    scoringPoints:
+      - The news comes in the first line
+      - Says what happens next and when (live tomorrow, test to her phone)
+      - Short and plain, and confirms the impact on the pilot
+    source: { quote: "Message Dana the moment the number is verified.", page: 38 }
+
+  - id: A10-19
+    type: written
+    stem: >-
+      Thursday afternoon, Dana asks: “My CEO wants to know: is the app ready for tomorrow's demo?” Answer in pyramid
+      form: one main message and up to three short bullets.
+    modelAnswer: >-
+      Yes, the demo is ready.
+      - Video booking and reschedule and cancel are done and tested.
+      - SMS reminders went live in staging this morning; a full test reached your phone.
+      - The double-booking fix is done today, and QA retests it tomorrow morning before the demo.
+    scoringPoints:
+      - The main message (yes, ready) comes first
+      - Three short supporting bullets at most, each with a fact
+      - Plain words, no jargon, readable in 10 seconds
+    source: { quote: "Start with the main message.", page: 34 }
+
+  - id: A10-20
+    type: written
+    stem: >-
+      Friday afternoon, Dana's CEO emails you directly: “Nice demo. What's the one thing that could stop April 27?”
+      Write your reply in 2–3 sentences.
+    modelAnswer: >-
+      Epic test access from Lakeside. We need it by Monday, March 16 to keep the Epic sync on schedule; the security
+      form was signed on Tuesday, and Dana will nudge Lakeside's IT lead if it isn't in by Monday noon. Everything else
+      is on track.
+    scoringPoints:
+      - Names the one risk in the first sentence
+      - Gives the date, the impact and what's already being done
+      - Short and plain enough for a CEO, with no blame
+    source: { quote: "Epic access delay pushes the EHR sync (Sprint 5) and therefore the pilot date.", page: 22 }

@@ -1,0 +1,174 @@
+# Day 1 quiz pool: the first call with Dana, the 14 behaviours in client moments, data safety. Shows 5 of 10.
+pool: day-01
+questions:
+  - id: D01-01
+    type: mcq
+    stem: "Dana says, “I want one short update every Friday before noon, in bullets I can forward.” Which reply shows you understood?"
+    options:
+      - text: "“So what I'm hearing is: one written update every Friday before noon Central, short bullets you can forward. Did I get that right?”"
+        correct: true
+        explanation: You repeat the need in your own words and check it. The client can correct you early.
+      - text: "“Okay, got it.”"
+        correct: false
+        explanation: This assumes you understood. Neither of you knows if you did.
+      - text: "“Great, I'll send you a detailed report every day.”"
+        correct: false
+        explanation: You answered before checking what she asked for, and promised something she doesn't want.
+      - text: "“Sure, that's what every client wants.”"
+        correct: false
+        explanation: Friendly, but it doesn't confirm what this client needs.
+    source: { quote: "So what I'm hearing is: X, Y and Z. Did I get that right?", page: 6 }
+
+  - id: D01-02
+    type: mcq
+    stem: "Dana asks, “Will I get your first written update by Friday?” Which opening is the clearest?"
+    options:
+      - text: "“So, we started with the database changes, and then the team looked at…”"
+        correct: false
+        explanation: A long story before the point. The client still doesn't have an answer.
+      - text: "“Short answer: yes, by Friday. Two things make that possible…”"
+        correct: true
+        explanation: The answer comes first, then the reasons. If they want more detail, they'll ask.
+      - text: "“It depends on a few things.”"
+        correct: false
+        explanation: No answer and no date. The client can't plan with this.
+      - text: "“I'll have to check with the whole team first.”"
+        correct: false
+        explanation: Keep “I'll check” for real unknowns. Here you should know your own plan.
+    source: { quote: "Short answer: yes, by Friday. Two things make that possible", page: 6 }
+
+  - id: D01-03
+    type: mcq
+    stem: "Dana says, “On Fridays, just tell me where we are.” What should that update sound like?"
+    options:
+      - text: Every task you worked on this week, in order
+        correct: false
+        explanation: Listing every task you touched hides what matters.
+      - text: A detailed technical explanation of the architecture
+        correct: false
+        explanation: Too much technical detail for a status update. Lead with the outcome.
+      - text: Done, next, blocked, risk, in under 60 seconds
+        correct: true
+        explanation: Four short parts, said quickly. The client gets the whole picture in one minute.
+      - text: Nothing, unless the client asks
+        correct: false
+        explanation: Clients shouldn't have to chase you for status.
+    source: { quote: "Done · Next · Blocked · Risk — in under 60 seconds.", page: 6 }
+
+  - id: D01-04
+    type: mcq
+    stem: Before your call with Dana, you want an AI tool to help you prepare. Which of these is safe to paste in?
+    options:
+      - text: A screenshot from the clinic's patient records
+        correct: false
+        explanation: Screenshots with patient data are protected health information. Never paste them.
+      - text: The made-up CareBook details from your mock card
+        correct: true
+        explanation: CareBook is fictional, so its details are safe to use for practice.
+      - text: The client's test login and password
+        correct: false
+        explanation: Client credentials never go into an AI tool.
+      - text: A patient's name and date of birth from a bug report
+        correct: false
+        explanation: Patient names and dates of birth are protected. When in doubt, leave it out.
+    source: { quote: "When in doubt, leave it out.", page: 8 }
+
+  - id: D01-05
+    type: mcq
+    stem: "Dana asks, “So you're my person now. What happened to your delivery manager?” Which reply is best?"
+    options:
+      - text: "“Honestly, I'm not sure why they moved. It was a management decision.”"
+        correct: false
+        explanation: It sounds unsure and makes the change look unplanned. Talk about what you'll do for her.
+      - text: "“I'm the lead engineer on CareBook v2. I own the build and the weekly updates, so from today I'm your main contact for anything technical.”"
+        correct: true
+        explanation: A 30-second intro, who you are, what you own, how you'll help. It turns the change into good news.
+      - text: "“I'm just helping out for now. They'll probably be back for the big calls.”"
+        correct: false
+        explanation: This tells Dana you aren't really in charge. She needs one person she can rely on.
+      - text: "“Let me tell you about my background first. I started on Java eight years ago…”"
+        correct: false
+        explanation: A long background story before the point. Lead with what you own and how you'll help.
+    source: { quote: "I own the build and the weekly updates, so from today I'm your main", page: 26 }
+
+  - id: D01-06
+    type: mcq
+    stem: Dana asks what a planned backend change will mean for Lakeside. Which sentence links it to her business?
+    options:
+      - text: "“We added Redis caching in front of the eligibility API with a 5-minute TTL.”"
+        correct: false
+        explanation: Accurate, but only technical. The client can't tell why it matters to them.
+      - text: "“Caching the insurance lookup cuts check-in from 6 seconds to under 1. Your front desk checks in about 200 patients a day.”"
+        correct: true
+        explanation: It turns the change into time saved at the front desk, which the client cares about.
+      - text: "“We refactored the service layer to follow best practices.”"
+        correct: false
+        explanation: Jargon with no outcome. “Best practices” means nothing to a client.
+      - text: "“It's a small backend change, nothing for you to worry about.”"
+        correct: false
+        explanation: You hide a real improvement. Say what it does for them.
+    source: { quote: "Caching the insurance lookup cuts check-in from 6 seconds to under 1", page: 6 }
+
+  - id: D01-07
+    type: scenario
+    clientLine: "“How many pilots like this have you done in US healthcare?” You don't know the exact number."
+    stem: What's the best reply?
+    options:
+      - text: "“Oh, lots. Maybe ten or so?”"
+        correct: false
+        explanation: Guessing damages trust as soon as the real number comes out.
+      - text: "“I'm so sorry, I really should know that. I apologise.”"
+        correct: false
+        explanation: A long apology makes a small gap look like a big problem.
+      - text: "“Good question. I don't have that number with me. I'll confirm by tomorrow noon your time.”"
+        correct: true
+        explanation: Calm, one short sentence, and a clear time for the answer.
+      - text: Stay quiet and move to the next topic
+        correct: false
+        explanation: Freezing or ignoring the question looks like you're hiding something.
+    source: { quote: "Good question. I don't have that number with me. I'll confirm by", page: 6 }
+
+  - id: D01-08
+    type: scenario
+    clientLine: "“While we're at it, can you just start building that dashboard Lakeside mentioned?”"
+    stem: The request is vague. What do you say first?
+    options:
+      - text: "“Sure, it'll take about two weeks.”"
+        correct: false
+        explanation: An estimate before you understand the need is a guess.
+      - text: "“Before I suggest anything, can I ask a few questions? Who will use it, and what problem are they facing today?”"
+        correct: true
+        explanation: You find the real need first. Then your estimate and design will be right.
+      - text: "“We'll use React and a charting library for that.”"
+        correct: false
+        explanation: Jumping to a technical solution skips the business problem.
+      - text: "“Whatever you prefer.”"
+        correct: false
+        explanation: Waiting for instructions doesn't help the client decide.
+    source: { quote: "Before I suggest anything, can I ask a few questions?", page: 6 }
+
+  - id: D01-09
+    type: written
+    stem: "Dana asks, “How will you keep me updated?” Write your answer in 2–3 sentences."
+    modelAnswer: >-
+      I'll send you a short written update every Friday before noon your time, in bullets. If a risk comes up,
+      you'll hear from me the same day. And for anything urgent, you can message me directly.
+    scoringPoints:
+      - Proposes a clear rhythm with a day and time
+      - Promises a same-day message when a risk comes up
+      - Keeps it short, without background before the answer
+    source: { quote: "with a written update right after. If a risk comes up, you'll hear", page: 26 }
+
+  - id: D01-10
+    type: written
+    stem: >-
+      Dana asks, “Are we on track for the April 27 pilot?” Everything is on track except one thing: the Epic
+      sandbox access you requested is still pending, and you need it by March 16. Write your reply in 2–3 sentences.
+    modelAnswer: >-
+      Short answer: yes, we're on track for April 27. One risk: we still don't have Epic sandbox access. If it
+      isn't here by March 16, the pilot date is at risk, so could you help me chase it with Lakeside IT this week?
+    scoringPoints:
+      - Answers the question in the first sentence
+      - Names the one risk with its date and impact
+      - Ends with a clear ask
+    source: { quote: "name the one real risk with its date and impact", page: 28 }

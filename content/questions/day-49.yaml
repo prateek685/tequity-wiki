@@ -1,0 +1,168 @@
+# Day 49 quiz pool: Thursday, May 7. Product thinking and rehearsing a real demo with a sceptical client: numbers, not adjectives. Shows 5 of 10.
+pool: day-49
+questions:
+  - id: D49-01
+    type: mcq
+    stem: "Which sentence does a sceptical client believe?"
+    options:
+      - text: "“In the first week, 18 patients were added to waitlists and 5 cancelled slots were refilled, with no double bookings.”"
+        correct: true
+        explanation: "Numbers are checkable."
+      - text: "“The waitlist has been really useful.”"
+        correct: false
+        explanation: "An adjective. It proves nothing."
+      - text: "“Everyone loves it.”"
+        correct: false
+        explanation: "Unsupported."
+      - text: "“It's much better than before.”"
+        correct: false
+        explanation: "Better by how much?"
+    source: { quote: "Used numbers, not adjectives", page: 128 }
+
+  - id: D49-02
+    type: mcq
+    stem: "Dr. Mercer says, “Why should my staff change how they work?” What does a good answer focus on?"
+    options:
+      - text: "The staff's day: what changes for them, and what it saves."
+        correct: true
+        explanation: "He's worried about workload, so show less work."
+      - text: "The product's features."
+        correct: false
+        explanation: "Features don't answer “why change”."
+      - text: "The effort you put in."
+        correct: false
+        explanation: "That's about you."
+      - text: "How the competition does it."
+        correct: false
+        explanation: "It doesn't answer the question."
+    source: { quote: "Why should my staff change how they work?", page: 128 }
+
+  - id: D49-03
+    type: mcq
+    stem: "What does the S44 card ask you to do?"
+    options:
+      - text: "Rehearse a real demo you're giving soon, with anonymised context."
+        correct: true
+        explanation: "Use the CareBook fallback if you have no real demo yet."
+      - text: "Give the real demo to the real client."
+        correct: false
+        explanation: "It's a rehearsal."
+      - text: "Write the demo script without speaking."
+        correct: false
+        explanation: "The card is a voice rehearsal."
+      - text: "Share real patient data with the AI."
+        correct: false
+        explanation: "Anonymised context only, never real data."
+    source: { quote: "rehearse a real demo you are giving soon", page: 128 }
+
+  - id: D49-04
+    type: mcq
+    stem: "At 8 am on a Monday the demo breaks, and the client asks what happens if this breaks during clinic hours. What kind of answer does S44 expect?"
+    options:
+      - text: "Calm, with facts: how likely it is, what the backup is, and what staff do meanwhile."
+        correct: true
+        explanation: "Scepticism is handled with facts."
+      - text: "“It won't break.”"
+        correct: false
+        explanation: "A promise you can't keep."
+      - text: "“That's an IT matter.”"
+        correct: false
+        explanation: "It dismisses the risk."
+      - text: "“Let me debug it right now.”"
+        correct: false
+        explanation: "It isn't the question."
+    source: { quote: "Handled scepticism calmly with facts", page: 128 }
+
+  - id: D49-05
+    type: mcq
+    stem: "What should a rehearsal leave you with?"
+    options:
+      - text: "A decision or specific feedback."
+        correct: true
+        explanation: "Each demo should end with something you can act on."
+      - text: "A feeling that it went fine."
+        correct: false
+        explanation: "Not specific."
+      - text: "A longer demo."
+        correct: false
+        explanation: "Shorter is better."
+      - text: "A list of every question they might ask."
+        correct: false
+        explanation: "Preparation, not an outcome."
+    source: { quote: "Left with a decision or specific feedback", page: 128 }
+
+  - id: D49-06
+    type: mcq
+    stem: "Why does the PDF suggest reading about product thinking this week?"
+    options:
+      - text: "Clients value engineers who think about users, the business and the “why”, not just the ticket."
+        correct: true
+        explanation: "It's what makes a demo about the client."
+      - text: "To learn more programming languages."
+        correct: false
+        explanation: "Wrong topic."
+      - text: "To replace the demo structure."
+        correct: false
+        explanation: "It complements the structure."
+      - text: "To learn to estimate."
+        correct: false
+        explanation: "Not this week's skill."
+    source: { quote: "not just the ticket", page: 123 }
+
+  - id: D49-07
+    type: scenario
+    clientLine: "“What are the numbers so far?”"
+    stem: "It's the end of the first pilot week. Dr. Mercer asks for numbers. What do you say?"
+    options:
+      - text: "“It's going great.”"
+        correct: false
+        explanation: "An adjective."
+      - text: "“So far: 18 patients added to waitlists, 5 cancelled slots refilled, and no double bookings. It's one week, so I'd call it early.”"
+        correct: true
+        explanation: "Numbers, and honest about how early it is."
+      - text: "“I don't have numbers.”"
+        correct: false
+        explanation: "Prepare them before the demo."
+      - text: "“Let me check and send them tomorrow.”"
+        correct: false
+        explanation: "You had a week to prepare."
+    source: { quote: "What are the numbers so far?", page: 128 }
+
+  - id: D49-08
+    type: scenario
+    clientLine: "“I'm not convinced my staff will use this. Convince me.”"
+    stem: "Dr. Mercer pushes back. How do you respond?"
+    options:
+      - text: "“It's a great product.”"
+        correct: false
+        explanation: "An adjective."
+      - text: "“Fair. What would stop your team from using it every day? So far, staff refilled 5 cancelled slots with one click each, and Westside's front desk spends about 2 hours a day on those calls today.”"
+        correct: true
+        explanation: "Asks what blocks them, then uses facts."
+      - text: "“They have to.”"
+        correct: false
+        explanation: "It starts an argument."
+      - text: "“I'll ask my manager.”"
+        correct: false
+        explanation: "It sounds like deflection."
+    source: { quote: "Convince me.", page: 129 }
+
+  - id: D49-09
+    type: written
+    stem: "Write your answer to “What happens if this breaks at 8 am on a Monday?” Use these facts: the live pilot runs on production, support is on 7 am–7 pm ET weekdays, and staff keep working in Epic as usual."
+    modelAnswer: "Staff keep working in Epic as usual, and nothing is lost. Call Brightpath support, available 7 am to 7 pm ET on weekdays. I'll send the support number and what to expect before Monday."
+    scoringPoints:
+      - "Says what staff do right now"
+      - "Names who to call and when"
+      - "Offers a follow-up with a time"
+    source: { quote: "What happens if this breaks at 8 am on a Monday?", page: 129 }
+
+  - id: D49-10
+    type: written
+    stem: "Write one sentence with a number that tells Lakeside's board what the first pilot week shows. The facts: 18 patients added to waitlists, 5 cancelled slots refilled, 0 double bookings."
+    modelAnswer: "In its first week, the waitlist refilled 5 cancelled slots from 18 waitlisted patients, with no double bookings."
+    scoringPoints:
+      - "Uses the numbers"
+      - "One sentence"
+      - "No adjectives"
+    source: { quote: "5 cancelled slots were refilled from the waitlist", page: 128 }

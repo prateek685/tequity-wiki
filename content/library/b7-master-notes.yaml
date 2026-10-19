@@ -1,0 +1,43 @@
+id: b7-master-notes
+kind: prompt
+ref: B7
+title: Master meeting-notes prompt
+summary: Notes, a follow-up email, your commitments and a coach's view after a call.
+blocks:
+  - type: note
+    tone: warn
+    title: Before you paste anything
+    text: No PHI, no client credentials, no confidential client documents in any AI tool the company hasn't approved. Replace names and details with made-up ones.
+  - type: text
+    text: >-
+      Use it within an hour of the call, so the recap reaches the client within 2 hours. Always read and edit the result before you send it: you own the words, not the AI.
+  - type: message
+    label: The prompt
+    text: |-
+      Here are my rough notes (or the transcript) from a client call. They are anonymised — no patient data.
+
+      MEETING: [type, client role, date and time with time zone]
+
+      NOTES: [paste]
+
+      Please give me:
+
+      1. Meeting notes: a 2-line summary · decisions · action items (owner + due date with time zone) · open questions · risks · next meeting.
+      2. A follow-up email to the client, ready to send: a subject line with the key decision or ask, the bottom line in the first 2 lines, bullets, under 200 words, plain American business English.
+      3. Everything I committed to on the call, with the date I promised, so I don't miss one.
+      4. Anything in my notes that is unclear, contradicts itself, or is missing an owner or a date.
+      5. A quick coach's view: score me 1–5 on answer-first, questions and playback, handling unknowns, and closing with next steps, with one line of evidence each, and one thing to do better next time.
+  - type: copy
+    label: Copy master meeting-notes prompt
+    text: |-
+      Here are my rough notes (or the transcript) from a client call. They are anonymised — no patient data.
+
+      MEETING: [type, client role, date and time with time zone]
+      NOTES: [paste]
+
+      Please give me:
+      1. Meeting notes: a 2-line summary · decisions · action items (owner + due date with time zone) · open questions · risks · next meeting.
+      2. A follow-up email to the client, ready to send: a subject line with the key decision or ask, the bottom line in the first 2 lines, bullets, under 200 words, plain American business English.
+      3. Everything I committed to on the call, with the date I promised, so I don't miss one.
+      4. Anything in my notes that is unclear, contradicts itself, or is missing an owner or a date.
+      5. A quick coach's view: score me 1–5 on answer-first, questions and playback, handling unknowns, and closing with next steps, with one line of evidence each, and one thing to do better next time.

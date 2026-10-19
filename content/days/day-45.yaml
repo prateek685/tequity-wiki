@@ -1,0 +1,88 @@
+day: 45
+block: 9
+title: Shadow again and ask one question
+type: live_call
+storyDate: Friday, May 1
+minutes: About 60 min
+intro: >-
+  Your second shadowed call. Join as an observer again, ask the lead one question from your notes afterwards, and write
+  your version of the recap. Then rate the week.
+lessons:
+  - id: second-sheet
+    kind: prep
+    title: Your observation sheet
+    minutes: 5 min
+    blocks:
+      - type: yesterday
+        text: >-
+          Lisa Chen needed to know how CareBook talks to Epic before briefing 14 front-desk staff. You used one analogy, a
+          shared calendar, answered “which one is the real schedule?” and promised a one-page cheat sheet.
+      - type: scene
+        when: Friday, May 1 · 8:30 am Central · the last working day before the pilot
+        text: >-
+          Staff training finished yesterday, and Lisa's 30-minute refresher ran at 7:30 this morning. The pilot starts
+          Monday. Today you shadow your second live call. Last time you wrote down what the lead did; this time, pick
+          the one question you'll ask them afterwards.
+      - type: text
+        text: >-
+          Look at your first observation sheet. What did you miss, or not understand? Write one question you'd like to ask
+          the lead.
+    fields:
+      - { id: question, label: "My question for the lead", kind: line, placeholder: "e.g. How did you decide when to move on from the budget question?" }
+    source: both
+
+  - id: shadow-call-2
+    kind: live
+    title: Live shadow 2
+    heading: Shadow a second real client call
+    minutes: 30 min
+    liveRole: shadow
+    substituteCardId: S42
+    fallback: >-
+      If a live call isn't available today, swap it with a mock day and shadow later in the week. Two shadowed calls
+      this week is the target.
+    lead: >-
+      Camera on, muted unless invited. Afterwards, ask the lead the question from your notes, and write down their
+      answer.
+    fields:
+      - { id: call, label: "Call · lead · date", kind: line, placeholder: "e.g. Sprint review · the lead's name · May 1" }
+      - { id: opening, label: "How did they open the call and set the agenda?", kind: area, rows: 2 }
+      - { id: best-question, label: The best question they asked, kind: line }
+      - { id: unknown, label: How did they handle an unknown or pushback?, kind: area, rows: 2 }
+      - { id: closing, label: "How did they close and confirm next steps?", kind: area, rows: 2 }
+      - { id: phrase, label: One phrase I want to use myself, kind: line }
+      - { id: lead-answer, label: "What the lead said to my question", kind: area, rows: 2 }
+
+  - id: shadow-recap-2
+    kind: write
+    title: Your recap
+    heading: Your version of the recap
+    minutes: 10 min
+    lead: >-
+      Write the recap before you read the lead's. Decisions, actions with owners and dates, open questions. Then
+      compare, and note what you missed.
+    source: both
+    blocks:
+      - { type: field, id: my-recap }
+      - { type: field, id: missed }
+    fields:
+      - { id: my-recap, label: My recap, kind: area, rows: 5, placeholder: "Decisions, actions with owners, open questions" }
+      - { id: missed, label: "My recap vs theirs: what did I miss?", kind: area, rows: 3 }
+
+  - id: week-in-review
+    kind: scorecard
+    title: Your week in review
+    minutes: 5 min
+    lead: >-
+      Five minutes. Rate this week's behaviours and add a line of proof for each pillar. Your pillar scores update from
+      them; the other pillars carry forward. Your Day 1 baseline sits next to it.
+    scorecard: [C3, U2, U3]
+    checksTitle: Before the weekend
+    checks:
+      - Could a non-technical person repeat my 30-second story?
+      - Did I end with the business impact?
+    blocks:
+      - type: text
+        text: >-
+          **Next week:** the pilot goes live on Monday, May 4. You'll learn to run a 10-minute demo as a user story,
+          handle a demo that breaks, and own one agenda item on a live call.

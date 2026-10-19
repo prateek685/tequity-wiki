@@ -1,0 +1,166 @@
+# Day 62 quiz pool: Tuesday, May 26. Leading a call solo, the recap, and the end-of-day note. Shows 5 of 10.
+pool: day-62
+questions:
+  - id: D62-01
+    type: mcq
+    stem: "Who is on the call when you lead it solo?"
+    options:
+      - text: "You lead alone; the manager or PM may observe this one for the final review."
+        correct: true
+        explanation: "Observed, not co-leading."
+      - text: "The PM leads, you take notes."
+        correct: false
+        explanation: "You lead."
+      - text: "No client, only your team."
+        correct: false
+        explanation: "It's a real client call."
+      - text: "Dana alone, with no agenda."
+        correct: false
+        explanation: "You bring the agenda."
+    source: { quote: "Observed call: the manager or PM joins a real client call you lead", page: 145 }
+
+  - id: D62-02
+    type: mcq
+    stem: "Which call is usually the one your manager or PM observes?"
+    options:
+      - text: "Tuesday's solo call."
+        correct: true
+        explanation: "The observed call is usually the Tuesday solo call."
+      - text: "Monday's planning."
+        correct: false
+        explanation: "No call on Monday."
+      - text: "Friday's final review."
+        correct: false
+        explanation: "That's the review, not the call."
+      - text: "Any mock call."
+        correct: false
+        explanation: "It must be a real client call."
+    source: { quote: "Observed call: the manager or PM joins a real client call you lead", page: 145 }
+
+  - id: D62-03
+    type: mcq
+    stem: "What do you send after the call, and when?"
+    options:
+      - text: "A recap within 2 hours, then an end-of-day note."
+        correct: true
+        explanation: "Both are on Tuesday."
+      - text: "A recap on Friday."
+        correct: false
+        explanation: "Too late."
+      - text: "Only the end-of-day note."
+        correct: false
+        explanation: "Recap first."
+      - text: "Nothing, if the PM was there."
+        correct: false
+        explanation: "You own the follow-up."
+    source: { quote: "Solo-week EOD notes and status report", page: 145 }
+
+  - id: D62-04
+    type: mcq
+    stem: "What goes in an end-of-day note?"
+    options:
+      - text: "What you did, what is next, and anything blocked."
+        correct: true
+        explanation: "Three short parts."
+      - text: "A long story of the day."
+        correct: false
+        explanation: "Short is better."
+      - text: "Only good news."
+        correct: false
+        explanation: "Blockers belong in it."
+      - text: "The client's private details."
+        correct: false
+        explanation: "Never include PHI."
+    source: { quote: "Solo-week EOD notes and status report", page: 145 }
+
+  - id: D62-05
+    type: mcq
+    stem: "Which line belongs in your journal for this week?"
+    options:
+      - text: "The recap of the solo call."
+        correct: true
+        explanation: "One of the journal items."
+      - text: "A patient's full record."
+        correct: false
+        explanation: "Never."
+      - text: "The PM's private notes."
+        correct: false
+        explanation: "Not yours."
+      - text: "Nothing from this week."
+        correct: false
+        explanation: "The journal holds your proof."
+    source: { quote: "Recap of the solo call", page: 145 }
+
+  - id: D62-06
+    type: mcq
+    stem: "At the start of the call, Dana says: “Good to hear from you, not the PM today.” What do you do first?"
+    options:
+      - text: "State the goal and the agenda for the call, then start."
+        correct: true
+        explanation: "Lead from the first minute."
+      - text: "Apologise that the PM isn't here."
+        correct: false
+        explanation: "No need."
+      - text: "Ask Dana to run the agenda."
+        correct: false
+        explanation: "You lead."
+      - text: "Wait for her to begin."
+        correct: false
+        explanation: "You lead."
+    source: { quote: "Observed call: the manager or PM joins a real client call you lead", page: 145 }
+
+  - id: D62-07
+    type: scenario
+    clientLine: "Can you summarise what we decided?"
+    stem: "At the end of the call, Dana asks you to sum up. What do you do?"
+    options:
+      - text: "“We confirmed June 15. Kevin confirms the load test by Wednesday, and I send the checklist by Thursday. I'll send this in writing within two hours.”"
+        correct: true
+        explanation: "Decisions, owners, dates, and a time for the recap."
+      - text: "“It's all in my notes.”"
+        correct: false
+        explanation: "Doesn't answer."
+      - text: "“I'll send something later.”"
+        correct: false
+        explanation: "No time."
+      - text: "“Everything is fine.”"
+        correct: false
+        explanation: "Not a summary."
+    source: { quote: "Recap of the solo call", page: 145 }
+
+  - id: D62-08
+    type: scenario
+    clientLine: "I'm sorry, I'm not sure I agree with the plan."
+    stem: "Midway through the call, Kevin says he is not sure about the plan. The PM is silent. What do you do?"
+    options:
+      - text: "“Thanks, Kevin. What worries you most? Then I'll tell you what I'd change.”"
+        correct: true
+        explanation: "Asks, then answers; you own the call."
+      - text: "Look at the PM and wait."
+        correct: false
+        explanation: "You own the call."
+      - text: "“We'll just keep to the plan.”"
+        correct: false
+        explanation: "Dismisses it."
+      - text: "End the call."
+        correct: false
+        explanation: "Too much."
+    source: { quote: "Observed call: the manager or PM joins a real client call you lead", page: 145 }
+
+  - id: D62-09
+    type: written
+    stem: "Write the first two lines of your recap of a solo call."
+    modelAnswer: "Recap: rollout planning call, May 26. Decided: June 15 stays, and Epic access for the 9 new clinics is approved."
+    scoringPoints:
+      - "Leads with the decisions"
+      - "Names the call and the date"
+    source: { quote: "Recap of the solo call", page: 145 }
+
+  - id: D62-10
+    type: written
+    stem: "Write a short end-of-day note for today."
+    modelAnswer: "Done: led the planning call and sent the recap in 1 hour 10 minutes. Next: draft the weekly status report. Blocked: nothing."
+    scoringPoints:
+      - "Says what is done, what is next and what is blocked"
+      - "Is short enough to read in under a minute"
+    source: { quote: "Solo-week EOD notes and status report", page: 145 }

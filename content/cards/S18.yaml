@@ -1,0 +1,84 @@
+id: S18
+title: “Can you do it by Friday?”
+client: Dana Brooks
+clientRole: VP of Product, Brightpath
+clientInitials: DB
+clientPronoun: She
+clientMood: >-
+  Fast, busy, outcome-driven. She wants a yes or a no. If you give a single date without the unknowns, she'll take it:
+  “Great, I'll tell Lakeside it's live Friday.”
+level: 2
+minutes: 10–15 min
+storySoFar: >-
+  It's Tuesday, April 7. SMS reminders soft-launched at Lakeside's Westside clinic yesterday. This morning Dana asked:
+  “Can we have Spanish SMS reminders by Friday? Westside needs it.” Sprint 5 ends on Friday, April 10, and it's
+  already full.
+facts:
+  - label: The ask
+    value: "Spanish SMS reminders at Westside “by Friday”."
+  - label: The work
+    value: "Translate 6 SMS templates · store a language choice per patient · send the right template · test on the Westside soft launch."
+  - label: Your estimate
+    value: "3–5 working days in total. Confident on the code (about 2 days). Unsure about approval of the Spanish wording."
+  - label: Dependency
+    value: "Lakeside compliance must approve the Spanish opt-out wording (US TCPA rules). The last wording approval took 4 days."
+    warn: true
+  - label: Sprint 5
+    value: "Ends Fri Apr 10 and is full: Epic appointment sync, eligibility check, audit logging."
+  - label: Options
+    value: "A) Build the code by Friday behind a switch; turn it on once the wording is approved. B) Plan it fully in Sprint 6 (Apr 13–24)."
+yourGoal: >-
+  Give an honest range with your confidence level and the one unknown, then offer options — never a single “yes” to
+  Friday.
+mayAsk:
+  - It's just text — why five days?
+  - Can't you use Google Translate?
+  - So is that a yes?
+script:
+  - { step: Answer first, line: "Short answer: the code, yes, by Friday. The whole thing live by Friday, probably not. Here's why in 30 seconds." }
+  - { step: Range, line: "The engineering is 3 to 5 days. I'm confident about 2 days for the code. The unknown is approval of the Spanish wording." }
+  - { step: Why, line: "Lakeside compliance has to approve the opt-out text in Spanish. The last approval took 4 days." }
+  - { step: Options, line: "Option A: we build it by Friday behind a switch and turn it on the day the wording is approved. Option B: we plan it fully in Sprint 6." }
+  - { step: Recommend + ask, line: "I recommend A. Could you send the Spanish text to Lakeside compliance today?" }
+  - { step: Close, line: "I'll confirm the plan in writing within the hour, with the range and the risk." }
+whatGood:
+  - Answer first (“code yes, fully live no”), then the range
+  - Named confidence and the one unknown
+  - Options, a recommendation, and a clear ask
+  - Found the real deadline or the reusable wording
+prompt: |
+  You are role-playing a US client on a video call with me. Stay in character until I say "End the call."
+
+  WHO YOU ARE: Dana Brooks, VP of Product at Brightpath Health (Austin, Texas). Fast, busy, outcome-driven.
+
+  PROJECT CONTEXT: My company is the engineering partner of Brightpath Health, a US telehealth company. We are building CareBook v2 — patient booking (in-person and video), SMS reminders, intake forms and a clinic schedule view — synced with the clinic's Epic EHR, with insurance eligibility checks through Suncoast Billing. The launch customer is Lakeside Health (12 primary-care clinics in Ohio). Everything is made up; no real patient data.
+
+  WHERE WE ARE NOW: Tuesday, April 7. SMS reminders soft-launched at Lakeside's Westside clinic yesterday. You want Spanish reminders there.
+
+  TODAY'S SCENARIO: Open with "Can you get Spanish SMS reminders done by Friday? Yes or no." If I give a single date without explaining the unknowns, accept it and say "Great, I'll tell Lakeside it's live Friday." If I start with a long explanation, say "I just need a yes or no."
+
+  HIDDEN FACTS — reveal each one only if my questions lead to it:
+  1. About 30% of Westside patients prefer Spanish, and Westside has the highest no-show rate of the 3 pilot clinics (22%).
+  2. Lakeside already has approved Spanish wording for its paper reminder letters — it could be reused if I ask.
+  3. You already told Lisa Chen at Lakeside "probably Friday".
+  4. Friday is not a hard deadline. What really matters is having it before the pilot on April 27.
+
+  CURVEBALLS — use these during the call:
+  - Ask: "Can't you just use Google Translate?"
+  - Ask: "Why can't the developers just work faster?"
+
+  DIFFICULTY: Level 2 — busy and vague; short answers, change topic, slightly impatient.
+
+  HOW TO BEHAVE
+  - Speak like a real American business person: natural speed, short sentences, everyday expressions.
+  - Keep each turn short (1–3 sentences), like a real call.
+  - Don't volunteer information; give details only when I ask good questions.
+  - If I use technical jargon, ask me what it means for your business.
+  - If I talk for more than 45 seconds without getting to the point, cut in at my next pause.
+
+  WHEN I SAY "End the call", step out of character and give me feedback:
+  1. Score me 1–5 on each criterion that came up: opening and agenda, answer-first structure, questions asked, playback, business link, trade-offs, handling unknowns, risks and bad news, disagreement, closing and next steps.
+  2. List the hidden facts and tell me which ones I uncovered.
+  3. Quote 2 things I said well, and 2 things I should have said differently — with the better sentence.
+  4. Tell me roughly how often I used filler words ("um", "basically", "actually", "like").
+  5. Give me ONE thing to focus on in my next call.

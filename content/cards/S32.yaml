@@ -1,0 +1,76 @@
+id: S32
+title: Dress rehearsal of your weekly sync
+client: Dana Brooks
+clientRole: VP of Product, Brightpath Health
+clientInitials: DB
+clientPronoun: She
+clientMood: >-
+  Senior and sceptical. She pushes for a faster timeline, questions the open bug and asks “So what do you recommend?” if
+  you don't give a clear answer. Kevin Walsh, the CTO, joins and may speak as “Kevin here”.
+level: 3
+minutes: 20 min
+storySoFar: >-
+  It's Tuesday, May 19, the day before you lead your first full client call. Tomorrow is the weekly sync with Dana, with
+  Kevin joining, after two weeks of pilot at 3 Lakeside clinics. Rehearse it here. No real project of your own yet? This
+  card uses the CareBook story.
+facts:
+  - { label: Call and people, value: "Weekly sync, 20 minutes. Dana Brooks (VP of Product) and Kevin Walsh (CTO) attend. You lead." }
+  - { label: Status after 2 weeks, value: "1,240 online bookings (35%) · no-shows down from 18% to 13% · online booking takes 2 min 10 s · 4 open bugs (1 high) · 23 support tickets." }
+  - { label: The high bug, value: "No reminder is sent when a visit is rescheduled within 2 hours of its start. The fix is due Thursday, May 21.", warn: true }
+  - { label: Risks and asks, value: "Epic access for 9 more clinics needs Sam Porter's approval by May 29. Asks: approve the rollout plan for June 15; move Spanish to after the rollout." }
+  - { label: Hardest question, value: "“Can we do all 12 clinics on June 8 instead?”" }
+yourGoal: >-
+  Run the whole call as the leader (opener, agenda, answer-first status, risks, decisions, next steps) in 20 minutes,
+  under pressure.
+mayAsk:
+  - Can we do all 12 clinics on June 8 instead?
+  - Why is there still a high-priority bug?
+  - What's the one thing that could break at 12 clinics?
+script:
+  - { step: Open, line: "Hi Dana, hi Kevin, thanks for joining. The goal today is to agree the rollout plan. Three things: pilot results, risks, and two decisions I need. Anything to add?" }
+  - { step: Status, line: "Short answer: the pilot is working. 35% of bookings are online, and no-shows dropped from 18% to 13% in two weeks." }
+  - { step: Risk, line: "One high bug: reminders aren't sent when a visit is rescheduled close to its start. The fix is due Thursday." }
+  - { step: Ask, line: "I need two decisions: approve the June 15 rollout plan, and agree to move Spanish to after the rollout." }
+  - { step: Push back, line: "June 8 is possible only if Sam approves Epic access by May 22. I'd recommend keeping June 15 to protect the pilot's quality." }
+  - { step: Close, line: "To recap: decisions, owners, dates. I'll send notes within two hours." }
+whatGood:
+  - Led from the first minute with an agenda
+  - Answer-first status with numbers
+  - Clear recommendation on the date, with the trade-off
+  - Recap with decisions, owners and dates
+prompt: |
+  You are role-playing a US client on a video call with me. Stay in character until I say "End the call."
+
+  WHO YOU ARE: Dana Brooks, VP of Product at Brightpath Health (Austin, Texas). Kevin Walsh, the CTO, joins the call. You may speak as Kevin, saying "Kevin here".
+
+  PROJECT CONTEXT: My company is the engineering partner of Brightpath Health, a US telehealth company, building CareBook v2 (patient booking, SMS reminders, intake forms, a clinic schedule view) synced with the clinic's Epic EHR. The launch customer is Lakeside Health (12 clinics in Ohio). Everything is made up; no real patient data.
+
+  WHERE WE ARE NOW: Tuesday, May 19. Tomorrow is the weekly sync after two weeks of pilot at 3 Lakeside clinics; the rollout to all 12 clinics is planned for June 15.
+
+  TODAY'S SCENARIO: I lead this 20-minute weekly sync. Let me open. Challenge me as a senior client: ask for dates, push for a faster timeline, question the open bug. If I don't give a clear recommendation, ask "So what do you recommend?"
+
+  HIDDEN FACTS — reveal each one only if my questions lead to it:
+  1. Dana wants to announce the rollout at Lakeside's board meeting on June 10.
+  2. The CEO has asked whether the rollout can happen on June 8.
+  3. Kevin worries about SMS costs and load once all 12 clinics are live (about 4 times today's volume).
+
+  CURVEBALLS — use these during the call:
+  - Ask: "Can we do all 12 clinics on June 8 instead?"
+  - As Kevin: "What's the one thing that could break at 12 clinics?"
+
+  DIFFICULTY: Level 3 — sceptical; push back, interrupt at pauses, ask hard questions, apply time pressure.
+
+
+  HOW TO BEHAVE
+  - Speak like a real American business person: natural speed, short sentences, everyday expressions.
+  - Keep each turn short (1–3 sentences), like a real call.
+  - Don't volunteer information; give details only when I ask good questions.
+  - If I use technical jargon, ask me what it means for your business.
+  - If I talk for more than 45 seconds without getting to the point, cut in at my next pause.
+
+  WHEN I SAY "End the call", step out of character and give me feedback:
+  1. Score me 1–5 on each criterion that came up: opening and agenda, answer-first structure, questions asked, playback, business link, trade-offs, handling unknowns, risks and bad news, disagreement, closing and next steps.
+  2. List the hidden facts and tell me which ones I uncovered.
+  3. Quote 2 things I said well, and 2 things I should have said differently — with the better sentence.
+  4. Tell me roughly how often I used filler words ("um", "basically", "actually", "like").
+  5. Give me ONE thing to focus on in my next call.

@@ -1,0 +1,188 @@
+day: 15
+block: 3
+title: Discovery call
+type: normal
+storyDate: Friday, March 20
+minutes: About 60 min
+intro: >-
+  Dana wants an intake form for new patients “too”. Today you run a full 15-minute discovery call at Level 2, send
+  the summary and review your week.
+lessons:
+  - id: new-patient-form
+    kind: prep
+    title: “For new patients too”
+    minutes: 10 min
+    blocks:
+      - type: yesterday
+        text: >-
+          you asked about Dana's three requests and found that only the faster check-in page matters for the pilot.
+          You also finalised your 20-question bank.
+      - type: scene
+        when: Friday, March 20 · 10:15 am Central, straight after the weekly sync
+        text: >-
+          The weekly sync was short: intake form v1 for returning patients and the schedule view are on track for
+          next Friday. One thing hasn't moved all week: Epic sandbox access. It's still with Lakeside IT, and without
+          it Sprint 5's Epic sync can't start on March 30. Yesterday Dana emailed, “We need an intake form for new
+          patients too. Let's discuss Friday.” She's staying on for 15 minutes.
+      - type: recall
+        label: Your question bank from Day 14
+        day: 14
+        lesson: final-bank
+        fields:
+          - { id: bank, label: My 20-question bank }
+      - type: text
+        text: >-
+          Pick the questions you'll need, then fill in your pre-call card. On a discovery call, your goal is to
+          understand, not to promise.
+    fields:
+      - { id: goal, label: My goal for this call, kind: line, placeholder: "e.g. Understand the new-patient process and the success metric before promising anything" }
+      - { id: opener, label: My opener, kind: line }
+      - { id: questions, label: "5 questions I must ask", kind: area, rows: 5 }
+      - { id: hidden-scope, label: Where hidden scope could be, kind: line, placeholder: "e.g. Where the answers need to end up" }
+      - { id: hard-question, label: "Hardest question + my answer", kind: area, rows: 2, placeholder: "“Can we have it for the pilot?” → …" }
+      - { id: closing, label: My closing line, kind: line }
+
+  - id: week-feedback
+    kind: learn
+    title: This week's AI feedback
+    heading: Review this week's AI feedback notes
+    minutes: 10 min
+    lead: >-
+      Four calls this week, four sets of feedback. Read them together: the same note twice is a habit, not a slip.
+    blocks:
+      - type: recall
+        label: Day 11 · Dr. Mercer's dashboard
+        day: 11
+        lesson: dashboard-call-review
+        fields:
+          - { id: went-well, label: What went well }
+          - { id: fix-next, label: One thing to fix }
+      - type: recall
+        label: Day 12 · Dana's “more reminders”
+        day: 12
+        lesson: real-goal-review
+        fields:
+          - { id: went-well, label: What went well }
+          - { id: fix-next, label: One thing to fix }
+      - type: recall
+        label: Day 13 · Maria's messy requirement
+        day: 13
+        lesson: messy-requirement-review
+        fields:
+          - { id: went-well, label: What went well }
+          - { id: fix-next, label: One thing to fix }
+      - type: recall
+        label: Day 14 · Three vague requests
+        day: 14
+        lesson: rapid-discovery-review
+        fields:
+          - { id: went-well, label: What went well }
+          - { id: fix-next, label: One thing to fix }
+      - type: text
+        text: >-
+          What pattern do you see? Maybe you proposed a solution too early, skipped the success metric, or asked
+          closed questions first. Name one thing to do differently on today's call.
+      - { type: field, id: pattern }
+    fields:
+      - { id: pattern, label: The pattern, and what I'll do today, kind: area, rows: 3, placeholder: "e.g. I keep skipping the metric. Today I'll ask “How will we know it worked?” before the playback." }
+
+  - id: intake-discovery
+    kind: mock
+    title: New patient intake
+    heading: "Discovery call: a new patient intake form"
+    minutes: 15 min
+    lead: >-
+      Level 2: Dana is busy and assumes it's “just a copy” of the old form. Follow the discovery structure, uncover
+      the hidden scope before you promise anything, and end with a playback and a dated next step.
+    cardId: S35
+    level: 2
+    scriptNote: Use it the first time, then try the call again without it.
+    checksTitle: After the call
+    checks:
+      - I followed the discovery structure
+      - I found the Epic and insurance-card scope before committing
+      - I got a success metric
+      - I played back and set a dated next step
+    fields:
+      - { id: went-well, label: What went well, kind: area, placeholder: "From the AI's feedback" }
+      - { id: fix-next, label: One thing to fix next time, kind: area }
+      - { id: log, label: "How many questions did I ask before I proposed a solution?", kind: area, rows: 2 }
+    rubric: true
+
+  - id: discovery-summary
+    kind: write
+    title: The discovery summary
+    heading: Send Dana the discovery summary
+    minutes: 10 min
+    lead: >-
+      You promised Dana a summary today. Write what you heard, what you're assuming, what's still open and the next
+      step, then ask the AI to review it before you send.
+    blocks:
+      - { type: field, id: subject }
+      - { type: field, id: heard }
+      - { type: field, id: assumptions }
+      - { type: field, id: open-questions }
+      - { type: field, id: next-step }
+      - type: note
+        tone: info
+        title: Review it with AI.
+        text: >-
+          Copy the review prompt, paste it with your summary, and apply the edits you agree with. Never paste client
+          documents or patient data.
+      - type: copy
+        label: Copy review prompt
+        text: |
+          Review this discovery summary email before I send it to a US client, a VP of Product. Check:
+          1. Does the subject line or the first two lines say what this is and what I need from her?
+          2. Is "what we heard" written as facts she can confirm or correct, not as my opinions?
+          3. Are my assumptions clearly marked as assumptions, and are the open questions specific?
+          4. Is there one next step with an owner and a date, and no promise of a delivery date?
+          5. Are there phrases an American reader might misunderstand?
+          Keep every fact, date and owner exactly as it is, and don't add new claims. Give me a tighter version under 180 words, then list what you changed, one line each.
+
+          My summary:
+          [paste your summary here]
+    fields:
+      - { id: subject, label: Subject, kind: line, placeholder: "e.g. New patient intake form: what we heard (please confirm)" }
+      - { id: heard, label: What we heard, kind: area, rows: 4 }
+      - { id: assumptions, label: Assumptions, kind: area, rows: 2 }
+      - { id: open-questions, label: Open questions, kind: area, rows: 2 }
+      - { id: next-step, label: Next step (owner + date), kind: line }
+
+  - id: week-in-review
+    kind: scorecard
+    title: Your week in review
+    minutes: 5 min
+    lead: >-
+      Five minutes. Rate this week's behaviours and add a line of proof for each pillar. Your pillar scores update from
+      them; the other pillars carry forward. Your Day 1 baseline sits next to it.
+    blocks:
+      - type: text
+        text: >-
+          **Next week:** ownership, and using AI before and after meetings. On Monday, Kevin pings you: “Who's handling
+          the deployment?”
+    scorecard: [U1, U2]
+    checksTitle: Before the weekend
+    checks:
+      - Did I find the business goal behind the request?
+      - Did I play it back and get a “yes”?
+      - Did I confirm how success will be measured?
+
+scoring:
+  discovery-summary:
+    modelAnswer: >-
+      Subject: New patient intake form: what we heard (please confirm by Tue).
+      Hi Dana, thanks for today. Here's what we heard; please correct anything I got wrong.
+      What we heard: new patients are about 30% of Lakeside bookings, and the front desk spends about 12 minutes per
+      new patient on paper forms. Patients must finish the form at least 24 hours before the visit. Dr. Mercer
+      expects the answers to appear in Epic. A photo of the insurance card (front and back) would be ideal but can
+      wait until after the pilot. Spanish is needed after the pilot.
+      Assumptions: the new form reuses the returning-patient form's contact and insurance sections; success means
+      less front-desk time per new patient.
+      Open questions: which answers must reach Epic, and in which Epic fields? What front-desk time would count as
+      success?
+      Next step: I'll send options with effort by Wednesday, March 25, including what fits before the pilot.
+    scoringPoints:
+      - What we heard is a list of facts from the call, including the hidden scope (Epic, insurance card, 24 hours)
+      - Assumptions and open questions are clearly separated from facts
+      - One next step with an owner and a date, and no delivery date promised

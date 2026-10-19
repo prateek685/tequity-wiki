@@ -1,0 +1,166 @@
+# Day 59 quiz pool: Thursday, May 21. Reviewing the debrief, targeted practice, and closing every follow-up. Shows 5 of 10.
+pool: day-59
+questions:
+  - id: D59-01
+    type: mcq
+    stem: "You got feedback with several points. What do you practise on Thursday?"
+    options:
+      - text: "Only the one thing you picked, in three short rounds."
+        correct: true
+        explanation: "Targeted practice."
+      - text: "Everything at once."
+        correct: false
+        explanation: "Too much."
+      - text: "Nothing, since the call went well."
+        correct: false
+        explanation: "One thing always."
+      - text: "The easiest point."
+        correct: false
+        explanation: "Pick the most useful."
+    source: { quote: "Today you practise only the one thing to improve", page: 142 }
+
+  - id: D59-02
+    type: mcq
+    stem: "How do the three rounds get harder?"
+    options:
+      - text: "Calm, then a follow-up, then time pressure and interruptions."
+        correct: true
+        explanation: "The round plan."
+      - text: "Longer each time."
+        correct: false
+        explanation: "Not the plan."
+      - text: "Different topics each round."
+        correct: false
+        explanation: "Same moment."
+      - text: "The same each time."
+        correct: false
+        explanation: "They get harder."
+    source: { quote: "Round 1: the same question, calm.", page: 142 }
+
+  - id: D59-03
+    type: mcq
+    stem: "Kevin asks: “Are we ready for 12 clinics?” Which answer is the better version?"
+    options:
+      - text: "“Yes, with one condition: the reminder fix ships Thursday.”"
+        correct: true
+        explanation: "Answer first, with a condition."
+      - text: "90 seconds of background, then “mostly yes”."
+        correct: false
+        explanation: "The old answer."
+      - text: "“Mostly.”"
+        correct: false
+        explanation: "No condition."
+      - text: "“It depends.”"
+        correct: false
+        explanation: "No answer."
+    source: { quote: "Yes, with one condition: the reminder fix ships Thursday", page: 142 }
+
+  - id: D59-04
+    type: mcq
+    stem: "What does Kevin want from your answer?"
+    options:
+      - text: "A single yes or no with one condition, not a status report."
+        correct: true
+        explanation: "His hidden fact."
+      - text: "A full status report."
+        correct: false
+        explanation: "He wants one answer."
+      - text: "A list of options."
+        correct: false
+        explanation: "Not that."
+      - text: "A long explanation."
+        correct: false
+        explanation: "He is short on time."
+    source: { quote: "you want a single yes or no with one condition", page: 143 }
+
+  - id: D59-05
+    type: mcq
+    stem: "When does Kevin accept “yes, with a condition”?"
+    options:
+      - text: "When the condition has an owner and a date."
+        correct: true
+        explanation: "His hidden fact."
+      - text: "Whenever it's polite."
+        correct: false
+        explanation: "Needs owner and date."
+      - text: "Only if it's free."
+        correct: false
+        explanation: "Not the rule."
+      - text: "Never."
+        correct: false
+        explanation: "He accepts it."
+    source: { quote: "you accept \"yes, with a condition\" if the condition has an owner and a date", page: 143 }
+
+  - id: D59-06
+    type: mcq
+    stem: "What do you do between rounds?"
+    options:
+      - text: "Breathe, read your better-version line once, and start with the answer."
+        correct: true
+        explanation: "The between-rounds step."
+      - text: "Check your phone."
+        correct: false
+        explanation: "Not useful."
+      - text: "Change the question."
+        correct: false
+        explanation: "Same moment."
+      - text: "Stop."
+        correct: false
+        explanation: "Three rounds."
+    source: { quote: "Breathe, read your", page: 142 }
+
+  - id: D59-07
+    type: scenario
+    clientLine: "One sentence, please."
+    stem: "In round 3 Kevin interrupts you at your first pause. What do you say?"
+    options:
+      - text: "“We're ready if Thursday's fix ships, and I'll confirm by noon Eastern on Thursday.”"
+        correct: true
+        explanation: "One sentence with a condition and a date."
+      - text: "“Let me start from the beginning.”"
+        correct: false
+        explanation: "Background."
+      - text: "“It's complicated.”"
+        correct: false
+        explanation: "No answer."
+      - text: "Keep talking."
+        correct: false
+        explanation: "He asked for one sentence."
+    source: { quote: "One sentence, please.", page: 143 }
+
+  - id: D59-08
+    type: scenario
+    clientLine: "And if the fix slips?"
+    stem: "Kevin asks in round 2. What do you say?"
+    options:
+      - text: "“I'd hold the 9 new clinics by one week and keep the 3 pilot clinics running.”"
+        correct: true
+        explanation: "A clear fallback."
+      - text: "“It won't slip.”"
+        correct: false
+        explanation: "Overpromise."
+      - text: "“We'll see.”"
+        correct: false
+        explanation: "No plan."
+      - text: "“That's a PM question.”"
+        correct: false
+        explanation: "You own it."
+    source: { quote: "If the fix slips, I'd hold the 9 new clinics by one week", page: 142 }
+
+  - id: D59-09
+    type: written
+    stem: "Write the one thing you practised today and your better sentence."
+    modelAnswer: "One thing: answer first. When Kevin asks “Are we ready?”, I say: “Yes, with one condition: the reminder fix ships Thursday.”"
+    scoringPoints:
+      - "Names one specific thing"
+      - "Gives the actual sentence"
+    source: { quote: "The one thing", page: 142 }
+
+  - id: D59-10
+    type: written
+    stem: "Write one follow-up from Wednesday's call and the one-line update that closes it."
+    modelAnswer: "Follow-up: confirm the reminder fix. Update: “The fix shipped this morning and I tested it, so reschedules inside two hours now send a reminder.”"
+    scoringPoints:
+      - "Names the follow-up and its owner"
+      - "The update says what is done"
+    source: { quote: "close every follow-up from Wednesday's call.", page: 138 }

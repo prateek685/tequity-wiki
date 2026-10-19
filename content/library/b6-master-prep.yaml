@@ -1,0 +1,72 @@
+id: b6-master-prep
+kind: prompt
+ref: B6
+title: Master prep prompt
+summary: Prepare for a real client call on one page.
+blocks:
+  - type: note
+    tone: warn
+    title: Before you paste anything
+    text: No PHI, no client credentials, no confidential client documents in any AI tool the company hasn't approved. Replace names and details with made-up ones.
+  - type: text
+    text: >-
+      Use it before any real client meeting. Replace every [bracket] with your details, anonymised, never patient data. Every mock card tells you which meeting type to use for a real meeting like it.
+  - type: message
+    label: The prompt
+    text: |-
+      I have a client call coming up. Help me prepare. Use simple, natural American business English.
+
+      MEETING TYPE: [status update / discovery / bad news / disagreement / escalation / change request / recommendation / demo / technical explanation / security or compliance questions / proposal]
+
+      CLIENT: [name, role, company — e.g. "Dana, VP of Product at a US telehealth company"]
+
+      WHEN AND HOW LONG: [e.g. "Friday 10:00 am Central, 15 minutes"]
+
+      MY GOAL FOR THIS CALL: [one sentence]
+
+      FACTS (anonymised — no patient data):
+
+      - Done: [ ]
+      - In progress: [ ]
+      - Delayed, and why: [ ]
+      - Risks: [ ]
+      - What I need from the client, and by when: [ ]
+
+      WHAT I KNOW ABOUT THEIR CONCERNS: [e.g. "worried about the launch date"]
+
+      Give me, on one page:
+
+      1. A 3-point agenda and a warm opening line (small talk + purpose).
+      2. My main message, answer first, in 2–3 sentences.
+      3. The 5 questions they are most likely to ask, including 2 hard ones, with a short answer for each. If the answer is not in my facts, write "I'll check and confirm by [time]" instead of guessing.
+      4. The risks I should raise myself, before they ask.
+      5. The structure to follow for this meeting type (for example, bad news: headline → impact → cause → options → what I need → next update).
+      6. A closing line that recaps decisions, owners and dates.
+
+      Flag anything in my facts that sounds vague, sounds like an excuse, or sounds like a promise I can't keep.
+  - type: copy
+    label: Copy master prep prompt
+    text: |-
+      I have a client call coming up. Help me prepare. Use simple, natural American business English.
+
+      MEETING TYPE: [status update / discovery / bad news / disagreement / escalation / change request / recommendation / demo / technical explanation / security or compliance questions / proposal]
+      CLIENT: [name, role, company — e.g. "Dana, VP of Product at a US telehealth company"]
+      WHEN AND HOW LONG: [e.g. "Friday 10:00 am Central, 15 minutes"]
+      MY GOAL FOR THIS CALL: [one sentence]
+      FACTS (anonymised — no patient data):
+      - Done: [ ]
+      - In progress: [ ]
+      - Delayed, and why: [ ]
+      - Risks: [ ]
+      - What I need from the client, and by when: [ ]
+      WHAT I KNOW ABOUT THEIR CONCERNS: [e.g. "worried about the launch date"]
+
+      Give me, on one page:
+      1. A 3-point agenda and a warm opening line (small talk + purpose).
+      2. My main message, answer first, in 2–3 sentences.
+      3. The 5 questions they are most likely to ask, including 2 hard ones, with a short answer for each. If the answer is not in my facts, write "I'll check and confirm by [time]" instead of guessing.
+      4. The risks I should raise myself, before they ask.
+      5. The structure to follow for this meeting type (for example, bad news: headline → impact → cause → options → what I need → next update).
+      6. A closing line that recaps decisions, owners and dates.
+
+      Flag anything in my facts that sounds vague, sounds like an excuse, or sounds like a promise I can't keep.

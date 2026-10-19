@@ -1,0 +1,91 @@
+day: 56
+block: 12
+title: Choose the call you'll lead
+type: normal
+storyDate: Monday, May 18
+minutes: About 45 min
+intro: >-
+  This week you lead the whole client conversation, with the PM or senior in the room only as a safety net. Today you
+  choose the call, agree the backup plan, learn the lead-call checklist, and send the agenda 24 hours ahead.
+lessons:
+  - id: choose-the-call
+    kind: prep
+    title: Choose the call and the backup
+    minutes: 5 min
+    blocks:
+      - type: yesterday
+        text: >-
+          You co-led two call segments. You gave Dana the headline and a number first, protected the June 15 date, and
+          wrote the recap with owners and dates.
+      - type: scene
+        when: Monday, May 18 · 8:15 am Central · pilot day fifteen
+        text: >-
+          On Wednesday you lead a full client call: usually the weekly sync. Choose it now, and agree with the PM or senior
+          what they do in the room. No call of your own yet? Use CareBook: Wednesday's weekly sync with Dana and Kevin,
+          after two weeks of pilot.
+      - type: steps
+        items:
+          - { title: Choose the call, text: "Which call, who attends, how long." }
+          - { title: Agree the backup, text: "They stay silent unless you invite them in, or something critical goes wrong." }
+          - { title: Agree a signal, text: "A word or a message that means “please step in”." }
+    fields:
+      - { id: call, label: The call I'll lead, kind: line, placeholder: "e.g. Weekly sync with Dana and Kevin · Wed May 20 · 20 minutes" }
+      - { id: backup, label: My backup (PM or senior), kind: line }
+      - { id: signal, label: "Our signal", kind: line }
+    source: both
+
+  - id: lead-call-checklist
+    kind: learn
+    title: The lead-call checklist
+    heading: Before, during, after
+    minutes: 10 min
+    lead: >-
+      Leading a call is a routine you can learn. Run the same checklist every time.
+    blocks:
+      - type: facts
+        rows:
+          - { label: Before, value: "Pre-call card · AI prep · agenda sent 24 hours ahead · demo and test data ready." }
+          - { label: During, value: "Warm opener → agenda → status (answer first) → discussion and decisions → risks → next steps → close on time." }
+          - { label: After, value: "Recap within 2 hours · action items tracked · follow-ups closed." }
+      - type: example
+        text: >-
+          “Hi Dana, hi Kevin, thanks for joining. The goal today is to agree the rollout plan. Three things: pilot results,
+          risks, and two decisions I need. Anything to add?”
+      - type: note
+        tone: info
+        title: Prepare with AI, with anonymised context
+        text: >-
+          Paste your real context into your AI tool with the client's name and any patient details removed. Ask for the
+          likely questions, the risks and a one-page prep. Then check it yourself: you own what you say.
+
+  - id: agenda-email
+    kind: write
+    title: The agenda email
+    heading: Send the agenda 24 hours ahead
+    minutes: 15 min
+    lead: >-
+      Write the agenda email for your call. The subject names the goal, the first lines say what you'll decide, and the
+      agenda is a short list with times.
+    source: both
+    blocks:
+      - type: recall
+        label: The call you chose this morning
+        day: 56
+        lesson: choose-the-call
+        fields:
+          - { id: call, label: Call }
+      - { type: field, id: agenda-email }
+    fields:
+      - { id: agenda-email, label: The agenda email, kind: area, rows: 7, placeholder: "Subject line · the goal in one sentence · agenda with times · the decisions you need" }
+
+scoring:
+  agenda-email:
+    modelAnswer: >-
+      Subject: Wednesday sync: agree the June 15 rollout plan. Hi Dana, hi Kevin, tomorrow's 20 minutes are to agree the
+      rollout plan. I'll need two decisions: approve the June 15 plan, and move Spanish to after the rollout. Agenda: 1.
+      Pilot results, 5 min. 2. Risks and the open high bug, 5 min. 3. Decisions, 7 min. 4. Next steps, 3 min. If you'd like
+      anything else covered, reply before 5 pm tomorrow. Thanks, I'll send notes within two hours of the call.
+    scoringPoints:
+      - The subject line names the goal, and the first lines say which decisions you need
+      - The agenda is a short list with times that add up to the call length
+      - It was sent 24 hours ahead and invites the client to add items

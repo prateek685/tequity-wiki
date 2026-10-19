@@ -1,0 +1,178 @@
+# Day 5 quiz pool: running the first weekly sync with Dana: update, risk and ask, curveballs, closing on time. Shows 5 of 10.
+pool: day-05
+questions:
+  - id: D05-01
+    type: mcq
+    stem: "Ten minutes in, Dana says, “I've got to jump in 5. Anything else?” You haven't covered next steps yet. What do you say?"
+    options:
+      - text: "“No, that's all, thanks!”"
+        correct: false
+        explanation: Your ask never gets made, and the Epic risk keeps growing.
+      - text: "“Just one thing: could you confirm who signs the security form by Tuesday? I'll send the written update within the hour.”"
+        correct: true
+        explanation: The one ask that matters, with a date, then the follow-up. Done in 15 seconds.
+      - text: "“Can we reschedule to finish the agenda?”"
+        correct: false
+        explanation: Another meeting for a 15-second ask. Make the ask now.
+      - text: "“Okay, I'll email you everything else.”"
+        correct: false
+        explanation: The ask gets buried in an email she may not read before Tuesday.
+    source: { quote: "I've got to jump in 5 — anything else?", page: 33 }
+
+  - id: D05-02
+    type: mcq
+    stem: "Dana asks, “Who signs that security form?” You don't know who on her side signs it. What's the best reply?"
+    options:
+      - text: "“Probably you, I'd guess?”"
+        correct: false
+        explanation: A guess. If it's wrong, the form waits on the wrong person for days.
+      - text: "“That's Lakeside's form, so they should know. Maybe ask Sam?”"
+        correct: false
+        explanation: Passing it on. The signer is on Brightpath's side, and you need Dana's help to find them.
+      - text: "“I'm not sure who it is on your side, and that's my ask today. Could you find out who at Brightpath signs it and let me know by Tuesday?”"
+        correct: true
+        explanation: Honest about the gap, and the gap becomes a clear ask with a date.
+      - text: "“I'll figure it out at some point.”"
+        correct: false
+        explanation: No date, and you can't find it out without her. Access is still needed by March 16.
+    source: { quote: "Confirm who at Brightpath signs Lakeside's security form, by Tue Mar 10.", page: 32 }
+
+  - id: D05-03
+    type: mcq
+    stem: "Dana asks, “Can we add a quick look at the reminders in the demo too?” The SMS number is still in carrier checks. What's the best reply?"
+    options:
+      - text: "“Sure, no problem!”"
+        correct: false
+        explanation: A promise that depends on something you don't control. If the number isn't cleared, the demo misses it.
+      - text: "“No, that's not possible.”"
+        correct: false
+        explanation: Too fast. You can show part of it, and she may still get what she needs.
+      - text: "“Short answer: maybe. Live reminders depend on the SMS number clearing carrier checks. I'll confirm by Wednesday; if it hasn't cleared, I'll show the approved wording and the schedule instead.”"
+        correct: true
+        explanation: An honest answer first, the reason in one line, a date, and a fallback she can live with.
+      - text: "“Well, toll-free numbers go through carrier verification with the messaging provider, which involves…”"
+        correct: false
+        explanation: A technical explanation instead of an answer.
+    source: { quote: "Can we add a quick look at the reminders in the demo too?", page: 33 }
+
+  - id: D05-04
+    type: mcq
+    stem: "After the agenda, Dana asks, “So, how's it going?” Which update is best?"
+    options:
+      - text: "“Short answer: we're on track for the Sprint 3 demo next Friday. Video booking is at 75%, and your reminder wording is with Lakeside compliance.”"
+        correct: true
+        explanation: The status first, then two facts. Done in 15 seconds.
+      - text: "“Monday we fixed two bugs in search, Tuesday we did code reviews, Wednesday we started the video-room link…”"
+        correct: false
+        explanation: Listing every task you touched hides what matters.
+      - text: "“Good, good. Pretty busy week.”"
+        correct: false
+        explanation: Friendly, but no facts. Dana has nothing to report upwards.
+      - text: "“Mostly fine, but there are a few things I should explain first…”"
+        correct: false
+        explanation: Background before the answer. Lead with the status.
+    source: { quote: "Short answer: we're on track for the Sprint 3 demo next Friday.", page: 32 }
+
+  - id: D05-05
+    type: mcq
+    stem: "Dana asks, “Anything I should worry about?” Which reply handles the risk best?"
+    options:
+      - text: "“Nothing major, we're fine.”"
+        correct: false
+        explanation: Hiding the Epic risk. If it surfaces later, she'll wonder what else you didn't say.
+      - text: "“Lakeside IT is really slow. Sam keeps adding steps.”"
+        correct: false
+        explanation: Blame doesn't move anything. Give the risk, the date and what you need.
+      - text: "“One risk: Epic access. Sam needs a signed security form first, and we need access by March 16. Could you confirm by Tuesday who signs it on your side?”"
+        correct: true
+        explanation: One risk, its date, and one clear ask with a deadline.
+      - text: "“A few things: the SMS number, the Epic form, some flaky tests, QA capacity, and the demo environment…”"
+        correct: false
+        explanation: A long list buries the one risk that matters.
+    source: { quote: "One risk: Epic access. Sam needs a signed security form first.", page: 32 }
+
+  - id: D05-06
+    type: mcq
+    stem: "Dana asks, “Should I be worried about that SMS number?” It was submitted on March 3. What's the best reply?"
+    options:
+      - text: "“Yes, it's a big problem.”"
+        correct: false
+        explanation: Alarming without facts. It's a watch item, not a blocker yet.
+      - text: "“Not yet. It went into carrier checks on March 3, and that usually takes 5–7 business days. If it hasn't cleared by Wednesday, I'll tell you that day.”"
+        correct: true
+        explanation: Answer first, the facts in one line, and when she'll hear from you next.
+      - text: "“I have no idea, it's with the carrier.”"
+        correct: false
+        explanation: You know the timeline. Share it and own the follow-up.
+      - text: "“Toll-free verification needs a campaign registration, use-case review and opt-in proof…”"
+        correct: false
+        explanation: Process detail instead of an answer. She asked whether to worry.
+    source: { quote: "The toll-free SMS number is in carrier verification (submitted Mar 3; usually 5–7 business days).", page: 32 }
+
+  - id: D05-07
+    type: scenario
+    clientLine: "“…and then the booth vendor sent the wrong banners. Can you believe it? So we had to call around all morning…”"
+    stem: Dana has been talking about SXSW for five minutes of your 15-minute sync. What do you do?
+    options:
+      - text: Keep listening; it would be rude to interrupt a client
+        correct: false
+        explanation: Polite, but the risk and the ask may never come up, and the call runs over.
+      - text: "“That sounds like a stressful morning! I want to make sure we finish on time for you, so let me give you the quick update and the one risk.”"
+        correct: true
+        explanation: A warm reply, then back to the agenda. Keeping time is part of leading the call.
+      - text: "“Can we get back to the actual agenda, please?”"
+        correct: false
+        explanation: Right idea, but it sounds annoyed. Acknowledge her first.
+      - text: Share your own long story about a conference
+        correct: false
+        explanation: It makes the tangent longer. Small talk should be 20–30 seconds.
+    source: { quote: "one risk and one ask → next steps → close on time", page: 32 }
+
+  - id: D05-08
+    type: scenario
+    clientLine: "“Just so you know, my CEO is coming to the demo next Friday, so I want it polished.”"
+    stem: What's the best reply?
+    options:
+      - text: "“Don't worry, it'll be fine.”"
+        correct: false
+        explanation: Reassurance with no plan. She needs to see that you've heard her.
+      - text: "“Thanks for the heads-up. We'll do a full dry run on Thursday, and I'll send you the demo outline by Wednesday so you can check it shows what he cares about.”"
+        correct: true
+        explanation: You take the new fact seriously and answer with a plan and dates.
+      - text: "“Then maybe we should move the demo until everything is finished.”"
+        correct: false
+        explanation: Moving the date because the stakes went up hurts trust more than a simple demo would.
+      - text: "“We'll show him everything: every screen, the code and the test results.”"
+        correct: false
+        explanation: A CEO wants a short, clear story, not every detail.
+    source: { quote: "Your CEO will attend next Friday's demo, so you want it polished.", page: 33 }
+
+  - id: D05-09
+    type: written
+    stem: >-
+      With two minutes left, Dana says, “Great. So what are the next steps?” Write your close in 2–3 sentences,
+      covering both her action and yours.
+    modelAnswer: >-
+      To recap: the demo is next Friday at 10, and you'll confirm by Tuesday who signs the security form. I'll finish
+      video booking and reschedule and cancel before then, and I'll send the written update within the hour. Thanks,
+      Dana, and have a great SXSW!
+    scoringPoints:
+      - Recaps the client's action with a date (the form signer by Tuesday)
+      - States your own actions and promises the written update with a time
+      - Short and ends the call on time
+    source: { quote: "To recap: demo next Friday, and you'll confirm the form signer by Tuesday.", page: 32 }
+
+  - id: D05-10
+    type: written
+    stem: >-
+      It's Tuesday, March 10, 11 am, and Dana hasn't told you who signs the security form. Write a short Slack message
+      to her (2–3 sentences), with the ask first.
+    modelAnswer: >-
+      Hi Dana, could you let me know today who at Brightpath signs Lakeside's security form? Sam can't open Epic access
+      until it's signed, and we need access by Monday, March 16 to keep the pilot on track. Once I have the name, I'll
+      send them and Sam everything they need.
+    scoringPoints:
+      - The ask and the deadline come first
+      - Gives the reason and impact in one line (Epic access by March 16, the pilot)
+      - Polite, short, and offers to take the next step
+    source: { quote: "It is not signed yet. Still needed by Mon Mar 16.", page: 32 }

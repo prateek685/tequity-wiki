@@ -1,0 +1,128 @@
+day: 47
+block: 10
+title: When the demo breaks
+type: normal
+storyDate: Tuesday, May 5
+minutes: About 50 min
+intro: >-
+  Today is the end-of-sprint demo, and halfway through, the test server stops loading. You go through the demo
+  checklist, learn how to recover calmly, and write the lines you'll use.
+lessons:
+  - id: checklist
+    kind: prep
+    title: The demo checklist
+    minutes: 5 min
+    blocks:
+      - type: yesterday
+        text: >-
+          the pilot went live at three clinics. You narrated tomorrow's demo to Dana, result first and then the story, and
+          wrote your script.
+      - type: scene
+        when: Tuesday, May 5 · 8:30 am Central · pilot day two
+        text: >-
+          The demo is at 10. The test server can be slow around 9 am ET while the nightly data refresh finishes, and the
+          live pilot isn't affected. You recorded a 2-minute backup of the same flow yesterday and saved four
+          screenshots. Go through the checklist before you join.
+      - type: steps
+        items:
+          - { title: Test data only, text: "Never real PHI." }
+          - { title: Rehearse once, end to end, text: "On the same machine you'll share from." }
+          - { title: Backup ready, text: "A video or screenshots you can open in seconds." }
+          - { title: Notifications off, text: "Other apps closed." }
+          - { title: Timebox it, text: "10 minutes of demo, 10 minutes of questions." }
+          - { title: Recap draft ready, text: "You'll send it the same day." }
+    fields:
+      - { id: ready, label: "What on this list is not ready yet?", kind: area, rows: 2, placeholder: "e.g. Notifications still on; backup recording not tested" }
+      - { id: fix, label: What I'll do before the call, kind: line }
+    source: both
+
+  - id: demo-breaks
+    kind: learn
+    title: When the demo breaks
+    heading: Name it, switch, move on
+    minutes: 10 min
+    lead: >-
+      Demos fail even when the work is good. The client remembers how you handled it.
+    blocks:
+      - type: steps
+        items:
+          - { title: Stay calm and name it, text: "“Looks like the test server is slow.”" }
+          - { title: Switch to the backup, text: "The recording or the screenshots." }
+          - { title: Move on, text: "Don't debug live for more than 30 seconds." }
+          - { title: Follow up in the recap, text: "What happened and what you'll do about it." }
+      - type: compare
+        beforeLabel: Debug live
+        afterLabel: Name it and switch
+        before: >-
+          “Hmm, that's weird. Let me refresh. Let me restart it. Sorry, one second, I think it's the network…”
+        after: >-
+          “Looks like the test server is slow this morning. That's our test environment, not the live pilot. Let me switch
+          to the recording so we don't lose time.”
+      - type: heading
+        text: Collecting feedback
+      - type: text
+        text: >-
+          Ask open questions, write down their exact words, play back the key feedback, and confirm what goes into the
+          next sprint.
+      - type: example
+        text: >-
+          “Lisa, does this match how your team handles cancellations? What would stop them from using it?”
+
+  - id: broken-demo
+    kind: mock
+    title: A demo that breaks
+    heading: Run the demo, then the failure
+    minutes: 15 min
+    lead: >-
+      Level 2: Dana is busy and outcome-driven, with Lisa Chen on the call. About halfway through, tell the AI the demo
+      has frozen. Recover in under 30 seconds, and leave with specific feedback.
+    cardId: S30
+    level: 2
+    scriptNote: Use it the first time, then try the call again without it.
+
+  - id: broken-review
+    kind: reflect
+    title: How did the call go?
+    minutes: 5 min
+    lead: Tick what you managed, then note what the AI told you.
+    checksTitle: On this call, I…
+    checks:
+      - named the failure calmly and switched to the backup fast
+      - separated the test server from the live pilot
+      - collected feedback in Lisa's own words
+      - promised a written recap with next steps
+    fields:
+      - { id: went-well, label: What went well, kind: area, placeholder: "From the AI's feedback" }
+      - { id: fix-next, label: One thing to fix next time, kind: area, placeholder: "e.g. I tried to fix it for a minute before switching" }
+    rubric: true
+
+  - id: recovery-lines
+    kind: write
+    title: Recovery lines
+    heading: The lines you'll use if it breaks
+    minutes: 10 min
+    lead: >-
+      Write the recovery lines you'll use, then update your demo script from yesterday.
+    source: both
+    blocks:
+      - { type: field, id: name-it }
+      - { type: field, id: switch }
+      - { type: field, id: worry }
+      - { type: field, id: script-change }
+    fields:
+      - { id: name-it, label: "Name it (one sentence)", kind: line, placeholder: "Looks like…" }
+      - { id: switch, label: "Switch to the backup (one sentence)", kind: line }
+      - { id: worry, label: "If the client asks “Will this happen to my staff?”", kind: area, rows: 2 }
+      - { id: script-change, label: What I changed in my demo script, kind: area, rows: 2 }
+
+scoring:
+  recovery-lines:
+    modelAnswer: >-
+      Name it: looks like the test server is slow this morning. Switch: that's our test environment, not the live pilot,
+      so let me switch to the recording so we don't lose time. If asked whether it will happen to staff: the live pilot
+      runs on production and isn't affected; this was the test server during its nightly data refresh. I'll include it
+      in today's recap. Script change: added the backup recording as step two, and moved the demo to after 9:30 am.
+    scoringPoints:
+      - Names the failure in one calm sentence and switches to the backup without debugging live
+      - Separates the test environment from the live pilot, with facts rather than reassurance
+      - Promises to cover it in the written recap

@@ -1,0 +1,178 @@
+# Day 7 quiz pool: Tuesday, March 10. SMS reminders 2 days late, "Why is this taking so long?", the 5-line daily
+# status. Shows 5 of 10.
+pool: day-07
+questions:
+  - id: D07-01
+    type: mcq
+    stem: "Dana calls: “Why is this taking so long? The reminders were supposed to be done yesterday.” Which first sentence is best?"
+    options:
+      - text: "“So, to send business texts in the US, there's a process called 10DLC and toll-free verification, which…”"
+        correct: false
+        explanation: History and jargon first. Dana will cut in before you reach the answer.
+      - text: "“I'm so sorry, Dana, I really apologise, this is on us.”"
+        correct: false
+        explanation: A long apology with no facts. She still doesn't know when it will work.
+      - text: "“Short answer: the reminder code is done. We're waiting on US carrier approval for the SMS number, which should come by Wednesday, two days late.”"
+        correct: true
+        explanation: What's late, by how much and why, in one breath. Then the details if she wants them.
+      - text: "“It's not really our fault, the carriers are slow.”"
+        correct: false
+        explanation: Blame instead of facts and a plan. It makes you sound like the last vendor.
+    source: { quote: "Short answer: the reminder code is done.", page: 38 }
+
+  - id: D07-02
+    type: mcq
+    stem: "Dana asks, “Can't you just call the carrier and push it?” You already asked the SMS provider to speed it up, and they couldn't. What do you say?"
+    options:
+      - text: "“Sure, I'll call them today and get it moving.”"
+        correct: false
+        explanation: A promise you can't keep. When nothing changes, trust drops further.
+      - text: "“That's not how carrier verification works.”"
+        correct: false
+        explanation: Correct, but it sounds dismissive and gives her nothing.
+      - text: "“We tried that: we asked the provider to expedite, and it isn't possible. We also asked Kevin about Brightpath's verified number, but marketing uses it. It's on track for Wednesday.”"
+        correct: true
+        explanation: Facts on what you already tried, then the date. She sees you owned it.
+      - text: "“Maybe? I'm not sure who to call.”"
+        correct: false
+        explanation: Sounds lost. Say what you've done and what happens next.
+    source: { quote: "Can't you just call the carrier and push it?", page: 38 }
+
+  - id: D07-03
+    type: mcq
+    stem: "Dana asks, “Is this going to happen again with the Epic stuff?” Epic access is still pending; the form was signed this morning. Which reply is best?"
+    options:
+      - text: "“No, don't worry, Epic will be fine.”"
+        correct: false
+        explanation: Reassurance you can't back up. If Epic is late, she'll remember this sentence.
+      - text: "“That's Lakeside's problem, not ours.”"
+        correct: false
+        explanation: Blame. Lakeside's delay still moves her pilot.
+      - text: "“Let's not worry about Epic right now.”"
+        correct: false
+        explanation: Hiding a known risk the day she asks about it.
+      - text: "“It could. It's the same kind of outside dependency. The form was signed this morning and is with Sam; we need access by March 16. If it isn't here, you'll hear from me that day.”"
+        correct: true
+        explanation: Honest, with the date that matters and when she'll hear. That's what her last vendor never did.
+    source: { quote: "Is this going to happen again with the Epic stuff?", page: 39 }
+
+  - id: D07-04
+    type: mcq
+    stem: Dana reads your daily status in the project channel. Which “Blocked” line is most useful to her?
+    options:
+      - text: "“Blocked: some carrier issue.”"
+        correct: false
+        explanation: Vague. She can't tell how long, or whether she can help.
+      - text: "“Blocked: SMS number waiting on carrier verification, expected Wed Mar 11. Nothing needed from you.”"
+        correct: true
+        explanation: What, until when, and whether she must act. One line.
+      - text: Leave the Blocked line out, since there's nothing you can do about it
+        correct: false
+        explanation: Leaving it out hides the reason reminders are late.
+      - text: "“Blocked: as discussed.”"
+        correct: false
+        explanation: Readers who weren't in the discussion, like her CEO, get nothing.
+    source: { quote: "Done · Next · Blocked · Risk · Need from you.", page: 34 }
+
+  - id: D07-05
+    type: mcq
+    stem: "Kevin reads your status and asks, “Anything you need from me today?” You don't need anything. What should the “Need from you” line say?"
+    options:
+      - text: Leave it blank
+        correct: false
+        explanation: A blank line makes the reader wonder if you forgot.
+      - text: "“Need from you: none.”"
+        correct: true
+        explanation: “None” is a valid answer, and it tells Kevin something useful.
+      - text: "“Nothing for now, but maybe later something might come up, we'll see.”"
+        correct: false
+        explanation: Words that say nothing and create doubt.
+      - text: "“Need from you: please review the whole sprint board.”"
+        correct: false
+        explanation: Inventing an ask to fill the line wastes his time.
+    source: { quote: "One line each, and \"none\" is a valid answer.", page: 34 }
+
+  - id: D07-06
+    type: mcq
+    stem: "Dana sighs: “What do I tell my CEO?” Which reply helps her most?"
+    options:
+      - text: "“Tell him it's the carrier's fault.”"
+        correct: false
+        explanation: Blame doesn't help Dana look in control in front of her CEO.
+      - text: "“Just say it's in progress.”"
+        correct: false
+        explanation: Too vague. Her CEO will ask the same question again.
+      - text: "“I can write him a detailed technical explanation of carrier verification.”"
+        correct: false
+        explanation: The CEO wants the impact, not the technology.
+      - text: "“If it helps, I'll send you three lines you can forward in the next 30 minutes: what's late, why, and that it doesn't affect April 27.”"
+        correct: true
+        explanation: You give her something ready to forward, with a time. She doesn't have to rewrite your words.
+    source: { quote: "If it helps, I can send you three lines you can forward to your CEO in the next 30 minutes.", page: 38 }
+
+  - id: D07-07
+    type: scenario
+    clientLine: "“I don't need the history. When will it work?”"
+    stem: You had started explaining how carrier verification works. What do you say next?
+    options:
+      - text: "“Sure, sorry. So anyway, after we submitted on March 3, the carriers…”"
+        correct: false
+        explanation: You apologise and carry on with the history she just asked you to skip.
+      - text: "“Wednesday. Reminders will be live in staging two days late, with no impact on the April 27 pilot.”"
+        correct: true
+        explanation: The date first, then the impact. Stop there unless she asks for more.
+      - text: "“It's hard to say exactly.”"
+        correct: false
+        explanation: You do have a date. Not giving it sounds evasive.
+      - text: "“I just need two more minutes to explain the context.”"
+        correct: false
+        explanation: Arguing for the background she said she doesn't need.
+    source: { quote: "I don't need the history — when will it work?", page: 39 }
+
+  - id: D07-08
+    type: scenario
+    clientLine: "“Your update yesterday listed twelve things. Which one should I worry about?”"
+    stem: Only one item matters to the pilot. What's the best reply?
+    options:
+      - text: "“All of them are important, to be honest.”"
+        correct: false
+        explanation: If everything matters, nothing does. She asked you to choose.
+      - text: "“Only one: Epic access, needed by March 16 for the pilot. From today I'll send five lines: done, next, blocked, risk, and what I need from you.”"
+        correct: true
+        explanation: You answer with the one risk and fix the format so she never has to ask again.
+      - text: "“I'll send you a longer version with more detail on each.”"
+        correct: false
+        explanation: More detail makes the real risk even harder to find.
+      - text: "“None, really. It was just so you know what we did.”"
+        correct: false
+        explanation: Hides the Epic risk, and confirms the update wasn't for her.
+    source: { quote: "Listing every task you touched.", page: 6 }
+
+  - id: D07-09
+    type: written
+    stem: >-
+      Brightpath's COO signed Lakeside's security form this morning. Write a 2–3 sentence message to Sam Porter
+      (Lakeside IT) that sends it on and asks for the Epic sandbox access.
+    modelAnswer: >-
+      Hi Sam, attached is Lakeside's security form, signed by Brightpath's COO this morning. Could you open Epic
+      sandbox access by Monday, March 16? We need it then to keep the Epic sync on schedule for the April 27 pilot.
+    scoringPoints:
+      - The ask and the date are specific (by Mon Mar 16), not “at the earliest”
+      - One line of reason that links the date to the pilot
+      - Short, polite and plain, with no filler or repeated “kindly”
+    source: { quote: "Short sentences, active voice, specific asks.", page: 34 }
+
+  - id: D07-10
+    type: written
+    stem: >-
+      Dana asks for the three lines you promised: “Something I can forward to my CEO about the reminders.” Write
+      them.
+    modelAnswer: >-
+      SMS reminders will be live in staging on Wednesday, two days late. The code is done; US carriers must approve
+      the texting number first, which takes 5–7 business days. No impact on the April 27 pilot, and Friday's demo
+      shows reminders working with test numbers.
+    scoringPoints:
+      - The first line says what's late and by how much
+      - One plain reason, with no excuses, blame or apologies
+      - States the impact (none on the pilot) and what the CEO will see on Friday
+    source: { quote: "Facts, not excuses or apologies", page: 38 }

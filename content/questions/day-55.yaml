@@ -1,0 +1,166 @@
+# Day 55 quiz pool: Friday, May 15. Co-leading a second segment, the pre-call card, the recap, and the weekly scorecard. Shows 5 of 10.
+pool: day-55
+questions:
+  - id: D55-01
+    type: mcq
+    stem: "You co-lead a second call segment. What do you do the evening before?"
+    options:
+      - text: "Fill in the pre-call card: goal, opener, what to say, what to ask."
+        correct: true
+        explanation: "Prepare it like a full call."
+      - text: "Nothing. You've done it before."
+        correct: false
+        explanation: "Each call needs its prep."
+      - text: "Read the PM's notes only."
+        correct: false
+        explanation: "You own your segment."
+      - text: "Prepare a long script to read."
+        correct: false
+        explanation: "Reading out loud sounds stiff."
+    source: { quote: "Pre-call card.", page: 130 }
+
+  - id: D55-02
+    type: mcq
+    stem: "The call is over. Which comes next in the weekly cycle?"
+    options:
+      - text: "Write the recap, then rate the week."
+        correct: true
+        explanation: "Recap, weekly scorecard."
+      - text: "Wait until Monday."
+        correct: false
+        explanation: "The details fade."
+      - text: "Only rate the week."
+        correct: false
+        explanation: "The recap comes first."
+      - text: "Ask the client to write the recap."
+        correct: false
+        explanation: "It's yours."
+    source: { quote: "Recap. Weekly scorecard.", page: 130 }
+
+  - id: D55-03
+    type: mcq
+    stem: "The self-check before the weekend asks: “Did I suggest something they didn't ask for?” Which answer shows you did?"
+    options:
+      - text: "“I proposed the 72-hour eligibility check, and the waitlist refill.”"
+        correct: true
+        explanation: "Both were unprompted ideas."
+      - text: "“I answered all of Maria's questions.”"
+        correct: false
+        explanation: "Answers, not suggestions."
+      - text: "“I fixed the bug Lisa reported.”"
+        correct: false
+        explanation: "Asked for."
+      - text: "“I sent the recap on time.”"
+        correct: false
+        explanation: "Good, but not an idea."
+    source: { quote: "Did I suggest something they didn't ask for?", page: 131 }
+
+  - id: D55-04
+    type: mcq
+    stem: "Which question checks that you're ready to talk metrics with a client?"
+    options:
+      - text: "“Do I know the one metric my client cares about most?”"
+        correct: true
+        explanation: "The Friday self-check question."
+      - text: "“Do I know every table in the database?”"
+        correct: false
+        explanation: "Not a client question."
+      - text: "“Did I finish all my tickets?”"
+        correct: false
+        explanation: "Not about the client."
+      - text: "“Did I talk for most of the call?”"
+        correct: false
+        explanation: "Not a goal."
+    source: { quote: "Do I know the one metric my client cares about most?", page: 131 }
+
+  - id: D55-05
+    type: mcq
+    stem: "What do you keep in your journal this week?"
+    options:
+      - text: "The feature-to-metric map, the improvement proposal, and the requirements recap from the live call."
+        correct: true
+        explanation: "The three items listed for the week."
+      - text: "Only the mock call scores."
+        correct: false
+        explanation: "Misses the proposal."
+      - text: "The client's private patient data."
+        correct: false
+        explanation: "Never. No PHI."
+      - text: "Nothing."
+        correct: false
+        explanation: "The journal is how you show progress."
+    source: { quote: "Keep in your journal", page: 131 }
+
+  - id: D55-06
+    type: mcq
+    stem: "The PM gives you two lines of feedback after the call. What do you write down?"
+    options:
+      - text: "Their exact words, then one change you'll make next time."
+        correct: true
+        explanation: "Their words are more useful than a summary."
+      - text: "Your summary of their feedback."
+        correct: false
+        explanation: "It will drift from what they said."
+      - text: "Nothing, you'll remember it."
+        correct: false
+        explanation: "You won't."
+      - text: "Only the positive line."
+        correct: false
+        explanation: "Both lines matter."
+    source: { quote: "Recap. Weekly scorecard.", page: 130 }
+
+  - id: D55-07
+    type: scenario
+    clientLine: "Can you stay on and walk us through your recap?"
+    stem: "The client asks you to present your recap live, on the call. What do you do?"
+    options:
+      - text: "“Sure. The decision was X. The actions are Y with owners and dates. I'll send it in writing today.”"
+        correct: true
+        explanation: "Leads with the decision and promises the written version."
+      - text: "“I haven't written it yet.”"
+        correct: false
+        explanation: "You can give the decision now."
+      - text: "“I'll let the PM do it.”"
+        correct: false
+        explanation: "It's your segment."
+      - text: "“It's all in the notes.”"
+        correct: false
+        explanation: "Doesn't answer."
+    source: { quote: "Recap. Weekly scorecard.", page: 130 }
+
+  - id: D55-08
+    type: scenario
+    clientLine: "Wait, who's picking the clinic for the test?"
+    stem: "You're closing your segment and a client asks about a next step you hadn't assigned. What do you say?"
+    options:
+      - text: "“Good catch. Lisa, can you pick the clinic by Monday? I'll confirm in the recap.”"
+        correct: true
+        explanation: "Names an owner and a date."
+      - text: "“We'll figure it out.”"
+        correct: false
+        explanation: "No owner."
+      - text: "“Someone will check.”"
+        correct: false
+        explanation: "The anti-pattern."
+      - text: "“I'll do it all.”"
+        correct: false
+        explanation: "You can't own what's the client's."
+    source: { quote: "Recap. Weekly scorecard.", page: 130 }
+
+  - id: D55-09
+    type: written
+    stem: "Write one line of proof for the Understand pillar for this week, based on what you did."
+    modelAnswer: "On Monday I mapped the eligibility check to the clean-claim rate (84%, target 95%), and on Thursday I used it to answer Dana's question about investors."
+    scoringPoints:
+      - "Names something you did, not a feeling"
+      - "Links to a business metric with a number"
+    source: { quote: "Did I connect at least one decision to a business metric today?", page: 131 }
+
+  - id: D55-10
+    type: written
+    stem: "Write one thing you'll change next week to lead a call with backup, based on your feedback."
+    modelAnswer: "I'll write the agenda and send it 24 hours before, and I'll practise saying the decision first in my recap, because my feedback said I started with background."
+    scoringPoints:
+      - "Names one concrete change tied to feedback"
+      - "Is specific enough to check next week"
+    source: { quote: "Recap. Weekly scorecard.", page: 130 }

@@ -1,0 +1,173 @@
+day: 17
+block: 4
+title: AI before the call
+type: normal
+storyDate: Tuesday, March 24
+minutes: About 55 min
+intro: >-
+  Dana moved the weekly sync to today. You prepare it in 10 minutes with AI, safely, and run the call from the agenda
+  you built.
+lessons:
+  - id: ai-prep
+    kind: prep
+    title: A sync moved to today
+    heading: Prepare today's sync with AI
+    minutes: 10 min
+    blocks:
+      - type: yesterday
+        text: >-
+          you told Kevin “I'm handling it” for Friday's UAT release and promised him the release checklist in writing
+          by Wednesday noon.
+      - type: scene
+        when: Tuesday, March 24 · 8:30 am Central
+        text: >-
+          Dana is traveling at the end of the week, so she moved the weekly sync from Friday to this morning. It's
+          been four weeks since the Epic access request, and it's now blocking the team. Dana still hasn't decided
+          when the clinic dashboard comes, and Laura's questionnaire is due on April 3. You have 10 minutes.
+      - type: text
+        text: >-
+          Copy the prep prompt below. The facts are already in it, with no names of people, patients or companies.
+          Paste it into your AI tool, read what comes back, and edit it into your pre-call card. Keep what's true and
+          useful; cut the rest.
+      - type: copy
+        label: Copy prep prompt
+        text: |
+          I have a 15-minute weekly sync call with the VP of Product at a US telehealth company. She is traveling at the end of the week and wants decisions made quickly.
+
+          Context: we are the engineering partner building a patient booking app (in-person and video visits, SMS reminders, intake forms, a clinic schedule view) for a group of primary-care clinics. The pilot at 3 clinics starts on April 27.
+          - This sprint (ends Friday, March 27): intake form 70% done, clinic schedule view 50% done, Add-to-calendar button done.
+          - Access to the clinics' EHR test environment was requested on February 24 and is still pending. Their IT team says approval takes 1–2 weeks. It is now blocking our EHR connection work.
+          - A clinic dashboard: we sent an option on March 19 (8–10 days of work, proposed for after the pilot). We're waiting for her decision.
+          - A prospective hospital customer sent a 120-question security questionnaire on March 23, due April 3.
+
+          My goal for the call: give the sprint update, raise the EHR access risk, and get two decisions: (1) she asks the clinics' medical lead to push the access approval this week; (2) she decides the dashboard timing by Friday.
+
+          1. Suggest a 3-point agenda.
+          2. List the 8 questions she is most likely to ask me, including 2 hard ones.
+          3. List 3 risks or concerns I should raise proactively.
+          4. Give me a natural opening line and a closing line.
+          Keep it to one page.
+      - type: text
+        text: Now edit the AI's output into your card. Use your own words, and check every fact against what you know.
+    fields:
+      - { id: goal, label: My goal for this call, kind: line }
+      - { id: agenda, label: My 3-point agenda, kind: area, rows: 3 }
+      - { id: likely-questions, label: "Questions she's likely to ask (keep the best 5)", kind: area, rows: 5 }
+      - { id: hard-answer, label: "The hardest one + my answer", kind: area, rows: 2, placeholder: "“Can't you just build against a fake Epic?” → …" }
+      - { id: risks, label: Risks I'll raise, kind: area, rows: 3 }
+      - { id: opener, label: My opener, kind: line }
+      - { id: closing, label: My closing line, kind: line }
+    source: both
+
+  - id: ai-before-the-call
+    kind: learn
+    title: AI before the call
+    heading: AI before the call, and the data safety rules
+    minutes: 10 min
+    lead: >-
+      Ten minutes with AI gets you an agenda, the likely questions, the risks, an opener and a closer. Never go into
+      a call cold.
+    blocks:
+      - type: steps
+        items:
+          - { title: 1 · Facts in, text: "Your goal for the call and the facts: done, in progress, risks, what you need from them." }
+          - { title: 2 · Prep out, text: "An agenda, the 8 likely questions (2 hard ones), 3 risks to raise, an opener and a closer." }
+          - { title: 3 · Edit it, text: "Into your own pre-call card. Cut what's generic, fix what's wrong, add what only you know." }
+      - type: text
+        text: >-
+          The AI doesn't know your client. It will predict some questions well and miss others. The value is in the
+          five minutes you spend thinking about its list, not in the list.
+      - { type: heading, text: Data safety }
+      - type: note
+        tone: warn
+        title: Non-negotiable in healthcare
+        text: >-
+          US health data is regulated (HIPAA). Never paste PHI (patient names, dates of birth, record numbers,
+          diagnoses, screenshots with patient data), client passwords or credentials, or confidential documents into
+          any AI tool the company hasn't approved.
+      - type: compare
+        beforeLabel: Never paste
+        afterLabel: Paste this instead
+        before: >-
+          “Mrs. J. Alvarez, DOB 04/12/1961, missed her diabetes follow-up twice; here's the Epic screenshot.”
+        after: >-
+          “A patient missed two follow-up visits. The reminder didn't reach her phone.”
+      - type: text
+        text: >-
+          Describe the situation, not the person. Use roles (“the VP of Product”) instead of names when the names
+          don't matter. When in doubt, leave it out.
+
+  - id: weekly-sync
+    kind: mock
+    title: Sync from your AI agenda
+    heading: Weekly sync run from your AI-prepared agenda
+    minutes: 15 min
+    lead: >-
+      Open with your agenda and follow it. Dana will ask a sharp follow-up on each point. Give the Epic risk a date and
+      an impact, and leave with two decisions.
+    cardId: S12
+    level: 1
+    callStep: "Keep your pre-call card open next to the call."
+    scriptNote: Use it the first time, then try the call again without it.
+
+  - id: weekly-sync-review
+    kind: reflect
+    title: How did the call go?
+    minutes: 5 min
+    lead: Tick what you managed, then note what the AI told you.
+    checksTitle: On this call, I…
+    checks:
+      - ran the call from the agenda I built with AI and edited myself
+      - gave the Epic risk a date and an impact
+      - made two clear asks with deadlines
+      - promised the recap within 2 hours
+    fields:
+      - { id: went-well, label: What went well, kind: area, placeholder: "From the AI's feedback" }
+      - { id: fix-next, label: One thing to fix next time, kind: area, placeholder: "e.g. I raised the Epic risk but forgot to ask for anything" }
+      - { id: log, label: "Did I close every loop I opened this week?", kind: area, rows: 2 }
+    rubric: true
+
+  - id: improve-card
+    kind: write
+    title: What the AI predicted
+    heading: Compare the prep with the call, and improve your card
+    minutes: 10 min
+    lead: >-
+      Which of the predicted questions actually came up? Which came up that nobody predicted? That gap is what you
+      learn to see before the next call.
+    blocks:
+      - type: recall
+        label: Your pre-call card from this morning
+        day: 17
+        lesson: ai-prep
+        fields:
+          - { id: agenda, label: Agenda }
+          - { id: likely-questions, label: Likely questions }
+          - { id: hard-answer, label: Hardest question }
+          - { id: risks, label: Risks }
+      - { type: field, id: came-up }
+      - { type: field, id: missed }
+      - type: text
+        text: Now rewrite the card as you'd want it if you ran this call again tomorrow.
+      - { type: field, id: better-card }
+    fields:
+      - { id: came-up, label: Predicted questions that came up, kind: area, rows: 3 }
+      - { id: missed, label: What came up that wasn't predicted, kind: area, rows: 3, placeholder: "e.g. Who's answering Laura's questionnaire?" }
+      - { id: better-card, label: My improved pre-call card, kind: area, rows: 8, placeholder: "Goal · agenda · 5 likely questions · hardest question + answer · risks · opener · closing" }
+
+scoring:
+  improve-card:
+    modelAnswer: >-
+      Came up: “Can't you just build against a fake Epic until access arrives?” and “Why is the dashboard after the
+      pilot?” Not predicted: “Who's answering Laura's questionnaire — you?”, and that Dana wants the dashboard at the
+      May 12 investor demo.
+      Improved card: Goal: leave with two decisions. Agenda: Sprint 4 update, the Epic risk, two decisions. Likely
+      questions: fake Epic; why the dashboard is after the pilot; who answers Laura's questionnaire; is April 27 still
+      safe; what to tell Dr. Mercer. Hardest + answer: “A fake Epic lets us keep building, but only Lakeside's real
+      access proves the sync, so we still need it by April 6.” Risks: Epic access by April 6 or the pilot is at risk.
+      Opener: “Three things today: the sprint, the Epic risk, two decisions.” Closing: “Recap within two hours with
+      both asks and dates.”
+    scoringPoints:
+      - Names which predicted questions came up and at least one that wasn't predicted
+      - The improved card adds an answer to the question the prep missed
+      - The card stays short and specific, with dates on the risk and the asks

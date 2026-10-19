@@ -1,0 +1,59 @@
+id: res-healthcare
+kind: resource
+title: "Healthcare and integration basics"
+summary: "How US healthcare works, HIPAA, revenue cycle and FHIR."
+blocks:
+  - type: text
+    text: "Business-level understanding is the goal, not expert detail."
+  - type: watch
+    url: https://www.kff.org/other-health/health-policy-101-introduction/
+    title: "KFF Health Policy 101"
+    meta: "Free online textbook · Providers, payers, Medicare and Medicaid, how money flows"
+  - type: watch
+    url: https://www.outofpocket.health/
+    title: "Out-Of-Pocket"
+    meta: "Free articles"
+  - type: watch
+    url: https://www.outofpocket.health/courses/healthcare-101-crash-course
+    title: "Out-Of-Pocket: Healthcare 101 Crash Course"
+    meta: "Optional paid"
+  - type: watch
+    url: https://www.coursera.org/learn/intro-to-healthcare
+    title: "Coursera: Introduction to Healthcare (Stanford)"
+    meta: "Optional paid"
+  - type: watch
+    url: https://www.hhs.gov/hipaa/for-professionals/privacy/laws-regulations/index.html
+    title: "HHS: Summary of the HIPAA Privacy Rule"
+    meta: "Free · What PHI is, minimum necessary"
+  - type: watch
+    url: https://www.hhs.gov/hipaa/for-professionals/security/laws-regulations/index.html
+    title: "HHS: Summary of the HIPAA Security Rule"
+    meta: "Free · Safeguards"
+  - type: watch
+    url: https://www.aapc.com/resources/what-is-revenue-cycle-management
+    title: "AAPC: What Is Revenue Cycle Management?"
+    meta: "Free · Claims, coding, denials, payments"
+  - type: watch
+    url: https://alison.com/course/revenue-cycle-management-rcm-in-healthcare
+    title: "Alison: Revenue Cycle Management in Healthcare"
+    meta: "Free course"
+  - type: watch
+    url: https://freecourse.interoptrainer.com/
+    title: "InteropTrainer: free FHIR course"
+    meta: "Free · 90–120 minutes, no signup, no coding"
+  - type: watch
+    url: https://healthit.gov/wp-content/uploads/2021/04/What-Is-FHIR-Fact-Sheet.pdf
+    title: "ONC: What Is FHIR? (2-page fact sheet)"
+    meta: "Free"
+  - type: watch
+    url: https://www.youtube.com/watch?v=wxXe1g2YjHo
+    title: "Introduction to HL7 FHIR: a tutorial for beginners"
+    meta: "Free video"
+  - type: watch
+    url: https://hl7.org/fhir/overview.html
+    title: "HL7 FHIR overview"
+    meta: "Free"
+  - type: watch
+    url: https://www.hl7.org/training/fhir-fundamentals.cfm
+    title: "HL7 International: FHIR Fundamentals course"
+    meta: "Optional paid"

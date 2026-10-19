@@ -1,0 +1,128 @@
+day: 63
+block: 13
+title: Build your readiness case
+type: normal
+storyDate: Wednesday, May 27
+minutes: About 60 min
+intro: >-
+  Gather your evidence, learn what a readiness case is, drill your weakest pillar, and draft your one-page "My
+  readiness case".
+lessons:
+  - id: gather-evidence
+    kind: prep
+    title: Gather evidence
+    minutes: 5 min
+    blocks:
+      - type: yesterday
+        text: >-
+          you led a client call on your own, sent the recap within 2 hours, and wrote the end-of-day note.
+      - type: scene
+        when: Wednesday, May 27 · 8:10 am Central · pilot day twenty-four
+        text: >-
+          Open your journal. For each pillar, find 1–2 pieces of proof: a recap, a status report, a bad-news message, or a
+          call you led. Note where each one is, so you can show it in the final review.
+    fields:
+      - { id: u-found, label: "Understand: what I found", kind: line }
+      - { id: c-found, label: "Communicate: what I found", kind: line }
+      - { id: o-found, label: "Own: what I found", kind: line }
+      - { id: s-found, label: "Stand firm: what I found", kind: line }
+    source: both
+
+  - id: readiness-case
+    kind: learn
+    title: My readiness case
+    heading: One page that proves you're ready
+    minutes: 10 min
+    lead: >-
+      For each pillar, show evidence, not adjectives. Your manager reads it before the final review.
+    blocks:
+      - type: facts
+        rows:
+          - { label: Evidence, value: "1–2 pieces per pillar: a recap, a status report, a bad-news message, a call you led." }
+          - { label: Scores, value: "Your self-score now, next to your Day 1 score." }
+          - { label: Keep working on, value: "One area per pillar you'll keep practising." }
+          - { label: Overall, value: "Why you're ready to work directly with a client, and what support you still need." }
+      - type: pillarCompare
+        label: Day 1 and now
+      - type: example
+        text: >-
+          “Communicate: I led the May 20 weekly sync and sent the recap in 1 hour 20 minutes. Day 1 → Day 90: 2 → 4. I'll
+          keep working on shorter status answers.”
+
+  - id: weakest-pillar
+    kind: mock
+    title: Weakest-pillar drill
+    heading: Drill your weakest pillar
+    minutes: 10 min
+    lead: >-
+      Look at your scorecards and pick the pillar that is still lowest. Run the drill for that pillar at Level 3, then
+      replay the hardest moment once more.
+    cardId: S48
+    level: 3
+    scriptNote: Use it the first time, then try without it.
+
+  - id: drill-review
+    kind: reflect
+    title: How did the drill go?
+    minutes: 5 min
+    lead: Tick what you managed, then note what the AI told you.
+    checksTitle: In this drill, I…
+    checks:
+      - picked the pillar from real scorecard data
+      - used that pillar's framework under pressure
+      - stayed calm when challenged
+      - replayed the hardest moment and improved it
+    fields:
+      - { id: went-well, label: What went well, kind: area, placeholder: "From the AI's feedback" }
+      - { id: fix-next, label: One thing to fix next time, kind: area }
+    rubric: true
+
+  - id: draft-readiness
+    kind: write
+    title: Draft your readiness case
+    heading: Draft "My readiness case"
+    minutes: 15 min
+    lead: >-
+      Fill in one page: evidence, scores and one area to keep working on for each pillar, then your overall case. Tomorrow
+      you finalise it and share it with your manager.
+    source: both
+    blocks:
+      - { type: field, id: understand-evidence }
+      - { type: field, id: understand-score }
+      - { type: field, id: understand-next }
+      - { type: field, id: communicate-evidence }
+      - { type: field, id: communicate-score }
+      - { type: field, id: communicate-next }
+      - { type: field, id: own-evidence }
+      - { type: field, id: own-score }
+      - { type: field, id: own-next }
+      - { type: field, id: stand-firm-evidence }
+      - { type: field, id: stand-firm-score }
+      - { type: field, id: stand-firm-next }
+      - { type: field, id: overall }
+    fields:
+      - { id: understand-evidence, label: "Understand: 2 pieces of evidence, and where to find them", kind: area, rows: 3 }
+      - { id: understand-score, label: "Understand: Day 1 score → Day 90 score", kind: line, placeholder: "e.g. 2 → 4" }
+      - { id: understand-next, label: "Understand: what I'll keep working on", kind: line }
+      - { id: communicate-evidence, label: "Communicate: 2 pieces of evidence, and where to find them", kind: area, rows: 3 }
+      - { id: communicate-score, label: "Communicate: Day 1 score → Day 90 score", kind: line, placeholder: "e.g. 2 → 4" }
+      - { id: communicate-next, label: "Communicate: what I'll keep working on", kind: line }
+      - { id: own-evidence, label: "Own: 2 pieces of evidence, and where to find them", kind: area, rows: 3 }
+      - { id: own-score, label: "Own: Day 1 score → Day 90 score", kind: line, placeholder: "e.g. 2 → 4" }
+      - { id: own-next, label: "Own: what I'll keep working on", kind: line }
+      - { id: stand-firm-evidence, label: "Stand firm: 2 pieces of evidence, and where to find them", kind: area, rows: 3 }
+      - { id: stand-firm-score, label: "Stand firm: Day 1 score → Day 90 score", kind: line, placeholder: "e.g. 2 → 4" }
+      - { id: stand-firm-next, label: "Stand firm: what I'll keep working on", kind: line }
+      - { id: overall, label: "Overall: why I'm ready to work directly with a client, and what support I still need", kind: area, rows: 4 }
+
+scoring:
+  draft-readiness:
+    modelAnswer: >-
+      Communicate: I led the May 20 weekly sync and sent the recap in 1 hour 20 minutes (journal, Week 12). Day 1 → Day 90:
+      2 → 4. I'll keep working on shorter status answers. Stand firm: I gave in on the load test at first, then offered a
+      4-hour test. 2 → 3. I'll practise one disagreement a week. Overall: I'm ready to work directly with a client. I'd
+      like one more co-led call with a technical client and feedback on my next disagreement.
+    scoringPoints:
+      - Each pillar has evidence from your journal, with where to find it
+      - The Day 1 and Day 90 scores are given, and the overall case names the support you still need
+      - One honest area to keep working on, with a concrete step

@@ -1,0 +1,132 @@
+day: 42
+block: 9
+title: One story, three levels
+type: normal
+storyDate: Tuesday, April 28
+minutes: About 50 min
+intro: >-
+  The same check-in story needs different words for different people. Today you plan it at three levels, tell it to
+  Dr. Mercer and then to Kevin without changing a single fact, and note what you changed.
+lessons:
+  - id: plan-the-levels
+    kind: prep
+    title: Plan three levels
+    minutes: 5 min
+    blocks:
+      - type: yesterday
+        text: >-
+          Dana asked for the 30-second version of the check-in fix, then two minutes on how. You led with the result and
+          the impact, named the 24-hour caveat, and gave her a sentence for her slide.
+      - type: scene
+        when: Tuesday, April 28 · 9:15 am Central · six days to the pilot
+        text: >-
+          Dr. Mercer and Kevin both want to understand the fix before May 4, and they care about different things. Dr.
+          Mercer worries about the front desk and about patient safety. Kevin wants to know how it works and what breaks.
+          Same facts, two conversations.
+      - type: recall
+        label: Your story from yesterday
+        day: 41
+        lesson: cparb-story
+        fields:
+          - { id: context, label: Context }
+          - { id: result, label: Result }
+          - { id: impact, label: Impact }
+      - type: text
+        text: >-
+          Plan the three levels for it. Write one line for each, from the shortest to the longest.
+    fields:
+      - { id: level-30, label: "30 seconds: result + impact", kind: line, placeholder: "e.g. Check-in now takes under a second instead of six…" }
+      - { id: level-2, label: "2 minutes: + approach + risks", kind: area, rows: 2 }
+      - { id: level-10, label: "10 minutes: + technical detail", kind: area, rows: 2 }
+    source: both
+
+  - id: three-levels
+    kind: learn
+    title: Three levels and the “So what?” test
+    heading: Three levels of the same story
+    minutes: 10 min
+    lead: >-
+      Start at the top level and go deeper only if they ask. You don't have three stories; you have one story you can
+      stop at three different places.
+    blocks:
+      - type: steps
+        items:
+          - { title: Executive · 30 seconds, text: "The result and the impact. Nothing else." }
+          - { title: Manager · 2 minutes, text: "Add the approach and the risks, in plain words." }
+          - { title: Engineer · 10 minutes, text: "Add the technical detail: design, failure cases, security." }
+      - type: compare
+        beforeLabel: For Dr. Mercer
+        afterLabel: For Kevin
+        before: >-
+          “Check-in now takes under a second instead of six, so the 8 am line moves faster. We keep each patient's
+          insurance check for one day, and Suncoast checks again before billing.”
+        after: >-
+          “We cache Suncoast eligibility responses in Redis for 24 hours, keyed by patient and plan, cleared on any
+          insurance change. If Suncoast is down, we serve the last result and retry every 5 minutes.”
+      - type: note
+        tone: warn
+        title: Change the words, never the facts
+        text: >-
+          Both versions say 24 hours, 0.8 seconds and the same safety net. If a fact differs between the two, someone
+          will notice, and neither version is believed.
+      - type: text
+        text: >-
+          Use the “So what?” test on every sentence. For a clinician, “So what?” means patients and staff. For a CTO, it
+          means design, risk and effort.
+
+  - id: two-audiences
+    kind: mock
+    title: Dr. Mercer, then Kevin
+    heading: The same story to two audiences
+    minutes: 15 min
+    lead: >-
+      Level 2: tell it plainly to Dr. Mercer, then say “Now Kevin” and tell it precisely to Kevin. End with a clear ask
+      about the open item.
+    cardId: S42
+    level: 2
+    scriptNote: Use it the first time, then try the call again without it.
+
+  - id: two-audiences-review
+    kind: reflect
+    title: How did the calls go?
+    minutes: 5 min
+    lead: Tick what you managed, then note what the AI told you.
+    checksTitle: On these calls, I…
+    checks:
+      - used plain business and patient language with Dr. Mercer
+      - gave Kevin precise answers on the design, a failure and security
+      - kept the facts identical in both versions
+      - asked Kevin for a clear decision on the open item
+    fields:
+      - { id: went-well, label: What went well, kind: area, placeholder: "From the AI's feedback" }
+      - { id: fix-next, label: One thing to fix next time, kind: area, placeholder: "e.g. I said “eligibility” to Dr. Mercer without explaining it" }
+    rubric: true
+
+  - id: what-changed
+    kind: write
+    title: What I changed
+    heading: Note what you changed for each audience
+    minutes: 10 min
+    lead: >-
+      Three lines. The habit is to ask, before every explanation: who is listening, and what do they care about?
+    source: both
+    blocks:
+      - { type: field, id: for-mercer }
+      - { type: field, id: for-kevin }
+      - { type: field, id: same }
+    fields:
+      - { id: for-mercer, label: For Dr. Mercer (P2) I changed…, kind: area, rows: 2, placeholder: "e.g. I left out Redis and talked about the 8 am line" }
+      - { id: for-kevin, label: For Kevin (P4) I added…, kind: area, rows: 2, placeholder: "e.g. The expiry, the failure case, the open item" }
+      - { id: same, label: What stayed exactly the same, kind: line, placeholder: "e.g. The numbers and the 24-hour caveat" }
+
+scoring:
+  what-changed:
+    modelAnswer: >-
+      For Dr. Mercer I changed the language: no Redis or cache, just under a second instead of six, the 8 am line, and
+      that Suncoast checks again before billing. For Kevin I added the design (Redis, 24-hour expiry, keyed by patient
+      and plan), the failure case (last result, retry every 5 minutes), security, and the open item with a one-day
+      estimate. The facts stayed the same: 6 seconds to 0.8, and the 24-hour caveat.
+    scoringPoints:
+      - Names a concrete change of language or detail for each audience, not just "I simplified it"
+      - Says what each listener cares about (patients and the front desk; design, risk and effort)
+      - States that the facts stayed identical in both versions

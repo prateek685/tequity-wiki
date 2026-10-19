@@ -1,0 +1,179 @@
+# Day 35 quiz pool: Friday, April 17. Dana wants April 29 by cutting testing, and staff training can only happen
+# April 28: bad news first, then disagreement, a phased option; patient apps and telehealth terms. Shows 5 of 10.
+pool: day-35
+questions:
+  - id: D35-01
+    type: mcq
+    stem: "Dana opens: “OK, I have an idea. Let's go live on the 29th — skip the regression run and do a one-hour UAT.” You also have new bad news. What comes first?"
+    options:
+      - text: "Argue against skipping regression, then mention the training date at the end."
+        correct: false
+        explanation: The news that changes her plan gets buried under the argument.
+      - text: "“Dana, before we talk about April 29, I have one more piece of news: Lakeside's staff can only do their training on April 28.”"
+        correct: true
+        explanation: The new fact first. It changes what's possible, so she needs it before you discuss her idea.
+      - text: "“Great idea, let me look into it.”"
+        correct: false
+        explanation: Encourages a plan you already know won't work.
+      - text: "“I'm afraid I have even more bad news, sorry, it's been a terrible week…”"
+        correct: false
+        explanation: Apologies and drama before the headline.
+    source: { quote: "Dana, before we talk about April 29, I have one more piece of news: Lakeside's staff can only do their training on April 28.", page: 99 }
+
+  - id: D35-02
+    type: mcq
+    stem: "Dana says: “You keep telling me no.” What's the best reply?"
+    options:
+      - text: "“Because your ideas keep being risky.”"
+        correct: false
+        explanation: Personal, and it ends the conversation.
+      - text: "“I know it's been a week of bad news, and I'm not trying to block you. Here's a way to go live early: Westside only on April 29, with reminders off, and the other two clinics on May 4.”"
+        correct: true
+        explanation: Acknowledges her frustration, then gives her a yes she can use.
+      - text: "“Sorry. Okay, let's do the 29th then.”"
+        correct: false
+        explanation: Gives in to frustration, and the testing risk is unchanged.
+      - text: "“That's my job.”"
+        correct: false
+        explanation: "Defensive, and it isn't: your job is to find a safe way forward."
+    source: { quote: "You keep telling me no.", page: 100 }
+
+  - id: D35-03
+    type: mcq
+    stem: "Dana asks: “What would you do if it were your company?” What's the best reply?"
+    options:
+      - text: "“It's not my company, so it's your call.”"
+        correct: false
+        explanation: Dodges the question an owner should answer.
+      - text: "“I'd keep May 4 with full testing. If my CEO needed an earlier start, I'd take the Westside-only option. Both protect patients from a wrong time.”"
+        correct: true
+        explanation: A clear recommendation, a fallback, and the reason.
+      - text: "“I'd skip testing too, honestly.”"
+        correct: false
+        explanation: Says what she wants to hear, against the facts.
+      - text: "“I'd have planned better from the start.”"
+        correct: false
+        explanation: Criticism, not an answer.
+    source: { quote: "What would you do if it were your company?", page: 100 }
+
+  - id: D35-04
+    type: mcq
+    stem: "Dana says: “My CEO wants the earliest possible date.” What's the best next question?"
+    options:
+      - text: "“Did he say to skip testing?”"
+        correct: false
+        explanation: Sounds like an accusation.
+      - text: "“Would a live start at one clinic on April 29 count as ‘earliest’ for him, if the full pilot follows on May 4?”"
+        correct: true
+        explanation: Tests whether a phased start meets the real goal.
+      - text: "“Why is he in such a hurry?”"
+        correct: false
+        explanation: Questions the CEO's motives instead of solving the problem.
+      - text: "“Can I talk to him directly?”"
+        correct: false
+        explanation: Goes over Dana's head.
+    source: { quote: "You would accept a Westside-only soft start if it is framed as \"going live early\".", page: 100 }
+
+  - id: D35-05
+    type: mcq
+    stem: "Dana asks why a Westside start should run with reminders off. Which answer uses the right idea?"
+    options:
+      - text: "“Because the TCPA bans reminders during a pilot.”"
+        correct: false
+        explanation: Wrong. The TCPA requires consent for automated texts; it doesn't ban pilots.
+      - text: "“Because reminders are the part the Epic fix touches. If a reminder shows the wrong time, a patient misses the visit, and that's a no-show the clinic pays for.”"
+        correct: true
+        explanation: Links the technical risk to no-shows, the cost patients and clinics feel.
+      - text: "“Because WCAG doesn't allow it.”"
+        correct: false
+        explanation: WCAG is about accessibility, not reminders.
+      - text: "“Because reminders aren't important.”"
+        correct: false
+        explanation: They're what cuts no-shows. That's why they matter.
+    source: { quote: "Scheduling and no-shows — missed appointments cost clinics money.", page: 89 }
+
+  - id: D35-06
+    type: mcq
+    stem: "Dr. Mercer asks: “Our older patients struggle with apps. Does CareBook meet WCAG?” You don't know the current status. What's the best reply?"
+    options:
+      - text: "“Yes, fully.”"
+        correct: false
+        explanation: A guess on a standard he may check.
+      - text: "“What's WCAG?”"
+        correct: false
+        explanation: A term clients in patient apps expect you to know.
+      - text: "“Accessibility fixes are part of Sprint 6, so it matters to us too. I don't have the current WCAG status with me; I'll confirm with our QA lead and reply by Monday noon your time.”"
+        correct: true
+        explanation: Knows the term, shares what's known, and gives a time for the rest.
+      - text: "“Most older patients use the phone anyway.”"
+        correct: false
+        explanation: Dismisses a real need.
+    source: { quote: "Accessibility — apps must work for older users and people with disabilities (WCAG).", page: 89 }
+
+  - id: D35-07
+    type: scenario
+    clientLine: "“Fine. Westside on the 29th. But the investor demo can't slip either.”"
+    stem: You know the May 12 investor demo only needs a demo environment. What do you say?
+    options:
+      - text: "“The demo is your problem.”"
+        correct: false
+        explanation: Dismissive about the thing she cares about most.
+      - text: "“It won't. The demo runs on the demo environment, not the live pilot, so it's safe whichever date we pick. I'll confirm the Westside plan with Lisa today and send you the updated plan by 5 pm your time.”"
+        correct: true
+        explanation: Reassures her with a fact, then closes with a dated follow-up.
+      - text: "“I can't promise anything about the demo.”"
+        correct: false
+        explanation: Raises a worry the facts don't support.
+      - text: "“Let's talk about the demo next week.”"
+        correct: false
+        explanation: Leaves her worried over the weekend for no reason.
+    source: { quote: "The investor demo on May 12 only needs a demo environment, not the live pilot.", page: 100 }
+
+  - id: D35-08
+    type: scenario
+    clientLine: "“Just skip the regression run. It's one week, what's the worst that can happen?”"
+    stem: Dana is pushing hard on the call. What do you say?
+    options:
+      - text: "“Okay, if you take responsibility for it.”"
+        correct: false
+        explanation: Agrees and hands her the blame. Partners don't do that.
+      - text: "“The worst is what happened at Westside this week, at three clinics: patients shown the wrong time. The Epic fix touches booking, sync and reminders, so that's exactly what regression checks.”"
+        correct: true
+        explanation: Holds firm with a fact she already knows, in plain words.
+      - text: "“Everything could break.”"
+        correct: false
+        explanation: Exaggerated. She'll dismiss it.
+      - text: "“I'd rather not say.”"
+        correct: false
+        explanation: She asked a direct question; answer it.
+    source: { quote: "The Epic fix touches booking, sync and reminders — the areas where wrong times reach patients.", page: 99 }
+
+  - id: D35-09
+    type: written
+    stem: >-
+      You need to tell Lisa Chen what Dana decided. Dana kept May 4 with full testing. Write your message to Lisa in
+      2–3 sentences.
+    modelAnswer: >-
+      Hi Lisa, thanks for the heads-up on training. Dana has confirmed the pilot stays on Mon May 4 at all 3 clinics,
+      with staff training on Tue Apr 28 as you proposed and UAT on Fri Apr 24. I'll send you the full schedule today;
+      could you confirm the training time by Tuesday?
+    scoringPoints:
+      - The decision and the dates first
+      - Confirms her training date fits
+      - Ends with one ask with a date
+    source: { quote: "Lisa Chen says clinic staﬀ can only do training on Tue Apr 28 (UAT stays Fri Apr 24).", page: 99 }
+
+  - id: D35-10
+    type: written
+    stem: >-
+      A new teammate asks: “What's the difference between telehealth, RPM and a patient portal? Lakeside keeps using
+      all three.” Write your answer in 2–3 sentences.
+    modelAnswer: >-
+      Telehealth is care delivered remotely: a video or phone visit, like CareBook's video visits. RPM, remote patient
+      monitoring, is devices such as blood-pressure cuffs that send readings to the care team. A patient portal is the
+      website or app where patients see records, book visits and message their care team.
+    scoringPoints:
+      - Defines all three correctly in plain words
+      - Links at least one to CareBook
+      - Short enough to say in 30 seconds
+    source: { quote: "RPM Remote Patient Monitoring: devices (blood-pressure cuﬀs, glucose meters) that send readings to care teams.", page: 169 }

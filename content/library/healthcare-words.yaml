@@ -1,0 +1,27 @@
+id: healthcare-words
+kind: glossary
+title: Healthcare words
+summary: The terms clients use without explaining them.
+day: 25
+blocks:
+  - type: facts
+    label: The US healthcare system
+    rows:
+      - { label: Provider, value: "Anyone who delivers care: hospitals, clinics, doctors, nurses." }
+      - { label: Payer, value: "Whoever pays for care: private insurers, Medicare, Medicaid, employers." }
+      - { label: Medicare, value: "Federal health insurance, mainly for people aged 65 and over." }
+      - { label: Medicaid, value: "Joint federal and state program for people with low incomes." }
+      - { label: HHS, value: "US Department of Health and Human Services: the parent agency of CMS, ONC and OCR." }
+      - { label: CMS, value: "Centers for Medicare & Medicaid Services. Runs Medicare and Medicaid." }
+      - { label: ONC, value: "The federal office for health IT and interoperability rules." }
+      - { label: Fee-for-service, value: "Providers are paid for each service they perform." }
+      - { label: Value-based care, value: "Providers are paid for outcomes and quality, not volume." }
+      - { label: ACO, value: "Accountable Care Organization: a group of providers that shares responsibility, and savings, for a patient population." }
+  - type: facts
+    label: Privacy and security
+    rows:
+      - { label: HIPAA, value: "The 1996 US law that protects the privacy and security of health information." }
+      - { label: PHI / ePHI, value: "Protected Health Information: health information that can identify a person. ePHI is PHI in electronic form." }
+      - { label: Covered entity, value: "Providers, payers and clearinghouses that must follow HIPAA." }
+      - { label: Business associate, value: "A vendor that handles PHI on behalf of a covered entity: often us." }
+      - { label: BAA, value: "Business Associate Agreement: the contract that allows a vendor to handle PHI." }

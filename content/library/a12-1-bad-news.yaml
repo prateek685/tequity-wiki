@@ -1,0 +1,70 @@
+id: a12-1-bad-news
+kind: template
+ref: "A12 · 1"
+title: "Worked example: the release slips by a week"
+summary: "Bad news (card S23): a pilot moves to May 4, with options, a recommendation and a decision deadline."
+blocks:
+  - type: text
+    text: "The whole flow for one call type: pre-call card, the call, the written follow-up, and why it works against the call rubric. Use it as a reference, then practise the matching card."
+  - { type: heading, text: "1. Pre-call card (filled)" }
+  - type: facts
+    rows:
+      - { label: "Call", value: "Dana (VP of Product) · Tue Apr 14 · 15 min · Central time" }
+      - { label: "My goal", value: "Tell Dana the pilot moves to May 4, and get a decision by Wednesday noon." }
+      - { label: "Opener", value: "“Dana, thanks for making time. I have some bad news about the pilot date, and a plan.”" }
+      - { label: "3 things I must say", value: "The new date is May 4 · the cause in one sentence, no blame · I recommend Option B, and the investor demo is safe" }
+      - { label: "3 questions I must ask", value: "Can you decide by noon tomorrow? · Can we tell Dr. Mercer together on Thursday? · Is there anything that makes May 4 hard for you?" }
+      - { label: "Risk to raise", value: "Lakeside needs time to re-plan clinic staff." }
+      - { label: "Hardest question and my answer", value: "“Why am I only hearing this now?” → “We confirmed the size of the problem this morning, and I wanted you to hear it today, not on Friday.”" }
+      - { label: "Closing line", value: "“To recap: May 4, your decision by noon tomorrow, and a Thursday call with Dr. Mercer.”" }
+  - { type: heading, text: "2. The call (a strong version)" }
+  - type: facts
+    rows:
+      - { label: "You", value: "Dana, thanks for making time. I have some bad news about the pilot date, and a plan." }
+      - { label: "Dana", value: "Okay… go ahead." }
+      - { label: "You", value: "We need to move the pilot from April 27 to May 4." }
+      - { label: "Dana", value: "A week? Why?" }
+      - { label: "You", value: "Epic sends appointment times and cancellation codes in a different format than Lakeside's documentation says. The fix is three days, plus two days to retest with their sandbox." }
+      - { label: "Dana", value: "Why am I only hearing this now?" }
+      - { label: "You", value: "We confirmed the size of it this morning, and I wanted you to hear it today, not on Friday." }
+      - { label: "You", value: "We have two options. We go live on the 27th without Epic sync and the front desks re-enter bookings by hand, or we go live on May 4 with everything working." }
+      - { label: "Dana", value: "What would you do?" }
+      - { label: "You", value: "May 4. Manual re-entry is exactly how wrong appointment times happen. And the May 12 investor demo is still safe." }
+      - { label: "Dana", value: "Can you guarantee May 4?" }
+      - { label: "You", value: "I can't guarantee it today. I'll know after Thursday's retest, and I'll update you on Thursday either way." }
+      - { label: "You", value: "I need your decision by noon tomorrow, and I'd like us to tell Dr. Mercer together on Thursday." }
+      - { label: "Dana", value: "Fine. Set up the call." }
+      - { label: "You", value: "To recap: May 4, your decision by noon tomorrow, and a joint call with Dr. Mercer on Thursday. I'll send this in writing right after the call." }
+  - { type: heading, text: "3. The written follow-up" }
+  - type: message
+    label: "The email"
+    text: |-
+      Subject: CareBook pilot — moving to Mon May 4 (decision needed by Wed noon CT)
+
+      Hi Dana,
+
+      Bottom line: the pilot needs to move from Mon Apr 27 to Mon May 4.
+
+      What happened: Epic returns appointment times and cancellation codes in a different format than Lakeside's documentation. The fix takes 3 days, plus 2 days to retest in Lakeside's Epic sandbox.
+
+      Options:
+
+      1) Go live Apr 27 without Epic sync — front desks re-enter bookings by hand (double work, high error risk).
+      2) Go live May 4 with full sync and full testing. Recommended — the May 12 investor demo stays safe.
+
+      What I need from you: your decision by Wed Apr 15, 12:00 pm CT, and your OK to set up a call with Dr. Mercer on Thursday.
+
+      Next update: Thu Apr 16, after the retest — either way.
+
+      Thanks,
+
+      [Your name]
+  - { type: heading, text: "4. Why this works" }
+  - type: facts
+    rows:
+      - { label: "The headline is in the first sentence", value: "Risks and bad news" }
+      - { label: "The cause takes one sentence and blames no one", value: "Answer-first structure" }
+      - { label: "Two options and a recommendation, tied to patient safety and the investor demo", value: "Trade-offs · Business link" }
+      - { label: "“I can't guarantee it today. I'll know Thursday.”", value: "Handling unknowns" }
+      - { label: "A clear ask with a deadline, plus the next update time", value: "Closing and next steps" }
+      - { label: "The email matches what was said on the call", value: "Written follow-up" }

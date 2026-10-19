@@ -1,0 +1,183 @@
+# Day 14 quiz pool: Thursday, March 19. Dana's three one-line requests, the discovery checklist, finding the pilot
+# priority, the question bank. Shows 5 of 10.
+pool: day-14
+questions:
+  - id: D14-01
+    type: mcq
+    stem: "Dana's first request: “The app needs to be faster.” What's the best first question?"
+    options:
+      - text: "“We'll add caching everywhere. Does that work?”"
+        correct: false
+        explanation: A technical fix before you know which screen is slow, or for whom.
+      - text: "“Which part feels slow, and who's waiting when it happens: patients or clinic staff?”"
+        correct: true
+        explanation: Finds the screen and the users first. “Faster” means nothing until you know both.
+      - text: "“Is it slower on Android or iPhone?”"
+        correct: false
+        explanation: A closed technical question that assumes it's the patient app.
+      - text: "“Faster than what? It seems fast to me.”"
+        correct: false
+        explanation: Defensive. You're arguing with a headline instead of exploring it.
+    source: { quote: "the clinic check-in page takes about 6 seconds to load in staging", page: 50 }
+
+  - id: D14-02
+    type: mcq
+    stem: "Request two: “Booking needs to be easier for older patients.” Which question gives you the most reliable answer?"
+    options:
+      - text: "“Would bigger buttons help?”"
+        correct: false
+        explanation: Your solution, phrased as a question. She'll probably say yes.
+      - text: "“What have older patients actually said, or struggled with, when they booked?”"
+        correct: true
+        explanation: Asks about what really happened. It turns out to be two focus-group complaints.
+      - text: "“Should we add a tutorial screen?”"
+        correct: false
+        explanation: Jumps to a solution before you know the problem.
+      - text: "“Do older patients even use smartphones?”"
+        correct: false
+        explanation: An assumption that can sound dismissive of the patients she cares about.
+    source: { quote: "came from 2 complaints at a Lakeside focus group: small buttons and too many steps", page: 51 }
+
+  - id: D14-03
+    type: mcq
+    stem: "Request three: “Support needs more visibility.” Which question also covers privacy?"
+    options:
+      - text: "“Should we give the support team admin access?”"
+        correct: false
+        explanation: A solution that could expose medical details, before you know what they need.
+      - text: "“Do they need to see everything?”"
+        correct: false
+        explanation: A closed question that invites a yes to everything.
+      - text: "“What does the team need to look up when a patient calls, and what must they not see?”"
+        correct: true
+        explanation: Finds the real need and the limit in one question.
+      - text: "“Can we just give them Epic logins?”"
+        correct: false
+        explanation: A workaround that isn't yours to offer, and it shows clinical data.
+    source: { quote: "without seeing any medical details", page: 51 }
+
+  - id: D14-04
+    type: mcq
+    stem: "Dana says: “Just make it all better — you're the experts.” What's the best reply?"
+    options:
+      - text: "“Sure, we'll fix all three before April 27.”"
+        correct: false
+        explanation: A promise for three undefined requests, with Sprints 5 and 6 already full.
+      - text: "“We can't do anything without specs.”"
+        correct: false
+        explanation: True in a way, but it pushes the work back to her instead of leading.
+      - text: "“Happy to recommend. To do that well: of the three, which would hurt the pilot most if it stayed as it is?”"
+        correct: true
+        explanation: You accept the lead role and ask the one question that sets the priority.
+      - text: "“Okay, we'll start with whichever is easiest for us.”"
+        correct: false
+        explanation: Priority by your convenience, not her business.
+    source: { quote: "Just make it all better — you're the experts.", page: 51 }
+
+  - id: D14-05
+    type: mcq
+    stem: >-
+      On the check-in request, you've asked who's waiting, what happens today and why now. Which question do you
+      still need before anyone can estimate?
+    options:
+      - text: "“Which framework would you like us to use?”"
+        correct: false
+        explanation: A technical choice that's yours to make, and not what's missing.
+      - text: "“How will we know it's fast enough? What load time would the front desk call good?”"
+        correct: true
+        explanation: The success metric. Without it, nobody can say the work is done.
+      - text: "“Would a loading spinner help?”"
+        correct: false
+        explanation: A solution in a question, and it doesn't make anything faster.
+      - text: "“Can I start on it today?”"
+        correct: false
+        explanation: Starts work before you know what “done” looks like.
+    source: { quote: "How will we know it worked? (the success metric)", page: 42 }
+
+  - id: D14-06
+    type: mcq
+    stem: At the end of the call, which playback of the three requests is best?
+    options:
+      - text: "“So, three things. Got it.”"
+        correct: false
+        explanation: No content to confirm. Any misunderstanding survives.
+      - text: "“So: one, a faster clinic check-in page for front-desk staff; two, easier booking for older patients; three, booking and reminder history for support, with no medical details. Only the first is needed for April 27. Right?”"
+        correct: true
+        explanation: One sentence each, plus the priority, ending with a check.
+      - text: A full replay of everything she said, in the order she said it.
+        correct: false
+        explanation: Too long to confirm, and it hides the priority.
+      - text: "“So we'll make the app faster, easier and more visible.”"
+        correct: false
+        explanation: Her headlines repeated back. You've added nothing you learned.
+    source: { quote: "Played back all three in one sentence each", page: 50 }
+
+  - id: D14-07
+    type: scenario
+    clientLine: "“Which of these can you do first?”"
+    stem: >-
+      You've learned that front-desk staff wait about 6 seconds per patient at check-in, and that the other two
+      requests came from complaints and support. What's the best reply?
+    options:
+      - text: "“Whichever you like. You decide.”"
+        correct: false
+        explanation: She asked for your view. Leading includes recommending.
+      - text: "“The check-in page. Staff wait on it for every patient, every day. Shall we confirm that's the pilot priority?”"
+        correct: true
+        explanation: A clear recommendation with a business reason, then a check.
+      - text: "“The support view. It's the easiest to build.”"
+        correct: false
+        explanation: Priority by effort, not by what hurts the pilot.
+      - text: "“All three at once, in parallel.”"
+        correct: false
+        explanation: Avoids the choice, with sprints that are already full.
+    source: { quote: "front-desk staff wait about 6 seconds per patient", page: 51 }
+
+  - id: D14-08
+    type: scenario
+    clientLine: "“Can all three be in the pilot?”"
+    stem: Sprints 5 and 6 are already full. What's the best reply?
+    options:
+      - text: "“Yes, we'll squeeze them in.”"
+        correct: false
+        explanation: A yes that puts the Epic sync, eligibility or hardening at risk.
+      - text: "“No, none of them.”"
+        correct: false
+        explanation: Too blunt, and not true for the one that matters.
+      - text: "“The check-in page, yes, if that's the pilot priority. Sprints 5 and 6 are full, so I'd plan the other two for after April 27. Does that work for leadership?”"
+        correct: true
+        explanation: Yes to what matters, a reason for the rest, and a question to confirm.
+      - text: "“Let me ask the team and get back to you next month.”"
+        correct: false
+        explanation: Too slow, and you already know enough to answer.
+    source: { quote: "Sprints 5–6 are already full", page: 50 }
+
+  - id: D14-09
+    type: written
+    stem: >-
+      Jordan Lee, who runs Brightpath's support team, messages you: “Dana says you're looking at ‘visibility’ for my
+      team. What do you need from me?” Write three questions you'd send him.
+    modelAnswer: >-
+      1. When a patient called last week, what did your team need to look up, and how did they find it?
+      2. Which details would help most: bookings, reminders sent, cancellations, something else?
+      3. Is there anything your team must not see, such as medical details?
+    scoringPoints:
+      - Asks what the team actually needed on real calls, not what they might want
+      - Covers the data they need and what they must not see
+      - Three short, open questions Jordan can answer quickly
+    source: { quote: "means Jordan's team wants to look up a patient's booking and reminder history", page: 51 }
+
+  - id: D14-10
+    type: written
+    stem: >-
+      Dana messages after the call: “Leadership wants a one-liner on the three requests. What do I tell them?” Write
+      it in two sentences.
+    modelAnswer: >-
+      Of the three, only faster check-in is needed for the April 27 pilot: front-desk staff wait about 6 seconds per
+      patient today. Easier booking for older patients and support visibility can follow after the pilot, and we'll
+      scope both next.
+    scoringPoints:
+      - Leads with the one request that matters for the pilot, with the reason
+      - Says clearly what waits until after April 27
+      - Two plain sentences leadership can repeat
+    source: { quote: "Only the first request is needed for the pilot; the other two can wait until after April 27.", page: 51 }

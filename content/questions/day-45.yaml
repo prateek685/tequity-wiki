@@ -1,0 +1,177 @@
+# Day 45 quiz pool: Friday, May 1. Live shadow 2: asking the lead one question, your own recap first, comparing, and
+# what to take from a second call; the week's three levels and CPARB. Shows 5 of 10.
+pool: day-45
+questions:
+  - id: D45-01
+    type: mcq
+    stem: Your second shadowed call is over. What do you do next?
+    options:
+      - text: Ask the lead one question from your notes.
+        correct: true
+        explanation: One focused question shows what you noticed, and gets you what the sheet can't.
+      - text: Thank them, and leave without a word.
+        correct: false
+        explanation: A missed chance. They're the best person to explain a choice they made.
+      - text: Ask ten questions about everything.
+        correct: false
+        explanation: Respect their time. One good question is worth more.
+      - text: Tell them what they did wrong.
+        correct: false
+        explanation: You're there to learn, not to review them.
+    source: { quote: "Afterwards, ask the lead one question from your notes.", page: 114 }
+
+  - id: D45-02
+    type: mcq
+    stem: Which question is best to ask the lead afterwards?
+    options:
+      - text: "“When the client pushed back on the date, you waited a few seconds before answering. What were you thinking?”"
+        correct: true
+        explanation: Specific, about a moment you noticed, and it opens up their thinking.
+      - text: “How was your day?”
+        correct: false
+        explanation: Friendly, but it teaches you nothing about the call.
+      - text: “Was the call good?”
+        correct: false
+        explanation: Too vague. You'll get a yes.
+      - text: “Why didn't you let me speak?”
+        correct: false
+        explanation: You were there to observe. This isn't a fair question.
+    source: { quote: "What would I have done diﬀerently?", page: 153 }
+
+  - id: D45-03
+    type: mcq
+    stem: Why write your own recap before reading the lead's?
+    options:
+      - text: The gap shows what you missed or heard differently.
+        correct: true
+        explanation: Comparison is the learning. Reading theirs first removes it.
+      - text: To prove your recap is better.
+        correct: false
+        explanation: It's practice, not a contest.
+      - text: Because the lead's recap is usually wrong.
+        correct: false
+        explanation: No. It's the reference you learn from.
+      - text: So that you don't need to attend the next call.
+        correct: false
+        explanation: Recaps are a skill you'll need when you run the call yourself.
+    source: { quote: "Afterwards, write your own recap and compare it with the lead's.", page: 114 }
+
+  - id: D45-04
+    type: mcq
+    stem: What does a good 30-second version of a technical story end with?
+    options:
+      - text: The business impact.
+        correct: true
+        explanation: "The self-check for this week: did I end with the business impact?"
+      - text: The name of the library you used.
+        correct: false
+        explanation: That's engineer detail, not the ending.
+      - text: An apology for the delay.
+        correct: false
+        explanation: Not part of the story.
+      - text: A list of other things you did.
+        correct: false
+        explanation: It dilutes the one story you're telling.
+    source: { quote: "Did I end with the business impact?", page: 115 }
+
+  - id: D45-05
+    type: mcq
+    stem: What's the test for a good 30-second story?
+    options:
+      - text: Could a non-technical person repeat it?
+        correct: true
+        explanation: If they can repeat it, it's clear. That's the week's first self-check.
+      - text: Does it use the newest terms?
+        correct: false
+        explanation: New terms lose the listener.
+      - text: Is it longer than a minute?
+        correct: false
+        explanation: It's 30 seconds by design.
+      - text: Did the engineers approve the wording?
+        correct: false
+        explanation: The listener is the client, not the team.
+    source: { quote: "Could a non-technical person repeat my 30-second story?", page: 115 }
+
+  - id: D45-06
+    type: mcq
+    stem: At the end of the week, which is the best use of your two observation sheets?
+    options:
+      - text: Compare them, pick two phrases or moves to try, and use them in the next mock.
+        correct: true
+        explanation: Turn observation into practice straight away.
+      - text: File them and forget them.
+        correct: false
+        explanation: A sheet nobody reads teaches nothing.
+      - text: Share them with the client.
+        correct: false
+        explanation: They're private notes for your learning.
+      - text: Rewrite them as a formal report.
+        correct: false
+        explanation: Too much work for little learning.
+    source: { quote: "One phrase I want to use myself", page: 153 }
+
+  - id: D45-07
+    type: scenario
+    clientLine: "“Do you have anything to add before we wrap up?”"
+    stem: You're shadowing and the lead hands you the question, on camera, in front of the client. You have nothing prepared. What do you say?
+    options:
+      - text: Speak for two minutes about your whole project.
+        correct: false
+        explanation: Takes over the call, and the lead didn't ask for that.
+      - text: "“Thanks for having me. One thing I'll take away: I liked how you confirmed the dates at the end. Nothing to add from my side.”"
+        correct: true
+        explanation: Short, specific, positive, and it hands the call back.
+      - text: “Sorry, I wasn't listening.”
+        correct: false
+        explanation: Honest, but you were on camera to listen.
+      - text: Stay silent.
+        correct: false
+        explanation: An awkward silence in front of the client.
+    source: { quote: "Join as an observer: camera on, muted unless invited.", page: 114 }
+
+  - id: D45-08
+    type: scenario
+    clientLine: "“Can you send me your notes from the call?”"
+    stem: The client asks you for the notes you took as an observer. What do you do?
+    options:
+      - text: Send them straight away.
+        correct: false
+        explanation: Your notes are private learning notes. The lead sends the official recap.
+      - text: "“Thanks for asking. The lead will send the official recap today, and I'll make sure it covers what we agreed.”"
+        correct: true
+        explanation: Points to the right source and keeps your sheet private.
+      - text: Ignore the message.
+        correct: false
+        explanation: A client who gets no reply loses trust.
+      - text: Send the recording.
+        correct: false
+        explanation: Don't record unless everyone agreed beforehand.
+    source: { quote: "Observation sheet + your version of the recap.", page: 114 }
+
+  - id: D45-09
+    type: written
+    stem: >-
+      You're asking the lead one question after the call. Write the question, and one line of why you're asking it. Use a
+      made-up moment: the client asked for a feature that is out of scope, and the lead said, “Let me take that away.”
+    modelAnswer: >-
+      When the client asked for the extra feature, you said “Let me take that away” instead of yes or no. How do you
+      decide when to say that, and what do you do afterwards? I want to do it the same way.
+    scoringPoints:
+      - Names a specific moment from the call
+      - Asks about the thinking, not just the result
+      - Short, with the reason for asking
+    source: { quote: "Observation sheet + your version of the recap.", page: 114 }
+
+  - id: D45-10
+    type: written
+    stem: >-
+      Compare your recap with the lead's. The lead's said: “Decision: ship Tuesday. Dana to confirm test sign-off by
+      Monday.” Yours said only: “Shipping soon.” Write one honest line for “What did I miss?”
+    modelAnswer: >-
+      I missed the exact date and the owner. The decision was to ship Tuesday, and Dana confirms test sign-off by
+      Monday. Next time I'll write down decisions with the date and the owner.
+    scoringPoints:
+      - Names what was missed (date and owner)
+      - Says what to do differently
+      - Honest and short, with no excuses
+    source: { quote: "My recap vs theirs — what did I miss?", page: 153 }

@@ -1,0 +1,84 @@
+id: S22
+title: The client wants to skip testing to hit the date
+client: Dana Brooks
+clientRole: VP of Product, Brightpath
+clientInitials: DB
+clientPronoun: She
+clientMood: >-
+  Fast, busy, under pressure from her CEO to launch on time. If you only say no, she'll say: “Then give me something I
+  can work with.”
+level: 2
+minutes: 10–15 min
+storySoFar: >-
+  It's Monday, April 13, the first day of Sprint 6 (pilot hardening and UAT). On Friday, our tech lead found that Epic
+  appointment sync sometimes shows times one hour off and misses some cancellations. This morning Dana messaged: “Can
+  we skip the regression run and go straight to UAT? April 27 can't move.”
+facts:
+  - label: Test plan
+    value: "Full regression by QA: 212 test cases, Tue Apr 21 – Thu Apr 23. Lakeside UAT round 2: Wed Apr 22. Go-live at 3 clinics: Mon Apr 27."
+  - label: The issue
+    value: "Epic appointment sync: some times show 1 hour off, and some cancellations don't come through. The tech lead is fixing it; estimate 3–4 days."
+  - label: Risk of skipping
+    value: "Wrong appointment times reaching patients and front desks, double bookings, and Lakeside losing trust in the first week of the pilot."
+    warn: true
+  - label: Your alternative
+    value: "Risk-based regression: 1.5 days on the 60 highest-risk cases (booking, Epic sync, reminders) plus automated smoke tests. Keep UAT on Apr 22."
+  - label: Decision point
+    value: "By Wed Apr 15 we will know if the Epic fix is done. That is when we can say whether Apr 27 still holds."
+  - label: Need from Dana
+    value: Agreement to keep testing on the critical flows, and a go/no-go check-in on Wednesday.
+yourGoal: >-
+  Disagree with skipping testing without damaging the relationship: acknowledge Dana's goal, state the risk with
+  facts, offer a faster alternative, and get a decision.
+mayAsk:
+  - Our competitors launch without all this testing.
+  - So you're telling me we'll miss the date?
+  - Can't QA just test over the weekend?
+script:
+  - { step: Open, line: "Hi Dana, thanks for jumping on. I saw your message about skipping regression — I want to help protect April 27, so let's find the fastest safe way." }
+  - { step: Acknowledge, line: "I get it. Lakeside has told three clinics, and moving the date is painful." }
+  - { step: Concern, line: "My concern is the Epic sync issue. If we skip testing, a patient could see the wrong appointment time — and that's the first thing Lakeside would remember about us." }
+  - { step: Alternative, line: "Here's a faster option: we test only the 60 highest-risk cases — booking, sync and reminders — in a day and a half, and keep UAT on the 22nd." }
+  - { step: Ask, line: "Can we agree on that, and check in on Wednesday once the Epic fix is done to confirm April 27?" }
+  - { step: Close, line: "I'll send the revised test plan and Wednesday's check-in invite within the hour." }
+whatGood:
+  - Acknowledged Dana's goal before disagreeing
+  - Named the patient-facing risk in plain words
+  - Offered a faster alternative with numbers
+  - Got a decision and a Wednesday check-in
+prompt: |
+  You are role-playing a US client on a video call with me. Stay in character until I say "End the call."
+
+  WHO YOU ARE: Dana Brooks, VP of Product at Brightpath Health (Austin, Texas). Fast, busy, outcome-driven. Under pressure from your CEO to launch on time.
+
+  PROJECT CONTEXT: My company is the engineering partner of Brightpath Health, a US telehealth company. We are building CareBook v2 — patient booking (in-person and video), SMS reminders, intake forms and a clinic schedule view — synced with the clinic's Epic EHR, with insurance eligibility checks through Suncoast Billing. The launch customer is Lakeside Health (12 primary-care clinics in Ohio). Everything is made up; no real patient data.
+
+  WHERE WE ARE NOW: Monday, April 13. The CareBook pilot at 3 Lakeside clinics is set for Monday, April 27. You heard on Friday there is "an Epic sync issue". This morning you asked the engineer to skip the regression run.
+
+  TODAY'S SCENARIO: Open with: "So, can we skip the regression run? April 27 can't move." Push hard for skipping. If I only say "no" without an alternative, get frustrated and say "Then give me something I can work with." If I offer a faster, safer option with a clear reason, start to agree.
+
+  HIDDEN FACTS — reveal each one only if my questions lead to it:
+  1. Lakeside's 3 clinics have already put up posters announcing online booking from April 27.
+  2. Dr. Mercer told you last month: "No wrong appointment times, ever."
+  3. You would accept a shorter, risk-based test run if it protects the investor demo on May 12.
+  4. Your CEO asked "Are we on track?" — not "Skip testing". Skipping was your own idea.
+
+  CURVEBALLS — use these during the call:
+  - Say: "Our competitors launch without all this testing."
+  - Ask: "Can't QA just test over the weekend?"
+
+  DIFFICULTY: Level 2 — busy and vague; short answers, change topic, slightly impatient.
+
+  HOW TO BEHAVE
+  - Speak like a real American business person: natural speed, short sentences, everyday expressions.
+  - Keep each turn short (1–3 sentences), like a real call.
+  - Don't volunteer information; give details only when I ask good questions.
+  - If I use technical jargon, ask me what it means for your business.
+  - If I talk for more than 45 seconds without getting to the point, cut in at my next pause.
+
+  WHEN I SAY "End the call", step out of character and give me feedback:
+  1. Score me 1–5 on each criterion that came up: opening and agenda, answer-first structure, questions asked, playback, business link, trade-offs, handling unknowns, risks and bad news, disagreement, closing and next steps.
+  2. List the hidden facts and tell me which ones I uncovered.
+  3. Quote 2 things I said well, and 2 things I should have said differently — with the better sentence.
+  4. Tell me roughly how often I used filler words ("um", "basically", "actually", "like").
+  5. Give me ONE thing to focus on in my next call.

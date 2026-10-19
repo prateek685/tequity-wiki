@@ -1,0 +1,181 @@
+# Day 23 quiz pool: Wednesday, April 1. Dana's “Can new patients book video visits online?”: the 7-step discovery
+# call (context, current state, pain, outcome, constraints, metric, next steps), no estimate on the spot. Shows 5 of 10.
+pool: day-23
+questions:
+  - id: D23-01
+    type: mcq
+    stem: "Dana opens: “Quick one — I want new patients booking video visits online. Can we do that?” What's the best first reply?"
+    options:
+      - text: "“Yes! We already have video booking, so it's quick.”"
+        correct: false
+        explanation: A yes before you know what “new patients” changes.
+      - text: "“Not before the pilot, sorry.”"
+        correct: false
+        explanation: A no before you know what she needs or when.
+      - text: "“Let's find out properly. Can I take 15 minutes to understand how new patients book today, before we size it?”"
+        correct: true
+        explanation: "Neither yes nor no yet: you ask for the time to understand it."
+      - text: "“Let me check with the team and revert.”"
+        correct: false
+        explanation: Leaves the call without learning anything, and “revert” confuses American readers.
+    source: { quote: "Quick one — I want new patients booking video visits online. Can we do that?", page: 72 }
+
+  - id: D23-02
+    type: mcq
+    stem: "Five minutes in, Dana asks: “Ballpark — two days?” What's the best reply?"
+    options:
+      - text: "“Two days sounds about right.”"
+        correct: false
+        explanation: An estimate she'll repeat to her CEO, before you know the rules for first visits.
+      - text: "“Maybe two weeks? Hard to say.”"
+        correct: false
+        explanation: Still a guess, just a bigger one.
+      - text: "“I'd rather not guess. Once I know the rules for first visits, I'll send you options with effort by Friday.”"
+        correct: true
+        explanation: No number on the spot, but a date for a real one.
+      - text: "“Estimates aren't my job.”"
+        correct: false
+        explanation: "Defensive, and not true: you own the estimate."
+    source: { quote: "Ask: \"Ballpark — two days?\"", page: 72 }
+
+  - id: D23-03
+    type: mcq
+    stem: "Dana asks: “Can't you just reuse the existing booking screen?” What's the best reply?"
+    options:
+      - text: "“Yes, it's the same screen.”"
+        correct: false
+        explanation: "It isn't: new patients have no Epic record yet."
+      - text: "“No, it's completely different.”"
+        correct: false
+        explanation: Overstated, and you don't know yet.
+      - text: "“Some of it, maybe. But new patients aren't in Epic yet and need an insurance check first, so I'd like to understand those rules before I say how much we can reuse.”"
+        correct: true
+        explanation: Fair to her idea, names the real differences, and keeps discovering.
+      - text: "“That's a design decision for later.”"
+        correct: false
+        explanation: Dodges her question instead of using it to learn more.
+    source: { quote: "New patients aren't in Epic yet, so CareBook can't match them to a record.", page: 71 }
+
+  - id: D23-04
+    type: mcq
+    stem: "Dana says: “Today new patients have to phone the clinic.” Which question gets you to the pain?"
+    options:
+      - text: "“Would you like a calendar picker or a list of times?”"
+        correct: false
+        explanation: A design question before you know the problem.
+      - text: "“Phoning is bad, right?”"
+        correct: false
+        explanation: A closed, leading question. She'll just say yes.
+      - text: "“How many new patients call each month, and how many give up before they book?”"
+        correct: true
+        explanation: Asks for how often and what it costs, in numbers.
+      - text: "“Which phone system do the clinics use?”"
+        correct: false
+        explanation: A detail, not the pain.
+    source: { quote: "about 1 in 4 hang up before they manage to book", page: 72 }
+
+  - id: D23-05
+    type: mcq
+    stem: >-
+      You have the pain and the outcome. Dana says: “Great, so we're good?” What's your best next question?
+    options:
+      - text: "“Yes, I think I have everything.”"
+        correct: false
+        explanation: You've skipped constraints, the metric and the next step.
+      - text: "“Almost. Which rules apply to a first visit: insurance, age, visit types, which providers?”"
+        correct: true
+        explanation: Constraints are where healthcare scope hides. Ask before you size anything.
+      - text: "“Can I get the Epic API documentation?”"
+        correct: false
+        explanation: A technical detail, not the business rules.
+      - text: "“When do you need it by?”"
+        correct: false
+        explanation: Timing matters, but not before you know what “it” includes.
+    source: { quote: "Which rules apply to first visits — insurance, age, visit types, which providers?", page: 71 }
+
+  - id: D23-06
+    type: mcq
+    stem: "Dana says: “Success? More online bookings, obviously.” What do you ask?"
+    options:
+      - text: "“Great, more online bookings it is.”"
+        correct: false
+        explanation: “More” can't be measured. Nobody will know when it's done.
+      - text: "“What number would tell you it's working? For example, what share of new-patient bookings should be online, and by when?”"
+        correct: true
+        explanation: Turns “more” into a number and a date.
+      - text: "“Should we add analytics tracking?”"
+        correct: false
+        explanation: A solution, not the metric.
+      - text: "“Online is always better, so yes.”"
+        correct: false
+        explanation: Agrees without learning anything.
+    source: { quote: "Success means 40% of new-patient bookings happen online within 3 months of launch.", page: 72 }
+
+  - id: D23-07
+    type: scenario
+    clientLine: "“Why do you need to know all this? It's one feature.”"
+    stem: You're halfway through the seven steps. What do you say?
+    options:
+      - text: "“It's our process. We always do this.”"
+        correct: false
+        explanation: Process as the reason. She hears bureaucracy.
+      - text: "“Because the rules for a first visit decide what we build. Ten minutes now saves us building the wrong thing before the pilot.”"
+        correct: true
+        explanation: A business reason, in one line, and you keep going.
+      - text: "“Sorry, I'll be quick. Just a few more.”"
+        correct: false
+        explanation: Apologises for doing your job well.
+      - text: "“Okay, let's skip the rest.”"
+        correct: false
+        explanation: Drops the constraints and metric, exactly where the hidden scope is.
+    source: { quote: "You have 15 minutes to understand it before anyone sizes or promises it.", page: 71 }
+
+  - id: D23-08
+    type: scenario
+    clientLine: "“Can you just add it before the pilot?”"
+    stem: Sprint 5 ends April 10 and Sprint 6 is pilot hardening. What do you say?
+    options:
+      - text: "“Sure, we'll squeeze it in.”"
+        correct: false
+        explanation: Risks the April 27 pilot for a feature you haven't sized.
+      - text: "“Impossible.”"
+        correct: false
+        explanation: A flat no, and you haven't asked what matters more to her.
+      - text: "“I don't want to promise that before I've sized it. Which matters more to you: having it for the pilot, or keeping April 27 safe? I'll send options both ways by Friday.”"
+        correct: true
+        explanation: Asks for her priority, which is often the answer, and gives a date for options.
+      - text: "“The team will try their best.”"
+        correct: false
+        explanation: “Try” is a commitment she'll hold you to, with no plan behind it.
+    source: { quote: "You would accept this after the pilot (in Sprint 7) if the pilot date stays safe", page: 72 }
+
+  - id: D23-09
+    type: written
+    stem: >-
+      Twelve minutes in, Dana says: “Okay, I've got to run.” Write your spoken playback and next step in 2–3 sentences.
+    modelAnswer: >-
+      Quick playback: the 3 pilot clinics get about 420 new-patient requests a month, about 1 in 4 hang up before
+      booking, and success is 40% of new-patient bookings online within 3 months. Patients must pick a provider taking
+      new patients, give insurance details before the visit, and under-18s are excluded at first. Did I get that right?
+      I'll send the summary today and options with effort by Friday.
+    scoringPoints:
+      - Plays back the pain and the metric with numbers, and the main constraints
+      - Asks for confirmation
+      - Ends with a dated next step and no estimate
+    source: { quote: "Run the 7-step discovery and leave with the pain, the success metric, the constraints and a next step", page: 71 }
+
+  - id: D23-10
+    type: written
+    stem: >-
+      Kevin messages: “Dana says new-patient video booking is ‘big for the pilot’. Are we committing to it?” Write your
+      reply in 2–3 sentences.
+    modelAnswer: >-
+      Not yet. I ran discovery with Dana today: about 420 new-patient requests a month, 1 in 4 give up, and the target is
+      40% online within 3 months; new patients aren't in Epic and need an insurance check first. No estimate or date
+      given. I'll send options with effort by Friday, including what fits around April 27 without risking the pilot,
+      and I'll copy you.
+    scoringPoints:
+      - Answers first (“not yet”), with no commitment made
+      - Shares the key facts from discovery, including the healthcare constraints
+      - A dated next step that keeps Kevin in the loop
+    source: { quote: "No estimate or date given on the spot", page: 71 }

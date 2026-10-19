@@ -1,0 +1,181 @@
+# Day 10 quiz pool: Friday, March 13. The Sprint 3 demo, the weekly sync at Level 2 straight after it, the Epic
+# risk, the recap email and reviewing it with AI. Shows 5 of 10.
+pool: day-10
+questions:
+  - id: D10-01
+    type: mcq
+    stem: "11:00 am, straight after the demo. Dana says, “Great demo. My CEO loved the video booking. So, anything else, or are we done?” Epic access still isn't here. What do you say?"
+    options:
+      - text: "“No, all good! Have a great weekend.”"
+        correct: false
+        explanation: Hiding the one risk on a good day. If access is late on Monday, the surprise costs more trust than the demo earned.
+      - text: "“Thank you, the team will love that. One thing before we go: Epic access still isn't here, and we need it by Monday to keep the April 27 pilot. Could you nudge Lakeside's IT lead if it isn't in by Monday noon?”"
+        correct: true
+        explanation: Enjoy the win, then raise the risk with its date, impact and a specific ask.
+      - text: "“Well, I don't want to ruin the mood, but there might be some issues with Epic at some point.”"
+        correct: false
+        explanation: Vague and apologetic. No date, no impact, no ask.
+      - text: "“Let's talk about Epic next week, once we know more.”"
+        correct: false
+        explanation: Next week is too late. Monday is the deadline.
+    source: { quote: "Staying silent and hoping it resolves itself.", page: 6 }
+
+  - id: D10-02
+    type: mcq
+    stem: "Dana says, “Sam said ‘early next week’. That's fine, right?” You need access on Monday, March 16. What's the best reply?"
+    options:
+      - text: "“Yes, early next week works.”"
+        correct: false
+        explanation: Accepting a vague date. Tuesday or Wednesday would already be late.
+      - text: "“Only if early means Monday. Every day after that pushes the Epic sync and, after a few days, the pilot. Could we agree that if it isn't in by Monday noon, you'll nudge Lakeside's IT lead?”"
+        correct: true
+        explanation: You turn a vague promise into a date, explain what slipping costs, and agree a trigger for action.
+      - text: "“Honestly, Sam's team is always slow.”"
+        correct: false
+        explanation: Blaming the client's partner doesn't solve anything, and it may get back to them.
+      - text: "“I'm not sure, let's see what happens.”"
+        correct: false
+        explanation: Waiting and hoping. You know the date that matters; say it.
+    source: { quote: "Epic sandbox access is still pending (now blocking).", page: 21 }
+
+  - id: D10-03
+    type: mcq
+    stem: Which action item belongs in the recap Dana will forward to her CEO?
+    options:
+      - text: "“Dana to help with Epic.”"
+        correct: false
+        explanation: No specific task and no date. Dana can't tell when or how to act.
+      - text: "“Dana: nudge Lakeside's IT lead if Epic access isn't in by Mon Mar 16, 12 pm Central.”"
+        correct: true
+        explanation: An owner, a clear task, a trigger and a deadline with a time zone.
+      - text: "“Someone to follow up with Sam.”"
+        correct: false
+        explanation: “Someone” means no one. Name the owner.
+      - text: "“Epic access: TBD.”"
+        correct: false
+        explanation: Not an action at all, and it hides the risk.
+    source: { quote: "Action items (owner + date)", page: 34 }
+
+  - id: D10-04
+    type: mcq
+    stem: "Dana says, “Short answers today, please. Where are we?” Which update fits?"
+    options:
+      - text: "“Sprint 3 is done: everything you saw in the demo, and the double-booking fix passed retest. One risk: Epic access, needed Monday.”"
+        correct: true
+        explanation: Status first, one supporting fact, and the one risk, in under 20 seconds.
+      - text: "“So this week, on Monday we finished video booking screens, then Tuesday the SMS thing, then Wednesday…”"
+        correct: false
+        explanation: A day-by-day diary. She asked where you are, not what you did.
+      - text: "“Good, good. Lots of progress.”"
+        correct: false
+        explanation: Short, but no facts and no risk. It sounds like you're hiding something.
+      - text: "“Let me share my screen and walk you through the sprint board.”"
+        correct: false
+        explanation: She asked for short answers. A board tour is the opposite.
+    source: { quote: "Done · Next · Blocked · Risk — in under 60 seconds.", page: 6 }
+
+  - id: D10-05
+    type: mcq
+    stem: >-
+      You ask the AI to tighten your recap before sending it to Dana. Its version is shorter and smoother, but it
+      changed “if access isn't in by Mon Mar 16, 12 pm Central” to “if access is delayed”. What do you do?
+    options:
+      - text: Send the AI's version. It reads better.
+        correct: false
+        explanation: The deadline was the most important fact in the email. Smooth wording isn't worth losing it.
+      - text: Keep the AI's wording but put your exact date and time back, then read it once more before sending
+        correct: true
+        explanation: Take the edits that help and keep every fact exactly. You own the words you send.
+      - text: Throw away the AI's version and send your first draft unchanged
+        correct: false
+        explanation: You lose the useful edits. Fix the one problem instead.
+      - text: Paste Dana's last few emails into the AI so it can match her style
+        correct: false
+        explanation: Never paste client emails or documents into an AI tool.
+    source: { quote: "Always edit before sending. You own the words, not the AI.", page: 164 }
+
+  - id: D10-06
+    type: mcq
+    stem: Dana will forward your recap to her CEO, who saw the demo. Which summary line should open it?
+    options:
+      - text: "“Thanks so much for joining the demo today, it was great to see everyone.”"
+        correct: false
+        explanation: Friendly, but the CEO learns nothing from the first line.
+      - text: "“Please find below the minutes of today's weekly sync meeting.”"
+        correct: false
+        explanation: Points to the content instead of giving it.
+      - text: "“As discussed, there are several items to note, as follows.”"
+        correct: false
+        explanation: Filler that delays the point.
+      - text: "“Sprint 3 is done and shown in today's demo. One risk: Epic access is needed by Mon Mar 16 to keep the April 27 pilot.”"
+        correct: true
+        explanation: The bottom line and the one risk in two lines. The CEO can stop there.
+    source: { quote: "Could my reader act on my message without asking me a follow-up question?", page: 35 }
+
+  - id: D10-07
+    type: scenario
+    clientLine: "“My CEO asked what's in Sprint 4. One line?”"
+    stem: Dana is still on the sync and wants something she can repeat. What do you say?
+    options:
+      - text: "“The intake form, the clinic staff schedule view, the Epic sandbox connection, and Add to calendar, with the next demo on March 27.”"
+        correct: true
+        explanation: One line with all four items and the date he'll see them.
+      - text: "“Lots of things. I'll send the backlog.”"
+        correct: false
+        explanation: She asked for one line to repeat, not a backlog to read.
+      - text: "“Mostly backend work on FHIR resources and the scheduling service.”"
+        correct: false
+        explanation: Jargon a CEO can't repeat or picture.
+      - text: "“Depends on Epic, really.”"
+        correct: false
+        explanation: Leads with uncertainty instead of the plan.
+    source: { quote: "Intake form v1 · clinic staff schedule view · Epic sandbox connection", page: 21 }
+
+  - id: D10-08
+    type: scenario
+    clientLine: "“Okay, and if access doesn't come Monday, what happens?”"
+    stem: What's the best reply?
+    options:
+      - text: "“Then the pilot moves, I'm afraid.”"
+        correct: false
+        explanation: Too dramatic. One late day doesn't move the pilot, and you have options.
+      - text: "“Nothing, we'll manage somehow.”"
+        correct: false
+        explanation: Hides the real impact. If it slips for days, she'll be surprised.
+      - text: "“We start the rest of Sprint 4 first, so no one's idle. Each extra day pushes the Epic sync, and I'll tell you by Wednesday if the April 27 date is at risk.”"
+        correct: true
+        explanation: Impact, what you'll do about it, and when she'll hear from you next.
+      - text: "“Let's not think about that yet.”"
+        correct: false
+        explanation: She asked directly. Avoiding it looks like you have no plan.
+    source: { quote: "Epic access delay pushes the EHR sync (Sprint 5) and therefore the pilot date.", page: 22 }
+
+  - id: D10-09
+    type: written
+    stem: >-
+      After the sync, Dana messages: “Can you give me two lines for my board update on how this week went?” Write
+      them.
+    modelAnswer: >-
+      CareBook finished Sprint 3 on time: video booking, reschedule and cancel, and SMS reminders were shown in
+      today's demo. One risk: Epic test access from Lakeside is needed by Monday, March 16 to keep the April 27 pilot,
+      and we're following up daily.
+    scoringPoints:
+      - The first line gives the bottom line (Sprint 3 done and shown)
+      - Names the one risk with its date and what's being done about it
+      - Two lines, plain words, ready to paste without edits
+    source: { quote: "two lines give the bottom line", page: 34 }
+
+  - id: D10-10
+    type: written
+    stem: >-
+      After the sync you email Sam Porter at Lakeside IT. He said Epic access would come “early next week”. Write the
+      subject line and the first two lines, pinning down a date.
+    modelAnswer: >-
+      Subject: ACTION: Epic sandbox access by Mon Mar 16, needed for the April 27 pilot.
+      Hi Sam, thanks for moving the security form along. Could you confirm that Epic sandbox access will be open by
+      Monday, March 16? We need it that day to keep the Epic sync, and the pilot, on schedule.
+    scoringPoints:
+      - The subject line has a keyword, the ask and the date
+      - The first two lines turn “early next week” into a specific date and give the reason
+      - Polite and short, with no “kindly do the needful” or “at the earliest”
+    source: { quote: "Subject: ACTION NEEDED: [blocker] – affects [date / milestone]", page: 152 }

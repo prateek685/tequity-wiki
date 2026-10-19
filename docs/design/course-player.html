@@ -1,0 +1,634 @@
+<title>Day 1 Story Lesson</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: course player. Top bar + left course outline (week > day > lessons) + one lesson at a time with
+   Previous / Next. Normal reading sizes. Tokens mirror apps/web globals.css. */
+:root{
+  --bg:#f7f7f6;--surface:#fff;--subtle:#f2f2f0;--line:#e5e4e1;--line-strong:#d6d4d0;
+  --fg:#1c1b19;--fg2:#3d3a36;--muted:#6e6a64;
+  --accent-50:#fff4ec;--accent:#c2410c;--accent-hover:#a3370a;--accent-text:#9a3412;--on-accent:#fff;
+  --success:#2f7a4f;--success-soft:#e8f3ec;--warning:#8a5a12;--warning-soft:#f7efdf;--danger:#b42318;--danger-soft:#fdeceb;
+  --info:#3f5f8f;--info-soft:#ebf0f7;
+  --und:#5b7fa6;--com:#8a6fb0;--own:#4f8a86;--sf:#b0605a;
+  --font:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#100f0e;--surface:#181715;--subtle:#201e1c;--line:#2c2a27;--line-strong:#3a3733;
+  --fg:#efede9;--fg2:#d3cfc8;--muted:#a39e96;
+  --accent-50:#2a1609;--accent:#fb8a4c;--accent-hover:#fda06d;--accent-text:#fdb48c;--on-accent:#1d0d03;
+  --success:#74c497;--success-soft:#13261b;--warning:#ddb06a;--warning-soft:#2a2111;--danger:#f2827a;--danger-soft:#2e1514;
+  --info:#9db7dc;--info-soft:#172131;--und:#8fb0d4;--com:#b9a0db;--own:#86c0bb;--sf:#e09a93;color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#100f0e;--surface:#181715;--subtle:#201e1c;--line:#2c2a27;--line-strong:#3a3733;
+  --fg:#efede9;--fg2:#d3cfc8;--muted:#a39e96;
+  --accent-50:#2a1609;--accent:#fb8a4c;--accent-hover:#fda06d;--accent-text:#fdb48c;--on-accent:#1d0d03;
+  --success:#74c497;--success-soft:#13261b;--warning:#ddb06a;--warning-soft:#2a2111;--danger:#f2827a;--danger-soft:#2e1514;
+  --info:#9db7dc;--info-soft:#172131;--und:#8fb0d4;--com:#b9a0db;--own:#86c0bb;--sf:#e09a93;color-scheme:dark}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{background:var(--bg);color:var(--fg);font-family:var(--font);font-size:15px;line-height:1.6;margin:0}
+h1,h2,h3,h4,p{margin:0}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.num{font-variant-numeric:tabular-nums}
+
+.app{display:grid;grid-template-rows:56px minmax(0,1fr);height:100%}
+.top{background:var(--surface);border-bottom:1px solid var(--line);display:flex;align-items:center;gap:16px;padding:0 20px}
+.tile{width:28px;height:28px;border-radius:7px;background:var(--accent);color:var(--on-accent);display:grid;place-items:center;font-weight:700;font-size:11px}
+.top .course{font-weight:600;font-size:14px}
+.top .sep{width:1px;height:20px;background:var(--line)}
+.top .crumb{font-size:14px;color:var(--muted)}
+.top .grow{flex:1}
+.prog{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--muted)}
+.prog .t{width:140px;height:6px;border-radius:99px;background:var(--subtle);overflow:hidden}
+.prog .t i{display:block;height:100%;width:2%;background:var(--accent)}
+.exit{font-size:14px;color:var(--fg2);text-decoration:none;border:1px solid var(--line-strong);border-radius:8px;padding:6px 12px}
+
+.body{display:grid;grid-template-columns:300px minmax(0,1fr);min-height:0}
+.outline{background:var(--surface);border-right:1px solid var(--line);overflow-y:auto;padding:16px 12px 24px}
+.ol-phase{font-size:11px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);padding:6px 10px 4px}
+.ol-week{font-size:13px;font-weight:600;padding:12px 10px 6px;color:var(--fg2)}
+.ol-day{width:100%;border:0;background:transparent;text-align:left;padding:8px 10px;border-radius:8px;display:flex;gap:10px;align-items:center;font-size:14px}
+.ol-day:hover{background:var(--subtle)}
+.ol-day .chev{width:14px;color:var(--muted);font-size:11px}
+.ol-day .sub{margin-left:auto;font-size:12px;color:var(--muted)}
+.ol-day.open{font-weight:600}
+.ol-day.locked{color:var(--muted)}
+.lessons{list-style:none;margin:2px 0 6px;padding:0 0 0 22px;display:flex;flex-direction:column;gap:1px}
+.lessons button{width:100%;border:0;background:transparent;text-align:left;padding:8px 10px;border-radius:8px;display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--fg2)}
+.lessons button:hover{background:var(--subtle)}
+.lessons button[aria-current="true"]{background:var(--accent-50);color:var(--accent-text);font-weight:600}
+.lessons .meta{display:block;font-size:12px;color:var(--muted);font-weight:400}
+.st{width:18px;height:18px;border-radius:50%;border:1.5px solid var(--line-strong);flex-shrink:0;margin-top:2px;display:grid;place-items:center;font-size:10px}
+.st.done{background:var(--success);border-color:var(--success);color:var(--surface)}
+.st.cur{border-color:var(--accent);box-shadow:inset 0 0 0 3px var(--surface);background:var(--accent)}
+
+.main{overflow-y:auto}
+.lesson{max-width:960px;padding:36px 48px 32px;display:flex;flex-direction:column;gap:24px}
+.kicker{font-size:13px;color:var(--muted)}
+.lesson h1{font-size:26px;letter-spacing:-.01em;line-height:1.25;margin-top:4px}
+.lead{font-size:16px;color:var(--fg2);max-width:72ch}
+.lesson h2{font-size:18px;margin-bottom:10px}
+.lesson p.body{color:var(--fg2);max-width:75ch}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px 22px}
+.label{font-size:12px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.note{display:flex;gap:10px;align-items:flex-start;border-radius:10px;padding:12px 14px;font-size:14px}
+.note.warn{background:var(--warning-soft)}
+.note.info{background:var(--info-soft)}
+.note b{font-weight:600}
+
+/* lesson 1 */
+.kv{display:grid;grid-template-columns:170px minmax(0,1fr);font-size:14.5px}
+.kv dt,.kv dd{margin:0;padding:10px 0;border-bottom:1px solid var(--line)}
+.kv dt{color:var(--muted)}
+.kv dd:last-of-type,.kv dt:last-of-type{border-bottom:0}
+.timeline{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px;font-size:13px}
+.timeline div{background:var(--subtle);border-radius:8px;padding:8px 10px;line-height:1.4}
+.timeline b{display:block;font-size:12px}
+.timeline .done{background:var(--success-soft)}.timeline .done b{color:var(--success)}
+.timeline .now{background:var(--accent-50);box-shadow:inset 0 0 0 1.5px var(--accent)}.timeline .now b{color:var(--accent-text)}
+.people{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.person{display:flex;gap:12px;align-items:flex-start}
+.av{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;font-size:12px;font-weight:700;flex-shrink:0;background:var(--info-soft);color:var(--info)}
+.av.you{background:var(--accent);color:var(--on-accent)}
+.person b{display:block;font-size:14px}
+.person span{display:block;font-size:13px;color:var(--muted)}
+.person .tag{display:inline-block;font-size:11px;font-weight:600;color:var(--accent-text);background:var(--accent-50);padding:1px 7px;border-radius:99px;margin-left:6px}
+
+/* lesson 2 */
+.pillars{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.pill{border:1px solid var(--line);background:var(--surface);border-radius:12px;padding:14px 16px;border-top:3px solid var(--pc)}
+.pill b{display:block;font-size:15px}
+.pill .q{font-size:14px;color:var(--fg2);margin-top:2px}
+.pgroup{display:flex;flex-direction:column;gap:8px}
+.pgroup h3{font-size:16px;display:flex;align-items:center;gap:8px}
+.pgroup h3 i{width:10px;height:10px;border-radius:50%;background:var(--pc)}
+.beh{border:1px solid var(--line);border-radius:10px;background:var(--surface);overflow:hidden}
+.beh summary{list-style:none;cursor:pointer;padding:12px 16px;display:flex;gap:10px;align-items:center;font-size:14.5px;font-weight:500}
+.beh summary::-webkit-details-marker{display:none}
+.beh summary .code{font-size:12px;color:var(--muted);font-weight:600;width:22px}
+.beh summary::after{content:"+";margin-left:auto;color:var(--muted);font-size:18px;line-height:1}
+.beh[open] summary::after{content:"–"}
+.beh .two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding:0 16px 14px}
+.say{border-radius:8px;padding:10px 12px;font-size:14px}
+.say.good{background:var(--success-soft)}.say.bad{background:var(--danger-soft)}
+.say .label{display:block;margin-bottom:4px;font-size:11px}
+.say.good .label{color:var(--success)}.say.bad .label{color:var(--danger)}
+.p-und{--pc:var(--und)}.p-com{--pc:var(--com)}.p-own{--pc:var(--own)}.p-sf{--pc:var(--sf)}
+
+/* lesson 3 */
+.call{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:16px;align-items:start}
+.dana{display:flex;flex-direction:column;gap:14px}
+.dana .who{display:flex;gap:12px;align-items:center}
+.dana .who .av{width:44px;height:44px;font-size:14px}
+.bubble{background:var(--subtle);border-radius:12px 12px 12px 4px;padding:8px 12px;font-size:14px;align-self:flex-start}
+.steps{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;color:var(--fg2)}
+.runbar{display:flex;align-items:center;gap:16px;justify-content:space-between;flex-wrap:wrap}
+.btn{height:40px;padding:0 16px;border-radius:9px;border:1px solid var(--line-strong);background:var(--surface);font-weight:600;font-size:14px;display:inline-flex;align-items:center;gap:8px}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.btn.primary:hover{background:var(--accent-hover)}
+.script{border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+.script summary{cursor:pointer;padding:14px 20px;font-weight:600;font-size:14.5px;display:flex;justify-content:space-between;gap:12px}
+.script summary span{font-weight:400;color:var(--muted);font-size:13.5px}
+.script table{width:100%;border-collapse:collapse;font-size:14px}
+.script td{padding:10px 20px;border-top:1px solid var(--line);vertical-align:top}
+.script td:first-child{width:170px;font-weight:600;color:var(--fg2)}
+
+/* lesson 4/5 */
+.check{display:flex;gap:12px;align-items:center;padding:11px 0;border-bottom:1px solid var(--line);font-size:14.5px}
+.check:last-child{border-bottom:0}
+.check input{width:17px;height:17px;accent-color:var(--accent)}
+label.f{display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:600}
+textarea{font:inherit;font-size:14.5px;border:1px solid var(--line-strong);border-radius:9px;padding:10px 12px;min-height:80px;background:var(--surface);color:var(--fg);resize:vertical;font-weight:400}
+.scale{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;font-size:13px;color:var(--fg2)}
+.scale div{background:var(--subtle);border-radius:8px;padding:8px 10px;line-height:1.4}
+.scale b{color:var(--fg);margin-right:4px}
+.rate{display:flex;align-items:center;gap:16px;padding:9px 0;border-top:1px solid var(--line);font-size:14.5px}
+.rate span{flex:1}
+.seg{display:flex;border:1px solid var(--line-strong);border-radius:8px;overflow:hidden}
+.seg button{width:36px;height:32px;border:0;border-right:1px solid var(--line);background:var(--surface);font-size:13.5px}
+.seg button:last-child{border-right:0}
+.seg button[aria-pressed="true"]{background:var(--accent);color:var(--on-accent);font-weight:600}
+.avgs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.avg{border:1px solid var(--line);border-radius:10px;padding:12px 14px;background:var(--surface);border-left:3px solid var(--pc)}
+.avg span{font-size:13px;color:var(--muted)}
+.avg b{display:block;font-size:20px}
+.opt{display:flex;gap:12px;align-items:flex-start;border:1px solid var(--line);border-radius:10px;padding:12px 14px;background:var(--surface);font-size:14.5px;cursor:pointer}
+.opt input{margin-top:4px;accent-color:var(--accent)}
+
+.foot{position:sticky;bottom:0;background:var(--bg);border-top:1px solid var(--line);padding:14px 48px;display:flex;justify-content:space-between;align-items:center}
+.foot .mid{font-size:13px;color:var(--muted)}
+
+@media (max-width:1000px){
+  .body{grid-template-columns:minmax(0,1fr)}
+  .outline{display:none}
+  .lesson{padding:24px 16px}
+  .foot{padding:12px 16px}
+  .call,.grid2{grid-template-columns:minmax(0,1fr)}
+  .pillars,.avgs{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .people,.grid3{grid-template-columns:minmax(0,1fr)}
+  .timeline{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .prog,.top .crumb,.top .sep{display:none}
+}
+@media (max-width:600px){
+  .beh .two,.scale{grid-template-columns:minmax(0,1fr)}
+  .kv{grid-template-columns:110px minmax(0,1fr)}
+  .rate{flex-wrap:wrap}
+  .script td:first-child{width:110px}
+}
+</style>
+
+<div class="app">
+  <header class="top">
+    <div class="tile">CR</div>
+    <span class="course">Client-Ready Engineer</span>
+    <span class="sep"></span>
+    <span class="crumb">Phase 1 · Foundation</span>
+    <span class="grow"></span>
+    <div class="prog"><span class="num">Day 1 of 65</span><div class="t"><i></i></div></div>
+    <a class="exit" href="#">Exit</a>
+  </header>
+
+  <div class="body">
+    <nav class="outline" aria-label="Course outline">
+      <div class="ol-phase">Phase 1 · Foundation</div>
+      <div class="ol-week">Week 1 · Baseline and structured speaking</div>
+      <div id="days"></div>
+      <div class="ol-week">Week 2 · Structured writing</div>
+      <button class="ol-day locked" type="button"><span class="chev">▸</span>Days 6–10<span class="sub">🔒</span></button>
+      <div class="ol-week">Week 3 · Asking better questions</div>
+      <button class="ol-day locked" type="button"><span class="chev">▸</span>Days 11–15<span class="sub">🔒</span></button>
+      <div class="ol-week">Week 4 · Ownership and AI</div>
+      <button class="ol-day locked" type="button"><span class="chev">▸</span>Days 16–20<span class="sub">🔒</span></button>
+      <div class="ol-phase" style="margin-top:12px">Phase 2 · Client craft</div>
+      <div class="ol-phase">Phase 3 · Ownership</div>
+    </nav>
+
+    <div class="main" id="main">
+      <article class="lesson" id="lesson"></article>
+      <div class="foot">
+        <button class="btn" type="button" id="prev">← Previous</button>
+        <span class="mid num" id="pos"></span>
+        <button class="btn primary" type="button" id="next">Next →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<template id="t0">
+  <div><div class="kicker">Day 1 · Lesson 1 of 6 · 8 min</div><h1>Meet CareBook, your project for the next 90 days</h1></div>
+  <p class="lead">It's Monday, March 2. You're the lead engineer on CareBook, and until today your delivery manager ran every client call. From today, the client hears from you. Every call and message in this course happens on this one project, so get to know it the way you'd learn a real client account.</p>
+
+  <section>
+    <h2>The project</h2>
+    <p class="body">Brightpath Health is a US telehealth company. We're their engineering partner, building CareBook v2: a patient app for booking in-person or video visits, SMS reminders and intake forms, plus a web portal where clinic staff manage schedules. CareBook syncs appointments with the clinic's Epic health record and checks insurance through Suncoast Billing.</p>
+  </section>
+
+  <div class="card">
+    <dl class="kv">
+      <dt>Launch customer</dt><dd>Lakeside Health, 12 primary-care clinics in Ohio</dd>
+      <dt>Pilot</dt><dd><b>Monday, April 27</b> at 3 Lakeside clinics, then all 12</dd>
+      <dt>Built with</dt><dd>React Native patient app, React web portal, Node.js APIs on AWS</dd>
+      <dt>Why it matters</dt><dd>No-show rate is 18% (target under 10%). Booking by phone takes about 7 minutes (online target: 2).</dd>
+    </dl>
+  </div>
+
+  <section>
+    <h2>Where the build is today</h2>
+    <div class="timeline">
+      <div class="done"><b>Sprints 1–2 ✓</b>Sign-up, search, in-person booking</div>
+      <div class="now"><b>Sprint 3 · now</b>Video booking, SMS reminders</div>
+      <div><b>Sprint 4</b>Intake form, schedule view</div>
+      <div><b>Sprint 5</b>Epic sync, insurance check</div>
+      <div><b>Sprint 6</b>Pilot testing</div>
+      <div><b>Apr 27</b>Pilot goes live</div>
+    </div>
+  </section>
+
+  <div class="note warn"><span>⚠</span><span><b>The open risk:</b> the team asked Lakeside IT (Sam Porter) for Epic test access on Feb 24. It still hasn't arrived. If it's late, the Epic sync and the pilot date move. You'll hear about this a lot.</span></div>
+
+  <section>
+    <h2>The people</h2>
+    <div class="people">
+      <div class="card person"><div class="av">DB</div><div><b>Dana Brooks<span class="tag">You meet her today</span></b><span>VP of Product, Brightpath. Decides scope and dates. Cares about the pilot date and patient experience.</span></div></div>
+      <div class="card person"><div class="av">KW</div><div><b>Kevin Walsh</b><span>CTO, Brightpath. Owns architecture and security. Cares about stability and cloud cost.</span></div></div>
+      <div class="card person"><div class="av">AM</div><div><b>Dr. Alan Mercer</b><span>Chief Medical Information Officer, Lakeside. Cares about doctors' workflow and patient safety.</span></div></div>
+      <div class="card person"><div class="av">LC</div><div><b>Lisa Chen</b><span>Clinic Operations Manager, Lakeside. Cares about front-desk time and no-shows.</span></div></div>
+      <div class="card person"><div class="av">SP</div><div><b>Sam Porter</b><span>Epic analyst, Lakeside IT. Controls Epic access and security approvals.</span></div></div>
+      <div class="card person"><div class="av you">You</div><div><b>You</b><span>Lead engineer and, from today, the client's main technical contact. Team: a tech lead, a mobile engineer, a QA engineer.</span></div></div>
+    </div>
+  </section>
+</template>
+
+<template id="t1">
+  <div><div class="kicker">Day 1 · Lesson 2 of 6 · 10 min</div><h1>What clients judge you on</h1></div>
+  <p class="lead">Before you meet Dana, know what she'll be listening for. Clients don't score your code on a call. They quietly ask themselves four questions about you. These are the four pillars of a client-ready engineer.</p>
+  <div class="pillars">
+    <div class="pill p-und"><b>Understand</b><p class="q">“Do they get what I actually need?”</p></div>
+    <div class="pill p-com"><b>Communicate</b><p class="q">“Can I follow them easily?”</p></div>
+    <div class="pill p-own"><b>Own</b><p class="q">“Can I rely on them?”</p></div>
+    <div class="pill p-sf"><b>Stand firm</b><p class="q">“Will they tell me the truth?”</p></div>
+  </div>
+  <p class="body">Each pillar is made of a few behaviours you can actually hear on a call: 14 in total. You don't need to learn them today. Open a few to hear the difference, and you'll practise each one later in the course.</p>
+  <div id="behaviours" style="display:flex;flex-direction:column;gap:24px"></div>
+</template>
+
+<template id="t2">
+  <div><div class="kicker">Day 1 · Lesson 3 of 6 · Mock call · 15 min</div><h1>Your first call with Dana</h1></div>
+  <p class="lead">Dana has blocked 15 minutes to meet her new main contact. Her old vendor only sent news when she asked, and she's heard EHR integrations always run late. This is your baseline, so there's no script and no preparation: read the facts (2 minutes), then make the call.</p>
+
+  <div class="call">
+    <div class="card">
+      <span class="label">What you know before the call</span>
+      <dl class="kv" style="margin-top:6px">
+        <dt>You</dt><dd>Lead engineer on CareBook v2 since January. You own the build, the weekly update and technical questions.</dd>
+        <dt>Done so far</dt><dd>Sign-up and login, clinic and provider search, in-person booking. Working in staging.</dd>
+        <dt>Next 8 weeks</dt><dd>Sprint 3: video booking, SMS reminders · Sprint 4: intake form, schedule view · Sprint 5: Epic sync, eligibility · Sprint 6: pilot testing.</dd>
+        <dt>How you'll work</dt><dd>Your proposal: a sync every Friday at 10:00 am Central, a written update after it, and a same-day message if a risk appears.</dd>
+        <dt>Open item</dt><dd style="color:var(--warning)">Epic sandbox access from Sam Porter, requested Feb 24. Still pending.</dd>
+      </dl>
+    </div>
+    <div class="card dana">
+      <div class="who"><div class="av">DB</div><div><b>Dana Brooks</b><div style="font-size:13px;color:var(--muted)">VP of Product, Brightpath · Level 1</div></div></div>
+      <p style="font-size:14px;color:var(--fg2)">Fast, busy and outcome-driven. Friendly, but testing whether you can be trusted.</p>
+      <div class="note info" style="flex-direction:column;gap:2px"><b>Your goal</b><span>Open the call yourself, introduce yourself and the plan in under 2 minutes, agree how you'll keep her updated, and close with next steps.</span></div>
+      <span class="label">She may ask</span>
+      <div class="bubble">“So you're my person now. What happened to your delivery manager?”</div>
+      <div class="bubble">“What's your background with healthcare projects?”</div>
+      <div class="bubble">“What will you do differently from the last team?”</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Make the call</h2>
+    <div class="runbar">
+      <ol class="steps">
+        <li>Copy the prompt. It tells the AI to play Dana.</li>
+        <li>Paste it as text into Claude, ChatGPT or Gemini, then switch to voice mode.</li>
+        <li>Speak first. When you're done, say “End the call. Give me feedback.”</li>
+      </ol>
+      <button class="btn primary copy" type="button">Copy prompt</button>
+    </div>
+    <p style="font-size:13px;color:var(--muted);margin-top:12px">Never put patient details, passwords or client documents into an AI tool.</p>
+  </div>
+
+  <details class="script">
+    <summary>Example script <span>Open it after your call to compare. You'll use it on Thursday.</span></summary>
+    <table>
+      <tr><td>Warm start</td><td>“Hi Dana, great to finally meet you properly. How's your week starting off?”</td></tr>
+      <tr><td>30-second intro</td><td>“I'm the lead engineer on CareBook v2. I own the build and the weekly updates, so from today I'm your main contact for anything technical.”</td></tr>
+      <tr><td>Agenda</td><td>“The goal today is simple: a quick view of the plan, how we'll keep you updated, and anything you want from me. Sound good?”</td></tr>
+      <tr><td>Plan</td><td>“Short version: the basics are working in staging. Next 8 weeks: video booking and reminders, then intake forms, then the Epic sync, then testing for the April 27 pilot.”</td></tr>
+      <tr><td>Working together</td><td>“I'd suggest a sync every Friday at 10 your time, with a written update right after. If a risk comes up, you'll hear from me the same day.”</td></tr>
+      <tr><td>Close</td><td>“So: Friday syncs, written updates, same-day risk flags. I'll send a short recap today. Anything else you need from me?”</td></tr>
+    </table>
+  </details>
+</template>
+
+<template id="t3">
+  <div><div class="kicker">Day 1 · Lesson 4 of 6 · 5 min</div><h1>How did the call go?</h1></div>
+  <p class="lead">Two minutes while it's fresh. Tick what you managed, then note what the AI told you. Only you can see this.</p>
+  <div class="card">
+    <h2>On this call, I…</h2>
+    <label class="check"><input type="checkbox" id="g1"> opened the call and set the agenda</label>
+    <label class="check"><input type="checkbox" id="g2"> gave a 30-second intro: who I am, what I own, how I'll help</label>
+    <label class="check"><input type="checkbox" id="g3"> agreed a clear update rhythm with Dana</label>
+    <label class="check"><input type="checkbox" id="g4"> closed with next steps and promised a recap</label>
+  </div>
+  <div class="grid2">
+    <label class="f" for="n1">What went well<textarea id="n1" placeholder="From the AI's feedback"></textarea></label>
+    <label class="f" for="n2">One thing to fix next time<textarea id="n2" placeholder="e.g. Set the agenda before Dana asks for it"></textarea></label>
+  </div>
+</template>
+
+<template id="t4">
+  <div><div class="kicker">Day 1 · Lesson 5 of 6 · 10 min</div><h1>Your starting point</h1></div>
+  <p class="lead">Think about the call you just made and rate yourself on each behaviour. Be honest: a 2 today makes your progress easy to see when you repeat this call on Day 65.</p>
+  <div class="scale">
+    <div><b>1</b>I avoid it, or freeze</div><div><b>2</b>Only when prompted</div><div><b>3</b>When I've prepared</div><div><b>4</b>Naturally, most calls</div><div><b>5</b>Well, under pressure</div>
+  </div>
+  <div class="avgs" id="avgs"></div>
+  <div id="rates" style="display:flex;flex-direction:column;gap:16px"></div>
+</template>
+
+<template id="t5">
+  <div><div class="kicker">Day 1 · Lesson 6 of 6 · Quiz · question 1 of 5</div><h1>Check yourself</h1></div>
+  <div class="card" style="display:flex;flex-direction:column;gap:12px">
+    <div class="bubble" style="font-size:15px">Dana: “So you're my person now. What happened to your delivery manager?”</div>
+    <p style="font-weight:600">What's the best reply?</p>
+    <label class="opt"><input type="radio" name="q"> “He's still around, you can ask him anything technical too.”</label>
+    <label class="opt"><input type="radio" name="q"> “He's moved to a new account. I own the build and the weekly updates, so from today I'm your main contact.”</label>
+    <label class="opt"><input type="radio" name="q"> “I'm not sure what happened, management decided it.”</label>
+    <label class="opt"><input type="radio" name="q"> “Honestly, I was surprised too.”</label>
+  </div>
+</template>
+
+
+<style>
+.ol-day .dn{font-size:12px;color:var(--muted);font-weight:500;width:40px;flex-shrink:0}
+.yesterday{display:flex;gap:10px;align-items:flex-start;border-left:3px solid var(--line-strong);padding:4px 0 4px 14px;color:var(--muted);font-size:14px}
+.yesterday b{color:var(--fg2);font-weight:600}
+.scene-card{display:flex;flex-direction:column;gap:10px}
+.scene-card .when{font-size:13px;font-weight:600;color:var(--accent-text)}
+.scene-card p{font-size:15.5px;color:var(--fg);line-height:1.65}
+.fw{display:grid;grid-template-columns:repeat(var(--n,2),minmax(0,1fr));gap:12px}
+.fw .step{border:1px solid var(--line);border-radius:10px;padding:12px 14px;background:var(--surface);display:flex;flex-direction:column;gap:4px}
+.fw .step b{font-size:13px;color:var(--accent-text)}
+.fw .step span{font-size:14px;color:var(--fg2)}
+.ba{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.ba div{border-radius:10px;padding:12px 14px;font-size:14.5px}
+.ba .before{background:var(--danger-soft)}.ba .after{background:var(--success-soft)}
+.ba .label{display:block;margin-bottom:4px;font-size:11px}
+.ba .before .label{color:var(--danger)}.ba .after .label{color:var(--success)}
+.watch{display:flex;gap:14px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:var(--surface);text-decoration:none;color:var(--fg)}
+.watch .play{width:40px;height:40px;border-radius:10px;background:var(--accent-50);color:var(--accent);display:grid;place-items:center;flex-shrink:0}
+.watch b{display:block;font-size:14.5px}
+.watch span{font-size:13px;color:var(--muted)}
+.fields{display:flex;flex-direction:column;gap:14px}
+input.t{font:inherit;font-size:14.5px;border:1px solid var(--line-strong);border-radius:9px;padding:9px 12px;background:var(--surface);color:var(--fg);font-weight:400}
+.msg{background:var(--subtle);border-radius:10px;padding:12px 14px;font-size:14px;color:var(--fg2)}
+.msg b{display:block;font-size:12px;color:var(--muted);margin-bottom:4px}
+.rounds{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.round{border:1px solid var(--line);border-radius:12px;padding:14px;background:var(--surface);display:flex;flex-direction:column;gap:10px}
+.round b{font-size:14px}
+.ol-assess{margin-top:4px;border:1px dashed var(--line-strong)}
+.ol-assess .chev{color:var(--accent);font-size:10px}
+.ol-assess.open{background:var(--accent-50);color:var(--accent-text);border-color:var(--accent)}
+.aprog{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:4px}
+.aprog i{height:6px;border-radius:99px;background:var(--subtle)}
+.aprog i.done{background:var(--success)}.aprog i.cur{background:var(--accent)}
+.result{display:flex;gap:20px;align-items:center;background:var(--success-soft);border-radius:12px;padding:20px 22px}
+.result .big{font-size:40px;font-weight:700;color:var(--success);line-height:1}
+.result .big span{font-size:20px;color:var(--muted)}
+.result b{display:block;font-size:16px}
+.result span{font-size:14px;color:var(--fg2)}
+.ans{display:flex;gap:12px;align-items:flex-start;padding:10px 0;border-top:1px solid var(--line)}
+.ans .mk{width:22px;height:22px;border-radius:50%;display:grid;place-items:center;font-size:12px;flex-shrink:0;background:var(--subtle);color:var(--muted)}
+.ans .mk.ok{background:var(--success-soft);color:var(--success)}.ans .mk.no{background:var(--danger-soft);color:var(--danger)}
+.ans b{display:block;font-size:14.5px;font-weight:500}
+.ans span span{font-size:13.5px;color:var(--muted)}
+.weekdone{display:flex;gap:16px;align-items:center;background:var(--success-soft);border-radius:12px;padding:16px 18px}
+.weekdone b{display:block}
+@media (max-width:600px){.fw,.ba,.rounds{grid-template-columns:minmax(0,1fr)}}
+</style>
+
+<script>
+const $=s=>document.querySelector(s);
+const esc=s=>s;
+/* ---------- building blocks ---------- */
+const head=(d,i,n,meta,title)=>`<div><div class="kicker">Day ${d} · Lesson ${i} of ${n} · ${meta}</div><h1>${title}</h1></div>`;
+const lead=t=>`<p class="lead">${t}</p>`;
+const yesterday=t=>`<div class="yesterday"><span>↩</span><span><b>Yesterday:</b> ${t}</span></div>`;
+const scene=(when,t)=>`<div class="card scene-card"><span class="when">${when}</span><p>${t}</p></div>`;
+const h2=t=>`<h2>${t}</h2>`;
+const para=t=>`<p class="body">${t}</p>`;
+const facts=rows=>`<div class="card"><span class="label">What you know before the call</span><dl class="kv" style="margin-top:6px">${rows.map(r=>`<dt>${r[0]}</dt><dd${r[2]?' style="color:var(--warning)"':''}>${r[1]}</dd>`).join('')}</dl></div>`;
+const persona=p=>`<div class="card dana"><div class="who"><div class="av">${p.av}</div><div><b>${p.name}</b><div style="font-size:13px;color:var(--muted)">${p.role}</div></div></div><p style="font-size:14px;color:var(--fg2)">${p.mood}</p><div class="note info" style="flex-direction:column;gap:2px"><b>Your goal</b><span>${p.goal}</span></div><span class="label">${p.pron} may ask</span>${p.asks.map(a=>`<div class="bubble">“${a}”</div>`).join('')}</div>`;
+const call=(f,p)=>`<div class="call">${facts(f)}${persona(p)}</div>`;
+const run=(extra='')=>`<div class="card"><h2>Make the call</h2><div class="runbar"><ol class="steps"><li>Copy the prompt. It tells the AI who to play.</li><li>Paste it as text into Claude, ChatGPT or Gemini, then switch to voice mode.</li><li>Speak first. When you're done, say “End the call. Give me feedback.”</li>${extra}</ol><button class="btn primary copy" type="button">Copy prompt</button></div></div>`;
+const script=(rows,note)=>`<details class="script"><summary>Example script <span>${note}</span></summary><table>${rows.map(r=>`<tr><td>${r[0]}</td><td>“${r[1]}”</td></tr>`).join('')}</table></details>`;
+const after=(checks,fix)=>`<div class="card"><h2>On this call, I…</h2>${checks.map((c,i)=>`<label class="check"><input type="checkbox"> ${c}</label>`).join('')}</div><div class="grid2"><label class="f">What went well<textarea placeholder="From the AI's feedback"></textarea></label><label class="f">One thing to fix next time<textarea placeholder="${fix}"></textarea></label></div>`;
+const area=(label,ph,rows=4)=>`<label class="f">${label}<textarea rows="${rows}" placeholder="${ph}"></textarea></label>`;
+const line=(label,ph)=>`<label class="f">${label}<input class="t" placeholder="${ph}"></label>`;
+const watch=(href,title,meta)=>`<a class="watch" href="${href}" target="_blank" rel="noopener"><span class="play">▶</span><span><b>${title}</b><span>${meta}</span></span></a>`;
+const steps=(n,items)=>`<div class="fw" style="--n:${n}">${items.map(s=>`<div class="step"><b>${s[0]}</b><span>${s[1]}</span></div>`).join('')}</div>`;
+const ba=(b,a)=>`<div class="ba"><div class="before"><span class="label">✕ Background first</span>${b}</div><div class="after"><span class="label">✓ Answer first</span>${a}</div></div>`;
+const quiz=(who,lineTxt,q,opts)=>`<div class="card" style="display:flex;flex-direction:column;gap:12px"><div class="bubble" style="font-size:15px">${who}: “${lineTxt}”</div><p style="font-weight:600">${q}</p>${opts.map(o=>`<label class="opt"><input type="radio" name="q"> ${o}</label>`).join('')}</div>`;
+const tpl=id=>()=>document.getElementById(id).innerHTML;
+
+const DANA={av:'DB',name:'Dana Brooks',role:'VP of Product, Brightpath · Level 1',pron:'She'};
+const KEVIN={av:'KW',name:'Kevin Walsh',role:'CTO, Brightpath · Boston · Level 1',pron:'He'};
+
+/* ---------- the week ---------- */
+const DAYS=[
+ {n:1,date:'Mon, Mar 2',title:'Baseline call',lessons:[
+  ['Meet CareBook','Read · 8 min',tpl('t0')],['What clients judge you on','Read · 10 min',tpl('t1')],['Your first call with Dana','Mock call · 15 min',tpl('t2')],
+  ['How did the call go?','Reflect · 5 min',tpl('t3')],['Your starting point','Rate · 10 min',tpl('t4')],['Check yourself','Quiz · 5 questions',tpl('t5')]]},
+
+ {n:2,date:'Tue, Mar 3',title:'Answer first',lessons:[
+  ['Dana is in a hurry','Story + prep · 5 min',()=>head(2,1,6,'5 min','Dana is in a hurry')+
+    yesterday('you met Dana and agreed a Friday sync, a written update after it, and a same-day message for any risk.')+
+    scene('Tuesday, March 3 · between meetings','Dana has 10 minutes before her next meeting. She\'s preparing for Friday\'s leadership meeting and wants a quick read on CareBook. Someone told her that “some integration thing” might be late. She\'s going to fire short questions at you, one after another.')+
+    para('Busy clients decide in the first few seconds whether you\'re clear. Before you learn today\'s technique, warm up: write three questions Dana might ask, each with a one-line answer that starts with the answer.')+
+    `<div class="card fields">${line('Question 1','e.g. Are we on track for April 27?')}${line('Your one-line answer','e.g. Yes. One risk: Epic access, needed by March 16.')}${line('Question 2','')}${line('Your one-line answer','')}${line('Question 3','')}${line('Your one-line answer','')}</div>`],
+  ['Answer first (BLUF)','Learn · 10 min',()=>head(2,2,6,'10 min','Answer first: bottom line up front')+
+    lead('Say the answer first, then the reason. If they want more detail, they\'ll ask. It\'s the single habit that most changes how a US client sees you.')+
+    ba('“So, we started on the screens last week, then the team looked at the video link, and there were a few config issues…”','“Short answer: yes, Friday works. Here\'s why…”')+
+    h2('Use it for three kinds of question')+
+    steps(3,[['Status','The status first, then one or two facts. “Sprint 3 is on track. Video booking is about 60% done.”'],['Yes or no','Yes or no first, then the reason. “Not safely today. Here\'s why…”'],['Bad news','The headline first, then the impact and your plan.']])+
+    watch('https://www.youtube.com/watch?v=HAnw168huqA','Matt Abrahams: Think Fast, Talk Smart','Stanford GSB · watch the first 15 minutes today')],
+  ['Rapid-fire questions with Dana','Mock call · 15 min',()=>head(2,3,6,'Mock call · 15 min','Rapid-fire questions with Dana')+
+    lead('Dana has 10 minutes. Answer every question first, in 45 seconds or less, name the one real risk with its date and impact, and end with a clear ask.')+
+    call([['Done','Sprints 1–2: sign-up and login, clinic and provider search, in-person booking. All working in staging, 94 test cases passing.'],['In progress','Sprint 3 (ends Fri Mar 13): video booking about 60% done · SMS reminders about 40% · reschedule and cancel start Mon Mar 9.'],['Small slip','SMS reminders may slip 1–2 days: the SMS number is still in carrier checks. No impact on the pilot.'],['Main risk','Epic sandbox access, requested Feb 24, still pending. Needed by Mon Mar 16 to keep the Epic sync and the Apr 27 pilot on schedule.',1],['Need from Dana','1) Help chase the Epic access with Lakeside this week. 2) Approve the SMS reminder wording by Thu Mar 5.'],['Key dates','Sprint 3 demo: Fri Mar 13 · Pilot: Mon Apr 27']],
+      {...DANA,mood:'Fast, busy and outcome-driven. If your answer starts with background, she\'ll cut in: “So, is that a yes or a no?”',goal:'Answer first, in 45 seconds or less. Name the Epic risk with its date and impact. End with a clear ask.',asks:['Are we still on track for April 27?','Can we move the pilot a week earlier?','What\'s the one thing that could hurt the date?']})+
+    run()+
+    script([['Open','Hi Dana, thanks for grabbing me between meetings. I\'ll keep it quick: where we are, one risk, and one thing I need from you.'],['Status','Short answer: Sprint 3 is on track. Video booking is about 60% done, and you\'ll see it in the demo on Friday the 13th.'],['Risk','One risk: we still don\'t have Epic sandbox access from Lakeside. We asked on February 24. If we don\'t have it by March 16, the EHR sync and the April 27 pilot are at risk.'],['Small slip','SMS reminders may slip a day or two while the SMS number clears carrier checks. It doesn\'t affect the pilot.'],['Ask','Could you nudge Lakeside\'s IT team about the Epic access this week? And I need your OK on the reminder wording by Thursday.'],['Close','I\'ll send this as a short written update within the hour.']],'Use it the first time, then try the call again without it.')],
+  ['How did the call go?','Reflect · 5 min',()=>head(2,4,6,'5 min','How did the call go?')+lead('Tick what you managed, then note what the AI told you.')+
+    after(['started every answer with the answer','named the Epic risk with its date and impact','made one clear ask with a deadline','offered a written follow-up'],'e.g. I started with background on the pilot question')],
+  ['Rewrite three messages','Write · 10 min',()=>head(2,5,6,'10 min','Rewrite three messages answer-first')+
+    lead('Dana forwards what you write. Rewrite these three messages so the bottom line comes first. You can also use three of your own recent Slack or Teams messages.')+
+    `<div class="msg"><b>Message 1</b>Hi Dana, hope you are doing well. So regarding the reminders, actually we were working on it and there were some issues with the Twilio config and also the templates, so basically it's taking time, will update you once done.</div>`+area('Your rewrite','Bottom line first…',3)+
+    `<div class="msg"><b>Message 2</b>Kindly do the needful and share the Epic sandbox credentials at the earliest so that we can start the integration from our side.</div>`+area('Your rewrite','The ask and the date first…',3)+
+    `<div class="msg"><b>Message 3</b>Sorry for the delay, sorry, the build was broken yesterday and QA was blocked, we will try to give the build by tomorrow EOD hopefully.</div>`+area('Your rewrite','When it will arrive, first…',3)],
+  ['Check yourself','Quiz · 5 questions',()=>head(2,6,6,'Quiz · question 1 of 5','Check yourself')+
+    quiz('Dana','When can I see video booking?','Which reply is answer-first?',['“So we finished the screens last week, then started on the video-room link…”','“You\'ll see it in the demo on Friday the 13th. It\'s about 60% done.”','“It depends on how the next few days go.”','“Let me check with the team and come back to you.”'])]
+ ]},
+
+ {n:3,date:'Wed, Mar 4',title:'Explain a decision',lessons:[
+  ['Kevin wants the reasoning','Story + prep · 5 min',()=>head(3,1,6,'5 min','Kevin wants the reasoning')+
+    yesterday('you gave Dana answer-first updates. She\'s nudging Lakeside about the Epic access.')+
+    scene('Wednesday, March 4 · a call with the CTO','Kevin Walsh, Brightpath\'s CTO, missed the design review in January when the team chose React Native for the patient app. A board member just asked him about app quality, and he\'d have preferred two native apps. He wants to hear the reasoning directly from you.')+
+    para('Before the call, sketch your answer as four bullets. You\'ll learn the structure in the next lesson; for now, just note what you\'d say.')+
+    `<div class="card fields">${line('Point: what you recommend','We chose React Native because…')}${line('Reason: why','')}${line('Example: one real fact','')}${line('Point again: so…','')}</div>`],
+  ['PREP: point, reason, example, point','Learn · 10 min',()=>head(3,2,6,'10 min','PREP: point, reason, example, point')+
+    lead('For any explanation, give your point first, then one reason, one real example, and your point again. It keeps you short and stops you rambling through history.')+
+    steps(4,[['Point','“I recommend X…”'],['Reason','“…because Y.”'],['Example','“For example, Z.”'],['Point','“So I\'d go with X.”']])+
+    h2('Add the honest trade-off')+para('Technical clients trust you more when you name the downside before they do, and say how you\'re handling it. “The honest trade-off: native features like the video SDK take a bit longer. We\'ve planned two extra days.”')+
+    watch('https://www.youtube.com/watch?v=HAnw168huqA','Matt Abrahams: Think Fast, Talk Smart','Stanford GSB · finish the talk today')],
+  ['Explain React Native to Kevin','Mock call · 15 min',()=>head(3,3,6,'Mock call · 15 min','Explain React Native to Kevin')+
+    lead('Explain the decision with PREP in under 90 seconds, then handle his follow-ups without getting defensive.')+
+    call([['The decision','Sprint 1 (January): the patient app is built in React Native, one codebase for iOS and Android, instead of two native apps.'],['Reasons','1) About 30% less build and test effort. 2) 3 of our 4 engineers work in React daily. 3) Shared code with the React web portal (forms, validation).'],['Proof so far','App starts in 1.8 seconds on a mid-range Android phone. Booking works the same on iOS and Android. 94 test cases pass on both.'],['Trade-offs','The video-visit SDK needs a small native module (2 extra days, already planned). Big OS updates need a library update within 2–4 weeks.',1],['Mitigation','Pinned library versions, a monthly dependency review, and a 12-phone test list including older Android models Lakeside patients use.']],
+      {...KEVIN,mood:'Technical, direct, challenges decisions. If you ramble through history, he\'ll say: “Just give me the bottom line first.”',goal:'Point first, a real reason and example, the trade-off named honestly, and a written follow-up with a date.',asks:['Why not two native apps?','Why not Flutter?','What if Apple changes something and React Native breaks?']})+
+    run()+
+    script([['Open','Thanks for asking, Kevin, happy to walk you through it. Short version first, then any details you want.'],['Point','We chose React Native because it gets a reliable app to both iOS and Android faster, with one team.'],['Reason','One codebase means about 30% less build and test effort, and three of our four engineers work in React every day.'],['Example','For example, the booking flow we built in Sprint 2 works the same on both platforms, and the app starts in under two seconds on a mid-range Android phone.'],['Trade-off','The honest trade-off: native features like the video SDK take a bit longer. We\'ve planned two extra days for that.'],['Point + close','So React Native is still the right call for the pilot. I can send you a one-page decision record by Friday. Would that help?']],'Use it the first time, then try the call again without it.')],
+  ['How did the call go?','Reflect · 5 min',()=>head(3,4,6,'5 min','How did the call go?')+lead('Tick what you managed, then note what the AI told you.')+
+    after(['gave the point in the first sentence','used a real reason and a real example','named the trade-off honestly','offered a written follow-up with a date'],'e.g. I got defensive on “Why not Flutter?”')],
+  ['Write it as a paragraph','Write · 10 min',()=>head(3,5,6,'10 min','Write your PREP answer as a paragraph')+
+    lead('Kevin wants something he can show the board. Turn your call answer into five sentences: point, reason, example, trade-off, point.')+
+    area('Your paragraph','We chose React Native because…',6)+
+    `<div class="note info"><span>✦</span><span><b>Tighten it with AI.</b> Copy the review prompt, paste it with your paragraph, and apply the edits you agree with. Never paste client documents or patient data.</span></div><div><button class="btn copy" type="button">Copy review prompt</button></div>`],
+  ['Check yourself','Quiz · 5 questions',()=>head(3,6,6,'Quiz · question 1 of 5','Check yourself')+
+    quiz('Kevin','So walk me through why we went with React Native.','What\'s the best first sentence?',['“Back in January we looked at a few options, including Flutter and native…”','“We chose React Native because it gets a reliable app to iOS and Android faster, with one team.”','“It was the team\'s decision, I can find out more.”','“React Native is a cross-platform framework by Meta that uses a JavaScript bridge…”'])]
+ ]},
+
+ {n:4,date:'Thu, Mar 5',title:'Your call opener',lessons:[
+  ['Monday, again','Story + prep · 5 min',()=>head(4,1,5,'5 min','Monday, again')+
+    yesterday('you explained React Native to Kevin with PREP and promised him a one-page decision record by Friday.')+
+    scene('Thursday, March 5 · a second chance','Dana approved the SMS reminder wording this morning, and it\'s gone to Lakeside\'s compliance team. Today you go back to Monday\'s call and redo the first minute properly. The first 30 seconds are when a US client decides whether you\'re clear and in control.')+
+    `<div class="card"><span class="label">Your Day 1 notes</span><dl class="kv" style="margin-top:6px"><dt>What went well</dt><dd style="color:var(--muted)">Your note from Monday appears here.</dd><dt>One thing to fix</dt><dd style="color:var(--muted)">Your note from Monday appears here.</dd></dl></div>`],
+  ['The call opener','Learn · 10 min',()=>head(4,2,5,'10 min','The 3-step opener and the 30-second intro')+
+    lead('The engineer leads the call, not the client. Three short steps get you there in under a minute.')+
+    steps(3,[['1 · Warm start','20–30 seconds of small talk. “How\'s your week going?”'],['2 · Purpose and agenda','“The goal today is X. I have three things: A, B and C. Anything you\'d like to add?”'],['3 · Time check','“We have 30 minutes; I\'ll keep us on time.”']])+
+    h2('The 30-second intro')+para('Who I am, then what I own on this project, then how I\'ll help you.')+
+    `<div class="say good" style="border-radius:10px;padding:12px 14px">“Hi, I'm [your name], the lead engineer on your patient app. I own the build and the weekly updates, so I'm your main point of contact for anything technical.”</div>`+
+    `<div class="card fields">${area('Draft your 30-second intro','Hi, I\'m …, the lead engineer on…',3)}${area('Draft your 3-step opener','Warm start… Agenda… Time check…',3)}</div>`+
+    watch('https://www.ted.com/talks/julian_treasure_how_to_speak_so_that_people_want_to_listen','Julian Treasure: How to speak so that people want to listen','TED · 10 min · pace, tone and voice on calls')],
+  ['The first 60 seconds, three times','Mock call · 15 min',()=>head(4,3,5,'Mock call · 15 min','The first 60 seconds, three times')+
+    lead('Same call as Monday, with Dana. This time use your opener, and ask the AI to rate only your first 60 seconds. Do it three times and watch the score move.')+
+    run('<li>After each try, ask: “Rate only my first 60 seconds, 1 to 5, and give me one fix.”</li>')+
+    `<div class="rounds">${[1,2,3].map(r=>`<div class="round"><b>Round ${r}</b><div class="seg" role="group" aria-label="Round ${r} score">${[1,2,3,4,5].map(n=>`<button type="button" aria-pressed="false">${n}</button>`).join('')}</div><input class="t" placeholder="The AI's one fix"></div>`).join('')}</div>`],
+  ['Make it yours','Write · 10 min',()=>head(4,4,5,'10 min','Your final intro and five small-talk lines')+
+    lead('Lock in the version you\'ll actually use. Small talk is easier when you\'ve picked your lines in advance.')+
+    `<div class="card fields">${area('Final 30-second intro','',3)}${line('Small-talk line 1','e.g. How\'s your week going?')}${line('Small-talk line 2','e.g. Is it getting warm in Austin yet?')}${line('Small-talk line 3','')}${line('Small-talk line 4','')}${line('Small-talk line 5','')}</div>`],
+  ['Check yourself','Quiz · 5 questions',()=>head(4,5,5,'Quiz · question 1 of 5','Check yourself')+
+    quiz('Dana','Hi! Okay, what are we covering today?','She asked because you skipped a step. What should you say?',['“Sure, let me share my screen and show you the code.”','“The goal today is a quick look at the plan and how we\'ll keep you updated. Anything you\'d like to add?”','“Whatever you\'d like to cover.”','“I thought you had an agenda.”'])]
+ ]},
+
+ {n:5,date:'Fri, Mar 6',title:'First weekly sync',lessons:[
+  ['Your first Friday sync','Story + prep · 10 min',()=>head(5,1,6,'10 min','Your first Friday sync')+
+    yesterday('you rebuilt your opener and got your first 60 seconds rated three times.')+
+    scene('Friday, March 6 · 10:00 am Central','It\'s the first weekly sync you agreed with Dana on Monday. On Wednesday Dana emailed Sam Porter about the Epic access. Sam replied that a security form must be signed first, and nobody has signed it. Next week is the last week of Sprint 3, with the demo on Friday, March 13.')+
+    para('Never go into a call cold. Fill in your pre-call card: it takes five minutes and gives you everything you\'ll say.')+
+    `<div class="card fields">${line('My goal for this call','')}${line('My opener','Warm start + agenda')}${area('3 points I\'ll make','',3)}${area('3 questions I\'ll ask','',3)}${line('1 risk','')}${line('My closing line','')}</div>`],
+  ['The shape of a weekly sync','Learn · 10 min',()=>head(5,2,6,'10 min','The shape of a weekly sync')+
+    lead('Every good weekly sync follows the same six moves and ends on time. You already know the first two from yesterday.')+
+    steps(3,[['1 · Warm start','One easy line. “Are you ready for SXSW?”'],['2 · Agenda','Update, one risk, next week. “We\'ll be done in 15 minutes.”'],['3 · Update','Answer first. “Short answer: we\'re on track for the demo.”'],['4 · Risk and ask','One risk, one clear ask, one date.'],['5 · Next week','What happens before you speak again.'],['6 · Close','Recap the asks, promise the written update, end on time.']])+
+    h2('Then the recap email')+para('Within the hour, send a short written update she can forward without editing: a 2-line summary, decisions, action items with owner and date, open questions, and the next meeting.')],
+  ['Weekly sync with Dana','Mock call · 15 min',()=>head(5,3,6,'Mock call · 15 min','Weekly sync with Dana')+
+    lead('Run the whole 15 minutes yourself: warm start, agenda, answer-first update, one risk and one ask, next steps, and close on time.')+
+    call([['Small talk','SXSW starts in Austin next week, and Dana\'s team has a booth.'],['Done this week','Video booking is now 75% (up from 60%). Dana approved the SMS reminder wording on Thursday; it\'s with Lakeside\'s compliance team.'],['Next week','Finish video booking · reschedule and cancel (Mon–Wed) · SMS reminders once the number is verified · Sprint 3 demo Fri Mar 13, 10:00 am Central.'],['Risk','Epic access: Sam needs a signed security form first. Not signed yet. Still needed by Mon Mar 16.',1],['Need from Dana','Confirm who at Brightpath signs Lakeside\'s security form, by Tue Mar 10.'],['Watch item','The SMS number is in carrier verification (submitted Mar 3; usually 5–7 business days).']],
+      {...DANA,mood:'Friendly, busy, outcome-driven. If you don\'t set an agenda, she\'ll ask: “Okay, what are we covering today?”',goal:'Run a complete 15-minute sync and close on time with a recap.',asks:['Is the demo still on for next Friday?','Who signs that security form?','Can you send me something I can forward to my CEO?']})+
+    run()+
+    script([['Warm start','Morning, Dana! Are you ready for SXSW next week?'],['Agenda','The goal today is a quick update, one risk, and next week\'s plan. We\'ll be done in 15 minutes. Anything you\'d like to add?'],['Update','Short answer: we\'re on track for the Sprint 3 demo next Friday. Video booking is at 75%, and your reminder wording is with Lakeside compliance.'],['Risk + ask','One risk: Epic access. Sam needs a signed security form first. Could you confirm by Tuesday who signs it on your side?'],['Next week','Next week: finish video booking, reschedule and cancel, and the demo on Friday at 10.'],['Close','To recap: demo next Friday, and you\'ll confirm the form signer by Tuesday. I\'ll send the written update within the hour. Have a great SXSW!']],'Use it the first time, then try the call again without it.')+
+    `<div class="card"><h2 style="font-size:16px">After the call</h2>${['opened warmly and set the agenda','gave an answer-first update','named one risk with one clear ask and a date','closed with a recap and ended on time'].map(c=>`<label class="check"><input type="checkbox"> I ${c}</label>`).join('')}</div>`],
+  ['Send the recap','Write · 10 min',()=>head(5,4,6,'10 min','Send Dana the recap')+
+    lead('Dana asked for something she can forward to her CEO. Write the recap you\'d send within the hour.')+
+    `<div class="card fields">${line('Subject','e.g. CareBook weekly update, Mar 6: on track for the demo; 1 ask by Tue')}${area('Summary (2 lines)','Bottom line first…',2)}${area('Decisions','',2)}${area('Action items (owner + date)','e.g. Dana: confirm the security form signer by Tue Mar 10',3)}${area('Open questions','',2)}${line('Next meeting','Fri Mar 13, 10:00 am Central: Sprint 3 demo')}</div>`],
+  ['Your week in review','Scorecard · 5 min',()=>head(5,5,6,'5 min','Your week in review')+
+    lead('Every Friday, five minutes. Rate this week\'s focus behaviours and answer three honest questions. Your Day 1 baseline sits next to it.')+
+    `<div class="card">${[['Speak in a clear structure','2'],['Give a short status update','2']].map(r=>`<div class="rate"><span>${r[0]} <span style="color:var(--muted);font-size:13px">· Day 1: ${r[1]}</span></span><div class="seg">${[1,2,3,4,5].map(n=>`<button type="button" aria-pressed="false">${n}</button>`).join('')}</div></div>`).join('')}</div>`+
+    `<div class="card"><h2 style="font-size:16px">Before the weekend</h2>${['Did I start my answers with the answer?','Did I open the call with an agenda?','Did I end with next steps?'].map(q=>`<label class="check"><input type="checkbox"> ${q}</label>`).join('')}</div>`],
+  ['Check yourself','Quiz · 5 questions',()=>head(5,6,6,'Quiz · question 1 of 5','Check yourself')+
+    quiz('Dana','I\'ve got to jump in 5. Anything else?','You haven\'t covered next steps yet. What do you say?',['“No, that\'s all, thanks!”','“Just one thing: could you confirm who signs the security form by Tuesday? I\'ll send the written update within the hour.”','“Can we reschedule to finish the agenda?”','“Okay, I\'ll email you everything else.”'])+
+    `<div class="note info"><span>→</span><span><b>One more step this week:</b> the Week 1 assessment. Pass it to open Day 6.</span></div>`]
+ ]},
+ {n:'A1',assess:true,date:'End of Week 1',title:'Week 1 assessment',lessons:[
+  ['Before you start','Assessment · 10 questions',()=>`<div><div class="kicker">Week 1 · Assessment · about 15 min</div><h1>Week 1 assessment</h1></div>`+
+    lead('Before Day 6 opens, show what you can do after this week. Every question is a moment with Dana or Kevin from Days 1–5.')+
+    `<div class="card"><dl class="kv">
+      <dt>Questions</dt><dd>10: 8 multiple choice and 2 short written answers</dd>
+      <dt>To pass</dt><dd><b>60% of the multiple-choice questions</b> (5 of 8). Written answers don't count toward the pass mark.</dd>
+      <dt>Written answers</dt><dd>Scored 1–5 by AI against a model answer. You'll see the score and the model answer.</dd>
+      <dt>Not passed?</dt><dd>Retake after 1 day, with new questions. Your lessons stay open to revise.</dd>
+      <dt>Who sees it</dt><dd>Your manager sees your score and can read your written answers. Your lessons, notes and daily quizzes stay private.</dd>
+    </dl></div>`+
+    `<div class="note info"><span>ⓘ</span><span>You can stop and come back: answered questions are saved. Answers can't be changed once submitted.</span></div>`],
+  ['Questions','Question 3 of 10',()=>`<div><div class="kicker">Week 1 · Assessment · question 3 of 10</div><h1>Week 1 assessment</h1></div>`+
+    `<div class="aprog">${Array.from({length:10},(_,i)=>`<i class="${i<2?'done':i===2?'cur':''}"></i>`).join('')}</div>`+
+    quiz('Kevin','Why not just build two native apps?','What\'s the best reply?',['“Native is old-fashioned, nobody does that any more.”','“Two native apps would mean about 30% more build and test effort and two teams. With React Native, one team ships both, and the app already starts in under 2 seconds on Android.”','“That was decided before I joined the project.”','“We can switch to native if you prefer.”'])],
+  ['Your result','Passed',()=>`<div><div class="kicker">Week 1 · Assessment · result</div><h1>You passed the Week 1 assessment</h1></div>`+
+    `<div class="result"><div class="big num">7<span>/8</span></div><div><b>88% on multiple choice</b><span>Pass mark 60%. Day 6 is open.</span></div></div>`+
+    `<div class="card"><h2>Your answers</h2>${[
+      ['✓','Dana asks, “Are we on track for April 27?”','Answer first'],
+      ['✓','Kevin: “Why not just build two native apps?”','PREP with a real reason'],
+      ['✕','Dana: “I\'ve got to jump in 5. Anything else?”','You chose to email everything later. Better: make the one ask now, then follow up in writing.'],
+      ['✓','Opening the first weekly sync','Warm start and agenda'],
+      ['…','Written: rewrite a status message for Dana','Being scored. You\'ll see the score and the model answer here.']
+    ].map(r=>`<div class="ans"><span class="mk ${r[0]==='✓'?'ok':r[0]==='✕'?'no':''}">${r[0]}</span><span><b>${r[1]}</b><span>${r[2]}</span></span></div>`).join('')}<p style="font-size:13px;color:var(--muted);margin-top:8px">+ 5 more</p></div>`+
+    `<div class="weekdone"><span style="font-size:22px">✓</span><span><b>That's Week 1.</b><span style="font-size:14px;color:var(--fg2)">Next week: structured writing. Dana asks for “a quick change” on Monday.</span></span></div>`+
+    `<details class="script"><summary>If you don't pass <span>What the screen shows instead</span></summary><div style="padding:0 20px 16px;font-size:14px;color:var(--fg2)">“4 of 8 (50%). You need 60% to continue. Retake opens tomorrow at 9:00 am with new questions. Until then, revise: Day 2 Answer first · Day 3 PREP.” Day 6 stays locked.</div></details>`]
+ ]}
+];
+
+/* ---------- player ---------- */
+const done=new Set();let D=0,L=0;
+function outline(){
+  $('#days').innerHTML=DAYS.map((d,di)=>{
+    const n=d.lessons.filter((_,i)=>done.has(di+'-'+i)).length;
+    const open=di===D;
+    if(d.assess) return `<button class="ol-day ol-assess${open?' open':''}" type="button" data-d="${di}"><span class="chev">◆</span>${d.title}<span class="sub">${open?'':'10 q'}</span></button>`;
+    return `<button class="ol-day${open?' open':''}" type="button" data-d="${di}"><span class="chev">${open?'▾':'▸'}</span><span class="dn">Day ${d.n}</span>${d.title}<span class="sub num">${n}/${d.lessons.length}</span></button>`+
+      (open?`<ul class="lessons">${d.lessons.map((l,i)=>{const k=di+'-'+i;return `<li><button type="button" data-l="${i}" aria-current="${i===L}"><span class="st ${done.has(k)?'done':i===L?'cur':''}">${done.has(k)?'✓':''}</span><span>${l[0]}<span class="meta">${l[1]}</span></span></button></li>`}).join('')}</ul>`:'');
+  }).join('');
+  document.querySelectorAll('#days .ol-day').forEach(b=>b.onclick=()=>go(+b.dataset.d,0));
+  document.querySelectorAll('#days .lessons button').forEach(b=>b.onclick=()=>go(D,+b.dataset.l));
+}
+const P=[
+ ['p-und','Understand',[['U1','Decode an unclear requirement','“Before I suggest anything, can I ask a few questions? Who will use this, and what problem are they facing today?”','Jumping straight to a solution or an estimate.'],['U2','Play back what you understood','“So what I\'m hearing is X, Y and Z. Did I get that right?”','Saying “okay, got it” and assuming.'],['U3','Link your work to business outcomes','“Caching the insurance lookup cuts check-in from 6 seconds to under 1. Your front desk checks in about 200 patients a day.”','Only technical talk about frameworks, tables and APIs.'],['U4','Use AI to prepare, summarise and think','You arrive with a one-page prep and send a recap within 2 hours, AI-assisted and checked by you.','Walking in cold, sending raw AI text, putting patient data into AI tools.']]],
+ ['p-com','Communicate',[['C1','Speak in a clear structure','“Short answer: yes, by Friday. Two things make that possible…”','A long background story before the point.'],['C2','Write clearly','The subject line states the ask. The bottom line is in the first two lines. Bullets. One screen.','Walls of text, a buried ask, “Please do the needful.”'],['C3','Explain trade-offs simply','“Option A takes 2 days but is harder to change later. Option B takes 5 days but scales. I recommend B because you\'re adding three clinics next quarter.”','Options with no recommendation, or jargon.'],['C4','Give a short status update','Done, next, blocked, risk, in under 60 seconds.','Listing every task you touched.']]],
+ ['p-own','Own',[['O1','Surface risks early','“Heads-up: the EHR sandbox access isn\'t here yet. If it isn\'t ready by Wednesday, the demo moves. I\'ve already chased your IT team.”','Staying silent and hoping it resolves itself.'],['O2','Deliver bad news without hiding','Headline first, then impact, options, what you need from them, and when you\'ll update next.','Hiding it in a long email, over-apologising, blaming.'],['O3','Own the follow-up','“I\'ll send the summary by 5 pm your time and confirm the API details by Thursday.” And then you do it.','“Someone will check.” Waiting to be reminded.'],['O4','Speak as an owner','“My recommendation is…” “Here\'s what I suggest we do next.” “I\'ll handle…”','“Should I…?”, “Whatever you say”, waiting for instructions.']]],
+ ['p-sf','Stand firm',[['S1','Say “I don\'t know, I\'ll check”','“Good question. I don\'t have that number with me. I\'ll confirm by tomorrow noon your time.”','Guessing, freezing, long apologies.'],['S2','Disagree professionally','“I see why you want to skip testing to hit Friday. My concern is wrong appointment times reaching patients. Could we ship the core flow Friday and the rest on Tuesday?”','Silent agreement then a missed date, or arguing personally.']]]
+];
+const score={};P.forEach(p=>p[2].forEach((b,i)=>score[b[0]]=[2,3,2,3][i%4]));
+function behaviours(){
+  $('#behaviours').innerHTML=P.map(p=>`<div class="pgroup ${p[0]}"><h3><i></i>${p[1]}</h3>${p[2].map((b,i)=>`<details class="beh"${i===0&&p[1]==='Understand'?' open':''}><summary><span class="code">${b[0]}</span>${b[1]}</summary><div class="two"><div class="say good"><span class="label">✓ Sounds like</span>${b[2]}</div><div class="say bad"><span class="label">✕ Watch out for</span>${b[3]}</div></div></details>`).join('')}</div>`).join('');
+}
+function rates(){
+  $('#avgs').innerHTML=P.map(p=>{const a=p[2].reduce((s,b)=>s+score[b[0]],0)/p[2].length;return `<div class="avg ${p[0]}"><span>${p[1]}</span><b class="num">${a.toFixed(1)} / 5</b></div>`}).join('');
+  $('#rates').innerHTML=P.map(p=>`<div class="card ${p[0]}"><h2 style="display:flex;gap:8px;align-items:center"><i style="width:10px;height:10px;border-radius:50%;background:var(--pc)"></i>${p[1]}</h2>${p[2].map(b=>`<div class="rate"><span>${b[1]}</span><div class="seg" role="group" aria-label="${b[1]}">${[1,2,3,4,5].map(n=>`<button type="button" aria-pressed="${score[b[0]]===n}" data-k="${b[0]}" data-n="${n}">${n}</button>`).join('')}</div></div>`).join('')}</div>`).join('');
+  document.querySelectorAll('#rates .seg button').forEach(x=>x.onclick=()=>{score[x.dataset.k]=+x.dataset.n;rates();});
+}
+function go(d,l){
+  D=d;L=l;const day=DAYS[d],les=day.lessons[l];
+  $('#lesson').innerHTML=les[2]();
+  if(d===0&&l===1)behaviours();
+  if(d===0&&l===4)rates();
+  document.querySelectorAll('.copy').forEach(c=>c.onclick=async()=>{const t=c.textContent;try{await navigator.clipboard.writeText('(prompt text)');c.textContent='Copied ✓'}catch{c.textContent='Copy failed'}setTimeout(()=>c.textContent=t,1500)});
+  document.querySelectorAll('#lesson .seg:not([aria-label^="U"]) button').forEach(x=>{if(!x.dataset.k)x.onclick=()=>{x.parentElement.querySelectorAll('button').forEach(y=>y.setAttribute('aria-pressed',y===x));}});
+  const first=d===0&&l===0,lastL=l===day.lessons.length-1,lastAll=lastL&&d===DAYS.length-1;
+  $('#prev').style.visibility=first?'hidden':'visible';
+  const nextDay=DAYS[d+1];
+  $('#next').textContent=day.assess?['Start the assessment →','Submit answer →','Start Day 6 →'][l]:lastL&&nextDay&&nextDay.assess?'Next: Week 1 assessment →':lastL?`Finish Day ${day.n} → Day ${nextDay.n}`:`Next: ${day.lessons[l+1][0]} →`;
+  $('#pos').textContent=day.assess?'Week 1 · Assessment':`Day ${day.n} · ${day.date} · Lesson ${l+1} of ${day.lessons.length}`;
+  const dn=day.assess?5:day.n;
+  document.querySelector('.prog .num').textContent=`Day ${dn} of 65`;
+  document.querySelector('.prog .t i').style.width=(dn/65*100)+'%';
+  outline();$('#main').scrollTop=0;
+}
+$('#next').onclick=()=>{done.add(D+'-'+L);const day=DAYS[D];if(L<day.lessons.length-1)go(D,L+1);else if(D<DAYS.length-1)go(D+1,0);else outline();};
+$('#prev').onclick=()=>{if(L>0)go(D,L-1);else if(D>0)go(D-1,DAYS[D-1].lessons.length-1);};
+go(0,0);
+</script>

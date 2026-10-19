@@ -1,0 +1,178 @@
+# Day 37 quiz pool: Tuesday, April 21. Dana's two questions on the EOD note: answer first, a quick decision,
+# the written follow-up, EOD notes for US time zones with numbered questions. Shows 5 of 10.
+pool: day-37
+questions:
+  - id: D37-01
+    type: mcq
+    stem: "Dana picks up: “Hey, I've got five minutes — go.” What's the best opener?"
+    options:
+      - text: "“Thanks for calling. So, about the intake form, let me explain how the network handling works…”"
+        correct: false
+        explanation: Starts with the how. She'll say “Bottom line?”
+      - text: "“Quick one — two answers and one decision.”"
+        correct: true
+        explanation: Tells her exactly what the five minutes hold.
+      - text: "“How's your morning going? Busy week?”"
+        correct: false
+        explanation: Friendly, but she said five minutes.
+      - text: "“What did you want to ask?”"
+        correct: false
+        explanation: She already wrote her questions down. Answer them.
+    source: { quote: "Hi Dana, quick one — two answers and one decision.", page: 105 }
+
+  - id: D37-02
+    type: mcq
+    stem: "Dana asks: “What's the intake form bug — does it block the pilot?” What's the best answer?"
+    options:
+      - text: "“Well, on very slow networks the save request can time out, because the form posts all sections at once…”"
+        correct: false
+        explanation: The explanation before the answer to “does it block?”
+      - text: "“No, it doesn't block the pilot. It only happens on very slow networks, the patient can retry, and the fix is in tomorrow.”"
+        correct: true
+        explanation: Answer first, then the two facts that make it believable.
+      - text: "“It's a medium bug. QA classified it.”"
+        correct: false
+        explanation: A label, not an answer to her question.
+      - text: "“Hopefully not.”"
+        correct: false
+        explanation: A guess on a question you can answer.
+    source: { quote: "No. The intake form doesn't save on very slow networks; the patient sees an error and can retry.", page: 105 }
+
+  - id: D37-03
+    type: mcq
+    stem: Dana says yes to UAT at 9 am. Then she adds that she already told Lisa it starts at 1 pm. What do you do?
+    options:
+      - text: "“Then let's keep 1 pm, it's fine.”"
+        correct: false
+        explanation: Gives up the afternoon you need to fix UAT findings.
+      - text: "“Could you tell Lisa about the change?”"
+        correct: false
+        explanation: Hands your follow-up to a busy VP.
+      - text: "“No problem. I'll message Lisa now, copy you, and confirm in the thread within 15 minutes.”"
+        correct: true
+        explanation: You own the follow-up, and everyone sees it in writing.
+      - text: "“Okay, I'll mention it at some point.”"
+        correct: false
+        explanation: No owner and no time. Lisa plans for 1 pm.
+    source: { quote: "You already told Lisa Chen that UAT starts at 1 pm.", page: 106 }
+
+  - id: D37-04
+    type: mcq
+    stem: "Dana asks: “Can you just put this in Slack instead?” You're halfway through. What's the best reply?"
+    options:
+      - text: "“Sure, I'll write it all up later.”"
+        correct: false
+        explanation: Leaves the decision unmade, and “later” has no time.
+      - text: "“One decision first, ten seconds: OK to move UAT to 9 am? Then I'll put everything in the thread within 15 minutes.”"
+        correct: true
+        explanation: Gets the yes on the call, then gives her the written version she wants.
+      - text: "“It's easier to explain on a call.”"
+        correct: false
+        explanation: Argues with the client's preference.
+      - text: "“Okay, bye.”"
+        correct: false
+        explanation: Ends without the decision you called for.
+    source: { quote: "Ask: \"Can you just put this in Slack instead?\"", page: 106 }
+
+  - id: D37-05
+    type: mcq
+    stem: Which line from an EOD note lets Dana reply from her phone in one word?
+    options:
+      - text: "“Some thoughts on UAT timing and release notes, let me know when you're free to discuss.”"
+        correct: false
+        explanation: Needs a call to answer.
+      - text: "“Questions: 1) Can Lakeside UAT start at 9 am ET Fri Apr 24? 2) Approve release notes by Thu?”"
+        correct: true
+        explanation: "Numbered, specific, with dates. She can reply “1: yes, 2: yes”."
+      - text: "“Please advise on the attached items at your earliest convenience.”"
+        correct: false
+        explanation: Formal and vague. Nothing to say yes or no to.
+      - text: "“Not sure if UAT should be earlier, what do you think?”"
+        correct: false
+        explanation: No proposal, so she has to think it through for you.
+    source: { quote: "Questions for you, numbered so they can reply \"1: yes, 2: next week\"", page: 101 }
+
+  - id: D37-06
+    type: mcq
+    stem: You finish work at 7 pm in India; Dana starts at 8 am in Austin. When should your EOD note go out?
+    options:
+      - text: "The next morning, once you've had time to polish it."
+        correct: false
+        explanation: She'd start her day without it, and lose a day on your questions.
+      - text: "Before you log off, so it's waiting in her morning."
+        correct: true
+        explanation: Her morning is your evening. Questions answered overnight save a day.
+      - text: "Only when there's something important to say."
+        correct: false
+        explanation: Silence makes clients ask for updates.
+      - text: "During her lunch, by phone."
+        correct: false
+        explanation: Turns a written update into an interruption.
+    source: { quote: "End-of-day (EOD) note, sent before you log off so it's waiting in their morning", page: 101 }
+
+  - id: D37-07
+    type: scenario
+    clientLine: "“Is there anything else I should know?”"
+    stem: You know Suncoast's eligibility check still fails for 2 of 5 payers. What do you say?
+    options:
+      - text: "“Nope, that's everything.”"
+        correct: false
+        explanation: Hides a known risk when she asked directly.
+      - text: "“Well, lots of small things, the Suncoast stuff, some tests…”"
+        correct: false
+        explanation: Vague worry without the risk or the plan.
+      - text: "“One risk: Suncoast's eligibility check doesn't work yet for 2 of 5 payers. I'll bring a fallback plan to tomorrow's sync.”"
+        correct: true
+        explanation: The risk in one line, with when she'll get the plan.
+      - text: "“Let's talk about it next week.”"
+        correct: false
+        explanation: Delays a risk that may need her decision this week.
+    source: { quote: "Ask: \"Is there anything else I should know?\"", page: 106 }
+
+  - id: D37-08
+    type: scenario
+    clientLine: "“Oh, and is the demo environment ready for May 12?”"
+    stem: You haven't checked the investor demo environment yet. What do you say?
+    options:
+      - text: "“Yes, should be.”"
+        correct: false
+        explanation: A guess about the CEO's investor demo.
+      - text: "“Good question. I haven't checked it this week, and I don't want to guess. I'll confirm by Thursday noon your time.”"
+        correct: true
+        explanation: Calm, honest, with a time.
+      - text: "“That's not part of the pilot.”"
+        correct: false
+        explanation: True, but it dismisses something she cares about.
+      - text: "“Sorry, I really should know that, sorry…”"
+        correct: false
+        explanation: Over-apologising. One calm line is enough.
+    source: { quote: "You also want to know if the investor demo environment is ready for May 12.", page: 106 }
+
+  - id: D37-09
+    type: written
+    stem: >-
+      Right after the call, write the 2–3 sentence reply you post in Dana's thread to confirm what was decided.
+    modelAnswer: >-
+      Confirming our call: the intake bug doesn't block the pilot; the fix goes in Wed Apr 22 and is retested Thursday.
+      You approved moving Lakeside UAT to 9 am ET on Fri Apr 24, so we keep the afternoon for fixes; I've let Lisa
+      know. I'll confirm the May 12 demo environment by Thursday noon your time.
+    scoringPoints:
+      - Records both answers and the decision, with dates and time zone
+      - Shows the follow-up with Lisa is done or owned
+      - Short enough to read on a phone
+    source: { quote: "Answer both questions answer-first in under 2 minutes, confirm the decision, and follow up in writing.", page: 105 }
+
+  - id: D37-10
+    type: written
+    stem: >-
+      Your lead asks why you start using EOD notes now, when the team already posts a daily status. Explain it in
+      2–3 sentences.
+    modelAnswer: >-
+      Our client is offline for most of our working day, so the written update is how they see progress. An EOD note
+      sent before we log off is waiting in their morning, and numbered questions let them answer from their phone, so
+      we don't lose a day waiting. The daily status is for our team; the EOD note is for the client.
+    scoringPoints:
+      - Names the time-zone gap and why written updates matter
+      - Explains numbered questions and the saved day
+      - Distinguishes the client's note from the team's status
+    source: { quote: "US clients are offline for most of your working day, so written updates are how you show progress and ownership.", page: 101 }

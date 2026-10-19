@@ -1,0 +1,166 @@
+# Day 58 quiz pool: Wednesday, May 20. Leading call 1, the recap within two hours and the debrief. Shows 5 of 10.
+pool: day-58
+questions:
+  - id: D58-01
+    type: mcq
+    stem: "You lead your first full call. When do you start leading?"
+    options:
+      - text: "From the first minute: you open, state the goal and read the agenda."
+        correct: true
+        explanation: "The self-check asks this."
+      - text: "After the PM opens the call."
+        correct: false
+        explanation: "You lead."
+      - text: "After the first topic."
+        correct: false
+        explanation: "From the first minute."
+      - text: "When the client asks you to."
+        correct: false
+        explanation: "You lead."
+    source: { quote: "Did I lead the call from the first minute?", page: 139 }
+
+  - id: D58-02
+    type: mcq
+    stem: "When is the recap due after the call?"
+    options:
+      - text: "Within 2 hours."
+        correct: true
+        explanation: "The checklist's After step."
+      - text: "By the end of the week."
+        correct: false
+        explanation: "Too late."
+      - text: "Before the next sync."
+        correct: false
+        explanation: "Too late."
+      - text: "Only if the client asks."
+        correct: false
+        explanation: "Always send it."
+    source: { quote: "recap within 2 hours, action items tracked, follow-ups closed.", page: 138 }
+
+  - id: D58-03
+    type: mcq
+    stem: "How long is the debrief with the PM or senior?"
+    options:
+      - text: "15 minutes after the call."
+        correct: true
+        explanation: "The debrief step."
+      - text: "45 minutes."
+        correct: false
+        explanation: "That is the final review."
+      - text: "One hour."
+        correct: false
+        explanation: "Too long."
+      - text: "None."
+        correct: false
+        explanation: "It's part of the day."
+    source: { quote: "The debrief (15 minutes", page: 138 }
+
+  - id: D58-04
+    type: mcq
+    stem: "What does the debrief cover?"
+    options:
+      - text: "2 things that went well, 2 things to change, 1 thing for the next call."
+        correct: true
+        explanation: "The debrief format."
+      - text: "A score out of 10."
+        correct: false
+        explanation: "Not the format."
+      - text: "Only the mistakes."
+        correct: false
+        explanation: "Both."
+      - text: "Everything the client said."
+        correct: false
+        explanation: "The recap holds that."
+    source: { quote: "2 things that went well → 2 things to change → 1 thing for the next call.", page: 138 }
+
+  - id: D58-05
+    type: mcq
+    stem: "Your backup steps in during the call. What do you ask later in the debrief?"
+    options:
+      - text: "Why they stepped in, and what I should do next time."
+        correct: true
+        explanation: "The self-check asks this."
+      - text: "Nothing."
+        correct: false
+        explanation: "You learn from it."
+      - text: "To apologise to the client."
+        correct: false
+        explanation: "Not needed."
+      - text: "To lead the next call."
+        correct: false
+        explanation: "You lead."
+    source: { quote: "Did the PM need to step in? If so, why?", page: 139 }
+
+  - id: D58-06
+    type: mcq
+    stem: "Which fits at the end of the call?"
+    options:
+      - text: "“To recap: decisions, owners, dates. I'll send notes within two hours.”"
+        correct: true
+        explanation: "The closing step."
+      - text: "“Thanks, bye.”"
+        correct: false
+        explanation: "No recap."
+      - text: "“I think that's it.”"
+        correct: false
+        explanation: "Vague."
+      - text: "“The PM will send notes.”"
+        correct: false
+        explanation: "You send them."
+    source: { quote: "To recap: [decisions], [owners], [dates]. I'll send notes within two hours.", page: 140 }
+
+  - id: D58-07
+    type: scenario
+    clientLine: "Wait, can you say that again? I didn't catch the date."
+    stem: "In the middle of the call, you gave a date quickly. What do you do?"
+    options:
+      - text: "“Sure: Thursday at noon Eastern. I'll put it in the recap.”"
+        correct: true
+        explanation: "Repeat it clearly, and promise to write it."
+      - text: "“It's in my notes.”"
+        correct: false
+        explanation: "Doesn't help."
+      - text: "“Ask the PM.”"
+        correct: false
+        explanation: "You lead."
+      - text: "“Never mind.”"
+        correct: false
+        explanation: "Dismissive."
+    source: { quote: "Lead-call checklist", page: 138 }
+
+  - id: D58-08
+    type: scenario
+    clientLine: "Anything else from your side?"
+    stem: "The call ran over by two minutes and you still have one decision to confirm. What do you do?"
+    options:
+      - text: "“Yes, one last decision: do we approve June 15? Then I'll recap and close.”"
+        correct: true
+        explanation: "Gets the decision, then closes."
+      - text: "“No, we can do it by email.”"
+        correct: false
+        explanation: "You miss the decision."
+      - text: "Skip the decision."
+        correct: false
+        explanation: "Required."
+      - text: "Run 10 more minutes."
+        correct: false
+        explanation: "Close on time."
+    source: { quote: "close on time", page: 138 }
+
+  - id: D58-09
+    type: written
+    stem: "Write the first two lines of the recap email after your call."
+    modelAnswer: "Subject: Weekly sync recap: June 15 approved. Hi Dana, hi Kevin, thanks for today. Decided: the June 15 plan is approved; Spanish moves to after the rollout. Actions and owners are below."
+    scoringPoints:
+      - "The subject line names the decision"
+      - "The decisions are in the first two lines"
+    source: { quote: "Recap within 2 hours.", page: 138 }
+
+  - id: D58-10
+    type: written
+    stem: "Write the one thing you'd pick to improve after the debrief, and why it is the right one."
+    modelAnswer: "Start every answer with the answer. I gave background before the answer on the bug question, and that is what the client noticed most."
+    scoringPoints:
+      - "Exactly one thing is named"
+      - "Tied to a real moment on the call"
+    source: { quote: "Pick the one thing to", page: 138 }
